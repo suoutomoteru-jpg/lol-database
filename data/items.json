@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Infinity Edge",
+    "cost": 3400,
+    "category": "Attack",
+    "attack_damage": 70,
+    "ability_power": 0,
+    "armor": 0,
+    "magic_resist": 0,
+    "health": 0,
+    "description": "クリティカル率とクリティカルダメージを大幅に強化する。ADCの最強アイテムの一つ。"
+  },
+  {
+    "name": "Rabadon's Deathcap",
+    "cost": 3600,
+    "category": "Magic",
+    "attack_damage": 0,
+    "ability_power": 120,
+    "armor": 0,
+    "magic_resist": 0,
+    "health": 0,
+    "description": "全APを40%増加させるパッシブを持つ魔法使い最強アイテム。APチャンピオンの必須アイテム。"
+  },
+  {
+    "name": "Sunfire Aegis",
+    "cost": 3200,
+    "category": "Defense",
+    "attack_damage": 0,
+    "ability_power": 0,
+    "armor": 50,
+    "magic_resist": 25,
+    "health": 450,
+    "description": "周囲の敵に炎のダメージを与えるパッシブを持つタンクアイテム。近接チャンピオンに最適。"
+  },
+  {
+    "name": "Luden's Tempest",
+    "cost": 3200,
+    "category": "Magic",
+    "attack_damage": 0,
+    "ability_power": 90,
+    "armor": 0,
+    "magic_resist": 0,
+    "health": 0,
+    "description": "スタックを溜めると雷撃で複数の敵を貫通するパッシブを持つ。ミッドレーナーに人気の序盤強力アイテム。"
+  },
+  {
+    "name": "Warmog's Armor",
+    "cost": 3000,
+    "category": "Defense",
+    "attack_damage": 0,
+    "ability_power": 0,
+    "armor": 0,
+    "magic_resist": 0,
+    "health": 800,
+    "description": "戦闘外で毎秒大量の体力を回復するパッシブを持つタンクアイテム。体力を最大化するビルドに使用される。"
+  },
+  {
+    "name": "Trinity Force",
+    "cost": 3333,
+    "category": "Attack",
+    "attack_damage": 35,
+    "ability_power": 0,
+    "armor": 0,
+    "magic_resist": 0,
+    "health": 300,
+    "description": "スペル使用後の次の通常攻撃を強化するスパイクワークパッシブを持つ。ファイター向け万能アイテム。"
+  },
+  {
+    "name": "Zhonya's Hourglass",
+    "cost": 2600,
+    "category": "Magic",
+    "attack_damage": 0,
+    "ability_power": 65,
+    "armor": 45,
+    "magic_resist": 0,
+    "health": 0,
+    "description": "使用すると2.5秒間無敵になるアクティブを持つ。魔法使いが敵のスキルを回避するために使う必須アイテム。"
+  },
+  {
+    "name": "Kraken Slayer",
+    "cost": 3400,
+    "category": "Attack",
+    "attack_damage": 60,
+    "ability_power": 0,
+    "armor": 0,
+    "magic_resist": 0,
+    "health": 0,
+    "description": "3回攻撃ごとに真のダメージを与えるパッシブを持つ。タンクを倒すためのADCアイテム。"
+  }
+]

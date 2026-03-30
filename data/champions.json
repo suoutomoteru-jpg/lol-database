@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Ahri",
+    "title": "the Nine-Tailed Fox",
+    "role": "Mid",
+    "difficulty": "Medium",
+    "hp": 590,
+    "mana": 418,
+    "attack_damage": 53,
+    "armor": 21,
+    "magic_resist": 30,
+    "description": "魔法使いのキツネ。チャームで敵を魅了し、スピリットラッシュで素早く動き回る。モビリティが高く初心者でも楽しめる中級者向けミッドレーナー。"
+  },
+  {
+    "name": "Garen",
+    "title": "The Might of Demacia",
+    "role": "Top",
+    "difficulty": "Easy",
+    "hp": 690,
+    "mana": 0,
+    "attack_damage": 66,
+    "armor": 36,
+    "magic_resist": 32,
+    "description": "デマーシアの勇士。スピンで範囲ダメージを与え、ジャスティスで敵を処刑する。マナ不要で初心者に最適なトップレーナー。"
+  },
+  {
+    "name": "Jinx",
+    "title": "the Loose Cannon",
+    "role": "ADC",
+    "difficulty": "Medium",
+    "hp": 610,
+    "mana": 245,
+    "attack_damage": 57,
+    "armor": 24,
+    "magic_resist": 30,
+    "description": "暴れん坊の射手。スーパーメガデスロケットで遠距離から敵を狙う。キルすると加速し、集団戦で強さを発揮するADC。"
+  },
+  {
+    "name": "Lux",
+    "title": "the Lady of Luminosity",
+    "role": "Support",
+    "difficulty": "Medium",
+    "hp": 560,
+    "mana": 480,
+    "attack_damage": 53,
+    "armor": 19,
+    "magic_resist": 30,
+    "description": "光の魔法使い。ライトバインディングで敵を拘束し、ファイナルスパークで遠距離から広範囲のダメージを与えるサポート兼ミッド。"
+  },
+  {
+    "name": "Lee Sin",
+    "title": "the Blind Monk",
+    "role": "Jungle",
+    "difficulty": "Hard",
+    "hp": 670,
+    "mana": 0,
+    "attack_damage": 68,
+    "armor": 34,
+    "magic_resist": 32,
+    "description": "盲目の修道士。ソニックウェーブで敵に飛び込み、ドラゴンレイジで敵を蹴り飛ばす。高い技術が必要なハードジャングラー。"
+  },
+  {
+    "name": "Thresh",
+    "title": "the Chain Warden",
+    "role": "Support",
+    "difficulty": "Hard",
+    "hp": 561,
+    "mana": 400,
+    "attack_damage": 56,
+    "armor": 16,
+    "magic_resist": 30,
+    "description": "鎖の番人。デスセンテンスで敵を引き寄せ、ダークパッセージで味方を救出する。高いキャリー力を持つ上級者向けサポート。"
+  },
+  {
+    "name": "Ashe",
+    "title": "the Frost Archer",
+    "role": "ADC",
+    "difficulty": "Easy",
+    "hp": 600,
+    "mana": 280,
+    "attack_damage": 59,
+    "armor": 26,
+    "magic_resist": 30,
+    "description": "氷の弓使い。エンチャントクリスタルアローで遠距離から敵を気絶させる。移動速度が低いが射程が長く初心者向けのADC。"
+  },
+  {
+    "name": "Yasuo",
+    "title": "the Unforgiven",
+    "role": "Mid",
+    "difficulty": "Hard",
+    "hp": 590,
+    "mana": 0,
+    "attack_damage": 60,
+    "armor": 30,
+    "magic_resist": 30,
+    "description": "赦されぬ者。スチールテンペストとラストブレスで敵を空中に打ち上げる。高いスキルシーリングを持つ剣士型ミッドレーナー。"
+  }
+]
