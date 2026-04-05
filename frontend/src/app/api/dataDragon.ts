@@ -16,7 +16,7 @@ import type {
 } from '../types/ddragon';
 
 const BASE_URL = 'https://ddragon.leagueoflegends.com';
-const LOCALE = 'en_US';
+const LOCALE = 'ja_JP';
 const VERSION_CACHE_KEY = 'lol-db:version';
 const VERSION_CHECK_INTERVAL = 60 * 60 * 1000; // 1時間
 
@@ -63,17 +63,19 @@ function purgeLolCache(): void {
 }
 
 function purgeVersionedCache(version: string): void {
-  const prefix = `lol-db:${version}:`;
+  // ロケール付きのキー・旧フォーマットのキー両方を削除
+  const prefixes = [`lol-db:${LOCALE}:${version}:`, `lol-db:${version}:`];
   const targets: string[] = [];
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    if (k?.startsWith(prefix)) targets.push(k);
+    if (k && prefixes.some(p => k.startsWith(p))) targets.push(k);
   }
   targets.forEach(k => localStorage.removeItem(k));
 }
 
+// ロケールをキーに含める（ロケール変更時に別キャッシュを参照するため）
 function dataKey(version: string, key: string): string {
-  return `lol-db:${version}:${key}`;
+  return `lol-db:${LOCALE}:${version}:${key}`;
 }
 
 // ── バージョン取得 ─────────────────────────────────────
@@ -115,8 +117,9 @@ export function championImageUrl(version: string, championId: string): string {
   return `${BASE_URL}/cdn/${version}/img/champion/${championId}.png`;
 }
 
-export function itemImageUrl(version: string, itemId: string): string {
-  return `${BASE_URL}/cdn/${version}/img/item/${itemId}.png`;
+// fileName は item.image.full の値（例: "3031.png"）
+export function itemImageUrl(version: string, fileName: string): string {
+  return `${BASE_URL}/cdn/${version}/img/item/${fileName}`;
 }
 
 // fileName は spell.image.full の値（例: "AhriOrbofDeception.png"）
