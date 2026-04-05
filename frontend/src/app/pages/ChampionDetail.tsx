@@ -49,7 +49,6 @@ function SkillNav({
 
 function SkillBlock({ skill }: { skill: SkillData }) {
   const hasMeta = skill.cooldownBurn || skill.costBurn || skill.rangeBurn;
-  const hasStats = skill.effects.length > 0 || skill.ratios.length > 0;
 
   return (
     <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-2xl p-8 shadow-sm">
@@ -71,30 +70,6 @@ function SkillBlock({ skill }: { skill: SkillData }) {
         />
         <p className="text-foreground leading-relaxed text-lg whitespace-pre-line">{skill.description}</p>
       </div>
-
-      {/* ダメージ・スケール値（effectBurn） */}
-      {hasStats && (
-        <div className="bg-muted/30 rounded-xl p-6 mb-4 space-y-2">
-          {skill.effects.map(e => (
-            <div key={e.label} className="flex gap-3 items-baseline">
-              <span className="text-muted-foreground text-sm w-36 flex-shrink-0">{e.label}</span>
-              <span className="text-foreground font-medium text-sm">{e.burn}</span>
-            </div>
-          ))}
-          {skill.ratios.length > 0 && (
-            <div className="flex gap-2 flex-wrap pt-1">
-              {skill.ratios.map(r => (
-                <span
-                  key={r.stat}
-                  className="px-2 py-0.5 bg-primary/10 text-primary rounded text-xs border border-primary/20"
-                >
-                  +{r.pct}% {r.stat}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
 
       {/* クールダウン・コスト・射程 */}
       {hasMeta && (

@@ -5,26 +5,12 @@ import type { DDragonChampionDetail, DDragonSpell } from '../types/ddragon';
 export interface SkillData {
   key: 'P' | 'Q' | 'W' | 'E' | 'R';
   name: string;
-  description: string;
+  description: string;   // tooltip を解析した詳細説明
   cooldownBurn?: string;
   costBurn?: string;
   costType?: string;
   rangeBurn?: string;
   imageUrl: string;
-  effects: SkillEffect[];
-  ratios: SkillRatio[];
-}
-
-/** effectBurn から抽出したスケール値（例: "40/65/90/115/140"） */
-export interface SkillEffect {
-  label: string;
-  burn: string;
-}
-
-/** vars から抽出した比率（例: "+33% AP"） */
-export interface SkillRatio {
-  stat: string;
-  pct: number;
 }
 
 export interface ChampionDetailData {
@@ -55,83 +41,66 @@ function stripHtml(html: string): string {
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
     .trim();
 }
 
 /**
- * Data Dragon テンプレート変数を実際の値に置換する
- *   {{ abilityresourcename }} → Mana / Energy / など（partype）
- *   その他未解決の {{ ... }} は除去する
- */
-function resolveTemplates(text: string, partype: string): string {
-  return text
-    .replace(/\{\{\s*abilityresourcename\s*\}\}/gi, partype)
-    .replace(/\{\{\s*[^}]+\}\}/g, '');
-}
-
-function parseDescription(html: string, partype: string): string {
-  return resolveTemplates(stripHtml(html), partype);
-}
-
-// ── スキルデータ抽出 ──────────────────────────────────
-
-function statLabel(link: string): string {
-  const map: Record<string, string> = {
-    spelldamage:       'AP',
-    bonusattackdamage: 'ボーナスAD',
-    attackdamage:      'AD',
-    hp:                'HP',
-    bonushp:           'ボーナスHP',
-    armor:             '鎧',
-    spellblock:        'MR',
-    attackspeed:       'AS',
-  };
-  return map[link] ?? link;
-}
-
-/**
- * leveltip.effect のテンプレート（"{{ e1 }}" 等）を解析して
- * effectBurn の対応する値を取得する
+ * Data Dragon テンプレート変数を解決する
  *
- * Data Dragon の対応関係:
- *   leveltip.label[j]    → ラベル（"Damage", "クールダウン" 等）
- *   leveltip.effect[j]   → "{{ e1 }}" 等のテンプレート
- *   effectBurn[1]        → {{ e1 }} の値（"40/65/90/115/140"）
+ * tooltip に含まれる変数:
+ *   {{ eN }}  → effectBurn[N]（"40/65/90/115/140" など）
+ *   {{ aN }}  → vars[N-1] の比率（"33%" など）
+ *   {{ fN }}  → effectBurn[N]（fは変形値、eと同じインデックスで代用）
+ *   {{ abilityresourcename }} → partype（"Mana", "マナ" など）
  */
-function extractEffects(spell: DDragonSpell): SkillEffect[] {
-  const labels   = spell.leveltip?.label  ?? [];
-  const templates = spell.leveltip?.effect ?? [];
-  const burns    = spell.effectBurn ?? [];
+function resolveTooltip(tooltip: string, spell: DDragonSpell, partype: string): string {
+  const burns = spell.effectBurn ?? [];
+  const vars  = spell.vars      ?? [];
 
-  const results: SkillEffect[] = [];
+  let result = tooltip;
 
-  for (let j = 0; j < labels.length; j++) {
-    const template = templates[j] ?? '';
-
-    // "{{ e1 }}" から数字部分を取得
-    const match = template.match(/\{\{\s*e(\d+)\s*\}\}/);
-    if (!match) continue;
-
-    const idx  = parseInt(match[1], 10);
-    const burn = burns[idx];
-    if (!burn || burn === '0') continue;
-
-    results.push({ label: labels[j], burn });
-  }
-
-  return results;
-}
-
-function extractRatios(spell: DDragonSpell): SkillRatio[] {
-  return (spell.vars ?? []).map(v => {
-    const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
-    return { stat: statLabel(v.link), pct: Math.round(coeff * 100) };
+  // {{ eN }} → effectBurn[N]
+  result = result.replace(/\{\{\s*e(\d+)\s*\}\}/g, (_, n) => {
+    return burns[parseInt(n, 10)] ?? '';
   });
+
+  // {{ aN }} → vars[N-1] をパーセント表記
+  result = result.replace(/\{\{\s*a(\d+)\s*\}\}/g, (_, n) => {
+    const v = vars[parseInt(n, 10) - 1];
+    if (!v) return '';
+    const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
+    return `${Math.round(coeff * 100)}%`;
+  });
+
+  // {{ fN }} → effectBurn[N]（フォールバック）
+  result = result.replace(/\{\{\s*f(\d+)\s*\}\}/g, (_, n) => {
+    return burns[parseInt(n, 10)] ?? '';
+  });
+
+  // {{ abilityresourcename }} → partype（split/join で確実に置換）
+  result = result.split('{{ abilityresourcename }}').join(partype);
+  result = result.split('{{abilityresourcename}}').join(partype);
+
+  // 残ったテンプレート変数を除去
+  result = result.replace(/\{\{[^}]*\}\}/g, '');
+
+  return stripHtml(result);
 }
+
+/** passive は tooltip を持たないため description を使用 */
+function resolveDescription(desc: string, partype: string): string {
+  let result = desc;
+  result = result.split('{{ abilityresourcename }}').join(partype);
+  result = result.split('{{abilityresourcename}}').join(partype);
+  result = result.replace(/\{\{[^}]*\}\}/g, '');
+  return stripHtml(result);
+}
+
+// ── スキルデータ構築 ──────────────────────────────────
 
 function buildSkill(key: 'Q' | 'W' | 'E' | 'R', spell: DDragonSpell, version: string, partype: string): SkillData {
   const rangeNum = parseInt(spell.rangeBurn, 10);
-  // 5000 超 or "self" は非現実的 or 自己対象なので表示しない
   const hasRange = spell.rangeBurn !== 'self'
     && spell.rangeBurn !== '0'
     && !isNaN(rangeNum)
@@ -140,14 +109,13 @@ function buildSkill(key: 'Q' | 'W' | 'E' | 'R', spell: DDragonSpell, version: st
   return {
     key,
     name: spell.name,
-    description: parseDescription(spell.description, partype),
+    // tooltip を使用（{{ eN }}/{{ aN }} 解決済みの詳細説明）
+    description: resolveTooltip(spell.tooltip, spell, partype),
     cooldownBurn: spell.cooldownBurn || undefined,
-    costBurn: spell.costBurn !== '0' ? spell.costBurn : undefined,
-    costType: spell.costType !== 'No Cost' ? spell.costType : undefined,
-    rangeBurn: hasRange ? spell.rangeBurn : undefined,
-    imageUrl: spellImageUrl(version, spell.image.full),
-    effects: extractEffects(spell),
-    ratios:  extractRatios(spell),
+    costBurn:     spell.costBurn !== '0' ? spell.costBurn : undefined,
+    costType:     spell.costType !== 'No Cost' ? spell.costType : undefined,
+    rangeBurn:    hasRange ? spell.rangeBurn : undefined,
+    imageUrl:     spellImageUrl(version, spell.image.full),
   };
 }
 
@@ -177,12 +145,10 @@ export function useChampion(championId: string | undefined): UseChampionResult {
 
         const skills: SkillData[] = [
           {
-            key: 'P',
-            name: raw.passive.name,
-            description: parseDescription(raw.passive.description, partype),
-            imageUrl: passiveImageUrl(v, raw.passive.image.full),
-            effects: [],
-            ratios:  [],
+            key:         'P',
+            name:        raw.passive.name,
+            description: resolveDescription(raw.passive.description, partype),
+            imageUrl:    passiveImageUrl(v, raw.passive.image.full),
           },
           buildSkill('Q', Q, v, partype),
           buildSkill('W', W, v, partype),
