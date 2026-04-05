@@ -6,12 +6,26 @@ import type { DDragonChampionDetail, DDragonSpell } from '../types/ddragon';
 export interface SkillData {
   key: 'P' | 'Q' | 'W' | 'E' | 'R';
   name: string;
-  description: string;  // HTML除去済み
+  description: string;
   cooldownBurn?: string;
   costBurn?: string;
   costType?: string;
   rangeBurn?: string;
   imageUrl: string;
+  effects: SkillEffect[];   // ダメージ・回復量などレベルスケール値
+  ratios: SkillRatio[];     // AP / AD 比率
+}
+
+/** effectBurn から抽出したスケール値（例: "40/65/90/115/140"） */
+export interface SkillEffect {
+  label: string;   // "Damage" など leveltip.label から
+  burn: string;    // "40/65/90/115/140"
+}
+
+/** vars から抽出した比率（例: "+33% AP"） */
+export interface SkillRatio {
+  stat: string;    // "AP" | "AD" | "ボーナスAD" など
+  pct: number;     // 33
 }
 
 /** ChampionDetail ページ用の加工済みデータ */
@@ -21,8 +35,8 @@ export interface ChampionDetailData {
   title: string;
   role: string;
   lore: string;
-  partype: string;       // リソースタイプ (Mana / Energy / None…)
-  tags: string[];        // ["Mage", "Assassin"]
+  partype: string;
+  tags: string[];
   stats: DDragonChampionDetail['stats'];
   skills: SkillData[];
   version: string;
@@ -34,7 +48,6 @@ interface UseChampionResult {
   error: Error | null;
 }
 
-/** Data Dragon の説明文に含まれる HTML タグを除去する */
 function stripHtml(html: string): string {
   return html
     .replace(/<br\s*\/?>/gi, '\n')
@@ -45,11 +58,52 @@ function stripHtml(html: string): string {
     .trim();
 }
 
-function buildSkill(
-  key: 'Q' | 'W' | 'E' | 'R',
-  spell: DDragonSpell,
-  version: string,
-): SkillData {
+/** "spelldamage" などのリンクキーを表示用ラベルに変換 */
+function statLabel(link: string): string {
+  const map: Record<string, string> = {
+    spelldamage:        'AP',
+    bonusattackdamage:  'ボーナスAD',
+    attackdamage:       'AD',
+    hp:                 'HP',
+    bonushp:            'ボーナスHP',
+    armor:              '鎧',
+    bonusarmor:         'ボーナス鎧',
+    spellblock:         '魔法耐性',
+    attackspeed:        'AS',
+  };
+  return map[link] ?? link;
+}
+
+/** effectBurn（レベルスケール値）を抽出 */
+function extractEffects(spell: DDragonSpell): SkillEffect[] {
+  const labels = spell.leveltip?.label ?? [];
+  const burns = spell.effectBurn ?? [];
+
+  const results: SkillEffect[] = [];
+  // effectBurn[0] は常に空文字なので [1] から開始
+  for (let i = 1; i < burns.length; i++) {
+    const burn = burns[i];
+    if (!burn || burn === '0') continue;
+    results.push({
+      label: labels[i - 1] ?? `Effect ${i}`,
+      burn,
+    });
+  }
+  return results;
+}
+
+/** vars（AP/AD比率）を抽出 */
+function extractRatios(spell: DDragonSpell): SkillRatio[] {
+  return (spell.vars ?? []).map(v => {
+    const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
+    return {
+      stat: statLabel(v.link),
+      pct: Math.round(coeff * 100),
+    };
+  });
+}
+
+function buildSkill(key: 'Q' | 'W' | 'E' | 'R', spell: DDragonSpell, version: string): SkillData {
   const hasRange = spell.rangeBurn !== 'self' && spell.rangeBurn !== '0';
   return {
     key,
@@ -60,6 +114,8 @@ function buildSkill(
     costType: spell.costType !== 'No Cost' ? spell.costType : undefined,
     rangeBurn: hasRange ? spell.rangeBurn : undefined,
     imageUrl: spellImageUrl(version, spell.image.full),
+    effects: extractEffects(spell),
+    ratios: extractRatios(spell),
   };
 }
 
@@ -91,6 +147,8 @@ export function useChampion(championId: string | undefined): UseChampionResult {
             name: raw.passive.name,
             description: stripHtml(raw.passive.description),
             imageUrl: passiveImageUrl(v, raw.passive.image.full),
+            effects: [],
+            ratios: [],
           },
           buildSkill('Q', Q, v),
           buildSkill('W', W, v),

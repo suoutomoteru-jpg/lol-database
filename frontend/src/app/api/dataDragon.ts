@@ -119,8 +119,10 @@ export function itemImageUrl(version: string, itemId: string): string {
   return `${BASE_URL}/cdn/${version}/img/item/${itemId}.png`;
 }
 
-export function spellImageUrl(version: string, spellId: string): string {
-  return `${BASE_URL}/cdn/${version}/img/spell/${spellId}.png`;
+// fileName は spell.image.full の値（例: "AhriOrbofDeception.png"）
+// .png はすでに含まれているので追加しない
+export function spellImageUrl(version: string, fileName: string): string {
+  return `${BASE_URL}/cdn/${version}/img/spell/${fileName}`;
 }
 
 export function passiveImageUrl(version: string, fileName: string): string {
