@@ -191,23 +191,7 @@ function resolveAtVarTemplates(
     });
   }
 
-  // ── 2-5: DDragon の未解決 {{ varname }} を CDragon で解決 ─
-  // resolveDDragonTemplates で varMap にない変数はそのまま残っているので
-  // ここで CDragon effectAmounts に対して大文字小文字を無視して照合する
-  if (cdData) {
-    const cdKeys = Object.keys(cdData.effectAmounts);
-    s = s.replace(/\{\{\s*(\w+)\s*\}\}/g, (_match, raw) => {
-      const lowerName = raw.toLowerCase();
-      const match = cdKeys.find(k => k.toLowerCase() === lowerName);
-      if (match) {
-        return formatEffectValues(cdData.effectAmounts[match]);
-      }
-      return ''; // CDragon でも解決できなければ除去
-    });
-  }
-
-  // ── 2-6: 解決できなかった {{ }} / @var@ を除去 ────────
-  s = s.replace(/\{\{[^}]*\}\}/g, '');
+  // ── 2-5: 解決できなかった @var@ を除去（{{ }} は buildSkill で処理） ──
   s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
 
   return s;
@@ -319,10 +303,27 @@ function buildSkill(
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
 
-  // Step 1: {{ }} 解決 → Step 2: @var@ 解決 → Step 3: HTML 変換
+  // Step 1: DDragon {{ }} 解決（varMap にない変数はそのまま残る）
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
-  tooltip     = resolveAtVarTemplates(tooltip, key, spell, cdSpells);
-  const description = processTooltipHtml(tooltip);
+  // Step 2: @var@ 解決（未解決の {{ }} は残したまま）
+  tooltip = resolveAtVarTemplates(tooltip, key, spell, cdSpells);
+
+  // Step 3: 未解決の {{ varname }} が残っていれば CDragon の dynamicDescription を使う
+  const cdData = cdSpells?.[key];
+  const hasUnresolved = /\{\{\s*\w+\s*\}\}/.test(tooltip);
+
+  let description: string;
+  if (hasUnresolved && cdData?.dynamicDescription) {
+    // CDragon dynamicDescription (@EffectNAmount@ 形式) を effectAmounts で解決
+    let cdDesc = cdData.dynamicDescription;
+    cdDesc = resolveAtVarTemplates(cdDesc, key, spell, cdSpells);
+    cdDesc = cdDesc.replace(/\{\{[^}]*\}\}/g, '');
+    description = processTooltipHtml(cdDesc);
+  } else {
+    // 残った {{ }} を除去して DDragon tooltip を使用
+    const clean = tooltip.replace(/\{\{[^}]*\}\}/g, '');
+    description = processTooltipHtml(clean);
+  }
 
   // costType は "{{ abilityresourcename }}" のままの場合があるので置換する
   const rawCostType = spell.costType ?? '';

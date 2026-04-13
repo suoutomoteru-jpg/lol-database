@@ -1,25 +1,31 @@
 /**
  * Community Dragon API クライアント
  *
- * DDragon の tooltip に含まれる @VariableName@ プレースホルダーを
- * 解決するために使用する。
+ * DDragon の tooltip に含まれる名前付き変数（{{ totaldamage }} など）を
+ * 解決できない場合の補完ソースとして使用する。
  *
- * エンドポイント:
- *   https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/{numericId}.json
+ * 戦略:
+ *   CDragon の `dynamicDescription` フィールド（@Effect4Amount@ 形式）を
+ *   `effectAmounts` で解決することで、DDragon が解決できなかった変数を補完する。
  *
- * キャッシュ: localStorage に永続保存（パッチアップ時は自動失効）
+ * エンドポイント (ja_JP):
+ *   https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/ja_jp/v1/champions/{numericId}.json
  */
 
-const CDRAGON_BASE = 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default';
-const CACHE_PREFIX = 'lol-cdragon:v1:';
+// ja_jp ロケールで取得することで日本語の dynamicDescription を得る
+const CDRAGON_BASE = 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/ja_jp';
+const CACHE_PREFIX = 'lol-cdragon:v2:ja_jp:';
 
 // ── 型定義 ─────────────────────────────────────────────
 
 export interface CDragonSpellData {
-  /** 変数名 → 各ランクの数値配列 (index 0 = ランク1 か、index 0 = 0 の場合はランク1〜5 = index 1〜5) */
+  /**
+   * @Effect1Amount@ 形式のテンプレート（日本語）。
+   * effectAmounts で @var@ を解決することで完全なツールチップが得られる。
+   */
+  dynamicDescription: string;
+  /** 変数名 → 各ランクの数値配列 [rank0, rank1, ..., rank5, rankMax] (7要素) */
   effectAmounts: Record<string, number[]>;
-  /** スケーリング係数 (coefficient1, coefficient2 ...) */
-  coefficients: Record<string, number>;
   /** クールダウン（各ランク） */
   cooldownCoefficients: number[];
   /** コスト（各ランク） */
@@ -44,19 +50,11 @@ function readLocalCache<T>(key: string): T | null {
 function writeLocalCache<T>(key: string, data: T): void {
   try {
     localStorage.setItem(key, JSON.stringify(data));
-  } catch {
-    // QuotaExceededError は無視（キャッシュなしで動作継続）
-  }
+  } catch { /* QuotaExceededError は無視 */ }
 }
 
 // ── メイン取得関数 ─────────────────────────────────────
 
-/**
- * CDragon からチャンピオンのスペルデータを取得する。
- *
- * @param numericId チャンピオンの数値ID（DDragon の champion.key, e.g. "6"）
- * @returns スペルキーでインデックスされたスペルデータ、失敗時は null
- */
 export async function fetchCDragonSpells(numericId: string): Promise<CDragonChampionSpells | null> {
   const cacheKey = `${CACHE_PREFIX}${numericId}`;
   const cached = readLocalCache<CDragonChampionSpells>(cacheKey);
@@ -64,22 +62,11 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
 
   try {
     const url = `${CDRAGON_BASE}/v1/champions/${numericId}.json`;
-    console.log('[CDragon] fetching:', url);
     const res = await fetch(url);
-    console.log('[CDragon] status:', res.status);
-    if (!res.ok) {
-      console.error('[CDragon] fetch failed:', res.status, res.statusText);
-      return null;
-    }
+    if (!res.ok) return null;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data: any = await res.json();
-    console.log('[CDragon] top-level keys:', Object.keys(data));
-    if (Array.isArray(data.spells) && data.spells.length > 0) {
-      console.log('[CDragon] spell[0] keys:', Object.keys(data.spells[0]));
-      console.log('[CDragon] spell[0].effectAmounts:', data.spells[0].effectAmounts);
-    }
-
     const result: CDragonChampionSpells = {};
 
     if (Array.isArray(data.spells)) {
@@ -89,13 +76,12 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
         if (!key) continue;
 
         result[key] = {
+          dynamicDescription: typeof spell.dynamicDescription === 'string'
+            ? spell.dynamicDescription
+            : '',
           effectAmounts:
             spell.effectAmounts && typeof spell.effectAmounts === 'object'
               ? spell.effectAmounts
-              : {},
-          coefficients:
-            spell.coefficients && typeof spell.coefficients === 'object'
-              ? spell.coefficients
               : {},
           cooldownCoefficients: Array.isArray(spell.cooldownCoefficients)
             ? spell.cooldownCoefficients
@@ -117,18 +103,27 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
 // ── ユーティリティ ─────────────────────────────────────
 
 /**
- * 数値の配列を "v1/v2/v3/v4/v5" 形式の文字列にフォーマットする。
+ * CDragon の effectAmounts 数値配列を "v1/v2/v3/v4/v5" 形式にフォーマットする。
  *
- * CDragon の effectAmounts では index 0 が 0 であることが多いため、
- * 先頭が 0 かつ残りが非 0 の場合は index 1 以降を使う。
+ * CDragon の配列は 7 要素: [rank0, rank1, rank2, rank3, rank4, rank5, rankMax]
+ * rank0（index 0）と rankMax（最後）は通常 rank1/rank5 と同値のため除外する。
+ * 全要素が同値の場合（定数）は 1 つだけ表示する。
  */
 export function formatEffectValues(values: number[], multiplier = 1): string {
-  const levels = values[0] === 0 && values.length > 1 ? values.slice(1) : values;
-  return levels
-    .map(v => {
-      const val = v * multiplier;
-      // 整数なら小数点なし、小数なら末尾の 0 を除去
-      return Number.isInteger(val) ? String(val) : parseFloat(val.toFixed(2)).toString();
-    })
-    .join('/');
+  if (!values || values.length === 0) return '';
+
+  // [rank0, rank1, ..., rank5, rankMax] → rank1〜rank5 を取り出す
+  const levels = values.length > 2 ? values.slice(1, -1) : values;
+  if (levels.length === 0) return '';
+
+  const scaled = levels.map(v => {
+    const val = v * multiplier;
+    return Number.isInteger(val) ? String(val) : parseFloat(val.toFixed(2)).toString();
+  });
+
+  // 全ランクで同値なら 1 つだけ表示（例: "9" ではなく "9/9/9/9/9" にしない）
+  const unique = new Set(scaled);
+  if (unique.size === 1) return scaled[0];
+
+  return scaled.join('/');
 }
