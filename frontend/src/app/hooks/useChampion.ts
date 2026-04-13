@@ -302,6 +302,15 @@ function buildSkill(
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
 
+  // ── デバッグ ──
+  if (key === 'W') {
+    const vm = buildLeveltipVarMap(spell);
+    console.log(`[DBG] ${spell.name} leveltip.effect:`, spell.leveltip?.effect);
+    console.log(`[DBG] ${spell.name} varMap:`, [...vm.entries()]);
+    console.log(`[DBG] ${spell.name} effectBurn:`, spell.effectBurn);
+    console.log(`[DBG] ${spell.name} effect[1]:`, (spell.effect ?? [])[1]);
+  }
+
   // Step 1: {{ }} 解決 → Step 2: @var@ 解決 → Step 3: HTML 変換
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
   tooltip     = resolveAtVarTemplates(tooltip, key, spell, cdSpells);
