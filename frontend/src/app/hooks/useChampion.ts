@@ -266,9 +266,20 @@ function buildSkill(
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
 
+  // ── デバッグ（ブラウザコンソールで確認） ──
+  console.group(`[LOL-DB] Spell ${key} - ${spell.name}`);
+  console.log('raw tooltip:', spell.tooltip);
+  console.log('effectBurn:', spell.effectBurn);
+  console.log('effect:', spell.effect);
+  console.log('vars:', spell.vars);
+  console.log('cdSpells[key]:', cdSpells?.[key] ?? null);
+  console.groupEnd();
+
   // Step 1: {{ }} 解決 → Step 2: @var@ 解決 → Step 3: HTML 変換
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
+  console.log(`[LOL-DB] ${key} after DDragon resolve:`, tooltip);
   tooltip     = resolveAtVarTemplates(tooltip, key, spell, cdSpells);
+  console.log(`[LOL-DB] ${key} after @var@ resolve:`, tooltip);
   const description = processTooltipHtml(tooltip);
 
   // costType は "{{ abilityresourcename }}" のままの場合があるので置換する
