@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchChampionDetail, spellImageUrl, passiveImageUrl } from '../api/dataDragon';
+import { fetchCDragonSpells, formatEffectValues } from '../api/communityDragon';
 import type { DDragonChampionDetail, DDragonSpell } from '../types/ddragon';
+import type { CDragonChampionSpells } from '../api/communityDragon';
 
 export interface SkillData {
   key: 'P' | 'Q' | 'W' | 'E' | 'R';
@@ -33,35 +35,139 @@ interface UseChampionResult {
   error: Error | null;
 }
 
-// ── HTML 変換 ──────────────────────────────────────────
+// ════════════════════════════════════════════════════════
+// Step 1: DDragon {{ }} テンプレート解決
+// ════════════════════════════════════════════════════════
 //
-// Data Dragon の tooltip には以下のような独自 HTML タグが含まれる:
-//   <active>Active:</active>   → 太字ラベル
-//   <scaleAD>(+70%AD)</scaleAD> → 金色（ADスケーリング）
-//   <scaleAP>(+35%AP)</scaleAP> → 水色（APスケーリング）
-//   <physicalDamage>200</physicalDamage> → 物理ダメージ色
-//   <magicDamage>100</magicDamage>       → 魔法ダメージ色
-//   <br>                                 → 改行
-// これらをゲーム内に近い色付き HTML に変換する。
+// DDragon tooltip のプレースホルダー:
+//   {{ eN }}  → effectBurn[N]（"40/65/90/115/140" など）
+//   {{ aN }}  → vars[N-1] の比率（"33%" など）
+//   {{ fN }}  → effectBurn[N]（f は e の別名）
+//   {{ abilityresourcename }} → partype（"マナ" など）
 
-// LoL クライアントの配色に合わせた色定数
-const AD   = '#C89B3C';  // 金色 — AD / 物理ダメージ
-const AP   = '#7EC8E3';  // 水色 — AP / 魔法ダメージ
-const HP   = '#1ECC1E';  // 緑  — HP スケーリング / 回復
-const MANA = '#5383E8';  // 青  — マナスケーリング
+function resolveDDragonTemplates(tooltip: string, spell: DDragonSpell, partype: string): string {
+  const burns = spell.effectBurn ?? [];
+  const vars  = spell.vars      ?? [];
+  let s = tooltip;
 
-/** DDragon 固有タグを標準 HTML (span/strong/br) に変換する */
+  // {{ eN }} → effectBurn[N]
+  s = s.replace(/\{\{\s*e(\d+)\s*\}\}/g, (_, n) => burns[parseInt(n, 10)] ?? '');
+
+  // {{ aN }} → vars[N-1] のスケーリング比率（パーセント表記）
+  s = s.replace(/\{\{\s*a(\d+)\s*\}\}/g, (_, n) => {
+    const v = vars[parseInt(n, 10) - 1];
+    if (!v) return '';
+    const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
+    return `${Math.round(coeff * 100)}%`;
+  });
+
+  // {{ fN }} → effectBurn[N]（フォールバック）
+  s = s.replace(/\{\{\s*f(\d+)\s*\}\}/g, (_, n) => burns[parseInt(n, 10)] ?? '');
+
+  // {{ abilityresourcename }} → partype
+  s = s.split('{{ abilityresourcename }}').join(partype);
+  s = s.split('{{abilityresourcename}}').join(partype);
+
+  // 残ったプレースホルダーを除去
+  s = s.replace(/\{\{[^}]*\}\}/g, '');
+
+  return s;
+}
+
+// ════════════════════════════════════════════════════════
+// Step 2: @var@ 形式のテンプレート解決
+// ════════════════════════════════════════════════════════
+//
+// 新しい DDragon / CDragon のトゥールチップは @VarName@ 形式を使う。
+// 解決優先順位:
+//   1. 標準パターン (@Effect1Amount@, @CooldownBurn@, @ResourceBurn@, @f1@)
+//      → DDragon の effectBurn / cooldownBurn / costBurn から解決
+//   2. 名前付き変数 (@WDamage@, @SlowAmount@, ...)
+//      → CDragon の effectAmounts から解決
+//   3. 乗算パターン (@SlowAmount*100@ など)
+//      → 上記の値に乗算を適用
+//   4. 解決できなかったものは除去
+
+function resolveAtVarTemplates(
+  s: string,
+  spellKey: string,
+  spell: DDragonSpell,
+  cdSpells: CDragonChampionSpells | null,
+): string {
+  const burns = spell.effectBurn ?? [];
+
+  // ── 2-1: 標準 @EffectNAmount@ → effectBurn[N] ────────
+  // 新しい DDragon フォーマット。{{ e1 }} の代替。
+  s = s.replace(/@Effect(\d+)Amount(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
+    const val = burns[parseInt(n, 10)];
+    if (val == null || val === '') return '';
+    if (mult) {
+      const m = parseFloat(mult);
+      return val.split('/').map(v => String(Math.round(parseFloat(v) * m))).join('/');
+    }
+    return val;
+  });
+
+  // ── 2-2: @CooldownBurn@ / @ResourceBurn@ ────────────
+  s = s.replace(/@CooldownBurn@/gi, spell.cooldownBurn ?? '');
+  s = s.replace(/@ResourceBurn@/gi, spell.costBurn ?? '');
+
+  // ── 2-3: @f1@, @f2@, ... → effectBurn[N] ────────────
+  s = s.replace(/@f(\d+)(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
+    const val = burns[parseInt(n, 10)];
+    if (val == null || val === '') return '';
+    if (mult) {
+      const m = parseFloat(mult);
+      return val.split('/').map(v => String(Math.round(parseFloat(v) * m))).join('/');
+    }
+    return val;
+  });
+
+  // ── 2-4: @VarName@ → CDragon effectAmounts ──────────
+  const cdData = cdSpells?.[spellKey];
+  if (cdData) {
+    s = s.replace(/@(\w+?)(?:\*(\d+(?:\.\d+)?))?@/g, (match, varName, mult) => {
+      const values = cdData.effectAmounts[varName];
+      if (!values || values.length === 0) return match;
+      const m = mult ? parseFloat(mult) : 1;
+      return formatEffectValues(values, m);
+    });
+  }
+
+  // ── 2-5: 解決できなかった @var@ を除去 ───────────────
+  s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
+
+  return s;
+}
+
+// ════════════════════════════════════════════════════════
+// Step 3: DDragon HTML タグ → styled HTML 変換
+// ════════════════════════════════════════════════════════
+//
+// Data Dragon tooltip の独自タグをゲーム内カラーに変換する:
+//   <active>Active:</active>          → <strong>
+//   <scaleAD>(+70%AD)</scaleAD>       → gold #C89B3C
+//   <scaleAP>(+35%AP)</scaleAP>       → sky blue #7EC8E3
+//   <physicalDamage>200</physicalDamage> → orange #FF8C00
+//   <magicDamage>100</magicDamage>    → sky blue #7EC8E3
+//   <br>                              → 改行
+
+const AD   = '#C89B3C';  // 金色   — AD / 物理ダメージ
+const AP   = '#7EC8E3';  // 水色   — AP / 魔法ダメージ
+const HP   = '#1ECC1E';  // 緑     — HP スケーリング / 回復
+const MANA = '#5383E8';  // 青     — マナスケーリング
+
 function processTooltipHtml(raw: string): string {
   let s = raw;
 
-  // ── 改行 ───────────────────────────────────────────
+  // 改行タグ → <br>
   s = s.replace(/<br\s*\/?>/gi, '<br>');
   s = s.replace(/<\/li>/gi, '');
   s = s.replace(/<li>/gi, '<br>• ');
   s = s.replace(/<\/p>/gi, '<br>');
   s = s.replace(/<p(?:\s[^>]*)?>/gi, '');
 
-  // ── 太字ラベル ─────────────────────────────────────
+  // 太字ラベル (active, passive, keyword 系)
   const boldTags = ['active', 'passive', 'keywordMajor', 'keyword',
                     'attention', 'rarityGeneric', 'status'];
   for (const tag of boldTags) {
@@ -69,7 +175,7 @@ function processTooltipHtml(raw: string): string {
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</strong>');
   }
 
-  // ── スケーリング / ダメージタイプ → 色付き span ──────
+  // スケーリング / ダメージタイプ → 色付き span
   const colorMap: [string, string][] = [
     ['scaleAD',        AD],
     ['scaleBonusAD',   AD],
@@ -90,7 +196,7 @@ function processTooltipHtml(raw: string): string {
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</span>');
   }
 
-  // ── 残りの不明タグを除去（br / strong / span だけ残す） ──
+  // 残りの不明タグを除去（br / strong / span だけ残す）
   s = s.replace(/<[^>]+>/g, (match) => {
     const t = match.toLowerCase().trim();
     if (
@@ -101,7 +207,7 @@ function processTooltipHtml(raw: string): string {
     return '';
   });
 
-  // ── HTML エンティティデコード ──────────────────────
+  // HTML エンティティデコード
   s = s.replace(/&amp;/g, '&');
   s = s.replace(/&nbsp;/g, ' ');
   s = s.replace(/&lt;/g, '<');
@@ -113,66 +219,42 @@ function processTooltipHtml(raw: string): string {
   return s.replace(/^(<br>\s*)+/, '').trim();
 }
 
-// ── テンプレート変数解決 ───────────────────────────────
-//
-// DDragon tooltip のプレースホルダー:
-//   {{ eN }}  → effectBurn[N]（"40/65/90/115/140" など）
-//   {{ aN }}  → vars[N-1] の比率（"33%" など）
-//   {{ fN }}  → effectBurn[N]（fは e の別名）
-//   {{ abilityresourcename }} → partype（"マナ" など）
-
-function resolveTooltip(tooltip: string, spell: DDragonSpell, partype: string): string {
-  const burns = spell.effectBurn ?? [];
-  const vars  = spell.vars      ?? [];
-
-  let s = tooltip;
-
-  // {{ eN }} → effectBurn[N]
-  s = s.replace(/\{\{\s*e(\d+)\s*\}\}/g, (_, n) => burns[parseInt(n, 10)] ?? '');
-
-  // {{ aN }} → vars[N-1] をパーセント表記
-  s = s.replace(/\{\{\s*a(\d+)\s*\}\}/g, (_, n) => {
-    const v = vars[parseInt(n, 10) - 1];
-    if (!v) return '';
-    const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
-    return `${Math.round(coeff * 100)}%`;
-  });
-
-  // {{ fN }} → effectBurn[N]（フォールバック）
-  s = s.replace(/\{\{\s*f(\d+)\s*\}\}/g, (_, n) => burns[parseInt(n, 10)] ?? '');
-
-  // {{ abilityresourcename }} → partype
-  s = s.split('{{ abilityresourcename }}').join(partype);
-  s = s.split('{{abilityresourcename}}').join(partype);
-
-  // 残ったプレースホルダーを除去
-  s = s.replace(/\{\{[^}]*\}\}/g, '');
-
-  return processTooltipHtml(s);
-}
-
-/** passive は tooltip を持たないため description を使用 */
-function resolveDescription(desc: string, partype: string): string {
+// ── passive の description 処理（tooltip を持たない）────
+function resolvePassiveDescription(desc: string, partype: string): string {
   let s = desc;
   s = s.split('{{ abilityresourcename }}').join(partype);
   s = s.split('{{abilityresourcename}}').join(partype);
   s = s.replace(/\{\{[^}]*\}\}/g, '');
+  s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
   return processTooltipHtml(s);
 }
 
-// ── スキルデータ構築 ──────────────────────────────────
+// ════════════════════════════════════════════════════════
+// スキルデータ構築
+// ════════════════════════════════════════════════════════
 
-function buildSkill(key: 'Q' | 'W' | 'E' | 'R', spell: DDragonSpell, version: string, partype: string): SkillData {
+function buildSkill(
+  key: 'Q' | 'W' | 'E' | 'R',
+  spell: DDragonSpell,
+  version: string,
+  partype: string,
+  cdSpells: CDragonChampionSpells | null,
+): SkillData {
   const rangeNum = parseInt(spell.rangeBurn, 10);
   const hasRange = spell.rangeBurn !== 'self'
     && spell.rangeBurn !== '0'
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
 
+  // Step 1: {{ }} 解決 → Step 2: @var@ 解決 → Step 3: HTML 変換
+  let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
+  tooltip     = resolveAtVarTemplates(tooltip, key, spell, cdSpells);
+  const description = processTooltipHtml(tooltip);
+
   return {
     key,
     name:         spell.name,
-    description:  resolveTooltip(spell.tooltip, spell, partype),
+    description,
     cooldownBurn: spell.cooldownBurn || undefined,
     costBurn:     spell.costBurn !== '0' ? spell.costBurn : undefined,
     costType:     spell.costType !== 'No Cost' ? spell.costType : undefined,
@@ -181,7 +263,9 @@ function buildSkill(key: 'Q' | 'W' | 'E' | 'R', spell: DDragonSpell, version: st
   };
 }
 
-// ── フック ────────────────────────────────────────────
+// ════════════════════════════════════════════════════════
+// useChampion フック
+// ════════════════════════════════════════════════════════
 
 export function useChampion(championId: string | undefined): UseChampionResult {
   const [champion, setChampion] = useState<ChampionDetailData | null>(null);
@@ -198,8 +282,14 @@ export function useChampion(championId: string | undefined): UseChampionResult {
 
     async function load() {
       try {
+        // 1. DDragon バージョン + チャンピオン詳細を取得
         const v   = await getLatestVersion();
         const raw = await fetchChampionDetail(v, championId!);
+        if (cancelled) return;
+
+        // 2. CDragon を並行取得（失敗してもフォールバック可能）
+        //    raw.key = 数値 ID 文字列（例: "6"）
+        const cdData = await fetchCDragonSpells(raw.key).catch(() => null);
         if (cancelled) return;
 
         const [Q, W, E, R] = raw.spells;
@@ -209,13 +299,13 @@ export function useChampion(championId: string | undefined): UseChampionResult {
           {
             key:         'P',
             name:        raw.passive.name,
-            description: resolveDescription(raw.passive.description, partype),
+            description: resolvePassiveDescription(raw.passive.description, partype),
             imageUrl:    passiveImageUrl(v, raw.passive.image.full),
           },
-          buildSkill('Q', Q, v, partype),
-          buildSkill('W', W, v, partype),
-          buildSkill('E', E, v, partype),
-          buildSkill('R', R, v, partype),
+          buildSkill('Q', Q, v, partype, cdData),
+          buildSkill('W', W, v, partype, cdData),
+          buildSkill('E', E, v, partype, cdData),
+          buildSkill('R', R, v, partype, cdData),
         ];
 
         setChampion({
