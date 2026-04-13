@@ -66,30 +66,66 @@ function getEffectBurn(spell: DDragonSpell, n: number): string {
   return '';
 }
 
+/**
+ * leveltip.effect から「変数名 → effectBurn インデックス」のマップを構築する。
+ *
+ * DDragon の leveltip は各ランクで変化する値の一覧で、
+ *   leveltip.effect[i] = "{{ totaldamage }}" のとき、
+ *   対応する値は effectBurn[i+1] に入っている（effectBurn[0] は常に ""）。
+ *
+ * これにより `{{ totaldamage }}` のような名前付き変数も解決できる。
+ */
+function buildLeveltipVarMap(spell: DDragonSpell): Map<string, number> {
+  const map = new Map<string, number>();
+  const effects = spell.leveltip?.effect ?? [];
+  for (let i = 0; i < effects.length; i++) {
+    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/);
+    if (m) {
+      // leveltip[i] → effectBurn[i+1]
+      map.set(m[1].toLowerCase(), i + 1);
+    }
+  }
+  return map;
+}
+
 function resolveDDragonTemplates(tooltip: string, spell: DDragonSpell, partype: string): string {
-  const vars = spell.vars ?? [];
+  const vars    = spell.vars ?? [];
+  const varMap  = buildLeveltipVarMap(spell);
   let s = tooltip;
 
-  // {{ eN }} → effectBurn[N]（null の場合は effect[N] で代用）
-  s = s.replace(/\{\{\s*e(\d+)\s*\}\}/g, (_, n) => getEffectBurn(spell, parseInt(n, 10)));
-
-  // {{ aN }} → vars[N-1] のスケーリング比率（パーセント表記）
-  s = s.replace(/\{\{\s*a(\d+)\s*\}\}/g, (_, n) => {
-    const v = vars[parseInt(n, 10) - 1];
-    if (!v) return '';
-    const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
-    return `${Math.round(coeff * 100)}%`;
-  });
-
-  // {{ fN }} → effectBurn[N]（f は e の別名）
-  s = s.replace(/\{\{\s*f(\d+)\s*\}\}/g, (_, n) => getEffectBurn(spell, parseInt(n, 10)));
-
-  // {{ abilityresourcename }} → partype
+  // {{ abilityresourcename }} を先に置換（名前に "ability" を含むので誤マッチ防止）
   s = s.split('{{ abilityresourcename }}').join(partype);
   s = s.split('{{abilityresourcename}}').join(partype);
 
-  // 残ったプレースホルダーを除去
-  s = s.replace(/\{\{[^}]*\}\}/g, '');
+  // すべての {{ varname }} を一括処理
+  s = s.replace(/\{\{\s*(\w+)\s*\}\}/g, (_match, raw) => {
+    const name = raw.toLowerCase();
+
+    // {{ eN }} → effectBurn[N]
+    const eM = name.match(/^e(\d+)$/);
+    if (eM) return getEffectBurn(spell, parseInt(eM[1], 10));
+
+    // {{ fN }} → effectBurn[N]（f は e の別名）
+    const fM = name.match(/^f(\d+)$/);
+    if (fM) return getEffectBurn(spell, parseInt(fM[1], 10));
+
+    // {{ aN }} → vars[N-1] のスケーリング比率
+    const aM = name.match(/^a(\d+)$/);
+    if (aM) {
+      const v = vars[parseInt(aM[1], 10) - 1];
+      if (!v) return '';
+      const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
+      return `${Math.round(coeff * 100)}%`;
+    }
+
+    // 名前付き変数 → leveltip varMap 経由で effectBurn を引く
+    if (varMap.has(name)) {
+      return getEffectBurn(spell, varMap.get(name)!);
+    }
+
+    // 解決できなかったプレースホルダーは除去
+    return '';
+  });
 
   return s;
 }
@@ -266,20 +302,9 @@ function buildSkill(
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
 
-  // ── デバッグ（ブラウザコンソールで確認） ──
-  console.group(`[LOL-DB] Spell ${key} - ${spell.name}`);
-  console.log('raw tooltip:', spell.tooltip);
-  console.log('effectBurn:', spell.effectBurn);
-  console.log('effect:', spell.effect);
-  console.log('vars:', spell.vars);
-  console.log('cdSpells[key]:', cdSpells?.[key] ?? null);
-  console.groupEnd();
-
   // Step 1: {{ }} 解決 → Step 2: @var@ 解決 → Step 3: HTML 変換
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
-  console.log(`[LOL-DB] ${key} after DDragon resolve:`, tooltip);
   tooltip     = resolveAtVarTemplates(tooltip, key, spell, cdSpells);
-  console.log(`[LOL-DB] ${key} after @var@ resolve:`, tooltip);
   const description = processTooltipHtml(tooltip);
 
   // costType は "{{ abilityresourcename }}" のままの場合があるので置換する
