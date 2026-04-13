@@ -64,11 +64,21 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
 
   try {
     const url = `${CDRAGON_BASE}/v1/champions/${numericId}.json`;
+    console.log('[CDragon] fetching:', url);
     const res = await fetch(url);
-    if (!res.ok) return null;
+    console.log('[CDragon] status:', res.status);
+    if (!res.ok) {
+      console.error('[CDragon] fetch failed:', res.status, res.statusText);
+      return null;
+    }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data: any = await res.json();
+    console.log('[CDragon] top-level keys:', Object.keys(data));
+    if (Array.isArray(data.spells) && data.spells.length > 0) {
+      console.log('[CDragon] spell[0] keys:', Object.keys(data.spells[0]));
+      console.log('[CDragon] spell[0].effectAmounts:', data.spells[0].effectAmounts);
+    }
 
     const result: CDragonChampionSpells = {};
 

@@ -123,10 +123,11 @@ function resolveDDragonTemplates(tooltip: string, spell: DDragonSpell, partype: 
       return getEffectBurn(spell, varMap.get(name)!);
     }
 
-    // 解決できなかったプレースホルダーは除去
-    return '';
+    // varMap にない変数はそのまま保持（resolveAtVarTemplates で CDragon が解決を試みる）
+    return _match;
   });
 
+  // 最後に残った {{ abilityresourcename }} / 解決済みのものだけ除去せず return
   return s;
 }
 
@@ -190,7 +191,23 @@ function resolveAtVarTemplates(
     });
   }
 
-  // ── 2-5: 解決できなかった @var@ を除去 ───────────────
+  // ── 2-5: DDragon の未解決 {{ varname }} を CDragon で解決 ─
+  // resolveDDragonTemplates で varMap にない変数はそのまま残っているので
+  // ここで CDragon effectAmounts に対して大文字小文字を無視して照合する
+  if (cdData) {
+    const cdKeys = Object.keys(cdData.effectAmounts);
+    s = s.replace(/\{\{\s*(\w+)\s*\}\}/g, (_match, raw) => {
+      const lowerName = raw.toLowerCase();
+      const match = cdKeys.find(k => k.toLowerCase() === lowerName);
+      if (match) {
+        return formatEffectValues(cdData.effectAmounts[match]);
+      }
+      return ''; // CDragon でも解決できなければ除去
+    });
+  }
+
+  // ── 2-6: 解決できなかった {{ }} / @var@ を除去 ────────
+  s = s.replace(/\{\{[^}]*\}\}/g, '');
   s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
 
   return s;
@@ -301,15 +318,6 @@ function buildSkill(
     && spell.rangeBurn !== '0'
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
-
-  // ── デバッグ ──
-  if (key === 'W') {
-    const vm = buildLeveltipVarMap(spell);
-    console.log(`[DBG] ${spell.name} leveltip.effect:`, spell.leveltip?.effect);
-    console.log(`[DBG] ${spell.name} varMap:`, [...vm.entries()]);
-    console.log(`[DBG] ${spell.name} effectBurn:`, spell.effectBurn);
-    console.log(`[DBG] ${spell.name} effect[1]:`, (spell.effect ?? [])[1]);
-  }
 
   // Step 1: {{ }} 解決 → Step 2: @var@ 解決 → Step 3: HTML 変換
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
