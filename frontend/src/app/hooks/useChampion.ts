@@ -45,13 +45,33 @@ interface UseChampionResult {
 //   {{ fN }}  → effectBurn[N]（f は e の別名）
 //   {{ abilityresourcename }} → partype（"マナ" など）
 
+/**
+ * effectBurn[N] の値を返す。null/空の場合は effect[N] から再構築する。
+ *
+ * DDragon の effectBurn は "20/35/50/65/80" 形式の文字列だが、
+ * 一部のスペルでは null になっている。その際は effect[N] の配列から
+ * 各ランクの値を "/" で結合して代用する。
+ * effect[N][0] は常に 0 (ランク0プレースホルダー) なので slice(1) で除去する。
+ */
+function getEffectBurn(spell: DDragonSpell, n: number): string {
+  const burn = (spell.effectBurn ?? [])[n];
+  if (burn != null && burn !== '') return burn;
+
+  const eff = (spell.effect ?? [])[n];
+  if (Array.isArray(eff)) {
+    const vals = eff[0] === 0 ? eff.slice(1) : eff;
+    const nonZero = vals.filter((v): v is number => v != null && v !== 0);
+    if (nonZero.length > 0) return nonZero.join('/');
+  }
+  return '';
+}
+
 function resolveDDragonTemplates(tooltip: string, spell: DDragonSpell, partype: string): string {
-  const burns = spell.effectBurn ?? [];
-  const vars  = spell.vars      ?? [];
+  const vars = spell.vars ?? [];
   let s = tooltip;
 
-  // {{ eN }} → effectBurn[N]
-  s = s.replace(/\{\{\s*e(\d+)\s*\}\}/g, (_, n) => burns[parseInt(n, 10)] ?? '');
+  // {{ eN }} → effectBurn[N]（null の場合は effect[N] で代用）
+  s = s.replace(/\{\{\s*e(\d+)\s*\}\}/g, (_, n) => getEffectBurn(spell, parseInt(n, 10)));
 
   // {{ aN }} → vars[N-1] のスケーリング比率（パーセント表記）
   s = s.replace(/\{\{\s*a(\d+)\s*\}\}/g, (_, n) => {
@@ -61,8 +81,8 @@ function resolveDDragonTemplates(tooltip: string, spell: DDragonSpell, partype: 
     return `${Math.round(coeff * 100)}%`;
   });
 
-  // {{ fN }} → effectBurn[N]（フォールバック）
-  s = s.replace(/\{\{\s*f(\d+)\s*\}\}/g, (_, n) => burns[parseInt(n, 10)] ?? '');
+  // {{ fN }} → effectBurn[N]（f は e の別名）
+  s = s.replace(/\{\{\s*f(\d+)\s*\}\}/g, (_, n) => getEffectBurn(spell, parseInt(n, 10)));
 
   // {{ abilityresourcename }} → partype
   s = s.split('{{ abilityresourcename }}').join(partype);
@@ -251,13 +271,20 @@ function buildSkill(
   tooltip     = resolveAtVarTemplates(tooltip, key, spell, cdSpells);
   const description = processTooltipHtml(tooltip);
 
+  // costType は "{{ abilityresourcename }}" のままの場合があるので置換する
+  const rawCostType = spell.costType ?? '';
+  const resolvedCostType = rawCostType
+    .replace(/\{\{\s*abilityresourcename\s*\}\}/gi, partype)
+    .replace(/@abilityresourcename@/gi, partype)
+    .trim();
+
   return {
     key,
     name:         spell.name,
     description,
     cooldownBurn: spell.cooldownBurn || undefined,
     costBurn:     spell.costBurn !== '0' ? spell.costBurn : undefined,
-    costType:     spell.costType !== 'No Cost' ? spell.costType : undefined,
+    costType:     resolvedCostType !== 'No Cost' && resolvedCostType !== '' ? resolvedCostType : undefined,
     rangeBurn:    hasRange ? spell.rangeBurn : undefined,
     imageUrl:     spellImageUrl(version, spell.image.full),
   };
