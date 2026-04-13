@@ -68,7 +68,11 @@ function SkillBlock({ skill }: { skill: SkillData }) {
           className="w-16 h-16 rounded-xl border border-border flex-shrink-0"
           loading="lazy"
         />
-        <p className="text-foreground leading-relaxed text-lg whitespace-pre-line">{skill.description}</p>
+        {/* description は HTML string（DDragon タグを色付き span / strong に変換済み） */}
+        <div
+          className="text-foreground leading-relaxed text-base skill-description"
+          dangerouslySetInnerHTML={{ __html: skill.description }}
+        />
       </div>
 
       {/* クールダウン・コスト・射程 */}
