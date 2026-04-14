@@ -324,18 +324,19 @@ function buildSkill(
 
   // ── デバッグ（W スキルのみ）──
   if (key === 'W') {
-    console.log('[DBG] W tooltip after step1+2:', tooltip);
     console.log('[DBG] W hasUnresolved:', hasUnresolved);
     console.log('[DBG] W cdData:', cdData ? 'available' : 'NULL');
+    console.log('[DBG] W effectAmounts keys:', cdData ? Object.keys(cdData.effectAmounts) : 'N/A');
     console.log('[DBG] W dynamicDescription:', cdData?.dynamicDescription?.slice(0, 150) ?? 'EMPTY/MISSING');
   }
 
   let description: string;
   if (hasUnresolved && cdData?.dynamicDescription) {
-    // CDragon dynamicDescription (@EffectNAmount@ 形式) を effectAmounts で解決
+    // CDragon dynamicDescription を effectAmounts で解決
     let cdDesc = cdData.dynamicDescription;
     cdDesc = resolveAtVarTemplates(cdDesc, key, spell, cdSpells);
     cdDesc = cdDesc.replace(/\{\{[^}]*\}\}/g, '');
+    if (key === 'W') console.log('[DBG] W cdDesc after resolve:', cdDesc.slice(0, 200));
     description = processTooltipHtml(cdDesc);
   } else {
     // 残った {{ }} を除去して DDragon tooltip を使用
