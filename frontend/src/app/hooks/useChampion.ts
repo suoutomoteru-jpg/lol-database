@@ -312,6 +312,14 @@ function buildSkill(
   const cdData = cdSpells?.[key];
   const hasUnresolved = /\{\{\s*\w+\s*\}\}/.test(tooltip);
 
+  // ── デバッグ（W スキルのみ）──
+  if (key === 'W') {
+    console.log('[DBG] W tooltip after step1+2:', tooltip);
+    console.log('[DBG] W hasUnresolved:', hasUnresolved);
+    console.log('[DBG] W cdData:', cdData ? 'available' : 'NULL');
+    console.log('[DBG] W dynamicDescription:', cdData?.dynamicDescription?.slice(0, 150) ?? 'EMPTY/MISSING');
+  }
+
   let description: string;
   if (hasUnresolved && cdData?.dynamicDescription) {
     // CDragon dynamicDescription (@EffectNAmount@ 形式) を effectAmounts で解決
