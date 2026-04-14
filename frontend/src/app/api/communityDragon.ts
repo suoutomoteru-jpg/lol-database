@@ -5,16 +5,17 @@
  * 解決できない場合の補完ソースとして使用する。
  *
  * 戦略:
- *   CDragon の `dynamicDescription` フィールド（@Effect4Amount@ 形式）を
- *   `effectAmounts` で解決することで、DDragon が解決できなかった変数を補完する。
+ *   CDragon の `effectAmounts` を用いて {{ varname }} を case-insensitive で解決する。
+ *   解決できない場合は CDragon の `dynamicDescription`（英語）を最終フォールバックとして使用する。
  *
- * エンドポイント (ja_JP):
- *   https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/ja_jp/v1/champions/{numericId}.json
+ * エンドポイント:
+ *   https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champions/{numericId}.json
+ *   ※ ja_jp パスにはこのファイルが存在しない（global/default が正規パス）
  */
 
-// ja_jp ロケールで取得することで日本語の dynamicDescription を得る
-const CDRAGON_BASE = 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/ja_jp';
-const CACHE_PREFIX = 'lol-cdragon:v2:ja_jp:';
+// global/default が v1/champions/{id}.json の正規パス
+const CDRAGON_BASE = 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default';
+const CACHE_PREFIX = 'lol-cdragon:v3:default:';
 
 // ── 型定義 ─────────────────────────────────────────────
 
@@ -63,11 +64,28 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
   try {
     const url = `${CDRAGON_BASE}/v1/champions/${numericId}.json`;
     const res = await fetch(url);
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.error('[CDragon] fetch failed:', res.status, url);
+      return null;
+    }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data: any = await res.json();
     const result: CDragonChampionSpells = {};
+
+    // ── デバッグ: 最初のスペルの effectAmounts キーを確認 ──
+    if (Array.isArray(data.spells) && data.spells.length > 0) {
+      const firstSpell = data.spells[0];
+      console.log('[CDragon] spells count:', data.spells.length);
+      console.log('[CDragon] spell[0].spellKey:', firstSpell.spellKey);
+      console.log('[CDragon] spell[0].effectAmounts keys:', Object.keys(firstSpell.effectAmounts ?? {}));
+      // W スペルのキーを探して effectAmounts を表示
+      const wSpell = data.spells.find((s: any) => String(s.spellKey) === 'W');
+      if (wSpell) {
+        console.log('[CDragon] W.effectAmounts:', wSpell.effectAmounts);
+        console.log('[CDragon] W.dynamicDescription (50chars):', String(wSpell.dynamicDescription ?? '').slice(0, 50));
+      }
+    }
 
     if (Array.isArray(data.spells)) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

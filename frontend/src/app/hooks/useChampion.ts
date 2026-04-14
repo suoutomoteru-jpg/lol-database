@@ -191,7 +191,20 @@ function resolveAtVarTemplates(
     });
   }
 
-  // ── 2-5: 解決できなかった @var@ を除去（{{ }} は buildSkill で処理） ──
+  // ── 2-5: {{ varname }} → CDragon effectAmounts (case-insensitive) ──
+  // DDragon leveltip varMap で解決できなかった名前付き変数（{{ totaldamage }} 等）を
+  // CDragon effectAmounts の key と大文字小文字を無視して照合して解決する。
+  // 解決できなかったものは buildSkill の hasUnresolved チェック用にそのまま残す。
+  if (cdData) {
+    const cdKeys = Object.keys(cdData.effectAmounts);
+    s = s.replace(/\{\{\s*(\w+)\s*\}\}/g, (_match, raw) => {
+      const lower = raw.toLowerCase();
+      const found = cdKeys.find(k => k.toLowerCase() === lower);
+      return found ? formatEffectValues(cdData.effectAmounts[found]) : _match;
+    });
+  }
+
+  // ── 2-6: 解決できなかった @var@ を除去（{{ }} は buildSkill で処理） ──
   s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
 
   return s;
