@@ -73,24 +73,11 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
     const data: any = await res.json();
     const result: CDragonChampionSpells = {};
 
-    // ── デバッグ: 最初のスペルの effectAmounts キーを確認 ──
-    if (Array.isArray(data.spells) && data.spells.length > 0) {
-      const firstSpell = data.spells[0];
-      console.log('[CDragon] spells count:', data.spells.length);
-      console.log('[CDragon] spell[0].spellKey:', firstSpell.spellKey);
-      console.log('[CDragon] spell[0].effectAmounts keys:', Object.keys(firstSpell.effectAmounts ?? {}));
-      // W スペルのキーを探して effectAmounts を表示
-      const wSpell = data.spells.find((s: any) => String(s.spellKey) === 'W');
-      if (wSpell) {
-        console.log('[CDragon] W.effectAmounts:', wSpell.effectAmounts);
-        console.log('[CDragon] W.dynamicDescription (50chars):', String(wSpell.dynamicDescription ?? '').slice(0, 50));
-      }
-    }
-
     if (Array.isArray(data.spells)) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       for (const spell of data.spells as any[]) {
-        const key = String(spell.spellKey ?? '');
+        // CDragon は spellKey を小文字で持つ（'q','w','e','r'）→ 大文字に正規化
+        const key = String(spell.spellKey ?? '').toUpperCase();
         if (!key) continue;
 
         result[key] = {

@@ -153,16 +153,26 @@ function resolveAtVarTemplates(
 ): string {
   const burns = spell.effectBurn ?? [];
 
-  // ── 2-1: 標準 @EffectNAmount@ → effectBurn[N] ────────
-  // 新しい DDragon フォーマット。{{ e1 }} の代替。
+  // ── 2-1: 標準 @EffectNAmount@ → effectBurn[N]（CDragon effectAmounts でフォールバック）──
+  // CDragon の dynamicDescription は @Effect2Amount@ 形式を使うため、
+  // DDragon の effectBurn が空の場合は CDragon の effectAmounts を使う。
+  const cdDataForStep1 = cdSpells?.[spellKey];
   s = s.replace(/@Effect(\d+)Amount(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
-    const val = burns[parseInt(n, 10)];
-    if (val == null || val === '') return '';
-    if (mult) {
-      const m = parseFloat(mult);
-      return val.split('/').map(v => String(Math.round(parseFloat(v) * m))).join('/');
+    const idx = parseInt(n, 10);
+    const ddVal = burns[idx];
+    if (ddVal != null && ddVal !== '') {
+      if (mult) {
+        const m = parseFloat(mult);
+        return ddVal.split('/').map(v => String(Math.round(parseFloat(v) * m))).join('/');
+      }
+      return ddVal;
     }
-    return val;
+    // DDragon が空なら CDragon effectAmounts["Effect{N}Amount"] で代替
+    const cdVals = cdDataForStep1?.effectAmounts[`Effect${n}Amount`];
+    if (cdVals?.length) {
+      return formatEffectValues(cdVals, mult ? parseFloat(mult) : 1);
+    }
+    return '';
   });
 
   // ── 2-2: @CooldownBurn@ / @ResourceBurn@ ────────────
@@ -191,20 +201,7 @@ function resolveAtVarTemplates(
     });
   }
 
-  // ── 2-5: {{ varname }} → CDragon effectAmounts (case-insensitive) ──
-  // DDragon leveltip varMap で解決できなかった名前付き変数（{{ totaldamage }} 等）を
-  // CDragon effectAmounts の key と大文字小文字を無視して照合して解決する。
-  // 解決できなかったものは buildSkill の hasUnresolved チェック用にそのまま残す。
-  if (cdData) {
-    const cdKeys = Object.keys(cdData.effectAmounts);
-    s = s.replace(/\{\{\s*(\w+)\s*\}\}/g, (_match, raw) => {
-      const lower = raw.toLowerCase();
-      const found = cdKeys.find(k => k.toLowerCase() === lower);
-      return found ? formatEffectValues(cdData.effectAmounts[found]) : _match;
-    });
-  }
-
-  // ── 2-6: 解決できなかった @var@ を除去（{{ }} は buildSkill で処理） ──
+  // ── 2-5: 解決できなかった @var@ を除去（{{ }} は buildSkill で処理） ──
   s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
 
   return s;
