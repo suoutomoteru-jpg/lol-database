@@ -325,9 +325,10 @@ function buildSkill(
   // ── デバッグ（W スキルのみ）──
   if (key === 'W') {
     console.log('[DBG] W hasUnresolved:', hasUnresolved);
+    console.log('[DBG] W leveltip.effect:', spell.leveltip?.effect);
+    console.log('[DBG] W effectBurn (first 6):', spell.effectBurn?.slice(0, 6));
     console.log('[DBG] W cdData:', cdData ? 'available' : 'NULL');
     console.log('[DBG] W effectAmounts keys:', cdData ? Object.keys(cdData.effectAmounts) : 'N/A');
-    console.log('[DBG] W dynamicDescription:', cdData?.dynamicDescription?.slice(0, 150) ?? 'EMPTY/MISSING');
   }
 
   let description: string;
