@@ -21,7 +21,12 @@ const CACHE_PREFIX = 'lol-cdragon:v3:default:';
 
 export interface CDragonSpellData {
   /**
-   * @Effect1Amount@ 形式のテンプレート（日本語）。
+   * テンプレートなしのシンプルな英語説明文（fallback 用）。
+   * dynamicDescription の変数が解決できない場合に使う。
+   */
+  description: string;
+  /**
+   * @Effect1Amount@ / @TotalDamage@ 等のテンプレート付き英語説明文。
    * effectAmounts で @var@ を解決することで完全なツールチップが得られる。
    */
   dynamicDescription: string;
@@ -80,13 +85,11 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
         const key = String(spell.spellKey ?? '').toUpperCase();
         if (!key) continue;
 
-        // ── デバッグ: W スペルの生データを全フィールド確認 ──
-        if (key === 'W') {
-          console.log('[CDragon RAW W] all keys:', Object.keys(spell));
-          console.log('[CDragon RAW W] full object:', JSON.stringify(spell).slice(0, 2000));
-        }
 
         result[key] = {
+          description: typeof spell.description === 'string'
+            ? spell.description
+            : '',
           dynamicDescription: typeof spell.dynamicDescription === 'string'
             ? spell.dynamicDescription
             : '',

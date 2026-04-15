@@ -322,25 +322,43 @@ function buildSkill(
   const cdData = cdSpells?.[key];
   const hasUnresolved = /\{\{\s*\w+\s*\}\}/.test(tooltip);
 
-  // ── デバッグ（W スキルのみ）──
-  if (key === 'W') {
-    console.log('[DBG] W hasUnresolved:', hasUnresolved);
-    console.log('[DBG] W leveltip.effect:', spell.leveltip?.effect);
-    console.log('[DBG] W effectBurn (first 6):', spell.effectBurn?.slice(0, 6));
-    console.log('[DBG] W cdData:', cdData ? 'available' : 'NULL');
-    console.log('[DBG] W effectAmounts keys:', cdData ? Object.keys(cdData.effectAmounts) : 'N/A');
-  }
 
   let description: string;
-  if (hasUnresolved && cdData?.dynamicDescription) {
-    // CDragon dynamicDescription を effectAmounts で解決
-    let cdDesc = cdData.dynamicDescription;
-    cdDesc = resolveAtVarTemplates(cdDesc, key, spell, cdSpells);
-    cdDesc = cdDesc.replace(/\{\{[^}]*\}\}/g, '');
-    if (key === 'W') console.log('[DBG] W cdDesc after resolve:', cdDesc.slice(0, 200));
-    description = processTooltipHtml(cdDesc);
+  if (hasUnresolved && cdData) {
+    // CDragon dynamicDescription の @var@ が解決可能かチェックする。
+    // @Effect\d+Amount@, @CooldownBurn@, @ResourceBurn@, @f\d+@ は解決できる。
+    // それ以外は effectAmounts に存在するキーかどうかで判断する。
+    const canResolveAll = (desc: string): boolean => {
+      const matches = desc.match(/@(\w+)(?:\*\d+(?:\.\d+)?)?@/g) ?? [];
+      return matches.every(m => {
+        const name = m.replace(/^@/, '').replace(/@.*$/, '').replace(/\*.*$/, '');
+        return (
+          /^Effect\d+Amount$/i.test(name) ||
+          /^CooldownBurn$/i.test(name) ||
+          /^ResourceBurn$/i.test(name) ||
+          /^f\d+$/i.test(name) ||
+          !!(cdData.effectAmounts[name]?.length)
+        );
+      });
+    };
+
+    if (cdData.dynamicDescription && canResolveAll(cdData.dynamicDescription)) {
+      // dynamicDescription の全変数が解決可能 → 解決して使用
+      let cdDesc = cdData.dynamicDescription;
+      cdDesc = resolveAtVarTemplates(cdDesc, key, spell, cdSpells);
+      cdDesc = cdDesc.replace(/\{\{[^}]*\}\}/g, '');
+      description = processTooltipHtml(cdDesc);
+    } else if (cdData.description) {
+      // dynamicDescription に解決不能な変数がある（例: @TotalDamage@ は AD依存計算値）
+      // → CDragon の plain description（シンプルな英語）を使用
+      description = processTooltipHtml(cdData.description);
+    } else {
+      // CDragon にも説明がない → DDragon tooltip の {{ }} を除去して使用
+      const clean = tooltip.replace(/\{\{[^}]*\}\}/g, '');
+      description = processTooltipHtml(clean);
+    }
   } else {
-    // 残った {{ }} を除去して DDragon tooltip を使用
+    // 未解決変数なし → DDragon tooltip をそのまま使用
     const clean = tooltip.replace(/\{\{[^}]*\}\}/g, '');
     description = processTooltipHtml(clean);
   }
