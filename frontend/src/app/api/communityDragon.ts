@@ -80,6 +80,12 @@ export async function fetchCDragonSpells(numericId: string): Promise<CDragonCham
         const key = String(spell.spellKey ?? '').toUpperCase();
         if (!key) continue;
 
+        // ── デバッグ: W スペルの生データを全フィールド確認 ──
+        if (key === 'W') {
+          console.log('[CDragon RAW W] all keys:', Object.keys(spell));
+          console.log('[CDragon RAW W] full object:', JSON.stringify(spell).slice(0, 2000));
+        }
+
         result[key] = {
           dynamicDescription: typeof spell.dynamicDescription === 'string'
             ? spell.dynamicDescription
