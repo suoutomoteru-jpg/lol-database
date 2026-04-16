@@ -101,7 +101,9 @@ function buildWikiVarMap(
   const effects = spell.leveltip?.effect ?? [];
 
   for (let i = 0; i < effects.length; i++) {
-    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/);
+    // leveltip.effect は "{{ totaldamage }}" 形式と "@TotalDamage@" 形式の両方あり得る
+    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
+           ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
     if (!m || !labels[i]) continue;
 
     const varname    = m[1].toLowerCase();
@@ -136,10 +138,20 @@ function resolveDDragonTemplates(
     const name = raw.toLowerCase();
 
     const eM = name.match(/^e(\d+)$/);
-    if (eM) return getEffectBurn(spell, parseInt(eM[1], 10));
+    if (eM) {
+      const burn = getEffectBurn(spell, parseInt(eM[1], 10));
+      if (burn !== '') return burn;
+      if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
+      return '';
+    }
 
     const fM = name.match(/^f(\d+)$/);
-    if (fM) return getEffectBurn(spell, parseInt(fM[1], 10));
+    if (fM) {
+      const burn = getEffectBurn(spell, parseInt(fM[1], 10));
+      if (burn !== '') return burn;
+      if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
+      return '';
+    }
 
     const aM = name.match(/^a(\d+)$/);
     if (aM) {
@@ -172,7 +184,11 @@ function resolveDDragonTemplates(
 // Step 2: @var@ 形式のテンプレート解決
 // ════════════════════════════════════════════════════════
 
-function resolveAtVarTemplates(s: string, spell: DDragonSpell): string {
+function resolveAtVarTemplates(
+  s: string,
+  spell: DDragonSpell,
+  wikiVarMap: Map<string, string>,
+): string {
   const burns = spell.effectBurn ?? [];
 
   // @Effect{N}Amount@ → effectBurn[N]
@@ -201,8 +217,23 @@ function resolveAtVarTemplates(s: string, spell: DDragonSpell): string {
     return val;
   });
 
-  // 解決できなかった @var@ を除去
-  s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
+  // 解決できなかった @var@ を Wiki データで補完、なければ除去
+  // （@TotalDamage@ など DDragon 標準パターン以外の変数名に対応）
+  s = s.replace(/@(\w+)(?:\*(\d+(?:\.\d+)?))?@/g, (_, varName, mult) => {
+    const key = varName.toLowerCase();
+    const wikiVal = wikiVarMap.get(key);
+    if (wikiVal) {
+      if (mult) {
+        const m = parseFloat(mult);
+        return wikiVal.split('/').map(v => {
+          const num = parseFloat(v);
+          return isNaN(num) ? v : String(Math.round(num * m));
+        }).join('/');
+      }
+      return wikiVal;
+    }
+    return ''; // 解決できない場合は除去
+  });
 
   return s;
 }
@@ -303,8 +334,8 @@ function buildSkill(
 
   // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は Wiki 値でフォールバック）
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
-  // Step 2: @var@ 解決
-  tooltip = resolveAtVarTemplates(tooltip, spell);
+  // Step 2: @var@ 解決（未解決の @var@ は Wiki データで補完）
+  tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
   // 未解決変数を除去
   tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, '');
 
