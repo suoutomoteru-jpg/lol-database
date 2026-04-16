@@ -98,6 +98,32 @@ function SkillBlock({ skill }: { skill: SkillData }) {
           )}
         </div>
       )}
+
+      {/* Wiki 数値情報（ダメージ・スケーリング） */}
+      {skill.leveling && skill.leveling.length > 0 && (
+        <div className="mt-6">
+          <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wider">数値情報</p>
+          <div className="bg-muted/20 rounded-xl border border-border overflow-hidden">
+            <table className="w-full text-sm">
+              <tbody>
+                {skill.leveling.map((stat, i) => (
+                  <tr
+                    key={i}
+                    className={i % 2 === 0 ? 'bg-transparent' : 'bg-muted/20'}
+                  >
+                    <td className="px-4 py-2.5 text-muted-foreground font-medium w-2/5 whitespace-nowrap">
+                      {stat.label}
+                    </td>
+                    <td className="px-4 py-2.5 text-foreground font-mono">
+                      {stat.value}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
