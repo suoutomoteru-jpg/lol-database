@@ -78,7 +78,53 @@ function buildLeveltipVarMap(spell: DDragonSpell): Map<string, number> {
   return map;
 }
 
-function resolveDDragonTemplates(tooltip: string, spell: DDragonSpell, partype: string): string {
+/**
+ * leveltip のラベルと Wiki leveling データを照合し、
+ * DDragon 変数名 → Wiki 値のマップを構築する。
+ *
+ * 仕組み:
+ *   leveltip.effect[i] = "{{ totaldamage }}"  ← DDragon 変数名
+ *   leveltip.label[i]  = "Physical Damage"    ← 人間可読ラベル
+ *   wiki.leveling[j]   = { label: "Physical Damage", value: "60/95/130/165/200 (+ 100% bonus AD)" }
+ *   → map.set("totaldamage", "60/95/130/165/200 (+ 100% bonus AD)")
+ *
+ * ラベルの照合は case-insensitive で、部分一致も許容する。
+ */
+function buildWikiVarMap(
+  spell: DDragonSpell,
+  wikiData: WikiSpellData | undefined,
+): Map<string, string> {
+  const map = new Map<string, string>();
+  if (!wikiData?.leveling?.length) return map;
+
+  const labels  = spell.leveltip?.label  ?? [];
+  const effects = spell.leveltip?.effect ?? [];
+
+  for (let i = 0; i < effects.length; i++) {
+    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/);
+    if (!m || !labels[i]) continue;
+
+    const varname    = m[1].toLowerCase();
+    const ddLabelLow = labels[i].toLowerCase();
+
+    // case-insensitive で部分一致（"Physical Damage Per Arrow" ↔ "Physical Damage" など）
+    const stat = wikiData.leveling.find(s => {
+      const wLow = s.label.toLowerCase();
+      return wLow === ddLabelLow || ddLabelLow.includes(wLow) || wLow.includes(ddLabelLow);
+    });
+
+    if (stat) map.set(varname, stat.value);
+  }
+
+  return map;
+}
+
+function resolveDDragonTemplates(
+  tooltip: string,
+  spell: DDragonSpell,
+  partype: string,
+  wikiVarMap: Map<string, string>,
+): string {
   const vars   = spell.vars ?? [];
   const varMap = buildLeveltipVarMap(spell);
   let s = tooltip;
@@ -103,9 +149,18 @@ function resolveDDragonTemplates(tooltip: string, spell: DDragonSpell, partype: 
       return `${Math.round(coeff * 100)}%`;
     }
 
+    // 名前付き変数 → leveltip varMap 経由で effectBurn を引く
     if (varMap.has(name)) {
-      return getEffectBurn(spell, varMap.get(name)!);
+      const burn = getEffectBurn(spell, varMap.get(name)!);
+      // effectBurn に値がある場合はそれを優先
+      if (burn !== '') return burn;
+      // effectBurn が空（AD/AP スケーリングのみ等）→ Wiki 値でフォールバック
+      if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
+      return '';
     }
+
+    // Wiki 変数マップで直接解決を試みる
+    if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
 
     return _match;
   });
@@ -243,8 +298,11 @@ function buildSkill(
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
 
-  // Step 1: DDragon {{ }} 解決
-  let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
+  // Wiki 変数マップ: leveltip ラベル ↔ Wiki leveling を照合
+  const wikiVarMap = buildWikiVarMap(spell, wikiData);
+
+  // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は Wiki 値でフォールバック）
+  let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
   // Step 2: @var@ 解決
   tooltip = resolveAtVarTemplates(tooltip, spell);
   // 未解決変数を除去
