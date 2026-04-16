@@ -100,14 +100,13 @@ function buildWikiVarMap(
   const labels  = spell.leveltip?.label  ?? [];
   const effects = spell.leveltip?.effect ?? [];
 
-  // ── DEBUG ──────────────────────────────────────────
-  console.debug(`[WikiVarMap] ${spell.name}`, {
+  console.warn(`[WikiVarMap] ${spell.name}`, {
     leveltipLabels:  labels,
     leveltipEffects: effects,
     wikiLeveling:    wikiData.leveling,
   });
-  // ───────────────────────────────────────────────────
 
+  // ── 一次マッチ: leveltip ラベル経由 ──────────────────
   for (let i = 0; i < effects.length; i++) {
     // leveltip.effect は "{{ totaldamage }}" 形式と "@TotalDamage@" 形式の両方あり得る
     const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
@@ -123,11 +122,11 @@ function buildWikiVarMap(
       return wLow === ddLabelLow || ddLabelLow.includes(wLow) || wLow.includes(ddLabelLow);
     });
 
-    console.debug(`[WikiVarMap]  effect[${i}]="${effects[i]}" varname="${varname}" ddLabel="${labels[i]}" → matched=${!!stat}`);
+    console.warn(`[WikiVarMap]  effect[${i}]="${effects[i]}" varname="${varname}" ddLabel="${labels[i]}" → matched=${!!stat}`);
     if (stat) map.set(varname, stat.value);
   }
 
-  console.debug(`[WikiVarMap] result:`, Object.fromEntries(map));
+  console.warn(`[WikiVarMap] result:`, Object.fromEntries(map));
   return map;
 }
 
@@ -342,18 +341,14 @@ function buildSkill(
   // Wiki 変数マップ: leveltip ラベル ↔ Wiki leveling を照合
   const wikiVarMap = buildWikiVarMap(spell, wikiData);
 
-  // ── DEBUG ──────────────────────────────────────────
-  console.debug(`[buildSkill] ${key} raw tooltip:`, spell.tooltip.slice(0, 200));
-  // ───────────────────────────────────────────────────
+  console.warn(`[buildSkill] ${key} raw tooltip:`, spell.tooltip.slice(0, 300));
 
   // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は Wiki 値でフォールバック）
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
   // Step 2: @var@ 解決（未解決の @var@ は Wiki データで補完）
   tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
 
-  // ── DEBUG ──────────────────────────────────────────
-  console.debug(`[buildSkill] ${key} after resolve:`, tooltip.slice(0, 300));
-  // ───────────────────────────────────────────────────
+  console.warn(`[buildSkill] ${key} after resolve:`, tooltip.slice(0, 300));
 
   // 未解決変数を除去
   tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, '');
