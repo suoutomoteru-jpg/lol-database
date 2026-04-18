@@ -112,6 +112,8 @@ function buildWikiVarMap(
     ['truedamage',     ['true damage']],
     ['healing',        ['heal', 'restore']],
     ['shield',         ['shield']],
+    ['attackspeed',    ['attack speed', 'bonus attack speed']],
+    ['speed',          ['movement speed', 'move speed']],
   ];
 
   for (const [tagName, keywords] of TAG_KEYWORDS) {

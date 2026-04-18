@@ -53,26 +53,32 @@ export type WikiChampionSpells = Record<string, WikiSpellData>;
  */
 export function toWikiName(ddId: string): string {
   const SPECIAL: Record<string, string> = {
+    // スペース区切り
     AurelionSol:  'Aurelion Sol',
+    DrMundo:      'Dr. Mundo',
+    JarvanIV:     'Jarvan IV',
+    LeeSin:       'Lee Sin',
+    MasterYi:     'Master Yi',
+    MissFortune:  'Miss Fortune',
+    RenataGlasc:  'Renata Glasc',
+    Renata:       'Renata Glasc',
+    TahmKench:    'Tahm Kench',
+    TwistedFate:  'Twisted Fate',
+    XinZhao:      'Xin Zhao',
+    // アポストロフィ
     Belveth:      "Bel'Veth",
     BelVeth:      "Bel'Veth",
     Chogath:      "Cho'Gath",
-    DrMundo:      'Dr. Mundo',
-    JarvanIV:     'Jarvan IV',
     Kaisa:        "Kai'Sa",
     Khazix:       "Kha'Zix",
     KogMaw:       "Kog'Maw",
     Ksante:       "K'Sante",
-    LeeSin:       'Lee Sin',
-    MasterYi:     'Master Yi',
-    MissFortune:  'Miss Fortune',
-    MonkeyKing:   'Wukong',
-    NunuWillump:  'Nunu & Willump',
     RekSai:       "Rek'Sai",
-    TahmKench:    'Tahm Kench',
-    TwistedFate:  'Twisted Fate',
     Velkoz:       "Vel'Koz",
-    XinZhao:      'Xin Zhao',
+    // DDragon 独自 ID → 現在の名前
+    MonkeyKing:   'Wukong',
+    Nunu:         'Nunu & Willump',
+    NunuWillump:  'Nunu & Willump',
   };
   return SPECIAL[ddId] ?? ddId;
 }
@@ -152,8 +158,9 @@ function resolveWikiValue(raw: string, maxrank: number): string {
  * ネストは1段階まで（st 内の ap/as）を処理できる。
  */
 function parseLeveling(wikitext: string, maxrank: number): WikiLevelingStat[] {
-  // |leveling = ... セクションを抽出（次の | まで）
-  const sectionMatch = wikitext.match(/\|\s*leveling\s*=\s*([\s\S]*?)(?=\n\s*\|[a-z]|\n\s*\}\}|$)/i);
+  // |leveling = ... セクションを抽出（次のパラメータ行 or テンプレート閉じ まで）
+  // ルーズに抽出してから {{st|...}} だけを拾う（大文字小文字・スペース違い対応）
+  const sectionMatch = wikitext.match(/\|\s*leveling\s*=\s*([\s\S]*?)(?=\n\s*\||\n\s*\}\}|$)/i);
   if (!sectionMatch) return [];
 
   const section = sectionMatch[1];
