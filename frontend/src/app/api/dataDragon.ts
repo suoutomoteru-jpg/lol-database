@@ -213,6 +213,17 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
     );
   });
 
-  writeCache(key, filtered);
-  return filtered;
+  // 同名アイテムの重複除去（ID の小さい方を正規版として採用）
+  const nameMap = new Map<string, [string, DDragonItem]>();
+  for (const entry of filtered) {
+    const [id, item] = entry;
+    const existing = nameMap.get(item.name);
+    if (!existing || parseInt(id) < parseInt(existing[0])) {
+      nameMap.set(item.name, entry);
+    }
+  }
+  const deduplicated = Array.from(nameMap.values());
+
+  writeCache(key, deduplicated);
+  return deduplicated;
 }

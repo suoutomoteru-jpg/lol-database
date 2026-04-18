@@ -116,17 +116,34 @@ function buildWikiVarMap(
     ['speed',          ['movement speed', 'move speed']],
   ];
 
-  for (const [tagName, keywords] of TAG_KEYWORDS) {
-    const tagRe = new RegExp(`<${tagName}>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
-    let tm: RegExpExecArray | null;
-    while ((tm = tagRe.exec(spell.tooltip)) !== null) {
-      const varname = tm[1].toLowerCase();
-      if (map.has(varname)) continue;
+  const assignFromTag = (varname: string, keywords: string[]) => {
+    if (map.has(varname)) return;
+    for (const kw of keywords) {
+      const stat = wikiData.leveling.find(s => s.label.toLowerCase().includes(kw));
+      if (stat) { map.set(varname, stat.value); return; }
+    }
+  };
 
-      for (const kw of keywords) {
-        const stat = wikiData.leveling.find(s => s.label.toLowerCase().includes(kw));
-        if (stat) { map.set(varname, stat.value); break; }
-      }
+  for (const [tagName, keywords] of TAG_KEYWORDS) {
+    // {{ var }} 形式
+    const tagRe1 = new RegExp(`<${tagName}>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
+    let m1: RegExpExecArray | null;
+    while ((m1 = tagRe1.exec(spell.tooltip)) !== null) {
+      assignFromTag(m1[1].toLowerCase(), keywords);
+    }
+
+    // @VarName@ 形式（大文字含む）
+    const tagRe2 = new RegExp(`<${tagName}>[^<]*@([A-Za-z]\\w*)(?:\\*[\\d.]+)?@`, 'gi');
+    let m2: RegExpExecArray | null;
+    while ((m2 = tagRe2.exec(spell.tooltip)) !== null) {
+      assignFromTag(m2[1].toLowerCase(), keywords);
+    }
+
+    // @Effect{N}Amount@ 形式 → 合成キー 'e{N}'（effectBurn 空白時のフォールバック用）
+    const tagRe3 = new RegExp(`<${tagName}>[^<]*@Effect(\\d+)Amount(?:\\*[\\d.]+)?@`, 'gi');
+    let m3: RegExpExecArray | null;
+    while ((m3 = tagRe3.exec(spell.tooltip)) !== null) {
+      assignFromTag(`e${m3[1]}`, keywords);
     }
   }
 
@@ -220,13 +237,17 @@ function resolveAtVarTemplates(
 ): string {
   const burns = spell.effectBurn ?? [];
 
-  // @Effect{N}Amount@ → effectBurn[N]
+  // @Effect{N}Amount@ → effectBurn[N]、空の場合は wiki フォールバック
   s = s.replace(/@Effect(\d+)Amount(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
-    const val = burns[parseInt(n, 10)];
-    if (val == null || val === '') return '';
+    const idx = parseInt(n, 10);
+    const val = burns[idx] || wikiVarMap.get(`e${idx}`) || '';
+    if (!val) return '';
     if (mult) {
       const m = parseFloat(mult);
-      return val.split('/').map(v => String(Math.round(parseFloat(v) * m))).join('/');
+      return val.split('/').map(v => {
+        const num = parseFloat(v);
+        return isNaN(num) ? v : String(Math.round(num * m));
+      }).join('/');
     }
     return val;
   });

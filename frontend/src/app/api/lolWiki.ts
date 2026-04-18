@@ -252,7 +252,8 @@ export async function fetchWikiChampionSpells(
 ): Promise<WikiChampionSpells | null> {
   const cacheKey = `${CACHE_PREFIX}${championId}`;
   const cached   = readCache<WikiChampionSpells>(cacheKey);
-  if (cached) return cached;
+  // 空のキャッシュ（以前の取得が失敗した場合）は無視して再取得する
+  if (cached && Object.keys(cached).length > 0) return cached;
 
   const wikiName = toWikiName(championId);
   const result: WikiChampionSpells = {};
@@ -278,6 +279,9 @@ export async function fetchWikiChampionSpells(
     }),
   );
 
-  writeCache(cacheKey, result);
+  // 結果が空の場合はキャッシュしない（次回ロード時に再取得できるように）
+  if (Object.keys(result).length > 0) {
+    writeCache(cacheKey, result);
+  }
   return result;
 }
