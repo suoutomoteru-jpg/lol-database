@@ -100,33 +100,51 @@ function buildWikiVarMap(
   const labels  = spell.leveltip?.label  ?? [];
   const effects = spell.leveltip?.effect ?? [];
 
-  console.warn(`[WikiVarMap] ${spell.name}`, {
-    leveltipLabels:  labels,
-    leveltipEffects: effects,
-    wikiLeveling:    wikiData.leveling,
-  });
+  // ── アプローチ1: tooltip の HTML タグから変数名を推論 ─────────────
+  //
+  // DDragon leveltip ラベルは日本語（"ダメージ"）になっており wiki の英語ラベルと
+  // 一致しない。またスペル名によって変数名が異なる（totaldamage / rmaindamage 等）。
+  // そこで tooltip 内の <physicalDamage>{{ totaldamage }}</physicalDamage> のような
+  // HTML タグを手がかりに「この変数はこのダメージ種別」と推論する。
+  const TAG_KEYWORDS: [string, string[]][] = [
+    ['physicaldamage', ['physical damage', 'physical']],
+    ['magicdamage',    ['magic damage', 'magic']],
+    ['truedamage',     ['true damage']],
+    ['healing',        ['heal', 'restore']],
+    ['shield',         ['shield']],
+  ];
 
-  // ── 一次マッチ: leveltip ラベル経由 ──────────────────
+  for (const [tagName, keywords] of TAG_KEYWORDS) {
+    const tagRe = new RegExp(`<${tagName}>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
+    let tm: RegExpExecArray | null;
+    while ((tm = tagRe.exec(spell.tooltip)) !== null) {
+      const varname = tm[1].toLowerCase();
+      if (map.has(varname)) continue;
+
+      for (const kw of keywords) {
+        const stat = wikiData.leveling.find(s => s.label.toLowerCase().includes(kw));
+        if (stat) { map.set(varname, stat.value); break; }
+      }
+    }
+  }
+
+  // ── アプローチ2: leveltip ラベル経由（英語 DDragon の場合のみ有効） ─
   for (let i = 0; i < effects.length; i++) {
-    // leveltip.effect は "{{ totaldamage }}" 形式と "@TotalDamage@" 形式の両方あり得る
     const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
            ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
     if (!m || !labels[i]) continue;
 
     const varname    = m[1].toLowerCase();
-    const ddLabelLow = labels[i].toLowerCase();
+    if (map.has(varname)) continue;
 
-    // case-insensitive で部分一致（"Physical Damage Per Arrow" ↔ "Physical Damage" など）
+    const ddLabelLow = labels[i].toLowerCase();
     const stat = wikiData.leveling.find(s => {
       const wLow = s.label.toLowerCase();
       return wLow === ddLabelLow || ddLabelLow.includes(wLow) || wLow.includes(ddLabelLow);
     });
-
-    console.warn(`[WikiVarMap]  effect[${i}]="${effects[i]}" varname="${varname}" ddLabel="${labels[i]}" → matched=${!!stat}`);
     if (stat) map.set(varname, stat.value);
   }
 
-  console.warn(`[WikiVarMap] result:`, Object.fromEntries(map));
   return map;
 }
 
@@ -341,14 +359,10 @@ function buildSkill(
   // Wiki 変数マップ: leveltip ラベル ↔ Wiki leveling を照合
   const wikiVarMap = buildWikiVarMap(spell, wikiData);
 
-  console.warn(`[buildSkill] ${key} raw tooltip:`, spell.tooltip.slice(0, 300));
-
   // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は Wiki 値でフォールバック）
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
   // Step 2: @var@ 解決（未解決の @var@ は Wiki データで補完）
   tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
-
-  console.warn(`[buildSkill] ${key} after resolve:`, tooltip.slice(0, 300));
 
   // 未解決変数を除去
   tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, '');
