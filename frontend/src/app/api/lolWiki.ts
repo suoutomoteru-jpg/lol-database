@@ -270,9 +270,16 @@ export async function fetchWikiChampionSpells(
         wikitext = await fetchWikitext(titleByName).catch(() => null);
       }
 
-      if (!wikitext) return;
+      if (!wikitext) {
+        console.warn(`[Wiki] ${championId} ${key}: wikitextが見つかりません`);
+        return;
+      }
+
+      console.warn(`[Wiki] ${championId} ${key} raw wikitext (先頭500文字):\n`, wikitext.slice(0, 500));
 
       const leveling = parseLeveling(wikitext, maxrank);
+      console.warn(`[Wiki] ${championId} ${key} leveling結果:`, leveling);
+
       if (leveling.length > 0) {
         result[key] = { leveling };
       }

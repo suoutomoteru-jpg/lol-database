@@ -164,6 +164,9 @@ function buildWikiVarMap(
     if (stat) map.set(varname, stat.value);
   }
 
+  console.warn('[WikiVarMap] wikiData.leveling:', wikiData.leveling);
+  console.warn('[WikiVarMap] tooltip snippet:', spell.tooltip.slice(0, 300));
+  console.warn('[WikiVarMap] 構築結果:', Object.fromEntries(map));
   return map;
 }
 
