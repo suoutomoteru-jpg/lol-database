@@ -96,7 +96,7 @@ export function ItemDetail() {
     <div className="min-h-screen bg-background">
       {/* 戻るボタン */}
       <div className="border-b border-border">
-        <div className="container mx-auto px-4 py-3 max-w-2xl">
+        <div className="container mx-auto px-4 py-3 max-w-5xl">
           <Link
             to="/"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -107,7 +107,7 @@ export function ItemDetail() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-2xl space-y-4">
+      <div className="container mx-auto px-4 py-8 max-w-5xl space-y-4">
 
         {/* ── ヘッダー ── */}
         <div className="flex items-center gap-4">

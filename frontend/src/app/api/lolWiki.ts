@@ -275,7 +275,13 @@ export async function fetchWikiChampionSpells(
         return;
       }
 
-      console.warn(`[Wiki] ${championId} ${key} raw wikitext (先頭500文字):\n`, wikitext.slice(0, 500));
+      // levelingセクションを直接検索してログに出す
+      const levelingIdx = wikitext.search(/\|\s*leveling\s*=/i);
+      if (levelingIdx === -1) {
+        console.warn(`[Wiki] ${championId} ${key}: |levelingパラメータなし（ダメージがランクで変わらない可能性）`);
+      } else {
+        console.warn(`[Wiki] ${championId} ${key} levelingセクション内容:\n`, wikitext.slice(levelingIdx, levelingIdx + 600));
+      }
 
       const leveling = parseLeveling(wikitext, maxrank);
       console.warn(`[Wiki] ${championId} ${key} leveling結果:`, leveling);
