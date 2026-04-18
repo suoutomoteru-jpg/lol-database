@@ -167,6 +167,25 @@ export async function fetchChampionDetail(version: string, championId: string): 
   return data;
 }
 
+// ── アイテム全件（生データ）────────────────────────────
+
+/**
+ * item.json の全アイテムをフィルタなしで返す（ビルドパス参照用）
+ */
+export async function fetchAllItemsRaw(version: string): Promise<Record<string, DDragonItem>> {
+  const key = dataKey(version, 'items-all');
+  const cached = readCache<Record<string, DDragonItem>>(key);
+  if (cached) return cached;
+
+  const url = `${BASE_URL}/cdn/${version}/data/${LOCALE}/item.json`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`item.json fetch failed: ${res.status}`);
+
+  const json = await res.json() as { data: Record<string, DDragonItem> };
+  writeCache(key, json.data);
+  return json.data;
+}
+
 // ── アイテム一覧 ────────────────────────────────────────
 
 /**

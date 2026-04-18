@@ -107,10 +107,10 @@ function buildWikiVarMap(
   // そこで tooltip 内の <physicalDamage>{{ totaldamage }}</physicalDamage> のような
   // HTML タグを手がかりに「この変数はこのダメージ種別」と推論する。
   const TAG_KEYWORDS: [string, string[]][] = [
-    ['physicaldamage', ['physical damage', 'physical']],
-    ['magicdamage',    ['magic damage', 'magic']],
-    ['truedamage',     ['true damage']],
-    ['healing',        ['heal', 'restore']],
+    ['physicaldamage', ['physical damage', 'physical', 'damage']],
+    ['magicdamage',    ['magic damage', 'magic', 'damage']],
+    ['truedamage',     ['true damage', 'damage']],
+    ['healing',        ['heal', 'restore', 'health']],
     ['shield',         ['shield']],
     ['attackspeed',    ['attack speed', 'bonus attack speed']],
     ['speed',          ['movement speed', 'move speed']],
