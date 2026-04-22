@@ -1,29 +1,47 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Link, useParams } from 'react-router';
 import { ArrowLeft, X } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
 import { useItemsByStats, type ItemSummary } from '../hooks/useItemsByStats';
 
-const STAT_LABELS: Record<string, string> = {
-  FlatPhysicalDamageMod:      'Attack Damage',
-  FlatMagicDamageMod:         'Ability Power',
-  FlatArmorMod:               'Armor',
-  FlatSpellBlockMod:          'Magic Resistance',
-  FlatHPPoolMod:              'Health',
-  FlatMPPoolMod:              'Mana',
-  FlatMovementSpeedMod:       'Movement Speed',
-  FlatCritChanceMod:          'Critical Strike Chance',
-  PercentAttackSpeedMod:      'Attack Speed',
-  PercentLifeStealMod:        'Life Steal',
-  FlatHPRegenMod:             'HP Regen',
-  FlatMPRegenMod:             'Mana Regen',
-  PercentMovementSpeedMod:    '% Movement Speed',
-  FlatGoldPer10Mod:           'Gold Per 10s',
-  FlatArmorPenetrationMod:    'Armor Penetration',
-  PercentArmorPenetrationMod: '% Armor Penetration',
-};
+// ── 日本語キーワード → stat/tag キー対応表 ─────────────
+// 長いものを先に並べる（部分マッチ防止）
 
-// ── ステータスポップアップ ──────────────────────────────
+const KEYWORD_DEFS: Array<{ text: string; key: string }> = [
+  { text: 'ライフスティール', key: 'stat:PercentLifeStealMod' },
+  { text: 'スキルヘイスト',  key: 'tag:AbilityHaste' },
+  { text: 'クリティカル率',  key: 'stat:FlatCritChanceMod' },
+  { text: '体力回復',        key: 'stat:FlatHPRegenMod' },
+  { text: 'マナ回復',        key: 'stat:FlatMPRegenMod' },
+  { text: '魔法防御',        key: 'stat:FlatSpellBlockMod' },
+  { text: '移動速度',        key: 'stat:FlatMovementSpeedMod' },
+  { text: '攻撃速度',        key: 'stat:PercentAttackSpeedMod' },
+  { text: '攻撃力',          key: 'stat:FlatPhysicalDamageMod' },
+  { text: '魔力',            key: 'stat:FlatMagicDamageMod' },
+  { text: 'アーマー',        key: 'stat:FlatArmorMod' },
+  { text: '体力',            key: 'stat:FlatHPPoolMod' },
+  { text: 'マナ',            key: 'stat:FlatMPPoolMod' },
+];
+
+const KW_PATTERN = new RegExp(
+  KEYWORD_DEFS.map(d => d.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
+  'g',
+);
+const KW_MAP = new Map(KEYWORD_DEFS.map(d => [d.text, d.key]));
+
+// ── HTML テキストノードにクリッカブルスパンを注入 ────────
+
+function injectStatLinks(html: string): string {
+  return html.split(/(<[^>]+>)/).map(part => {
+    if (part.startsWith('<')) return part;
+    return part.replace(KW_PATTERN, kw => {
+      const key = KW_MAP.get(kw);
+      return key ? `<span data-stat="${key}" class="stat-keyword">${kw}</span>` : kw;
+    });
+  }).join('');
+}
+
+// ── ステータスポップアップ ─────────────────────────────
 
 function StatPopup({
   label,
@@ -44,7 +62,6 @@ function StatPopup({
         style={{ maxHeight: '70vh' }}
         onClick={e => e.stopPropagation()}
       >
-        {/* ヘッダー */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-border flex-shrink-0">
           <span className="text-sm font-medium text-foreground">{label}</span>
           <button
@@ -55,7 +72,6 @@ function StatPopup({
           </button>
         </div>
 
-        {/* アイテム一覧 */}
         {items.length === 0 ? (
           <p className="px-4 py-8 text-sm text-muted-foreground text-center">該当アイテムなし</p>
         ) : (
@@ -65,15 +81,15 @@ function StatPopup({
                 key={it.id}
                 to={`/item/${it.id}`}
                 onClick={onClose}
-                className="flex items-center justify-end gap-2.5 px-4 py-2 hover:bg-muted/30 transition-colors"
+                className="flex items-center gap-2.5 px-4 py-2 hover:bg-muted/30 transition-colors"
               >
-                <span className="text-sm text-foreground leading-tight">{it.name}</span>
                 <img
                   src={it.imageUrl}
                   alt={it.name}
                   className="w-8 h-8 rounded-lg border border-border flex-shrink-0"
                   loading="lazy"
                 />
+                <span className="text-sm text-foreground leading-tight">{it.name}</span>
               </Link>
             ))}
           </div>
@@ -116,13 +132,23 @@ function processItemDescription(raw: string): string {
   return s;
 }
 
-// ── メインページ ──────────────────────────────────────
+// ── メインページ ───────────────────────────────────────
 
 export function ItemDetail() {
   const { id } = useParams<{ id: string }>();
   const { item, loading, error } = useItem(id);
   const statMap = useItemsByStats();
   const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
+  const [activeLabel, setActiveLabel] = useState<string>('');
+
+  const handleDescClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const key = target.dataset.stat;
+    if (key) {
+      setActiveStatKey(key);
+      setActiveLabel(target.textContent ?? '');
+    }
+  }, []);
 
   if (loading) {
     return (
@@ -146,12 +172,10 @@ export function ItemDetail() {
     );
   }
 
-  const statEntries = Object.entries(item.stats).filter(([, v]) => v !== 0);
-  const description = processItemDescription(item.description);
+  const description = injectStatLinks(processItemDescription(item.description));
 
   return (
     <div className="min-h-screen bg-background">
-      {/* 戻るボタン */}
       <div className="border-b border-border">
         <div className="container mx-auto px-4 py-3 max-w-5xl">
           <Link
@@ -166,7 +190,7 @@ export function ItemDetail() {
 
       <div className="container mx-auto px-4 py-8 max-w-5xl space-y-4">
 
-        {/* ── ヘッダー ── */}
+        {/* ヘッダー */}
         <div className="flex items-center gap-4">
           <img
             src={item.imageUrl}
@@ -188,34 +212,18 @@ export function ItemDetail() {
           </div>
         </div>
 
-        {/* ── ステータスチップ（クリックで同stat一覧） ── */}
-        {statEntries.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {statEntries.map(([key]) => (
-              <button
-                key={key}
-                onClick={() => setActiveStatKey(key)}
-                className="px-3 py-1 text-xs bg-muted/40 border border-border rounded-full
-                           hover:border-primary/50 hover:bg-primary/5 hover:text-foreground
-                           transition-colors text-muted-foreground cursor-pointer"
-              >
-                {STAT_LABELS[key] ?? key}
-              </button>
-            ))}
-          </div>
-        )}
-
-        {/* ── 説明 ── */}
+        {/* 説明 — キーワードをクリックするとポップアップ表示 */}
         {description && (
           <div className="bg-card border border-border rounded-xl overflow-hidden">
             <div
               className="px-4 py-3 text-sm text-foreground leading-snug item-description"
               dangerouslySetInnerHTML={{ __html: description }}
+              onClick={handleDescClick}
             />
           </div>
         )}
 
-        {/* ── 材料・アップグレード ── */}
+        {/* 材料・アップグレード */}
         {(item.from.length > 0 || item.into.length > 0) && (
           <div className="bg-card border border-border rounded-xl overflow-hidden divide-y divide-border">
             {item.from.length > 0 && (
@@ -223,11 +231,7 @@ export function ItemDetail() {
                 <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">材料</p>
                 <div className="flex flex-wrap gap-3">
                   {item.from.map(comp => (
-                    <Link
-                      key={comp.id}
-                      to={`/item/${comp.id}`}
-                      className="flex items-center gap-2 group"
-                    >
+                    <Link key={comp.id} to={`/item/${comp.id}`} className="flex items-center gap-2 group">
                       <img
                         src={comp.imageUrl}
                         alt={comp.name}
@@ -247,11 +251,7 @@ export function ItemDetail() {
                 <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">アップグレード先</p>
                 <div className="flex flex-wrap gap-3">
                   {item.into.map(up => (
-                    <Link
-                      key={up.id}
-                      to={`/item/${up.id}`}
-                      className="flex items-center gap-2 group"
-                    >
+                    <Link key={up.id} to={`/item/${up.id}`} className="flex items-center gap-2 group">
                       <img
                         src={up.imageUrl}
                         alt={up.name}
@@ -269,12 +269,11 @@ export function ItemDetail() {
         )}
       </div>
 
-      {/* ── ステータスポップアップ ── */}
       {activeStatKey && (
         <StatPopup
-          label={STAT_LABELS[activeStatKey] ?? activeStatKey}
+          label={activeLabel}
           items={statMap.get(activeStatKey) ?? []}
-          onClose={() => setActiveStatKey(null)}
+          onClose={() => { setActiveStatKey(null); setActiveLabel(''); }}
         />
       )}
     </div>
