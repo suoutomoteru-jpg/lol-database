@@ -2,32 +2,6 @@ import { Link, useParams } from 'react-router';
 import { ArrowLeft } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
 
-const STAT_LABELS: Record<string, string> = {
-  FlatPhysicalDamageMod:      'Attack Damage',
-  FlatMagicDamageMod:         'Ability Power',
-  FlatArmorMod:               'Armor',
-  FlatSpellBlockMod:          'Magic Resistance',
-  FlatHPPoolMod:              'Health',
-  FlatMPPoolMod:              'Mana',
-  FlatMovementSpeedMod:       'Movement Speed',
-  FlatCritChanceMod:          'Critical Strike Chance',
-  PercentAttackSpeedMod:      'Attack Speed',
-  PercentLifeStealMod:        'Life Steal',
-  FlatHPRegenMod:             'HP Regen',
-  FlatMPRegenMod:             'Mana Regen',
-  PercentMovementSpeedMod:    '% Movement Speed',
-  FlatGoldPer10Mod:           'Gold Per 10s',
-  FlatArmorPenetrationMod:    'Armor Penetration',
-  PercentArmorPenetrationMod: '% Armor Penetration',
-};
-
-function formatStatValue(key: string, value: number): string {
-  if (key.startsWith('Percent') || key.includes('CritChance') || key.includes('LifeSteal')) {
-    return `+${Math.round(value * 100)}%`;
-  }
-  const v = value % 1 === 0 ? String(value) : value.toFixed(1);
-  return `+${v}`;
-}
 
 function processItemDescription(raw: string): string {
   let s = raw;
@@ -89,7 +63,6 @@ export function ItemDetail() {
     );
   }
 
-  const stats = Object.entries(item.stats).filter(([, v]) => v !== 0);
   const description = processItemDescription(item.description);
 
   return (
@@ -128,21 +101,8 @@ export function ItemDetail() {
           </div>
         </div>
 
-        {/* ── ステータス + 説明 ── */}
+        {/* ── 説明 ── */}
         <div className="bg-card border border-border rounded-xl overflow-hidden">
-          {/* Stats strip */}
-          {stats.length > 0 && (
-            <div className="px-4 py-3 border-b border-border grid grid-cols-2 gap-x-8 gap-y-1">
-              {stats.map(([key, value]) => (
-                <div key={key} className="flex items-center justify-between gap-2 text-sm">
-                  <span className="text-muted-foreground text-xs">{STAT_LABELS[key] ?? key}</span>
-                  <span className="text-foreground font-semibold font-mono text-xs" style={{color:'#C89B3C'}}>
-                    {formatStatValue(key, value)}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
 
           {/* Description */}
           {description && (

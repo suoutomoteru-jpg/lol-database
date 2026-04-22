@@ -124,13 +124,19 @@ function parseApTemplate(content: string, maxrank: number): string {
 /**
  * 値文字列内の Wiki テンプレートを解決する。
  *
+ * {{fd|X}}    → X（小数点表示テンプレート、ネスト解決のため最初に処理）
  * {{ap|...}}  → ランク毎の数値（線形補間または列挙）
  * {{as|(...)}} → スケーリング情報テキスト（括弧付き）
+ * {{sti|type|text}} → text
+ * {{tt|text|tooltip}} → text
  * '''bold'''  → 装飾除去
  * [[link]]    → テキスト抽出
  */
 function resolveWikiValue(raw: string, maxrank: number): string {
   let s = raw;
+
+  // {{fd|X}} → X（{{as|...}} 内のネストを解決するため最初に処理）
+  s = s.replace(/\{\{fd\|([^|{}]+)\}\}/gi, (_, x) => x.trim());
 
   // {{ap|...}} を解決
   s = s.replace(/\{\{ap\|([^}]+)\}\}/gi, (_, content) =>
@@ -138,6 +144,12 @@ function resolveWikiValue(raw: string, maxrank: number): string {
 
   // {{as|(...)}} → スケーリングテキスト
   s = s.replace(/\{\{as\|([^}]+)\}\}/gi, (_, content) => content.trim());
+
+  // {{sti|type|text}} → text（スタイル付きインライン）
+  s = s.replace(/\{\{sti\|[^|{}]+\|([^{}]*)\}\}/gi, (_, text) => text.trim());
+
+  // {{tt|text|tooltip}} → text
+  s = s.replace(/\{\{tt\|([^|{}]+)\|[^{}]*\}\}/gi, (_, text) => text.trim());
 
   // 残存する未知テンプレートを除去
   s = s.replace(/\{\{[^{}]*\}\}/g, '');
@@ -150,31 +162,32 @@ function resolveWikiValue(raw: string, maxrank: number): string {
 }
 
 /**
- * Wikitext の |leveling セクションから {{st|Label|Value}} 対を抽出する。
+ * Wikitext の |leveling / |leveling2 / |leveling3 ... セクションから
+ * {{st|Label|Value}} 対をすべて抽出する。
  *
- * st テンプレートのネスト構造:
- *   {{st|Label|{{ap|X to Y}} {{as|(+ N% stat)}}}}
- *
- * ネストは1段階まで（st 内の ap/as）を処理できる。
+ * st テンプレートのネスト構造（2段まで許容）:
+ *   {{st|Label|{{ap|X to Y}} {{as|(+ {{fd|N}}% stat)}}}}
  */
 function parseLeveling(wikitext: string, maxrank: number): WikiLevelingStat[] {
-  // |leveling = ... セクションを抽出（次のパラメータ行 or テンプレート閉じ まで）
-  // ルーズに抽出してから {{st|...}} だけを拾う（大文字小文字・スペース違い対応）
-  const sectionMatch = wikitext.match(/\|\s*leveling\s*=\s*([\s\S]*?)(?=\n\s*\||\n\s*\}\}|$)/i);
-  if (!sectionMatch) return [];
-
-  const section = sectionMatch[1];
   const stats: WikiLevelingStat[] = [];
 
-  // {{st|Label|Value}} にマッチ（Value はネスト1段階まで許容）
-  const stRegex = /\{\{st\|([^|{}]+)\|((?:[^{}]|\{\{[^{}]*\}\})*)\}\}/gi;
-  let match: RegExpExecArray | null;
+  // |leveling, |leveling2, |leveling3 ... を全て対象にする
+  const sectionRe = /\|\s*leveling\d*\s*=\s*([\s\S]*?)(?=\n\s*\||\n\s*\}\}|$)/gi;
+  let sectionMatch: RegExpExecArray | null;
 
-  while ((match = stRegex.exec(section)) !== null) {
-    const label = match[1].trim();
-    const value = resolveWikiValue(match[2].trim(), maxrank);
-    if (label && value) {
-      stats.push({ label, value });
+  while ((sectionMatch = sectionRe.exec(wikitext)) !== null) {
+    const section = sectionMatch[1];
+
+    // Value部分は2段ネスト（{{as|(+ {{fd|X}}% ...)}}）まで許容
+    const stRegex = /\{\{st\|([^|{}]+)\|((?:[^{}]|\{\{(?:[^{}]|\{\{[^{}]*\}\})*\}\})*)\}\}/gi;
+    let match: RegExpExecArray | null;
+
+    while ((match = stRegex.exec(section)) !== null) {
+      const label = match[1].trim();
+      const value = resolveWikiValue(match[2].trim(), maxrank);
+      if (label && value) {
+        stats.push({ label, value });
+      }
     }
   }
 
@@ -270,22 +283,9 @@ export async function fetchWikiChampionSpells(
         wikitext = await fetchWikitext(titleByName).catch(() => null);
       }
 
-      if (!wikitext) {
-        console.warn(`[Wiki] ${championId} ${key}: wikitextが見つかりません`);
-        return;
-      }
-
-      // levelingセクションを直接検索してログに出す
-      const levelingIdx = wikitext.search(/\|\s*leveling\s*=/i);
-      if (levelingIdx === -1) {
-        console.warn(`[Wiki] ${championId} ${key}: |levelingパラメータなし（ダメージがランクで変わらない可能性）`);
-      } else {
-        console.warn(`[Wiki] ${championId} ${key} levelingセクション内容:\n`, wikitext.slice(levelingIdx, levelingIdx + 600));
-      }
+      if (!wikitext) return;
 
       const leveling = parseLeveling(wikitext, maxrank);
-      console.warn(`[Wiki] ${championId} ${key} leveling結果:`, leveling);
-
       if (leveling.length > 0) {
         result[key] = { leveling };
       }
