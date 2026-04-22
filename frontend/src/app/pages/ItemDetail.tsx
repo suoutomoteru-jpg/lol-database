@@ -58,8 +58,8 @@ function StatPopup({
       onClick={onClose}
     >
       <div
-        className="bg-card border border-border rounded-xl w-full max-w-xs shadow-2xl flex flex-col"
-        style={{ maxHeight: '70vh' }}
+        className="bg-card border border-border rounded-xl w-full max-w-sm shadow-2xl flex flex-col"
+        style={{ maxHeight: '75vh' }}
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-4 py-3 border-b border-border flex-shrink-0">
@@ -81,15 +81,26 @@ function StatPopup({
                 key={it.id}
                 to={`/item/${it.id}`}
                 onClick={onClose}
-                className="flex items-center gap-2.5 px-4 py-2 hover:bg-muted/30 transition-colors"
+                className="flex items-start gap-3 px-4 py-3 hover:bg-muted/30 transition-colors"
               >
                 <img
                   src={it.imageUrl}
                   alt={it.name}
-                  className="w-8 h-8 rounded-lg border border-border flex-shrink-0"
+                  className="w-9 h-9 rounded-lg border border-border flex-shrink-0 mt-0.5"
                   loading="lazy"
                 />
-                <span className="text-sm text-foreground leading-tight">{it.name}</span>
+                <span className="flex-1 text-sm text-foreground leading-tight pt-0.5">{it.name}</span>
+                {it.stats.length > 0 && (
+                  <div className="text-right flex-shrink-0 space-y-0.5">
+                    {it.stats.map(s => (
+                      <div key={s.label} className="text-xs leading-tight">
+                        <span className="text-muted-foreground">{s.label}</span>
+                        {' '}
+                        <span className="text-foreground font-medium">{s.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </Link>
             ))}
           </div>
