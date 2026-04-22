@@ -68,12 +68,16 @@ function SkillBlock({ skill }: { skill: SkillData }) {
           className="w-16 h-16 rounded-xl border border-border flex-shrink-0"
           loading="lazy"
         />
-        <p className="text-foreground leading-relaxed text-lg whitespace-pre-line">{skill.description}</p>
+        {/* description は HTML string（DDragon タグを色付き span / strong に変換済み） */}
+        <div
+          className="text-foreground leading-relaxed text-base skill-description"
+          dangerouslySetInnerHTML={{ __html: skill.description }}
+        />
       </div>
 
       {/* クールダウン・コスト・射程 */}
       {hasMeta && (
-        <div className="bg-muted/30 rounded-xl p-6 mb-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="bg-muted/30 rounded-xl p-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
           {skill.cooldownBurn && (
             <div className="flex gap-2">
               <span className="text-muted-foreground min-w-28 text-sm">クールダウン</span>
@@ -92,6 +96,32 @@ function SkillBlock({ skill }: { skill: SkillData }) {
               <span className="text-foreground font-medium text-sm">{skill.rangeBurn}</span>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Wiki 数値情報（ダメージ・スケーリング） */}
+      {skill.leveling && skill.leveling.length > 0 && (
+        <div className="mt-6">
+          <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wider">数値情報</p>
+          <div className="bg-muted/20 rounded-xl border border-border overflow-hidden">
+            <table className="w-full text-sm">
+              <tbody>
+                {skill.leveling.map((stat, i) => (
+                  <tr
+                    key={i}
+                    className={i % 2 === 0 ? 'bg-transparent' : 'bg-muted/20'}
+                  >
+                    <td className="px-4 py-2.5 text-muted-foreground font-medium w-2/5 whitespace-nowrap">
+                      {stat.label}
+                    </td>
+                    <td className="px-4 py-2.5 text-foreground font-mono">
+                      {stat.value}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
@@ -162,13 +192,12 @@ export function ChampionDetail() {
   const { stats } = champion;
 
   const statTags = [
-    { label: 'HP', value: stats.hp },
-    { label: champion.partype === 'None' ? 'リソースなし' : champion.partype, value: champion.partype !== 'None' ? stats.mp : null },
-    { label: '攻撃力', value: stats.attackdamage },
-    { label: '鎧', value: stats.armor },
-    { label: '魔法耐性', value: stats.spellblock },
-    { label: '移動速度', value: stats.movespeed },
-    { label: '射程', value: stats.attackrange },
+    { label: 'Health', value: stats.hp },
+    { label: 'Mana',   value: champion.partype !== 'None' ? stats.mp : null },
+    { label: 'AR',     value: stats.armor },
+    { label: 'MR',     value: stats.spellblock },
+    { label: 'MS',     value: stats.movespeed },
+    { label: 'Range',  value: stats.attackrange },
   ].filter(s => s.value !== null);
 
   return (

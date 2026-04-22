@@ -21,6 +21,18 @@ body {
   color: var(--color-foreground);
 }
 
+/* スキル説明文（DDragon HTML を色付きレンダリング） */
+.skill-description {
+  line-height: 1.75;
+}
+.skill-description strong {
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+.skill-description br + br {
+  display: none; /* 連続改行を1つに */
+}
+
 h1 { font-size: var(--text-2xl); font-weight: 500; line-height: 1.5; }
 h2 { font-size: var(--text-xl); font-weight: 500; line-height: 1.5; }
 h3 { font-size: var(--text-lg); font-weight: 500; line-height: 1.5; }

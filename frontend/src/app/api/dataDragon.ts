@@ -16,7 +16,7 @@ import type {
 } from '../types/ddragon';
 
 const BASE_URL = 'https://ddragon.leagueoflegends.com';
-const LOCALE = 'en_US';
+const LOCALE = 'ja_JP';
 const VERSION_CACHE_KEY = 'lol-db:version';
 const VERSION_CHECK_INTERVAL = 60 * 60 * 1000; // 1時間
 
@@ -63,17 +63,19 @@ function purgeLolCache(): void {
 }
 
 function purgeVersionedCache(version: string): void {
-  const prefix = `lol-db:${version}:`;
+  // ロケール付きのキー・旧フォーマットのキー両方を削除
+  const prefixes = [`lol-db:${LOCALE}:${version}:`, `lol-db:${version}:`];
   const targets: string[] = [];
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i);
-    if (k?.startsWith(prefix)) targets.push(k);
+    if (k && prefixes.some(p => k.startsWith(p))) targets.push(k);
   }
   targets.forEach(k => localStorage.removeItem(k));
 }
 
+// ロケールをキーに含める（ロケール変更時に別キャッシュを参照するため）
 function dataKey(version: string, key: string): string {
-  return `lol-db:${version}:${key}`;
+  return `lol-db:${LOCALE}:${version}:${key}`;
 }
 
 // ── バージョン取得 ─────────────────────────────────────
@@ -115,12 +117,15 @@ export function championImageUrl(version: string, championId: string): string {
   return `${BASE_URL}/cdn/${version}/img/champion/${championId}.png`;
 }
 
-export function itemImageUrl(version: string, itemId: string): string {
-  return `${BASE_URL}/cdn/${version}/img/item/${itemId}.png`;
+// fileName は item.image.full の値（例: "3031.png"）
+export function itemImageUrl(version: string, fileName: string): string {
+  return `${BASE_URL}/cdn/${version}/img/item/${fileName}`;
 }
 
-export function spellImageUrl(version: string, spellId: string): string {
-  return `${BASE_URL}/cdn/${version}/img/spell/${spellId}.png`;
+// fileName は spell.image.full の値（例: "AhriOrbofDeception.png"）
+// .png はすでに含まれているので追加しない
+export function spellImageUrl(version: string, fileName: string): string {
+  return `${BASE_URL}/cdn/${version}/img/spell/${fileName}`;
 }
 
 export function passiveImageUrl(version: string, fileName: string): string {
@@ -162,6 +167,25 @@ export async function fetchChampionDetail(version: string, championId: string): 
   return data;
 }
 
+// ── アイテム全件（生データ）────────────────────────────
+
+/**
+ * item.json の全アイテムをフィルタなしで返す（ビルドパス参照用）
+ */
+export async function fetchAllItemsRaw(version: string): Promise<Record<string, DDragonItem>> {
+  const key = dataKey(version, 'items-all');
+  const cached = readCache<Record<string, DDragonItem>>(key);
+  if (cached) return cached;
+
+  const url = `${BASE_URL}/cdn/${version}/data/${LOCALE}/item.json`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`item.json fetch failed: ${res.status}`);
+
+  const json = await res.json() as { data: Record<string, DDragonItem> };
+  writeCache(key, json.data);
+  return json.data;
+}
+
 // ── アイテム一覧 ────────────────────────────────────────
 
 /**
@@ -189,6 +213,17 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
     );
   });
 
-  writeCache(key, filtered);
-  return filtered;
+  // 同名アイテムの重複除去（ID の小さい方を正規版として採用）
+  const nameMap = new Map<string, [string, DDragonItem]>();
+  for (const entry of filtered) {
+    const [id, item] = entry;
+    const existing = nameMap.get(item.name);
+    if (!existing || parseInt(id) < parseInt(existing[0])) {
+      nameMap.set(item.name, entry);
+    }
+  }
+  const deduplicated = Array.from(nameMap.values());
+
+  writeCache(key, deduplicated);
+  return deduplicated;
 }

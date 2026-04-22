@@ -2,6 +2,7 @@
 node_modules/
 dist/
 .npm
+*.tsbuildinfo
 
 # Python
 __pycache__/

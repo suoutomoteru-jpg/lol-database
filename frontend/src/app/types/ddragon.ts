@@ -67,15 +67,24 @@ export interface DDragonSpell {
   };
   maxrank: number;
   cooldown: number[];
-  cooldownBurn: string;   // "6/5.5/5/4.5/4"
+  cooldownBurn: string;          // "6/5.5/5/4.5/4"
   cost: number[];
-  costBurn: string;       // "70/75/80/85/90"
-  costType: string;       // "Mana"
+  costBurn: string;              // "70/75/80/85/90"
+  costType: string;              // "Mana"
   maxammo: string;
   range: number[];
-  rangeBurn: string;      // "880"
+  rangeBurn: string;             // "880"
   image: DDragonImage;
   resource: string;
+  effect: (number[] | null)[];   // [null, [40,65,90,115,140], ...]
+  effectBurn: (string | null)[]; // ["", "40/65/90/115/140", ...]
+  vars: DDragonSpellVar[];
+}
+
+export interface DDragonSpellVar {
+  link: string;              // "spelldamage" | "bonusattackdamage" | "attackdamage" | "hp" …
+  coeff: number | number[];  // AP/AD比率（0.33 = 33%）
+  key: string;               // "a1" | "a2" …
 }
 
 // passive（P）

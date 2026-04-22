@@ -17,10 +17,11 @@ export function DataCard({ data, type }: DataCardProps) {
   const navigate = useNavigate();
 
   const subtitle = isChampion(data) ? data.role : data.type;
-  const clickable = type === 'champion';
+  const clickable = true;
 
   function handleClick() {
-    if (clickable) navigate(`/champion/${data.id}`);
+    if (type === 'champion') navigate(`/champion/${data.id}`);
+    else navigate(`/item/${data.id}`);
   }
 
   function handleFavorite(e: React.MouseEvent) {
