@@ -33,6 +33,26 @@ body {
   display: none; /* 連続改行を1つに */
 }
 
+/* アイテム説明文 */
+.item-description {
+  line-height: 1.75;
+}
+.item-description .item-stats {
+  margin: 0.25rem 0;
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+/* Wikipedia スタイルのインラインリンク */
+.stat-keyword {
+  cursor: pointer;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 60%, transparent);
+  color: inherit;
+}
+.stat-keyword:hover {
+  border-bottom-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 h1 { font-size: var(--text-2xl); font-weight: 500; line-height: 1.5; }
 h2 { font-size: var(--text-xl); font-weight: 500; line-height: 1.5; }
 h3 { font-size: var(--text-lg); font-weight: 500; line-height: 1.5; }
