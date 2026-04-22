@@ -1,12 +1,93 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
+import { useItemsByStats, type ItemSummary } from '../hooks/useItemsByStats';
 
+const STAT_LABELS: Record<string, string> = {
+  FlatPhysicalDamageMod:      'Attack Damage',
+  FlatMagicDamageMod:         'Ability Power',
+  FlatArmorMod:               'Armor',
+  FlatSpellBlockMod:          'Magic Resistance',
+  FlatHPPoolMod:              'Health',
+  FlatMPPoolMod:              'Mana',
+  FlatMovementSpeedMod:       'Movement Speed',
+  FlatCritChanceMod:          'Critical Strike Chance',
+  PercentAttackSpeedMod:      'Attack Speed',
+  PercentLifeStealMod:        'Life Steal',
+  FlatHPRegenMod:             'HP Regen',
+  FlatMPRegenMod:             'Mana Regen',
+  PercentMovementSpeedMod:    '% Movement Speed',
+  FlatGoldPer10Mod:           'Gold Per 10s',
+  FlatArmorPenetrationMod:    'Armor Penetration',
+  PercentArmorPenetrationMod: '% Armor Penetration',
+};
+
+// ── ステータスポップアップ ──────────────────────────────
+
+function StatPopup({
+  label,
+  items,
+  onClose,
+}: {
+  label: string;
+  items: ItemSummary[];
+  onClose: () => void;
+}) {
+  return (
+    <div
+      className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-card border border-border rounded-xl w-full max-w-xs shadow-2xl flex flex-col"
+        style={{ maxHeight: '70vh' }}
+        onClick={e => e.stopPropagation()}
+      >
+        {/* ヘッダー */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-border flex-shrink-0">
+          <span className="text-sm font-medium text-foreground">{label}</span>
+          <button
+            onClick={onClose}
+            className="text-muted-foreground hover:text-foreground transition-colors p-0.5 rounded"
+          >
+            <X size={15} />
+          </button>
+        </div>
+
+        {/* アイテム一覧 */}
+        {items.length === 0 ? (
+          <p className="px-4 py-8 text-sm text-muted-foreground text-center">該当アイテムなし</p>
+        ) : (
+          <div className="overflow-y-auto divide-y divide-border">
+            {items.map(it => (
+              <Link
+                key={it.id}
+                to={`/item/${it.id}`}
+                onClick={onClose}
+                className="flex items-center justify-end gap-2.5 px-4 py-2 hover:bg-muted/30 transition-colors"
+              >
+                <span className="text-sm text-foreground leading-tight">{it.name}</span>
+                <img
+                  src={it.imageUrl}
+                  alt={it.name}
+                  className="w-8 h-8 rounded-lg border border-border flex-shrink-0"
+                  loading="lazy"
+                />
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── 説明文の前処理 ─────────────────────────────────────
 
 function processItemDescription(raw: string): string {
   let s = raw;
   s = s.replace(/<mainText>/gi, '').replace(/<\/mainText>/gi, '');
-  // <stats> ブロックをシンプルなdivに変換
   s = s.replace(/<stats>/gi, '<div class="item-stats">').replace(/<\/stats>/gi, '</div>');
   s = s.replace(/<br\s*\/?>/gi, '<br>');
   s = s.replace(/<attention>/gi, '<strong style="color:#C89B3C">').replace(/<\/attention>/gi, '</strong>');
@@ -30,16 +111,18 @@ function processItemDescription(raw: string): string {
     return '';
   });
   s = s.replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-  // 先頭の連続した <br> を除去
   s = s.replace(/^(<br>\s*)+/, '').trim();
-  // 3連続以上の <br> を 2つに圧縮
   s = s.replace(/(<br>\s*){3,}/g, '<br><br>');
   return s;
 }
 
+// ── メインページ ──────────────────────────────────────
+
 export function ItemDetail() {
   const { id } = useParams<{ id: string }>();
   const { item, loading, error } = useItem(id);
+  const statMap = useItemsByStats();
+  const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
 
   if (loading) {
     return (
@@ -63,6 +146,7 @@ export function ItemDetail() {
     );
   }
 
+  const statEntries = Object.entries(item.stats).filter(([, v]) => v !== 0);
   const description = processItemDescription(item.description);
 
   return (
@@ -92,7 +176,10 @@ export function ItemDetail() {
           <div className="min-w-0">
             <h1 className="text-2xl font-semibold text-foreground leading-tight">{item.name}</h1>
             <div className="flex items-center gap-3 mt-1 text-sm text-muted-foreground">
-              <span><span style={{color:'#C89B3C'}} className="font-semibold">{item.gold.total}G</span> 合計</span>
+              <span>
+                <span style={{ color: '#C89B3C' }} className="font-semibold">{item.gold.total}G</span>
+                {' '}合計
+              </span>
               <span className="text-border">·</span>
               <span>{item.gold.base}G レシピ</span>
               <span className="text-border">·</span>
@@ -101,17 +188,32 @@ export function ItemDetail() {
           </div>
         </div>
 
-        {/* ── 説明 ── */}
-        <div className="bg-card border border-border rounded-xl overflow-hidden">
+        {/* ── ステータスチップ（クリックで同stat一覧） ── */}
+        {statEntries.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {statEntries.map(([key]) => (
+              <button
+                key={key}
+                onClick={() => setActiveStatKey(key)}
+                className="px-3 py-1 text-xs bg-muted/40 border border-border rounded-full
+                           hover:border-primary/50 hover:bg-primary/5 hover:text-foreground
+                           transition-colors text-muted-foreground cursor-pointer"
+              >
+                {STAT_LABELS[key] ?? key}
+              </button>
+            ))}
+          </div>
+        )}
 
-          {/* Description */}
-          {description && (
+        {/* ── 説明 ── */}
+        {description && (
+          <div className="bg-card border border-border rounded-xl overflow-hidden">
             <div
               className="px-4 py-3 text-sm text-foreground leading-snug item-description"
               dangerouslySetInnerHTML={{ __html: description }}
             />
-          )}
-        </div>
+          </div>
+        )}
 
         {/* ── 材料・アップグレード ── */}
         {(item.from.length > 0 || item.into.length > 0) && (
@@ -166,6 +268,15 @@ export function ItemDetail() {
           </div>
         )}
       </div>
+
+      {/* ── ステータスポップアップ ── */}
+      {activeStatKey && (
+        <StatPopup
+          label={STAT_LABELS[activeStatKey] ?? activeStatKey}
+          items={statMap.get(activeStatKey) ?? []}
+          onClose={() => setActiveStatKey(null)}
+        />
+      )}
     </div>
   );
 }
