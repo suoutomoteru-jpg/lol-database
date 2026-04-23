@@ -46,12 +46,18 @@ function injectStatLinks(html: string): string {
 function StatPopup({
   label,
   items,
+  mediumItems,
   onClose,
 }: {
   label: string;
   items: ItemSummary[];
+  mediumItems: ItemSummary[];
   onClose: () => void;
 }) {
+  const [showMedium, setShowMedium] = useState(false);
+  const displayed = showMedium ? mediumItems : items;
+  const hasMore = mediumItems.length > items.length;
+
   return (
     <div
       className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
@@ -72,11 +78,11 @@ function StatPopup({
           </button>
         </div>
 
-        {items.length === 0 ? (
+        {displayed.length === 0 ? (
           <p className="px-4 py-8 text-sm text-muted-foreground text-center">該当アイテムなし</p>
         ) : (
           <div className="overflow-y-auto divide-y divide-border">
-            {items.map(it => (
+            {displayed.map(it => (
               <Link
                 key={it.id}
                 to={`/item/${it.id}`}
@@ -103,6 +109,17 @@ function StatPopup({
                 )}
               </Link>
             ))}
+          </div>
+        )}
+
+        {hasMore && (
+          <div className="border-t border-border flex-shrink-0">
+            <button
+              onClick={() => setShowMedium(v => !v)}
+              className="w-full px-4 py-2.5 text-xs text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-colors"
+            >
+              {showMedium ? '完成アイテムのみ表示' : 'その他のアイテム'}
+            </button>
           </div>
         )}
       </div>
@@ -148,7 +165,7 @@ function processItemDescription(raw: string): string {
 export function ItemDetail() {
   const { id } = useParams<{ id: string }>();
   const { item, loading, error } = useItem(id);
-  const statMap = useItemsByStats();
+  const { statMap, mediumStatMap } = useItemsByStats();
   const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
   const [activeLabel, setActiveLabel] = useState<string>('');
 
@@ -284,6 +301,7 @@ export function ItemDetail() {
         <StatPopup
           label={activeLabel}
           items={statMap.get(activeStatKey) ?? []}
+          mediumItems={mediumStatMap.get(activeStatKey) ?? []}
           onClose={() => { setActiveStatKey(null); setActiveLabel(''); }}
         />
       )}

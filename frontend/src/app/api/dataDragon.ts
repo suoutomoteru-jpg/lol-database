@@ -227,3 +227,40 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
   writeCache(key, deduplicated);
   return deduplicated;
 }
+
+// ── アイテム一覧（700G以上）──────────────────────────────
+
+export async function fetchItemListMedium(version: string): Promise<[string, DDragonItem][]> {
+  const key = dataKey(version, 'items-medium');
+  const cached = readCache<[string, DDragonItem][]>(key);
+  if (cached) return cached;
+
+  const url = `${BASE_URL}/cdn/${version}/data/${LOCALE}/item.json`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`item.json fetch failed: ${res.status}`);
+
+  const json = await res.json() as { data: Record<string, DDragonItem> };
+
+  const filtered = Object.entries(json.data).filter(([, item]) => {
+    return (
+      item.gold.purchasable &&
+      item.gold.total >= 700 &&
+      item.maps?.['11'] === true &&
+      !item.requiredChampion &&
+      (item.inStore !== false)
+    );
+  });
+
+  const nameMap = new Map<string, [string, DDragonItem]>();
+  for (const entry of filtered) {
+    const [id, item] = entry;
+    const existing = nameMap.get(item.name);
+    if (!existing || parseInt(id) < parseInt(existing[0])) {
+      nameMap.set(item.name, entry);
+    }
+  }
+  const deduplicated = Array.from(nameMap.values());
+
+  writeCache(key, deduplicated);
+  return deduplicated;
+}

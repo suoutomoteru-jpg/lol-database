@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getLatestVersion, fetchItemList, itemImageUrl } from '../api/dataDragon';
+import { getLatestVersion, fetchItemList, fetchItemListMedium, itemImageUrl } from '../api/dataDragon';
+import type { DDragonItem } from '../types/ddragon';
 
 export interface ItemStatLine {
   label: string;
@@ -39,55 +40,74 @@ function formatStatValue(key: string, val: number): string {
   return String(Math.round(val));
 }
 
+function buildMap(version: string, items: [string, DDragonItem][]): Map<string, ItemSummary[]> {
+  const result = new Map<string, ItemSummary[]>();
+
+  const add = (key: string, summary: ItemSummary) => {
+    if (!result.has(key)) result.set(key, []);
+    result.get(key)!.push(summary);
+  };
+
+  for (const [id, item] of items) {
+    const statLines: ItemStatLine[] = Object.entries(item.stats)
+      .filter(([, v]) => v !== 0)
+      .map(([k, v]) => ({
+        label: STAT_LABELS[k] ?? k,
+        value: formatStatValue(k, v),
+      }));
+
+    const summary: ItemSummary = {
+      id,
+      name: item.name,
+      imageUrl: itemImageUrl(version, item.image.full),
+      stats: statLines,
+    };
+
+    for (const [key, val] of Object.entries(item.stats)) {
+      if (val) add(`stat:${key}`, summary);
+    }
+    for (const tag of item.tags ?? []) {
+      add(`tag:${tag}`, summary);
+    }
+  }
+
+  for (const list of result.values()) {
+    list.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  return result;
+}
+
+export interface ItemStatMaps {
+  statMap: Map<string, ItemSummary[]>;
+  mediumStatMap: Map<string, ItemSummary[]>;
+}
+
 /**
- * "stat:FlatMagicDamageMod" / "tag:AbilityHaste" → アイテム一覧（名前順）
+ * statMap:       2000G以上の完成アイテム
+ * mediumStatMap: 700G以上のアイテム（コンポーネント含む）
  */
-export function useItemsByStats(): Map<string, ItemSummary[]> {
-  const [statMap, setStatMap] = useState<Map<string, ItemSummary[]>>(new Map());
+export function useItemsByStats(): ItemStatMaps {
+  const [maps, setMaps] = useState<ItemStatMaps>({
+    statMap: new Map(),
+    mediumStatMap: new Map(),
+  });
 
   useEffect(() => {
     async function load() {
       try {
         const v = await getLatestVersion();
-        const items = await fetchItemList(v);
-        const result = new Map<string, ItemSummary[]>();
-
-        const add = (key: string, summary: ItemSummary) => {
-          if (!result.has(key)) result.set(key, []);
-          result.get(key)!.push(summary);
-        };
-
-        for (const [id, item] of items) {
-          const statLines: ItemStatLine[] = Object.entries(item.stats)
-            .filter(([, v]) => v !== 0)
-            .map(([k, v]) => ({
-              label: STAT_LABELS[k] ?? k,
-              value: formatStatValue(k, v),
-            }));
-
-          const summary: ItemSummary = {
-            id,
-            name: item.name,
-            imageUrl: itemImageUrl(v, item.image.full),
-            stats: statLines,
-          };
-
-          for (const [key, val] of Object.entries(item.stats)) {
-            if (val) add(`stat:${key}`, summary);
-          }
-          for (const tag of item.tags ?? []) {
-            add(`tag:${tag}`, summary);
-          }
-        }
-
-        for (const list of result.values()) {
-          list.sort((a, b) => a.name.localeCompare(b.name));
-        }
-        setStatMap(result);
+        const [items, mediumItems] = await Promise.all([
+          fetchItemList(v),
+          fetchItemListMedium(v),
+        ]);
+        setMaps({
+          statMap: buildMap(v, items),
+          mediumStatMap: buildMap(v, mediumItems),
+        });
       } catch { /* silent */ }
     }
     load();
   }, []);
 
-  return statMap;
+  return maps;
 }
