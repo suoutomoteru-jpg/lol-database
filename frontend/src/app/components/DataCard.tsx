@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Heart } from 'lucide-react';
 import type { Champion, Item } from '../data/mock-data';
 
 interface DataCardProps {
@@ -12,63 +10,49 @@ function isChampion(data: Champion | Item): data is Champion {
   return 'role' in data;
 }
 
+const ROLE_COLOR: Record<string, string> = {
+  Mage:      'text-sky-400',
+  Tank:      'text-slate-400',
+  Assassin:  'text-purple-400',
+  Fighter:   'text-orange-400',
+  Support:   'text-emerald-400',
+  Marksman:  'text-yellow-400',
+  // item types
+  Magic:     'text-sky-400',
+  Defense:   'text-slate-400',
+};
+
 export function DataCard({ data, type }: DataCardProps) {
-  const [favorited, setFavorited] = useState(false);
   const navigate = useNavigate();
-
   const subtitle = isChampion(data) ? data.role : data.type;
-  const clickable = true;
-
-  function handleClick() {
-    if (type === 'champion') navigate(`/champion/${data.id}`);
-    else navigate(`/item/${data.id}`);
-  }
-
-  function handleFavorite(e: React.MouseEvent) {
-    e.stopPropagation();
-    setFavorited(f => !f);
-  }
+  const roleColorClass = ROLE_COLOR[subtitle] ?? 'text-muted-foreground';
 
   return (
     <div
-      onClick={handleClick}
-      className={`group flex items-center gap-4 p-4 bg-card border border-border rounded-lg transition-all ${
-        clickable
-          ? 'cursor-pointer hover:border-primary/40 hover:shadow-md'
-          : ''
-      }`}
+      onClick={() => navigate(type === 'champion' ? `/champion/${data.id}` : `/item/${data.id}`)}
+      className="group relative flex items-center gap-3 px-3 py-2 bg-card border border-border cursor-pointer
+        hover:bg-secondary hover:border-border transition-colors duration-100 overflow-hidden"
     >
-      {/* アイコン（Data Dragon 画像） */}
-      <div className="w-12 h-12 flex-shrink-0 bg-secondary/50 rounded-lg overflow-hidden flex items-center justify-center">
+      {/* Left gold accent bar */}
+      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary
+        scale-y-0 group-hover:scale-y-100 transition-transform duration-150 origin-center" />
+
+      {/* Icon */}
+      <div className="w-10 h-10 flex-shrink-0 overflow-hidden rounded-sm bg-accent/30">
         <img
           src={data.icon}
           alt={data.name}
-          className={`w-full h-full object-cover transition-transform ${clickable ? 'group-hover:scale-105' : ''}`}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
           loading="lazy"
-          onError={e => {
-            (e.currentTarget as HTMLImageElement).style.display = 'none';
-          }}
+          onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
         />
       </div>
 
-      {/* 名前・サブタイトル */}
+      {/* Name + subtitle */}
       <div className="flex-1 min-w-0">
-        <p className="text-foreground font-medium truncate">{data.name}</p>
-        <p className="text-sm text-muted-foreground">{subtitle}</p>
+        <p className="text-sm font-semibold text-foreground truncate leading-tight">{data.name}</p>
+        <p className={`text-xs font-medium leading-tight mt-0.5 ${roleColorClass}`}>{subtitle}</p>
       </div>
-
-      {/* お気に入りボタン */}
-      <button
-        onClick={handleFavorite}
-        aria-label={favorited ? 'お気に入り解除' : 'お気に入り追加'}
-        className={`p-1 rounded transition-colors ${
-          favorited
-            ? 'text-destructive bg-destructive/10'
-            : 'text-muted-foreground hover:text-destructive/60'
-        }`}
-      >
-        <Heart size={20} fill={favorited ? 'currentColor' : 'none'} />
-      </button>
     </div>
   );
 }

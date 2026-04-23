@@ -62,8 +62,14 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col items-center gap-8">
+      <div className="container mx-auto px-4 pt-10 pb-6 max-w-6xl">
+        <div className="flex flex-col items-center gap-5">
+          {/* Site header */}
+          <div className="text-center mb-2">
+            <h1 className="text-2xl font-bold text-primary tracking-wide uppercase">LoL Database</h1>
+            <p className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">League of Legends Encyclopedia</p>
+          </div>
+
           <SearchBar value={searchQuery} onChange={v => set('q', v)} />
           <TabsFilter activeTab={activeTab} onTabChange={handleTabChange} />
           <FilterBar
@@ -73,10 +79,11 @@ export function Home() {
             onRoleChange={r => set('role', r)}
             onItemTypeChange={t => set('itype', t)}
           />
+
           {loading ? (
-            <div className="flex flex-col items-center gap-3 py-16 text-muted-foreground">
-              <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-              <p className="text-sm">Loading from Data Dragon...</p>
+            <div className="flex flex-col items-center gap-3 py-12 text-muted-foreground">
+              <div className="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+              <p className="text-xs tracking-widest uppercase">Loading...</p>
             </div>
           ) : (
             <ResultsSection

@@ -9,6 +9,15 @@ import type { SkillData } from '../hooks/useChampion';
 
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
 
+const ROLE_BADGE: Record<string, string> = {
+  Mage:      'bg-sky-500/15 text-sky-400',
+  Tank:      'bg-slate-500/15 text-slate-300',
+  Assassin:  'bg-purple-500/15 text-purple-400',
+  Fighter:   'bg-orange-500/15 text-orange-400',
+  Support:   'bg-emerald-500/15 text-emerald-400',
+  Marksman:  'bg-yellow-500/15 text-yellow-400',
+};
+
 // ── スキルナビゲーションボタン ──────────────────────────
 
 function SkillNav({
@@ -31,7 +40,7 @@ function SkillNav({
                 key={s.key}
                 onClick={() => onSelect(s.key)}
                 aria-label={s.name}
-                className={`w-14 h-14 rounded-xl font-bold text-lg transition-all ${
+                className={`w-12 h-12 rounded-sm font-bold text-base transition-all ${
                   active
                     ? 'bg-primary text-primary-foreground shadow-lg scale-110'
                     : 'bg-secondary/50 text-muted-foreground hover:bg-secondary hover:scale-105'
@@ -53,7 +62,7 @@ function SkillBlock({ skill }: { skill: SkillData }) {
   const hasMeta = skill.cooldownBurn || skill.costBurn || skill.rangeBurn;
 
   return (
-    <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-2xl p-8 shadow-sm">
+    <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-sm p-5 shadow-sm">
       {/* アイコン + スキル名（同一行） */}
       <div className="flex items-center gap-3 mb-4">
         <img
@@ -72,13 +81,13 @@ function SkillBlock({ skill }: { skill: SkillData }) {
 
       {/* 説明文（インデントなし・全幅） */}
       <div
-        className="text-foreground leading-relaxed text-base skill-description mb-8"
+        className="text-foreground leading-relaxed text-base skill-description mb-5"
         dangerouslySetInnerHTML={{ __html: skill.description }}
       />
 
       {/* クールダウン・コスト・射程 */}
       {hasMeta && (
-        <div className="bg-muted/30 rounded-xl p-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="bg-muted/30 rounded-sm p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
           {skill.cooldownBurn && (
             <div className="flex gap-2">
               <span className="text-muted-foreground min-w-28 text-sm">クールダウン</span>
@@ -105,7 +114,7 @@ function SkillBlock({ skill }: { skill: SkillData }) {
         <div className="mt-6">
           <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wider">数値情報</p>
           <div className="overflow-x-auto">
-            <div className="bg-muted/20 rounded-xl border border-border overflow-hidden min-w-[280px]">
+            <div className="bg-muted/20 rounded-sm border border-border overflow-hidden min-w-[280px]">
               <table className="w-full text-sm">
                 <tbody>
                   {skill.leveling.map((stat, i) => (
@@ -230,7 +239,7 @@ export function ChampionDetail() {
 
       {/* 戻るボタン */}
       <div className="border-b border-border">
-        <div className="container mx-auto px-4 py-4 max-w-5xl">
+        <div className="container mx-auto px-4 py-3 max-w-5xl">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -242,9 +251,9 @@ export function ChampionDetail() {
       </div>
 
       {/* ヘッダー */}
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
-        <div className="flex items-start gap-6 mb-8">
-          <div className="w-20 h-20 flex-shrink-0 rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-accent/30 shadow-lg">
+      <div className="container mx-auto px-4 py-8 max-w-5xl">
+        <div className="flex items-start gap-6 mb-6">
+          <div className="w-20 h-20 flex-shrink-0 rounded-sm overflow-hidden bg-gradient-to-br from-primary/20 to-accent/30 shadow-lg">
             <img
               src={championImageUrl(champion.version, champion.id)}
               alt={champion.name}
@@ -252,22 +261,24 @@ export function ChampionDetail() {
             />
           </div>
           <div>
-            <h1 className="text-4xl font-semibold text-foreground">{champion.name}</h1>
-            <p className="text-xs text-muted-foreground/70 mt-0.5">{toWikiName(champion.id)}</p>
-            <p className="text-primary mt-1">{champion.role}</p>
+            <h1 className="text-3xl font-bold text-foreground tracking-tight">{champion.name}</h1>
+            <p className="text-xs text-muted-foreground/60 mt-0.5 font-medium tracking-wide">{toWikiName(champion.id)}</p>
+            <span className={`inline-block mt-1.5 px-2 py-0.5 text-xs font-semibold rounded-sm uppercase tracking-wide ${ROLE_BADGE[champion.role] ?? 'bg-accent/30 text-primary'}`}>
+              {champion.role}
+            </span>
           </div>
         </div>
         <div className="border-t border-border" />
       </div>
 
       {/* ステータスタグ */}
-      <div className="container mx-auto px-4 max-w-5xl mb-8">
-        <p className="text-sm text-muted-foreground mb-3">ステータス</p>
-        <div className="flex flex-wrap gap-2">
+      <div className="container mx-auto px-4 max-w-5xl mb-5">
+        <p className="text-xs text-muted-foreground mb-2 uppercase tracking-widest">ステータス</p>
+        <div className="flex flex-wrap gap-1.5">
           {statTags.map(s => (
             <span
               key={s.label}
-              className="px-4 py-2 bg-card border border-border rounded-lg text-sm hover:border-primary/40 hover:bg-primary/5 transition-all cursor-default"
+              className="px-3 py-1 bg-card border border-border rounded-sm text-xs hover:border-primary/40 hover:bg-primary/5 transition-all cursor-default"
             >
               {s.label}: {s.value}
             </span>
@@ -276,18 +287,18 @@ export function ChampionDetail() {
       </div>
 
       {/* 特徴タグ */}
-      <div className="container mx-auto px-4 max-w-5xl mb-12">
-        <p className="text-sm text-muted-foreground mb-3">特徴</p>
-        <div className="flex flex-wrap gap-2">
+      <div className="container mx-auto px-4 max-w-5xl mb-6">
+        <p className="text-xs text-muted-foreground mb-2 uppercase tracking-widest">特徴</p>
+        <div className="flex flex-wrap gap-1.5">
           {champion.tags.map(tag => (
             <span
               key={tag}
-              className="px-4 py-2 bg-accent/30 border border-accent rounded-lg text-sm hover:bg-accent/50 transition-all cursor-default"
+              className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs hover:bg-accent/50 transition-all cursor-default"
             >
               {tag}
             </span>
           ))}
-          <span className="px-4 py-2 bg-accent/30 border border-accent rounded-lg text-sm hover:bg-accent/50 transition-all cursor-default">
+          <span className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs hover:bg-accent/50 transition-all cursor-default">
             {champion.partype}
           </span>
         </div>
@@ -301,7 +312,7 @@ export function ChampionDetail() {
       />
 
       {/* スキル詳細 */}
-      <div className="container mx-auto px-4 py-12 max-w-5xl space-y-12">
+      <div className="container mx-auto px-4 py-8 max-w-5xl space-y-6">
         {champion.skills.map(skill => (
           <SkillBlock key={skill.key} skill={skill} />
         ))}

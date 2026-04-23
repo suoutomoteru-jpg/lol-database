@@ -95,7 +95,7 @@ function StatPopup({
       onClick={onClose}
     >
       <div
-        className="bg-card border border-border rounded-xl w-full max-w-sm shadow-2xl flex flex-col"
+        className="bg-card border border-border rounded-sm w-full max-w-sm shadow-2xl flex flex-col"
         style={{ maxHeight: '75vh' }}
         onClick={e => e.stopPropagation()}
       >
@@ -123,7 +123,7 @@ function StatPopup({
                 <img
                   src={it.imageUrl}
                   alt={it.name}
-                  className="w-9 h-9 rounded-lg border border-border flex-shrink-0 mt-0.5"
+                  className="w-9 h-9 rounded-sm border border-border flex-shrink-0 mt-0.5"
                   loading="lazy"
                 />
                 <span className="flex-1 text-sm text-foreground leading-tight pt-0.5">{it.name}</span>
@@ -245,7 +245,7 @@ export function ItemDetail() {
         <Link
           to={`/item/${prevItem.id}`}
           title={prevItem.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-xl bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-sm bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
         >
           <ChevronLeft size={16} />
         </Link>
@@ -254,7 +254,7 @@ export function ItemDetail() {
         <Link
           to={`/item/${nextItem.id}`}
           title={nextItem.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-xl bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-sm bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
         >
           <ChevronRight size={16} />
         </Link>
@@ -278,10 +278,10 @@ export function ItemDetail() {
           <img
             src={item.imageUrl}
             alt={item.name}
-            className="w-16 h-16 rounded-xl border border-border shadow flex-shrink-0"
+            className="w-16 h-16 rounded-sm border border-border shadow flex-shrink-0"
           />
           <div className="min-w-0">
-            <h1 className="text-2xl font-semibold text-foreground leading-tight">{item.name}</h1>
+            <h1 className="text-xl font-bold text-foreground leading-tight">{item.name}</h1>
             {item.englishName && item.englishName !== item.name && (
               <p className="text-xs text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
             )}
@@ -311,7 +311,7 @@ export function ItemDetail() {
 
         {/* 説明 — キーワードをクリックするとポップアップ表示 */}
         {description && (
-          <div className="bg-card border border-border rounded-xl overflow-hidden">
+          <div className="bg-card border border-border rounded-sm overflow-hidden">
             <div
               className="px-4 py-3 text-sm text-foreground leading-snug item-description"
               dangerouslySetInnerHTML={{ __html: description }}
@@ -322,7 +322,7 @@ export function ItemDetail() {
 
         {/* 材料・アップグレード */}
         {(item.from.length > 0 || item.into.length > 0) && (
-          <div className="bg-card border border-border rounded-xl overflow-hidden divide-y divide-border">
+          <div className="bg-card border border-border rounded-sm overflow-hidden divide-y divide-border">
             {item.from.length > 0 && (
               <div className="px-4 py-3">
                 <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">材料</p>
@@ -332,7 +332,7 @@ export function ItemDetail() {
                       <img
                         src={comp.imageUrl}
                         alt={comp.name}
-                        className="w-9 h-9 rounded-lg border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
+                        className="w-9 h-9 rounded-sm border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
                       />
                       <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
                         {comp.name}
@@ -352,7 +352,7 @@ export function ItemDetail() {
                       <img
                         src={up.imageUrl}
                         alt={up.name}
-                        className="w-9 h-9 rounded-lg border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
+                        className="w-9 h-9 rounded-sm border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
                       />
                       <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
                         {up.name}

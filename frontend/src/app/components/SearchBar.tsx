@@ -8,24 +8,24 @@ interface SearchBarProps {
 
 export function SearchBar({ value, onChange }: SearchBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  useEffect(() => { inputRef.current?.focus(); }, []);
 
   return (
-    <div className="relative w-full max-w-3xl">
+    <div className="relative w-full max-w-2xl">
       <Search
-        size={24}
-        className="absolute left-5 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+        size={18}
+        className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
       />
       <input
         ref={inputRef}
         type="text"
         value={value}
         onChange={e => onChange(e.target.value)}
-        placeholder="Search champions and items..."
-        className="w-full bg-card border border-border rounded-xl py-5 pl-16 pr-6 text-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+        placeholder="チャンピオン・アイテムを検索..."
+        className="w-full bg-card border border-border py-3 pl-11 pr-4 text-sm text-foreground
+          placeholder:text-muted-foreground/60
+          focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20
+          transition-colors duration-150"
         aria-label="チャンピオン・アイテムを検索"
       />
     </div>

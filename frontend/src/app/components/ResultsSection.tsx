@@ -3,11 +3,6 @@ import { type LucideIcon } from 'lucide-react';
 import { roleIcons, itemTypeIcons } from '../utils/role-icons';
 import type { Champion, Item, TabType, Role, ItemType } from '../data/mock-data';
 
-// All タブのチャンピオン列に表示するロールフィルター
-const ALL_TAB_ROLES: Role[] = ['Fighter', 'Mage', 'Assassin', 'Marksman', 'Support'];
-// All タブのアイテム列に表示するタイプフィルター
-const ALL_TAB_ITEM_TYPES: ItemType[] = ['Fighter', 'Marksman', 'Assassin', 'Magic', 'Defense', 'Support'];
-
 interface ResultsSectionProps {
   champions: Champion[];
   items: Item[];
@@ -25,9 +20,7 @@ interface IconFilterBarProps<T extends string> {
   onSelect: (v: T | 'all') => void;
 }
 
-function IconFilterBar<T extends string>({
-  options, selected, icons, onSelect,
-}: IconFilterBarProps<T>) {
+function IconFilterBar<T extends string>({ options, selected, icons, onSelect }: IconFilterBarProps<T>) {
   return (
     <div className="flex gap-1">
       {options.map(opt => {
@@ -39,13 +32,13 @@ function IconFilterBar<T extends string>({
             onClick={() => onSelect(active ? 'all' : opt)}
             aria-label={opt}
             aria-pressed={active}
-            className={`w-8 h-8 flex items-center justify-center rounded-md transition-all ${
+            className={`w-7 h-7 flex items-center justify-center rounded-sm transition-colors duration-100 ${
               active
                 ? 'bg-primary text-primary-foreground'
-                : 'bg-secondary/50 text-muted-foreground hover:bg-secondary'
+                : 'bg-secondary text-muted-foreground hover:bg-accent/30 hover:text-foreground'
             }`}
           >
-            <Icon size={16} />
+            <Icon size={14} />
           </button>
         );
       })}
@@ -53,10 +46,15 @@ function IconFilterBar<T extends string>({
   );
 }
 
-function SectionHeader({ title, right }: { title: string; right?: React.ReactNode }) {
+function SectionHeader({ title, count, right }: { title: string; count?: number; right?: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-3 mb-3">
-      <h2 className="text-foreground font-semibold">{title}</h2>
+    <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center gap-2">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{title}</h2>
+        {count !== undefined && (
+          <span className="text-xs text-muted-foreground/60">{count}</span>
+        )}
+      </div>
       {right}
     </div>
   );
@@ -73,47 +71,43 @@ export function ResultsSection({
     (activeTab === 'items' && items.length === 0);
 
   if (noResults) {
-    return (
-      <p className="text-center py-16 text-muted-foreground">No results found</p>
-    );
+    return <p className="text-center py-12 text-sm text-muted-foreground">結果が見つかりませんでした</p>;
   }
 
-  // ── All タブ：左右2カラム ──────────────────────────────
   if (activeTab === 'all') {
     return (
-      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Champions 列 */}
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
           <SectionHeader
             title="Champions"
+            count={champions.length}
             right={
               <IconFilterBar
-                options={ALL_TAB_ROLES}
+                options={['Fighter','Mage','Assassin','Marksman','Support'] as Role[]}
                 selected={allTabRoleFilter}
                 icons={roleIcons}
                 onSelect={onAllTabRoleChange}
               />
             }
           />
-          <div className="grid gap-3">
+          <div className="grid grid-cols-2 gap-px bg-border">
             {champions.map(c => <DataCard key={c.id} data={c} type="champion" />)}
           </div>
         </div>
-
-        {/* Items 列 */}
         <div>
           <SectionHeader
             title="Items"
+            count={items.length}
             right={
               <IconFilterBar
-                options={ALL_TAB_ITEM_TYPES}
+                options={['Fighter','Marksman','Assassin','Magic','Defense','Support'] as ItemType[]}
                 selected={allTabItemTypeFilter}
                 icons={itemTypeIcons}
                 onSelect={onAllTabItemTypeChange}
               />
             }
           />
-          <div className="grid gap-3">
+          <div className="grid grid-cols-2 gap-px bg-border">
             {items.map(i => <DataCard key={i.id} data={i} type="item" />)}
           </div>
         </div>
@@ -121,23 +115,21 @@ export function ResultsSection({
     );
   }
 
-  // ── Champions タブ：1カラム ────────────────────────────
   if (activeTab === 'champions') {
     return (
       <div className="w-full max-w-4xl">
-        <SectionHeader title="Champions" />
-        <div className="grid gap-3">
+        <SectionHeader title="Champions" count={champions.length} />
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border">
           {champions.map(c => <DataCard key={c.id} data={c} type="champion" />)}
         </div>
       </div>
     );
   }
 
-  // ── Items タブ：1カラム ───────────────────────────────
   return (
     <div className="w-full max-w-4xl">
-      <SectionHeader title="Items" />
-      <div className="grid gap-3">
+      <SectionHeader title="Items" count={items.length} />
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border">
         {items.map(i => <DataCard key={i.id} data={i} type="item" />)}
       </div>
     </div>
