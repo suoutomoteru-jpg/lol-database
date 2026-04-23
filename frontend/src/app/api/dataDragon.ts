@@ -228,6 +228,26 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
   return deduplicated;
 }
 
+// ── アイテム英語名マップ ────────────────────────────────
+
+export async function fetchItemEnNames(version: string): Promise<Record<string, string>> {
+  const key = `lol-db:en_US:${version}:item-names`;
+  const cached = readCache<Record<string, string>>(key);
+  if (cached) return cached;
+
+  const url = `${BASE_URL}/cdn/${version}/data/en_US/item.json`;
+  const res = await fetch(url);
+  if (!res.ok) return {};
+
+  const json = await res.json() as { data: Record<string, { name: string }> };
+  const names: Record<string, string> = {};
+  for (const [id, item] of Object.entries(json.data)) {
+    names[id] = item.name;
+  }
+  writeCache(key, names);
+  return names;
+}
+
 // ── アイテム一覧（700G以上）──────────────────────────────
 
 export async function fetchItemListMedium(version: string): Promise<[string, DDragonItem][]> {

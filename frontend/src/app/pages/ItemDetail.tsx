@@ -1,8 +1,37 @@
 import { useState, useCallback } from 'react';
 import { Link, useParams } from 'react-router';
-import { ArrowLeft, X } from 'lucide-react';
+import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
+import { useItems } from '../hooks/useItems';
 import { useItemsByStats, type ItemSummary } from '../hooks/useItemsByStats';
+
+// ── 金銭効率計算 ───────────────────────────────────────
+
+const GOLD_PER_STAT: Record<string, number> = {
+  FlatPhysicalDamageMod:      35,     // g per 1 AD
+  FlatMagicDamageMod:         20,     // g per 1 AP
+  FlatArmorMod:               20,     // g per 1 Armor
+  FlatSpellBlockMod:          18,     // g per 1 MR
+  FlatHPPoolMod:              2.67,   // g per 1 HP
+  FlatMPPoolMod:              1.5,    // g per 1 Mana
+  FlatMovementSpeedMod:       12.5,   // g per 1 flat MS
+  FlatCritChanceMod:          4000,   // g per 1.0 fraction (= 40g/1%)
+  PercentAttackSpeedMod:      2500,   // g per 1.0 fraction (= 25g/1%)
+  PercentLifeStealMod:        3733,   // g per 1.0 fraction (≈ 37.33g/1%)
+  PercentMovementSpeedMod:    5000,   // g per 1.0 fraction (= 50g/1%)
+  FlatHPRegenMod:             75,     // g per 1 HP/5
+  FlatMPRegenMod:             60,     // g per 1 MP/5
+};
+
+function calcGoldEfficiency(stats: Record<string, number>, totalCost: number): number | null {
+  if (totalCost <= 0) return null;
+  let totalValue = 0;
+  for (const [key, val] of Object.entries(stats)) {
+    const rate = GOLD_PER_STAT[key];
+    if (rate && val) totalValue += val * rate;
+  }
+  return totalValue > 0 ? (totalValue / totalCost) * 100 : null;
+}
 
 // ── 日本語キーワード → stat/tag キー対応表 ─────────────
 // 長いものを先に並べる（部分マッチ防止）
@@ -165,9 +194,14 @@ function processItemDescription(raw: string): string {
 export function ItemDetail() {
   const { id } = useParams<{ id: string }>();
   const { item, loading, error } = useItem(id);
+  const { items } = useItems();
   const { statMap, mediumStatMap } = useItemsByStats();
   const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
   const [activeLabel, setActiveLabel] = useState<string>('');
+
+  const currentIdx = items.findIndex(it => it.id === id);
+  const prevItem = currentIdx > 0 ? items[currentIdx - 1] : null;
+  const nextItem = currentIdx >= 0 && currentIdx < items.length - 1 ? items[currentIdx + 1] : null;
 
   const handleDescClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
@@ -201,9 +235,28 @@ export function ItemDetail() {
   }
 
   const description = injectStatLinks(processItemDescription(item.description));
+  const goldEfficiency = calcGoldEfficiency(item.stats, item.gold.total);
 
   return (
     <div className="min-h-screen bg-background">
+      {prevItem && (
+        <Link
+          to={`/item/${prevItem.id}`}
+          title={prevItem.name}
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-14 rounded-lg bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+        >
+          <ChevronLeft size={16} />
+        </Link>
+      )}
+      {nextItem && (
+        <Link
+          to={`/item/${nextItem.id}`}
+          title={nextItem.name}
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-14 rounded-lg bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+        >
+          <ChevronRight size={16} />
+        </Link>
+      )}
       <div className="border-b border-border">
         <div className="container mx-auto px-4 py-3 max-w-5xl">
           <Link
@@ -227,7 +280,10 @@ export function ItemDetail() {
           />
           <div className="min-w-0">
             <h1 className="text-2xl font-semibold text-foreground leading-tight">{item.name}</h1>
-            <div className="flex items-center gap-3 mt-1 text-sm text-muted-foreground">
+            {item.englishName && item.englishName !== item.name && (
+              <p className="text-xs text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
+            )}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-muted-foreground">
               <span>
                 <span style={{ color: '#C89B3C' }} className="font-semibold">{item.gold.total}G</span>
                 {' '}合計
@@ -236,6 +292,17 @@ export function ItemDetail() {
               <span>{item.gold.base}G レシピ</span>
               <span className="text-border">·</span>
               <span>{item.gold.sell}G 売値</span>
+              {goldEfficiency !== null && (
+                <>
+                  <span className="text-border">·</span>
+                  <span>
+                    金銭効率{' '}
+                    <span className={goldEfficiency >= 100 ? 'text-green-500 font-semibold' : ''}>
+                      {goldEfficiency.toFixed(1)}%
+                    </span>
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
-import { ArrowLeft, ChevronUp } from 'lucide-react';
+import { ArrowLeft, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useChampion } from '../hooks/useChampion';
+import { useChampions } from '../hooks/useChampions';
 import { championImageUrl } from '../api/dataDragon';
+import { toWikiName } from '../api/lolWiki';
 import type { SkillData } from '../hooks/useChampion';
 
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
@@ -52,28 +54,27 @@ function SkillBlock({ skill }: { skill: SkillData }) {
 
   return (
     <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-2xl p-8 shadow-sm">
-      {/* スキル名 */}
-      <p className="text-2xl font-medium mb-4">
-        <span className="text-primary font-bold">{skill.key}</span>
-        {' — '}
-        {skill.name}
-      </p>
-      <hr className="border-border mb-6" />
-
-      {/* スキルアイコン + 説明 */}
-      <div className="flex gap-5 mb-8">
+      {/* アイコン + スキル名（同一行） */}
+      <div className="flex items-center gap-3 mb-4">
         <img
           src={skill.imageUrl}
           alt={skill.name}
-          className="w-16 h-16 rounded-xl border border-border flex-shrink-0"
+          className="w-12 h-12 rounded-xl border border-border flex-shrink-0"
           loading="lazy"
         />
-        {/* description は HTML string（DDragon タグを色付き span / strong に変換済み） */}
-        <div
-          className="text-foreground leading-relaxed text-base skill-description"
-          dangerouslySetInnerHTML={{ __html: skill.description }}
-        />
+        <p className="text-2xl font-medium">
+          <span className="text-primary font-bold">{skill.key}</span>
+          {' — '}
+          {skill.name}
+        </p>
       </div>
+      <hr className="border-border mb-4" />
+
+      {/* 説明文（インデントなし・全幅） */}
+      <div
+        className="text-foreground leading-relaxed text-base skill-description mb-8"
+        dangerouslySetInnerHTML={{ __html: skill.description }}
+      />
 
       {/* クールダウン・コスト・射程 */}
       {hasMeta && (
@@ -103,24 +104,26 @@ function SkillBlock({ skill }: { skill: SkillData }) {
       {skill.leveling && skill.leveling.length > 0 && (
         <div className="mt-6">
           <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wider">数値情報</p>
-          <div className="bg-muted/20 rounded-xl border border-border overflow-hidden">
-            <table className="w-full text-sm">
-              <tbody>
-                {skill.leveling.map((stat, i) => (
-                  <tr
-                    key={i}
-                    className={i % 2 === 0 ? 'bg-transparent' : 'bg-muted/20'}
-                  >
-                    <td className="px-4 py-2.5 text-muted-foreground font-medium w-2/5 whitespace-nowrap">
-                      {stat.label}
-                    </td>
-                    <td className="px-4 py-2.5 text-foreground font-mono">
-                      {stat.value}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="overflow-x-auto">
+            <div className="bg-muted/20 rounded-xl border border-border overflow-hidden min-w-[280px]">
+              <table className="w-full text-sm">
+                <tbody>
+                  {skill.leveling.map((stat, i) => (
+                    <tr
+                      key={i}
+                      className={i % 2 === 0 ? 'bg-transparent' : 'bg-muted/20'}
+                    >
+                      <td className="px-4 py-2.5 text-muted-foreground font-medium whitespace-nowrap">
+                        {stat.label}
+                      </td>
+                      <td className="px-4 py-2.5 text-foreground font-mono whitespace-nowrap">
+                        {stat.value}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}
@@ -133,15 +136,20 @@ function SkillBlock({ skill }: { skill: SkillData }) {
 export function ChampionDetail() {
   const { id } = useParams<{ id: string }>();
   const { champion, loading, error } = useChampion(id);
+  const { champions } = useChampions();
   const [activeSkill, setActiveSkill] = useState<SkillKey>('P');
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // prev / next チャンピオン（名前順）
+  const currentIdx = champions.findIndex(c => c.id === id);
+  const prevChampion = currentIdx > 0 ? champions[currentIdx - 1] : null;
+  const nextChampion = currentIdx >= 0 && currentIdx < champions.length - 1 ? champions[currentIdx + 1] : null;
 
   // スクロール検出
   useEffect(() => {
     const onScroll = () => {
       setShowScrollTop(window.scrollY > 400);
 
-      // スキルセクションのどれが画面内にあるか検出
       const keys: SkillKey[] = ['R', 'E', 'W', 'Q', 'P'];
       for (const key of keys) {
         const el = document.getElementById(`skill-${key}`);
@@ -165,7 +173,6 @@ export function ChampionDetail() {
     }
   }
 
-  // ── ローディング ───────────────────────────────────
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -177,7 +184,6 @@ export function ChampionDetail() {
     );
   }
 
-  // ── エラー ──────────────────────────────────────────
   if (error || !champion) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4">
@@ -202,6 +208,26 @@ export function ChampionDetail() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* 前後チャンピオン矢印 */}
+      {prevChampion && (
+        <Link
+          to={`/champion/${prevChampion.id}`}
+          title={prevChampion.name}
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-14 rounded-lg bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+        >
+          <ChevronLeft size={16} />
+        </Link>
+      )}
+      {nextChampion && (
+        <Link
+          to={`/champion/${nextChampion.id}`}
+          title={nextChampion.name}
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-14 rounded-lg bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+        >
+          <ChevronRight size={16} />
+        </Link>
+      )}
+
       {/* 戻るボタン */}
       <div className="border-b border-border">
         <div className="container mx-auto px-4 py-4 max-w-5xl">
@@ -227,7 +253,7 @@ export function ChampionDetail() {
           </div>
           <div>
             <h1 className="text-4xl font-semibold text-foreground">{champion.name}</h1>
-            <p className="text-muted-foreground text-lg mt-1">{champion.title}</p>
+            <p className="text-xs text-muted-foreground/70 mt-0.5">{toWikiName(champion.id)}</p>
             <p className="text-primary mt-1">{champion.role}</p>
           </div>
         </div>

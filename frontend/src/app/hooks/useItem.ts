@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { getLatestVersion, fetchAllItemsRaw, itemImageUrl } from '../api/dataDragon';
+import { getLatestVersion, fetchAllItemsRaw, fetchItemEnNames, itemImageUrl } from '../api/dataDragon';
 
 export interface ItemDetailData {
   id: string;
   name: string;
+  englishName: string;
   description: string;
   gold: { base: number; total: number; sell: number };
   stats: Record<string, number>;
@@ -36,7 +37,10 @@ export function useItem(itemId: string | undefined): UseItemResult {
     async function load() {
       try {
         const v = await getLatestVersion();
-        const allItems = await fetchAllItemsRaw(v);
+        const [allItems, enNames] = await Promise.all([
+          fetchAllItemsRaw(v),
+          fetchItemEnNames(v),
+        ]);
         if (cancelled) return;
 
         const raw = allItems[itemId!];
@@ -51,6 +55,7 @@ export function useItem(itemId: string | undefined): UseItemResult {
         setItem({
           id: itemId!,
           name: raw.name,
+          englishName: enNames[itemId!] ?? '',
           description: raw.description,
           gold: raw.gold,
           stats: raw.stats,

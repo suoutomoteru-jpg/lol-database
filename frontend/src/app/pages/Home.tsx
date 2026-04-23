@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useSearchParams } from 'react-router';
 import { SearchBar } from '../components/SearchBar';
 import { TabsFilter } from '../components/TabsFilter';
 import { FilterBar } from '../components/FilterBar';
@@ -10,18 +11,32 @@ import type { TabType, Role, ItemType } from '../data/mock-data';
 export function Home() {
   const { champions, loading: champLoading } = useChampions();
   const { items, loading: itemLoading } = useItems();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<TabType>('all');
-  const [selectedRole, setSelectedRole] = useState<Role | 'all'>('all');
-  const [selectedItemType, setSelectedItemType] = useState<ItemType | 'all'>('all');
-  const [allTabRoleFilter, setAllTabRoleFilter] = useState<Role | 'all'>('all');
-  const [allTabItemTypeFilter, setAllTabItemTypeFilter] = useState<ItemType | 'all'>('all');
+  const activeTab        = (searchParams.get('tab') as TabType)       ?? 'all';
+  const searchQuery      = searchParams.get('q')                       ?? '';
+  const selectedRole     = (searchParams.get('role') as Role | 'all') ?? 'all';
+  const selectedItemType = (searchParams.get('itype') as ItemType | 'all') ?? 'all';
+  const allTabRoleFilter     = (searchParams.get('arole') as Role | 'all')     ?? 'all';
+  const allTabItemTypeFilter = (searchParams.get('aitype') as ItemType | 'all') ?? 'all';
+
+  function set(key: string, value: string) {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev);
+      if (value && value !== 'all') next.set(key, value);
+      else next.delete(key);
+      return next;
+    }, { replace: true });
+  }
 
   function handleTabChange(tab: TabType) {
-    setActiveTab(tab);
-    setSelectedRole('all');
-    setSelectedItemType('all');
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev);
+      if (tab !== 'all') next.set('tab', tab); else next.delete('tab');
+      next.delete('role');
+      next.delete('itype');
+      return next;
+    }, { replace: true });
   }
 
   const q = searchQuery.toLowerCase();
@@ -49,16 +64,15 @@ export function Home() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center gap-8">
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          <SearchBar value={searchQuery} onChange={v => set('q', v)} />
           <TabsFilter activeTab={activeTab} onTabChange={handleTabChange} />
           <FilterBar
             activeTab={activeTab}
             selectedRole={selectedRole}
             selectedItemType={selectedItemType}
-            onRoleChange={setSelectedRole}
-            onItemTypeChange={setSelectedItemType}
+            onRoleChange={r => set('role', r)}
+            onItemTypeChange={t => set('itype', t)}
           />
-
           {loading ? (
             <div className="flex flex-col items-center gap-3 py-16 text-muted-foreground">
               <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
@@ -71,8 +85,8 @@ export function Home() {
               activeTab={activeTab}
               allTabRoleFilter={allTabRoleFilter}
               allTabItemTypeFilter={allTabItemTypeFilter}
-              onAllTabRoleChange={setAllTabRoleFilter}
-              onAllTabItemTypeChange={setAllTabItemTypeFilter}
+              onAllTabRoleChange={r => set('arole', r)}
+              onAllTabItemTypeChange={t => set('aitype', t)}
             />
           )}
         </div>
