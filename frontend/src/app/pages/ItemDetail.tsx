@@ -8,19 +8,21 @@ import { useItemsByStats, type ItemSummary } from '../hooks/useItemsByStats';
 // ── 金銭効率計算 ───────────────────────────────────────
 
 const GOLD_PER_STAT: Record<string, number> = {
-  FlatPhysicalDamageMod:      35,     // g per 1 AD
-  FlatMagicDamageMod:         20,     // g per 1 AP
-  FlatArmorMod:               20,     // g per 1 Armor
-  FlatSpellBlockMod:          18,     // g per 1 MR
-  FlatHPPoolMod:              2.67,   // g per 1 HP
-  FlatMPPoolMod:              1.5,    // g per 1 Mana
-  FlatMovementSpeedMod:       12.5,   // g per 1 flat MS
-  FlatCritChanceMod:          4000,   // g per 1.0 fraction (= 40g/1%)
-  PercentAttackSpeedMod:      2500,   // g per 1.0 fraction (= 25g/1%)
-  PercentLifeStealMod:        3733,   // g per 1.0 fraction (≈ 37.33g/1%)
-  PercentMovementSpeedMod:    5000,   // g per 1.0 fraction (= 50g/1%)
-  FlatHPRegenMod:             75,     // g per 1 HP/5
-  FlatMPRegenMod:             60,     // g per 1 MP/5
+  FlatPhysicalDamageMod:      35,      // Long Sword: 350g / 10 AD
+  FlatMagicDamageMod:         20,      // Amplifying Tome: 400g / 20 AP
+  FlatArmorMod:               20,      // Cloth Armor: 300g / 15 Armor
+  FlatSpellBlockMod:          20,      // Null-Magic Mantle: 400g / 25 MR
+  FlatHPPoolMod:              2.67,    // Ruby Crystal: 400g / 150 HP
+  FlatMPPoolMod:              1,       // Sapphire Crystal baseline: 1g/mana
+  FlatMovementSpeedMod:       12,      // 12g per 1 flat MS
+  FlatCritChanceMod:          4000,    // 40g per 1% → ×100 for fraction (0-1)
+  PercentAttackSpeedMod:      2500,    // 25g per 1% → ×100 for fraction
+  PercentLifeStealMod:        5355,    // Vampiric Scepter: 53.55g per 1% → ×100
+  PercentMovementSpeedMod:    6510.5,  // 65.105g per 1% (epic item avg) → ×100
+  FlatArmorPenetrationMod:    30,      // Lethality: 30g per 1
+  PercentArmorPenetrationMod: 4167,    // 41.67g per 1% → ×100
+  FlatHPRegenMod:             3,       // Rejuvenation Bead baseline: 3g/unit
+  FlatMPRegenMod:             4,       // Faerie Charm baseline: 4g/unit
 };
 
 function calcGoldEfficiency(stats: Record<string, number>, totalCost: number): number | null {
