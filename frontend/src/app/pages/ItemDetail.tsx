@@ -1,9 +1,10 @@
 import { useState, useCallback } from 'react';
 import { Link, useParams } from 'react-router';
-import { ArrowLeft, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
 import { useItems } from '../hooks/useItems';
-import { useItemsByStats, type ItemSummary } from '../hooks/useItemsByStats';
+import { useItemsByStats } from '../hooks/useItemsByStats';
+import { BottomSheet } from '../components/BottomSheet';
 
 // ── 金銭効率計算 ───────────────────────────────────────
 
@@ -78,91 +79,6 @@ function injectStatLinks(html: string): string {
       return key ? `<span data-stat="${key}" class="stat-keyword">${kw}</span>` : kw;
     });
   }).join('');
-}
-
-// ── ステータスポップアップ ─────────────────────────────
-
-function StatPopup({
-  label,
-  items,
-  mediumItems,
-  onClose,
-}: {
-  label: string;
-  items: ItemSummary[];
-  mediumItems: ItemSummary[];
-  onClose: () => void;
-}) {
-  const [showMedium, setShowMedium] = useState(false);
-  const displayed = showMedium ? mediumItems : items;
-  const hasMore = mediumItems.length > items.length;
-
-  return (
-    <div
-      className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div
-        className="bg-card border border-border rounded-sm w-full max-w-sm shadow-2xl flex flex-col"
-        style={{ maxHeight: '75vh' }}
-        onClick={e => e.stopPropagation()}
-      >
-        <div className="flex items-center justify-between px-4 py-3 border-b border-border flex-shrink-0">
-          <span className="text-sm font-medium text-foreground">{label}</span>
-          <button
-            onClick={onClose}
-            className="text-muted-foreground hover:text-foreground transition-colors p-0.5 rounded"
-          >
-            <X size={15} />
-          </button>
-        </div>
-
-        {displayed.length === 0 ? (
-          <p className="px-4 py-8 text-sm text-muted-foreground text-center">該当アイテムなし</p>
-        ) : (
-          <div className="overflow-y-auto divide-y divide-border">
-            {displayed.map(it => (
-              <Link
-                key={it.id}
-                to={`/item/${it.id}`}
-                onClick={onClose}
-                className="flex items-start gap-3 px-4 py-3 hover:bg-muted/30 transition-colors"
-              >
-                <img
-                  src={it.imageUrl}
-                  alt={it.name}
-                  className="w-9 h-9 rounded-sm border border-border flex-shrink-0 mt-0.5"
-                  loading="lazy"
-                />
-                <span className="flex-1 text-sm text-foreground leading-tight pt-0.5">{it.name}</span>
-                {it.stats.length > 0 && (
-                  <div className="flex-shrink-0 space-y-0.5">
-                    {it.stats.map(s => (
-                      <div key={s.label} className="flex items-center justify-end gap-3 text-xs leading-tight whitespace-nowrap">
-                        <span className="text-muted-foreground">{s.label}</span>
-                        <span className="text-foreground font-semibold">{s.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </Link>
-            ))}
-          </div>
-        )}
-
-        {hasMore && (
-          <div className="border-t border-border flex-shrink-0">
-            <button
-              onClick={() => setShowMedium(v => !v)}
-              className="w-full px-4 py-2.5 text-xs text-muted-foreground hover:text-foreground hover:bg-muted/30 transition-colors"
-            >
-              {showMedium ? '完成アイテムのみ表示' : 'その他のアイテム'}
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
 }
 
 // ── 説明文の前処理 ─────────────────────────────────────
@@ -364,14 +280,14 @@ export function ItemDetail() {
         )}
       </div>
 
-      {activeStatKey && (
-        <StatPopup
-          label={activeLabel}
-          items={statMap.get(activeStatKey) ?? []}
-          mediumItems={mediumStatMap.get(activeStatKey) ?? []}
-          onClose={() => { setActiveStatKey(null); setActiveLabel(''); }}
-        />
-      )}
+      <BottomSheet
+        isOpen={activeStatKey !== null}
+        label={activeLabel}
+        statKey={activeStatKey ?? ''}
+        items={statMap.get(activeStatKey ?? '') ?? []}
+        mediumItems={mediumStatMap.get(activeStatKey ?? '') ?? []}
+        onClose={() => { setActiveStatKey(null); setActiveLabel(''); }}
+      />
     </div>
   );
 }
