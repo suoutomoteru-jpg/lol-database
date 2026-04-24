@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Search } from 'lucide-react';
 
 interface SearchBarProps {
@@ -7,8 +7,16 @@ interface SearchBarProps {
 }
 
 export function SearchBar({ value, onChange }: SearchBarProps) {
+  const [localValue, setLocalValue] = useState(value);
+  const composing = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => { inputRef.current?.focus(); }, []);
+
+  // Sync external resets (e.g. tab change clears query)
+  useEffect(() => {
+    if (!composing.current) setLocalValue(value);
+  }, [value]);
 
   return (
     <div className="relative w-full max-w-2xl">
@@ -19,8 +27,18 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
       <input
         ref={inputRef}
         type="text"
-        value={value}
-        onChange={e => onChange(e.target.value)}
+        value={localValue}
+        onChange={e => {
+          setLocalValue(e.target.value);
+          if (!composing.current) onChange(e.target.value);
+        }}
+        onCompositionStart={() => { composing.current = true; }}
+        onCompositionEnd={e => {
+          composing.current = false;
+          const v = (e.target as HTMLInputElement).value;
+          setLocalValue(v);
+          onChange(v);
+        }}
         placeholder="チャンピオン・アイテムを検索..."
         className="w-full bg-card border border-border py-3 pl-11 pr-4 text-sm text-foreground
           placeholder:text-muted-foreground/60

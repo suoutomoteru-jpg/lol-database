@@ -13,12 +13,10 @@ export function Home() {
   const { items, loading: itemLoading } = useItems();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const activeTab        = (searchParams.get('tab') as TabType)       ?? 'all';
-  const searchQuery      = searchParams.get('q')                       ?? '';
+  const activeTab        = (searchParams.get('tab') as TabType) ?? 'champions';
+  const searchQuery      = searchParams.get('q')                ?? '';
   const selectedRole     = (searchParams.get('role') as Role | 'all') ?? 'all';
   const selectedItemType = (searchParams.get('itype') as ItemType | 'all') ?? 'all';
-  const allTabRoleFilter     = (searchParams.get('arole') as Role | 'all')     ?? 'all';
-  const allTabItemTypeFilter = (searchParams.get('aitype') as ItemType | 'all') ?? 'all';
 
   function set(key: string, value: string) {
     setSearchParams(prev => {
@@ -32,7 +30,7 @@ export function Home() {
   function handleTabChange(tab: TabType) {
     setSearchParams(prev => {
       const next = new URLSearchParams(prev);
-      if (tab !== 'all') next.set('tab', tab); else next.delete('tab');
+      next.set('tab', tab);
       next.delete('role');
       next.delete('itype');
       return next;
@@ -42,21 +40,20 @@ export function Home() {
   const q = searchQuery.toLowerCase();
 
   const filteredChampions = useMemo(() => {
+    if (activeTab === 'items') return [];
     return champions.filter(c => {
       if (!c.name.toLowerCase().includes(q)) return false;
-      const filter = activeTab === 'all' ? allTabRoleFilter : selectedRole;
-      return filter === 'all' || c.role === filter;
+      return selectedRole === 'all' || c.role === selectedRole;
     });
-  }, [champions, q, activeTab, allTabRoleFilter, selectedRole]);
+  }, [champions, q, activeTab, selectedRole]);
 
   const filteredItems = useMemo(() => {
     if (activeTab === 'champions') return [];
     return items.filter(item => {
       if (!item.name.toLowerCase().includes(q)) return false;
-      const filter = activeTab === 'all' ? allTabItemTypeFilter : selectedItemType;
-      return filter === 'all' || item.type === filter;
+      return selectedItemType === 'all' || item.type === selectedItemType;
     });
-  }, [items, q, activeTab, allTabItemTypeFilter, selectedItemType]);
+  }, [items, q, activeTab, selectedItemType]);
 
   const loading = champLoading || itemLoading;
 
@@ -64,7 +61,6 @@ export function Home() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 pt-10 pb-6 max-w-6xl">
         <div className="flex flex-col items-center gap-5">
-          {/* Site header */}
           <div className="text-center mb-2">
             <h1 className="text-2xl font-bold text-primary tracking-wide uppercase">LoL Database</h1>
             <p className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">League of Legends Encyclopedia</p>
@@ -87,13 +83,9 @@ export function Home() {
             </div>
           ) : (
             <ResultsSection
-              champions={activeTab === 'items' ? [] : filteredChampions}
-              items={activeTab === 'champions' ? [] : filteredItems}
+              champions={filteredChampions}
+              items={filteredItems}
               activeTab={activeTab}
-              allTabRoleFilter={allTabRoleFilter}
-              allTabItemTypeFilter={allTabItemTypeFilter}
-              onAllTabRoleChange={r => set('arole', r)}
-              onAllTabItemTypeChange={t => set('aitype', t)}
             />
           )}
         </div>

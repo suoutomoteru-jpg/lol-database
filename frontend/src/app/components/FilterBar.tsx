@@ -14,12 +14,9 @@ const ITEM_TYPES: (ItemType | 'all')[] = ['all', 'Fighter', 'Marksman', 'Assassi
 function roleLabel(r: Role | 'all') { return r === 'all' ? 'すべて' : r; }
 function typeLabel(t: ItemType | 'all') { return t === 'all' ? 'すべて' : t; }
 
-
 export function FilterBar({
   activeTab, selectedRole, selectedItemType, onRoleChange, onItemTypeChange,
 }: FilterBarProps) {
-  if (activeTab === 'all') return null;
-
   const items = activeTab === 'champions' ? ROLES : ITEM_TYPES;
   const selected = activeTab === 'champions' ? selectedRole : selectedItemType;
   const onChange = activeTab === 'champions'

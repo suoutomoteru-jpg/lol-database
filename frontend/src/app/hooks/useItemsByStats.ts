@@ -17,7 +17,7 @@ export interface ItemSummary {
 const STAT_LABELS: Record<string, string> = {
   FlatPhysicalDamageMod:         '攻撃力',
   FlatMagicDamageMod:            '魔力',
-  FlatArmorMod:                  '物理防御',
+  FlatArmorMod:                  'AR',
   FlatSpellBlockMod:             '魔法防御',
   FlatHPPoolMod:                 '体力',
   FlatMPPoolMod:                 'マナ',
@@ -29,10 +29,10 @@ const STAT_LABELS: Record<string, string> = {
   FlatMPRegenMod:                'マナ回復',
   PercentMovementSpeedMod:       '移動速度%',
   FlatGoldPer10Mod:              'ゴールド/10s',
-  FlatArmorPenetrationMod:       '物理防御貫通',
-  PercentArmorPenetrationMod:    '物理防御貫通%',
-  FlatMagicPenetrationMod:       '魔法防御貫通',
-  PercentMagicPenetrationMod:    '魔法防御貫通%',
+  FlatArmorPenetrationMod:       '脅威',
+  PercentArmorPenetrationMod:    'APen',
+  FlatMagicPenetrationMod:       'MPen',
+  PercentMagicPenetrationMod:    'MPen%',
 };
 
 function formatStatValue(key: string, val: number): string {
@@ -75,11 +75,16 @@ function buildMap(version: string, items: [string, DDragonItem][]): Map<string, 
     const plainDesc = item.description.replace(/<[^>]+>/g, '');
     if (/シールド/.test(plainDesc)) add('custom:Shield', summary);
     if (
-      /物理防御貫通|アーマー貫通/.test(plainDesc) ||
-      item.stats['FlatArmorPenetrationMod'] ||
+      /物理防御貫通/.test(plainDesc) ||
       item.stats['PercentArmorPenetrationMod']
     ) {
       add('custom:ArmorPen', summary);
+    }
+    if (
+      item.stats['FlatArmorPenetrationMod'] ||
+      /脅威/.test(plainDesc)
+    ) {
+      add('custom:Lethality', summary);
     }
     if (
       /魔法防御貫通/.test(plainDesc) ||

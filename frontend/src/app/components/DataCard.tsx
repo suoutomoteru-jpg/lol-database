@@ -12,7 +12,9 @@ function isChampion(data: Champion | Item): data is Champion {
 
 export function DataCard({ data, type }: DataCardProps) {
   const navigate = useNavigate();
-  const subtitle = isChampion(data) ? data.role : data.type;
+  const isChamp = isChampion(data);
+  const subtitle = isChamp ? data.role : data.type;
+  const statTags = !isChamp ? data.statTags : null;
 
   return (
     <div
@@ -35,10 +37,23 @@ export function DataCard({ data, type }: DataCardProps) {
         />
       </div>
 
-      {/* Name + subtitle */}
+      {/* Name + subtitle / stat tags */}
       <div className="flex-1 min-w-0">
         <p className="text-sm font-semibold text-foreground truncate leading-tight">{data.name}</p>
-        <p className="text-xs text-muted-foreground/50 leading-tight mt-0.5">{subtitle}</p>
+        {statTags && statTags.length > 0 ? (
+          <div className="flex gap-1 mt-1 flex-wrap">
+            {statTags.slice(0, 3).map(tag => (
+              <span
+                key={tag}
+                className="px-1.5 py-0 text-[10px] leading-4 bg-accent/50 text-muted-foreground rounded-sm"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : (
+          <p className="text-xs text-muted-foreground/50 leading-tight mt-0.5">{subtitle}</p>
+        )}
       </div>
     </div>
   );

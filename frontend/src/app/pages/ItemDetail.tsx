@@ -48,6 +48,7 @@ const KEYWORD_DEFS: Array<{ text: string; key: string }> = [
   { text: '物理防御貫通',       key: 'custom:ArmorPen' },
   { text: 'クリティカル率',     key: 'stat:FlatCritChanceMod' },
   { text: 'シールド量',         key: 'custom:Shield' },
+  { text: '脅威',               key: 'custom:Lethality' },
   { text: '体力回復速度',       key: 'stat:FlatHPRegenMod' },
   { text: '体力回復',           key: 'stat:FlatHPRegenMod' },
   { text: 'マナ回復速度',       key: 'stat:FlatMPRegenMod' },

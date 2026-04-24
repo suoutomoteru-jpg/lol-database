@@ -6,7 +6,6 @@ interface TabsFilterProps {
 }
 
 const TABS: { key: TabType; label: string }[] = [
-  { key: 'all',       label: 'すべて' },
   { key: 'champions', label: 'チャンピオン' },
   { key: 'items',     label: 'アイテム' },
 ];
