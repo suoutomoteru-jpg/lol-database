@@ -15,22 +15,24 @@ export interface ItemSummary {
 }
 
 const STAT_LABELS: Record<string, string> = {
-  FlatPhysicalDamageMod:      '攻撃力',
-  FlatMagicDamageMod:         '魔力',
-  FlatArmorMod:               'アーマー',
-  FlatSpellBlockMod:          '魔法防御',
-  FlatHPPoolMod:              '体力',
-  FlatMPPoolMod:              'マナ',
-  FlatMovementSpeedMod:       '移動速度',
-  FlatCritChanceMod:          'クリティカル率',
-  PercentAttackSpeedMod:      '攻撃速度',
-  PercentLifeStealMod:        'ライフスティール',
-  FlatHPRegenMod:             '体力回復',
-  FlatMPRegenMod:             'マナ回復',
-  PercentMovementSpeedMod:    '移動速度%',
-  FlatGoldPer10Mod:           'ゴールド/10s',
-  FlatArmorPenetrationMod:    'アーマー貫通',
-  PercentArmorPenetrationMod: 'アーマー貫通%',
+  FlatPhysicalDamageMod:         '攻撃力',
+  FlatMagicDamageMod:            '魔力',
+  FlatArmorMod:                  '物理防御',
+  FlatSpellBlockMod:             '魔法防御',
+  FlatHPPoolMod:                 '体力',
+  FlatMPPoolMod:                 'マナ',
+  FlatMovementSpeedMod:          '移動速度',
+  FlatCritChanceMod:             'クリティカル率',
+  PercentAttackSpeedMod:         '攻撃速度',
+  PercentLifeStealMod:           'ライフスティール',
+  FlatHPRegenMod:                '体力回復',
+  FlatMPRegenMod:                'マナ回復',
+  PercentMovementSpeedMod:       '移動速度%',
+  FlatGoldPer10Mod:              'ゴールド/10s',
+  FlatArmorPenetrationMod:       '物理防御貫通',
+  PercentArmorPenetrationMod:    '物理防御貫通%',
+  FlatMagicPenetrationMod:       '魔法防御貫通',
+  PercentMagicPenetrationMod:    '魔法防御貫通%',
 };
 
 function formatStatValue(key: string, val: number): string {
@@ -68,6 +70,23 @@ function buildMap(version: string, items: [string, DDragonItem][]): Map<string, 
     }
     for (const tag of item.tags ?? []) {
       add(`tag:${tag}`, summary);
+    }
+
+    const plainDesc = item.description.replace(/<[^>]+>/g, '');
+    if (/シールド/.test(plainDesc)) add('custom:Shield', summary);
+    if (
+      /物理防御貫通|アーマー貫通/.test(plainDesc) ||
+      item.stats['FlatArmorPenetrationMod'] ||
+      item.stats['PercentArmorPenetrationMod']
+    ) {
+      add('custom:ArmorPen', summary);
+    }
+    if (
+      /魔法防御貫通/.test(plainDesc) ||
+      item.stats['FlatMagicPenetrationMod'] ||
+      item.stats['PercentMagicPenetrationMod']
+    ) {
+      add('custom:MagicPen', summary);
     }
   }
 

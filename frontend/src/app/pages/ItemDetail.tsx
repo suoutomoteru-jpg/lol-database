@@ -39,19 +39,27 @@ function calcGoldEfficiency(stats: Record<string, number>, totalCost: number): n
 // 長いものを先に並べる（部分マッチ防止）
 
 const KEYWORD_DEFS: Array<{ text: string; key: string }> = [
-  { text: 'ライフスティール', key: 'stat:PercentLifeStealMod' },
-  { text: 'スキルヘイスト',  key: 'tag:AbilityHaste' },
-  { text: 'クリティカル率',  key: 'stat:FlatCritChanceMod' },
-  { text: '体力回復',        key: 'stat:FlatHPRegenMod' },
-  { text: 'マナ回復',        key: 'stat:FlatMPRegenMod' },
-  { text: '魔法防御',        key: 'stat:FlatSpellBlockMod' },
-  { text: '移動速度',        key: 'stat:FlatMovementSpeedMod' },
-  { text: '攻撃速度',        key: 'stat:PercentAttackSpeedMod' },
-  { text: '攻撃力',          key: 'stat:FlatPhysicalDamageMod' },
-  { text: '魔力',            key: 'stat:FlatMagicDamageMod' },
-  { text: 'アーマー',        key: 'stat:FlatArmorMod' },
-  { text: '体力',            key: 'stat:FlatHPPoolMod' },
-  { text: 'マナ',            key: 'stat:FlatMPPoolMod' },
+  { text: 'ライフスティール',   key: 'stat:PercentLifeStealMod' },
+  { text: '通常攻撃時効果',     key: 'tag:OnHit' },
+  { text: '行動妨害耐性',       key: 'tag:Tenacity' },
+  { text: 'スキルヘイスト',     key: 'tag:AbilityHaste' },
+  { text: '魔法防御貫通',       key: 'custom:MagicPen' },
+  { text: '物理防御貫通',       key: 'custom:ArmorPen' },
+  { text: 'クリティカル率',     key: 'stat:FlatCritChanceMod' },
+  { text: 'シールド量',         key: 'custom:Shield' },
+  { text: '体力回復速度',       key: 'stat:FlatHPRegenMod' },
+  { text: '体力回復',           key: 'stat:FlatHPRegenMod' },
+  { text: 'マナ回復速度',       key: 'stat:FlatMPRegenMod' },
+  { text: 'マナ回復',           key: 'stat:FlatMPRegenMod' },
+  { text: '魔法防御',           key: 'stat:FlatSpellBlockMod' },
+  { text: '物理防御',           key: 'stat:FlatArmorMod' },
+  { text: '移動速度',           key: 'stat:FlatMovementSpeedMod' },
+  { text: '攻撃速度',           key: 'stat:PercentAttackSpeedMod' },
+  { text: '攻撃力',             key: 'stat:FlatPhysicalDamageMod' },
+  { text: '魔力',               key: 'stat:FlatMagicDamageMod' },
+  { text: 'アーマー',           key: 'stat:FlatArmorMod' },
+  { text: '体力',               key: 'stat:FlatHPPoolMod' },
+  { text: 'マナ',               key: 'stat:FlatMPPoolMod' },
 ];
 
 const KW_PATTERN = new RegExp(
@@ -128,11 +136,11 @@ function StatPopup({
                 />
                 <span className="flex-1 text-sm text-foreground leading-tight pt-0.5">{it.name}</span>
                 {it.stats.length > 0 && (
-                  <div className="text-right flex-shrink-0 space-y-0.5">
+                  <div className="flex-shrink-0 space-y-0.5">
                     {it.stats.map(s => (
-                      <div key={s.label} className="flex items-center gap-2 text-xs leading-tight">
+                      <div key={s.label} className="flex items-center justify-end gap-3 text-xs leading-tight whitespace-nowrap">
                         <span className="text-muted-foreground">{s.label}</span>
-                        <span className="text-foreground font-medium">{s.value}</span>
+                        <span className="text-foreground font-semibold">{s.value}</span>
                       </div>
                     ))}
                   </div>
