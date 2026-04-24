@@ -3,11 +3,18 @@ import { getLatestVersion, fetchItemList, itemImageUrl } from '../api/dataDragon
 import { mapItemType } from '../utils/itemType';
 import type { Item } from '../data/mock-data';
 
-// Priority-ordered stat tag definitions (user-specified order)
-const STAT_TAG_MAP: Array<{ key: string; abbr: string; isTag?: boolean }> = [
+// Priority-ordered (user-specified order + Crit/AS added)
+type TagEntry =
+  | { key: string; abbr: string }
+  | { key: string; abbr: string; isTag: true }
+  | { key: string; abbr: string; isDesc: true };
+
+const STAT_TAG_MAP: TagEntry[] = [
   { key: 'FlatPhysicalDamageMod',      abbr: 'AD' },
   { key: 'FlatMagicDamageMod',         abbr: 'AP' },
-  { key: 'AbilityHaste',               abbr: 'SH',      isTag: true },
+  { key: 'AbilityHaste',               abbr: 'SH',  isTag: true },
+  { key: 'FlatCritChanceMod',          abbr: 'Crit' },
+  { key: 'PercentAttackSpeedMod',      abbr: 'AS' },
   { key: 'FlatArmorMod',               abbr: 'AR' },
   { key: 'FlatSpellBlockMod',          abbr: 'MR' },
   { key: 'FlatMPRegenMod',             abbr: 'MReg' },
@@ -17,20 +24,36 @@ const STAT_TAG_MAP: Array<{ key: string; abbr: string; isTag?: boolean }> = [
   { key: 'FlatMPPoolMod',              abbr: 'Mana' },
   { key: 'FlatMovementSpeedMod',       abbr: 'MS' },
   { key: 'PercentMovementSpeedMod',    abbr: 'MS' },
+  // % armor pen — stat-based first, then description fallback
   { key: 'PercentArmorPenetrationMod', abbr: 'APen' },
+  { key: '物理防御貫通',               abbr: 'APen', isDesc: true },
+  // magic pen — stat-based first, then description fallback
   { key: 'FlatMagicPenetrationMod',    abbr: 'MPen' },
   { key: 'PercentMagicPenetrationMod', abbr: 'MPen' },
+  { key: '魔法防御貫通',               abbr: 'MPen', isDesc: true },
+  // lethality (flat armor pen)
   { key: 'FlatArmorPenetrationMod',    abbr: 'Lethal' },
+  { key: '脅威',                       abbr: 'Lethal', isDesc: true },
 ];
 
-function computeStatTags(stats: Record<string, number>, tags: string[]): string[] {
+function computeStatTags(
+  stats: Record<string, number>,
+  tags: string[],
+  description: string,
+): string[] {
   const tagSet = new Set(tags);
+  const plainDesc = description.replace(/<[^>]+>/g, '');
   const seen = new Set<string>();
   const result: string[] = [];
-  for (const { key, abbr, isTag } of STAT_TAG_MAP) {
-    if (seen.has(abbr)) continue;
-    const has = isTag ? tagSet.has(key) : (!!stats[key] && stats[key] !== 0);
-    if (has) { result.push(abbr); seen.add(abbr); }
+
+  for (const entry of STAT_TAG_MAP) {
+    if (seen.has(entry.abbr)) continue;
+    let has = false;
+    if ('isTag' in entry)  has = tagSet.has(entry.key);
+    else if ('isDesc' in entry) has = new RegExp(entry.key).test(plainDesc);
+    else has = !!stats[entry.key] && stats[entry.key] !== 0;
+
+    if (has) { result.push(entry.abbr); seen.add(entry.abbr); }
   }
   return result;
 }
@@ -62,7 +85,7 @@ export function useItems(): UseItemsResult {
             name: item.name,
             type: mapItemType(item.tags),
             icon: itemImageUrl(v, item.image.full),
-            statTags: computeStatTags(item.stats, item.tags),
+            statTags: computeStatTags(item.stats, item.tags, item.description),
           }))
           .sort((a, b) => a.name.localeCompare(b.name));
 

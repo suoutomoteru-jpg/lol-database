@@ -1,10 +1,32 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, Fragment } from 'react';
 import { Link, useParams } from 'react-router';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
 import { useItems } from '../hooks/useItems';
 import { useItemsByStats } from '../hooks/useItemsByStats';
 import { BottomSheet } from '../components/BottomSheet';
+
+// ── 日本語単語境界でのアイテム名折り返し ────────────────
+interface JaSegment { segment: string }
+interface JaSegmenter { segment(t: string): Iterable<JaSegment> }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const _Seg = (Intl as any).Segmenter;
+const jaSegmenter: JaSegmenter | null = _Seg
+  ? (() => { try { return new _Seg('ja', { granularity: 'word' }) as JaSegmenter; } catch { return null; } })()
+  : null;
+
+function WbrName({ text }: { text: string }) {
+  if (!jaSegmenter) return <>{text}</>;
+  const parts = [...jaSegmenter.segment(text)];
+  if (parts.length <= 1) return <>{text}</>;
+  return (
+    <>
+      {parts.map((p, i) => (
+        <Fragment key={i}>{p.segment}{i < parts.length - 1 && <wbr />}</Fragment>
+      ))}
+    </>
+  );
+}
 
 // ── 金銭効率計算 ───────────────────────────────────────
 
@@ -205,7 +227,12 @@ export function ItemDetail() {
             className="w-16 h-16 rounded-sm border border-border shadow flex-shrink-0"
           />
           <div className="min-w-0">
-            <h1 className="text-xl font-bold text-foreground leading-tight">{item.name}</h1>
+            <h1
+              className="text-xl font-bold text-foreground leading-tight"
+              style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
+            >
+              <WbrName text={item.name} />
+            </h1>
             {item.englishName && item.englishName !== item.name && (
               <p className="text-xs text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
             )}
