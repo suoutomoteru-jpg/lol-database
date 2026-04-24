@@ -9,14 +9,6 @@ import type { SkillData } from '../hooks/useChampion';
 
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
 
-const ROLE_BADGE: Record<string, string> = {
-  Mage:      'bg-sky-500/15 text-sky-400',
-  Tank:      'bg-slate-500/15 text-slate-300',
-  Assassin:  'bg-purple-500/15 text-purple-400',
-  Fighter:   'bg-orange-500/15 text-orange-400',
-  Support:   'bg-emerald-500/15 text-emerald-400',
-  Marksman:  'bg-yellow-500/15 text-yellow-400',
-};
 
 // ── スキルナビゲーションボタン ──────────────────────────
 
@@ -263,7 +255,7 @@ export function ChampionDetail() {
           <div>
             <h1 className="text-3xl font-bold text-foreground tracking-tight">{champion.name}</h1>
             <p className="text-xs text-muted-foreground/60 mt-0.5 font-medium tracking-wide">{toWikiName(champion.id)}</p>
-            <span className={`inline-block mt-1.5 px-2 py-0.5 text-xs font-semibold rounded-sm uppercase tracking-wide ${ROLE_BADGE[champion.role] ?? 'bg-accent/30 text-primary'}`}>
+            <span className="inline-block mt-1.5 px-2 py-0.5 text-xs rounded-sm uppercase tracking-wide bg-secondary text-muted-foreground/60">
               {champion.role}
             </span>
           </div>

@@ -130,9 +130,8 @@ function StatPopup({
                 {it.stats.length > 0 && (
                   <div className="text-right flex-shrink-0 space-y-0.5">
                     {it.stats.map(s => (
-                      <div key={s.label} className="text-xs leading-tight">
+                      <div key={s.label} className="flex items-center gap-2 text-xs leading-tight">
                         <span className="text-muted-foreground">{s.label}</span>
-                        {' '}
                         <span className="text-foreground font-medium">{s.value}</span>
                       </div>
                     ))}
@@ -286,22 +285,13 @@ export function ItemDetail() {
               <p className="text-xs text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
             )}
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-muted-foreground">
-              <span>
-                <span style={{ color: '#C89B3C' }} className="font-semibold">{item.gold.total}G</span>
-                {' '}合計
-              </span>
-              <span className="text-border">·</span>
-              <span>{item.gold.base}G レシピ</span>
-              <span className="text-border">·</span>
-              <span>{item.gold.sell}G 売値</span>
+              <span className="text-primary font-semibold">{item.gold.total}G</span>
               {goldEfficiency !== null && (
                 <>
                   <span className="text-border">·</span>
                   <span>
                     金銭効率{' '}
-                    <span className={goldEfficiency >= 100 ? 'text-green-500 font-semibold' : ''}>
-                      {goldEfficiency.toFixed(1)}%
-                    </span>
+                    <span className="text-primary font-semibold">{goldEfficiency.toFixed(1)}%</span>
                   </span>
                 </>
               )}

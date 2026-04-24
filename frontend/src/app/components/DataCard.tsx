@@ -10,22 +10,9 @@ function isChampion(data: Champion | Item): data is Champion {
   return 'role' in data;
 }
 
-const ROLE_COLOR: Record<string, string> = {
-  Mage:      'text-sky-400',
-  Tank:      'text-slate-400',
-  Assassin:  'text-purple-400',
-  Fighter:   'text-orange-400',
-  Support:   'text-emerald-400',
-  Marksman:  'text-yellow-400',
-  // item types
-  Magic:     'text-sky-400',
-  Defense:   'text-slate-400',
-};
-
 export function DataCard({ data, type }: DataCardProps) {
   const navigate = useNavigate();
   const subtitle = isChampion(data) ? data.role : data.type;
-  const roleColorClass = ROLE_COLOR[subtitle] ?? 'text-muted-foreground';
 
   return (
     <div
@@ -51,7 +38,7 @@ export function DataCard({ data, type }: DataCardProps) {
       {/* Name + subtitle */}
       <div className="flex-1 min-w-0">
         <p className="text-sm font-semibold text-foreground truncate leading-tight">{data.name}</p>
-        <p className={`text-xs font-medium leading-tight mt-0.5 ${roleColorClass}`}>{subtitle}</p>
+        <p className="text-xs text-muted-foreground/50 leading-tight mt-0.5">{subtitle}</p>
       </div>
     </div>
   );

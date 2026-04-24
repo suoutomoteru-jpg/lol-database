@@ -14,16 +14,6 @@ const ITEM_TYPES: (ItemType | 'all')[] = ['all', 'Fighter', 'Marksman', 'Assassi
 function roleLabel(r: Role | 'all') { return r === 'all' ? 'すべて' : r; }
 function typeLabel(t: ItemType | 'all') { return t === 'all' ? 'すべて' : t; }
 
-const ROLE_ACTIVE: Record<string, string> = {
-  Mage:      'border-sky-500/60 text-sky-400 bg-sky-500/10',
-  Tank:      'border-slate-400/60 text-slate-300 bg-slate-500/10',
-  Assassin:  'border-purple-500/60 text-purple-400 bg-purple-500/10',
-  Fighter:   'border-orange-500/60 text-orange-400 bg-orange-500/10',
-  Support:   'border-emerald-500/60 text-emerald-400 bg-emerald-500/10',
-  Marksman:  'border-yellow-500/60 text-yellow-400 bg-yellow-500/10',
-  Magic:     'border-sky-500/60 text-sky-400 bg-sky-500/10',
-  Defense:   'border-slate-400/60 text-slate-300 bg-slate-500/10',
-};
 
 export function FilterBar({
   activeTab, selectedRole, selectedItemType, onRoleChange, onItemTypeChange,
@@ -42,7 +32,7 @@ export function FilterBar({
       {items.map(v => {
         const isActive = selected === v;
         const colorClass = isActive
-          ? (v === 'all' ? 'border-primary/60 text-primary bg-primary/10' : (ROLE_ACTIVE[v] ?? 'border-primary/60 text-primary bg-primary/10'))
+          ? 'border-primary/60 text-primary bg-primary/10'
           : 'border-border text-muted-foreground hover:border-border hover:text-foreground';
         return (
           <button
