@@ -62,8 +62,8 @@ export function Home() {
       <div className="container mx-auto px-4 pt-10 pb-6 max-w-6xl">
         <div className="flex flex-col items-center gap-5">
           <div className="text-center mb-2">
-            <h1 className="text-2xl font-bold text-primary tracking-wide uppercase">LoL Database</h1>
-            <p className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">League of Legends Encyclopedia</p>
+            <h1 className="text-2xl font-bold text-primary tracking-wide uppercase">nunune.gg</h1>
+            <p className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">League of Legends Database</p>
           </div>
 
           <SearchBar value={searchQuery} onChange={v => set('q', v)} />

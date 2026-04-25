@@ -48,15 +48,55 @@ const GOLD_PER_STAT: Record<string, number> = {
   PercentMagicPenetrationMod:    4167,    // Void Staff: same baseline as armor pen → ×100
   FlatHPRegenMod:                3,       // Rejuvenation Bead baseline: 3g/unit
   FlatMPRegenMod:                4,       // Faerie Charm baseline: 4g/unit
+  // DDragonがstat値を持つ場合のフォールバック（説明文解析も併用）
+  AbilityHaste:                  26.67,   // 輝きのモート基準 ※要確認; Kindlegem補完値: (800-534)g/10AH
+  PercentHealAndShieldPower:     7760,    // Forbidden Idol: (800-24)g / 10% → ×100
 };
 
-function calcGoldEfficiency(stats: Record<string, number>, totalCost: number): number | null {
+// DDragonのstatフィールドに含まれない指標を説明文から抽出して算入する
+const AH_RATE        = 26.67; // 輝きのモート基準 ※要確認
+const HS_RATE        = 7760;  // Forbidden Idol: (800 - 6*4)g for 10% → 7760g/fraction
+const TENACITY_RATE  = 200;   // Mercury's: 1100 - 25*20 - 45*12 = 60g for 30% → 200g/fraction
+
+function extractNum(text: string, pattern: RegExp): number {
+  const m = text.match(pattern);
+  return m ? parseInt(m[1], 10) : 0;
+}
+
+function calcGoldEfficiency(
+  stats: Record<string, number>,
+  tags: string[],
+  rawDesc: string,
+  totalCost: number,
+): number | null {
   if (totalCost <= 0) return null;
   let totalValue = 0;
+
   for (const [key, val] of Object.entries(stats)) {
     const rate = GOLD_PER_STAT[key];
     if (rate && val) totalValue += val * rate;
   }
+
+  const plain = rawDesc.replace(/<[^>]+>/g, '');
+
+  // スキルヘイスト（stat未収録の場合、説明文から抽出）
+  if (!stats['AbilityHaste']) {
+    const ah = extractNum(plain, /スキルヘイスト\D{0,10}?(\d+)/);
+    if (ah) totalValue += ah * AH_RATE;
+  }
+
+  // ヒール&シールドパワー（stat未収録の場合、説明文から抽出）
+  if (!stats['PercentHealAndShieldPower']) {
+    const hs = extractNum(plain, /ヒール[&＆]シールドパワー\D{0,10}?(\d+)/);
+    if (hs) totalValue += (hs / 100) * HS_RATE;
+  }
+
+  // 行動妨害耐性（DDragonではタグのみでstat値なし → 説明文から%を抽出）
+  if (tags.includes('Tenacity')) {
+    const t = extractNum(plain, /行動妨害耐性\D{0,20}?(\d+)/);
+    if (t) totalValue += (t / 100) * TENACITY_RATE;
+  }
+
   return totalValue > 0 ? (totalValue / totalCost) * 100 : null;
 }
 
@@ -185,7 +225,7 @@ export function ItemDetail() {
   }
 
   const description = injectStatLinks(processItemDescription(item.description));
-  const goldEfficiency = calcGoldEfficiency(item.stats, item.gold.total);
+  const goldEfficiency = calcGoldEfficiency(item.stats, item.tags, item.description, item.gold.total);
 
   return (
     <div className="min-h-screen bg-background">
