@@ -93,6 +93,12 @@ function buildMap(version: string, items: [string, DDragonItem][]): Map<string, 
     ) {
       add('custom:MagicPen', summary);
     }
+    if (
+      item.stats['PercentLifeStealMod'] ||
+      /ライフスティール/.test(plainDesc)
+    ) {
+      add('custom:LifeSteal', summary);
+    }
   }
 
   for (const list of result.values()) {
