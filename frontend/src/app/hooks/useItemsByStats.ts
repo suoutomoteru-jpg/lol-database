@@ -99,6 +99,18 @@ function buildMap(version: string, items: [string, DDragonItem][]): Map<string, 
     ) {
       add('custom:LifeSteal', summary);
     }
+    if (
+      item.stats['PercentHealAndShieldPower'] ||
+      /ヒール[&＆]シールドパワー/.test(plainDesc)
+    ) {
+      add('custom:HealAndShieldPower', summary);
+    }
+    if (
+      item.stats['PercentCritDamageMod'] ||
+      /クリティカルダメージ/.test(plainDesc)
+    ) {
+      add('custom:CritDamage', summary);
+    }
   }
 
   for (const list of result.values()) {

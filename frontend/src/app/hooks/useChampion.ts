@@ -313,23 +313,27 @@ function processTooltipHtml(raw: string): string {
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</strong>');
   }
 
-  const colorMap: [string, string][] = [
-    ['scaleAD',        AD],
-    ['scaleBonusAD',   AD],
-    ['scaleAP',        AP],
-    ['scaleHealth',    HP],
-    ['scaleMana',      MANA],
+  // [tag, color, statKey?] — statKey があるとタップでアイテム一覧が開く
+  const colorMap: [string, string, string?][] = [
+    ['scaleAD',        AD,          'stat:FlatPhysicalDamageMod'],
+    ['scaleBonusAD',   AD,          'stat:FlatPhysicalDamageMod'],
+    ['scaleAP',        AP,          'stat:FlatMagicDamageMod'],
+    ['scaleHealth',    HP,          'stat:FlatHPPoolMod'],
+    ['scaleMana',      MANA,        'stat:FlatMPPoolMod'],
     ['scaleLevel',     AD],
     ['physicalDamage', '#FF8C00'],
     ['magicDamage',    AP],
     ['trueDamage',     '#F0E6D2'],
     ['healing',        HP],
-    ['shield',         '#B8C3CC'],
+    ['shield',         '#B8C3CC',   'custom:HealAndShieldPower'],
     ['speed',          '#F9E4B7'],
   ];
 
-  for (const [tag, color] of colorMap) {
-    s = s.replace(new RegExp(`<${tag}>`, 'gi'), `<span style="color:${color}">`);
+  for (const [tag, color, statKey] of colorMap) {
+    const open = statKey
+      ? `<span style="color:${color};cursor:pointer;border-bottom:1px dashed ${color}" data-stat="${statKey}">`
+      : `<span style="color:${color}">`;
+    s = s.replace(new RegExp(`<${tag}>`, 'gi'), open);
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</span>');
   }
 

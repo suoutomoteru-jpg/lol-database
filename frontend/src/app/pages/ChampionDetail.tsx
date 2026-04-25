@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router';
 import { ArrowLeft, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useChampion } from '../hooks/useChampion';
 import { useChampions } from '../hooks/useChampions';
+import { useItemsByStats } from '../hooks/useItemsByStats';
 import { championImageUrl } from '../api/dataDragon';
 import { toWikiName } from '../api/lolWiki';
+import { BottomSheet } from '../components/BottomSheet';
 import type { SkillData } from '../hooks/useChampion';
 
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
@@ -50,8 +52,19 @@ function SkillNav({
 
 // ── 1スキルブロック ───────────────────────────────────
 
-function SkillBlock({ skill }: { skill: SkillData }) {
+function SkillBlock({
+  skill,
+  onStatClick,
+}: {
+  skill: SkillData;
+  onStatClick: (key: string, label: string) => void;
+}) {
   const hasMeta = skill.cooldownBurn || skill.costBurn || skill.rangeBurn;
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const key = (e.target as HTMLElement).dataset.stat;
+    if (key) onStatClick(key, (e.target as HTMLElement).textContent ?? '');
+  };
 
   return (
     <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-sm p-5 shadow-sm">
@@ -71,10 +84,11 @@ function SkillBlock({ skill }: { skill: SkillData }) {
       </div>
       <hr className="border-border mb-4" />
 
-      {/* 説明文（インデントなし・全幅） */}
+      {/* 説明文 */}
       <div
         className="text-foreground leading-relaxed text-base skill-description mb-5"
         dangerouslySetInnerHTML={{ __html: skill.description }}
+        onClick={handleClick}
       />
 
       {/* クールダウン・コスト・射程 */}
@@ -100,34 +114,6 @@ function SkillBlock({ skill }: { skill: SkillData }) {
           )}
         </div>
       )}
-
-      {/* Wiki 数値情報（ダメージ・スケーリング） */}
-      {skill.leveling && skill.leveling.length > 0 && (
-        <div className="mt-6">
-          <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wider">数値情報</p>
-          <div className="overflow-x-auto">
-            <div className="bg-muted/20 rounded-sm border border-border overflow-hidden min-w-[280px]">
-              <table className="w-full text-sm">
-                <tbody>
-                  {skill.leveling.map((stat, i) => (
-                    <tr
-                      key={i}
-                      className={i % 2 === 0 ? 'bg-transparent' : 'bg-muted/20'}
-                    >
-                      <td className="px-4 py-2.5 text-muted-foreground font-medium whitespace-nowrap">
-                        {stat.label}
-                      </td>
-                      <td className="px-4 py-2.5 text-foreground font-mono whitespace-nowrap">
-                        {stat.value}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -138,8 +124,16 @@ export function ChampionDetail() {
   const { id } = useParams<{ id: string }>();
   const { champion, loading, error } = useChampion(id);
   const { champions } = useChampions();
+  const { statMap, mediumStatMap } = useItemsByStats();
   const [activeSkill, setActiveSkill] = useState<SkillKey>('P');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
+  const [activeLabel, setActiveLabel] = useState<string>('');
+
+  const handleStatClick = useCallback((key: string, label: string) => {
+    setActiveStatKey(key);
+    setActiveLabel(label);
+  }, []);
 
   // prev / next チャンピオン（名前順）
   const currentIdx = champions.findIndex(c => c.id === id);
@@ -306,7 +300,7 @@ export function ChampionDetail() {
       {/* スキル詳細 */}
       <div className="container mx-auto px-4 py-8 max-w-5xl space-y-6">
         {champion.skills.map(skill => (
-          <SkillBlock key={skill.key} skill={skill} />
+          <SkillBlock key={skill.key} skill={skill} onStatClick={handleStatClick} />
         ))}
       </div>
 
@@ -320,6 +314,15 @@ export function ChampionDetail() {
           <ChevronUp size={24} />
         </button>
       )}
+
+      <BottomSheet
+        isOpen={activeStatKey !== null}
+        label={activeLabel}
+        statKey={activeStatKey ?? ''}
+        items={statMap.get(activeStatKey ?? '') ?? []}
+        mediumItems={mediumStatMap.get(activeStatKey ?? '') ?? []}
+        onClose={() => { setActiveStatKey(null); setActiveLabel(''); }}
+      />
     </div>
   );
 }
