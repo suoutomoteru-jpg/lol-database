@@ -105,9 +105,9 @@ function calcGoldEfficiency(
 
 const KEYWORD_DEFS: Array<{ text: string; key: string }> = [
   { text: 'ライフスティール',   key: 'custom:LifeSteal' },
-  { text: '通常攻撃時効果',     key: 'tag:OnHit' },
-  { text: '行動妨害耐性',       key: 'tag:Tenacity' },
-  { text: 'スキルヘイスト',     key: 'tag:AbilityHaste' },
+  { text: '通常攻撃時効果',     key: 'custom:OnHit' },
+  { text: '行動妨害耐性',       key: 'custom:Tenacity' },
+  { text: 'スキルヘイスト',     key: 'custom:AbilityHaste' },
   { text: '魔法防御貫通',       key: 'custom:MagicPen' },
   { text: '物理防御貫通',       key: 'custom:ArmorPen' },
   { text: 'クリティカルダメージ', key: 'custom:CritDamage' },

@@ -23,8 +23,10 @@ const STAT_LABELS: Record<string, string> = {
   FlatMPPoolMod:                 'マナ',
   FlatMovementSpeedMod:          '移動速度',
   FlatCritChanceMod:             'クリティカル率',
+  PercentCritDamageMod:          'クリティカルダメージ',
   PercentAttackSpeedMod:         '攻撃速度',
   PercentLifeStealMod:           'ライフスティール',
+  PercentHealAndShieldPower:     'H&Sパワー',
   FlatHPRegenMod:                '体力回復',
   FlatMPRegenMod:                'マナ回復',
   PercentMovementSpeedMod:       '移動速度%',
@@ -33,6 +35,7 @@ const STAT_LABELS: Record<string, string> = {
   PercentArmorPenetrationMod:    'APen',
   FlatMagicPenetrationMod:       'MPen',
   PercentMagicPenetrationMod:    'MPen%',
+  AbilityHaste:                  'スキルヘイスト',
 };
 
 function formatStatValue(key: string, val: number): string {
@@ -110,6 +113,28 @@ function buildMap(version: string, items: [string, DDragonItem][]): Map<string, 
       /クリティカルダメージ/.test(plainDesc)
     ) {
       add('custom:CritDamage', summary);
+    }
+    // スキルヘイスト: DDragonのtagが"CooldownReduction"のままの可能性があるため
+    // stat値・旧tag・新tag・説明文の4経路で検出
+    if (
+      item.stats['AbilityHaste'] ||
+      (item.tags ?? []).includes('AbilityHaste') ||
+      (item.tags ?? []).includes('CooldownReduction') ||
+      /スキルヘイスト/.test(plainDesc)
+    ) {
+      add('custom:AbilityHaste', summary);
+    }
+    if (
+      (item.tags ?? []).includes('Tenacity') ||
+      /行動妨害耐性/.test(plainDesc)
+    ) {
+      add('custom:Tenacity', summary);
+    }
+    if (
+      (item.tags ?? []).includes('OnHit') ||
+      /通常攻撃時効果/.test(plainDesc)
+    ) {
+      add('custom:OnHit', summary);
     }
   }
 
