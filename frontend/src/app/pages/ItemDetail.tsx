@@ -41,22 +41,23 @@ const GOLD_PER_STAT: Record<string, number> = {
   FlatCritChanceMod:             4000,    // 40g per 1% → ×100 for fraction (0-1)
   PercentAttackSpeedMod:         2500,    // 25g per 1% → ×100 for fraction
   PercentLifeStealMod:           5355,    // Vampiric Scepter: 53.55g per 1% → ×100
-  PercentMovementSpeedMod:       6510.5,  // 65.105g per 1% (epic item avg) → ×100
+  PercentMovementSpeedMod:       5000,    // 2% = 100g → ×100 for fraction
   FlatArmorPenetrationMod:       30,      // Lethality: 30g per 1
   PercentArmorPenetrationMod:    4167,    // 41.67g per 1% → ×100
   FlatMagicPenetrationMod:       35,      // Sorcerer's Shoes: 700g / 18 → ~39g; ~35g/unit
   PercentMagicPenetrationMod:    4167,    // Void Staff: same baseline as armor pen → ×100
   FlatHPRegenMod:                3,       // Rejuvenation Bead baseline: 3g/unit
-  FlatMPRegenMod:                4,       // Faerie Charm baseline: 4g/unit
+  FlatMPRegenMod:                5,       // 25% = 125g → 5g/unit (% 単位の場合)
   // DDragonがstat値を持つ場合のフォールバック（説明文解析も併用）
   AbilityHaste:                  50,      // Glowing Mote: 250g / 5 AH
   PercentHealAndShieldPower:     7760,    // Forbidden Idol: (800-24)g / 10% → ×100
 };
 
 // DDragonのstatフィールドに含まれない指標を説明文から抽出して算入する
-const AH_RATE        = 50;    // Glowing Mote: 250g / 5 AH
-const HS_RATE        = 7760;  // Forbidden Idol: (800 - 6*4)g for 10% → 7760g/fraction
-const TENACITY_RATE  = 200;   // Mercury's: 1100 - 25*20 - 45*12 = 60g for 30% → 200g/fraction
+const AH_RATE         = 50;    // Glowing Mote: 250g / 5 AH
+const HS_RATE         = 7760;  // Forbidden Idol: (800 - 6*4)g for 10% → 7760g/fraction
+const TENACITY_RATE   = 200;   // Mercury's: 1100 - 25*20 - 45*12 = 60g for 30% → 200g/fraction
+const MANA_REGEN_RATE = 5;     // 25% = 125g → 5g per 1%
 
 function extractNum(text: string, pattern: RegExp): number {
   const m = text.match(pattern);
@@ -89,6 +90,12 @@ function calcGoldEfficiency(
   if (!stats['PercentHealAndShieldPower']) {
     const hs = extractNum(plain, /ヒール[&＆]シールドパワー\D{0,10}?(\d+)/);
     if (hs) totalValue += (hs / 100) * HS_RATE;
+  }
+
+  // マナ自動回復（説明文から %を抽出; stat の FlatMPRegenMod が 0/未収録の場合のフォールバック）
+  if (!stats['FlatMPRegenMod']) {
+    const mr = extractNum(plain, /マナ自動回復\D{0,10}?(\d+)/);
+    if (mr) totalValue += mr * MANA_REGEN_RATE;
   }
 
   // 行動妨害耐性（DDragonではタグのみでstat値なし → 説明文から%を抽出）
