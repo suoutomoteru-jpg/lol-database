@@ -51,13 +51,15 @@ const GOLD_PER_STAT: Record<string, number> = {
   // DDragonがstat値を持つ場合のフォールバック（説明文解析も併用）
   AbilityHaste:                  50,      // Glowing Mote: 250g / 5 AH
   PercentHealAndShieldPower:     7760,    // Forbidden Idol: (800-24)g / 10% → ×100
+  PercentCritDamageMod:          437.5,   // 40% = 175g → ×100 for fraction
 };
 
 // DDragonのstatフィールドに含まれない指標を説明文から抽出して算入する
-const AH_RATE         = 50;    // Glowing Mote: 250g / 5 AH
-const HS_RATE         = 7760;  // Forbidden Idol: (800 - 6*4)g for 10% → 7760g/fraction
-const TENACITY_RATE   = 200;   // Mercury's: 1100 - 25*20 - 45*12 = 60g for 30% → 200g/fraction
-const MANA_REGEN_RATE = 5;     // 25% = 125g → 5g per 1%
+const AH_RATE          = 50;    // Glowing Mote: 250g / 5 AH
+const HS_RATE          = 7760;  // Forbidden Idol: (800-24)g / 10% → 7760g/fraction
+const TENACITY_RATE    = 200;   // Mercury's: 1100 - 25*20 - 45*12 = 60g for 30% → 200g/fraction
+const MANA_REGEN_RATE  = 5;     // 25% = 125g → 5g per 1%
+const CRIT_DAMAGE_RATE = 4.375; // 40% = 175g → 4.375g per 1%
 
 function extractNum(text: string, pattern: RegExp): number {
   const m = text.match(pattern);
@@ -84,6 +86,12 @@ function calcGoldEfficiency(
   if (!stats['AbilityHaste']) {
     const ah = extractNum(plain, /スキルヘイスト\D{0,10}?(\d+)/);
     if (ah) totalValue += ah * AH_RATE;
+  }
+
+  // クリティカルダメージ（stat未収録の場合、説明文から抽出）
+  if (!stats['PercentCritDamageMod']) {
+    const cd = extractNum(plain, /クリティカルダメージ\D{0,10}?(\d+)/);
+    if (cd) totalValue += cd * CRIT_DAMAGE_RATE;
   }
 
   // ヒール&シールドパワー（stat未収録の場合、説明文から抽出）
