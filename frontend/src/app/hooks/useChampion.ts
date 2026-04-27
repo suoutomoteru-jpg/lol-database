@@ -56,9 +56,11 @@ function getEffectBurn(spell: DDragonSpell, n: number): string {
 
   const eff = (spell.effect ?? [])[n];
   if (Array.isArray(eff)) {
-    const vals = eff[0] === 0 ? eff.slice(1) : eff;
+    const vals = (eff[0] === 0 || eff[0] == null) ? eff.slice(1) : eff;
     const nonZero = vals.filter((v): v is number => v != null && v !== 0);
-    if (nonZero.length > 0) return nonZero.join('/');
+    if (nonZero.length === 0) return '';
+    if (nonZero.every(v => v === nonZero[0])) return String(nonZero[0]);
+    return nonZero.join('/');
   }
   return '';
 }
@@ -380,7 +382,7 @@ function processTooltipHtml(raw: string): string {
     if (
       t === '<br>' || t === '<br/>' || t === '<br />' ||
       t === '<strong>' || t === '</strong>' ||
-      t === '</span>' || t.startsWith('<span ')
+      t === '<span>' || t === '</span>' || t.startsWith('<span ')
     ) return match;
     return '';
   });

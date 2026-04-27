@@ -188,6 +188,18 @@ export async function fetchAllItemsRaw(version: string): Promise<Record<string, 
 
 // ── アイテム一覧 ────────────────────────────────────────
 
+function deduplicateByName(entries: [string, DDragonItem][]): [string, DDragonItem][] {
+  const nameMap = new Map<string, [string, DDragonItem]>();
+  for (const entry of entries) {
+    const [id, item] = entry;
+    const existing = nameMap.get(item.name);
+    if (!existing || parseInt(id) < parseInt(existing[0])) {
+      nameMap.set(item.name, entry);
+    }
+  }
+  return Array.from(nameMap.values());
+}
+
 /**
  * 完成アイテムのみ返す（コンポーネント・特殊アイテム除外）
  * 条件: 購入可能 & SR対応 & 合計コスト2000G以上 & チャンピオン専用でない
@@ -197,35 +209,17 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
   const cached = readCache<[string, DDragonItem][]>(key);
   if (cached) return cached;
 
-  const url = `${BASE_URL}/cdn/${version}/data/${LOCALE}/item.json`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`item.json fetch failed: ${res.status}`);
-
-  const json = await res.json() as { data: Record<string, DDragonItem> };
-
-  const filtered = Object.entries(json.data).filter(([, item]) => {
-    return (
-      item.gold.purchasable &&
-      item.gold.total >= 2000 &&
-      item.maps?.['11'] === true &&
-      !item.requiredChampion &&
-      (item.inStore !== false)
-    );
-  });
-
-  // 同名アイテムの重複除去（ID の小さい方を正規版として採用）
-  const nameMap = new Map<string, [string, DDragonItem]>();
-  for (const entry of filtered) {
-    const [id, item] = entry;
-    const existing = nameMap.get(item.name);
-    if (!existing || parseInt(id) < parseInt(existing[0])) {
-      nameMap.set(item.name, entry);
-    }
-  }
-  const deduplicated = Array.from(nameMap.values());
-
-  writeCache(key, deduplicated);
-  return deduplicated;
+  const allItems = await fetchAllItemsRaw(version);
+  const filtered = Object.entries(allItems).filter(([, item]) =>
+    item.gold.purchasable &&
+    item.gold.total >= 2000 &&
+    item.maps?.['11'] === true &&
+    !item.requiredChampion &&
+    item.inStore !== false,
+  );
+  const result = deduplicateByName(filtered);
+  writeCache(key, result);
+  return result;
 }
 
 // ── アイテム英語名マップ ────────────────────────────────
@@ -255,32 +249,15 @@ export async function fetchItemListMedium(version: string): Promise<[string, DDr
   const cached = readCache<[string, DDragonItem][]>(key);
   if (cached) return cached;
 
-  const url = `${BASE_URL}/cdn/${version}/data/${LOCALE}/item.json`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`item.json fetch failed: ${res.status}`);
-
-  const json = await res.json() as { data: Record<string, DDragonItem> };
-
-  const filtered = Object.entries(json.data).filter(([, item]) => {
-    return (
-      item.gold.purchasable &&
-      item.gold.total >= 700 &&
-      item.maps?.['11'] === true &&
-      !item.requiredChampion &&
-      (item.inStore !== false)
-    );
-  });
-
-  const nameMap = new Map<string, [string, DDragonItem]>();
-  for (const entry of filtered) {
-    const [id, item] = entry;
-    const existing = nameMap.get(item.name);
-    if (!existing || parseInt(id) < parseInt(existing[0])) {
-      nameMap.set(item.name, entry);
-    }
-  }
-  const deduplicated = Array.from(nameMap.values());
-
-  writeCache(key, deduplicated);
-  return deduplicated;
+  const allItems = await fetchAllItemsRaw(version);
+  const filtered = Object.entries(allItems).filter(([, item]) =>
+    item.gold.purchasable &&
+    item.gold.total >= 700 &&
+    item.maps?.['11'] === true &&
+    !item.requiredChampion &&
+    item.inStore !== false,
+  );
+  const result = deduplicateByName(filtered);
+  writeCache(key, result);
+  return result;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence, animate } from 'framer-motion';
 import { Link } from 'react-router';
 import { X } from 'lucide-react';
@@ -43,7 +43,7 @@ export function BottomSheet({
 
   const displayed = showMedium ? mediumItems : items;
   const hasMore = mediumItems.length > items.length;
-  const sorted = sortItems(displayed, label);
+  const sorted = useMemo(() => sortItems(displayed, label), [displayed, label]);
 
   // ── Swipe-to-close (header area only) ────────────────
   const onHandlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {

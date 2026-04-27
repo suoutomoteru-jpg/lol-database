@@ -71,71 +71,23 @@ function buildMap(version: string, items: [string, DDragonItem][]): Map<string, 
     for (const [key, val] of Object.entries(item.stats)) {
       if (val) add(`stat:${key}`, summary);
     }
-    for (const tag of item.tags ?? []) {
+    const tags = item.tags ?? [];
+    for (const tag of tags) {
       add(`tag:${tag}`, summary);
     }
 
     const plainDesc = item.description.replace(/<[^>]+>/g, '');
-    if (/シールド/.test(plainDesc)) add('custom:Shield', summary);
-    if (
-      /物理防御貫通/.test(plainDesc) ||
-      item.stats['PercentArmorPenetrationMod']
-    ) {
-      add('custom:ArmorPen', summary);
-    }
-    if (
-      item.stats['FlatArmorPenetrationMod'] ||
-      /脅威/.test(plainDesc)
-    ) {
-      add('custom:Lethality', summary);
-    }
-    if (
-      /魔法防御貫通/.test(plainDesc) ||
-      item.stats['FlatMagicPenetrationMod'] ||
-      item.stats['PercentMagicPenetrationMod']
-    ) {
-      add('custom:MagicPen', summary);
-    }
-    if (
-      item.stats['PercentLifeStealMod'] ||
-      /ライフスティール/.test(plainDesc)
-    ) {
-      add('custom:LifeSteal', summary);
-    }
-    if (
-      item.stats['PercentHealAndShieldPower'] ||
-      /ヒール[&＆]シールドパワー/.test(plainDesc)
-    ) {
-      add('custom:HealAndShieldPower', summary);
-    }
-    if (
-      item.stats['PercentCritDamageMod'] ||
-      /クリティカルダメージ/.test(plainDesc)
-    ) {
-      add('custom:CritDamage', summary);
-    }
-    // スキルヘイスト: DDragonのtagが"CooldownReduction"のままの可能性があるため
-    // stat値・旧tag・新tag・説明文の4経路で検出
-    if (
-      item.stats['AbilityHaste'] ||
-      (item.tags ?? []).includes('AbilityHaste') ||
-      (item.tags ?? []).includes('CooldownReduction') ||
-      /スキルヘイスト/.test(plainDesc)
-    ) {
-      add('custom:AbilityHaste', summary);
-    }
-    if (
-      (item.tags ?? []).includes('Tenacity') ||
-      /行動妨害耐性/.test(plainDesc)
-    ) {
-      add('custom:Tenacity', summary);
-    }
-    if (
-      (item.tags ?? []).includes('OnHit') ||
-      /通常攻撃時効果/.test(plainDesc)
-    ) {
-      add('custom:OnHit', summary);
-    }
+    if (/シールド/.test(plainDesc))                                            add('custom:Shield', summary);
+    if (/物理防御貫通/.test(plainDesc) || item.stats['PercentArmorPenetrationMod']) add('custom:ArmorPen', summary);
+    if (item.stats['FlatArmorPenetrationMod'] || /脅威/.test(plainDesc))      add('custom:Lethality', summary);
+    if (/魔法防御貫通/.test(plainDesc) || item.stats['FlatMagicPenetrationMod'] || item.stats['PercentMagicPenetrationMod']) add('custom:MagicPen', summary);
+    if (item.stats['PercentLifeStealMod'] || /ライフスティール/.test(plainDesc)) add('custom:LifeSteal', summary);
+    if (item.stats['PercentHealAndShieldPower'] || /ヒール[&＆]シールドパワー/.test(plainDesc)) add('custom:HealAndShieldPower', summary);
+    if (item.stats['PercentCritDamageMod'] || /クリティカルダメージ/.test(plainDesc)) add('custom:CritDamage', summary);
+    // CooldownReduction は DDragon の旧タグ名。stat / 両タグ名 / 説明文の4経路で検出
+    if (item.stats['AbilityHaste'] || tags.includes('AbilityHaste') || tags.includes('CooldownReduction') || /スキルヘイスト/.test(plainDesc)) add('custom:AbilityHaste', summary);
+    if (tags.includes('Tenacity') || /行動妨害耐性/.test(plainDesc))          add('custom:Tenacity', summary);
+    if (tags.includes('OnHit') || /通常攻撃時効果/.test(plainDesc))           add('custom:OnHit', summary);
   }
 
   for (const list of result.values()) {
