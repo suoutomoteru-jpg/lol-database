@@ -52,7 +52,8 @@ interface UseChampionResult {
  */
 function getEffectBurn(spell: DDragonSpell, n: number): string {
   const burn = (spell.effectBurn ?? [])[n];
-  if (burn != null && burn !== '') return burn;
+  // '0' は DDragon が effectBurn を未設定の際に入れるプレースホルダーなので無視する
+  if (burn != null && burn !== '' && burn !== '0') return burn;
 
   const eff = (spell.effect ?? [])[n];
   if (Array.isArray(eff)) {
@@ -72,7 +73,9 @@ function buildLeveltipVarMap(spell: DDragonSpell): Map<string, number> {
   const map = new Map<string, number>();
   const effects = spell.leveltip?.effect ?? [];
   for (let i = 0; i < effects.length; i++) {
-    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/);
+    // leveltip.effect は {{ var }} 形式と @var@ 形式の両方が存在する
+    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
+           ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
     if (m) {
       map.set(m[1].toLowerCase(), i + 1);
     }
@@ -220,22 +223,32 @@ function resolveDDragonTemplates(
   s = s.split('{{ abilityresourcename }}').join(partype);
   s = s.split('{{abilityresourcename}}').join(partype);
 
-  s = s.replace(/\{\{\s*(\w+)\s*\}\}/g, (_match, raw) => {
+  // {{ var }} と {{ var*N }} の両形式を処理
+  s = s.replace(/\{\{\s*(\w+)(?:\s*\*\s*(\d+(?:\.\d+)?))?\s*\}\}/g, (_match, raw, multStr) => {
     const name = raw.toLowerCase();
+
+    const applyMult = (val: string): string => {
+      if (!multStr) return val;
+      const m = parseFloat(multStr);
+      return val.split('/').map(v => {
+        const num = parseFloat(v);
+        return isNaN(num) ? v : String(Math.round(num * m));
+      }).join('/');
+    };
 
     const eM = name.match(/^e(\d+)$/);
     if (eM) {
       const burn = getEffectBurn(spell, parseInt(eM[1], 10));
-      if (burn !== '') return burn;
-      if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
+      if (burn !== '') return applyMult(burn);
+      if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
       return '';
     }
 
     const fM = name.match(/^f(\d+)$/);
     if (fM) {
       const burn = getEffectBurn(spell, parseInt(fM[1], 10));
-      if (burn !== '') return burn;
-      if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
+      if (burn !== '') return applyMult(burn);
+      if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
       return '';
     }
 
@@ -247,18 +260,15 @@ function resolveDDragonTemplates(
       return `${Math.round(coeff * 100)}%`;
     }
 
-    // 名前付き変数 → leveltip varMap 経由で effectBurn を引く
+    // 名前付き変数: wiki優先（スケーリング情報含む）→ effect配列フォールバック
     if (varMap.has(name)) {
+      if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
       const burn = getEffectBurn(spell, varMap.get(name)!);
-      // effectBurn に値がある場合はそれを優先
-      if (burn !== '') return burn;
-      // effectBurn が空（AD/AP スケーリングのみ等）→ Wiki 値でフォールバック
-      if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
+      if (burn !== '') return applyMult(burn);
       return '';
     }
 
-    // Wiki 変数マップで直接解決を試みる
-    if (wikiVarMap.has(name)) return wikiVarMap.get(name)!;
+    if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
 
     return _match;
   });
@@ -425,33 +435,10 @@ function buildSkill(
   const wikiVarMap = buildWikiVarMap(spell, wikiData);
 
   // ── DEBUG ──────────────────────────────────────────────
-  const leveltipVarMap = (() => {
-    const m = new Map<string, number>();
-    const effs = spell.leveltip?.effect ?? [];
-    for (let i = 0; i < effs.length; i++) {
-      const match = effs[i].match(/\{\{\s*(\w+)\s*\}\}/);
-      if (match) m.set(match[1].toLowerCase(), i + 1);
-    }
-    return m;
-  })();
-  console.group(`[useChampion] ${key}: ${spell.name}`);
-  console.log('RAW tooltip:', spell.tooltip);
-  console.log('effectBurn:', JSON.stringify(spell.effectBurn));
-  console.log('effect[1..10]:', (spell.effect ?? []).slice(1, 11).map((a, i) => `[${i+1}]:${JSON.stringify(a)}`));
-  console.log('leveltip.label:', spell.leveltip?.label);
-  console.log('leveltip.effect:', spell.leveltip?.effect);
-  console.log('leveltipVarMap:', Object.fromEntries(leveltipVarMap));
-  console.log('wikiData.leveling:', wikiData?.leveling);
-  console.log('wikiVarMap:', Object.fromEntries(wikiVarMap));
-  // ──────────────────────────────────────────────────────
-
-  // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は Wiki 値でフォールバック）
+  // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は effect[] または Wiki 値でフォールバック）
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
-  console.log('[DEBUG] after step1:', tooltip);  // DEBUG
   // Step 2: @var@ 解決（未解決の @var@ は Wiki データで補完）
   tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
-  console.log('[DEBUG] after step2:', tooltip);  // DEBUG
-  console.groupEnd();  // DEBUG
 
   // 未解決変数を除去
   tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, '');
