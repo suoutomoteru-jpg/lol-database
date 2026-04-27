@@ -275,12 +275,10 @@ function resolveAtVarTemplates(
   spell: DDragonSpell,
   wikiVarMap: Map<string, string>,
 ): string {
-  const burns = spell.effectBurn ?? [];
-
-  // @Effect{N}Amount@ → effectBurn[N]、空の場合は wiki フォールバック
+  // @Effect{N}Amount@ → effectBurn[N] または effect[N] フォールバック、それでも空なら wiki
   s = s.replace(/@Effect(\d+)Amount(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
     const idx = parseInt(n, 10);
-    const val = burns[idx] || wikiVarMap.get(`e${idx}`) || '';
+    const val = getEffectBurn(spell, idx) || wikiVarMap.get(`e${idx}`) || '';
     if (!val) return '';
     if (mult) {
       const m = parseFloat(mult);
@@ -296,10 +294,10 @@ function resolveAtVarTemplates(
   s = s.replace(/@CooldownBurn@/gi, spell.cooldownBurn ?? '');
   s = s.replace(/@ResourceBurn@/gi, spell.costBurn ?? '');
 
-  // @f{N}@ → effectBurn[N]
+  // @f{N}@ → effectBurn[N] または effect[N] フォールバック
   s = s.replace(/@f(\d+)(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
-    const val = burns[parseInt(n, 10)];
-    if (val == null || val === '') return '';
+    const val = getEffectBurn(spell, parseInt(n, 10));
+    if (!val) return '';
     if (mult) {
       const m = parseFloat(mult);
       return val.split('/').map(v => String(Math.round(parseFloat(v) * m))).join('/');
