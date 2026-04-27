@@ -425,12 +425,22 @@ function buildSkill(
   const wikiVarMap = buildWikiVarMap(spell, wikiData);
 
   // ── DEBUG ──────────────────────────────────────────────
+  const leveltipVarMap = (() => {
+    const m = new Map<string, number>();
+    const effs = spell.leveltip?.effect ?? [];
+    for (let i = 0; i < effs.length; i++) {
+      const match = effs[i].match(/\{\{\s*(\w+)\s*\}\}/);
+      if (match) m.set(match[1].toLowerCase(), i + 1);
+    }
+    return m;
+  })();
   console.group(`[useChampion] ${key}: ${spell.name}`);
   console.log('RAW tooltip:', spell.tooltip);
-  console.log('effectBurn:', spell.effectBurn);
-  console.log('effect:', spell.effect);
-  console.log('leveltip:', spell.leveltip);
-  console.log('vars:', spell.vars);
+  console.log('effectBurn:', JSON.stringify(spell.effectBurn));
+  console.log('effect[1..10]:', (spell.effect ?? []).slice(1, 11).map((a, i) => `[${i+1}]:${JSON.stringify(a)}`));
+  console.log('leveltip.label:', spell.leveltip?.label);
+  console.log('leveltip.effect:', spell.leveltip?.effect);
+  console.log('leveltipVarMap:', Object.fromEntries(leveltipVarMap));
   console.log('wikiData.leveling:', wikiData?.leveling);
   console.log('wikiVarMap:', Object.fromEntries(wikiVarMap));
   // ──────────────────────────────────────────────────────
