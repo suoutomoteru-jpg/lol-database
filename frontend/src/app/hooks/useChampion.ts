@@ -434,11 +434,21 @@ function buildSkill(
   // Wiki 変数マップ: leveltip ラベル ↔ Wiki leveling を照合
   const wikiVarMap = buildWikiVarMap(spell, wikiData);
 
-  // ── DEBUG ──────────────────────────────────────────────
   // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は effect[] または Wiki 値でフォールバック）
   let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
   // Step 2: @var@ 解決（未解決の @var@ は Wiki データで補完）
   tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
+
+  // ── DEBUG ─────────────────────────────────────────────
+  console.group(`[DBG] ${key}: ${spell.name}`);
+  console.log('RAW:', spell.tooltip);
+  console.log('effectBurn:', JSON.stringify(spell.effectBurn));
+  console.log('effect[1..5]:', (spell.effect ?? []).slice(1, 6).map((a, i) => `[${i+1}]=${JSON.stringify(a)}`).join(' '));
+  console.log('leveltip.effect:', spell.leveltip?.effect);
+  console.log('wikiVarMap:', Object.fromEntries(wikiVarMap));
+  console.log('RESOLVED:', tooltip);
+  console.groupEnd();
+  // ──────────────────────────────────────────────────────
 
   // 未解決変数を除去
   tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, '');
