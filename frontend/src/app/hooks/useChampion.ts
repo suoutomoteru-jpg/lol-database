@@ -150,19 +150,54 @@ function buildWikiVarMap(
     }
   }
 
-  // ── アプローチ2: leveltip ラベル経由（英語 DDragon の場合のみ有効） ─
+  // ── アプローチ2: leveltip ラベル経由（ja_JP 日本語ラベルも変換して対応） ─
+  //
+  // ja_JP の leveltip.label は "持続時間" など日本語なので、英語 wiki ラベルと
+  // 直接一致しない。正規表現マッピングで英語キーワードに変換してから照合する。
+  const JP_LABEL_MAP: [RegExp, string][] = [
+    [/スタン|気絶|硬直/,                       'stun'],
+    [/シールド.*(時間|持続)/,                  'shield duration'],
+    [/シールド/,                               'shield'],
+    [/スロウ.*(時間|持続)|鈍足.*(時間|持続)/, 'slow duration'],
+    [/スロウ|鈍足/,                            'slow'],
+    [/持続|時間/,                              'duration'],
+    [/物理.*ダメージ|ダメージ.*物理/,          'physical damage'],
+    [/魔法.*ダメージ|ダメージ.*魔法/,          'magic damage'],
+    [/真.*ダメージ/,                           'true damage'],
+    [/ダメージ/,                               'damage'],
+    [/回復/,                                   'heal'],
+    [/攻撃速度/,                               'attack speed'],
+    [/移動速度/,                               'movement speed'],
+  ];
+
+  const jpToEn = (jpLabel: string): string => {
+    for (const [re, en] of JP_LABEL_MAP) {
+      if (re.test(jpLabel)) return en;
+    }
+    return jpLabel.toLowerCase();
+  };
+
   for (let i = 0; i < effects.length; i++) {
     const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
            ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
     if (!m || !labels[i]) continue;
 
-    const varname    = m[1].toLowerCase();
+    const varname = m[1].toLowerCase();
     if (map.has(varname)) continue;
 
-    const ddLabelLow = labels[i].toLowerCase();
+    const ddLabel    = labels[i];
+    const ddLabelLow = ddLabel.toLowerCase();
+    const enLabel    = jpToEn(ddLabel);
+
     const stat = wikiData.leveling.find(s => {
       const wLow = s.label.toLowerCase();
-      return wLow === ddLabelLow || ddLabelLow.includes(wLow) || wLow.includes(ddLabelLow);
+      return (
+        wLow === ddLabelLow ||
+        ddLabelLow.includes(wLow) ||
+        wLow.includes(ddLabelLow) ||
+        wLow === enLabel ||
+        (enLabel !== ddLabelLow && (wLow.includes(enLabel) || enLabel.includes(wLow)))
+      );
     });
     if (stat) map.set(varname, stat.value);
   }
