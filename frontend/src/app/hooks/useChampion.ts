@@ -114,6 +114,9 @@ function buildWikiVarMap(
     ['shield',         ['shield']],
     ['attackspeed',    ['attack speed', 'bonus attack speed']],
     ['speed',          ['movement speed', 'move speed']],
+    ['status',         ['slow', 'stun', 'root', 'fear', 'movement slow']],
+    ['slow',           ['slow', 'movement slow']],
+    ['duration',       ['duration', 'stun duration', 'slow duration', 'shield duration']],
   ];
 
   const assignFromTag = (varname: string, keywords: string[]) => {
@@ -126,21 +129,21 @@ function buildWikiVarMap(
 
   for (const [tagName, keywords] of TAG_KEYWORDS) {
     // {{ var }} 形式
-    const tagRe1 = new RegExp(`<${tagName}>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
+    const tagRe1 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
     let m1: RegExpExecArray | null;
     while ((m1 = tagRe1.exec(spell.tooltip)) !== null) {
       assignFromTag(m1[1].toLowerCase(), keywords);
     }
 
     // @VarName@ 形式（大文字含む）
-    const tagRe2 = new RegExp(`<${tagName}>[^<]*@([A-Za-z]\\w*)(?:\\*[\\d.]+)?@`, 'gi');
+    const tagRe2 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@([A-Za-z]\\w*)(?:\\*[\\d.]+)?@`, 'gi');
     let m2: RegExpExecArray | null;
     while ((m2 = tagRe2.exec(spell.tooltip)) !== null) {
       assignFromTag(m2[1].toLowerCase(), keywords);
     }
 
     // @Effect{N}Amount@ 形式 → 合成キー 'e{N}'（effectBurn 空白時のフォールバック用）
-    const tagRe3 = new RegExp(`<${tagName}>[^<]*@Effect(\\d+)Amount(?:\\*[\\d.]+)?@`, 'gi');
+    const tagRe3 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@Effect(\\d+)Amount(?:\\*[\\d.]+)?@`, 'gi');
     let m3: RegExpExecArray | null;
     while ((m3 = tagRe3.exec(spell.tooltip)) !== null) {
       assignFromTag(`e${m3[1]}`, keywords);
@@ -309,7 +312,7 @@ function processTooltipHtml(raw: string): string {
   const boldTags = ['active', 'passive', 'keywordMajor', 'keyword',
                     'attention', 'rarityGeneric', 'status'];
   for (const tag of boldTags) {
-    s = s.replace(new RegExp(`<${tag}>`, 'gi'), '<strong>');
+    s = s.replace(new RegExp(`<${tag}(?:\\s[^>]*)?>`, 'gi'), '<strong>');
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</strong>');
   }
 
@@ -325,7 +328,7 @@ function processTooltipHtml(raw: string): string {
     ['magicDamage',    AP],
     ['trueDamage',     '#F0E6D2'],
     ['healing',        HP],
-    ['shield',         '#B8C3CC',   'custom:HealAndShieldPower'],
+    ['shield',         HP,          'custom:HealAndShieldPower'],
     ['speed',          '#F9E4B7'],
   ];
 
@@ -333,7 +336,7 @@ function processTooltipHtml(raw: string): string {
     const open = statKey
       ? `<span style="color:${color};cursor:pointer;border-bottom:1px dashed ${color}" data-stat="${statKey}">`
       : `<span style="color:${color}">`;
-    s = s.replace(new RegExp(`<${tag}>`, 'gi'), open);
+    s = s.replace(new RegExp(`<${tag}(?:\\s[^>]*)?>`, 'gi'), open);
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</span>');
   }
 
