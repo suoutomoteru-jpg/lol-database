@@ -100,111 +100,138 @@ function buildWikiVarMap(
   wikiData: WikiSpellData | undefined,
 ): Map<string, string> {
   const map = new Map<string, string>();
-  if (!wikiData?.leveling?.length) return map;
+  if (!wikiData) return map;
 
   const labels  = spell.leveltip?.label  ?? [];
   const effects = spell.leveltip?.effect ?? [];
 
-  // ── アプローチ1: tooltip の HTML タグから変数名を推論 ─────────────
-  //
-  // DDragon leveltip ラベルは日本語（"ダメージ"）になっており wiki の英語ラベルと
-  // 一致しない。またスペル名によって変数名が異なる（totaldamage / rmaindamage 等）。
-  // そこで tooltip 内の <physicalDamage>{{ totaldamage }}</physicalDamage> のような
-  // HTML タグを手がかりに「この変数はこのダメージ種別」と推論する。
-  const TAG_KEYWORDS: [string, string[]][] = [
-    ['physicaldamage', ['physical damage', 'physical', 'damage']],
-    ['magicdamage',    ['magic damage', 'magic', 'damage']],
-    ['truedamage',     ['true damage', 'damage']],
-    ['healing',        ['heal', 'restore', 'health']],
-    ['shield',         ['shield']],
-    ['attackspeed',    ['attack speed', 'bonus attack speed']],
-    ['speed',          ['movement speed', 'move speed']],
-    ['status',         ['slow', 'stun', 'root', 'fear', 'movement slow']],
-    ['slow',           ['slow', 'movement slow']],
-    ['duration',       ['duration', 'stun duration', 'slow duration', 'shield duration']],
-  ];
+  if (!wikiData.leveling?.length && !wikiData.constants) return map;
 
-  const assignFromTag = (varname: string, keywords: string[]) => {
-    if (map.has(varname)) return;
-    for (const kw of keywords) {
-      const stat = wikiData.leveling.find(s => s.label.toLowerCase().includes(kw));
-      if (stat) { map.set(varname, stat.value); return; }
+  if (wikiData.leveling?.length) {
+    // ── アプローチ1: tooltip の HTML タグから変数名を推論 ─────────────
+    //
+    // DDragon leveltip ラベルは日本語（"ダメージ"）になっており wiki の英語ラベルと
+    // 一致しない。またスペル名によって変数名が異なる（totaldamage / rmaindamage 等）。
+    // そこで tooltip 内の <physicalDamage>{{ totaldamage }}</physicalDamage> のような
+    // HTML タグを手がかりに「この変数はこのダメージ種別」と推論する。
+    const TAG_KEYWORDS: [string, string[]][] = [
+      ['physicaldamage', ['physical damage', 'physical', 'damage']],
+      ['magicdamage',    ['magic damage', 'magic', 'damage']],
+      ['truedamage',     ['true damage', 'damage']],
+      ['healing',        ['heal', 'restore', 'health']],
+      ['shield',         ['shield']],
+      ['attackspeed',    ['attack speed', 'bonus attack speed']],
+      ['speed',          ['movement speed', 'move speed']],
+      ['status',         ['slow', 'stun', 'root', 'fear', 'movement slow']],
+      ['slow',           ['slow', 'movement slow']],
+      ['duration',       ['duration', 'stun duration', 'slow duration', 'shield duration']],
+    ];
+
+    const assignFromTag = (varname: string, keywords: string[]) => {
+      if (map.has(varname)) return;
+      for (const kw of keywords) {
+        const stat = wikiData.leveling.find(s => s.label.toLowerCase().includes(kw));
+        if (stat) { map.set(varname, stat.value); return; }
+      }
+    };
+
+    for (const [tagName, keywords] of TAG_KEYWORDS) {
+      const tagRe1 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
+      let m1: RegExpExecArray | null;
+      while ((m1 = tagRe1.exec(spell.tooltip)) !== null) {
+        assignFromTag(m1[1].toLowerCase(), keywords);
+      }
+
+      const tagRe2 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@([A-Za-z]\\w*)(?:\\*[\\d.]+)?@`, 'gi');
+      let m2: RegExpExecArray | null;
+      while ((m2 = tagRe2.exec(spell.tooltip)) !== null) {
+        assignFromTag(m2[1].toLowerCase(), keywords);
+      }
+
+      const tagRe3 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@Effect(\\d+)Amount(?:\\*[\\d.]+)?@`, 'gi');
+      let m3: RegExpExecArray | null;
+      while ((m3 = tagRe3.exec(spell.tooltip)) !== null) {
+        assignFromTag(`e${m3[1]}`, keywords);
+      }
     }
-  };
 
-  for (const [tagName, keywords] of TAG_KEYWORDS) {
-    // {{ var }} 形式
-    const tagRe1 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
-    let m1: RegExpExecArray | null;
-    while ((m1 = tagRe1.exec(spell.tooltip)) !== null) {
-      assignFromTag(m1[1].toLowerCase(), keywords);
-    }
+    // ── アプローチ2: leveltip ラベル経由（ja_JP 日本語ラベルも変換して対応） ─
+    const JP_LABEL_MAP: [RegExp, string][] = [
+      [/スタン|気絶|硬直/,                       'stun'],
+      [/シールド.*(時間|持続)/,                  'shield duration'],
+      [/シールド/,                               'shield'],
+      [/スロウ.*(時間|持続)|鈍足.*(時間|持続)/, 'slow duration'],
+      [/スロウ|鈍足/,                            'slow'],
+      [/持続|時間/,                              'duration'],
+      [/物理.*ダメージ|ダメージ.*物理/,          'physical damage'],
+      [/魔法.*ダメージ|ダメージ.*魔法/,          'magic damage'],
+      [/真.*ダメージ/,                           'true damage'],
+      [/ダメージ/,                               'damage'],
+      [/回復/,                                   'heal'],
+      [/攻撃速度/,                               'attack speed'],
+      [/移動速度/,                               'movement speed'],
+    ];
 
-    // @VarName@ 形式（大文字含む）
-    const tagRe2 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@([A-Za-z]\\w*)(?:\\*[\\d.]+)?@`, 'gi');
-    let m2: RegExpExecArray | null;
-    while ((m2 = tagRe2.exec(spell.tooltip)) !== null) {
-      assignFromTag(m2[1].toLowerCase(), keywords);
-    }
+    const jpToEn = (jpLabel: string): string => {
+      for (const [re, en] of JP_LABEL_MAP) {
+        if (re.test(jpLabel)) return en;
+      }
+      return jpLabel.toLowerCase();
+    };
 
-    // @Effect{N}Amount@ 形式 → 合成キー 'e{N}'（effectBurn 空白時のフォールバック用）
-    const tagRe3 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@Effect(\\d+)Amount(?:\\*[\\d.]+)?@`, 'gi');
-    let m3: RegExpExecArray | null;
-    while ((m3 = tagRe3.exec(spell.tooltip)) !== null) {
-      assignFromTag(`e${m3[1]}`, keywords);
+    for (let i = 0; i < effects.length; i++) {
+      const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
+             ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
+      if (!m || !labels[i]) continue;
+
+      const varname = m[1].toLowerCase();
+      if (map.has(varname)) continue;
+
+      const ddLabel    = labels[i];
+      const ddLabelLow = ddLabel.toLowerCase();
+      const enLabel    = jpToEn(ddLabel);
+
+      const stat = wikiData.leveling.find(s => {
+        const wLow = s.label.toLowerCase();
+        return (
+          wLow === ddLabelLow ||
+          ddLabelLow.includes(wLow) ||
+          wLow.includes(ddLabelLow) ||
+          wLow === enLabel ||
+          (enLabel !== ddLabelLow && (wLow.includes(enLabel) || enLabel.includes(wLow)))
+        );
+      });
+      if (stat) map.set(varname, stat.value);
     }
   }
 
-  // ── アプローチ2: leveltip ラベル経由（ja_JP 日本語ラベルも変換して対応） ─
+  // ── アプローチ3: Wiki テンプレートのボディ定数値 ─────────────────────
   //
-  // ja_JP の leveltip.label は "持続時間" など日本語なので、英語 wiki ラベルと
-  // 直接一致しない。正規表現マッピングで英語キーワードに変換してから照合する。
-  const JP_LABEL_MAP: [RegExp, string][] = [
-    [/スタン|気絶|硬直/,                       'stun'],
-    [/シールド.*(時間|持続)/,                  'shield duration'],
-    [/シールド/,                               'shield'],
-    [/スロウ.*(時間|持続)|鈍足.*(時間|持続)/, 'slow duration'],
-    [/スロウ|鈍足/,                            'slow'],
-    [/持続|時間/,                              'duration'],
-    [/物理.*ダメージ|ダメージ.*物理/,          'physical damage'],
-    [/魔法.*ダメージ|ダメージ.*魔法/,          'magic damage'],
-    [/真.*ダメージ/,                           'true damage'],
-    [/ダメージ/,                               'damage'],
-    [/回復/,                                   'heal'],
-    [/攻撃速度/,                               'attack speed'],
-    [/移動速度/,                               'movement speed'],
-  ];
+  // DDragon が effectBurn/effect[] に格納しない定数（CC時間・シールド持続等）を
+  // Wiki テンプレートの |key = value 行から補完する。
+  // 例: "|stun duration = 0.75" → wikiData.constants["stunduration"] = "0.75"
+  //
+  // 照合戦略:
+  //   1. 変数名と定数キーが直接一致（例: stunduration → stunduration）
+  //   2. スキルキープレフィックス（e/q/w/r）を除去して照合
+  //      （例: eshieldduration → shieldduration → |shield duration = 4）
+  if (wikiData.constants) {
+    const unresolvedRe = /\{\{\s*(\w+)(?:\s*\*\s*[\d.]+)?\s*\}\}/g;
+    let u: RegExpExecArray | null;
+    while ((u = unresolvedRe.exec(spell.tooltip)) !== null) {
+      const varname = u[1].toLowerCase();
+      if (map.has(varname)) continue;
 
-  const jpToEn = (jpLabel: string): string => {
-    for (const [re, en] of JP_LABEL_MAP) {
-      if (re.test(jpLabel)) return en;
+      if (wikiData.constants[varname] !== undefined) {
+        map.set(varname, wikiData.constants[varname]);
+        continue;
+      }
+
+      const stripped = varname.replace(/^[qwer]/, '');
+      if (stripped !== varname && wikiData.constants[stripped] !== undefined) {
+        map.set(varname, wikiData.constants[stripped]);
+      }
     }
-    return jpLabel.toLowerCase();
-  };
-
-  for (let i = 0; i < effects.length; i++) {
-    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
-           ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
-    if (!m || !labels[i]) continue;
-
-    const varname = m[1].toLowerCase();
-    if (map.has(varname)) continue;
-
-    const ddLabel    = labels[i];
-    const ddLabelLow = ddLabel.toLowerCase();
-    const enLabel    = jpToEn(ddLabel);
-
-    const stat = wikiData.leveling.find(s => {
-      const wLow = s.label.toLowerCase();
-      return (
-        wLow === ddLabelLow ||
-        ddLabelLow.includes(wLow) ||
-        wLow.includes(ddLabelLow) ||
-        wLow === enLabel ||
-        (enLabel !== ddLabelLow && (wLow.includes(enLabel) || enLabel.includes(wLow)))
-      );
-    });
-    if (stat) map.set(varname, stat.value);
   }
 
   return map;
@@ -446,6 +473,7 @@ function buildSkill(
   console.log('effect[1..5]:', (spell.effect ?? []).slice(1, 6).map((a, i) => `[${i+1}]=${JSON.stringify(a)}`).join(' '));
   console.log('leveltip.effect:', spell.leveltip?.effect);
   console.log('wikiVarMap:', Object.fromEntries(wikiVarMap));
+  console.log('wikiConstants:', wikiData?.constants ?? {});
   console.log('RESOLVED:', tooltip);
   console.groupEnd();
   // ──────────────────────────────────────────────────────

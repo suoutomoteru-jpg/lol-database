@@ -23,7 +23,7 @@
  */
 
 const WIKI_API = 'https://wiki.leagueoflegends.com/en-us/api.php';
-const CACHE_PREFIX = 'lol-wiki:v1:';
+const CACHE_PREFIX = 'lol-wiki:v2:';
 
 // ── 型定義 ────────────────────────────────────────────
 
@@ -38,6 +38,8 @@ export interface WikiLevelingStat {
 /** Wikiから取得した1スキル分のデータ */
 export interface WikiSpellData {
   leveling: WikiLevelingStat[];
+  /** ボディパラメータから抽出した定数値（例: { "stunduration": "0.75", "shieldduration": "4" }） */
+  constants?: Record<string, string>;
 }
 
 /** スペルキー ('Q'|'W'|'E'|'R') → WikiSpellData */
@@ -194,6 +196,26 @@ function parseLeveling(wikitext: string, maxrank: number): WikiLevelingStat[] {
   return stats;
 }
 
+/**
+ * Wikitext のボディパラメータから定数値を抽出する。
+ *
+ * 例: "|stun duration = 0.75" → { "stunduration": "0.75" }
+ *     "|shield duration = 4"  → { "shieldduration": "4"   }
+ *
+ * キーはスペースを除去した小文字に正規化する。leveling セクションには
+ * 現れないランク不変の値（CC時間・シールド持続等）を補完するために使用する。
+ */
+function parseConstants(wikitext: string): Record<string, string> {
+  const result: Record<string, string> = {};
+  const re = /^\|\s*([\w][\w ]*?)\s*=\s*(\d+(?:\.\d+)?)\s*$/gm;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(wikitext)) !== null) {
+    const key = m[1].trim().toLowerCase().replace(/\s+/g, '');
+    result[key] = m[2].trim();
+  }
+  return result;
+}
+
 // ── localStorage キャッシュ ──────────────────────────
 
 function readCache<T>(key: string): T | null {
@@ -285,9 +307,13 @@ export async function fetchWikiChampionSpells(
 
       if (!wikitext) return;
 
-      const leveling = parseLeveling(wikitext, maxrank);
-      if (leveling.length > 0) {
-        result[key] = { leveling };
+      const leveling  = parseLeveling(wikitext, maxrank);
+      const constants = parseConstants(wikitext);
+      if (leveling.length > 0 || Object.keys(constants).length > 0) {
+        result[key] = {
+          leveling,
+          ...(Object.keys(constants).length > 0 ? { constants } : {}),
+        };
       }
     }),
   );
