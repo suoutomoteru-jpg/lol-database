@@ -307,6 +307,14 @@ export async function fetchWikiChampionSpells(
 
       if (!wikitext) return;
 
+      // ── DEBUG: wikitextの実際のフォーマット確認 ──────────────
+      if (key === 'E') {
+        console.group(`[WIKI-DBG] ${key}: ${name}`);
+        console.log('wikitext (first 2000 chars):\n', wikitext.slice(0, 2000));
+        console.groupEnd();
+      }
+      // ──────────────────────────────────────────────────────────
+
       const leveling  = parseLeveling(wikitext, maxrank);
       const constants = parseConstants(wikitext);
       if (leveling.length > 0 || Object.keys(constants).length > 0) {
