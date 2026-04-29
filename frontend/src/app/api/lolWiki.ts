@@ -23,7 +23,7 @@
  */
 
 const WIKI_API = 'https://wiki.leagueoflegends.com/en-us/api.php';
-const CACHE_PREFIX = 'lol-wiki:v3:';
+const CACHE_PREFIX = 'lol-wiki:v4:';
 
 // ── 型定義 ────────────────────────────────────────────
 
@@ -332,8 +332,11 @@ export async function fetchWikiChampionSpells(
 ): Promise<WikiChampionSpells | null> {
   const cacheKey = `${CACHE_PREFIX}${championId}`;
   const cached   = readCache<WikiChampionSpells>(cacheKey);
-  // 空のキャッシュ（以前の取得が失敗した場合）は無視して再取得する
-  if (cached && Object.keys(cached).length > 0) return cached;
+  // 空キャッシュ or 旧フォーマット（constants フィールドなし）は再取得する
+  if (cached && Object.keys(cached).length > 0) {
+    const isNewFormat = Object.values(cached).every(v => 'constants' in v);
+    if (isNewFormat) return cached;
+  }
 
   const wikiName = toWikiName(championId);
   const result: WikiChampionSpells = {};
@@ -367,10 +370,8 @@ export async function fetchWikiChampionSpells(
       const leveling  = parseLeveling(wikitext, maxrank);
       const constants = parseConstants(wikitext);
       if (leveling.length > 0 || Object.keys(constants).length > 0) {
-        result[key] = {
-          leveling,
-          ...(Object.keys(constants).length > 0 ? { constants } : {}),
-        };
+        // constants は空でも必ず含める（キャッシュ新旧の判別に使う）
+        result[key] = { leveling, constants };
       }
     }),
   );
