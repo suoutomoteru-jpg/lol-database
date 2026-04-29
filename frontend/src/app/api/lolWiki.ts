@@ -205,19 +205,59 @@ function parseLeveling(wikitext: string, maxrank: number): WikiLevelingStat[] {
  * キーはスペースを除去した小文字に正規化する。leveling セクションには
  * 現れないランク不変の値（CC時間・シールド持続等）を補完するために使用する。
  */
-function parseConstants(wikitext: string): Record<string, string> {
+/**
+ * Wikitext の |description* セクションから持続時間定数を抽出する。
+ *
+ * "for X seconds" / "for {{fd|X}} seconds" パターンを検出し、
+ * 前後のキーワード（shield / stun / slow 等）から変数名を推定する。
+ * 同じ種別が複数出現する場合は最後の値（より詳細な記述）を採用する。
+ *
+ * 例:
+ *   |description  = ...{{tip|shield}} for 4 seconds.
+ *     → { shieldduration: '4' }
+ *   |description3 = ...{{tip|stun|stunning}} them for {{fd|1.5}} seconds...
+ *     → { stunduration: '1.5' }
+ */
+function parseDescriptionDurations(wikitext: string): Record<string, string> {
   const result: Record<string, string> = {};
-  // キー: 英字・数字・スペース・ハイフン・アンダースコアを許容
-  // 値: 数値のみ（単位・コメントが後続してもOK）
+
+  const descRe = /\|\s*description\d*\s*=\s*([\s\S]*?)(?=\n\s*\||\n\s*\}\}|$)/gi;
+  let dm: RegExpExecArray | null;
+
+  while ((dm = descRe.exec(wikitext)) !== null) {
+    const desc = dm[1].toLowerCase();
+
+    // "for X seconds" or "for {{fd|X}} seconds"
+    const durRe = /for\s+(?:\{\{fd\|(\d+(?:\.\d+)?)\}\}|(\d+(?:\.\d+)?))\s+seconds?/gi;
+    let dur: RegExpExecArray | null;
+    while ((dur = durRe.exec(desc)) !== null) {
+      const val = (dur[1] ?? dur[2]).trim();
+      if (/shield/.test(desc)) result['shieldduration'] = val;
+      if (/stun/.test(desc))   result['stunduration']   = val;
+      if (/slow/.test(desc))   result['slowduration']   = val;
+      if (/root/.test(desc))   result['rootduration']   = val;
+      if (/fear|flee/.test(desc)) result['fearduration'] = val;
+    }
+  }
+
+  return result;
+}
+
+function parseConstants(wikitext: string): Record<string, string> {
+  // |key = numeric_value 形式の行を解析
+  const result: Record<string, string> = {};
   const re = /^\|\s*([a-zA-Z][a-zA-Z0-9 _-]*?)\s*=\s*(\d+(?:\.\d+)?)\s*(?:[^|\n]*)$/gm;
   let m: RegExpExecArray | null;
   while ((m = re.exec(wikitext)) !== null) {
-    // 値の後にテンプレート記法や別パラメータが続く行は除外
     const afterVal = m[0].slice(m[0].indexOf(m[2]) + m[2].length).trim();
     if (/^[|{}]/.test(afterVal)) continue;
     const key = m[1].trim().toLowerCase().replace(/[\s_-]+/g, '');
     result[key] = m[2].trim();
   }
+
+  // description テキストから "for X seconds" パターンも補完
+  Object.assign(result, parseDescriptionDurations(wikitext));
+
   return result;
 }
 
