@@ -207,10 +207,15 @@ function parseLeveling(wikitext: string, maxrank: number): WikiLevelingStat[] {
  */
 function parseConstants(wikitext: string): Record<string, string> {
   const result: Record<string, string> = {};
-  const re = /^\|\s*([\w][\w ]*?)\s*=\s*(\d+(?:\.\d+)?)\s*$/gm;
+  // キー: 英字・数字・スペース・ハイフン・アンダースコアを許容
+  // 値: 数値のみ（単位・コメントが後続してもOK）
+  const re = /^\|\s*([a-zA-Z][a-zA-Z0-9 _-]*?)\s*=\s*(\d+(?:\.\d+)?)\s*(?:[^|\n]*)$/gm;
   let m: RegExpExecArray | null;
   while ((m = re.exec(wikitext)) !== null) {
-    const key = m[1].trim().toLowerCase().replace(/\s+/g, '');
+    // 値の後にテンプレート記法や別パラメータが続く行は除外
+    const afterVal = m[0].slice(m[0].indexOf(m[2]) + m[2].length).trim();
+    if (/^[|{}]/.test(afterVal)) continue;
+    const key = m[1].trim().toLowerCase().replace(/[\s_-]+/g, '');
     result[key] = m[2].trim();
   }
   return result;
@@ -307,10 +312,14 @@ export async function fetchWikiChampionSpells(
 
       if (!wikitext) return;
 
-      // ── DEBUG: wikitextの実際のフォーマット確認 ──────────────
+      // ── DEBUG: wikitextのパラメータ行を確認 ──────────────────
       if (key === 'E') {
+        const paramLines = wikitext.split('\n')
+          .filter(l => /^\s*\|/.test(l) && !/leveling|description|notes|plaintext/i.test(l))
+          .join('\n');
         console.group(`[WIKI-DBG] ${key}: ${name}`);
-        console.log('wikitext (first 2000 chars):\n', wikitext.slice(0, 2000));
+        console.log('param lines:\n', paramLines);
+        console.log('full wikitext:\n', wikitext);
         console.groupEnd();
       }
       // ──────────────────────────────────────────────────────────
