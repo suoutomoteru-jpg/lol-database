@@ -6,8 +6,8 @@ interface TabsFilterProps {
 }
 
 const TABS: { key: TabType; label: string }[] = [
-  { key: 'champions', label: 'チャンピオン' },
   { key: 'items',     label: 'アイテム' },
+  { key: 'champions', label: 'チャンピオン' },
 ];
 
 export function TabsFilter({ activeTab, onTabChange }: TabsFilterProps) {

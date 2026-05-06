@@ -13,7 +13,7 @@ export function Home() {
   const { items, loading: itemLoading } = useItems();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const activeTab        = (searchParams.get('tab') as TabType) ?? 'champions';
+  const activeTab        = (searchParams.get('tab') as TabType) ?? 'items';
   const searchQuery      = searchParams.get('q')                ?? '';
   const selectedRole     = (searchParams.get('role') as Role | 'all') ?? 'all';
   const selectedItemType = (searchParams.get('itype') as ItemType | 'all') ?? 'all';

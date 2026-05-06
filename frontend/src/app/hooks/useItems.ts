@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { getLatestVersion, fetchItemList, itemImageUrl } from '../api/dataDragon';
+import { getLatestVersion, fetchItemList, fetchItemListAram, itemImageUrl } from '../api/dataDragon';
 import { mapItemType } from '../utils/itemType';
 import type { Item } from '../data/mock-data';
+import type { DDragonItem } from '../types/ddragon';
 
 // Priority-ordered (user-specified order + Crit/AS added)
 type TagEntry =
@@ -75,19 +76,23 @@ export function useItems(): UseItemsResult {
     async function load() {
       try {
         const v = await getLatestVersion();
-        const raw = await fetchItemList(v);
+        const [raw, rawAram] = await Promise.all([fetchItemList(v), fetchItemListAram(v)]);
 
         if (cancelled) return;
 
-        const list: Item[] = raw
-          .map(([id, item]) => ({
-            id,
-            name: item.name,
-            type: mapItemType(item.tags),
-            icon: itemImageUrl(v, item.image.full),
-            statTags: computeStatTags(item.stats, item.tags, item.description),
-          }))
-          .sort((a, b) => a.name.localeCompare(b.name));
+        const makeItem = (id: string, item: DDragonItem, mapMode?: 'aram'): Item => ({
+          id,
+          name: item.name,
+          type: mapItemType(item.tags),
+          icon: itemImageUrl(v, item.image.full),
+          statTags: computeStatTags(item.stats, item.tags, item.description),
+          ...(mapMode ? { mapMode } : {}),
+        });
+
+        const list: Item[] = [
+          ...raw.map(([id, item, mode]) => makeItem(id, item, mode)),
+          ...rawAram.map(([id, item]) => makeItem(id, item, 'aram')),
+        ].sort((a, b) => a.name.localeCompare(b.name));
 
         setItems(list);
       } catch (e) {

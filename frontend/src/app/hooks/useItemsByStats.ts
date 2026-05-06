@@ -45,7 +45,7 @@ function formatStatValue(key: string, val: number): string {
   return String(Math.round(val));
 }
 
-function buildMap(version: string, items: [string, DDragonItem][]): Map<string, ItemSummary[]> {
+function buildMap(version: string, items: [string, DDragonItem, ...unknown[]][]): Map<string, ItemSummary[]> {
   const result = new Map<string, ItemSummary[]>();
 
   const add = (key: string, summary: ItemSummary) => {

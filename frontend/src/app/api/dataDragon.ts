@@ -201,12 +201,15 @@ function deduplicateByName(entries: [string, DDragonItem][]): [string, DDragonIt
 }
 
 /**
- * 完成アイテムのみ返す（コンポーネント・特殊アイテム除外）
- * 条件: 購入可能 & SR対応 & 合計コスト2000G以上 & チャンピオン専用でない
+ * 完成アイテムを返す。SRメインだがARAM専用扱いのものも含む。
+ * 戻り値の第3要素: 'aram' = ARAM専用（map12あり・Nexus Blitz(map21)なし）、undefined = SR通常
+ *
+ * 判別ロジック: map11=true かつ map12=true かつ map21≠true の場合、
+ * Riot が map11 に誤タグしたARAM系アイテムと判断して 'aram' を付与する。
  */
-export async function fetchItemList(version: string): Promise<[string, DDragonItem][]> {
-  const key = dataKey(version, 'items');
-  const cached = readCache<[string, DDragonItem][]>(key);
+export async function fetchItemList(version: string): Promise<[string, DDragonItem, 'aram'?][]> {
+  const key = dataKey(version, 'items-v2');
+  const cached = readCache<[string, DDragonItem, 'aram'?][]>(key);
   if (cached) return cached;
 
   const allItems = await fetchAllItemsRaw(version);
@@ -214,6 +217,35 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
     item.gold.purchasable &&
     item.gold.total >= 2000 &&
     item.maps?.['11'] === true &&
+    !item.requiredChampion &&
+    item.inStore !== false,
+  );
+  const deduped = deduplicateByName(filtered);
+  const result: [string, DDragonItem, 'aram'?][] = deduped.map(([id, item]) => {
+    const isAram = item.maps?.['12'] === true && item.maps?.['21'] !== true;
+    return isAram ? [id, item, 'aram'] : [id, item];
+  });
+  writeCache(key, result);
+  return result;
+}
+
+// ── ARAM専用アイテム一覧 ─────────────────────────────────
+
+/**
+ * ランダムMID（ARAM）専用アイテムを返す。
+ * 条件: 購入可能 & ハウリングアビス対応(map12) & SRには非対応(map11≠true) & 合計コスト2000G以上
+ */
+export async function fetchItemListAram(version: string): Promise<[string, DDragonItem][]> {
+  const key = dataKey(version, 'items-aram');
+  const cached = readCache<[string, DDragonItem][]>(key);
+  if (cached) return cached;
+
+  const allItems = await fetchAllItemsRaw(version);
+  const filtered = Object.entries(allItems).filter(([, item]) =>
+    item.gold.purchasable &&
+    item.gold.total >= 2000 &&
+    item.maps?.['12'] === true &&
+    item.maps?.['11'] !== true &&
     !item.requiredChampion &&
     item.inStore !== false,
   );

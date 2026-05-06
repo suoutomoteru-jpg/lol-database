@@ -22,4 +22,6 @@ export interface Item {
   type: ItemType;
   icon: string;
   statTags: string[];
+  /** undefined = SR通常アイテム、'aram' = ランダムMID専用 */
+  mapMode?: 'aram';
 }
