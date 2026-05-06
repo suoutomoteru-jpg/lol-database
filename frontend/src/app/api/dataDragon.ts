@@ -222,6 +222,31 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
   return result;
 }
 
+// ── ARAM専用アイテム一覧 ─────────────────────────────────
+
+/**
+ * ランダムMID（ARAM）専用アイテムを返す。
+ * 条件: 購入可能 & ハウリングアビス対応(map12) & SRには非対応(map11≠true) & 合計コスト2000G以上
+ */
+export async function fetchItemListAram(version: string): Promise<[string, DDragonItem][]> {
+  const key = dataKey(version, 'items-aram');
+  const cached = readCache<[string, DDragonItem][]>(key);
+  if (cached) return cached;
+
+  const allItems = await fetchAllItemsRaw(version);
+  const filtered = Object.entries(allItems).filter(([, item]) =>
+    item.gold.purchasable &&
+    item.gold.total >= 2000 &&
+    item.maps?.['12'] === true &&
+    item.maps?.['11'] !== true &&
+    !item.requiredChampion &&
+    item.inStore !== false,
+  );
+  const result = deduplicateByName(filtered);
+  writeCache(key, result);
+  return result;
+}
+
 // ── アイテム英語名マップ ────────────────────────────────
 
 export async function fetchItemEnNames(version: string): Promise<Record<string, string>> {
