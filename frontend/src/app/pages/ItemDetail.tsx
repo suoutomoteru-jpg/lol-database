@@ -178,6 +178,12 @@ function processItemDescription(raw: string): string {
   s = s.replace(/<gold>/gi, '<span style="color:#C89B3C">').replace(/<\/gold>/gi, '</span>');
   s = s.replace(/<keyword>/gi, '<strong>').replace(/<\/keyword>/gi, '</strong>');
   s = s.replace(/<keywordMajor>/gi, '<strong>').replace(/<\/keywordMajor>/gi, '</strong>');
+  s = s.replace(/<rarityLegendary>/gi, '<strong style="color:#C89B3C">').replace(/<\/rarityLegendary>/gi, '</strong>');
+  s = s.replace(/<rarityMythic>/gi,    '<strong style="color:#5383E8">').replace(/<\/rarityMythic>/gi,    '</strong>');
+  s = s.replace(/<rarityGeneric>/gi,   '<strong>').replace(/<\/rarityGeneric>/gi,   '</strong>');
+  s = s.replace(/<unimportant>/gi, '<span style="opacity:0.55">').replace(/<\/unimportant>/gi, '</span>');
+  s = s.replace(/<rules>/gi, '<em style="opacity:0.7">').replace(/<\/rules>/gi, '</em>');
+  s = s.replace(/<flavorText>/gi, '<em style="opacity:0.7">').replace(/<\/flavorText>/gi, '</em>');
   s = s.replace(/<li>/gi, '<br>• ').replace(/<\/li>/gi, '');
   s = s.replace(/<[^>]+>/g, (match) => {
     const t = match.toLowerCase().trim();

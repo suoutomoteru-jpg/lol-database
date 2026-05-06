@@ -382,7 +382,7 @@ function processTooltipHtml(raw: string): string {
   s = s.replace(/<p(?:\s[^>]*)?>/gi, '');
 
   const boldTags = ['active', 'passive', 'keywordMajor', 'keyword',
-                    'attention', 'rarityGeneric', 'status'];
+                    'attention', 'rarityGeneric', 'rarityLegendary', 'rarityMythic', 'status'];
   for (const tag of boldTags) {
     s = s.replace(new RegExp(`<${tag}(?:\\s[^>]*)?>`, 'gi'), '<strong>');
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</strong>');
@@ -390,18 +390,30 @@ function processTooltipHtml(raw: string): string {
 
   // [tag, color, statKey?] — statKey があるとタップでアイテム一覧が開く
   const colorMap: [string, string, string?][] = [
-    ['scaleAD',        AD,          'stat:FlatPhysicalDamageMod'],
-    ['scaleBonusAD',   AD,          'stat:FlatPhysicalDamageMod'],
-    ['scaleAP',        AP,          'stat:FlatMagicDamageMod'],
-    ['scaleHealth',    HP,          'stat:FlatHPPoolMod'],
-    ['scaleMana',      MANA,        'stat:FlatMPPoolMod'],
-    ['scaleLevel',     AD],
-    ['physicalDamage', '#FF8C00'],
-    ['magicDamage',    AP],
-    ['trueDamage',     '#F0E6D2'],
-    ['healing',        HP],
-    ['shield',         HP,          'custom:HealAndShieldPower'],
-    ['speed',          '#F9E4B7'],
+    ['scaleAD',            AD,       'stat:FlatPhysicalDamageMod'],
+    ['scaleBonusAD',       AD,       'stat:FlatPhysicalDamageMod'],
+    ['scaleAP',            AP,       'stat:FlatMagicDamageMod'],
+    ['scaleHealth',        HP,       'stat:FlatHPPoolMod'],
+    ['scaleBonusHealth',   HP,       'stat:FlatHPPoolMod'],
+    ['scaleMaxHealth',     HP,       'stat:FlatHPPoolMod'],
+    ['scaleCurrentHealth', HP],
+    ['scaleMana',          MANA,     'stat:FlatMPPoolMod'],
+    ['scaleBonusMana',     MANA,     'stat:FlatMPPoolMod'],
+    ['scaleArmor',         '#A8956B','stat:FlatArmorMod'],
+    ['scaleBonusArmor',    '#A8956B','stat:FlatArmorMod'],
+    ['scaleMR',            '#9B8FB5','stat:FlatSpellBlockMod'],
+    ['scaleBonusMR',       '#9B8FB5','stat:FlatSpellBlockMod'],
+    ['scaleAttackSpeed',   AD,       'stat:PercentAttackSpeedMod'],
+    ['scaleMovementSpeed', '#F9E4B7','stat:FlatMovementSpeedMod'],
+    ['scaleCritChance',    AD,       'stat:FlatCritChanceMod'],
+    ['scaleLevel',         AD],
+    ['physicalDamage',     '#FF8C00'],
+    ['magicDamage',        AP],
+    ['trueDamage',         '#F0E6D2'],
+    ['healing',            HP],
+    ['shield',             HP,       'custom:HealAndShieldPower'],
+    ['speed',              '#F9E4B7'],
+    ['unimportant',        '#888888'],
   ];
 
   for (const [tag, color, statKey] of colorMap) {

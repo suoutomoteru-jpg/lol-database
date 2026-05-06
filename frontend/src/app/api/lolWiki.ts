@@ -81,6 +81,8 @@ export function toWikiName(ddId: string): string {
     MonkeyKing:   'Wukong',
     Nunu:         'Nunu & Willump',
     NunuWillump:  'Nunu & Willump',
+    // フルネームが必要なチャンピオン
+    Ambessa:      'Ambessa Medarda',
   };
   return SPECIAL[ddId] ?? ddId;
 }
@@ -227,16 +229,21 @@ function parseDescriptionDurations(wikitext: string): Record<string, string> {
   while ((dm = descRe.exec(wikitext)) !== null) {
     const desc = dm[1].toLowerCase();
 
-    // "for X seconds" or "for {{fd|X}} seconds"
-    const durRe = /for\s+(?:\{\{fd\|(\d+(?:\.\d+)?)\}\}|(\d+(?:\.\d+)?))\s+seconds?/gi;
+    // "for [a/up to] X seconds" / "for {{fd|X}} seconds" / "X-second stun"
+    const durRe = /for(?:\s+a|\s+up\s+to)?\s+(?:\{\{fd\|(\d+(?:\.\d+)?)\}\}|(\d+(?:\.\d+)?))[- ]seconds?/gi;
     let dur: RegExpExecArray | null;
     while ((dur = durRe.exec(desc)) !== null) {
       const val = (dur[1] ?? dur[2]).trim();
-      if (/shield/.test(desc)) result['shieldduration'] = val;
-      if (/stun/.test(desc))   result['stunduration']   = val;
-      if (/slow/.test(desc))   result['slowduration']   = val;
-      if (/root/.test(desc))   result['rootduration']   = val;
-      if (/fear|flee/.test(desc)) result['fearduration'] = val;
+      // 周辺テキスト（±80文字）でCC/効果の種別を判定
+      const ctx = desc.slice(Math.max(0, dur.index - 80), dur.index + 80);
+      if (/shield/.test(ctx)) result['shieldduration'] = val;
+      if (/stun/.test(ctx))   result['stunduration']   = val;
+      if (/slow/.test(ctx))   result['slowduration']   = val;
+      if (/root|snare/.test(ctx)) result['rootduration'] = val;
+      if (/fear|flee/.test(ctx))  result['fearduration'] = val;
+      if (/silence/.test(ctx))    result['silenceduration'] = val;
+      if (/blind/.test(ctx))      result['blindduration'] = val;
+      if (/suppress/.test(ctx))   result['suppressionduration'] = val;
     }
   }
 
