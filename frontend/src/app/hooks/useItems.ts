@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchItemList, fetchItemListAram, itemImageUrl } from '../api/dataDragon';
 import { mapItemType } from '../utils/itemType';
 import type { Item } from '../data/mock-data';
+import type { DDragonItem } from '../types/ddragon';
 
 // Priority-ordered (user-specified order + Crit/AS added)
 type TagEntry =
@@ -79,7 +80,7 @@ export function useItems(): UseItemsResult {
 
         if (cancelled) return;
 
-        const toItem = (mapMode?: 'aram') => ([id, item]: [string, import('../types/ddragon').DDragonItem]): Item => ({
+        const makeItem = (id: string, item: DDragonItem, mapMode?: 'aram'): Item => ({
           id,
           name: item.name,
           type: mapItemType(item.tags),
@@ -89,8 +90,8 @@ export function useItems(): UseItemsResult {
         });
 
         const list: Item[] = [
-          ...raw.map(toItem()),
-          ...rawAram.map(toItem('aram')),
+          ...raw.map(([id, item, mode]) => makeItem(id, item, mode)),
+          ...rawAram.map(([id, item]) => makeItem(id, item, 'aram')),
         ].sort((a, b) => a.name.localeCompare(b.name));
 
         setItems(list);
