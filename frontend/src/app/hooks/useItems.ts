@@ -89,10 +89,19 @@ export function useItems(): UseItemsResult {
           ...(mapMode ? { mapMode } : {}),
         });
 
-        const list: Item[] = [
+        const combined = [
           ...raw.map(([id, item, mode]) => makeItem(id, item, mode)),
           ...rawAram.map(([id, item]) => makeItem(id, item, 'aram')),
-        ].sort((a, b) => a.name.localeCompare(b.name));
+        ];
+
+        // 同名アイテムがSR版とARAM版の両方に存在する場合、ARAM版を優先
+        const seen = new Map<string, Item>();
+        for (const item of combined) {
+          if (!seen.has(item.name) || item.mapMode === 'aram') {
+            seen.set(item.name, item);
+          }
+        }
+        const list = [...seen.values()].sort((a, b) => a.name.localeCompare(b.name));
 
         setItems(list);
       } catch (e) {
