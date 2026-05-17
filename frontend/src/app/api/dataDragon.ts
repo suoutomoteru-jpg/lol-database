@@ -221,6 +221,16 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
     item.inStore !== false,
   );
   const deduped = deduplicateByName(filtered);
+
+  // [DBG] SRフィルターを通ったアイテムのmapsデータを出力（非SRアイテムの判別用）
+  console.group('[DBG] fetchItemList: SR通過アイテムのmapsデータ');
+  for (const [id, item] of deduped) {
+    const maps = item.maps ?? {};
+    const mapStr = Object.entries(maps).filter(([, v]) => v).map(([k]) => `map${k}`).join(', ');
+    console.log(`${item.name} (${id}): { ${mapStr} }`);
+  }
+  console.groupEnd();
+
   const result: [string, DDragonItem, 'aram'?][] = deduped.map(([id, item]) => {
     const isAram = item.maps?.['12'] === true && item.maps?.['21'] !== true;
     return isAram ? [id, item, 'aram'] : [id, item];
