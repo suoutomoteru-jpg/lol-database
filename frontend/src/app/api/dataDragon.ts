@@ -208,7 +208,7 @@ function deduplicateByName(entries: [string, DDragonItem][]): [string, DDragonIt
  * Riot が map11 に誤タグしたARAM系アイテムと判断して 'aram' を付与する。
  */
 export async function fetchItemList(version: string): Promise<[string, DDragonItem, 'aram'?][]> {
-  const key = dataKey(version, 'items-v2');
+  const key = dataKey(version, 'items-v3');
   const cached = readCache<[string, DDragonItem, 'aram'?][]>(key);
   if (cached) return cached;
 
@@ -217,6 +217,7 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
     item.gold.purchasable &&
     item.gold.total >= 2000 &&
     item.maps?.['11'] === true &&
+    Object.keys(item.maps ?? {}).length > 1 &&
     !item.requiredChampion &&
     item.inStore !== false,
   );
