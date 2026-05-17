@@ -94,10 +94,10 @@ export function useItems(): UseItemsResult {
           ...rawAram.map(([id, item]) => makeItem(id, item, 'aram')),
         ];
 
-        // 同名アイテムがSR版とARAM版の両方に存在する場合、ARAM版を優先
+        // 同名アイテムがSR版とARAM版の両方に存在する場合、SR版（バッジなし）を優先
         const seen = new Map<string, Item>();
         for (const item of combined) {
-          if (!seen.has(item.name) || item.mapMode === 'aram') {
+          if (!seen.has(item.name) || seen.get(item.name)!.mapMode === 'aram') {
             seen.set(item.name, item);
           }
         }
