@@ -23,7 +23,7 @@
  */
 
 const WIKI_API = 'https://wiki.leagueoflegends.com/en-us/api.php';
-const CACHE_PREFIX = 'lol-wiki:v4:';
+const CACHE_PREFIX = 'lol-wiki:v5:';
 
 // ── 型定義 ────────────────────────────────────────────
 
@@ -90,13 +90,45 @@ export function toWikiName(ddId: string): string {
 // ── Wikitext パーサー ────────────────────────────────
 
 /**
+ * `|` で分割するが、{{...}} の内側にある `|` は分割しない。
+ * 例: "label|{{ap|1|2}}|other" → ["label", "{{ap|1|2}}", "other"]
+ */
+function splitByPipe(s: string): string[] {
+  const parts: string[] = [];
+  let depth = 0;
+  let start = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '{') depth++;
+    else if (s[i] === '}') depth--;
+    else if (s[i] === '|' && depth === 0) {
+      parts.push(s.slice(start, i));
+      start = i + 1;
+    }
+  }
+  parts.push(s.slice(start));
+  return parts;
+}
+
+/**
+ * 数値の乗算表記（"35*2" → 70、"50*2" → 100）を解決する。
+ * {{as|(+ 50*2% AP)}} などの scaling テキスト内で使われる。
+ */
+function resolveArithmetic(s: string): string {
+  return s.replace(/(\d+(?:\.\d+)?)\*(\d+(?:\.\d+)?)/g, (_, a, b) => {
+    const result = parseFloat(a) * parseFloat(b);
+    return Number.isInteger(result) ? String(result) : String(Math.round(result * 100) / 100);
+  });
+}
+
+/**
  * {{ap|X to Y}} または {{ap|v1|v2|...|vN}} テンプレートを
  * "v1/v2/.../vN" 形式の文字列に変換する。
  *
  * "X to Y" 形式の場合は maxrank 段階の線形補間を行う。
+ * "X*N to Y*N" 形式（乗算つき範囲）も対応。
  */
 function parseApTemplate(content: string, maxrank: number): string {
-  const trimmed = content.trim();
+  const trimmed = resolveArithmetic(content.trim());
 
   // "X to Y" 形式 → 線形補間
   const rangeMatch = trimmed.match(/^(\d+(?:\.\d+)?)\s+to\s+(\d+(?:\.\d+)?)$/i);
@@ -146,8 +178,8 @@ function resolveWikiValue(raw: string, maxrank: number): string {
   s = s.replace(/\{\{ap\|([^}]+)\}\}/gi, (_, content) =>
     parseApTemplate(content, maxrank));
 
-  // {{as|(...)}} → スケーリングテキスト
-  s = s.replace(/\{\{as\|([^}]+)\}\}/gi, (_, content) => content.trim());
+  // {{as|(...)}} → スケーリングテキスト（"50*2" → "100" など算術を解決）
+  s = s.replace(/\{\{as\|([^}]+)\}\}/gi, (_, content) => resolveArithmetic(content.trim()));
 
   // {{sti|type|text}} → text（スタイル付きインライン）
   s = s.replace(/\{\{sti\|[^|{}]+\|([^{}]*)\}\}/gi, (_, text) => text.trim());
@@ -166,31 +198,58 @@ function resolveWikiValue(raw: string, maxrank: number): string {
 }
 
 /**
- * Wikitext の |leveling / |leveling2 / |leveling3 ... セクションから
- * {{st|Label|Value}} 対をすべて抽出する。
+ * section 文字列から {{st|...}} テンプレートを深さ追跡で全て抽出し、
+ * 各テンプレートの引数リスト（テンプレート名を除く）を返す。
  *
- * st テンプレートのネスト構造（2段まで許容）:
- *   {{st|Label|{{ap|X to Y}} {{as|(+ {{fd|N}}% stat)}}}}
+ * {{st|label1|value1|label2|value2}} のような多引数形式にも対応。
+ */
+function extractStArgs(section: string): string[][] {
+  const results: string[][] = [];
+  let i = 0;
+  while (i < section.length) {
+    // {{st| の開始を探す
+    const idx = section.indexOf('{{st|', i);
+    if (idx === -1) break;
+
+    // ブラケット深さを追跡して閉じ }} を見つける
+    let depth = 1;
+    let j = idx + 2; // '{{' の直後
+    while (j < section.length && depth > 0) {
+      if (section[j] === '{' && section[j + 1] === '{') { depth++; j += 2; }
+      else if (section[j] === '}' && section[j + 1] === '}') { depth--; if (depth > 0) j += 2; }
+      else j++;
+    }
+
+    // idx+5 = '{{st|' の後から j（閉じ}} の前）まで
+    const inner = section.slice(idx + 5, j); // "label1|value1|label2|..."
+    results.push(splitByPipe(inner));
+    i = j + 2;
+  }
+  return results;
+}
+
+/**
+ * Wikitext の |leveling / |leveling2 / |leveling3 ... セクションから
+ * label/value 対をすべて抽出する。
+ *
+ * {{st|label|value}} の単純形式に加え、
+ * {{st|label1|value1|label2|value2}} の多引数形式にも対応。
  */
 function parseLeveling(wikitext: string, maxrank: number): WikiLevelingStat[] {
   const stats: WikiLevelingStat[] = [];
 
-  // |leveling, |leveling2, |leveling3 ... を全て対象にする
   const sectionRe = /\|\s*leveling\d*\s*=\s*([\s\S]*?)(?=\n\s*\||\n\s*\}\}|$)/gi;
   let sectionMatch: RegExpExecArray | null;
 
   while ((sectionMatch = sectionRe.exec(wikitext)) !== null) {
     const section = sectionMatch[1];
 
-    // Value部分は2段ネスト（{{as|(+ {{fd|X}}% ...)}}）まで許容
-    const stRegex = /\{\{st\|([^|{}]+)\|((?:[^{}]|\{\{(?:[^{}]|\{\{[^{}]*\}\})*\}\})*)\}\}/gi;
-    let match: RegExpExecArray | null;
-
-    while ((match = stRegex.exec(section)) !== null) {
-      const label = match[1].trim();
-      const value = resolveWikiValue(match[2].trim(), maxrank);
-      if (label && value) {
-        stats.push({ label, value });
+    for (const args of extractStArgs(section)) {
+      // args = [label1, value1, label2, value2, ...]
+      for (let k = 0; k + 1 < args.length; k += 2) {
+        const label = args[k].trim();
+        const value = resolveWikiValue(args[k + 1].trim(), maxrank);
+        if (label && value) stats.push({ label, value });
       }
     }
   }
