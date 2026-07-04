@@ -160,6 +160,7 @@ function buildWikiVarMap(
       [/スタン|気絶|硬直/,                       'stun'],
       [/シールド.*(時間|持続)/,                  'shield duration'],
       [/シールド/,                               'shield'],
+      [/スロウ耐性|鈍足耐性/,                    'slow resist'],
       [/スロウ.*(時間|持続)|鈍足.*(時間|持続)/, 'slow duration'],
       [/スロウ|鈍足/,                            'slow'],
       [/持続|時間/,                              'duration'],
@@ -205,32 +206,64 @@ function buildWikiVarMap(
     }
   }
 
-  // ── アプローチ3: Wiki テンプレートのボディ定数値 ─────────────────────
+  // ── アプローチ3+4: 未解決変数を Wiki 定数・leveling と照合 ───────────
   //
-  // DDragon が effectBurn/effect[] に格納しない定数（CC時間・シールド持続等）を
-  // Wiki テンプレートの |key = value 行から補完する。
-  // 例: "|stun duration = 0.75" → wikiData.constants["stunduration"] = "0.75"
-  //
-  // 照合戦略:
-  //   1. 変数名と定数キーが直接一致（例: stunduration → stunduration）
-  //   2. スキルキープレフィックス（e/q/w/r）を除去して照合
-  //      （例: eshieldduration → shieldduration → |shield duration = 4）
-  if (wikiData.constants) {
-    const unresolvedRe = /\{\{\s*(\w+)(?:\s*\*\s*[\d.]+)?\s*\}\}/g;
+  // tooltip 内の {{ var }} / @var@ のうち未解決のものを対象に:
+  //   3-1. 定数キーと直接一致（例: stunduration → |stun duration = 0.75）
+  //   3-2. スキルキープレフィックス（q/w/e/r）を除去して照合
+  //        （例: eshieldduration → shieldduration → |shield duration = 4）
+  //   4.   変数名のキーワード（slow/resist/shield等）から意味を推定し、
+  //        定数キー → leveling ラベルの順で照合する
+  //        （例: qslowratio → slow → constants.slowpercent or leveling "Slow"）
+  {
+    // 意味ルール: 変数名パターン → [定数キー候補, levelingラベルキーワード候補]
+    // duration 系を % 系より先に判定すること（"slowduration" が slow% に化けないように）
+    const SEMANTIC_RULES: Array<{ test: RegExp; constKeys: string[]; levelingKws: string[] }> = [
+      { test: /slow.*resist|resist.*slow/,      constKeys: ['slowresist'],       levelingKws: ['slow resist'] },
+      { test: /slow.*(duration|time|length)/,   constKeys: ['slowduration'],     levelingKws: ['slow duration'] },
+      { test: /stun/,                           constKeys: ['stunduration'],     levelingKws: ['stun duration', 'stun'] },
+      { test: /root|snare/,                     constKeys: ['rootduration'],     levelingKws: ['root duration', 'root'] },
+      { test: /fear|flee/,                      constKeys: ['fearduration'],     levelingKws: ['fear duration', 'fear'] },
+      { test: /shield.*(duration|time)/,        constKeys: ['shieldduration'],   levelingKws: ['shield duration'] },
+      { test: /slow/,                           constKeys: ['slowpercent'],      levelingKws: ['slow'] },
+      { test: /(attack|hit)s?.*per.*sec|persecond|attackfrequency/, constKeys: ['attackspersecond'], levelingKws: ['attacks per second', 'attack speed'] },
+    ];
+
+    const varRe = /\{\{\s*(\w+)(?:\s*\*\s*[\d.]+)?\s*\}\}|@([A-Za-z]\w*)(?:\*[\d.]+)?@/g;
     let u: RegExpExecArray | null;
-    while ((u = unresolvedRe.exec(spell.tooltip)) !== null) {
-      const varname = u[1].toLowerCase();
+    while ((u = varRe.exec(spell.tooltip)) !== null) {
+      const varname = (u[1] ?? u[2]).toLowerCase();
       if (map.has(varname)) continue;
 
-      if (wikiData.constants[varname] !== undefined) {
+      // 3-1. 定数キー直接一致
+      if (wikiData.constants?.[varname] !== undefined) {
         map.set(varname, wikiData.constants[varname]);
         continue;
       }
 
-      const stripped = varname.replace(/^[qwer]/, '');
-      if (stripped !== varname && wikiData.constants[stripped] !== undefined) {
+      // 3-2. スキルキープレフィックス除去
+      const stripped = varname.replace(/^[qwer](?=[a-z])/, '');
+      if (stripped !== varname && wikiData.constants?.[stripped] !== undefined) {
         map.set(varname, wikiData.constants[stripped]);
+        continue;
       }
+
+      // 4. 意味ベース照合
+      const rule = SEMANTIC_RULES.find(r => r.test.test(stripped));
+      if (!rule) continue;
+
+      const constVal = rule.constKeys
+        .map(k => wikiData.constants?.[k])
+        .find(v => v !== undefined);
+      if (constVal !== undefined) {
+        map.set(varname, constVal);
+        continue;
+      }
+
+      const lvStat = rule.levelingKws
+        .map(kw => wikiData.leveling?.find(s => s.label.toLowerCase().includes(kw)))
+        .find(Boolean);
+      if (lvStat) map.set(varname, lvStat.value);
     }
   }
 

@@ -23,7 +23,7 @@
  */
 
 const WIKI_API = 'https://wiki.leagueoflegends.com/en-us/api.php';
-const CACHE_PREFIX = 'lol-wiki:v5:';
+const CACHE_PREFIX = 'lol-wiki:v6:';
 
 // ── 型定義 ────────────────────────────────────────────
 
@@ -303,6 +303,36 @@ function parseDescriptionDurations(wikitext: string): Record<string, string> {
       if (/silence/.test(ctx))    result['silenceduration'] = val;
       if (/blind/.test(ctx))      result['blindduration'] = val;
       if (/suppress/.test(ctx))   result['suppressionduration'] = val;
+    }
+
+    // "X% slow resist" / "slow resist(ance) ... X%" → slowresist
+    // {{tip|slow}} resistance のように間に }} 等が挟まる形式も許容する
+    const resistRe1 = /(?:\{\{fd\|(\d+(?:\.\d+)?)\}\}|(\d+(?:\.\d+)?))%[^.\n]{0,50}?slow\W{0,4}resist/gi;
+    let sr: RegExpExecArray | null;
+    while ((sr = resistRe1.exec(desc)) !== null) {
+      result['slowresist'] = (sr[1] ?? sr[2]).trim();
+    }
+    const resistRe2 = /slow\W{0,4}resist(?:ance)?[^.\n]{0,50}?(?:\{\{fd\|(\d+(?:\.\d+)?)\}\}|(\d+(?:\.\d+)?))%/gi;
+    while ((sr = resistRe2.exec(desc)) !== null) {
+      result['slowresist'] = (sr[1] ?? sr[2]).trim();
+    }
+
+    // "slow(ing/s/ed) ... by X%" → slowpercent（定数スロウのみ。ランク変動値は leveling が担当）
+    const slowRe = /slow(?:s|ing|ed)?(?:[^.\n]{0,70}?)by\s+(?:\{\{fd\|(\d+(?:\.\d+)?)\}\}|(\d+(?:\.\d+)?))\s*%/gi;
+    let sl: RegExpExecArray | null;
+    while ((sl = slowRe.exec(desc)) !== null) {
+      // "slow resist" の文脈は除外
+      if (/resist/.test(sl[0])) continue;
+      if (result['slowpercent'] === undefined) {
+        result['slowpercent'] = (sl[1] ?? sl[2]).trim();
+      }
+    }
+
+    // "X times per second" → attackspersecond（アーゴットWなどの連射頻度）
+    const apsRe = /(?:\{\{fd\|(\d+(?:\.\d+)?)\}\}|(\d+(?:\.\d+)?))\s+times\s+per\s+second/gi;
+    let aps: RegExpExecArray | null;
+    while ((aps = apsRe.exec(desc)) !== null) {
+      result['attackspersecond'] = (aps[1] ?? aps[2]).trim();
     }
   }
 
