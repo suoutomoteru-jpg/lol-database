@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchChampionDetail, spellImageUrl, passiveImageUrl } from '../api/dataDragon';
 import { fetchWikiChampionSpells } from '../api/lolWiki';
 import type { WikiSpellData } from '../api/lolWiki';
-import type { DDragonChampionDetail, DDragonSpell } from '../types/ddragon';
+import type { DDragonChampionDetail, DDragonSpell, DDragonPassive } from '../types/ddragon';
 
 export interface SkillData {
   key: 'P' | 'Q' | 'W' | 'E' | 'R';
@@ -477,13 +477,33 @@ function processTooltipHtml(raw: string): string {
   return s.replace(/^(<br>\s*)+/, '').trim();
 }
 
-function resolvePassiveDescription(desc: string, partype: string): string {
-  let s = desc;
-  s = s.split('{{ abilityresourcename }}').join(partype);
-  s = s.split('{{abilityresourcename}}').join(partype);
-  s = s.replace(/\{\{[^}]*\}\}/g, '');
-  s = s.replace(/@\w+(?:\*\d+(?:\.\d+)?)?@/g, '');
-  return processTooltipHtml(s);
+/**
+ * DDragon の passive オブジェクトは spell と違い leveltip/vars/effectBurn を
+ * 持たないため、Q/W/E/R と同じ解決パイプライン（buildWikiVarMap 等）に通すための
+ * ダミー DDragonSpell を構築する。tooltip 相当として description を使う。
+ */
+function buildPassiveSpellShim(passive: DDragonPassive): DDragonSpell {
+  return {
+    id: passive.name,
+    name: passive.name,
+    description: passive.description,
+    tooltip: passive.description,
+    leveltip: { label: [], effect: [] },
+    maxrank: 1,
+    cooldown: [],
+    cooldownBurn: '',
+    cost: [],
+    costBurn: '',
+    costType: '',
+    maxammo: '',
+    range: [],
+    rangeBurn: '',
+    image: passive.image,
+    resource: '',
+    effect: [],
+    effectBurn: [],
+    vars: [],
+  };
 }
 
 // ════════════════════════════════════════════════════════
@@ -547,6 +567,39 @@ function buildSkill(
   };
 }
 
+function buildPassiveSkill(
+  passive: DDragonPassive,
+  version: string,
+  partype: string,
+  wikiData: WikiSpellData | undefined,
+): SkillData {
+  const spell = buildPassiveSpellShim(passive);
+  const wikiVarMap = buildWikiVarMap(spell, wikiData);
+
+  let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
+  tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
+
+  // ── DEBUG ─────────────────────────────────────────────
+  console.group(`[DBG] P: ${passive.name}`);
+  console.log('RAW:', passive.description);
+  console.log('wikiVarMap:', Object.fromEntries(wikiVarMap));
+  console.log('wikiConstants:', wikiData?.constants ?? {});
+  console.log('wikiLeveling:', wikiData?.leveling ?? []);
+  console.log('RESOLVED:', tooltip);
+  console.groupEnd();
+  // ──────────────────────────────────────────────────────
+
+  tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, '');
+
+  return {
+    key:      'P',
+    name:     passive.name,
+    description: processTooltipHtml(tooltip),
+    imageUrl: passiveImageUrl(version, passive.image.full),
+    leveling: wikiData?.leveling,
+  };
+}
+
 // ════════════════════════════════════════════════════════
 // useChampion フック
 // ════════════════════════════════════════════════════════
@@ -578,6 +631,7 @@ export function useChampion(championId: string | undefined): UseChampionResult {
         const wikiSpells = await fetchWikiChampionSpells(
           raw.id,
           [
+            { key: 'Passive', name: raw.passive.name, maxrank: 1 },
             { key: 'Q', name: Q.name, maxrank: Q.maxrank },
             { key: 'W', name: W.name, maxrank: W.maxrank },
             { key: 'E', name: E.name, maxrank: E.maxrank },
@@ -587,12 +641,7 @@ export function useChampion(championId: string | undefined): UseChampionResult {
         if (cancelled) return;
 
         const skills: SkillData[] = [
-          {
-            key:         'P',
-            name:        raw.passive.name,
-            description: resolvePassiveDescription(raw.passive.description, partype),
-            imageUrl:    passiveImageUrl(v, raw.passive.image.full),
-          },
+          buildPassiveSkill(raw.passive, v, partype, wikiSpells?.['Passive']),
           buildSkill('Q', Q, v, partype, wikiSpells?.['Q']),
           buildSkill('W', W, v, partype, wikiSpells?.['W']),
           buildSkill('E', E, v, partype, wikiSpells?.['E']),

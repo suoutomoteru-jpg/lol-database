@@ -23,7 +23,7 @@
  */
 
 const WIKI_API = 'https://wiki.leagueoflegends.com/en-us/api.php';
-const CACHE_PREFIX = 'lol-wiki:v6:';
+const CACHE_PREFIX = 'lol-wiki:v7:';
 
 // ── 型定義 ────────────────────────────────────────────
 
