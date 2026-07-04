@@ -198,6 +198,48 @@ function resolveWikiValue(raw: string, maxrank: number): string {
 }
 
 /**
+ * |description* セクション全体（地の文）を解決する。
+ * resolveWikiValue と違い {{tip|word|display}}（ゲーム用語リンク）も解決する。
+ */
+function resolveDescriptionText(raw: string, maxrank: number): string {
+  let s = raw;
+
+  s = s.replace(/\{\{fd\|([^|{}]+)\}\}/gi, (_, x) => x.trim());
+
+  // {{tip|word}} / {{tip|word|display}} → display（あれば）または word
+  s = s.replace(/\{\{tip\|([^|{}]+)(?:\|([^{}]*))?\}\}/gi, (_, word, display) =>
+    (display ?? word).trim());
+
+  s = s.replace(/\{\{ap\|([^}]+)\}\}/gi, (_, content) => parseApTemplate(content, maxrank));
+  s = s.replace(/\{\{as\|([^}]+)\}\}/gi, (_, content) => resolveArithmetic(content.trim()));
+  s = s.replace(/\{\{sti\|[^|{}]+\|([^{}]*)\}\}/gi, (_, text) => text.trim());
+  s = s.replace(/\{\{tt\|([^|{}]+)\|[^{}]*\}\}/gi, (_, text) => text.trim());
+
+  // 残存する未知テンプレートを除去
+  s = s.replace(/\{\{[^{}]*\}\}/g, '');
+
+  s = s.replace(/'{2,3}/g, '');
+  s = s.replace(/\[\[(?:[^\]|]+\|)?([^\]]+)\]\]/g, '$1');
+
+  return s.trim();
+}
+
+/**
+ * Wikitext の |description / |description2 / |description3 ... セクションを
+ * すべて抽出・解決し、改行区切りで結合した英文を返す（翻訳の元データ用）。
+ */
+export function extractResolvedDescriptions(wikitext: string, maxrank: number): string {
+  const parts: string[] = [];
+  const descRe = /\|\s*description\d*\s*=\s*([\s\S]*?)(?=\n\s*\||\n\s*\}\}|$)/gi;
+  let dm: RegExpExecArray | null;
+  while ((dm = descRe.exec(wikitext)) !== null) {
+    const resolved = resolveDescriptionText(dm[1], maxrank);
+    if (resolved) parts.push(resolved);
+  }
+  return parts.join('\n\n');
+}
+
+/**
  * section 文字列から {{st|...}} テンプレートを深さ追跡で全て抽出し、
  * 各テンプレートの引数リスト（テンプレート名を除く）を返す。
  *
@@ -411,6 +453,23 @@ async function fetchWikitext(title: string): Promise<string | null> {
     page?.revisions?.[0]?.slots?.main?.['*'] ??
     null
   );
+}
+
+/**
+ * スペル1つ分の wikitext を取得する（スペルキー → スペル名の順でフォールバック）。
+ * 一括抽出ツール（DevExtract）用に公開。
+ */
+export async function fetchSpellWikitext(
+  championId: string,
+  key: string,
+  name: string,
+): Promise<string | null> {
+  const wikiName = toWikiName(championId);
+  let wikitext = await fetchWikitext(`Template:Data_${wikiName}/${key}`).catch(() => null);
+  if (!wikitext) {
+    wikitext = await fetchWikitext(`Template:Data_${wikiName}/${name}`).catch(() => null);
+  }
+  return wikitext;
 }
 
 // ── メイン取得関数 ────────────────────────────────────
