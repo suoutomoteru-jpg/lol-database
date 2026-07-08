@@ -3,7 +3,7 @@ import { getLatestVersion, fetchChampionDetail, spellImageUrl, passiveImageUrl }
 import { fetchGeneratedTooltips } from '../api/generatedTooltips';
 import type { GeneratedSkill } from '../api/generatedTooltips';
 import { resolveDDragonTemplates, resolveAtVarTemplates } from '../utils/ddragonTemplates';
-import { processTooltipHtml } from '../utils/richText';
+import { processTooltipHtml, injectSkillStatLinks } from '../utils/richText';
 import type { DDragonChampionDetail, DDragonSpell } from '../types/ddragon';
 
 export interface SkillData {
@@ -70,6 +70,8 @@ function buildSkill(
     tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, ''); // 未解決変数を除去
     description = processTooltipHtml(tooltip);
   }
+  // ステータス語（合計攻撃力・増加体力など）をタップ可能にする
+  description = injectSkillStatLinks(description);
 
   const rawCostType = spell.costType ?? '';
   const resolvedCostType = rawCostType
@@ -121,9 +123,11 @@ export function useChampion(championId: string | undefined): UseChampionResult {
         const generated = await fetchGeneratedTooltips(raw.id).catch(() => null);
         if (cancelled) return;
 
-        const passiveDescription = generated?.skills.passive.description?.trim()
-          ? processTooltipHtml(generated.skills.passive.description)
-          : resolvePassiveDescription(raw.passive.description, partype);
+        const passiveDescription = injectSkillStatLinks(
+          generated?.skills.passive.description?.trim()
+            ? processTooltipHtml(generated.skills.passive.description)
+            : resolvePassiveDescription(raw.passive.description, partype),
+        );
 
         const skills: SkillData[] = [
           {

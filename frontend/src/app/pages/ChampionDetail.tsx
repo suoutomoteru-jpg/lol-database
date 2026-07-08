@@ -7,6 +7,7 @@ import { useItemsByStats } from '../hooks/useItemsByStats';
 import { championSplashUrl } from '../api/dataDragon';
 import { englishChampionName } from '../utils/championNames';
 import { roleIconUrl, ROLE_LABELS_JA } from '../utils/roleAssets';
+import { STAT_KEY_LABELS } from '../utils/stats';
 import type { Role } from '../types/app';
 import { BottomSheet } from '../components/BottomSheet';
 import type { SkillData } from '../hooks/useChampion';
@@ -68,7 +69,7 @@ function SkillBlock({
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const key = (e.target as HTMLElement).dataset.stat;
-    if (key) onStatClick(key, (e.target as HTMLElement).textContent ?? '');
+    if (key) onStatClick(key, STAT_KEY_LABELS[key] ?? (e.target as HTMLElement).textContent ?? '');
   };
 
   return (

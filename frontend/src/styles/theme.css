@@ -59,6 +59,19 @@ body {
   font-weight: 600;
 }
 
+/* スキル説明文内のタップ可能なステータス語（現在の文字色を薄く敷いたピル） */
+.stat-link {
+  cursor: pointer;
+  background: color-mix(in srgb, currentColor 13%, transparent);
+  border-radius: 4px;
+  padding: 0 3px;
+  margin: 0 1px;
+  transition: background 0.1s;
+}
+.stat-link:hover {
+  background: color-mix(in srgb, currentColor 24%, transparent);
+}
+
 /* Wikipedia-style inline stat links */
 .stat-keyword {
   cursor: pointer;

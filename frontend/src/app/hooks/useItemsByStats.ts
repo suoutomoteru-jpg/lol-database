@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchItemList, fetchItemListMedium, itemImageUrl } from '../api/dataDragon';
+import { STAT_DEFS, itemHasStat } from '../utils/stats';
 import type { DDragonItem } from '../types/ddragon';
 
 export interface ItemStatLine {
@@ -68,26 +69,12 @@ function buildMap(version: string, items: [string, DDragonItem, ...unknown[]][])
       stats: statLines,
     };
 
-    for (const [key, val] of Object.entries(item.stats)) {
-      if (val) add(`stat:${key}`, summary);
-    }
+    // ステータス台帳（utils/stats.ts）に基づいて逆引きマップを構築する
     const tags = item.tags ?? [];
-    for (const tag of tags) {
-      add(`tag:${tag}`, summary);
-    }
-
     const plainDesc = item.description.replace(/<[^>]+>/g, '');
-    if (/シールド/.test(plainDesc))                                            add('custom:Shield', summary);
-    if (/物理防御貫通/.test(plainDesc) || item.stats['PercentArmorPenetrationMod']) add('custom:ArmorPen', summary);
-    if (item.stats['FlatArmorPenetrationMod'] || /脅威/.test(plainDesc))      add('custom:Lethality', summary);
-    if (/魔法防御貫通/.test(plainDesc) || item.stats['FlatMagicPenetrationMod'] || item.stats['PercentMagicPenetrationMod']) add('custom:MagicPen', summary);
-    if (item.stats['PercentLifeStealMod'] || /ライフスティール/.test(plainDesc)) add('custom:LifeSteal', summary);
-    if (item.stats['PercentHealAndShieldPower'] || /ヒール[&＆]シールドパワー/.test(plainDesc)) add('custom:HealAndShieldPower', summary);
-    if (item.stats['PercentCritDamageMod'] || /クリティカルダメージ/.test(plainDesc)) add('custom:CritDamage', summary);
-    // CooldownReduction は DDragon の旧タグ名。stat / 両タグ名 / 説明文の4経路で検出
-    if (item.stats['AbilityHaste'] || tags.includes('AbilityHaste') || tags.includes('CooldownReduction') || /スキルヘイスト/.test(plainDesc)) add('custom:AbilityHaste', summary);
-    if (tags.includes('Tenacity') || /行動妨害耐性/.test(plainDesc))          add('custom:Tenacity', summary);
-    if (tags.includes('OnHit') || /通常攻撃時効果/.test(plainDesc))           add('custom:OnHit', summary);
+    for (const def of STAT_DEFS) {
+      if (itemHasStat(def, item.stats, tags, plainDesc)) add(def.key, summary);
+    }
   }
 
   for (const list of result.values()) {

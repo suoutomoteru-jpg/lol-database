@@ -2,9 +2,10 @@
  * DDragon 由来のリッチテキスト（スキルツールチップ・アイテム説明文）を
  * 表示用 HTML に変換する共通モジュール。
  *
- * これまで useChampion（スキル）と ItemDetail（アイテム）が
- * ほぼ同じタグ変換表を別々に持っていたものを統合した。
+ * タップ可能なステータス語の定義は utils/stats.ts の台帳から導出する。
  */
+
+import { TOOLTIP_TAG_STAT, ITEM_KEYWORDS, SKILL_KEYWORDS } from './stats';
 
 // ── 共通ヘルパー ──────────────────────────────────────
 
@@ -33,30 +34,30 @@ const MANA = 'var(--color-stat-mana)';
 const BOLD_TAGS = ['active', 'passive', 'keywordMajor', 'keyword',
                    'attention', 'rarityGeneric', 'rarityLegendary', 'rarityMythic', 'status'];
 
-// [tag, color, statKey?] — statKey があるとタップでアイテム一覧が開く
-const COLOR_MAP: [string, string, string?][] = [
-  ['scaleAD',            AD,       'stat:FlatPhysicalDamageMod'],
-  ['scaleBonusAD',       AD,       'stat:FlatPhysicalDamageMod'],
-  ['scaleAP',            AP,       'stat:FlatMagicDamageMod'],
-  ['scaleHealth',        HP,       'stat:FlatHPPoolMod'],
-  ['scaleBonusHealth',   HP,       'stat:FlatHPPoolMod'],
-  ['scaleMaxHealth',     HP,       'stat:FlatHPPoolMod'],
+// [tag, color] — タップ可否（statキー）は台帳（TOOLTIP_TAG_STAT）から引く
+const COLOR_MAP: [string, string][] = [
+  ['scaleAD',            AD],
+  ['scaleBonusAD',       AD],
+  ['scaleAP',            AP],
+  ['scaleHealth',        HP],
+  ['scaleBonusHealth',   HP],
+  ['scaleMaxHealth',     HP],
   ['scaleCurrentHealth', HP],
-  ['scaleMana',          MANA,     'stat:FlatMPPoolMod'],
-  ['scaleBonusMana',     MANA,     'stat:FlatMPPoolMod'],
-  ['scaleArmor',         'var(--color-stat-armor)', 'stat:FlatArmorMod'],
-  ['scaleBonusArmor',    'var(--color-stat-armor)', 'stat:FlatArmorMod'],
-  ['scaleMR',            'var(--color-stat-mr)',    'stat:FlatSpellBlockMod'],
-  ['scaleBonusMR',       'var(--color-stat-mr)',    'stat:FlatSpellBlockMod'],
-  ['scaleAttackSpeed',   AD,       'stat:PercentAttackSpeedMod'],
-  ['scaleMovementSpeed', 'var(--color-stat-ms)',    'stat:FlatMovementSpeedMod'],
-  ['scaleCritChance',    AD,       'stat:FlatCritChanceMod'],
+  ['scaleMana',          MANA],
+  ['scaleBonusMana',     MANA],
+  ['scaleArmor',         'var(--color-stat-armor)'],
+  ['scaleBonusArmor',    'var(--color-stat-armor)'],
+  ['scaleMR',            'var(--color-stat-mr)'],
+  ['scaleBonusMR',       'var(--color-stat-mr)'],
+  ['scaleAttackSpeed',   AD],
+  ['scaleMovementSpeed', 'var(--color-stat-ms)'],
+  ['scaleCritChance',    AD],
   ['scaleLevel',         AD],
   ['physicalDamage',     'var(--color-dmg-physical)'],
   ['magicDamage',        AP],
   ['trueDamage',         'var(--color-dmg-true)'],
   ['healing',            HP],
-  ['shield',             HP,       'custom:HealAndShieldPower'],
+  ['shield',             HP],
   ['speed',              'var(--color-stat-ms)'],
   ['unimportant',        '#888888'],
 ];
@@ -80,7 +81,8 @@ export function processTooltipHtml(raw: string): string {
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</strong>');
   }
 
-  for (const [tag, color, statKey] of COLOR_MAP) {
+  for (const [tag, color] of COLOR_MAP) {
+    const statKey = TOOLTIP_TAG_STAT[tag.toLowerCase()];
     const open = statKey
       ? `<span style="color:${color};cursor:pointer" data-stat="${statKey}">`
       : `<span style="color:${color}">`;
@@ -136,50 +138,30 @@ export function processItemDescription(raw: string): string {
   return s;
 }
 
-// ── 日本語キーワード → stat/tag キーのリンク注入 ────────
-// 長いものを先に並べる（部分マッチ防止）
+// ── ステータス語のリンク注入（台帳から導出）─────────────
 
-const KEYWORD_DEFS: Array<{ text: string; key: string }> = [
-  { text: 'ライフスティール',   key: 'custom:LifeSteal' },
-  { text: '通常攻撃時効果',     key: 'custom:OnHit' },
-  { text: '行動妨害耐性',       key: 'custom:Tenacity' },
-  { text: 'スキルヘイスト',     key: 'custom:AbilityHaste' },
-  { text: '魔法防御貫通',       key: 'custom:MagicPen' },
-  { text: '物理防御貫通',       key: 'custom:ArmorPen' },
-  { text: 'クリティカルダメージ', key: 'custom:CritDamage' },
-  { text: 'クリティカル率',     key: 'stat:FlatCritChanceMod' },
-  { text: 'シールド量',         key: 'custom:Shield' },
-  { text: 'ヒール&シールドパワー', key: 'custom:HealAndShieldPower' },
-  { text: 'ヒール＆シールドパワー', key: 'custom:HealAndShieldPower' },
-  { text: '脅威',               key: 'custom:Lethality' },
-  { text: '体力回復速度',       key: 'stat:FlatHPRegenMod' },
-  { text: '体力回復',           key: 'stat:FlatHPRegenMod' },
-  { text: 'マナ回復速度',       key: 'stat:FlatMPRegenMod' },
-  { text: 'マナ回復',           key: 'stat:FlatMPRegenMod' },
-  { text: '魔法防御',           key: 'stat:FlatSpellBlockMod' },
-  { text: '物理防御',           key: 'stat:FlatArmorMod' },
-  { text: '移動速度',           key: 'stat:FlatMovementSpeedMod' },
-  { text: '攻撃速度',           key: 'stat:PercentAttackSpeedMod' },
-  { text: '攻撃力',             key: 'stat:FlatPhysicalDamageMod' },
-  { text: '魔力',               key: 'stat:FlatMagicDamageMod' },
-  { text: 'アーマー',           key: 'stat:FlatArmorMod' },
-  { text: '体力',               key: 'stat:FlatHPPoolMod' },
-  { text: 'マナ',               key: 'stat:FlatMPPoolMod' },
-];
+function buildInjector(
+  pairs: Array<{ text: string; key: string }>,
+  className: string,
+): (html: string) => string {
+  const pattern = new RegExp(
+    pairs.map(d => d.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
+    'g',
+  );
+  const map = new Map(pairs.map(d => [d.text, d.key]));
 
-const KW_PATTERN = new RegExp(
-  KEYWORD_DEFS.map(d => d.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
-  'g',
-);
-const KW_MAP = new Map(KEYWORD_DEFS.map(d => [d.text, d.key]));
-
-/** HTML のテキストノード内のステータス語をクリッカブルな span に置き換える */
-export function injectStatLinks(html: string): string {
-  return html.split(/(<[^>]+>)/).map(part => {
-    if (part.startsWith('<')) return part;
-    return part.replace(KW_PATTERN, kw => {
-      const key = KW_MAP.get(kw);
-      return key ? `<span data-stat="${key}" class="stat-keyword">${kw}</span>` : kw;
-    });
-  }).join('');
+  return (html: string) =>
+    html.split(/(<[^>]+>)/).map(part => {
+      if (part.startsWith('<')) return part;
+      return part.replace(pattern, kw => {
+        const key = map.get(kw);
+        return key ? `<span data-stat="${key}" class="${className}">${kw}</span>` : kw;
+      });
+    }).join('');
 }
+
+/** アイテム説明文のテキストノード内のステータス語をタップ可能にする */
+export const injectStatLinks = buildInjector(ITEM_KEYWORDS, 'stat-keyword');
+
+/** スキル説明文のテキストノード内のステータス語をタップ可能にする */
+export const injectSkillStatLinks = buildInjector(SKILL_KEYWORDS, 'stat-link');

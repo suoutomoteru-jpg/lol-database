@@ -7,6 +7,7 @@ import { useItemsByStats } from '../hooks/useItemsByStats';
 import { BottomSheet } from '../components/BottomSheet';
 import { processItemDescription, injectStatLinks } from '../utils/richText';
 import { calcGoldEfficiency } from '../utils/goldEfficiency';
+import { STAT_KEY_LABELS } from '../utils/stats';
 
 // ── 日本語単語境界でのアイテム名折り返し ────────────────
 interface JaSegment { segment: string }
@@ -124,7 +125,7 @@ export function ItemDetail() {
     const key = target.dataset.stat;
     if (key) {
       setActiveStatKey(key);
-      setActiveLabel(target.textContent ?? '');
+      setActiveLabel(STAT_KEY_LABELS[key] ?? target.textContent ?? '');
     }
   }, []);
 
