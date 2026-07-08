@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router';
-import { ArrowLeft, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronUp, ChevronLeft, ChevronRight, Clock, Droplet, Ruler } from 'lucide-react';
 import { useChampion } from '../hooks/useChampion';
 import { useChampions } from '../hooks/useChampions';
 import { useItemsByStats } from '../hooks/useItemsByStats';
-import { championImageUrl } from '../api/dataDragon';
+import { championSplashUrl } from '../api/dataDragon';
 import { toWikiName } from '../api/lolWiki';
 import { BottomSheet } from '../components/BottomSheet';
 import type { SkillData } from '../hooks/useChampion';
@@ -12,7 +12,7 @@ import type { SkillData } from '../hooks/useChampion';
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
 
 
-// ── スキルナビゲーションボタン ──────────────────────────
+// ── スキルナビゲーション（アイコン + キーバッジ）─────────
 
 function SkillNav({
   skills,
@@ -34,13 +34,16 @@ function SkillNav({
                 key={s.key}
                 onClick={() => onSelect(s.key)}
                 aria-label={s.name}
-                className={`w-12 h-12 rounded-md font-bold text-base transition-colors duration-100 ${
+                className={`relative w-12 h-12 rounded-md overflow-hidden border transition-all duration-100 ${
                   active
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground'
+                    ? 'border-primary ring-1 ring-primary'
+                    : 'border-border opacity-55 hover:opacity-100'
                 }`}
               >
-                {s.key}
+                <img src={s.imageUrl} alt="" className="w-full h-full object-cover" />
+                <span className="absolute bottom-0 right-0 px-1 text-[10px] font-bold leading-4 rounded-tl-sm bg-background/85 text-foreground">
+                  {s.key}
+                </span>
               </button>
             );
           })}
@@ -68,51 +71,75 @@ function SkillBlock({
 
   return (
     <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-md p-5">
-      {/* アイコン + スキル名（同一行） */}
-      <div className="flex items-center gap-3 mb-4">
-        <img
-          src={skill.imageUrl}
-          alt={skill.name}
-          className="w-12 h-12 rounded-md border border-border flex-shrink-0"
-          loading="lazy"
-        />
-        <p className="text-2xl font-medium">
-          <span className="text-primary font-bold">{skill.key}</span>
-          {' — '}
-          {skill.name}
-        </p>
-      </div>
-      <hr className="border-border mb-4" />
-
-      {/* 説明文 */}
-      <div
-        className="text-foreground leading-relaxed text-base skill-description mb-5"
-        dangerouslySetInnerHTML={{ __html: skill.description }}
-        onClick={handleClick}
-      />
-
-      {/* クールダウン・コスト・射程 */}
-      {hasMeta && (
-        <div className="bg-muted/30 rounded-md p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {skill.cooldownBurn && (
-            <div className="flex gap-2">
-              <span className="text-muted-foreground min-w-28 text-sm">クールダウン</span>
-              <span className="text-foreground font-medium text-sm tabular-nums">{skill.cooldownBurn}s</span>
-            </div>
-          )}
-          {skill.costBurn && skill.costType && (
-            <div className="flex gap-2">
-              <span className="text-muted-foreground min-w-28 text-sm">{skill.costType}</span>
-              <span className="text-foreground font-medium text-sm tabular-nums">{skill.costBurn}</span>
-            </div>
-          )}
-          {skill.rangeBurn && (
-            <div className="flex gap-2">
-              <span className="text-muted-foreground min-w-28 text-sm">射程</span>
-              <span className="text-foreground font-medium text-sm tabular-nums">{skill.rangeBurn}</span>
+      {/* アイコン（キーバッジ付き）+ スキル名 + CD/コスト/射程 */}
+      <div className="flex items-start gap-4 mb-4">
+        <div className="relative flex-shrink-0">
+          <img
+            src={skill.imageUrl}
+            alt={skill.name}
+            className="w-14 h-14 rounded-md border border-border"
+            loading="lazy"
+          />
+          <span className="absolute -bottom-1.5 -right-1.5 w-5 h-5 flex items-center justify-center rounded-sm bg-background border border-border text-[11px] font-bold text-primary">
+            {skill.key}
+          </span>
+        </div>
+        <div className="min-w-0 pt-0.5">
+          <h2 className="text-xl font-semibold text-foreground leading-tight">{skill.name}</h2>
+          {hasMeta && (
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
+              {skill.cooldownBurn && (
+                <span className="inline-flex items-center gap-1.5" title="クールダウン">
+                  <Clock size={13} aria-hidden />
+                  <span className="tabular-nums text-foreground/85">{skill.cooldownBurn}s</span>
+                </span>
+              )}
+              {skill.costBurn && (
+                <span className="inline-flex items-center gap-1.5" title={skill.costType ?? 'コスト'}>
+                  <Droplet size={13} aria-hidden />
+                  <span className="tabular-nums text-foreground/85">{skill.costBurn}</span>
+                </span>
+              )}
+              {skill.rangeBurn && (
+                <span className="inline-flex items-center gap-1.5" title="射程">
+                  <Ruler size={13} aria-hidden />
+                  <span className="tabular-nums text-foreground/85">{skill.rangeBurn}</span>
+                </span>
+              )}
             </div>
           )}
         </div>
+      </div>
+
+      {/* 説明文 */}
+      <div
+        className="text-foreground leading-relaxed text-base skill-description"
+        dangerouslySetInnerHTML={{ __html: skill.description }}
+        onClick={handleClick}
+      />
+    </div>
+  );
+}
+
+// ── ロア（背景ストーリー・折りたたみ）───────────────────
+
+function LoreSection({ lore }: { lore: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = lore.length > 160;
+
+  return (
+    <div className="bg-card border border-border rounded-md p-5">
+      <h2 className="text-sm font-semibold text-foreground mb-2">ストーリー</h2>
+      <p className={`text-sm text-foreground/80 leading-relaxed ${!expanded && isLong ? 'line-clamp-3' : ''}`}>
+        {lore}
+      </p>
+      {isLong && (
+        <button
+          onClick={() => setExpanded(v => !v)}
+          className="mt-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {expanded ? '閉じる' : '続きを読む'}
+        </button>
       )}
     </div>
   );
@@ -193,12 +220,12 @@ export function ChampionDetail() {
   const { stats } = champion;
 
   const statTags = [
-    { label: 'Health', value: stats.hp },
-    { label: 'Mana',   value: champion.partype !== 'None' ? stats.mp : null },
-    { label: 'AR',     value: stats.armor },
-    { label: 'MR',     value: stats.spellblock },
-    { label: 'MS',     value: stats.movespeed },
-    { label: 'Range',  value: stats.attackrange },
+    { label: '体力',     value: stats.hp },
+    { label: 'マナ',     value: champion.partype !== 'None' ? stats.mp : null },
+    { label: '物理防御', value: stats.armor },
+    { label: '魔法防御', value: stats.spellblock },
+    { label: '移動速度', value: stats.movespeed },
+    { label: '射程',     value: stats.attackrange },
   ].filter(s => s.value !== null);
 
   return (
@@ -223,70 +250,64 @@ export function ChampionDetail() {
         </Link>
       )}
 
-      {/* 戻るボタン */}
-      <div className="border-b border-border">
-        <div className="container mx-auto px-4 py-3 max-w-5xl">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft size={18} />
-            <span>戻る</span>
-          </Link>
+      {/* ヒーロー（スプラッシュアート）*/}
+      <div className="relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={championSplashUrl(champion.id)}
+            alt=""
+            className="w-full h-full object-cover object-[center_20%]"
+            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/25" />
         </div>
-      </div>
 
-      {/* ヘッダー */}
-      <div className="container mx-auto px-4 py-8 max-w-5xl">
-        <div className="flex items-start gap-6 mb-6">
-          <div className="w-20 h-20 flex-shrink-0 rounded-sm overflow-hidden bg-gradient-to-br from-primary/20 to-accent/30 shadow-lg">
-            <img
-              src={championImageUrl(champion.version, champion.id)}
-              alt={champion.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold text-foreground tracking-tight">{champion.name}</h1>
-            <p className="font-display text-sm text-muted-foreground/70 mt-0.5">{toWikiName(champion.id)}</p>
-            <span className="inline-block mt-1.5 px-2 py-0.5 text-xs rounded-sm bg-secondary text-muted-foreground">
-              {champion.role}
-            </span>
+        {/* 戻るリンク（ヒーロー上にオーバーレイ） */}
+        <div className="relative z-10">
+          <div className="container mx-auto px-4 py-3 max-w-5xl">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-background/50 backdrop-blur-sm text-sm text-foreground/80 hover:text-foreground hover:bg-background/70 transition-colors"
+            >
+              <ArrowLeft size={15} />
+              戻る
+            </Link>
           </div>
         </div>
-        <div className="border-t border-border" />
-      </div>
 
-      {/* ステータスタグ */}
-      <div className="container mx-auto px-4 max-w-5xl mb-5">
-        <p className="text-sm font-semibold text-foreground mb-2">ステータス</p>
-        <div className="flex flex-wrap gap-1.5">
-          {statTags.map(s => (
-            <span
-              key={s.label}
-              className="px-3 py-1 bg-card border border-border rounded-sm text-xs tabular-nums"
-            >
-              <span className="text-muted-foreground">{s.label}</span> {s.value}
-            </span>
-          ))}
-        </div>
-      </div>
+        <div className="relative container mx-auto px-4 max-w-5xl pt-24 sm:pt-36 pb-6">
+          <p className="font-display text-sm text-primary/90">{toWikiName(champion.id)}</p>
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 mt-0.5">
+            <h1 className="text-4xl font-bold text-foreground tracking-tight">{champion.name}</h1>
+            {champion.title && (
+              <p className="text-base text-foreground/70">{champion.title}</p>
+            )}
+          </div>
 
-      {/* 特徴タグ */}
-      <div className="container mx-auto px-4 max-w-5xl mb-6">
-        <p className="text-sm font-semibold text-foreground mb-2">特徴</p>
-        <div className="flex flex-wrap gap-1.5">
-          {champion.tags.map(tag => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs"
-            >
-              {tag}
-            </span>
-          ))}
-          <span className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs">
-            {champion.partype}
-          </span>
+          <div className="flex flex-wrap gap-1.5 mt-3">
+            {[champion.role, ...champion.tags.filter(t => t !== champion.role)].map(tag => (
+              <span
+                key={tag}
+                className="px-2.5 py-0.5 text-xs rounded-sm bg-background/60 backdrop-blur-sm border border-border/60 text-foreground/80"
+              >
+                {tag}
+              </span>
+            ))}
+            {champion.partype !== 'None' && (
+              <span className="px-2.5 py-0.5 text-xs rounded-sm bg-background/60 backdrop-blur-sm border border-border/60 text-foreground/80">
+                {champion.partype}
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-wrap gap-x-7 gap-y-2 mt-6">
+            {statTags.map(s => (
+              <div key={s.label}>
+                <p className="text-[11px] text-muted-foreground leading-tight">{s.label}</p>
+                <p className="text-base font-semibold text-foreground tabular-nums leading-tight mt-0.5">{s.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -302,6 +323,7 @@ export function ChampionDetail() {
         {champion.skills.map(skill => (
           <SkillBlock key={skill.key} skill={skill} onStatClick={handleStatClick} />
         ))}
+        {champion.lore && <LoreSection lore={champion.lore} />}
       </div>
 
       {/* トップへ戻るボタン */}

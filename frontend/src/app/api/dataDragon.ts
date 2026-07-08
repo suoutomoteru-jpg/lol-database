@@ -117,6 +117,11 @@ export function championImageUrl(version: string, championId: string): string {
   return `${BASE_URL}/cdn/${version}/img/champion/${championId}.png`;
 }
 
+// スプラッシュアート（バージョン非依存パス）
+export function championSplashUrl(championId: string): string {
+  return `${BASE_URL}/cdn/img/champion/splash/${championId}_0.jpg`;
+}
+
 // fileName は item.image.full の値（例: "3031.png"）
 export function itemImageUrl(version: string, fileName: string): string {
   return `${BASE_URL}/cdn/${version}/img/item/${fileName}`;
