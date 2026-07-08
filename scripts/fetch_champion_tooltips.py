@@ -111,6 +111,53 @@ def render_calc(c) -> str:
     return json.dumps(c, ensure_ascii=False)[:160]
 
 
+def walk_data_values(obj, path=""):
+    """entry 内を再帰探索して (パス, 名前, 数値配列) を列挙する。
+
+    bin JSON のスキーマ差異（mDataValues の位置やキー名の揺れ）に
+    依存しないよう、「name らしき文字列 + 数値リスト」を持つ dict を拾う。
+    """
+    if isinstance(obj, dict):
+        name = obj.get("mName") or obj.get("name")
+        for vkey in ("mValues", "values", "value"):
+            vals = obj.get(vkey)
+            if (
+                isinstance(name, str)
+                and isinstance(vals, list)
+                and vals
+                and all(isinstance(v, (int, float)) for v in vals)
+            ):
+                yield path, name, vals
+                break
+        for k, v in obj.items():
+            yield from walk_data_values(v, f"{path}.{k}")
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            yield from walk_data_values(v, f"{path}[{i}]")
+
+
+def find_stringtable_url() -> str | None:
+    """CDragon のディレクトリ一覧 API で日本語ストリングテーブルの実パスを探す"""
+    for d in ("game/ja_jp/data/menu", "game/data/menu", "game/ja_jp/data", "game/data"):
+        try:
+            listing = get_json(f"https://raw.communitydragon.org/json/latest/{d}/")
+        except Exception as e:
+            print(f"  (一覧取得失敗) {d}: {e}")
+            continue
+        names = [e.get("name", "") for e in listing if e.get("type") == "file"]
+        cands = [
+            n for n in names
+            if ("stringtable" in n.lower() or "fontconfig" in n.lower())
+            and ("ja_jp" in n.lower() or "en_us" in n.lower())
+        ]
+        print(f"  {d}/ 内の候補: {cands if cands else names[:20]}")
+        ja = [n for n in cands if "ja_jp" in n.lower()]
+        pick = (ja or cands)
+        if pick:
+            return f"{BASE}/{d}/{pick[0]}"
+    return None
+
+
 def main() -> int:
     champ = (sys.argv[1] if len(sys.argv) > 1 else "urgot").lower()
 
@@ -156,10 +203,13 @@ def main() -> int:
         ):
             if field in spell:
                 print(f"  {label}: {spell[field]}")
-        for dv in spell.get("mDataValues", []):
-            name = dv.get("mName", "?")
-            vals = dv.get("mValues", [])
-            print(f"  DataValue [{name}]: {vals}")
+        seen = set()
+        for vpath, name, vals in walk_data_values(entry):
+            key = (name, tuple(vals))
+            if key in seen:
+                continue
+            seen.add(key)
+            print(f"  DataValue [{name}] ({vpath.lstrip('.')}): {vals}")
         for cname, calc in (spell.get("mSpellCalculations") or {}).items():
             print(f"  Calc [{cname}] = {render_calc(calc)}")
         tooltip = (spell.get("mClientData") or {}).get("mTooltipData") or {}
@@ -170,27 +220,25 @@ def main() -> int:
 
     # ── 4. ストリングテーブル（ゲーム内ツールチップ本文）────
     section("ストリングテーブル（ツールチップ本文）")
-    candidates = [
-        f"{BASE}/game/ja_jp/data/menu/main_ja_jp.stringtable.json",
-        f"{BASE}/game/data/menu/main_ja_jp.stringtable.json",
-        f"{BASE}/game/data/menu/fontconfig_ja_jp.txt",
-        f"{BASE}/game/data/menu/main_en_us.stringtable.json",
-    ]
     entries: dict[str, str] = {}
-    for cand in candidates:
+    url = find_stringtable_url()
+    if url:
         try:
-            raw = get(cand)
+            raw = get(url)
+            print(f"  取得成功: {url}  ({len(raw) // 1024} KB)")
+            if url.endswith(".json"):
+                parsed = json.loads(raw)
+                entries = parsed.get("entries", parsed)
+            else:
+                for m in re.finditer(
+                    r'tr "([^"]+)" = "((?:[^"\\]|\\.)*)"',
+                    raw.decode("utf-8", "replace"),
+                ):
+                    entries[m.group(1)] = (
+                        m.group(2).replace('\\"', '"').replace("\\n", "\n")
+                    )
         except Exception as e:
-            print(f"  (skip) {cand}: {e}")
-            continue
-        print(f"  取得成功: {cand}  ({len(raw) // 1024} KB)")
-        if cand.endswith(".json"):
-            parsed = json.loads(raw)
-            entries = parsed.get("entries", parsed)
-        else:
-            for m in re.finditer(r'tr "([^"]+)" = "((?:[^"\\]|\\.)*)"', raw.decode("utf-8", "replace")):
-                entries[m.group(1)] = m.group(2).replace('\\"', '"').replace("\\n", "\n")
-        break
+            print(f"  (取得失敗) {url}: {e}")
 
     if not entries:
         print("  ストリングテーブルを取得できませんでした")
