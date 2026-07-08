@@ -168,7 +168,7 @@ export function BottomSheet({
                                       className="flex items-center justify-end gap-2 text-xs whitespace-nowrap"
                                     >
                                       <span className="text-muted-foreground">{s.label}</span>
-                                      <span className="text-primary font-semibold tabular-nums">
+                                      <span className="text-foreground font-semibold tabular-nums">
                                         {s.value}
                                       </span>
                                     </div>

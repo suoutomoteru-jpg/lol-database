@@ -257,7 +257,7 @@ export function ItemDetail() {
         <Link
           to={`/item/${prevItem.id}`}
           title={prevItem.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-sm bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
         >
           <ChevronLeft size={16} />
         </Link>
@@ -266,7 +266,7 @@ export function ItemDetail() {
         <Link
           to={`/item/${nextItem.id}`}
           title={nextItem.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-sm bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
         >
           <ChevronRight size={16} />
         </Link>
@@ -300,16 +300,16 @@ export function ItemDetail() {
               <WbrName text={item.name} />
             </h1>
             {item.englishName && item.englishName !== item.name && (
-              <p className="text-xs text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
+              <p className="font-display text-sm text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
             )}
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-muted-foreground">
-              <span className="text-primary font-semibold">{item.gold.total}G</span>
+              <span className="text-primary font-semibold tabular-nums">{item.gold.total}G</span>
               {goldEfficiency !== null && (
                 <>
                   <span className="text-border">·</span>
                   <span>
                     金銭効率{' '}
-                    <span className="text-primary font-semibold">{goldEfficiency.toFixed(1)}%</span>
+                    <span className="text-primary font-semibold tabular-nums">{goldEfficiency.toFixed(1)}%</span>
                   </span>
                 </>
               )}
@@ -319,7 +319,7 @@ export function ItemDetail() {
 
         {/* 説明 — キーワードをクリックするとポップアップ表示 */}
         {description && (
-          <div className="bg-card border border-border rounded-sm overflow-hidden">
+          <div className="bg-card border border-border rounded-md overflow-hidden">
             <div
               className="px-4 py-3 text-sm text-foreground leading-snug item-description"
               dangerouslySetInnerHTML={{ __html: description }}
@@ -330,10 +330,10 @@ export function ItemDetail() {
 
         {/* 材料・アップグレード */}
         {(item.from.length > 0 || item.into.length > 0) && (
-          <div className="bg-card border border-border rounded-sm overflow-hidden divide-y divide-border">
+          <div className="bg-card border border-border rounded-md overflow-hidden divide-y divide-border">
             {item.from.length > 0 && (
               <div className="px-4 py-3">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">材料</p>
+                <p className="text-sm font-semibold text-foreground mb-2">材料</p>
                 <div className="flex flex-wrap gap-3">
                   {item.from.map(comp => (
                     <Link key={comp.id} to={`/item/${comp.id}`} className="flex items-center gap-2 group">
@@ -353,7 +353,7 @@ export function ItemDetail() {
 
             {item.into.length > 0 && (
               <div className="px-4 py-3">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">アップグレード先</p>
+                <p className="text-sm font-semibold text-foreground mb-2">アップグレード先</p>
                 <div className="flex flex-wrap gap-3">
                   {item.into.map(up => (
                     <Link key={up.id} to={`/item/${up.id}`} className="flex items-center gap-2 group">

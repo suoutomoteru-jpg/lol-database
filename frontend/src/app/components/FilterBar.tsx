@@ -35,7 +35,7 @@ export function FilterBar({
           <button
             key={v}
             onClick={() => onChange(v)}
-            className={`px-3 py-1 text-xs font-medium border rounded-sm transition-colors duration-100 ${colorClass}`}
+            className={`px-3 py-1 text-xs font-medium border rounded-full transition-colors duration-100 ${colorClass}`}
           >
             {label(v as Role & ItemType & 'all')}
           </button>

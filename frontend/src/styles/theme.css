@@ -1,24 +1,49 @@
 @import "tailwindcss";
 @theme {
+  /* ── 基調色 ──────────────────────────────────────── */
   --color-background:         #0A0F17;
   --color-foreground:         #C8D6E5;
   --color-card:               #111B28;
-  --color-primary:            #C89B3C;
+  --color-primary:            #C89B3C; /* 金: アクティブ状態・金銭情報のみに使う */
   --color-primary-foreground: #0A0F17;
   --color-secondary:          #162030;
   --color-muted:              #111B28;
   --color-muted-foreground:   #4D6B85;
   --color-accent:             #1A3454;
+  --color-hextech:            #0AC8B9; /* ヘクステック青緑: 第2アクセント */
   --color-destructive:        #E84057;
   --color-border:             #1B2B3C;
   --color-ring:               #C89B3C;
-  --radius:                   0.25rem;
+
+  /* ── ダメージ・ステータス色（ツールチップ内の数値装飾）── */
+  --color-dmg-physical: #F58B3D;
+  --color-dmg-magic:    #7EC8E3;
+  --color-dmg-true:     #F0E6D2;
+  --color-stat-ad:      #F58B3D;
+  --color-stat-ap:      #7EC8E3;
+  --color-stat-hp:      #2EC46B;
+  --color-stat-mana:    #5383E8;
+  --color-stat-armor:   #C8AA6E;
+  --color-stat-mr:      #A08FD0;
+  --color-stat-ms:      #F9E4B7;
+
+  /* ── フォント ────────────────────────────────────── */
+  /* 見出し（欧文）: LoL 公式 Beaufort に近いセリフ。和文は Noto にフォールバック */
+  --font-display: 'Marcellus', 'Noto Sans JP', serif;
+  --font-sans:    'Noto Sans JP', system-ui, sans-serif;
+
+  /* ── 角丸（統一スケール）──────────────────────────── */
+  --radius-xs: 3px;
+  --radius-sm: 4px;   /* 小さなチップ・サムネイル */
+  --radius-md: 6px;   /* カード・入力欄・ボタン */
+  --radius-lg: 10px;
+  --radius-2xl: 20px; /* ボトムシートの上端のみ */
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: 'Poppins', 'M PLUS Rounded 1c', system-ui, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 

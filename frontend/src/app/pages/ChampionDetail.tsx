@@ -34,10 +34,10 @@ function SkillNav({
                 key={s.key}
                 onClick={() => onSelect(s.key)}
                 aria-label={s.name}
-                className={`w-12 h-12 rounded-sm font-bold text-base transition-all ${
+                className={`w-12 h-12 rounded-md font-bold text-base transition-colors duration-100 ${
                   active
-                    ? 'bg-primary text-primary-foreground shadow-lg scale-110'
-                    : 'bg-secondary/50 text-muted-foreground hover:bg-secondary hover:scale-105'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
                 {s.key}
@@ -67,13 +67,13 @@ function SkillBlock({
   };
 
   return (
-    <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-sm p-5 shadow-sm">
+    <div id={`skill-${skill.key}`} className="scroll-mt-32 bg-card border border-border rounded-md p-5">
       {/* アイコン + スキル名（同一行） */}
       <div className="flex items-center gap-3 mb-4">
         <img
           src={skill.imageUrl}
           alt={skill.name}
-          className="w-12 h-12 rounded-xl border border-border flex-shrink-0"
+          className="w-12 h-12 rounded-md border border-border flex-shrink-0"
           loading="lazy"
         />
         <p className="text-2xl font-medium">
@@ -93,23 +93,23 @@ function SkillBlock({
 
       {/* クールダウン・コスト・射程 */}
       {hasMeta && (
-        <div className="bg-muted/30 rounded-sm p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="bg-muted/30 rounded-md p-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
           {skill.cooldownBurn && (
             <div className="flex gap-2">
               <span className="text-muted-foreground min-w-28 text-sm">クールダウン</span>
-              <span className="text-foreground font-medium text-sm">{skill.cooldownBurn}s</span>
+              <span className="text-foreground font-medium text-sm tabular-nums">{skill.cooldownBurn}s</span>
             </div>
           )}
           {skill.costBurn && skill.costType && (
             <div className="flex gap-2">
               <span className="text-muted-foreground min-w-28 text-sm">{skill.costType}</span>
-              <span className="text-foreground font-medium text-sm">{skill.costBurn}</span>
+              <span className="text-foreground font-medium text-sm tabular-nums">{skill.costBurn}</span>
             </div>
           )}
           {skill.rangeBurn && (
             <div className="flex gap-2">
               <span className="text-muted-foreground min-w-28 text-sm">射程</span>
-              <span className="text-foreground font-medium text-sm">{skill.rangeBurn}</span>
+              <span className="text-foreground font-medium text-sm tabular-nums">{skill.rangeBurn}</span>
             </div>
           )}
         </div>
@@ -173,7 +173,7 @@ export function ChampionDetail() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-3 text-muted-foreground">
           <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-          <p className="text-sm">Loading from Data Dragon...</p>
+          <p className="text-sm">読み込み中…</p>
         </div>
       </div>
     );
@@ -208,7 +208,7 @@ export function ChampionDetail() {
         <Link
           to={`/champion/${prevChampion.id}`}
           title={prevChampion.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-xl bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
         >
           <ChevronLeft size={16} />
         </Link>
@@ -217,7 +217,7 @@ export function ChampionDetail() {
         <Link
           to={`/champion/${nextChampion.id}`}
           title={nextChampion.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-xl bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
         >
           <ChevronRight size={16} />
         </Link>
@@ -248,8 +248,8 @@ export function ChampionDetail() {
           </div>
           <div>
             <h1 className="text-3xl font-bold text-foreground tracking-tight">{champion.name}</h1>
-            <p className="text-xs text-muted-foreground/60 mt-0.5 font-medium tracking-wide">{toWikiName(champion.id)}</p>
-            <span className="inline-block mt-1.5 px-2 py-0.5 text-xs rounded-sm uppercase tracking-wide bg-secondary text-muted-foreground/60">
+            <p className="font-display text-sm text-muted-foreground/70 mt-0.5">{toWikiName(champion.id)}</p>
+            <span className="inline-block mt-1.5 px-2 py-0.5 text-xs rounded-sm bg-secondary text-muted-foreground">
               {champion.role}
             </span>
           </div>
@@ -259,14 +259,14 @@ export function ChampionDetail() {
 
       {/* ステータスタグ */}
       <div className="container mx-auto px-4 max-w-5xl mb-5">
-        <p className="text-xs text-muted-foreground mb-2 uppercase tracking-widest">ステータス</p>
+        <p className="text-sm font-semibold text-foreground mb-2">ステータス</p>
         <div className="flex flex-wrap gap-1.5">
           {statTags.map(s => (
             <span
               key={s.label}
-              className="px-3 py-1 bg-card border border-border rounded-sm text-xs hover:border-primary/40 hover:bg-primary/5 transition-all cursor-default"
+              className="px-3 py-1 bg-card border border-border rounded-sm text-xs tabular-nums"
             >
-              {s.label}: {s.value}
+              <span className="text-muted-foreground">{s.label}</span> {s.value}
             </span>
           ))}
         </div>
@@ -274,17 +274,17 @@ export function ChampionDetail() {
 
       {/* 特徴タグ */}
       <div className="container mx-auto px-4 max-w-5xl mb-6">
-        <p className="text-xs text-muted-foreground mb-2 uppercase tracking-widest">特徴</p>
+        <p className="text-sm font-semibold text-foreground mb-2">特徴</p>
         <div className="flex flex-wrap gap-1.5">
           {champion.tags.map(tag => (
             <span
               key={tag}
-              className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs hover:bg-accent/50 transition-all cursor-default"
+              className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs"
             >
               {tag}
             </span>
           ))}
-          <span className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs hover:bg-accent/50 transition-all cursor-default">
+          <span className="px-3 py-1 bg-accent/30 border border-accent rounded-sm text-xs">
             {champion.partype}
           </span>
         </div>
@@ -309,7 +309,7 @@ export function ChampionDetail() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="トップへ戻る"
-          className="fixed bottom-8 right-8 bg-primary text-primary-foreground rounded-full p-4 shadow-lg hover:scale-110 transition-transform"
+          className="fixed bottom-8 right-8 bg-primary text-primary-foreground rounded-full p-4 shadow-lg hover:bg-primary/90 transition-colors"
         >
           <ChevronUp size={24} />
         </button>

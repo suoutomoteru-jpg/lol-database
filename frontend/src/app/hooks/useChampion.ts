@@ -369,10 +369,11 @@ function resolveAtVarTemplates(
 // Step 3: DDragon HTML タグ → styled HTML 変換
 // ════════════════════════════════════════════════════════
 
-const AD   = '#C89B3C';
-const AP   = '#7EC8E3';
-const HP   = '#1ECC1E';
-const MANA = '#5383E8';
+// 色はテーマ（theme.css の --color-stat-* / --color-dmg-*）で一元管理する
+const AD   = 'var(--color-stat-ad)';
+const AP   = 'var(--color-stat-ap)';
+const HP   = 'var(--color-stat-hp)';
+const MANA = 'var(--color-stat-mana)';
 
 function processTooltipHtml(raw: string): string {
   let s = raw;
@@ -401,20 +402,20 @@ function processTooltipHtml(raw: string): string {
     ['scaleCurrentHealth', HP],
     ['scaleMana',          MANA,     'stat:FlatMPPoolMod'],
     ['scaleBonusMana',     MANA,     'stat:FlatMPPoolMod'],
-    ['scaleArmor',         '#A8956B','stat:FlatArmorMod'],
-    ['scaleBonusArmor',    '#A8956B','stat:FlatArmorMod'],
-    ['scaleMR',            '#9B8FB5','stat:FlatSpellBlockMod'],
-    ['scaleBonusMR',       '#9B8FB5','stat:FlatSpellBlockMod'],
+    ['scaleArmor',         'var(--color-stat-armor)','stat:FlatArmorMod'],
+    ['scaleBonusArmor',    'var(--color-stat-armor)','stat:FlatArmorMod'],
+    ['scaleMR',            'var(--color-stat-mr)','stat:FlatSpellBlockMod'],
+    ['scaleBonusMR',       'var(--color-stat-mr)','stat:FlatSpellBlockMod'],
     ['scaleAttackSpeed',   AD,       'stat:PercentAttackSpeedMod'],
-    ['scaleMovementSpeed', '#F9E4B7','stat:FlatMovementSpeedMod'],
+    ['scaleMovementSpeed', 'var(--color-stat-ms)','stat:FlatMovementSpeedMod'],
     ['scaleCritChance',    AD,       'stat:FlatCritChanceMod'],
     ['scaleLevel',         AD],
-    ['physicalDamage',     '#FF8C00'],
+    ['physicalDamage',     'var(--color-dmg-physical)'],
     ['magicDamage',        AP],
-    ['trueDamage',         '#F0E6D2'],
+    ['trueDamage',         'var(--color-dmg-true)'],
     ['healing',            HP],
     ['shield',             HP,       'custom:HealAndShieldPower'],
-    ['speed',              '#F9E4B7'],
+    ['speed',              'var(--color-stat-ms)'],
     ['unimportant',        '#888888'],
   ];
 

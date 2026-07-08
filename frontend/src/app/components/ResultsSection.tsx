@@ -9,10 +9,10 @@ interface ResultsSectionProps {
 
 function SectionHeader({ title, count }: { title: string; count?: number }) {
   return (
-    <div className="flex items-center gap-2 mb-2">
-      <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{title}</h2>
+    <div className="flex items-baseline gap-2 mb-2">
+      <h2 className="text-sm font-semibold text-foreground">{title}</h2>
       {count !== undefined && (
-        <span className="text-xs text-muted-foreground/60">{count}</span>
+        <span className="text-xs text-muted-foreground tabular-nums">{count}件</span>
       )}
     </div>
   );
@@ -30,7 +30,7 @@ export function ResultsSection({ champions, items, activeTab }: ResultsSectionPr
   if (activeTab === 'champions') {
     return (
       <div className="w-full max-w-4xl">
-        <SectionHeader title="Champions" count={champions.length} />
+        <SectionHeader title="チャンピオン" count={champions.length} />
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border">
           {champions.map(c => <DataCard key={c.id} data={c} type="champion" />)}
         </div>
@@ -40,7 +40,7 @@ export function ResultsSection({ champions, items, activeTab }: ResultsSectionPr
 
   return (
     <div className="w-full max-w-4xl">
-      <SectionHeader title="Items" count={items.length} />
+      <SectionHeader title="アイテム" count={items.length} />
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border">
         {items.map(i => <DataCard key={i.id} data={i} type="item" />)}
       </div>

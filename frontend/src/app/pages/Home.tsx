@@ -62,8 +62,8 @@ export function Home() {
       <div className="container mx-auto px-4 pt-10 pb-6 max-w-6xl">
         <div className="flex flex-col items-center gap-5">
           <div className="text-center mb-2">
-            <h1 className="text-2xl font-bold text-primary tracking-wide uppercase">nunune.gg</h1>
-            <p className="text-xs text-muted-foreground mt-1 tracking-widest uppercase">League of Legends Database</p>
+            <h1 className="font-display font-normal text-3xl text-primary tracking-wide">nunune.gg</h1>
+            <p className="text-xs text-muted-foreground mt-1">League of Legends データベース</p>
           </div>
 
           <SearchBar value={searchQuery} onChange={v => set('q', v)} />
@@ -79,7 +79,7 @@ export function Home() {
           {loading ? (
             <div className="flex flex-col items-center gap-3 py-12 text-muted-foreground">
               <div className="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-              <p className="text-xs tracking-widest uppercase">Loading...</p>
+              <p className="text-xs">読み込み中…</p>
             </div>
           ) : (
             <ResultsSection
