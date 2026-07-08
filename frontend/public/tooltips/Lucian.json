@@ -1,0 +1,51 @@
+{
+ "alias": "Lucian",
+ "id": 236,
+ "name": "ルシアン",
+ "title": "不浄殲滅者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "二挺拳銃",
+   "description": "スキルを使用するたびに、次の通常攻撃が2連射になる。味方から体力回復効果またはシールドを付与されるか、自身の周囲で敵チャンピオンが移動不能効果を受けると、次の2回の通常攻撃が追加魔法ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ピアシングライト",
+   "description": "貫通する光線を発射し、<physicalDamage>80/115/150/185/220（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<br>",
+   "cooldown": "9/8/7/6/5",
+   "cost": "48/56/64/72/80",
+   "range": "500",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "アーデントブレイズ",
+   "description": "最大距離に達するか、敵に命中した時点で爆発する弾を飛ばし、<magicDamage>75/110/145/180/215（＋魔力の90%）の魔法ダメージ</magicDamage>を与え、少しの間、敵を可視化して6秒間マークを付与する。<br><br>マークした敵に自身または味方がダメージを与えると、1秒間、自身の<speed>移動速度が60/65/70/75/80</speed>増加する。味方によってこの効果が発動した場合、ルシアンは<attention>「警戒」</attention>も獲得する。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "60",
+   "range": "900",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "スライド",
+   "description": "ダッシュする。<br><br><spellName>「二挺拳銃」</spellName>が敵に命中するたびに、クールダウンが1秒短縮される(チャンピオンの場合は2秒)。",
+   "cooldown": "16/15.5/15/14.5/14",
+   "cost": "32/24/16/8/0",
+   "range": "445",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "二挺掃射",
+   "description": "3秒間かけて指定方向に<keywordMajor>22（＋合計スタット8の100%×[-1.0, -1.0, -1.0]/['合計スタット9の100%']）</keywordMajor>発の弾丸を高速で連射する。<recast>再発動</recast>した場合、このスキルは中断される。それぞれの弾が最初に命中した敵に<physicalDamage>15/30/45（＋合計攻撃力の25% ＋魔力の15%）の物理ダメージ</physicalDamage>を与える。<br><br>射撃中は<spellName>「スライド」</spellName>を使用できる。<br><br>合計ダメージ: <physicalDamage>22（＋合計スタット8の100%×[-1.0, -1.0, -1.0]/['合計スタット9の100%']）の物理ダメージ</physicalDamage><br>",
+   "cooldown": "110/100/90",
+   "cost": "100",
+   "range": "1400",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,6 +1,6 @@
 {
  "patch": "16.13.7915903+branch.releases-16-13.content.release",
- "generatedAt": "2026-07-08T06:59:32.111794+00:00",
+ "generatedAt": "2026-07-08T07:01:20.379586+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -323,7 +323,8 @@
   {
    "alias": "Jhin",
    "id": 202,
-   "error": "sequence item 0: expected str instance, tuple found"
+   "name": "ジン",
+   "unresolvedCount": 0
   },
   {
    "alias": "Jinx",
@@ -454,7 +455,8 @@
   {
    "alias": "Lucian",
    "id": 236,
-   "error": "sequence item 0: expected str instance, tuple found"
+   "name": "ルシアン",
+   "unresolvedCount": 0
   },
   {
    "alias": "Lulu",
@@ -489,7 +491,8 @@
   {
    "alias": "MasterYi",
    "id": 11,
-   "error": "sequence item 0: expected str instance, tuple found"
+   "name": "マスター・イー",
+   "unresolvedCount": 0
   },
   {
    "alias": "Mel",
@@ -722,7 +725,8 @@
   {
    "alias": "Shaco",
    "id": 35,
-   "error": "sequence item 0: expected str instance, tuple found"
+   "name": "シャコ",
+   "unresolvedCount": 0
   },
   {
    "alias": "Shen",
