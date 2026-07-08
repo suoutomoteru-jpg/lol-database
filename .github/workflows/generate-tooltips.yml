@@ -1,0 +1,39 @@
+name: Generate champion tooltips
+
+# CommunityDragon の本番パッチデータから全チャンピオンの詳細ツールチップ JSON を
+# 生成し、frontend/public/tooltips/ にコミットする。
+# スクリプト変更時に自動実行（workflow_dispatch は手動実行用）。
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/generate_tooltips.py
+      - .github/workflows/generate-tooltips.yml
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Smoke test (3 champions)
+        run: python3 scripts/generate_tooltips.py --only Urgot,Ahri,Annie --out /tmp/smoke
+
+      - name: Generate all champions
+        run: python3 scripts/generate_tooltips.py --out frontend/public/tooltips
+
+      - name: Commit generated tooltips
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add frontend/public/tooltips
+          if git diff --cached --quiet; then
+            echo "変更なし（既に最新）"
+          else
+            git commit -m "chore: regenerate champion tooltips from CommunityDragon"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
