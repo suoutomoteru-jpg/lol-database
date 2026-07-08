@@ -6,6 +6,8 @@ import { useChampions } from '../hooks/useChampions';
 import { useItemsByStats } from '../hooks/useItemsByStats';
 import { championSplashUrl } from '../api/dataDragon';
 import { englishChampionName } from '../utils/championNames';
+import { roleIconUrl, ROLE_LABELS_JA } from '../utils/roleAssets';
+import type { Role } from '../types/app';
 import { BottomSheet } from '../components/BottomSheet';
 import type { SkillData } from '../hooks/useChampion';
 
@@ -80,7 +82,7 @@ function SkillBlock({
             className="w-14 h-14 rounded-md border border-border"
             loading="lazy"
           />
-          <span className="absolute -bottom-1.5 -right-1.5 w-5 h-5 flex items-center justify-center rounded-sm bg-background border border-border text-[11px] font-bold text-primary">
+          <span className="absolute -bottom-1.5 -right-1.5 w-5 h-5 flex items-center justify-center -rotate-6 rounded-sm bg-background border border-border text-[11px] font-bold text-primary">
             {skill.key}
           </span>
         </div>
@@ -276,7 +278,7 @@ export function ChampionDetail() {
         </div>
 
         <div className="relative container mx-auto px-4 max-w-5xl pt-24 sm:pt-36 pb-6">
-          <p className="font-display text-sm text-primary/90">{englishChampionName(champion.id)}</p>
+          <p className="font-display text-sm text-primary/90 -rotate-2 inline-block">{englishChampionName(champion.id)}</p>
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 mt-0.5">
             <h1 className="text-4xl font-bold text-foreground tracking-tight">{champion.name}</h1>
             {champion.title && (
@@ -288,9 +290,17 @@ export function ChampionDetail() {
             {[champion.role, ...champion.tags.filter(t => t !== champion.role)].map(tag => (
               <span
                 key={tag}
-                className="px-2.5 py-0.5 text-xs rounded-sm bg-background/60 backdrop-blur-sm border border-border/60 text-foreground/80"
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs rounded-sm bg-background/60 backdrop-blur-sm border border-border/60 text-foreground/80"
               >
-                {tag}
+                {ROLE_LABELS_JA[tag as Role] && (
+                  <img
+                    src={roleIconUrl(tag as Role)}
+                    alt=""
+                    className="w-3.5 h-3.5"
+                    onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                  />
+                )}
+                {ROLE_LABELS_JA[tag as Role] ?? tag}
               </span>
             ))}
             {champion.partype !== 'None' && (

@@ -1,3 +1,4 @@
+import { roleIconUrl, itemTypeIconUrl, ROLE_LABELS_JA, ITEM_TYPE_LABELS_JA } from '../utils/roleAssets';
 import type { TabType, Role, ItemType } from '../types/app';
 
 interface FilterBarProps {
@@ -11,23 +12,30 @@ interface FilterBarProps {
 const ROLES: (Role | 'all')[] = ['all', 'Mage', 'Tank', 'Assassin', 'Fighter', 'Support', 'Marksman'];
 const ITEM_TYPES: (ItemType | 'all')[] = ['all', 'Fighter', 'Marksman', 'Assassin', 'Magic', 'Defense', 'Support'];
 
-function roleLabel(r: Role | 'all') { return r === 'all' ? 'すべて' : r; }
-function typeLabel(t: ItemType | 'all') { return t === 'all' ? 'すべて' : t; }
-
 export function FilterBar({
   activeTab, selectedRole, selectedItemType, onRoleChange, onItemTypeChange,
 }: FilterBarProps) {
-  const items = activeTab === 'champions' ? ROLES : ITEM_TYPES;
-  const selected = activeTab === 'champions' ? selectedRole : selectedItemType;
-  const onChange = activeTab === 'champions'
+  const isChampions = activeTab === 'champions';
+  const values = isChampions ? ROLES : ITEM_TYPES;
+  const selected = isChampions ? selectedRole : selectedItemType;
+  const onChange = isChampions
     ? (v: string) => onRoleChange(v as Role | 'all')
     : (v: string) => onItemTypeChange(v as ItemType | 'all');
-  const label = activeTab === 'champions' ? roleLabel : typeLabel;
+
+  const label = (v: string): string => {
+    if (v === 'all') return 'すべて';
+    return isChampions ? ROLE_LABELS_JA[v as Role] : ITEM_TYPE_LABELS_JA[v as ItemType];
+  };
+  const iconUrl = (v: string): string | null => {
+    if (v === 'all') return null;
+    return isChampions ? roleIconUrl(v as Role) : itemTypeIconUrl(v as ItemType);
+  };
 
   return (
-    <div className="flex flex-wrap gap-1.5 w-full max-w-2xl">
-      {items.map(v => {
+    <div className="flex flex-wrap justify-center gap-1.5 w-full max-w-2xl">
+      {values.map(v => {
         const isActive = selected === v;
+        const icon = iconUrl(v);
         const colorClass = isActive
           ? 'border-primary/60 text-primary bg-primary/10'
           : 'border-border text-muted-foreground hover:border-border hover:text-foreground';
@@ -35,9 +43,18 @@ export function FilterBar({
           <button
             key={v}
             onClick={() => onChange(v)}
-            className={`px-3 py-1 text-xs font-medium border rounded-full transition-colors duration-100 ${colorClass}`}
+            className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium border rounded-full transition-colors duration-100 ${colorClass}`}
           >
-            {label(v as Role & ItemType & 'all')}
+            {icon && (
+              <img
+                src={icon}
+                alt=""
+                className={`w-3.5 h-3.5 ${isActive ? '' : 'opacity-60'}`}
+                loading="lazy"
+                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+              />
+            )}
+            {label(v)}
           </button>
         );
       })}

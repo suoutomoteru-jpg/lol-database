@@ -7,6 +7,7 @@ import { ResultsSection } from '../components/ResultsSection';
 import { useChampions } from '../hooks/useChampions';
 import { useItems } from '../hooks/useItems';
 import { displayPatch } from '../utils/patch';
+import { CurlyArrow, Squiggle } from '../components/doodles';
 import type { TabType, Role, ItemType } from '../types/app';
 
 // ── ロード中のスケルトン（カードと同じ形状・レイアウトシフトなし）──
@@ -85,7 +86,10 @@ export function Home() {
       <header className="border-b border-border">
         <div className="container mx-auto px-4 max-w-6xl h-14 flex items-center justify-between">
           <div className="flex items-baseline gap-2.5 min-w-0">
-            <h1 className="font-display font-normal text-xl text-primary tracking-wide whitespace-nowrap">nunune.gg</h1>
+            <h1 className="relative font-display font-normal text-xl text-primary tracking-wide whitespace-nowrap pb-1">
+              nunune<span className="text-hextech">.gg</span>
+              <Squiggle className="absolute bottom-0 left-0 w-full h-[5px] text-primary/50" />
+            </h1>
             <p className="hidden sm:block text-xs text-muted-foreground truncate">League of Legends データベース</p>
           </div>
           {version && (
@@ -98,6 +102,14 @@ export function Home() {
 
       <div className="container mx-auto px-4 pt-8 pb-6 max-w-6xl">
         <div className="flex flex-col items-center gap-5">
+          {/* 手描きの注釈 → 検索バーを指す */}
+          <div className="flex flex-col items-center -mb-3">
+            <p className="-rotate-2 text-sm font-medium text-primary">
+              スキルの実数値まで、ぜんぶ見える
+            </p>
+            <CurlyArrow className="w-6 h-8 mt-0.5 -ml-10 text-primary/60" />
+          </div>
+
           <SearchBar value={searchQuery} onChange={v => set('q', v)} />
           <TabsFilter activeTab={activeTab} onTabChange={handleTabChange} />
           <FilterBar

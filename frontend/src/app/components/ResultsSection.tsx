@@ -1,4 +1,5 @@
 import { DataCard } from './DataCard';
+import { ScribbleCircle } from './doodles';
 import type { Champion, Item, TabType } from '../types/app';
 
 interface ResultsSectionProps {
@@ -9,10 +10,13 @@ interface ResultsSectionProps {
 
 function SectionHeader({ title, count }: { title: string; count?: number }) {
   return (
-    <div className="flex items-baseline gap-2 mb-2">
+    <div className="flex items-baseline gap-2.5 mb-2">
       <h2 className="text-sm font-semibold text-foreground">{title}</h2>
       {count !== undefined && (
-        <span className="text-xs text-muted-foreground tabular-nums">{count}件</span>
+        <span className="relative inline-flex items-center justify-center px-2 py-0.5 -rotate-2">
+          <ScribbleCircle className="absolute inset-0 w-full h-full text-primary/45" />
+          <span className="text-xs text-muted-foreground tabular-nums">{count}件</span>
+        </span>
       )}
     </div>
   );
@@ -24,7 +28,14 @@ export function ResultsSection({ champions, items, activeTab }: ResultsSectionPr
     (activeTab === 'items' && items.length === 0);
 
   if (noResults) {
-    return <p className="text-center py-12 text-sm text-muted-foreground">結果が見つかりませんでした</p>;
+    return (
+      <div className="text-center py-12">
+        <p className="text-sm text-muted-foreground">結果が見つかりませんでした</p>
+        <p className="mt-2 text-xs text-muted-foreground/70 -rotate-1 inline-block">
+          …読み方を変えたり、フィルタを外すと出てくるかも？
+        </p>
+      </div>
+    );
   }
 
   if (activeTab === 'champions') {

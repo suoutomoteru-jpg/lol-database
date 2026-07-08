@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { roleIcons, itemTypeIcons } from '../utils/role-icons';
+import { roleIconUrl, itemTypeIconUrl, ROLE_LABELS_JA, ITEM_TYPE_LABELS_JA } from '../utils/roleAssets';
 import type { Champion, Item } from '../types/app';
 
 interface DataCardProps {
@@ -12,8 +12,8 @@ function isChampion(data: Champion | Item): data is Champion {
 }
 
 export function DataCard({ data, type }: DataCardProps) {
-  const subtitle = isChampion(data) ? data.role : data.type;
-  const SubtitleIcon = isChampion(data) ? roleIcons[data.role] : itemTypeIcons[data.type];
+  const subtitle = isChampion(data) ? ROLE_LABELS_JA[data.role] : ITEM_TYPE_LABELS_JA[data.type];
+  const subtitleIcon = isChampion(data) ? roleIconUrl(data.role) : itemTypeIconUrl(data.type);
 
   return (
     <Link
@@ -42,14 +42,20 @@ export function DataCard({ data, type }: DataCardProps) {
         <div className="flex items-center gap-1.5 min-w-0">
           <p className="text-sm font-semibold text-foreground truncate leading-tight">{data.name}</p>
           {!isChampion(data) && data.mapMode === 'aram' && (
-            <span className="flex-shrink-0 text-[10px] font-bold px-1 py-0 rounded-sm
+            <span className="flex-shrink-0 -rotate-3 text-[10px] font-bold px-1 py-0 rounded-sm
               bg-blue-500/20 text-blue-400 border border-blue-500/40 leading-4">
               ARAM
             </span>
           )}
         </div>
         <p className="flex items-center gap-1 text-xs text-muted-foreground/60 leading-tight mt-0.5">
-          <SubtitleIcon size={11} aria-hidden />
+          <img
+            src={subtitleIcon}
+            alt=""
+            className="w-3 h-3 opacity-60"
+            loading="lazy"
+            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          />
           {subtitle}
         </p>
       </div>
