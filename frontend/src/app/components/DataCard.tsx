@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import { roleIcons, itemTypeIcons } from '../utils/role-icons';
-import type { Champion, Item } from '../data/mock-data';
+import type { Champion, Item } from '../types/app';
 
 interface DataCardProps {
   data: Champion | Item;

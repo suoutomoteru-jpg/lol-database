@@ -1,5 +1,5 @@
 import { DataCard } from './DataCard';
-import type { Champion, Item, TabType } from '../data/mock-data';
+import type { Champion, Item, TabType } from '../types/app';
 
 interface ResultsSectionProps {
   champions: Champion[];

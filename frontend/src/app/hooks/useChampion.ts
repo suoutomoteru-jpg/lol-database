@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchChampionDetail, spellImageUrl, passiveImageUrl } from '../api/dataDragon';
-import { fetchWikiChampionSpells } from '../api/lolWiki';
-import type { WikiSpellData } from '../api/lolWiki';
 import { fetchGeneratedTooltips } from '../api/generatedTooltips';
 import type { GeneratedSkill } from '../api/generatedTooltips';
+import { resolveDDragonTemplates, resolveAtVarTemplates } from '../utils/ddragonTemplates';
+import { processTooltipHtml } from '../utils/richText';
 import type { DDragonChampionDetail, DDragonSpell } from '../types/ddragon';
 
 export interface SkillData {
@@ -16,8 +16,6 @@ export interface SkillData {
   costType?: string;
   rangeBurn?: string;
   imageUrl: string;
-  /** Wiki から取得したランク毎の数値情報 */
-  leveling?: Array<{ label: string; value: string }>;
 }
 
 export interface ChampionDetailData {
@@ -39,414 +37,6 @@ interface UseChampionResult {
   error: Error | null;
 }
 
-// ════════════════════════════════════════════════════════
-// Step 1: DDragon {{ }} テンプレート解決
-// ════════════════════════════════════════════════════════
-//
-// DDragon tooltip のプレースホルダー:
-//   {{ eN }}  → effectBurn[N]（"40/65/90/115/140" など）
-//   {{ aN }}  → vars[N-1] の比率（"33%" など）
-//   {{ fN }}  → effectBurn[N]（f は e の別名）
-//   {{ abilityresourcename }} → partype（"マナ" など）
-
-/**
- * effectBurn[N] の値を返す。null/空の場合は effect[N] から再構築する。
- */
-function getEffectBurn(spell: DDragonSpell, n: number): string {
-  const burn = (spell.effectBurn ?? [])[n];
-  // '0' は DDragon が effectBurn を未設定の際に入れるプレースホルダーなので無視する
-  if (burn != null && burn !== '' && burn !== '0') return burn;
-
-  const eff = (spell.effect ?? [])[n];
-  if (Array.isArray(eff)) {
-    const vals = (eff[0] === 0 || eff[0] == null) ? eff.slice(1) : eff;
-    const nonZero = vals.filter((v): v is number => v != null && v !== 0);
-    if (nonZero.length === 0) return '';
-    if (nonZero.every(v => v === nonZero[0])) return String(nonZero[0]);
-    return nonZero.join('/');
-  }
-  return '';
-}
-
-/**
- * leveltip.effect から「変数名 → effectBurn インデックス」のマップを構築する。
- */
-function buildLeveltipVarMap(spell: DDragonSpell): Map<string, number> {
-  const map = new Map<string, number>();
-  const effects = spell.leveltip?.effect ?? [];
-  for (let i = 0; i < effects.length; i++) {
-    // leveltip.effect は {{ var }} 形式と @var@ 形式の両方が存在する
-    const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
-           ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
-    if (m) {
-      map.set(m[1].toLowerCase(), i + 1);
-    }
-  }
-  return map;
-}
-
-/**
- * leveltip のラベルと Wiki leveling データを照合し、
- * DDragon 変数名 → Wiki 値のマップを構築する。
- *
- * 仕組み:
- *   leveltip.effect[i] = "{{ totaldamage }}"  ← DDragon 変数名
- *   leveltip.label[i]  = "Physical Damage"    ← 人間可読ラベル
- *   wiki.leveling[j]   = { label: "Physical Damage", value: "60/95/130/165/200 (+ 100% bonus AD)" }
- *   → map.set("totaldamage", "60/95/130/165/200 (+ 100% bonus AD)")
- *
- * ラベルの照合は case-insensitive で、部分一致も許容する。
- */
-function buildWikiVarMap(
-  spell: DDragonSpell,
-  wikiData: WikiSpellData | undefined,
-): Map<string, string> {
-  const map = new Map<string, string>();
-  if (!wikiData) return map;
-
-  const labels  = spell.leveltip?.label  ?? [];
-  const effects = spell.leveltip?.effect ?? [];
-
-  if (!wikiData.leveling?.length && !wikiData.constants) return map;
-
-  if (wikiData.leveling?.length) {
-    // ── アプローチ1: tooltip の HTML タグから変数名を推論 ─────────────
-    //
-    // DDragon leveltip ラベルは日本語（"ダメージ"）になっており wiki の英語ラベルと
-    // 一致しない。またスペル名によって変数名が異なる（totaldamage / rmaindamage 等）。
-    // そこで tooltip 内の <physicalDamage>{{ totaldamage }}</physicalDamage> のような
-    // HTML タグを手がかりに「この変数はこのダメージ種別」と推論する。
-    const TAG_KEYWORDS: [string, string[]][] = [
-      ['physicaldamage', ['physical damage', 'physical', 'damage']],
-      ['magicdamage',    ['magic damage', 'magic', 'damage']],
-      ['truedamage',     ['true damage', 'damage']],
-      ['healing',        ['heal', 'restore', 'health']],
-      ['shield',         ['shield']],
-      ['attackspeed',    ['attack speed', 'bonus attack speed']],
-      ['speed',          ['movement speed', 'move speed']],
-      ['status',         ['slow', 'stun', 'root', 'fear', 'movement slow']],
-      ['slow',           ['slow', 'movement slow']],
-      ['duration',       ['duration', 'stun duration', 'slow duration', 'shield duration']],
-    ];
-
-    const assignFromTag = (varname: string, keywords: string[]) => {
-      if (map.has(varname)) return;
-      for (const kw of keywords) {
-        const stat = wikiData.leveling.find(s => s.label.toLowerCase().includes(kw));
-        if (stat) { map.set(varname, stat.value); return; }
-      }
-    };
-
-    for (const [tagName, keywords] of TAG_KEYWORDS) {
-      const tagRe1 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*\\{\\{\\s*(\\w+)\\s*\\}\\}`, 'gi');
-      let m1: RegExpExecArray | null;
-      while ((m1 = tagRe1.exec(spell.tooltip)) !== null) {
-        assignFromTag(m1[1].toLowerCase(), keywords);
-      }
-
-      const tagRe2 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@([A-Za-z]\\w*)(?:\\*[\\d.]+)?@`, 'gi');
-      let m2: RegExpExecArray | null;
-      while ((m2 = tagRe2.exec(spell.tooltip)) !== null) {
-        assignFromTag(m2[1].toLowerCase(), keywords);
-      }
-
-      const tagRe3 = new RegExp(`<${tagName}(?:\\s[^>]*)?>[^<]*@Effect(\\d+)Amount(?:\\*[\\d.]+)?@`, 'gi');
-      let m3: RegExpExecArray | null;
-      while ((m3 = tagRe3.exec(spell.tooltip)) !== null) {
-        assignFromTag(`e${m3[1]}`, keywords);
-      }
-    }
-
-    // ── アプローチ2: leveltip ラベル経由（ja_JP 日本語ラベルも変換して対応） ─
-    const JP_LABEL_MAP: [RegExp, string][] = [
-      [/スタン|気絶|硬直/,                       'stun'],
-      [/シールド.*(時間|持続)/,                  'shield duration'],
-      [/シールド/,                               'shield'],
-      [/スロウ.*(時間|持続)|鈍足.*(時間|持続)/, 'slow duration'],
-      [/スロウ|鈍足/,                            'slow'],
-      [/持続|時間/,                              'duration'],
-      [/物理.*ダメージ|ダメージ.*物理/,          'physical damage'],
-      [/魔法.*ダメージ|ダメージ.*魔法/,          'magic damage'],
-      [/真.*ダメージ/,                           'true damage'],
-      [/ダメージ/,                               'damage'],
-      [/回復/,                                   'heal'],
-      [/攻撃速度/,                               'attack speed'],
-      [/移動速度/,                               'movement speed'],
-    ];
-
-    const jpToEn = (jpLabel: string): string => {
-      for (const [re, en] of JP_LABEL_MAP) {
-        if (re.test(jpLabel)) return en;
-      }
-      return jpLabel.toLowerCase();
-    };
-
-    for (let i = 0; i < effects.length; i++) {
-      const m = effects[i].match(/\{\{\s*(\w+)\s*\}\}/)
-             ?? effects[i].match(/@(\w+)(?:\*[\d.]+)?@/);
-      if (!m || !labels[i]) continue;
-
-      const varname = m[1].toLowerCase();
-      if (map.has(varname)) continue;
-
-      const ddLabel    = labels[i];
-      const ddLabelLow = ddLabel.toLowerCase();
-      const enLabel    = jpToEn(ddLabel);
-
-      const stat = wikiData.leveling.find(s => {
-        const wLow = s.label.toLowerCase();
-        return (
-          wLow === ddLabelLow ||
-          ddLabelLow.includes(wLow) ||
-          wLow.includes(ddLabelLow) ||
-          wLow === enLabel ||
-          (enLabel !== ddLabelLow && (wLow.includes(enLabel) || enLabel.includes(wLow)))
-        );
-      });
-      if (stat) map.set(varname, stat.value);
-    }
-  }
-
-  // ── アプローチ3: Wiki テンプレートのボディ定数値 ─────────────────────
-  //
-  // DDragon が effectBurn/effect[] に格納しない定数（CC時間・シールド持続等）を
-  // Wiki テンプレートの |key = value 行から補完する。
-  // 例: "|stun duration = 0.75" → wikiData.constants["stunduration"] = "0.75"
-  //
-  // 照合戦略:
-  //   1. 変数名と定数キーが直接一致（例: stunduration → stunduration）
-  //   2. スキルキープレフィックス（e/q/w/r）を除去して照合
-  //      （例: eshieldduration → shieldduration → |shield duration = 4）
-  if (wikiData.constants) {
-    const unresolvedRe = /\{\{\s*(\w+)(?:\s*\*\s*[\d.]+)?\s*\}\}/g;
-    let u: RegExpExecArray | null;
-    while ((u = unresolvedRe.exec(spell.tooltip)) !== null) {
-      const varname = u[1].toLowerCase();
-      if (map.has(varname)) continue;
-
-      if (wikiData.constants[varname] !== undefined) {
-        map.set(varname, wikiData.constants[varname]);
-        continue;
-      }
-
-      const stripped = varname.replace(/^[qwer]/, '');
-      if (stripped !== varname && wikiData.constants[stripped] !== undefined) {
-        map.set(varname, wikiData.constants[stripped]);
-      }
-    }
-  }
-
-  return map;
-}
-
-function resolveDDragonTemplates(
-  tooltip: string,
-  spell: DDragonSpell,
-  partype: string,
-  wikiVarMap: Map<string, string>,
-): string {
-  const vars   = spell.vars ?? [];
-  const varMap = buildLeveltipVarMap(spell);
-  let s = tooltip;
-
-  s = s.split('{{ abilityresourcename }}').join(partype);
-  s = s.split('{{abilityresourcename}}').join(partype);
-
-  // {{ var }} と {{ var*N }} の両形式を処理
-  s = s.replace(/\{\{\s*(\w+)(?:\s*\*\s*(\d+(?:\.\d+)?))?\s*\}\}/g, (_match, raw, multStr) => {
-    const name = raw.toLowerCase();
-
-    const applyMult = (val: string): string => {
-      if (!multStr) return val;
-      const m = parseFloat(multStr);
-      return val.split('/').map(v => {
-        const num = parseFloat(v);
-        return isNaN(num) ? v : String(Math.round(num * m));
-      }).join('/');
-    };
-
-    const eM = name.match(/^e(\d+)$/);
-    if (eM) {
-      const burn = getEffectBurn(spell, parseInt(eM[1], 10));
-      if (burn !== '') return applyMult(burn);
-      if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
-      return '';
-    }
-
-    const fM = name.match(/^f(\d+)$/);
-    if (fM) {
-      const burn = getEffectBurn(spell, parseInt(fM[1], 10));
-      if (burn !== '') return applyMult(burn);
-      if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
-      return '';
-    }
-
-    const aM = name.match(/^a(\d+)$/);
-    if (aM) {
-      const v = vars[parseInt(aM[1], 10) - 1];
-      if (!v) return '';
-      const coeff = Array.isArray(v.coeff) ? v.coeff[0] : v.coeff;
-      return `${Math.round(coeff * 100)}%`;
-    }
-
-    // 名前付き変数: wiki優先（スケーリング情報含む）→ effect配列フォールバック
-    if (varMap.has(name)) {
-      if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
-      const burn = getEffectBurn(spell, varMap.get(name)!);
-      if (burn !== '') return applyMult(burn);
-      return '';
-    }
-
-    if (wikiVarMap.has(name)) return applyMult(wikiVarMap.get(name)!);
-
-    return _match;
-  });
-
-  return s;
-}
-
-// ════════════════════════════════════════════════════════
-// Step 2: @var@ 形式のテンプレート解決
-// ════════════════════════════════════════════════════════
-
-function resolveAtVarTemplates(
-  s: string,
-  spell: DDragonSpell,
-  wikiVarMap: Map<string, string>,
-): string {
-  // @Effect{N}Amount@ → effectBurn[N] または effect[N] フォールバック、それでも空なら wiki
-  s = s.replace(/@Effect(\d+)Amount(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
-    const idx = parseInt(n, 10);
-    const val = getEffectBurn(spell, idx) || wikiVarMap.get(`e${idx}`) || '';
-    if (!val) return '';
-    if (mult) {
-      const m = parseFloat(mult);
-      return val.split('/').map(v => {
-        const num = parseFloat(v);
-        return isNaN(num) ? v : String(Math.round(num * m));
-      }).join('/');
-    }
-    return val;
-  });
-
-  // @CooldownBurn@ / @ResourceBurn@
-  s = s.replace(/@CooldownBurn@/gi, spell.cooldownBurn ?? '');
-  s = s.replace(/@ResourceBurn@/gi, spell.costBurn ?? '');
-
-  // @f{N}@ → effectBurn[N] または effect[N] フォールバック
-  s = s.replace(/@f(\d+)(?:\*(\d+(?:\.\d+)?))?@/gi, (_, n, mult) => {
-    const val = getEffectBurn(spell, parseInt(n, 10));
-    if (!val) return '';
-    if (mult) {
-      const m = parseFloat(mult);
-      return val.split('/').map(v => String(Math.round(parseFloat(v) * m))).join('/');
-    }
-    return val;
-  });
-
-  // 解決できなかった @var@ を Wiki データで補完、なければ除去
-  // （@TotalDamage@ など DDragon 標準パターン以外の変数名に対応）
-  s = s.replace(/@(\w+)(?:\*(\d+(?:\.\d+)?))?@/g, (_, varName, mult) => {
-    const key = varName.toLowerCase();
-    const wikiVal = wikiVarMap.get(key);
-    if (wikiVal) {
-      if (mult) {
-        const m = parseFloat(mult);
-        return wikiVal.split('/').map(v => {
-          const num = parseFloat(v);
-          return isNaN(num) ? v : String(Math.round(num * m));
-        }).join('/');
-      }
-      return wikiVal;
-    }
-    return ''; // 解決できない場合は除去
-  });
-
-  return s;
-}
-
-// ════════════════════════════════════════════════════════
-// Step 3: DDragon HTML タグ → styled HTML 変換
-// ════════════════════════════════════════════════════════
-
-// 色はテーマ（theme.css の --color-stat-* / --color-dmg-*）で一元管理する
-const AD   = 'var(--color-stat-ad)';
-const AP   = 'var(--color-stat-ap)';
-const HP   = 'var(--color-stat-hp)';
-const MANA = 'var(--color-stat-mana)';
-
-function processTooltipHtml(raw: string): string {
-  let s = raw;
-
-  s = s.replace(/<br\s*\/?>/gi, '<br>');
-  s = s.replace(/<\/li>/gi, '');
-  s = s.replace(/<li>/gi, '<br>• ');
-  s = s.replace(/<\/p>/gi, '<br>');
-  s = s.replace(/<p(?:\s[^>]*)?>/gi, '');
-
-  const boldTags = ['active', 'passive', 'keywordMajor', 'keyword',
-                    'attention', 'rarityGeneric', 'rarityLegendary', 'rarityMythic', 'status'];
-  for (const tag of boldTags) {
-    s = s.replace(new RegExp(`<${tag}(?:\\s[^>]*)?>`, 'gi'), '<strong>');
-    s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</strong>');
-  }
-
-  // [tag, color, statKey?] — statKey があるとタップでアイテム一覧が開く
-  const colorMap: [string, string, string?][] = [
-    ['scaleAD',            AD,       'stat:FlatPhysicalDamageMod'],
-    ['scaleBonusAD',       AD,       'stat:FlatPhysicalDamageMod'],
-    ['scaleAP',            AP,       'stat:FlatMagicDamageMod'],
-    ['scaleHealth',        HP,       'stat:FlatHPPoolMod'],
-    ['scaleBonusHealth',   HP,       'stat:FlatHPPoolMod'],
-    ['scaleMaxHealth',     HP,       'stat:FlatHPPoolMod'],
-    ['scaleCurrentHealth', HP],
-    ['scaleMana',          MANA,     'stat:FlatMPPoolMod'],
-    ['scaleBonusMana',     MANA,     'stat:FlatMPPoolMod'],
-    ['scaleArmor',         'var(--color-stat-armor)','stat:FlatArmorMod'],
-    ['scaleBonusArmor',    'var(--color-stat-armor)','stat:FlatArmorMod'],
-    ['scaleMR',            'var(--color-stat-mr)','stat:FlatSpellBlockMod'],
-    ['scaleBonusMR',       'var(--color-stat-mr)','stat:FlatSpellBlockMod'],
-    ['scaleAttackSpeed',   AD,       'stat:PercentAttackSpeedMod'],
-    ['scaleMovementSpeed', 'var(--color-stat-ms)','stat:FlatMovementSpeedMod'],
-    ['scaleCritChance',    AD,       'stat:FlatCritChanceMod'],
-    ['scaleLevel',         AD],
-    ['physicalDamage',     'var(--color-dmg-physical)'],
-    ['magicDamage',        AP],
-    ['trueDamage',         'var(--color-dmg-true)'],
-    ['healing',            HP],
-    ['shield',             HP,       'custom:HealAndShieldPower'],
-    ['speed',              'var(--color-stat-ms)'],
-    ['unimportant',        '#888888'],
-  ];
-
-  for (const [tag, color, statKey] of colorMap) {
-    const open = statKey
-      ? `<span style="color:${color};cursor:pointer;border-bottom:1px dashed ${color}" data-stat="${statKey}">`
-      : `<span style="color:${color}">`;
-    s = s.replace(new RegExp(`<${tag}(?:\\s[^>]*)?>`, 'gi'), open);
-    s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</span>');
-  }
-
-  s = s.replace(/<[^>]+>/g, (match) => {
-    const t = match.toLowerCase().trim();
-    if (
-      t === '<br>' || t === '<br/>' || t === '<br />' ||
-      t === '<strong>' || t === '</strong>' ||
-      t === '<span>' || t === '</span>' || t.startsWith('<span ')
-    ) return match;
-    return '';
-  });
-
-  s = s.replace(/&amp;/g, '&');
-  s = s.replace(/&nbsp;/g, ' ');
-  s = s.replace(/&lt;/g, '<');
-  s = s.replace(/&gt;/g, '>');
-  s = s.replace(/&apos;/g, "'");
-  s = s.replace(/&quot;/g, '"');
-
-  return s.replace(/^(<br>\s*)+/, '').trim();
-}
-
 function resolvePassiveDescription(desc: string, partype: string): string {
   let s = desc;
   s = s.split('{{ abilityresourcename }}').join(partype);
@@ -456,16 +46,11 @@ function resolvePassiveDescription(desc: string, partype: string): string {
   return processTooltipHtml(s);
 }
 
-// ════════════════════════════════════════════════════════
-// スキルデータ構築
-// ════════════════════════════════════════════════════════
-
 function buildSkill(
   key: 'Q' | 'W' | 'E' | 'R',
   spell: DDragonSpell,
   version: string,
   partype: string,
-  wikiData: WikiSpellData | undefined,
   generated?: GeneratedSkill,
 ): SkillData {
   const rangeNum = parseInt(spell.rangeBurn, 10);
@@ -476,13 +61,12 @@ function buildSkill(
 
   let description: string;
   if (generated?.description?.trim()) {
-    // 生成済みツールチップ（数値解決済み）をそのまま整形して使う
+    // 生成済みツールチップ（CommunityDragon 由来・数値解決済み）を優先
     description = processTooltipHtml(generated.description);
   } else {
-    // フォールバック: DDragon テンプレート + Wiki 補完（従来パス）
-    const wikiVarMap = buildWikiVarMap(spell, wikiData);
-    let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
-    tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
+    // フォールバック: DDragon のプレースホルダーを解決できる範囲で解決
+    let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype);
+    tooltip = resolveAtVarTemplates(tooltip, spell);
     tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, ''); // 未解決変数を除去
     description = processTooltipHtml(tooltip);
   }
@@ -507,13 +91,8 @@ function buildSkill(
     costType:     resolvedCostType !== 'No Cost' && resolvedCostType !== '' ? resolvedCostType : undefined,
     rangeBurn:    hasRange ? spell.rangeBurn : undefined,
     imageUrl:     spellImageUrl(version, spell.image.full),
-    leveling:     wikiData?.leveling,
   };
 }
-
-// ════════════════════════════════════════════════════════
-// useChampion フック
-// ════════════════════════════════════════════════════════
 
 export function useChampion(championId: string | undefined): UseChampionResult {
   const [champion, setChampion] = useState<ChampionDetailData | null>(null);
@@ -530,7 +109,7 @@ export function useChampion(championId: string | undefined): UseChampionResult {
 
     async function load() {
       try {
-        // 1. DDragon バージョン + チャンピオン詳細を取得（メインソース）
+        // 1. DDragon バージョン + チャンピオン詳細（メインソース）
         const v   = await getLatestVersion();
         const raw = await fetchChampionDetail(v, championId!);
         if (cancelled) return;
@@ -538,22 +117,8 @@ export function useChampion(championId: string | undefined): UseChampionResult {
         const [Q, W, E, R] = raw.spells;
         const partype = raw.partype;
 
-        // 2. 生成済みツールチップ（CommunityDragon 由来・数値解決済み）を優先取得
+        // 2. 生成済みツールチップ（数値解決済みの静的 JSON）
         const generated = await fetchGeneratedTooltips(raw.id).catch(() => null);
-        if (cancelled) return;
-
-        // 3. 生成済みデータがない場合のみ Wiki 補完にフォールバック
-        const wikiSpells = generated
-          ? null
-          : await fetchWikiChampionSpells(
-              raw.id,
-              [
-                { key: 'Q', name: Q.name, maxrank: Q.maxrank },
-                { key: 'W', name: W.name, maxrank: W.maxrank },
-                { key: 'E', name: E.name, maxrank: E.maxrank },
-                { key: 'R', name: R.name, maxrank: R.maxrank },
-              ],
-            ).catch(() => null);
         if (cancelled) return;
 
         const passiveDescription = generated?.skills.passive.description?.trim()
@@ -567,10 +132,10 @@ export function useChampion(championId: string | undefined): UseChampionResult {
             description: passiveDescription,
             imageUrl:    passiveImageUrl(v, raw.passive.image.full),
           },
-          buildSkill('Q', Q, v, partype, wikiSpells?.['Q'], generated?.skills.q),
-          buildSkill('W', W, v, partype, wikiSpells?.['W'], generated?.skills.w),
-          buildSkill('E', E, v, partype, wikiSpells?.['E'], generated?.skills.e),
-          buildSkill('R', R, v, partype, wikiSpells?.['R'], generated?.skills.r),
+          buildSkill('Q', Q, v, partype, generated?.skills.q),
+          buildSkill('W', W, v, partype, generated?.skills.w),
+          buildSkill('E', E, v, partype, generated?.skills.e),
+          buildSkill('R', R, v, partype, generated?.skills.r),
         ];
 
         setChampion({

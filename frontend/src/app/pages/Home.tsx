@@ -7,7 +7,7 @@ import { ResultsSection } from '../components/ResultsSection';
 import { useChampions } from '../hooks/useChampions';
 import { useItems } from '../hooks/useItems';
 import { displayPatch } from '../utils/patch';
-import type { TabType, Role, ItemType } from '../data/mock-data';
+import type { TabType, Role, ItemType } from '../types/app';
 
 // ── ロード中のスケルトン（カードと同じ形状・レイアウトシフトなし）──
 

@@ -5,7 +5,7 @@ import { useChampion } from '../hooks/useChampion';
 import { useChampions } from '../hooks/useChampions';
 import { useItemsByStats } from '../hooks/useItemsByStats';
 import { championSplashUrl } from '../api/dataDragon';
-import { toWikiName } from '../api/lolWiki';
+import { englishChampionName } from '../utils/championNames';
 import { BottomSheet } from '../components/BottomSheet';
 import type { SkillData } from '../hooks/useChampion';
 
@@ -276,7 +276,7 @@ export function ChampionDetail() {
         </div>
 
         <div className="relative container mx-auto px-4 max-w-5xl pt-24 sm:pt-36 pb-6">
-          <p className="font-display text-sm text-primary/90">{toWikiName(champion.id)}</p>
+          <p className="font-display text-sm text-primary/90">{englishChampionName(champion.id)}</p>
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 mt-0.5">
             <h1 className="text-4xl font-bold text-foreground tracking-tight">{champion.name}</h1>
             {champion.title && (

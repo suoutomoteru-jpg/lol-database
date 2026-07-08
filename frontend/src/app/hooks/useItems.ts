@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchItemList, fetchItemListAram, itemImageUrl } from '../api/dataDragon';
 import { mapItemType } from '../utils/itemType';
-import type { Item } from '../data/mock-data';
+import type { Item } from '../types/app';
 import type { DDragonItem } from '../types/ddragon';
 
 // Priority-ordered (user-specified order + Crit/AS added)

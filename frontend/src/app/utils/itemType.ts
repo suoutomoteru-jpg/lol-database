@@ -1,4 +1,4 @@
-import type { ItemType } from '../data/mock-data';
+import type { ItemType } from '../types/app';
 
 /**
  * Data Dragon のアイテムタグ配列から UI カテゴリを導出する

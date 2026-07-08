@@ -1,5 +1,5 @@
 import { Wand2, Shield, Swords, UserRound, Heart, Target, type LucideIcon } from 'lucide-react';
-import type { Role, ItemType } from '../data/mock-data';
+import type { Role, ItemType } from '../types/app';
 
 export const roleIcons: Record<Role, LucideIcon> = {
   Mage:     Wand2,

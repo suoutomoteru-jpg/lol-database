@@ -1,4 +1,4 @@
-import type { TabType, Role, ItemType } from '../data/mock-data';
+import type { TabType, Role, ItemType } from '../types/app';
 
 interface FilterBarProps {
   activeTab: TabType;

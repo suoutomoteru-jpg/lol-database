@@ -29,8 +29,8 @@
 
   /* ── フォント ────────────────────────────────────── */
   /* 見出し（欧文）: LoL 公式 Beaufort に近いセリフ。和文は Noto にフォールバック */
-  --font-display: 'Marcellus', 'Noto Sans JP', serif;
-  --font-sans:    'Noto Sans JP', system-ui, sans-serif;
+  --font-display: 'Marcellus', 'Noto Sans JP Variable', serif;
+  --font-sans:    'Noto Sans JP Variable', system-ui, sans-serif;
 
   /* ── 角丸（統一スケール）──────────────────────────── */
   --radius-xs: 3px;

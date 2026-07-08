@@ -5,6 +5,8 @@ import { useItem } from '../hooks/useItem';
 import { useItems } from '../hooks/useItems';
 import { useItemsByStats } from '../hooks/useItemsByStats';
 import { BottomSheet } from '../components/BottomSheet';
+import { processItemDescription, injectStatLinks } from '../utils/richText';
+import { calcGoldEfficiency } from '../utils/goldEfficiency';
 
 // ── 日本語単語境界でのアイテム名折り返し ────────────────
 interface JaSegment { segment: string }
@@ -26,181 +28,6 @@ function WbrName({ text }: { text: string }) {
       ))}
     </>
   );
-}
-
-// ── 金銭効率計算 ───────────────────────────────────────
-
-const GOLD_PER_STAT: Record<string, number> = {
-  FlatPhysicalDamageMod:         35,      // Long Sword: 350g / 10 AD
-  FlatMagicDamageMod:            20,      // Amplifying Tome: 400g / 20 AP
-  FlatArmorMod:                  20,      // Cloth Armor: 300g / 15 Armor
-  FlatSpellBlockMod:             20,      // Null-Magic Mantle: 400g / 25 MR
-  FlatHPPoolMod:                 2.67,    // Ruby Crystal: 400g / 150 HP
-  FlatMPPoolMod:                 1,       // Sapphire Crystal baseline: 1g/mana
-  FlatMovementSpeedMod:          12,      // 12g per 1 flat MS
-  FlatCritChanceMod:             4000,    // 40g per 1% → ×100 for fraction (0-1)
-  PercentAttackSpeedMod:         2500,    // 25g per 1% → ×100 for fraction
-  PercentLifeStealMod:           5355,    // Vampiric Scepter: 53.55g per 1% → ×100
-  PercentMovementSpeedMod:       5000,    // 2% = 100g → ×100 for fraction
-  FlatArmorPenetrationMod:       30,      // Lethality: 30g per 1
-  PercentArmorPenetrationMod:    4167,    // 41.67g per 1% → ×100
-  FlatMagicPenetrationMod:       35,      // Sorcerer's Shoes: 700g / 18 → ~39g; ~35g/unit
-  PercentMagicPenetrationMod:    4167,    // Void Staff: same baseline as armor pen → ×100
-  FlatHPRegenMod:                3,       // Rejuvenation Bead baseline: 3g/unit
-  FlatMPRegenMod:                5,       // 25% = 125g → 5g/unit (% 単位の場合)
-  // DDragonがstat値を持つ場合のフォールバック（説明文解析も併用）
-  AbilityHaste:                  50,      // Glowing Mote: 250g / 5 AH
-  PercentHealAndShieldPower:     7760,    // Forbidden Idol: (800-24)g / 10% → ×100
-  PercentCritDamageMod:          437.5,   // 40% = 175g → ×100 for fraction
-};
-
-// DDragonのstatフィールドに含まれない指標を説明文から抽出して算入する
-const AH_RATE          = 50;    // Glowing Mote: 250g / 5 AH
-const HS_RATE          = 7760;  // Forbidden Idol: (800-24)g / 10% → 7760g/fraction
-const TENACITY_RATE    = 200;   // Mercury's: 1100 - 25*20 - 45*12 = 60g for 30% → 200g/fraction
-const MANA_REGEN_RATE  = 5;     // 25% = 125g → 5g per 1%
-const CRIT_DAMAGE_RATE = 4.375; // 40% = 175g → 4.375g per 1%
-
-function extractNum(text: string, pattern: RegExp): number {
-  const m = text.match(pattern);
-  return m ? parseInt(m[1], 10) : 0;
-}
-
-function calcGoldEfficiency(
-  stats: Record<string, number>,
-  tags: string[],
-  rawDesc: string,
-  totalCost: number,
-): number | null {
-  if (totalCost <= 0) return null;
-  let totalValue = 0;
-
-  for (const [key, val] of Object.entries(stats)) {
-    const rate = GOLD_PER_STAT[key];
-    if (rate && val) totalValue += val * rate;
-  }
-
-  const plain = rawDesc.replace(/<[^>]+>/g, '');
-
-  // スキルヘイスト（stat未収録の場合、説明文から抽出）
-  if (!stats['AbilityHaste']) {
-    const ah = extractNum(plain, /スキルヘイスト\D{0,10}?(\d+)/);
-    if (ah) totalValue += ah * AH_RATE;
-  }
-
-  // クリティカルダメージ（stat未収録の場合、説明文から抽出）
-  if (!stats['PercentCritDamageMod']) {
-    const cd = extractNum(plain, /クリティカルダメージ\D{0,10}?(\d+)/);
-    if (cd) totalValue += cd * CRIT_DAMAGE_RATE;
-  }
-
-  // ヒール&シールドパワー（stat未収録の場合、説明文から抽出）
-  if (!stats['PercentHealAndShieldPower']) {
-    const hs = extractNum(plain, /ヒール[&＆]シールドパワー\D{0,10}?(\d+)/);
-    if (hs) totalValue += (hs / 100) * HS_RATE;
-  }
-
-  // マナ自動回復（説明文から %を抽出; stat の FlatMPRegenMod が 0/未収録の場合のフォールバック）
-  if (!stats['FlatMPRegenMod']) {
-    const mr = extractNum(plain, /マナ自動回復\D{0,10}?(\d+)/);
-    if (mr) totalValue += mr * MANA_REGEN_RATE;
-  }
-
-  // 行動妨害耐性（DDragonではタグのみでstat値なし → 説明文から%を抽出）
-  if (tags.includes('Tenacity')) {
-    const t = extractNum(plain, /行動妨害耐性\D{0,20}?(\d+)/);
-    if (t) totalValue += (t / 100) * TENACITY_RATE;
-  }
-
-  return totalValue > 0 ? (totalValue / totalCost) * 100 : null;
-}
-
-// ── 日本語キーワード → stat/tag キー対応表 ─────────────
-// 長いものを先に並べる（部分マッチ防止）
-
-const KEYWORD_DEFS: Array<{ text: string; key: string }> = [
-  { text: 'ライフスティール',   key: 'custom:LifeSteal' },
-  { text: '通常攻撃時効果',     key: 'custom:OnHit' },
-  { text: '行動妨害耐性',       key: 'custom:Tenacity' },
-  { text: 'スキルヘイスト',     key: 'custom:AbilityHaste' },
-  { text: '魔法防御貫通',       key: 'custom:MagicPen' },
-  { text: '物理防御貫通',       key: 'custom:ArmorPen' },
-  { text: 'クリティカルダメージ', key: 'custom:CritDamage' },
-  { text: 'クリティカル率',     key: 'stat:FlatCritChanceMod' },
-  { text: 'シールド量',         key: 'custom:Shield' },
-  { text: 'ヒール&シールドパワー', key: 'custom:HealAndShieldPower' },
-  { text: 'ヒール＆シールドパワー', key: 'custom:HealAndShieldPower' },
-  { text: '脅威',               key: 'custom:Lethality' },
-  { text: '体力回復速度',       key: 'stat:FlatHPRegenMod' },
-  { text: '体力回復',           key: 'stat:FlatHPRegenMod' },
-  { text: 'マナ回復速度',       key: 'stat:FlatMPRegenMod' },
-  { text: 'マナ回復',           key: 'stat:FlatMPRegenMod' },
-  { text: '魔法防御',           key: 'stat:FlatSpellBlockMod' },
-  { text: '物理防御',           key: 'stat:FlatArmorMod' },
-  { text: '移動速度',           key: 'stat:FlatMovementSpeedMod' },
-  { text: '攻撃速度',           key: 'stat:PercentAttackSpeedMod' },
-  { text: '攻撃力',             key: 'stat:FlatPhysicalDamageMod' },
-  { text: '魔力',               key: 'stat:FlatMagicDamageMod' },
-  { text: 'アーマー',           key: 'stat:FlatArmorMod' },
-  { text: '体力',               key: 'stat:FlatHPPoolMod' },
-  { text: 'マナ',               key: 'stat:FlatMPPoolMod' },
-];
-
-const KW_PATTERN = new RegExp(
-  KEYWORD_DEFS.map(d => d.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
-  'g',
-);
-const KW_MAP = new Map(KEYWORD_DEFS.map(d => [d.text, d.key]));
-
-// ── HTML テキストノードにクリッカブルスパンを注入 ────────
-
-function injectStatLinks(html: string): string {
-  return html.split(/(<[^>]+>)/).map(part => {
-    if (part.startsWith('<')) return part;
-    return part.replace(KW_PATTERN, kw => {
-      const key = KW_MAP.get(kw);
-      return key ? `<span data-stat="${key}" class="stat-keyword">${kw}</span>` : kw;
-    });
-  }).join('');
-}
-
-// ── 説明文の前処理 ─────────────────────────────────────
-
-function processItemDescription(raw: string): string {
-  let s = raw;
-  s = s.replace(/<mainText>/gi, '').replace(/<\/mainText>/gi, '');
-  s = s.replace(/<stats>/gi, '<div class="item-stats">').replace(/<\/stats>/gi, '</div>');
-  s = s.replace(/<br\s*\/?>/gi, '<br>');
-  s = s.replace(/<attention>/gi, '<strong style="color:#C89B3C">').replace(/<\/attention>/gi, '</strong>');
-  s = s.replace(/<passive>/gi, '<strong class="text-muted-foreground">').replace(/<\/passive>/gi, '</strong>');
-  s = s.replace(/<active>/gi, '<strong class="text-muted-foreground">').replace(/<\/active>/gi, '</strong>');
-  s = s.replace(/<ornnBonus>/gi, '<span class="text-primary/70">').replace(/<\/ornnBonus>/gi, '</span>');
-  s = s.replace(/<gold>/gi, '<span style="color:#C89B3C">').replace(/<\/gold>/gi, '</span>');
-  s = s.replace(/<keyword>/gi, '<strong>').replace(/<\/keyword>/gi, '</strong>');
-  s = s.replace(/<keywordMajor>/gi, '<strong>').replace(/<\/keywordMajor>/gi, '</strong>');
-  s = s.replace(/<rarityLegendary>/gi, '<strong style="color:#C89B3C">').replace(/<\/rarityLegendary>/gi, '</strong>');
-  s = s.replace(/<rarityMythic>/gi,    '<strong style="color:#5383E8">').replace(/<\/rarityMythic>/gi,    '</strong>');
-  s = s.replace(/<rarityGeneric>/gi,   '<strong>').replace(/<\/rarityGeneric>/gi,   '</strong>');
-  s = s.replace(/<unimportant>/gi, '<span style="opacity:0.55">').replace(/<\/unimportant>/gi, '</span>');
-  s = s.replace(/<rules>/gi, '<em style="opacity:0.7">').replace(/<\/rules>/gi, '</em>');
-  s = s.replace(/<flavorText>/gi, '<em style="opacity:0.7">').replace(/<\/flavorText>/gi, '</em>');
-  s = s.replace(/<li>/gi, '<br>• ').replace(/<\/li>/gi, '');
-  s = s.replace(/<[^>]+>/g, (match) => {
-    const t = match.toLowerCase().trim();
-    if (
-      t === '<br>' ||
-      t === '<strong>' || t === '</strong>' ||
-      t === '<em>' || t === '</em>' ||
-      t === '</span>' || t.startsWith('<span ') ||
-      t.startsWith('<strong ') ||
-      t === '</div>' || t === '<div class="item-stats">'
-    ) return match;
-    return '';
-  });
-  s = s.replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-  s = s.replace(/^(<br>\s*)+/, '').trim();
-  s = s.replace(/(<br>\s*){3,}/g, '<br><br>');
-  return s;
 }
 
 // ── ビルドパスツリー ───────────────────────────────────
@@ -306,7 +133,7 @@ export function ItemDetail() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-3 text-muted-foreground">
           <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-          <p className="text-sm">Loading...</p>
+          <p className="text-sm">読み込み中…</p>
         </div>
       </div>
     );
