@@ -4,6 +4,10 @@ name: Data source freshness check
 # DDragon の最新パッチにどこまで追従しているかを確認する手動実行ワークフロー。
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - scripts/check_data_sources.py
+      - .github/workflows/data-source-freshness.yml
 
 jobs:
   check:
