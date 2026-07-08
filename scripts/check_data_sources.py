@@ -123,7 +123,8 @@ def main() -> int:
         )
         version = str(ahri.get("version", ""))
         patch_changed = str(ahri.get("patchLastChanged", ""))
-        results["meraki"] = major_minor(version) if version else None
+        # version フィールドがない場合は patchLastChanged で代用（25.08 → 15.8 相当の季節表記）
+        results["meraki"] = major_minor(version or patch_changed) or None
         print(f"  Ahri.json version         : {version or 'N/A'}")
         print(f"  Ahri.json patchLastChanged: {patch_changed or 'N/A'}")
         print(f"  Last-Modified             : {headers.get('Last-Modified', 'N/A')}")
@@ -138,9 +139,11 @@ def main() -> int:
     section("4. LoL Wiki (wiki.leagueoflegends.com)")
     try:
         patch = results.get("ddragon")
-        titles = f"Template:Data Ahri/Q"
+        titles = "Template:Data Ahri/Q"
         if patch:
-            titles += f"|V{patch}"
+            # DDragon は旧様式 (16.13)、パッチノート/Wiki は +10 した季節表記 (26.13)
+            major, minor = patch.split(".")
+            titles += f"|V{int(major) + 10}.{minor}"
         api = (
             "https://wiki.leagueoflegends.com/en-us/api.php"
             "?action=query&format=json&prop=revisions&rvprop=timestamp"
