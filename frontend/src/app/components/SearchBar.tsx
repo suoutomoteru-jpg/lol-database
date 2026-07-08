@@ -39,7 +39,7 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
           setLocalValue(v);
           onChange(v);
         }}
-        placeholder="チャンピオン・アイテムを検索..."
+        placeholder="例：アーゴット、インフィニティ・エッジ"
         className="w-full bg-card border border-border rounded-md py-3 pl-11 pr-4 text-sm text-foreground
           placeholder:text-muted-foreground/60
           focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20

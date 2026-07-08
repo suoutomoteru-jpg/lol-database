@@ -82,7 +82,7 @@ export function processTooltipHtml(raw: string): string {
 
   for (const [tag, color, statKey] of COLOR_MAP) {
     const open = statKey
-      ? `<span style="color:${color};cursor:pointer;border-bottom:1px dashed ${color}" data-stat="${statKey}">`
+      ? `<span style="color:${color};cursor:pointer" data-stat="${statKey}">`
       : `<span style="color:${color}">`;
     s = s.replace(new RegExp(`<${tag}(?:\\s[^>]*)?>`, 'gi'), open);
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</span>');

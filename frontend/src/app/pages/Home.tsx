@@ -105,7 +105,7 @@ export function Home() {
           {/* 手描きの注釈 → 検索バーを指す */}
           <div className="flex flex-col items-center -mb-3">
             <p className="-rotate-2 text-sm font-medium text-primary">
-              スキルの実数値まで、ぜんぶ見える
+              チャンピオン・アイテムを検索
             </p>
             <CurlyArrow className="w-6 h-8 mt-0.5 -ml-10 text-primary/60" />
           </div>
