@@ -186,14 +186,20 @@ def eval_part(part, values: dict, max_rank: int):
 def combine_parts(parts: list, max_rank: int):
     nums = None
     texts = []
+
+    def add_nums(vals: list):
+        nonlocal nums
+        nums = list(vals) if nums is None else [a + b for a, b in zip(nums, vals)]
+
     for p in parts:
         if p is None:
             return None
         if p[0] == "nums":
-            if nums is None:
-                nums = list(p[1])
-            else:
-                nums = [a + b for a, b in zip(nums, p[1])]
+            add_nums(p[1])
+        elif p[0] == "combo":  # ネストした部分和（数値＋スケーリング）を統合
+            sub_nums, sub_texts = p[1]
+            add_nums(sub_nums)
+            texts.extend(sub_texts)
         else:
             texts.append(p[1])
     if nums is not None and texts:

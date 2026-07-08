@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchChampionDetail, spellImageUrl, passiveImageUrl } from '../api/dataDragon';
 import { fetchWikiChampionSpells } from '../api/lolWiki';
 import type { WikiSpellData } from '../api/lolWiki';
+import { fetchGeneratedTooltips } from '../api/generatedTooltips';
+import type { GeneratedSkill } from '../api/generatedTooltips';
 import type { DDragonChampionDetail, DDragonSpell } from '../types/ddragon';
 
 export interface SkillData {
@@ -463,6 +465,7 @@ function buildSkill(
   version: string,
   partype: string,
   wikiData: WikiSpellData | undefined,
+  generated?: GeneratedSkill,
 ): SkillData {
   const rangeNum = parseInt(spell.rangeBurn, 10);
   const hasRange = spell.rangeBurn !== 'self'
@@ -470,30 +473,18 @@ function buildSkill(
     && !isNaN(rangeNum)
     && rangeNum <= 5000;
 
-  // Wiki 変数マップ: leveltip ラベル ↔ Wiki leveling を照合
-  const wikiVarMap = buildWikiVarMap(spell, wikiData);
-
-  // Step 1: DDragon {{ }} 解決（effectBurn が空の場合は effect[] または Wiki 値でフォールバック）
-  let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
-  // Step 2: @var@ 解決（未解決の @var@ は Wiki データで補完）
-  tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
-
-  // ── DEBUG ─────────────────────────────────────────────
-  console.group(`[DBG] ${key}: ${spell.name}`);
-  console.log('RAW:', spell.tooltip);
-  console.log('effectBurn:', JSON.stringify(spell.effectBurn));
-  console.log('effect[1..5]:', (spell.effect ?? []).slice(1, 6).map((a, i) => `[${i+1}]=${JSON.stringify(a)}`).join(' '));
-  console.log('leveltip.effect:', spell.leveltip?.effect);
-  console.log('wikiVarMap:', Object.fromEntries(wikiVarMap));
-  console.log('wikiConstants:', wikiData?.constants ?? {});
-  console.log('RESOLVED:', tooltip);
-  console.groupEnd();
-  // ──────────────────────────────────────────────────────
-
-  // 未解決変数を除去
-  tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, '');
-
-  const description = processTooltipHtml(tooltip);
+  let description: string;
+  if (generated?.description?.trim()) {
+    // 生成済みツールチップ（数値解決済み）をそのまま整形して使う
+    description = processTooltipHtml(generated.description);
+  } else {
+    // フォールバック: DDragon テンプレート + Wiki 補完（従来パス）
+    const wikiVarMap = buildWikiVarMap(spell, wikiData);
+    let tooltip = resolveDDragonTemplates(spell.tooltip, spell, partype, wikiVarMap);
+    tooltip = resolveAtVarTemplates(tooltip, spell, wikiVarMap);
+    tooltip = tooltip.replace(/\{\{[^}]*\}\}/g, ''); // 未解決変数を除去
+    description = processTooltipHtml(tooltip);
+  }
 
   const rawCostType = spell.costType ?? '';
   const resolvedCostType = rawCostType
@@ -501,12 +492,17 @@ function buildSkill(
     .replace(/@abilityresourcename@/gi, partype)
     .trim();
 
+  const cooldownBurn = generated?.cooldown || spell.cooldownBurn || undefined;
+  const costBurn = generated?.cost && generated.cost !== '0'
+    ? generated.cost
+    : (spell.costBurn !== '0' ? spell.costBurn : undefined);
+
   return {
     key,
     name:         spell.name,
     description,
-    cooldownBurn: spell.cooldownBurn || undefined,
-    costBurn:     spell.costBurn !== '0' ? spell.costBurn : undefined,
+    cooldownBurn,
+    costBurn,
     costType:     resolvedCostType !== 'No Cost' && resolvedCostType !== '' ? resolvedCostType : undefined,
     rangeBurn:    hasRange ? spell.rangeBurn : undefined,
     imageUrl:     spellImageUrl(version, spell.image.full),
@@ -541,29 +537,39 @@ export function useChampion(championId: string | undefined): UseChampionResult {
         const [Q, W, E, R] = raw.spells;
         const partype = raw.partype;
 
-        // 2. Wiki からスキル数値情報を並行取得（失敗してもフォールバック可能）
-        const wikiSpells = await fetchWikiChampionSpells(
-          raw.id,
-          [
-            { key: 'Q', name: Q.name, maxrank: Q.maxrank },
-            { key: 'W', name: W.name, maxrank: W.maxrank },
-            { key: 'E', name: E.name, maxrank: E.maxrank },
-            { key: 'R', name: R.name, maxrank: R.maxrank },
-          ],
-        ).catch(() => null);
+        // 2. 生成済みツールチップ（CommunityDragon 由来・数値解決済み）を優先取得
+        const generated = await fetchGeneratedTooltips(raw.id).catch(() => null);
         if (cancelled) return;
+
+        // 3. 生成済みデータがない場合のみ Wiki 補完にフォールバック
+        const wikiSpells = generated
+          ? null
+          : await fetchWikiChampionSpells(
+              raw.id,
+              [
+                { key: 'Q', name: Q.name, maxrank: Q.maxrank },
+                { key: 'W', name: W.name, maxrank: W.maxrank },
+                { key: 'E', name: E.name, maxrank: E.maxrank },
+                { key: 'R', name: R.name, maxrank: R.maxrank },
+              ],
+            ).catch(() => null);
+        if (cancelled) return;
+
+        const passiveDescription = generated?.skills.passive.description?.trim()
+          ? processTooltipHtml(generated.skills.passive.description)
+          : resolvePassiveDescription(raw.passive.description, partype);
 
         const skills: SkillData[] = [
           {
             key:         'P',
             name:        raw.passive.name,
-            description: resolvePassiveDescription(raw.passive.description, partype),
+            description: passiveDescription,
             imageUrl:    passiveImageUrl(v, raw.passive.image.full),
           },
-          buildSkill('Q', Q, v, partype, wikiSpells?.['Q']),
-          buildSkill('W', W, v, partype, wikiSpells?.['W']),
-          buildSkill('E', E, v, partype, wikiSpells?.['E']),
-          buildSkill('R', R, v, partype, wikiSpells?.['R']),
+          buildSkill('Q', Q, v, partype, wikiSpells?.['Q'], generated?.skills.q),
+          buildSkill('W', W, v, partype, wikiSpells?.['W'], generated?.skills.w),
+          buildSkill('E', E, v, partype, wikiSpells?.['E'], generated?.skills.e),
+          buildSkill('R', R, v, partype, wikiSpells?.['R'], generated?.skills.r),
         ];
 
         setChampion({
