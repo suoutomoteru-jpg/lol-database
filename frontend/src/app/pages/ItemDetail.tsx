@@ -1,6 +1,6 @@
 import { useState, useCallback, Fragment } from 'react';
 import { Link, useParams } from 'react-router';
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
 import { useItems } from '../hooks/useItems';
 import { useItemsByStats } from '../hooks/useItemsByStats';
@@ -203,6 +203,81 @@ function processItemDescription(raw: string): string {
   return s;
 }
 
+// ── ビルドパスツリー ───────────────────────────────────
+
+interface PathItem { id: string; name: string; imageUrl: string }
+
+function PathNode({ item }: { item: PathItem }) {
+  return (
+    <Link
+      to={`/item/${item.id}`}
+      className="group flex flex-col items-center w-20"
+      title={item.name}
+    >
+      <img
+        src={item.imageUrl}
+        alt=""
+        className="w-11 h-11 rounded-md border border-border group-hover:border-primary/50 transition-colors"
+        loading="lazy"
+      />
+      <span className="mt-1.5 text-[11px] leading-tight text-center line-clamp-2 text-muted-foreground group-hover:text-foreground transition-colors">
+        {item.name}
+      </span>
+    </Link>
+  );
+}
+
+function Connector() {
+  return (
+    <div className="flex flex-col items-center py-1 text-border" aria-hidden>
+      <div className="h-3.5 w-px bg-border" />
+      <ChevronDown size={12} className="-mt-1" />
+    </div>
+  );
+}
+
+/**
+ * 素材 → このアイテム → アップグレード先 の3段ツリー
+ */
+function BuildPath({ item }: {
+  item: { name: string; imageUrl: string; from: PathItem[]; into: PathItem[] };
+}) {
+  if (item.from.length === 0 && item.into.length === 0) return null;
+
+  return (
+    <div className="bg-card border border-border rounded-md p-5">
+      <p className="text-sm font-semibold text-foreground mb-4">ビルドパス</p>
+      <div className="flex flex-col items-center">
+        {item.from.length > 0 && (
+          <>
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-3">
+              {item.from.map(comp => <PathNode key={comp.id} item={comp} />)}
+            </div>
+            <Connector />
+          </>
+        )}
+
+        {/* 中央: このアイテム */}
+        <div className="flex flex-col items-center w-24">
+          <img src={item.imageUrl} alt="" className="w-14 h-14 rounded-md border-2 border-primary/70" />
+          <span className="mt-1.5 text-[11px] leading-tight text-center text-foreground font-medium line-clamp-2">
+            {item.name}
+          </span>
+        </div>
+
+        {item.into.length > 0 && (
+          <>
+            <Connector />
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-3">
+              {item.into.map(up => <PathNode key={up.id} item={up} />)}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ── メインページ ───────────────────────────────────────
 
 export function ItemDetail() {
@@ -328,50 +403,8 @@ export function ItemDetail() {
           </div>
         )}
 
-        {/* 材料・アップグレード */}
-        {(item.from.length > 0 || item.into.length > 0) && (
-          <div className="bg-card border border-border rounded-md overflow-hidden divide-y divide-border">
-            {item.from.length > 0 && (
-              <div className="px-4 py-3">
-                <p className="text-sm font-semibold text-foreground mb-2">材料</p>
-                <div className="flex flex-wrap gap-3">
-                  {item.from.map(comp => (
-                    <Link key={comp.id} to={`/item/${comp.id}`} className="flex items-center gap-2 group">
-                      <img
-                        src={comp.imageUrl}
-                        alt={comp.name}
-                        className="w-9 h-9 rounded-sm border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
-                      />
-                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
-                        {comp.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {item.into.length > 0 && (
-              <div className="px-4 py-3">
-                <p className="text-sm font-semibold text-foreground mb-2">アップグレード先</p>
-                <div className="flex flex-wrap gap-3">
-                  {item.into.map(up => (
-                    <Link key={up.id} to={`/item/${up.id}`} className="flex items-center gap-2 group">
-                      <img
-                        src={up.imageUrl}
-                        alt={up.name}
-                        className="w-9 h-9 rounded-sm border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
-                      />
-                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
-                        {up.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+        {/* ビルドパス（素材 → このアイテム → アップグレード先） */}
+        <BuildPath item={item} />
       </div>
 
       <BottomSheet

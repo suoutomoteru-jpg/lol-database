@@ -6,10 +6,32 @@ import { FilterBar } from '../components/FilterBar';
 import { ResultsSection } from '../components/ResultsSection';
 import { useChampions } from '../hooks/useChampions';
 import { useItems } from '../hooks/useItems';
+import { displayPatch } from '../utils/patch';
 import type { TabType, Role, ItemType } from '../data/mock-data';
 
+// ── ロード中のスケルトン（カードと同じ形状・レイアウトシフトなし）──
+
+function ResultsSkeleton() {
+  return (
+    <div className="w-full max-w-4xl" aria-hidden>
+      <div className="h-4 w-24 bg-card rounded-sm mb-2 animate-pulse" />
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border">
+        {Array.from({ length: 9 }).map((_, i) => (
+          <div key={i} className="flex items-center gap-3 px-3 py-2 bg-card animate-pulse">
+            <div className="w-10 h-10 flex-shrink-0 rounded-sm bg-secondary" />
+            <div className="flex-1 space-y-1.5">
+              <div className="h-3 w-2/3 bg-secondary rounded-sm" />
+              <div className="h-2 w-1/3 bg-secondary/60 rounded-sm" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Home() {
-  const { champions, loading: champLoading } = useChampions();
+  const { champions, version, loading: champLoading } = useChampions();
   const { items, loading: itemLoading } = useItems();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -59,13 +81,23 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 pt-10 pb-6 max-w-6xl">
-        <div className="flex flex-col items-center gap-5">
-          <div className="text-center mb-2">
-            <h1 className="font-display font-normal text-3xl text-primary tracking-wide">nunune.gg</h1>
-            <p className="text-xs text-muted-foreground mt-1">League of Legends データベース</p>
+      {/* 上部バー: ロゴ + 現行パッチ */}
+      <header className="border-b border-border">
+        <div className="container mx-auto px-4 max-w-6xl h-14 flex items-center justify-between">
+          <div className="flex items-baseline gap-2.5 min-w-0">
+            <h1 className="font-display font-normal text-xl text-primary tracking-wide whitespace-nowrap">nunune.gg</h1>
+            <p className="hidden sm:block text-xs text-muted-foreground truncate">League of Legends データベース</p>
           </div>
+          {version && (
+            <span className="flex-shrink-0 px-2.5 py-1 text-xs text-muted-foreground tabular-nums rounded-sm border border-border bg-card">
+              パッチ {displayPatch(version)}
+            </span>
+          )}
+        </div>
+      </header>
 
+      <div className="container mx-auto px-4 pt-8 pb-6 max-w-6xl">
+        <div className="flex flex-col items-center gap-5">
           <SearchBar value={searchQuery} onChange={v => set('q', v)} />
           <TabsFilter activeTab={activeTab} onTabChange={handleTabChange} />
           <FilterBar
@@ -77,10 +109,7 @@ export function Home() {
           />
 
           {loading ? (
-            <div className="flex flex-col items-center gap-3 py-12 text-muted-foreground">
-              <div className="w-6 h-6 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-              <p className="text-xs">読み込み中…</p>
-            </div>
+            <ResultsSkeleton />
           ) : (
             <ResultsSection
               champions={filteredChampions}
