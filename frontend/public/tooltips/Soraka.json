@@ -1,0 +1,51 @@
+{
+ "alias": "Soraka",
+ "id": 16,
+ "name": "ソラカ",
+ "title": "星の子",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "救済の足音",
+   "description": "近くにいる体力の少ない味方に向かって移動する際に、ソラカの移動速度が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "星のささやき",
+   "description": "流れ星を落として<magicDamage>85/120/155/190/225（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、1.5秒間30%の<status>スロウ効果</status>を付与する。<br><br>敵チャンピオンに命中すると<keywordMajor>「再生」</keywordMajor>を獲得し、2.5秒かけて<healing>60/75/90/105/120（＋魔力の30%）の体力</healing>を回復する。また、同じ時間をかけて減衰していく<speed>20/22.5/25/27.5/30%の移動速度</speed>を獲得する。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "45/50/55/60/65",
+   "range": "810",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "星霊の癒し",
+   "description": "自分以外の味方チャンピオン1体の<healing>体力を90/110/130/150/170（＋魔力の50%）</healing>回復する。<br><br>自身が<keywordMajor>「再生」</keywordMajor>の効果を受けている場合、体力コストが80/85/90/95/100%減少し、対象に@Spell.SorakaQ:HoTDuration@秒間<keywordMajor>「再生」</keywordMajor>を付与する。",
+   "cooldown": "6/5/4/3/2",
+   "cost": "40/45/50/55/60",
+   "range": "550",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "星の静寂",
+   "description": "星々の渦巻くフィールドを作り出し、チャンピオンに<magicDamage>70/95/120/145/170（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。このフィールドは1.5秒間持続し、範囲内の敵に<status>サイレンス効果</status>を与える。フィールドが消滅した瞬間、範囲内に残っていたチャンピオンに1/1.25/1.5/1.75/2秒間の<status>スネア効果</status>を付与し、<magicDamage>70/95/120/145/170（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "70/75/80/85/90",
+   "range": "925",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "星に願いを",
+   "description": "聖なる力を呼び覚まし、距離に関係なくすべての味方チャンピオンの<healing>体力を150/250/350（＋魔力の50%）</healing>回復する。体力が40%未満の対象は、回復量が<healing>225/375/525（＋魔力の50%）</healing>に増加する。",
+   "cooldown": "150/135/120",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,51 @@
+{
+ "alias": "Galio",
+ "id": 3,
+ "name": "ガリオ",
+ "title": "伝説の巨像",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "巨像の一撃",
+   "description": "数秒毎に、通常攻撃が一定範囲に追加魔法ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "戦の旋風",
+   "description": "それぞれ<magicDamage>70/105/140/175/210（＋魔力の70%）の魔法ダメージ</magicDamage>を与える2つの突風を放つ。突風同士が交わると竜巻が発生して、<magicDamage>最大体力の8（＋魔力の1%）%の魔法ダメージ</magicDamage>を2秒かけて与える。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "60/65/70/75/80",
+   "range": "825",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "デュランドの守り",
+   "description": "<spellPassive>自動効果:</spellPassive> 12〜（レベルに応じて変化）秒間ダメージを受けずにいると、<shield>合計体力の7.5/9/10.5/12/13.5%の魔法ダメージを防ぐシールド</shield>を獲得する。<br><br><charge>チャージ開始:</charge> 受ける魔法ダメージを0.25/0.3/0.35/0.4/0.45（＋魔力の0.04% ＋増加移動速度の0.08% ＋増加体力の0.01%）、物理ダメージを0.125/0.15/0.175/0.2/0.225（＋魔力の0.04% ＋増加移動速度の0.08% ＋増加体力の0.01%）軽減するようになり、自身が15%の<status>スロウ効果</status>を受ける。<br><br><release>解放:</release> 敵チャンピオンに0.5 - 1.5秒間<status>タウント効果</status>を付与し、<magicDamage>20/30/40/50/60（＋魔力の30%）</magicDamage> - <magicDamage>60/90/120/150/180（＋魔力の30%）の魔法ダメージ</magicDamage>を与えて、ダメージ軽減効果を2秒間更新する。タウントの効果時間と効果範囲、ダメージはチャージ時間に応じて増加する。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "50",
+   "range": "275",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "正義の鉄拳",
+   "description": "前方に突進して強烈なパンチをお見舞いし、最初に当たったチャンピオンを0.75秒間<status>ノックアップ</status>させて、<magicDamage>100/135/170/205/240（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。突進中に触れた他の敵には<magicDamage>80/108/136/164/192（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<br><br>突進は地形に当たると停止する。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "50",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "英雄降臨",
+   "description": "味方チャンピオン1体の位置を着地点として指定し、範囲内の味方チャンピオン全員に5秒間<spellName>「デュランドの守り」</spellName>の自動効果の<shield>シールド</shield>を付与する。その後、着地点に向かって飛翔する。<br><br>着地すると、0.75秒間敵を<status>ノックアップ</status>させて、<magicDamage>150/250/350（＋魔力の70% ＋増加移動速度の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "180/160/140",
+   "cost": "100",
+   "range": "4000/4750/5500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

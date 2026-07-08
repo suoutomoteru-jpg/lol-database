@@ -1,0 +1,51 @@
+{
+ "alias": "Olaf",
+ "id": 2,
+ "name": "オラフ",
+ "title": "狂戦士",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "狂戦士の怒り",
+   "description": "減少体力に応じて攻撃速度とライフスティールが増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "斧投げ",
+   "description": "オラフが斧を投げ、<physicalDamage>70/120/170/220/270（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与えて、斧の飛距離に応じて最大3秒間、30/35/40/45/50%の<status>スロウ効果</status>を付与する。攻撃を受けたチャンピオンは4秒間、<scaleArmor>物理防御が20%</scaleArmor>低下する。<br><br>オラフが斧を拾うと、このスキルのクールダウンが2.5秒に短縮される。すでに2.5秒経過していた場合は、クールダウンが解消される。",
+   "cooldown": "9",
+   "cost": "50/55/60/65/70",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "根性比べ",
+   "description": "5秒間、<attackSpeed>攻撃速度が40/50/60/70/80%</attackSpeed>増加し、2.5秒間、<shield>耐久値10/40/70/100/130(+減少体力の17.5%)のシールド(体力が30%未満で最大の耐久値10/40/70/100/130（＋合計体力の12.25%）)</shield>を獲得する。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "50",
+   "range": "700",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "捨て身切り",
+   "description": "激しく斧を振り下ろし、<trueDamage>70/115/160/205/250（＋合計攻撃力の50%）の確定ダメージ</trueDamage>を与える。敵をキルすると、消費した体力コストが戻ってくる。<br><br>通常攻撃を行うたびに、このスキルのクールダウンが1秒解消され、モンスターに通常攻撃を行うと2秒解消される。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ラグナロク",
+   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>物理防御が10/15/20</scaleArmor>、<scaleMR>魔法防御が10/15/20</scaleMR>増加する。<br><br><spellActive>発動効果: </spellActive>自身が受けている<status>移動不能効果</status>と<status>行動妨害効果</status>がすべて除去され、3秒間、それらの効果を受けなくなる。発動中は、<scaleAD>攻撃力が10/20/30（＋合計攻撃力の25%）</scaleAD>増加する。チャンピオンに通常攻撃または<spellName>「捨て身切り」</spellName>を命中させると、効果時間が2.5秒延長される。<br><br>また1秒間、敵チャンピオンに向かう際の<speed>移動速度が20/45/70%</speed>増加する。",
+   "cooldown": "100/90/80",
+   "cost": "100",
+   "range": "400",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

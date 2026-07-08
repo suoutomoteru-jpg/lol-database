@@ -1,0 +1,53 @@
+{
+ "alias": "Rengar",
+ "id": 107,
+ "name": "レンガー",
+ "title": "孤高のハンター",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "見えざる襲撃者",
+   "description": "茂みの中にいると、通常攻撃で対象に向かって飛びつく。<br><br>スキルを使用するたびにフェロシティを獲得する。フェロシティが最大になると次に使用するスキルが強化される。<br><br>敵チャンピオンを倒すと<font color='#BBFFFF'>「骨牙の首飾り」</font>のトロフィーを獲得し、増加攻撃力を獲得する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "逆上",
+   "description": "次に行う2回の通常攻撃の<attackSpeed>攻撃速度が40%</attackSpeed>増加する。最初の通常攻撃が<physicalDamage>20/55/90/125/160（＋合計攻撃力の100% ＋合計攻撃力の5%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> 最初の通常攻撃が<physicalDamage>35〜（レベルに応じて変化） ＋ 合計攻撃力の100% ＋ 合計攻撃力の20%の物理ダメージ</physicalDamage>を与え、5秒間<attackSpeed>50〜（レベルに応じて変化）攻撃速度</attackSpeed>が増加する。",
+   "cooldown": "0.25",
+   "cost": "",
+   "range": "450",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "狩りの雄叫び",
+   "description": "咆哮をあげて周囲の敵に<magicDamage>50/80/110/140/170（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、直前1.5秒以内に受けたダメージの<healing>50%にあたる体力</healing>を回復する。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> <magicDamage>の魔法ダメージ</magicDamage>を与え、さらに自分に付与された行動妨害を除去する。",
+   "cooldown": "0.25",
+   "cost": "",
+   "range": "450",
+   "maxRank": 5,
+   "unresolved": [
+    "TotalDamageEmpowered"
+   ]
+  },
+  "e": {
+   "name": "鉄球の投げ縄",
+   "description": "投げ縄を放ち、最初に命中した敵に<physicalDamage>55/100/145/190/235（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与えて可視化し、1.75秒間30/45/60/75/90%の<status>スロウ効果</status>を付与する。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> <physicalDamage>50〜（レベルに応じて変化） ＋ 増加攻撃力の80%の物理ダメージ</physicalDamage>を与え、1.75秒間<status>スネア効果</status>を付与する。",
+   "cooldown": "0.25",
+   "cost": "",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "狩猟本能",
+   "description": "<spellPassive>自動効果:</spellPassive> <keywordStealth>カモフラージュ</keywordStealth>状態の時、飛びかかって通常攻撃を行う。<br><br><spellActive>発動効果:</spellActive> 12/16/20秒間、<speed>移動速度が40/50/60%</speed>増加し、最も近い敵チャンピオンを中心とした狭い範囲で<keywordStealth>真の視界</keywordStealth>を得る。<br><br>2秒後、<keywordStealth>カモフラージュ</keywordStealth>状態になり、茂みに入らなくても敵に飛びかかれるようになる。最も近くにいるチャンピオンに飛びかかると<physicalDamage>合計攻撃力の100%の物理ダメージ</physicalDamage>を追加で与え、4秒間<scaleArmor>物理防御を15/20/25</scaleArmor>低下させて、このスキルが終了する。",
+   "cooldown": "100/90/80",
+   "cost": "",
+   "range": "2500/3000/3500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

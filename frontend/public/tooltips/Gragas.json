@@ -1,0 +1,51 @@
+{
+ "alias": "Gragas",
+ "id": 79,
+ "name": "グラガス",
+ "title": "騒乱の飲んだくれ",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ハッピーアワー",
+   "description": "一定時間ごとにスキル使用時に体力を回復する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "タル転がし",
+   "description": "タルを転がす。タルは4秒経つと爆発し、<magicDamage>80/120/160/200/240（＋魔力の80%）</magicDamage> - <magicDamage>120/180/240/300/360（＋魔力の80%）の魔法ダメージ</magicDamage>を与えて、2秒間40/45/50/55/60 - 60/67.5/75/82.5/90%の<status>スロウ効果</status>を付与する。このダメージと<status>スロウ効果</status>は、タルが爆発するまでの時間に応じて増加する。<br><br><recast>再発動</recast>するとタルを早めに爆発できる。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "80",
+   "range": "850",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "飲みすぎ注意",
+   "description": "酒を試飲し、2.5秒間被ダメージを0.1/0.14/0.18/0.22/0.26（＋魔力の4%）軽減する。次の通常攻撃が強化され、対象と周囲の敵に<magicDamage>20/50/80/110/140（＋魔力の70%）</magicDamage><magicDamage>(+最大体力の7%)の魔法ダメージ</magicDamage>を追加で与えるようになる。",
+   "cooldown": "5",
+   "cost": "30",
+   "range": "20",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ボディスラム",
+   "description": "前方に突進して、最初に接触した敵を含む周囲の敵を1秒間<status>ノックアップ</status>させて、<magicDamage>80/125/170/215/260（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>敵に接触した場合、このスキルのクールダウンが40%短縮される。",
+   "cooldown": "14/13.5/13/12.5/12",
+   "cost": "50",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ワシの奢りじゃ！",
+   "description": "タルを放り投げて<magicDamage>200/300/400（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、着弾地点から敵を<status>ノックバック</status>させる。",
+   "cooldown": "100/85/70",
+   "cost": "100",
+   "range": "1000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

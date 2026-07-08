@@ -1,0 +1,55 @@
+{
+ "alias": "Belveth",
+ "id": 200,
+ "name": "ベル＝ヴェス",
+ "title": "ヴォイドの女帝",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "死のラベンダー",
+   "description": "大型ミニオン、大型モンスター、チャンピオンからキルまたはアシストを獲得すると、攻撃速度のスタックを恒久的に獲得する。また、スキル使用後に一時的に攻撃速度が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヴォイドサージ",
+   "description": "ダッシュして接触した敵に<physicalDamage>0/5/10/15/20（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>方向ごとに秒間のクールダウンが個別に存在する。このクールダウンは、<attackSpeed>攻撃速度</attackSpeed>に応じて短縮される。<br>",
+   "cooldown": "1",
+   "cost": "",
+   "range": "450",
+   "maxRank": 5,
+   "unresolved": [
+    "f1"
+   ]
+  },
+  "w": {
+   "name": "天と地",
+   "description": "尻尾を叩きつけて<magicDamage>70/110/150/190/230（＋魔力の125% ＋増加攻撃力の100%）の魔法ダメージ</magicDamage>を与える。また、敵を0.75秒間<status>ノックアップ</status>させて、1.25/1.5/1.75/2/2.25秒間50%の<status>スロウ効果</status>を付与する。チャンピオンに命中すると、その方向の<spellName>「ヴォイドサージ」</spellName>のクールダウンが解消される。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "",
+   "range": "715",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ロイヤルストーム",
+   "description": "詠唱して周囲を切り裂く。この際、35/40/45/50/55%のダメージ軽減効果と0.2（＋合計スタット18の100%）のライフスティールを獲得し、1.5秒かけて回の通常攻撃を行う。攻撃回数は<attackSpeed>攻撃速度</attackSpeed>に応じて増加する。通常攻撃のたびに最も体力が低い敵を狙い、対象の減少体力に応じて<physicalDamage>6/7/8/9/10（＋合計攻撃力の8%）</physicalDamage>から<physicalDamage>24/28/32/36/40（＋合計攻撃力の8%）の物理ダメージ</physicalDamage>を与える。<br><br>別のスキルを使用するか<recast>再発動</recast>すると、このスキルが早めに終了する。<br>",
+   "cooldown": "20/19/18/17/16",
+   "cost": "",
+   "range": "500",
+   "maxRank": 5,
+   "unresolved": [
+    "f2.0"
+   ]
+  },
+  "r": {
+   "name": "終わりなき晩餐",
+   "description": "<spellPassive>自動効果:</spellPassive> 同じ対象に通常攻撃を2回行うたびに、追加で<trueDamage>6/10/14（＋増加攻撃力の12%）の確定ダメージ</trueDamage>を与える。この効果は無限にスタックする。チャンピオンかエピックモンスターからキルまたはアシストを獲得すると、そこに「ヴォイドコーラル」が1つ残る。<br><br><spellActive>発動効果:</spellActive> 「ヴォイドコーラル」を吸収して<keywordMajor>「ラベンダー」を1</keywordMajor>スタック獲得し、60秒間、真の姿を発現させる。ヴォイドのエピックモンスターが残した「ヴォイドコーラル」を吸収した場合、効果時間が180秒間に増加し、周囲で倒されたミニオンが「ヴォイドレモラ」になる。詠唱中は周囲の敵に<status>スロウ効果</status>を付与し、その後爆発を起こして<trueDamage>150/200/250（＋魔力の100%） + 減少体力の25%の確定ダメージ</trueDamage>を与える。<br><br>真の姿となっている間は<healing>最大体力が100/150/200（＋増加攻撃力の120% ＋魔力の90%）</healing>、非戦闘時の<speed>移動速度が10/45/80</speed>、射程距離が75、<attackSpeed>合計攻撃速度が10/15/20%</attackSpeed>増加し、<spellName>「ヴォイドサージ」</spellName>で壁を越えられるようになる。<br><br><br>",
+   "cooldown": "1",
+   "cost": "",
+   "range": "450",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 2
+}

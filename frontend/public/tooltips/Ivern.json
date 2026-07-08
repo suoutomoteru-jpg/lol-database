@@ -1,0 +1,51 @@
+{
+ "alias": "Ivern",
+ "id": 427,
+ "name": "アイバーン",
+ "title": "豊緑の神秘",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "モリノトモダチ",
+   "description": "アイバーンはエピック以外のモンスターに対して、攻撃することも攻撃されることもない。ジャングルキャンプに時間が経つことで成長する小さな魔法の森を作ることができる。小さな森が完全に成長すると、モンスターを逃がしてゴールドと経験値を獲得できる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ネッコナゲ",
+   "description": "魔法の根を飛ばし、最初に命中した敵に<magicDamage>80/125/170/215/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.6/1.7/1.8/1.9/2秒間の<status>スネア効果</status>を付与する。<status>スネア効果</status>を受けている敵に通常攻撃を行う味方は、攻撃射程内までダッシュする。<br><br><recast>再発動:</recast> <status>スネア効果</status>を与えた敵まで自身がダッシュする。<br><br><rules>エピック以外のモンスターに命中させると<spellName>「ネッコナゲ」</spellName>のクールダウンが50%短縮される。</rules>",
+   "cooldown": "14/13/12/11/10",
+   "cost": "60",
+   "range": "1125",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "シゲミヅクリ",
+   "description": "<spellPassive>自動効果:</spellPassive> 茂みの中にいる間と茂みを出てから3秒間は、通常攻撃が<magicDamage>20/27.5/35/42.5/50（＋魔力の20%）の魔法ダメージ</magicDamage>を追加で与える。周囲の味方はこの効果を1.5秒間獲得して、<magicDamage>10/15/20/25/30（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果:</spellActive> 8秒間持続する茂みを発生させ、その地点を可視化する。この茂みは味方チームが内部の視界を失うか、45秒経過すると消滅する。",
+   "cooldown": "0.5",
+   "cost": "30",
+   "range": "1150",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "タネバクダン",
+   "description": "味方チャンピオンまたはデイジーに<shield>耐久値75/115/155/195/235（＋魔力の50%）のシールド</shield>を付与する。シールドは2秒後に爆発して、敵に<magicDamage>70/90/110/130/150（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、2秒間40/45/50/55/60%の<status>スロウ効果</status>を付与する。<br><br>シールドがまだ残っている状態で<spellName>「タネバクダン」</spellName>が爆発し、その爆発が敵チャンピオンに命中しなかった場合、対象の味方は2秒間、耐久値<shield>75/115/155/195/235（＋魔力の50%）</shield>のシールドを獲得する。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "70",
+   "range": "750",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "デイジー！",
+   "description": "守護者である友達のデイジーを召喚して、45秒間戦闘に参加させる。<br><br><spellActive>デイジー、叩きつけて！:</spellActive> デイジーが同じチャンピオンまたはエピックモンスターを3回連続で攻撃すると、衝撃波が発生する。衝撃波は命中したすべての敵に<magicDamage>90/140/190（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、1秒間<status>ノックアップ</status>させる。この効果は3秒に1回しか発生しない。<br><br><recast>再発動:</recast> デイジーに攻撃または移動を指示する。",
+   "cooldown": "140/130/120",
+   "cost": "100",
+   "range": "600",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

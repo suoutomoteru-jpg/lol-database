@@ -1,0 +1,56 @@
+{
+ "alias": "Smolder",
+ "id": 901,
+ "name": "スモルダー",
+ "title": "炎の幼龍",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "駆けだしドラゴン",
+   "description": "スキルをチャンピオンに命中させる、または「スーパーこげこげブレス」で敵をキルすると、「駆けだしドラゴン」のスタックを1つ獲得する。スタック数に応じて通常スキルのダメージが増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "スーパーこげこげブレス",
+   "description": "炎を吐き出し、<physicalDamage>60/70/80/90/100（＋増加攻撃力の130%）の物理ダメージ</physicalDamage> + <magicDamage>@spell.SmolderP:Passive_QDamageIncrease@の魔法ダメージ</magicDamage>を与える。対象が倒された場合は、一度のスキル使用につき<scaleMana>マナを15</scaleMana>回復する。<br><br>このスキルは<spellName>「駆けだしドラゴン」</spellName>のスタック数に応じて進化し、以下の効果を獲得する:<li><keywordMajor>25スタック</keywordMajor>:対象の周囲のすべての敵にダメージを与える。<li><keywordMajor>125スタック</keywordMajor>:対象の向こう側にも<spellName></spellName>発の爆発を起こし、このスキルのダメージの50%を与える。<li><keywordMajor>225スタック</keywordMajor>:対象を炎上させ、3秒かけて<trueDamage>最大体力のの確定ダメージ</trueDamage>を与える。炎上中の敵チャンピオンは、体力が最大値の<trueDamage>6.5%</trueDamage>未満になると即座にデスする。",
+   "cooldown": "5.5/5/4.5/4/3.5",
+   "cost": "25",
+   "range": "550",
+   "maxRank": 5,
+   "unresolved": [
+    "Tier2_NumberOfBlowback",
+    "Tier3_Burn"
+   ]
+  },
+  "w": {
+   "name": "くしゅん！",
+   "description": "可愛らしいくしゃみと共に炎を吐き、<physicalDamage>60/70/80/90/100（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて、1.5秒間35%の<status>スロウ効果</status>を付与する。<br><br>チャンピオンに命中すると爆発が起こり、<physicalDamage>10/35/60/85/110（＋増加攻撃力の50% ＋魔力の80%）の物理ダメージ</physicalDamage> + <magicDamage>@spell.SmolderP:Passive_WDamageIncrease@の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50/55/60/65/70",
+   "range": "1500",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "パタパタパタ",
+   "description": "1.25秒間飛翔して<speed>移動速度が75%</speed>増加し、地形を無視するようになる。<br><br>飛翔中は最も体力が低い敵を空から<spellName></spellName>回(端数は切り捨て)攻撃して、命中するごとに<physicalDamage>10/15/20/25/30（＋合計攻撃力の30%）の物理ダメージ</physicalDamage> + <magicDamage>@spell.SmolderP:EBonusDamage@の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "24/22/20/18/16",
+   "cost": "65",
+   "range": "700",
+   "maxRank": 5,
+   "unresolved": [
+    "TotalNumberOfAttacks"
+   ]
+  },
+  "r": {
+   "name": "ママーッ！！",
+   "description": "母ドラゴンが上空から炎を吐き、<physicalDamage>150/250/350（＋増加攻撃力の100% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。中心部にいる敵には<physicalDamage>225/375/525（＋増加攻撃力の100% ＋魔力の100%）の物理ダメージ</physicalDamage>を与え、2秒間40%の<status>スロウ効果</status>を付与する。<br><br>スモルダーはこの炎を受けると、<healing>体力が100/135/170（＋増加攻撃力の50% ＋魔力の75%）</healing>回復する。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "4200",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 3
+}

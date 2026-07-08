@@ -1,0 +1,51 @@
+{
+ "alias": "Ambessa",
+ "id": 799,
+ "name": "アンベッサ",
+ "title": "戦乱の母",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ドレイクハウンドの猛攻",
+   "description": "スキルを発動中に通常攻撃または移動操作をすると、スキル発動後に短い距離をダッシュして、次の通常攻撃の射程距離、ダメージ、攻撃速度が増加し、気を回復する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "カニングスイープ/サンダリングスラム",
+   "description": "<spellActive>カニングスイープ</spellActive>: 両手の武器を自身の前方に向かって振り回し、範囲の最端部にいる敵に<physicalDamage>40/60/80/100/120（＋増加攻撃力の60%） + 最大体力の0.04/0.045/0.05/0.055/0.06（＋増加攻撃力の0.03%）の物理ダメージ</physicalDamage>を与える。その他の敵はすべて50%のダメージを受ける。その後「<spellActive>サンダリングスラム</spellActive>」を構える。<br><br><spellActive>サンダリングスラム</spellActive>: 敵に刃を叩きつけ、最初に当たった敵に<physicalDamage>50/75/100/125/150（＋増加攻撃力の90%） + 最大体力の0.04/0.045/0.05/0.055/0.06（＋増加攻撃力の0.04%）の物理ダメージ</physicalDamage>を与える。その他の敵はすべて50%のダメージを受ける。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "70",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "断交",
+   "description": "1.5秒間<shield>50〜320（レベル比例） ＋ 増加攻撃力の150%のシールド</shield>を獲得し、0.5秒間構える。その後地面を叩きつけ、周囲の敵に<physicalDamage>50/75/100/125/150（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与える。敵チャンピオン、大型モンスター、建造物からのダメージをブロックしていた場合、周囲の敵への<physicalDamage>物理ダメージは75/112.5/150/187.5/225（＋増加攻撃力の50%）</physicalDamage>に増加する。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "70",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ラセレイト",
+   "description": "周囲に鎖を振り回し、<physicalDamage>40/60/80/100/120（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、<status>99%</status>の<status>スロウ効果</status>を与える(1秒かけて徐々に戻る)。このスキルから<spellName> 「 ドレイクハウンドの猛攻 」 </spellName>を発動すると、もう一度攻撃する。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "70",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "公開処刑",
+   "description": "<spellPassive>自動効果</spellPassive>: <armorPen>10/20/30%の 物理防御貫通</armorPen>を獲得し、スキルで<healing>自身が与えたダメージの0.15/0.175/0.2（＋合計スタット18の50%）を回復</healing>する。<br><br><spellActive>発動効果</spellActive>: <attention>アンストッパブル</attention>状態となり、直線上の最も遠い敵チャンピオンにブリンクし、対象に0.75秒間<status>サプレッション効果</status>を与え、地面に叩きつけて<physicalDamage>150/250/350（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>と0.4秒間の<status>スタン効果</status>を与える。",
+   "cooldown": "130/115/100",
+   "cost": "",
+   "range": "1250",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

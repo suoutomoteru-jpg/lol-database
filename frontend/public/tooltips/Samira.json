@@ -1,0 +1,51 @@
+{
+ "alias": "Samira",
+ "id": 360,
+ "name": "サミーラ",
+ "title": "砂漠の薔薇",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "デアデビルインパルス",
+   "description": "直前に命中したものとは異なる通常攻撃またはスキルを命中させることでコンボが増加していく。近接攻撃射程の通常攻撃は追加魔法ダメージを与える。<status>移動不能効果</status>を受けた敵に通常攻撃を行うと、自身の射程内までダッシュする。敵が<status>ノックアップ</status>していた場合は、少しの間だけ<status>ノックアップ</status>させたままにする。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "フレア",
+   "description": "銃を撃って最初に命中した敵に<physicalDamage>0/5/10/15/20（＋合計攻撃力の110%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルを近接攻撃射程内の敵に使用した場合は、代わりに剣で斬りつけて<physicalDamage>0/5/10/15/20（＋合計攻撃力の110%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "6/5/4/3/2",
+   "cost": "30",
+   "range": "950",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ブレードワール",
+   "description": "0.75秒間周囲を斬りつけ、各命中で敵に<physicalDamage>20/35/50/65/80（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を2回与え、範囲内に入ってきた敵の飛翔物を破壊する。<br><br>",
+   "cooldown": "30/28/26/24/22",
+   "cost": "60",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ワイルドラッシュ",
+   "description": "敵(建造物を含む)を通り抜けるようにダッシュし、接触した敵を斬りつけ<magicDamage>50/60/70/80/90（＋増加攻撃力の20%）の魔法ダメージ</magicDamage>を与えて、5秒間<attackSpeed>攻撃速度が20/25/30/35/40%</attackSpeed>増加する。 <br><br>サミーラがダメージを与えてから3秒以内にその敵チャンピオンが倒されると、このスキルのクールダウンが解消される。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "40",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "インフェルノトリガー",
+   "description": "このスキルは発動時に<keywordMajor>「スタイル」</keywordMajor>のグレードが「S」でなければ使用できない。このスキルを使用すると<keywordMajor>「スタイル」</keywordMajor>のグレードがリセットされる。<br><br>銃から弾丸を高速で連射し、周囲の敵に2秒かけて10回発砲する。1回の発砲で<physicalDamage>20/40/60（＋合計攻撃力の30%）の物理ダメージ</physicalDamage>を与えて、100%の効果でライフスティールを適用する。また、この発砲はそれぞれクリティカル判定を持つ。",
+   "cooldown": "5",
+   "cost": "",
+   "range": "600",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

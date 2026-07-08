@@ -1,0 +1,51 @@
+{
+ "alias": "Ahri",
+ "id": 103,
+ "name": "アーリ",
+ "title": "九尾の狐",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "生気吸引",
+   "description": "ミニオンまたはモンスターを9体キルすると体力が回復する。<br>敵チャンピオンからキルまたはアシストを奪うと体力が大幅に回復する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "幻惑のオーブ",
+   "description": "往復するオーブを放ち、命中した敵に<magicDamage>35/60/85/110/135（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。戻る時に与えるダメージは<trueDamage>35/60/85/110/135（＋魔力の50%）の確定ダメージ</trueDamage>になる。",
+   "cooldown": "7",
+   "cost": "55/65/75/85/95",
+   "range": "970",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "フォックスファイア",
+   "description": "近くにいる敵を自動で狙う3つの狐火を放ち、<magicDamage>40/60/80/100/120（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。複数の狐火が1体の敵に当たった場合、2つ目以降は<magicDamage>ダメージが16/24/32/40/48（＋魔力の40%）</magicDamage>に低下する。また、<speed>移動速度が40%</speed>増加し、2秒かけて元に戻る。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "30",
+   "range": "700",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "チャーム",
+   "description": "投げキッスを放ち、最初に触れた敵に1.2/1.35/1.5/1.65/1.8秒間<status>チャーム効果</status>を付与し、<magicDamage>80/120/160/200/240（＋魔力の85%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "12",
+   "cost": "60",
+   "range": "975",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "スピリットラッシュ",
+   "description": "すばやくダッシュして周囲の敵(チャンピオン優先)に3個のエネルギーを放つ。エネルギーはそれぞれが<magicDamage>75/125/175（＋魔力の35%）の魔法ダメージ</magicDamage>を与える。<spellName>「スピリットラッシュ」</spellName>は15秒以内なら、最大2回<recast>再発動</recast>できる。<br><br>この時間内に<spellName>「生気吸引」</spellName>でチャンピオンの「生気のかけら」を消費すると、<spellName>「スピリットラッシュ」</spellName>の再発動可能時間が最大10秒延長され、再発動可能回数が1回増加する(最大3回まで蓄積)。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "450",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

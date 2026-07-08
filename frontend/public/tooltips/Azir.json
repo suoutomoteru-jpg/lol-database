@@ -1,0 +1,53 @@
+{
+ "alias": "Azir",
+ "id": 268,
+ "name": "アジール",
+ "title": "砂塵の皇帝",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "シュリーマの遺産",
+   "description": "アジールは敵や味方のタワーの残骸から「太陽の円盤」を召喚できる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "征服の勅命",
+   "description": "すべての<keywordMajor>砂塵兵</keywordMajor>を指定範囲に集結させる。<keywordMajor>砂塵兵</keywordMajor>は進路上でぶつかった敵に<magicDamage>60/80/100/120/140（＋魔力の35/40/45/50/55%）の魔法ダメージ</magicDamage>を与え、1秒間@SlowAmount*-100@%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "14/12/10/8/6",
+   "cost": "70/80/90/100/110",
+   "range": "740",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "目覚めよ！",
+   "description": "10秒間、<keywordMajor>砂塵兵</keywordMajor>を召喚する。自身が<keywordMajor>砂塵兵</keywordMajor>の近くにいる敵を通常攻撃するときは、兵士に命令を出して代わりに攻撃させ、その方向にいる敵に<magicDamage>50/65/80/95/110（＋0〜（レベルに応じて変化） ＋魔力の35/42.5/50/57.5/65%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは回までチャージできる。",
+   "cooldown": "1.5",
+   "cost": "40/35/30/25/20",
+   "range": "525",
+   "maxRank": 5,
+   "unresolved": [
+    "MaxAmmo"
+   ]
+  },
+  "e": {
+   "name": "流砂の衝撃",
+   "description": "自身が1.5秒間、<shield>耐久値70/110/150/190/230（＋魔力の60%）のシールド</shield>を獲得して、<keywordMajor>砂塵兵</keywordMajor>の1体に向かってダッシュし、触れた敵に<magicDamage>70/110/150/190/230（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>敵チャンピオンに衝突するとその場で停止し、<keywordMajor>砂塵兵</keywordMajor>のチャージを獲得する。",
+   "cooldown": "22/20.5/19/17.5/16",
+   "cost": "60",
+   "range": "1100",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "皇帝の分砂嶺",
+   "description": "兵士たちの壁を召喚する。兵士たちは前方に突進し、衝突した敵に<magicDamage>200/400/600（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、<status>ノックバック</status>させる。兵士たちはその後5秒間その場にとどまり、敵の通過を阻止する。",
+   "cooldown": "120/105/90",
+   "cost": "100",
+   "range": "250",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

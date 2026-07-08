@@ -1,0 +1,51 @@
+{
+ "alias": "Hecarim",
+ "id": 120,
+ "name": "ヘカリム",
+ "title": "戦場の幻影",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ウォーパス",
+   "description": "増加移動速度の一定割合と同量だけ攻撃力が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ランページ",
+   "description": "周囲の敵を斬りつけて、<physicalDamage>60/90/120/150/180（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与える。このスキルが命中すると、クールダウンが0.75秒短縮されて、8秒間ダメージが3（＋増加攻撃力の3%）%増加する。この効果は3回までスタックする。<br>",
+   "cooldown": "4",
+   "cost": "28/26/24/22/20",
+   "range": "350",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ソウルドレイン",
+   "description": "周囲の敵に4秒かけて<magicDamage>80/120/160/200/240（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><br><scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が<passive>5/10/15/20/25</passive>増加する。また、周囲の敵に与えた<healing>ダメージの25%</healing>を体力として回復し、味方が与えた<healing>ダメージからは12.5%</healing>の体力を回復する。",
+   "cooldown": "14",
+   "cost": "50/55/60/65/70",
+   "range": "525",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "チャージ",
+   "description": "ゴースト化して、<speed>移動速度が25%</speed>増加する(4秒かけて最大<speed>65%</speed>まで増加する)。次の通常攻撃が対象を<status>ノックバック</status>して、<physicalDamage>30/45/60/75/90（＋増加攻撃力の50%）</physicalDamage> - <physicalDamage>60/90/120/150/180（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与える。<status>ノックバック</status>する距離とダメージは、このスキル使用中に移動した距離に応じて増加する。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "60",
+   "range": "300",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "スペクターズ・オンスロート",
+   "description": "亡霊の騎士たちを召喚して突撃し、<magicDamage>150/250/350（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。突撃の最後に衝撃波を放ち、突撃した距離に応じて0.75 - 1.5秒間の<status>フィアー効果</status>を付与する。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "50000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

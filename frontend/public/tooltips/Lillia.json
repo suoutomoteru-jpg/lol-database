@@ -1,0 +1,51 @@
+{
+ "alias": "Lillia",
+ "id": 876,
+ "name": "リリア",
+ "title": "はにかみ屋の花",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "夢を集める大枝",
+   "description": "スキルでチャンピオンかモンスターを攻撃すると、最大体力に応じた追加ダメージを継続的に与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "花開く風",
+   "description": "<spellPassive>自動効果:</spellPassive> スキルが命中すると6.5秒間<speed>移動速度が0.03/0.04/0.05/0.06/0.07（＋魔力の0.03%）</speed>増加する。この効果は最大4回までスタックする。<br><br><spellActive>発動効果:</spellActive> 香炉を振り回して、<magicDamage>35/45/55/65/75（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、外縁部では追加で<trueDamage>35/45/55/65/75（＋魔力の35%）の確定ダメージ</trueDamage>を与える。",
+   "cooldown": "6/5.5/5/4.5/4",
+   "cost": "65",
+   "range": "450",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ひゃっ、あぶない！",
+   "description": "杖を振り上げてから強烈な一撃を放ち<magicDamage>80/100/120/140/160（＋魔力の35%）の魔法ダメージ</magicDamage>を与える。中央にいた敵には代わりに<magicDamage>240/300/360/420/480（＋魔力の35%）のダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50",
+   "range": "500",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "コロコロの種",
+   "description": "「コロコロの種」を投げる。この種は落下時に当たった敵に<magicDamage>60/85/110/135/160（＋魔力の50%）の魔法ダメージ</magicDamage>を与えて可視化し、3秒間40%の<status>スロウ効果</status>を与える。敵に当たらなかった場合は、敵か地形に当たるまで転がり続ける。",
+   "cooldown": "12",
+   "cost": "70",
+   "range": "700",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "夢見の子守唄",
+   "description": "<keywordMajor>「夢のかけら」</keywordMajor>を受けている敵のチャンピオンすべてに、1.5秒間<status>眠気</status>を付与する。その後、対象は2秒間<status>眠り</status>に落ちる。<br><br>対象はダメージを受けて目覚めた際に、追加で<magicDamage>100/150/200（＋魔力の40%）の魔法ダメージ</magicDamage>を受ける。",
+   "cooldown": "150/130/110",
+   "cost": "50",
+   "range": "1600",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

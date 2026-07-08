@@ -1,0 +1,51 @@
+{
+ "alias": "Akshan",
+ "id": 166,
+ "name": "アクシャン",
+ "title": "流浪の番人",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ダーティーファイト",
+   "description": "通常攻撃かスキルを3回使用するごとに追加ダメージを与え、対象がチャンピオンだった場合はシールドを獲得する。<br><br>通常攻撃時に追加で通常攻撃を行う。ただし、その際のダメージは低下する。追加の通常攻撃をキャンセルすると、代わりに移動速度が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "報復のブーメラン",
+   "description": "ブーメランを投げ、<physicalDamage>45/75/105/135/165（＋増加攻撃力の70%）の物理ダメージ</physicalDamage>を与える。ブーメランは敵に命中するたびに射程が増加する。<br><br>チャンピオンに命中すると、自身の<speed>移動速度が0.2（＋魔力の0.05%）</speed>増加する。この移動速度は1秒かけて元に戻る。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "60/65/70/75/80",
+   "range": "850",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "義賊の流儀",
+   "description": "{{ Spell_AkshanW_Tooltip_1 }}",
+   "cooldown": "18/14/10/6/2",
+   "cost": "40/30/20/10/0",
+   "range": "5500",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヒーロースイング",
+   "description": "<spellActive>発動1回目:</spellActive> グラップルフックを発射し、最初に命中した地形に突き刺す。<br><br><spellActive>発動2回目:</spellActive> 地形の周囲をスイングし、最も近い敵を連続で攻撃して、1発ごとに<physicalDamage>8/16/24/32/40（＋合計攻撃力の25%）の物理ダメージ</physicalDamage>を与える。<br><br><spellActive>発動3回目:</spellActive> ロープから飛び降りて最後の一撃を放つ。<br><br>敵チャンピオンか地形に衝突した場合は、スイングが早めに終了する。<br><br>チャンピオンからキルまたはアシストを奪うと、このスキルのクールダウンが解消される。",
+   "cooldown": "18/16.5/15/13.5/12",
+   "cost": "70",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "当然の報い",
+   "description": "チャンピオンをロックオンして、最大2.5秒間銃をオーバーチャージし、最大5/6/7発の弾を溜める。<br><br><recast>再発動:</recast> チャージした弾を発射し、最初に命中した敵または建造物に、1発あたり最小<physicalDamage>25/35/45（＋合計攻撃力の15%）の物理ダメージ</physicalDamage>を与える。このダメージは減少体力に応じて最大<physicalDamage>75/105/135（＋合計攻撃力の15%）の物理ダメージ</physicalDamage>まで増加する。",
+   "cooldown": "100/85/70",
+   "cost": "100",
+   "range": "2500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

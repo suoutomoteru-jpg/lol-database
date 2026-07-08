@@ -1,0 +1,51 @@
+{
+ "alias": "Zac",
+ "id": 154,
+ "name": "ザック",
+ "title": "親愛なる秘密兵器",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "はぐれスライム",
+   "description": "スキルによる攻撃を命中させるたびスライムが飛び散り、回収すると体力が回復する。致命的なダメージを受けた場合、ザックは4体のスライムに分裂する。その後数秒かけて再融合し、この時に生き残っていたスライムの体力に応じた体力で復活する。各スライムはザックの最大体力、物理防御、魔法防御の数パーセントに相当するステータスを持つ。ザックは一度分裂すると、ふたたび分裂するために5分間のクールダウンが必要になる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "スライムパンチ",
+   "description": "腕を伸ばして最初に当たった敵に貼り付け、<magicDamage>60/90/120/150/180（＋魔力の30% ＋増加体力の3%）の魔法ダメージ</magicDamage>を与えて、少しの間だけ<status>スロウ効果</status>を付与する。次に行う通常攻撃は射程が増加し、同様のダメージと<status>スロウ効果</status>を与える。 <br><br>この通常攻撃で最初とは<i></i>異なる敵を攻撃すると、両者をお互いの方向に<status>ノックアップ</status>する。両者がぶつかった場合、両者およびその周囲の敵は<magicDamage>60/90/120/150/180（＋魔力の30% ＋増加体力の3%）の魔法ダメージ</magicDamage>を受け、少しの間だけ<status>スロウ効果</status>を受ける。",
+   "cooldown": "14/12.5/11/9.5/8",
+   "cost": "",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "スライムクラッシュ",
+   "description": "体の一部を破裂させ、周囲の敵に<magicDamage>40/50/60/70/80(+最大体力の0.04/0.05/0.06/0.07/0.08（＋魔力の3%）)の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>スライム</keywordMajor>を1体拾うごとに、このスキルのクールダウンが1秒短縮する。",
+   "cooldown": "5",
+   "cost": "",
+   "range": "350",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ブッ飛びスライム",
+   "description": "<charge>チャージ開始:</charge> 0.9/1/1.1/1.2/1.3秒間、体を伸ばして跳躍の準備をする。<br><br><release>解放:</release> 跳躍して落下地点にいた敵を最大1秒間(チャージ時間に応じて)<status>ノックアップ</status>させ、<magicDamage>60/105/150/195/240（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。当たった敵チャンピオンの数に応じて、発生する<keywordMajor>スライム</keywordMajor>の数が増加する。",
+   "cooldown": "22/19/16/13/10",
+   "cost": "",
+   "range": "300",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "レッツバウンス！",
+   "description": "4回バウンドする。最初のバウンドでは当たった敵を<status>ノックバック</status>させ、<magicDamage>120/190/260（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。その後のバウンドでは<magicDamage>60/95/130（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、1秒間20%の<status>スロウ効果</status>を付与する。<br><br>バウンド中は<speed>移動速度が50%</speed>まで徐々に増加し、<spellName>「スライムクラッシュ」</spellName>が使用可能になる。",
+   "cooldown": "120/105/90",
+   "cost": "",
+   "range": "300",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

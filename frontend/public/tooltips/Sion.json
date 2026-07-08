@@ -1,0 +1,51 @@
+{
+ "alias": "Sion",
+ "id": 14,
+ "name": "サイオン",
+ "title": "不死身の重戦車",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "名誉ある死",
+   "description": "サイオンは死亡後、体力が急速に減っていく状態で一時的に復活する。攻撃速度が飛躍的に上昇して通常攻撃で体力を回復するようになり、対象の最大体力に応じた追加ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "破滅の斧",
+   "description": "<charge>チャージ開始</charge>: 斧を振り上げ、最大2秒間チャージする。<br><br><release>解放</release>: 斧を振り下ろして短時間の<status>スロウ効果</status>を付与し、チャージ時間に応じて<physicalDamage>30/45/60/75/90（＋合計攻撃力の40/50/60/70/80%） - 90/155/220/285/350（＋合計攻撃力の120/150/180/210/240%）の物理ダメージ</physicalDamage>を与える。1秒以上チャージしていた場合は敵を<status>ノックアップ</status>させ、チャージ時間に応じて1.25 - 2.25秒間の<status>スタン効果</status>を付与する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "45",
+   "range": "10000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "魂の炉心",
+   "description": "<spellPassive>自動効果</spellPassive>: ユニットをキルすると<scaleHealth>最大体力が4</scaleHealth>増加する。チャンピオンからキルまたはアシストを奪うか、大型ミニオンか大型モンスターをキルすると<scaleHealth>15</scaleHealth>増加する。<br><br><spellActive>発動効果</spellActive>: 6秒間、耐久値<shield>60/75/90/105/120（＋魔力の40% ＋合計体力の8/10/12/14/16%）のシールド</shield>を獲得する。3秒後にシールドが残っている場合、<recast>再発動</recast>でシールドを爆発させ、<magicDamage>40/65/90/115/140（＋魔力の40%）に加えて最大体力の14%の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "65/70/75/80/85",
+   "range": "500",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "殺意の雄叫び",
+   "description": "衝撃波を放って<magicDamage>65/100/135/170/205（＋魔力の55%）の魔法ダメージ</magicDamage>を与え、2.5秒間40/45/50/55/60%の<status>スロウ効果</status>を付与し、4秒間<scaleArmor>物理防御を25%</scaleArmor>低下させる。チャンピオン以外に当たると<status>ノックバック</status>させる。<status>ノックバック</status>させたユニットが当たった敵にも、同じダメージと効果を与える。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "35/40/45/50/55",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "猪突猛進",
+   "description": "指定方向に8秒間アンストッパブル状態で突進し、マウスカーソルで方向を操作できる。敵チャンピオンか壁に衝突する、または<recast>再発動</recast>すると停止する。<br><br>停止すると、移動距離に応じて<physicalDamage>150/300/450（＋増加攻撃力の60%） - 400/800/1200（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える。近くにいる敵は、移動距離に応じて0.75 - 1.75秒間<status>スタン</status>し、範囲内の敵は3秒間40/45/50%の<status>スロウ効果</status>を受ける。",
+   "cooldown": "140/100/60",
+   "cost": "100",
+   "range": "7500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

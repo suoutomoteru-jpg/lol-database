@@ -1,0 +1,51 @@
+{
+ "alias": "Mordekaiser",
+ "id": 82,
+ "name": "モルデカイザー",
+ "title": "鋼の魂奪者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "無窮の闇",
+   "description": "チャンピオンまたはモンスターに通常攻撃かスキルを3回命中させると、ダメージを与える強力なオーラを発生させ、移動速度が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "滅魂の一撃",
+   "description": "ナイトフォールを地面に叩きつけ、<magicDamage>80/115/150/185/220（＋0〜（レベルに応じて変化） ＋増加攻撃力の120% ＋魔力の70%）の魔法ダメージ</magicDamage>を与える。命中した敵が1体のみだった場合はダメージが<magicDamage>104/155.25/210/268.25/330（＋0〜（レベルに応じて変化） ＋増加攻撃力の120% ＋魔力の70%）</magicDamage>に上昇する。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "",
+   "range": "675",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "不滅の鎧",
+   "description": "<passive>自動効果:</passive> 与えたダメージの45%と受けたダメージの7.5%を蓄える。<br><br><active>発動効果:</active> 蓄えたダメージを<shield>シールド</shield>として獲得する。<recast>再発動</recast>すると<healing>残ったシールド量の35/37.5/40/42.5/45%を体力</healing>として回復する。<br><br>最小シールド量: <shield>合計体力の5%</shield><br>最大シールド量: <shield>合計体力の30%</shield>",
+   "cooldown": "12/11/10/9/8",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "死の呪縛",
+   "description": "<spellActive>発動効果:</spellActive> 敵を自身の方向に引き寄せ、<magicDamage>60/75/90/105/120（＋魔力の40%）の魔法ダメージを与える。</magicDamage>",
+   "cooldown": "18/16/14/12/10",
+   "cost": "",
+   "range": "700",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "死の国",
+   "description": "チャンピオン1体を7秒間冥界へと引きずりこみ、その間、敵のコアステータスの10%を奪い取る。<br><br>冥界の中で敵を倒した場合は相手の魂を吸収し、その対象が復活するまで奪ったステータスが維持される。",
+   "cooldown": "140/120/100",
+   "cost": "",
+   "range": "650",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

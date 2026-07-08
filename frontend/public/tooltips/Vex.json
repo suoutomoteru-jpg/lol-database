@@ -1,0 +1,51 @@
+{
+ "alias": "Vex",
+ "id": 711,
+ "name": "ヴェックス",
+ "title": "終わりなき憂鬱",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "フコウとユーウツ",
+   "description": "一定時間ごとに強化され、次の通常スキルが敵にフィアー効果を与えてダッシュを阻止する。周囲の敵がダッシュするたびにマークを付与する。マークを消費すると追加ダメージを与え、強化効果のクールダウンも短縮される。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "無気力ショット",
+   "description": "霧の波動を発射して、<magicDamage>70/115/160/205/250（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。波動は発射から少しすると、サイズが小さくなって加速する。<br><br>命中した敵の<keywordMajor>「ユーウツ」</keywordMajor>を消費する。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "45/50/55/60/65",
+   "range": "1200",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "パーソナルスペース",
+   "description": "2.5秒間<shield>耐久値50/75/100/125/150（＋魔力の75%）のシールド</shield>を獲得し、<magicDamage>80/120/160/200/240（＋魔力の30%）の魔法ダメージ</magicDamage>を与える衝撃波を放つ。<br><br>命中した敵の<keywordMajor>「ユーウツ」</keywordMajor>を消費する。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "75",
+   "range": "475",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヤミとばし",
+   "description": "移動中にサイズが増加するシャドウを指定地点に向かわせる。指定地点に到着すると<magicDamage>50/70/90/110/130（＋魔力の40/45/50/55/60%）の魔法ダメージ</magicDamage>を与え、2秒間30/35/40/45/50%の<status>スロウ効果</status>を付与する。<br><br>このスキルで敵をキルすると<keywordMajor>「フコウとユーウツ」</keywordMajor>のクールダウンが10%短縮される。<br><br>命中した敵に<keywordMajor>「ユーウツ」</keywordMajor>を付与する。",
+   "cooldown": "13",
+   "cost": "70/80/90/100/110",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "影法師",
+   "description": "シャドウが興奮して突撃し、<magicDamage>@spell.VexR:RDamageCalc@の魔法ダメージ</magicDamage>を与えて、最初に命中した敵チャンピオンを4秒間マークする。<br><br><recast>再発動</recast>: マークしたチャンピオンまでダッシュして、到着時に<magicDamage>@spell.VexR:RecastDamageCalc@の魔法ダメージ</magicDamage>を与える。<br><br>このスキルでダメージを受けてから、@spell.VexR:TakedownWindow@秒以内にマークしたチャンピオンがデスすると、一時的にクールダウンがリセットされる。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "2000/2500/3000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

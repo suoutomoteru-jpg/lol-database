@@ -1,0 +1,53 @@
+{
+ "alias": "Caitlyn",
+ "id": 51,
+ "name": "ケイトリン",
+ "title": "ピルトーヴァーの保安官",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヘッドショット",
+   "description": "通常攻撃数回ごと、または自身のトラップやネットにかけた対象に、クリティカル率によってダメージが増加する「ヘッドショット」を発射できる。トラップまたはネットにかけた対象に対しては「ヘッドショット」の射程が2倍になる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ピースメーカー",
+   "description": "ライフルをチャージして貫通弾を発射し、<physicalDamage>50/90/130/170/210（＋合計攻撃力の125/145/165/185/205%）の物理ダメージ</physicalDamage>を与える。貫通弾は最初の対象に命中した後に幅が広がり、<physicalDamage>30/54/78/102/126（＋合計攻撃力の125/145/165/185/205%）の物理ダメージ</physicalDamage>を与える。<br><br><spellName>「ヨードルトラップ」</spellName>で可視化された対象へのダメージは減少しない。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "55/60/65/70/75",
+   "range": "1250",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ヨードルトラップ",
+   "description": "トラップを設置する。トラップは最初にそれを踏んだチャンピオンに1.5秒間の<status>スネア効果</status>を与え、3秒間対象の<keywordStealth>真の視界</keywordStealth>を得る。トラップは30/35/40/45/50秒間持続し、最大で3/3/4/4/5個まで設置できる。このスキルは3/3/4/4/5個までチャージ可能(秒でリチャージ)。<br><br>このスキルでスネア効果を受けた対象は<keywordMajor>「ヘッドショット」</keywordMajor>から追加で<physicalDamage>35/80/125/170/215（＋増加攻撃力の30%）の物理ダメージ</physicalDamage>を受ける。",
+   "cooldown": "0.5",
+   "cost": "20",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": [
+    "AmmoRechargeTime"
+   ]
+  },
+  "e": {
+   "name": "L-90 カリバーネット",
+   "description": "ネットを発射し、反動で自身が反対方向に素早く移動する。ネットは最初に命中した対象に1秒間50%の<status>スロウ効果</status>を付与し、<magicDamage>80/130/180/230/280（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "75",
+   "range": "750",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ブルズアイ",
+   "description": "一定時間かけて狙いを定め、狙撃して<physicalDamage>300/475/650（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。別の敵チャンピオンが射線を塞いだ場合、弾丸はそのチャンピオンに命中する。詠唱中は対象の<keywordStealth>真の視界</keywordStealth>を得る。<br><br><rules>ダメージはクリティカル率とクリティカルダメージに応じて増加する。</rules>",
+   "cooldown": "90",
+   "cost": "100",
+   "range": "3500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

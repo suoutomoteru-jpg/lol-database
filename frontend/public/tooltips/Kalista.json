@@ -1,0 +1,51 @@
+{
+ "alias": "Kalista",
+ "id": 429,
+ "name": "カリスタ",
+ "title": "復讐の槍",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "戦の所作",
+   "description": "通常攻撃または「貫魂の一投」の準備アクション中に移動指示を出すと、攻撃時にその方向へ跳躍して移動する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "貫魂の一投",
+   "description": "槍を投げて最初に命中した敵に<physicalDamage>10/75/140/205/270（＋合計攻撃力の105%）の物理ダメージ</physicalDamage>を与える。これで対象をキルすると槍は飛び続け、<spellName>「引き裂く遺恨」</spellName>のスタックが次に命中した対象に持ち越される。<br><br>このスキルを使用後、<spellName>「戦の所作」</spellName>を使ってダッシュできる。",
+   "cooldown": "9",
+   "cost": "60/65/70/75/80",
+   "range": "1150",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "執念の霊魂",
+   "description": "<spellPassive>自動効果: </spellPassive>自身と<keywordMajor>「魂盟の同志」</keywordMajor>が同じ対象に通常攻撃すると、対象の最大体力の<magicDamage>10/12/14/16/18%にあたる魔法ダメージ</magicDamage>を与える。この効果は、対象ごとに10秒のクールダウンがあり、チャンピオン以外には100/125/150/175/200の上限がある。<br><br><spellPassive>発動効果: </spellPassive>霊魂を飛ばしてエリアを偵察させる。この際、霊魂はエリア内を3往復する。霊魂が発見したチャンピオンは4秒間可視状態になる。このスキルは2回までチャージできる(90/80/70/60/50秒でリチャージ)。",
+   "cooldown": "30",
+   "cost": "",
+   "range": "5000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "引き裂く遺恨",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が命中した敵に4秒間槍の幻影が残る。槍は何回でもスタックする。<br><br><spellActive>発動効果:</spellActive> 範囲内の敵に刺さった槍が炸裂し、<physicalDamage>5/15/25/35/45（＋合計攻撃力の70% ＋魔力の65%）</physicalDamage> + 2本目以降の槍1本につき<physicalDamage>7/14/21/28/35（＋合計攻撃力の20/27.5/35/42.5/50% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。また、命中した敵に2秒間、<attention>0.1/0.18/0.26/0.34/0.42（＋魔力の0.05%）</attention>の<status>スロウ効果</status>を付与する。<br><br>このスキルで敵を倒すと、このスキルのクールダウンが解消され、<scaleMana>10/15/20/25/30マナ</scaleMana>が還元される。",
+   "cooldown": "0",
+   "cost": "30",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "宿命の呼び声",
+   "description": "最大4秒間、<keywordMajor>「魂盟の同志」</keywordMajor>を固有時停止状態にして自分の元に引き寄せる。<keywordMajor>「魂盟の同志」</keywordMajor>はクリックすることで飛び出すことができる。このとき、最初にチャンピオンと衝突した時点で停止し、周囲のすべての敵を<status>ノックバック</status>させる。<keywordMajor>「魂盟の同志」</keywordMajor>はチャンピオンに命中すると、その対象から通常攻撃の最大射程分離れた位置に着地する。",
+   "cooldown": "160/140/120",
+   "cost": "100",
+   "range": "1000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

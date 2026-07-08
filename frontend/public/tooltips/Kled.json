@@ -1,0 +1,51 @@
+{
+ "alias": "Kled",
+ "id": 240,
+ "name": "クレッド",
+ "title": "狂乱の騎兵",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "弱虫トカゲ「スカール」",
+   "description": "クレッドが彼の信頼する愛馬、スカールに騎乗している時は、クレッドの代わりにスカールがダメージを受けてくれる。スカールの体力がなくなるとクレッドはスカールから降ろされる。<br><br>非騎乗時はクレッドのスキルが変化して敵チャンピオンに与えるダメージが減少する。クレッドは敵と交戦することでスカールの「勇気」を回復できる。「勇気」が最大になると、クレッドは再び騎乗してスカールの体力を獲得する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "トラバサミロープ",
+   "description": "<keywordMajor>騎乗時: </keywordMajor>トラバサミを投げて<physicalDamage>30/55/80/105/130（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与え、最初に当たった敵チャンピオンか大型ジャングルモンスターにトラバサミを引っ掛ける。<br><br>トラバサミを引っ掛けた敵の側に1.75秒間留まると、自分のいる方向に敵を引っ張り<physicalDamage>60/110/160/210/260（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて<status>引き寄せ</status>、2.5秒間@SlowAmount*-100@%の<status>スロウ効果</status>を与える。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "狂暴の宴",
+   "description": "<spellPassive>自動効果:</spellPassive> 次の通常攻撃で<attackSpeed>攻撃速度が150%</attackSpeed>増加する。この効果は通常攻撃を4回行うか、4秒経過すると終了する。<br><br>4回目の通常攻撃は<physicalDamage>20/30/40/50/60+最大体力の0.045/0.05/0.055/0.06/0.065（＋増加攻撃力の2% ＋増加体力の0.4%）の物理ダメージ</physicalDamage>を追加で与える。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ジャウスト",
+   "description": "ダッシュして、接触した敵に<physicalDamage>35/60/85/110/135（＋増加攻撃力の55%）の物理ダメージ</physicalDamage>を与え、ミニオンと小型モンスターを自身の方向に引き寄せる。<br><br>このスキルが敵チャンピオンか大型ジャングルモンスターに当たると、1秒間<speed>移動速度が50%</speed>増加する。また、3秒以内に<recast>再発動</recast>すると、ダッシュで同じ対象を通り過ぎて戻る。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "",
+   "range": "550",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "チャァァァァァァァジ！！！",
+   "description": "指定した範囲に突撃して、通過した場所に味方の<speed>移動速度</speed>を増加させる軌跡を残す。突撃中および突撃後2秒間は最大で<shield>耐久値200/300/400（＋増加攻撃力の300%）のシールド</shield>を獲得する。スカールは最初に遭遇した敵チャンピオンに体当たりし、<magicDamage>最大体力の0.04/0.06/0.08（＋増加攻撃力の3%）</magicDamage> - <magicDamage>0.12/0.18/0.24（＋増加攻撃力の3%）の魔法ダメージ</magicDamage>(移動距離の長さに応じて)を与え、わずかに<status>ノックバック</status>する。",
+   "cooldown": "140/125/110",
+   "cost": "",
+   "range": "3500/4000/4500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

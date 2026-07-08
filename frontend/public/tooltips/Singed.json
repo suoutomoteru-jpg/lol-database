@@ -1,0 +1,51 @@
+{
+ "alias": "Singed",
+ "id": 27,
+ "name": "シンジド",
+ "title": "マッドケミスト",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "スリップストリーム",
+   "description": "周囲のチャンピオンを利用して空気抵抗を減らし、通り過ぎる際に一時的に移動速度が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "毒の軌跡",
+   "description": "<toggle>発動中:</toggle> 自分が通った後に毒ガスをまき散らし、接触した敵に毎秒<magicDamage>20/30/40/50/60（＋魔力の42.5%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "0",
+   "cost": "13",
+   "range": "20",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "強力粘着剤",
+   "description": "粘着剤の入った容器を投げ、3秒間、範囲内の敵に<status>釘付け効果</status>と50/55/60/65/70%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "17/16/15/14/13",
+   "cost": "60/70/80/90/100",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "すくい投げ",
+   "description": "シンジドが敵を背後に放り投げ、<magicDamage>50/60/70/80/90（＋魔力の55%）に最大体力の6/6.5/7/7.5/8%を加えた魔法ダメージ</magicDamage>与える。<br><br>このスキルで敵を<spellName>強力粘着剤</spellName>の中に投げ込むと、対象は1/1.25/1.5/1.75/2秒間<status>スネア状態</status>になる。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "60/70/80/90/100",
+   "range": "125",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "狂人のポーション",
+   "description": "強力な調合薬を飲み、<scaleAP>魔力</scaleAP>、<scaleArmor>物理防御</scaleArmor>、<scaleMR>魔法防御</scaleMR>、<speed>移動速度</speed>、<healing>体力自動回復</healing>、<scaleMana>マナ自動回復</scaleMana>が25秒間、25/55/85増加する。この効果時間中は<spellName>「毒の軌跡」</spellName>が、1秒間40%の「重傷」を付与する。",
+   "cooldown": "100",
+   "cost": "100",
+   "range": "20",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,51 @@
+{
+ "alias": "Kassadin",
+ "id": 38,
+ "name": "カサディン",
+ "title": "ヴォイドを歩む者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヴォイドストーン",
+   "description": "受ける魔法ダメージが減少し、ユニットをすり抜けられるようになる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヴォイドスフィア",
+   "description": "ヴォイドエネルギーの球体を発射して<magicDamage>65/95/125/155/185（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、詠唱を妨害する。また1.5秒間、<shield>80/110/140/170/200（＋魔力の30%）の魔法ダメージを防ぐシールド</shield>を獲得する。",
+   "cooldown": "9/8.5/8/7.5/7",
+   "cost": "60/65/70/75/80",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ネザーブレード",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が<magicDamage>25（＋魔力の10%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果: </spellActive>ブレードをチャージし、次の通常攻撃が<magicDamage>50/75/100/125/150（＋魔力の80%）の魔法ダメージ</magicDamage>を追加で与え、<scaleMana>減少マナの4/4.5/5/5.5/6%</scaleMana>を回復する(対象がチャンピオンの場合は回復量が<scaleMana>20/22.5/25/27.5/30%</scaleMana>に増加)。",
+   "cooldown": "7",
+   "cost": "1",
+   "range": "1",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヴォイドパルス",
+   "description": "<spellPassive>自動効果:</spellPassive> 自身の周囲でスキルが使用されるたびに、<spellName>「ヴォイドパルス」</spellName>のクールダウンが0.75秒短縮される。<br><br><spellActive>発動効果:</spellActive> ヴォイドの波動を解き放ち、<magicDamage>70/100/130/160/190（＋魔力の70%）の魔法ダメージ</magicDamage>を与えて、1秒間50/55/60/65/70%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "21/20/19/18/17",
+   "cost": "60/65/70/75/80",
+   "range": "400",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "リフトウォーク",
+   "description": "近くの地点に瞬間移動し、<magicDamage>70/90/110（＋魔力の50% ＋最大マナの2%）の魔法ダメージ</magicDamage>を与える。<br><br>続けて15秒以内にこのスキルを使用すると、マナコストが倍になるが、<magicDamage>35/45/55（＋魔力の7% ＋最大マナの1%）の魔法ダメージ</magicDamage>を追加で与える。コストとダメージの増加は最大4回までスタックする。",
+   "cooldown": "5/3.5/2",
+   "cost": "40",
+   "range": "500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

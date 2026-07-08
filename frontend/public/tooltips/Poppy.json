@@ -1,0 +1,51 @@
+{
+ "alias": "Poppy",
+ "id": 78,
+ "name": "ポッピー",
+ "title": "大鎚の守護者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "鋼鉄の大使",
+   "description": "対象にバックラーを投げつける。対象に命中し跳ね返って落ちたバックラーを拾うことで、一時的にシールドを得る。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ハンマーショック",
+   "description": "ハンマーを打ち下ろして<physicalDamage>30/55/80/105/130（＋増加攻撃力の100%）</physicalDamage><physicalDamage>に最大体力の9%を加えた物理ダメージ</physicalDamage>を与え、足場が不安定なエリアを作り出す。<br><br>不安定なエリアは敵に20/25/30/35/40%の<status>スロウ効果</status>を与える。このエリアは1秒後に爆発して、再度<physicalDamage>30/55/80/105/130（＋増加攻撃力の100%）</physicalDamage><physicalDamage>に最大体力の9%を加えた物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "35/40/45/50/55",
+   "range": "430",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ステッドファスト",
+   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>合計物理防御の12%の物理防御</scaleArmor>と<scaleMR>合計移動速度の12%の魔法防御</scaleMR>を獲得する。体力が40%未満の場合、このボーナスは2倍になる。<br><br><spellActive>発動効果:</spellActive> <speed>移動速度が40%</speed>増加し、2秒間、自分の周囲に敵のダッシュを止めるゾーンを作り出す。このゾーンで止めた敵に<magicDamage>70/110/150/190/230（＋魔力の70%）の魔法ダメージ</magicDamage>を与えて<status>釘付け</status>にし、2秒間、@SlowAmount*-100@%の<status>スロウ効果</status>を与える。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "50",
+   "range": "400",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヒロイックチャージ",
+   "description": "敵に向かって突撃し、<physicalDamage>40/60/80/100/120（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて突き飛ばす。地形にぶつけた場合、敵を1.6/1.7/1.8/1.9/2秒間<status>スタン</status>させて、<physicalDamage>40/60/80/100/120（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を追加で与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "70",
+   "range": "475",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "守護者の鉄鎚",
+   "description": "<charge>詠唱開始:</charge> 最大4秒間ハンマーに力をチャージし、自身が15%の<status>スロウ効果</status>を受ける。<br><br><release>解放:</release> ハンマーを地面に叩きつけて衝撃波を発生させ、最初に命中したチャンピオンとその周囲の敵に<physicalDamage>200/300/400（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与え、敵のネクサスの方向に<status>ノック</status><status>バック</status>させる。敵は飛ばされている間、対象指定不可になる。<status>ノックバック</status>させる距離はチャージ時間に応じて増加する。<br><br>チャージせずに攻撃した場合は、<physicalDamage>100/150/200（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与えて、1秒間<status>ノックアップ</status>させる。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

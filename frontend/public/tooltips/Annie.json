@@ -1,0 +1,51 @@
+{
+ "alias": "Annie",
+ "id": 1,
+ "name": "アニー",
+ "title": "闇の申し子",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "火遊びだいすき",
+   "description": "スキルを4回使用すると、次に行う攻撃スキルが対象をスタンさせる。<br><br>試合開始時および復活時は「火遊びだいすき」が使用可能な状態でスタートする。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ファイアボール",
+   "description": "火の玉を放って<magicDamage>80/125/170/215/260（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。対象をキルすると、消費したマナコストが回復して、クールダウンが50%短縮される。",
+   "cooldown": "4",
+   "cost": "60/65/70/75/80",
+   "range": "625",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "バーニングファイア",
+   "description": "炎を放射して<magicDamage>70/110/150/190/230（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "7",
+   "cost": "70/75/80/85/90",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "モルテンシールド",
+   "description": "味方チャンピオン1体に3秒間<shield>耐久値60/95/130/165/200（＋魔力の40%）のシールド</shield>を付与し、1.5秒間<speed>移動速度を0.2〜0.5（レベル比例）</speed>増加させる。増加した移動速度は徐々に元に戻る。シールドを受けた味方は、シールドが持続している間に敵から通常攻撃またはスキルで攻撃されると、その敵に<magicDamage>25/35/45/55/65（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。このダメージは1回のシールドにつき1度だけ発生する。<br><br>ティバーズは召喚時に必ず<spellName>「モルテンシールド」</spellName>の効果を獲得する。",
+   "cooldown": "",
+   "cost": "60/65/70/75/80",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "やっちゃえ！ティバーズ！",
+   "description": "<spellPassive>自動効果:</spellPassive> 10/15/20%の魔法防御貫通を獲得する。<br><br>クマのティバーズを召喚し、<magicDamage>150/275/400（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。その後45秒間、ティバーズは周囲の敵を燃やして毎秒<magicDamage>8/12/16（＋魔力の4%）の魔法ダメージ</magicDamage>を与える。<br><br>ティバーズは召喚された時、アニーが敵チャンピオンをスタンさせた時、およびアニーが倒された時に激怒する。ティバーズは激怒すると、<attackSpeed>攻撃速度が275%</attackSpeed>、<speed>移動速度が100%</speed>増加する。この移動速度は3秒かけて元に戻る。<br><br><recast>再発動:</recast> ティバーズにマニュアルで指示を出す。",
+   "cooldown": "130/115/100",
+   "cost": "100",
+   "range": "600",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

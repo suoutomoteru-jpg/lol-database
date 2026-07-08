@@ -1,0 +1,51 @@
+{
+ "alias": "Taric",
+ "id": 44,
+ "name": "タリック",
+ "title": "ヴァロランの守護者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ブラバド",
+   "description": "スキル使用後の通常攻撃2回が素早くなり、追加魔法ダメージを付与する。さらに通常スキルのクールダウンを短縮する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "スターライトタッチ",
+   "description": "<spellPassive>自動効果:</spellPassive> 15秒ごと、および<spellName>「ブラバド」</spellName>の通常攻撃が命中すると、スタックを1つ獲得する(最大1/2/3/4/5スタック)。<br><br><spellActive>発動効果:</spellActive> 全スタックを消費して、1スタックにつき周囲の味方チャンピオンの<healing>体力を25（＋魔力の15% ＋合計体力の1%）</healing>回復する(1/2/3/4/5スタックで<healing>25/50/75/100/125（＋魔力の15% ＋合計体力の1%）</healing>)。",
+   "cooldown": "3",
+   "cost": "60",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "バスティオン",
+   "description": "<spellPassive>自動効果: </spellPassive><scaleArmor>合計物理防御の6/7/8/9/10%の物理防御</scaleArmor>を獲得し、自身と味方の間にこのスキルによる繋がりを形成する。お互いが近くにいる間、味方は<scaleArmor>合計物理防御の6/7/8/9/10%の物理防御</scaleArmor>を獲得し、タリックが使用した全スキルが繋がった味方からも発動される。<br><br><spellPassive>発動効果: </spellPassive>味方チャンピオンと繋がり、2.5秒間<shield>自身の最大体力の7/8/9/10/11%にあたるシールド</shield>を付与する。",
+   "cooldown": "15",
+   "cost": "60",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ダズル",
+   "description": "星のビームを放ち、1秒後に爆発させて<magicDamage>90/130/170/210/250（＋魔力の50% ＋増加物理防御の50%）の魔法ダメージ</magicDamage>を与え、敵を1.5秒間<status>スタン</status>させる。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "40",
+   "range": "610",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "コズミックレディアンス",
+   "description": "天空の加護を呼び寄せる。2.5秒後、周囲の味方チャンピオンが2.5秒間、無敵状態になる。",
+   "cooldown": "180/150/120",
+   "cost": "100",
+   "range": "400",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,51 @@
+{
+ "alias": "Irelia",
+ "id": 39,
+ "name": "イレリア",
+ "title": "飛刃の舞い手",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "アイオニアの熱情",
+   "description": "敵にスキルを当てるとスタックを獲得する。スタック数に応じて増加攻撃速度を獲得し、最大スタックになると通常攻撃時に追加ダメージを付与する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "瞬刃",
+   "description": "敵に向かってダッシュして<physicalDamage>5/25/45/65/85（＋合計攻撃力の70%）の物理ダメージ</physicalDamage>を与え、<healing>体力を合計攻撃力の9/10/11/12/13%</healing>回復する。このスキルで敵をキルするか、対象が<keywordMajor>不安定</keywordMajor>だった場合、クールダウンが解消される。<br><br>ミニオンには5/25/45/65/85（＋50〜（レベルに応じて変化） ＋合計攻撃力の70%）のダメージを与える。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "15",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "不屈の舞",
+   "description": "<charge>チャージ開始:</charge> 最大1.5秒間の防御態勢を取り、行動ができなくなる代わりに受ける物理ダメージを40〜70（レベル比例） ＋ 魔力の7%%、魔法ダメージを40〜70（レベル比例） ＋ 魔力の7%%減少させる。<br><br><release>解放:</release> 刃での強烈な攻撃を放ち、<physicalDamage>10/20/30/40/50（＋合計攻撃力の40% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。このダメージはチャージ時間に応じて最大<physicalDamage>30/60/90/120/150（＋合計攻撃力の120% ＋魔力の150%）</physicalDamage>まで上昇する。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "70/75/80/85/90",
+   "range": "825",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "無欠の連舞",
+   "description": "刃を飛ばして地面に打ち込む。最大3.5秒間はこのスキルを<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> 2枚目の刃を飛ばし、その後2枚の刃が互いの方向に向かって飛ぶ。刃は0.75秒間対象を<status>スタン</status>させ、<magicDamage>70/110/150/190/230（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。チャンピオンと大型ジャングルモンスターは5秒間<keywordMajor>不安定</keywordMajor>になる。",
+   "cooldown": "16/14.5/13/11.5/10",
+   "cost": "50",
+   "range": "850",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "先陣の刃",
+   "description": "大量の刃を飛ばして<magicDamage>125/200/275（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、チャンピオンと大型ジャングルモンスターを5秒間<keywordMajor>不安定</keywordMajor>にする。刃は爆発して最初に命中したチャンピオンの周囲に2.5秒間檻を形成する。檻は<magicDamage>125/200/275（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間90%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "125/105/85",
+   "cost": "100",
+   "range": "950",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

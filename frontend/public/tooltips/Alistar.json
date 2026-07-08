@@ -1,0 +1,51 @@
+{
+ "alias": "Alistar",
+ "id": 12,
+ "name": "アリスター",
+ "title": "ミノタウロスの戦士",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "戦士の咆哮",
+   "description": "敵チャンピオンをスタンさせるか弾き飛ばした時、または周囲で敵ユニットが倒されると「咆哮」をチャージする。最大までチャージされると自身および近くにいるすべての味方チャンピオンの体力を回復する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "圧砕",
+   "description": "地面を叩きつけ、敵を1秒間<status>ノックアップ</status>させ、<magicDamage>60/100/140/180/220（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50/55/60/65/70",
+   "range": "365",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "頭突き",
+   "description": "敵に頭突きして<status>ノック</status><status>バック</status>させ、<magicDamage>55/110/165/220/275（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50/55/60/65/70",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "踏破",
+   "description": "地面を踏み鳴らしゴースト状態になって、5秒かけて周囲の敵に<magicDamage>80/110/140/170/200（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。衝撃波がチャンピオンにダメージを与えるたびにスタックを獲得する。<br><br>5スタック到達時、次のチャンピオンに対する通常攻撃は1秒間<status>スタン</status>させ、追加で<magicDamage>20〜（レベルに応じて変化）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "50/55/60/65/70",
+   "range": "350",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "不屈の意志",
+   "description": "あらゆる<status>行動妨害効果</status>を直ちに除去し、7秒間受けるダメージを55/65/75%軽減する。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "1",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

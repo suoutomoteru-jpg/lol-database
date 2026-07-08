@@ -1,0 +1,51 @@
+{
+ "alias": "Ryze",
+ "id": 13,
+ "name": "ライズ",
+ "title": "ルーンの魔導師",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "古代の呪術",
+   "description": "<mainText>ライズのスキルは増加したマナに応じて追加ダメージを与え、魔力に応じて最大マナが一定割合増加する。</mainText>",
+   "unresolved": []
+  },
+  "q": {
+   "name": "オーバーロード",
+   "description": "<spellPassive>自動効果:</spellPassive> <spellName>「ルーンプリズン」</spellName>と<spellName>「スペルフラックス」</spellName>はこのスキルのクールダウンを解消すると同時に、「ルーン」を4秒間チャージする(最大2ルーンまで)。<br><br><spellActive>発動効果:</spellActive> エネルギー弾を放ち、最初に命中した敵に<magicDamage>75/95/115/135/155（＋魔力の55% ＋最大マナの2%）の魔法ダメージ</magicDamage>を与える。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されていた場合、それを消費してこのスキルのダメージを@Spell.RyzeR:OverloadDamageBonus@%増加させ、周囲の敵に<keywordMajor>「フラックス」</keywordMajor>を波及させる。<br><br>2ルーンがチャージされていた場合、全ルーンを放出して2秒間、<speed>移動速度が28/32/36/40/44%</speed>増加する。<br>",
+   "cooldown": "5",
+   "cost": "40/38/36/34/32",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ルーンプリズン",
+   "description": "<magicDamage>60/90/120/150/180（＋魔力の60% ＋最大マナの3%）の魔法ダメージ</magicDamage>を与え、1.5秒間50%の<status>スロウ効果</status>を付与する。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されている場合は、それを消費して、<status>スロウ効果</status>の代わりに<status>スネア効果</status>を付与する。",
+   "cooldown": "11/10.5/10/9.5/9",
+   "cost": "50/60/70/80/90",
+   "range": "615",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "スペルフラックス",
+   "description": "オーブを発射して<magicDamage>60/90/120/150/180（＋魔力の50% ＋最大マナの2%）の魔法ダメージ</magicDamage>を与え、対象と周囲の敵に4秒間<keywordMajor>「フラックス」</keywordMajor>を付与する。敵がすでに<keywordMajor>「フラックス」</keywordMajor>を受けていた場合は<keywordMajor>「フラックス」</keywordMajor>がさらに拡散する。",
+   "cooldown": "3.5/3.25/3/2.75/2.5",
+   "cost": "35/45/55/65/75",
+   "range": "615",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ポータルワープ",
+   "description": "<spellPassive>自動効果:</spellPassive> <keywordMajor>「フラックス」</keywordMajor>が付与された対象に対する<spellName>「オーバーロード」</spellName>の追加ダメージが50/75/100%に増加する。<br><br><spellActive>発動効果:</spellActive> 離れた場所にポータルを作り出す。2秒後、ポータルの近くにいるすべての味方が、その場所までテレポートする。",
+   "cooldown": "180/160/140",
+   "cost": "100",
+   "range": "3000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

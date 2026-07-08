@@ -1,0 +1,51 @@
+{
+ "alias": "Akali",
+ "id": 84,
+ "name": "アカリ",
+ "title": "主なき暗殺者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "刺客の刻印",
+   "description": "チャンピオンにスキルでダメージを与えると対象の周囲に気の輪が形成される。輪の外に出るとアカリの次の通常攻撃の射程とダメージが増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "五連苦無",
+   "description": "クナイを扇状に投げて<magicDamage>45/70/95/120/145（＋合計攻撃力の65% ＋魔力の60%）の魔法ダメージ</magicDamage>を与え、先端にいた敵に0.5秒間50%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "1.5",
+   "cost": "110/100/90/80/70",
+   "range": "550",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "黄昏の帳",
+   "description": "煙玉を投げて姿を隠すための煙幕を張る。煙幕は徐々に広がって5/5.5/6/6.5/7秒間持続し、自身の<speed>移動速度を30/35/40/45/50%</speed>増加させる(2秒かけて元に戻る)。<br><br>煙幕が有効な間は最大気が100増加する。<br><br>自身は煙幕の中にいる間<keywordStealth>インビジブル</keywordStealth>状態になる。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "",
+   "range": "350",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "翻身手裏剣",
+   "description": "後方に宙返りしながら手裏剣を投げ、<magicDamage>21/42/63/84/105（＋合計攻撃力の100% ＋魔力の110%）の魔法ダメージ</magicDamage>を与え、最初に当たった敵または煙幕をマークする。<recast>再発動</recast>するとマークされた対象までダッシュして<magicDamage>49/98/147/196/245（＋合計攻撃力の100% ＋魔力の110%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "16/14.5/13/11.5/10",
+   "cost": "30",
+   "range": "825",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "完遂",
+   "description": "敵チャンピオンを飛び越え、その間に触れたすべての敵に<magicDamage>110/220/330（＋増加攻撃力の50% ＋魔力の30%）の魔法ダメージ</magicDamage>を与える。<br><br>2.5秒後に<recast>再発動</recast>でダッシュして敵を貫く攻撃が可能となり、減少体力に応じて<magicDamage>70/140/210（＋魔力の30%）</magicDamage> - <magicDamage>210/420/630（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "120/90/60",
+   "cost": "",
+   "range": "675",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

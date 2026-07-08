@@ -1,0 +1,51 @@
+{
+ "alias": "Skarner",
+ "id": 72,
+ "name": "スカーナー",
+ "title": "原始の守護者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "響振動",
+   "description": "スカーナーの通常攻撃、「砕けし大地」、「大地の怒り」、「インペイル」は、敵に「振動」を付与する。「振動」が最大スタックになると、その効果時間をかけて敵に最大体力に応じた魔法ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "砕けし大地/大地の怒り",
+   "description": "地面から巨大な岩を掘り起こし、次の3回の通常攻撃が強化されて<attackSpeed>攻撃速度が20/25/30/35/40%</attackSpeed>増加し、周囲の敵に<physicalDamage>10/20/30/40/50（＋増加攻撃力の90% ＋増加体力の3%）の物理ダメージ</physicalDamage>を与える。最後の通常攻撃は<physicalDamage>最大体力の11%の物理ダメージ</physicalDamage>を与え、影響を受けた敵に1秒間、40%の<status>スロウ効果</status>を与える。<br><br><recast>再発動:</recast> このスキルを早めに終了し、岩を投げて<physicalDamage>@spell.SkarnerQ:AbilityDamage@ + 最大体力の@spell.SkarnerQ:MaxHPPercent*100@%の物理ダメージ</physicalDamage>を与え、追加で最初に命中した敵および他の周囲の敵に@spell.SkarnerQ:SlowDuration@秒間、@spell.SkarnerQ:SlowPercent*100@%の<status>スロウ効果</status>を与える。",
+   "cooldown": "8/6.75/5.5/4.25/3",
+   "cost": "30",
+   "range": "400",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "激震の砦",
+   "description": "2.5秒間、<shield>耐久値合計体力の8%のシールド</shield>を獲得し、地震を発生させて、周囲の敵に<magicDamage>50/70/90/110/130（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、1秒間@SlowEffect*-100@%の<status>スロウ効果</status>を与える。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "60/65/70/75/80",
+   "range": "700",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "イシュタルの衝動",
+   "description": "前方に突撃し、選択した方向に向きを変え、地形を無視する。チャンピオンか大型モンスターにぶつかると、突撃終了まで対象を引きずっていく。<br><br>引きずった敵と一緒に壁に衝突し、敵に<physicalDamage>30/60/90/120/150（＋増加攻撃力の120% ＋合計体力の6%）の物理ダメージ</physicalDamage>を与えて1.1秒間<status>スタン</status>させる。<br><br>このスキルを<recast>再発動</recast>すると、突撃を早めに終了する。",
+   "cooldown": "22/21/20/19/18",
+   "cost": "50/55/60/65/70",
+   "range": "1700",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "インペイル",
+   "description": "尻尾で前方を貫き、最初に命中した3体のチャンピオンに<magicDamage>150/250/350（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、1.5秒間、<status>サプレッション効果</status>を付与する。この攻撃が命中したチャンピオンは、このスキルの効果時間中、スカーナーに引きずられる。<br><br>この攻撃が少なくとも1体のチャンピオンに命中すると、1.5秒間、自身の<speed>移動速度が40%</speed>増加する。<br><br><spellName>「砕けし大地」</spellName>が発動中は、先に<spellName>「大地の怒り」</spellName>を発動する。",
+   "cooldown": "120/105/90",
+   "cost": "100",
+   "range": "625",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

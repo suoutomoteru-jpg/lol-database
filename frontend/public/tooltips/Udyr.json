@@ -1,0 +1,54 @@
+{
+ "alias": "Udyr",
+ "id": 77,
+ "name": "ウディア",
+ "title": "精霊と歩む者",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "精霊の繋ぎ手",
+   "description": "4つの通常スキルで「型」を切り替え、スキルを再発動すると「型」がリフレッシュされて究極の効果を得る。さらに、スキル使用後、次の2回の通常攻撃の攻撃速度が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "野性の爪",
+   "description": "<spellActive>爪の型:</spellActive> 4秒間、<attackSpeed>攻撃速度が20/32/44/56/68%</attackSpeed>増加し、通常攻撃で<physicalDamage>6/12/18/24/30（＋増加攻撃力の20% ＋増加体力の1/1.2/1.4/1.6/1.8%）の物理ダメージ</physicalDamage> <OnHit>通常攻撃時効果</OnHit>を与える。さらに、この「型」で行う次の2回の通常攻撃が、追加で<physicalDamage>最大体力の0.03/0.04/0.05/0.06/0.07（＋増加攻撃力の0.035%）にあたる物理ダメージ</physicalDamage>を与え、射程距離が50増加する。<br><br><keywordMajor>覚醒:</keywordMajor> 増加<attackSpeed>攻撃速度</attackSpeed>が<attackSpeed></attackSpeed>に上昇し、最大体力に応じたダメージが<physicalDamage>0.03/0.04/0.05/0.06/0.07（＋0.02〜0.04（レベル比例） ＋増加攻撃力の0.05% ＋増加体力の0.001%）</physicalDamage>に増加する。さらに、次の2回の通常攻撃が6回電撃を放ち、孤立した対象に合計で<magicDamage>最大体力のにあたる魔法ダメージ</magicDamage>を与える(対象の周囲に他の敵がいる場合、電撃はそれらの敵に連鎖する)。<br>",
+   "cooldown": "6",
+   "cost": "20",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": [
+    "EmpoweredTotalAS",
+    "EmpoweredLightningBonusMax"
+   ]
+  },
+  "w": {
+   "name": "鉄の外皮",
+   "description": "<spellPassive>外套の型:</spellPassive> 4秒間、<shield>耐久値45/65/85/105/125（＋合計体力の2/2.3/2.6/2.9/3.2% ＋魔力の40% ＋増加攻撃力の50%）のシールド</shield>を獲得する。さらに、次の2回の通常攻撃が15/16/17/18/19%のライフスティールを得て、<healing>合計体力の1.2% ＋ 魔力の8%の体力</healing>を回復する。<br><br><keywordMajor>覚醒:</keywordMajor> <shield>耐久値45/65/85/105/125（＋20〜150（レベル比例） ＋魔力の65% ＋合計体力の8% ＋増加攻撃力の100%）のシールド</shield>を獲得し、4秒かけて<healing>体力を22.5/32.5/42.5/52.5/62.5（＋20〜150（レベル比例） ＋魔力の65% ＋合計体力の8% ＋増加攻撃力の100%）</healing>回復する。また、次の2回の通常攻撃が得るライフスティールが30/32/34/36/38%になり、<healing>合計体力の1.2% ＋ 魔力の8%の体力</healing>を回復する。<br>",
+   "cooldown": "6",
+   "cost": "40",
+   "range": "0",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "焔の猛進",
+   "description": "<spellActive>猛進の型:</spellActive> <speed>移動速度が0.25/0.31/0.37/0.43/0.49（＋増加攻撃力の0.05%）</speed>増加し、4秒かけて元に戻る。さらに、通常攻撃を行うと対象までダッシュし、0.75秒間<status>スタン</status>させる(対象ごとにクールダウン6/5.6/5.2/4.8/4.4秒)。<br><br><keywordMajor>覚醒:</keywordMajor> 1.5秒間、<status>移動不能効果</status>および<status>行動妨害効果</status>を無視し、追加で<speed>移動速度が0.3〜0.4（レベル比例） ＋ 増加攻撃力の0.1%</speed>増加する。",
+   "cooldown": "6",
+   "cost": "40",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "氷翼の嵐",
+   "description": "<spellActive>嵐の型:</spellActive> 4秒間、極寒の嵐に身を包み、周囲の敵に毎秒<magicDamage>20/36/52（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、15/18/21%の<status>スロウ効果</status>を付与する。さらに、この「型」で行う次の2回の通常攻撃が、嵐の範囲内にいる敵に<magicDamage>10〜40（レベル比例） ＋ 魔力の35%の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>覚醒:</keywordMajor> 嵐を解き放ち、自身が最後に通常攻撃を行った敵を追跡させる。嵐はその効果時間をかけて追加で<magicDamage>最大体力の0.08〜0.14（レベル比例） ＋ 魔力の0.035%にあたる魔法ダメージ</magicDamage>を与え、追加で5%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "6",
+   "cost": "40",
+   "range": "370",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 2
+}

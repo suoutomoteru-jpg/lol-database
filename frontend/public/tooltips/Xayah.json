@@ -1,0 +1,51 @@
+{
+ "alias": "Xayah",
+ "id": 498,
+ "name": "ザヤ",
+ "title": "反逆の刃",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "クリーンカット",
+   "description": "スキル使用後、次に行う数回の通常攻撃が軌道上のすべての敵にダメージを与え、<font color='#C200E1'>「羽根」</font>を落とすようになる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダブルダガー",
+   "description": "2枚の<keywordMajor>羽根</keywordMajor>の刃を投げてそれぞれ<physicalDamage>45/60/75/90/105（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、2枚の<keywordMajor>羽根</keywordMajor>を落とす。最初に当たった敵ユニット以外に対して、刃は1枚あたり<physicalDamage>22.5/30/37.5/45/52.5（＋増加攻撃力の50%）のダメージ</physicalDamage>を与える。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "35",
+   "range": "400",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "デッドリープルーム",
+   "description": "4秒間、羽根の刃で嵐を作り出し、<attackSpeed>攻撃速度が35/40/45/50/55%</attackSpeed>増加して、通常攻撃が刃をもう1枚飛ばすようになる。追加の刃は25%のダメージを与える。<br><br>追加の刃がチャンピオンに当たると、1.5秒間自身の<speed>移動速度が30%</speed>増加する。<br><br>ラカンが近くにいる場合、ラカンもこのスキルの効果を獲得する。ただし、ザヤが対象を攻撃している場合は、ラカンは<speed>移動速度</speed>が増加する。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "60/55/50/45/40",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ブレードコーラー",
+   "description": "すべての<keywordMajor>羽根</keywordMajor>を呼び戻し、1枚ごとに<physicalDamage>50/65/80/95/110（＋増加攻撃力の40%）の物理ダメージ</physicalDamage>を与える。3枚以上の<keywordMajor>羽根</keywordMajor>が当たった敵には、1.25秒間の<status>スネア効果</status>を付与する。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "20",
+   "range": "2000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "フェザーストーム",
+   "description": "空中に飛び上がって1.5秒間、対象指定不可になりゴースト化する。その後、<physicalDamage>200/300/400（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える複数の<keywordMajor>羽根</keywordMajor>の刃を投げ、一列に<keywordMajor>羽根</keywordMajor>を落とす。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "450",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

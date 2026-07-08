@@ -1,0 +1,51 @@
+{
+ "alias": "DrMundo",
+ "id": 36,
+ "name": "ドクター・ムンド",
+ "title": "ゾウンの狂人",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "気ままな往診",
+   "description": "最初に受ける移動不能効果を無効化する。その際、代わりに体力を失い、近くに薬品の入った容器を落とす。落とした容器の上を歩いて回収すると体力が回復し、このスキルのクールダウンが短縮される。<br><br>また、ドクター・ムンドは極めて高い体力自動回復能力を持っている。<br>",
+   "unresolved": []
+  },
+  "q": {
+   "name": "骨切りノコギリ",
+   "description": "ノコギリを投げ、最初に命中した敵に<magicDamage>現在体力の20/22.5/25/27.5/30%にあたる魔法ダメージ</magicDamage>を与え、2秒間40%の<status>スロウ効果</status>を付与する。<br><br>ノコギリがチャンピオンまたはモンスターに命中した場合は<healing>体力が50/60/70/80/90</healing>回復する。チャンピオンまたはモンスター以外に命中した場合は、代わりに<healing>体力が25/30/35/40/45</healing>回復する。",
+   "cooldown": "4",
+   "cost": "",
+   "range": "975",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "心臓ビリビリ",
+   "description": "除細動器をチャージして、最大3秒間、周囲の敵に毎秒<magicDamage>20/35/50/65/80の魔法ダメージ</magicDamage>を与える。さらに、最初の0.75秒間は受けたダメージの0.8〜0.95（レベル比例）を、残りの時間は受けたダメージの25%を灰色の体力として蓄え、<recast>再発動</recast>可能になる。<br><br><recast>再発動:</recast> 除細動器を爆発させて、周囲の敵に<magicDamage>20/35/50/65/80（＋増加体力の7%）の魔法ダメージ</magicDamage>を与える。チャンピオンに命中した場合は、<healing>灰色の体力の100%</healing>を回復する。チャンピオンに命中しなかった場合は、代わりに<healing>灰色の体力の50%</healing>を回復する。",
+   "cooldown": "17/16.5/16/15.5/15",
+   "cost": "",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "野蛮な痛み",
+   "description": "<spellPassive>自動効果:</spellPassive> <physicalDamage>攻撃力が合計体力の200/230/260/290/320%</physicalDamage>増加する。<br><br><spellActive>発動効果:</spellActive> “往診用”バッグを激しく叩きつけ、次の通常攻撃が<physicalDamage>5/15/25/35/45（＋増加体力の5%）の物理ダメージ</physicalDamage>を追加で与える。このダメージは自身の減少体力に応じて最大40%まで増加する。対象をキルした場合はその敵を弾き飛ばし、接触した敵に<physicalDamage>5/15/25/35/45（＋増加体力の5%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "9/8.25/7.5/6.75/6",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "マキシマム投与",
+   "description": "自身に薬品を注入して、<healing>減少体力の15/20/25%を最大体力として</healing>獲得し、<speed>移動速度が15/25/35%</speed>増加する。また、10秒かけて<healing>最大体力の20/40/60%</healing>を自動回復する。<br><br>スキルレベル3になると、周囲の敵チャンピオン1体ごとに両方の体力回復効果が5%増加する。",
+   "cooldown": "120",
+   "cost": "",
+   "range": "20",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

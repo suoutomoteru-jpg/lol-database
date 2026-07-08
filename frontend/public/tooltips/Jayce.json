@@ -1,0 +1,51 @@
+{
+ "alias": "Jayce",
+ "id": 126,
+ "name": "ジェイス",
+ "title": "未来への希望",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヘクステック・コンデンサー",
+   "description": "武器を切り替えると少しの間移動速度が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "スカイバスター/ショックブラスト",
+   "description": "<keywordMajor>マーキュリーハンマー:</keywordMajor> 敵に飛びかかって、周囲の敵に<physicalDamage>@spell.JayceToTheSkies:Damage@の物理ダメージ</physicalDamage>を与え、@spell.JayceToTheSkies:SlowDuration@秒間@spell.JayceToTheSkies:Slow*-100@%の<status>スロウ効果</status>を与える。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "40",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ライトニング/ハイパーチャージ",
+   "description": "<keywordMajor>マーキュリーハンマー - 自動効果:</keywordMajor> <keywordMajor>「マーキュリーハンマー」</keywordMajor>による通常攻撃は<scaleMana>マナを@spell.JayceStaticField:ManaGain@</scaleMana>回復する。<br><br><keywordMajor>マーキュリーハンマー - 発動効果:</keywordMajor> 電気のオーラを身にまとい、@spell.JayceStaticField:Duration@秒かけて<magicDamage>@spell.JayceStaticField:Damage@の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "",
+   "cost": "40",
+   "range": "285",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "サンダーブロー/アクセルゲート",
+   "description": "<keywordMajor>ハンマーフォーム</keywordMajor>: ハンマーを振って対象を<status>ノックバック</status>させ、<magicDamage>@spell.JayceThunderingBlow:FlatDamage@(+最大体力の@spell.JayceThunderingBlow:PercHPDamage*100@%)の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "55",
+   "range": "240",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "マーキュリーキャノン/マーキュリーハンマー",
+   "description": "<keywordMajor>マーキュリーハンマー</keywordMajor>: 武器を<keywordMajor>「マーキュリーキャノン」</keywordMajor>に切り替えて射程距離が増加する。この際にスキルも切り替わる。また、次の通常攻撃が@spell.JayceStanceHtG:ShredDuration@秒間、<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御を@spell.JayceStanceHtG:RangedFormShred@</scaleArmor>低下させる。",
+   "cooldown": "6",
+   "cost": "",
+   "range": "600",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

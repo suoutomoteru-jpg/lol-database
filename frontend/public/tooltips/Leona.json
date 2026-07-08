@@ -1,0 +1,51 @@
+{
+ "alias": "Leona",
+ "id": 89,
+ "name": "レオナ",
+ "title": "暁光の戦士",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "サンライト",
+   "description": "攻撃スキルが命中した敵に1.5秒間「サンライト」の効果を付与する。この状態の対象に味方チャンピオンがダメージを与えると「サンライト」を消費して追加魔法ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "シールド・オブ・デイブレイク",
+   "description": "次の通常攻撃が1秒間の<status>スタン効果</status>を付与し、追加で<magicDamage>10/35/60/85/110（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "5",
+   "cost": "30/35/40/45/50",
+   "range": "100",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "エクリプス",
+   "description": "盾を構え、3秒間自身が受けるダメージを8/12/16/20/24軽減させて、<scaleArmor>20/27.5/35/42.5/50（＋増加物理防御の20%）の物理防御</scaleArmor>と<scaleMR>20/27.5/35/42.5/50（＋増加移動速度の20%）の魔法防御</scaleMR>を獲得する。その後、盾が爆発し、周囲の敵に<magicDamage>55/85/115/145/175（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。1体以上の敵に命中すると、さらに3秒間、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>のボーナスを獲得する。<br>",
+   "cooldown": "14/13/12/11/10",
+   "cost": "60",
+   "range": "450",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ゼニスブレード",
+   "description": "光の剣で突きを放ち、<magicDamage>50/90/130/170/210（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。最後に触れた敵チャンピオンには0.5秒間の<status>スネア効果</status>を付与し、その側までレオナが素早く移動する。",
+   "cooldown": "12/10.5/9/7.5/6",
+   "cost": "40/45/50/55/60",
+   "range": "875",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ソーラーフレア",
+   "description": "太陽の力を呼び寄せて<magicDamage>150/225/300（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、1.75秒間80%の<status>スロウ効果</status>を付与する。炎の中心にいる敵には<status>スロウ効果</status>の代わりに<status>スタン効果</status>を付与する。",
+   "cooldown": "90/75/60",
+   "cost": "100",
+   "range": "1200",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

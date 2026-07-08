@@ -1,0 +1,53 @@
+{
+ "alias": "Nasus",
+ "id": 75,
+ "name": "ナサス",
+ "title": "砂漠の司書",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ソウルイーター",
+   "description": "敵の魂のエネルギーを吸い取り、自身のライフスティールが増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "サイフォンストライク",
+   "description": "次の通常攻撃が<physicalDamage>の物理ダメージ</physicalDamage>を与える。この通常攻撃で敵を倒すたびに、そのダメージが恒久的に3増加する。対象がチャンピオン、大型ミニオン、大型ジャングルモンスターだった場合は12増加する。",
+   "cooldown": "7.5/6.5/5.5/4.5/3.5",
+   "cost": "20",
+   "range": "255",
+   "maxRank": 5,
+   "unresolved": [
+    "TotalDamage"
+   ]
+  },
+  "w": {
+   "name": "ウィザー",
+   "description": "チャンピオンを老化させて35%の<status>スロウ効果</status>を与える。このスロウ効果は5秒かけて47/59/71/83/95%まで増加する。また、対象の<attackSpeed>攻撃速度</attackSpeed>もこの<status>スロウ効果</status>の75%分だけ低下する。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "80",
+   "range": "700",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "スピリットファイア",
+   "description": "神秘的な炎を発生させて、<magicDamage>50/80/110/140/170（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。範囲内の敵は<scaleArmor>物理防御が@ArmorShredPercent*-100@%</scaleArmor>低下し、5秒間かけて<magicDamage>50/80/110/140/170（＋魔力の12%）の魔法ダメージ</magicDamage>を受ける。",
+   "cooldown": "12",
+   "cost": "60/70/80/90/100",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "アヌビスの怒り",
+   "description": "15秒間砂嵐を身にまとって巨大化し、<healing>最大体力が300/450/600</healing>増加して、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が40/55/70ずつ増加する。<br><br>砂嵐発生中は、周囲の敵に<magicDamage>対象の最大体力の0.03/0.04/0.05（＋魔力の0.01%）にあたる魔法ダメージ</magicDamage>を毎秒与え、<spellName>「サイフォンストライク」</spellName>のクールダウンが50%短縮される。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "400",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

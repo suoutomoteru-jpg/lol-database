@@ -1,0 +1,51 @@
+{
+ "alias": "Anivia",
+ "id": 34,
+ "name": "アニビア",
+ "title": "氷の不死鳥",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "再誕",
+   "description": "アニビアは力尽きると、体力が最大の状態で卵に戻る。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "フラッシュフロスト",
+   "description": "巨大な氷の塊を発射して<magicDamage>50/70/90/110/130（＋魔力の25%）の魔法ダメージ</magicDamage>を与え、3秒間敵を<keywordMajor>「チルド」</keywordMajor>状態にし、@Spell.GlacialStorm:SlowAmount@%の<status>スロウ効果</status>を付与する。最大射程に到達すると氷の塊は炸裂し、敵に1.1/1.2/1.3/1.4/1.5秒間の<status>スタン効果</status>と、<magicDamage>60/95/130/165/200（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。<br><br>氷が飛んでいる最中に<recast>再発動</recast>すると早めに炸裂させられる。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "80/85/90/95/100",
+   "range": "1075",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "アイスウォール",
+   "description": "幅400/500/600/700/800ユニットの氷の壁を作り出す。壁は5秒後に溶けて消滅する。",
+   "cooldown": "17",
+   "cost": "70",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "フロストバイト",
+   "description": "敵を凍てつく氷柱で攻撃して、<magicDamage>55/80/105/130/155（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。<keywordMajor>「チルド」</keywordMajor>状態の敵には、代わりに<magicDamage>110/160/210/260/310（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "4",
+   "cost": "50",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ブリザード",
+   "description": "<toggle>発動中:</toggle> 激しい吹雪を召喚し、敵に20/30/40%の<status>スロウ効果</status>を付与し、<magicDamage>毎秒30/45/60（＋魔力の12.5%）の魔法ダメージ</magicDamage>を与える。「ブリザード」は1.5秒かけて効果範囲が拡大する。<br><br>「ブリザード」の効果範囲が最大の時は、対象を<keywordMajor>「チルド」</keywordMajor>状態にして30/45/60%の<status>スロウ効果</status>を付与し、<magicDamage>毎秒90/135/180（＋魔力の12.5%）の魔法ダメージ</magicDamage>を与えるようになる。",
+   "cooldown": "4/3/2",
+   "cost": "60",
+   "range": "750",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

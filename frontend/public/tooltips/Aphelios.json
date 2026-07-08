@@ -1,0 +1,53 @@
+{
+ "alias": "Aphelios",
+ "id": 523,
+ "name": "アフェリオス",
+ "title": "信ずる者の武器",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "殺す者と導く者",
+   "description": "アフェリオスは妹のアルーンが作った5種類のルナリ武器を使って戦う。一度に2種類の武器を保持でき、1つはメインハンド、もう1つはオフハンドに装備する。各武器にはそれぞれ独自の通常攻撃とスキルがある。通常攻撃とスキルは各武器の弾薬を消費する。弾薬が切れるとアフェリオスはその武器を捨て、5種類あるうちの次の武器をアルーンが召喚する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "武器ごとのスキル",
+   "description": "",
+   "cooldown": "9",
+   "cost": "60",
+   "range": "1450",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "フェーズ",
+   "description": "メインハンド武器とオフハンド武器を切り替え、<b>「<font color='#a64dff'>グラヴィタム</font>」</b>を装備する。",
+   "cooldown": "0.8",
+   "cost": "",
+   "range": "250",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "武器キューシステム",
+   "description": "",
+   "cooldown": "0",
+   "cost": "",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "月光の祈り",
+   "description": "凝縮された月光のエネルギーを発射する。月光はチャンピオンに命中した時点で爆発して、周囲の敵に<physicalDamage>125/175/225（＋増加攻撃力の20% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>その後、命中した全チャンピオンをメインハンド武器で通常攻撃する。{{ Spell_ApheliosR_WeaponMod_ }}",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "1300",
+   "maxRank": 3,
+   "unresolved": [
+    "f1"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

@@ -1,0 +1,51 @@
+{
+ "alias": "Ekko",
+ "id": 245,
+ "name": "エコー",
+ "title": "砕けた時を渡る少年",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ゼロ・ドライブ",
+   "description": "同一の敵ユニットに通常攻撃または攻撃スキルが3回命中するたび、追加魔法ダメージを与える。対象がチャンピオンの場合、一時的に移動速度が増加する。<br><br>",
+   "unresolved": []
+  },
+  "q": {
+   "name": "タイムワインダー",
+   "description": "<magicDamage>80/95/110/125/140（＋魔力の30%）の魔法ダメージ</magicDamage>を与える装置を投げる。装置はチャンピオンに命中するか、最大射程に到達するとフィールドを展開し、範囲内の敵に@Effect2Amount*-100@%の<status>スロウ効果</status>を付与する。フィールド展開後、装置を自身のところに呼び戻し、<magicDamage>40/65/90/115/140（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "9/8.5/8/7.5/7",
+   "cost": "50/60/70/80/90",
+   "range": "1075",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "パラレルトラップ",
+   "description": "<spellPassive>自動効果:</spellPassive> 体力が30%未満の敵に対して、通常攻撃が<magicDamage>減少体力の0.03（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果:</spellActive> 発動後、少ししてから時空の法則が捻じ曲げられた空間を作り出す。この空間は1.5秒間持続し、範囲内にいる敵に40%の<status>スロウ効果</status>を与える。自身がこの空間に入ると空間が爆発し、2.25秒間対象を<status>スタン</status>させて、自身は<shield>耐久値100/120/140/160/180（＋魔力の150%）のシールド</shield>を獲得する。",
+   "cooldown": "22/20/18/16/14",
+   "cost": "30/35/40/45/50",
+   "range": "1600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "フェイズダイブ",
+   "description": "ダッシュして次の通常攻撃を強化する。強化された通常攻撃は射程が増加しており、対象の位置まで瞬間移動して、<magicDamage>50/75/100/125/150（＋魔力の40%）の魔法ダメージ</magicDamage>を追加で与える。",
+   "cooldown": "9/8.5/8/7.5/7",
+   "cost": "40/45/50/55/60",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "クロノブレイク",
+   "description": "時間を巻き戻し、固有時停止状態になって4秒前にいた地点に瞬間移動して、周囲の敵に<magicDamage>200/350/500（＋魔力の175%）の魔法ダメージ</magicDamage>を与える。さらに、<healing>100/150/200（＋魔力の60%）の体力</healing>を回復する。この体力回復量は過去4秒間に自身が失った体力1%につき3%増加する。",
+   "cooldown": "110/80/50",
+   "cost": "100",
+   "range": "850",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

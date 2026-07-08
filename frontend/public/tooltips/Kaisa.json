@@ -1,0 +1,57 @@
+{
+ "alias": "Kaisa",
+ "id": 145,
+ "name": "カイ＝サ",
+ "title": "虚無を知る娘",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヴォイドスキン",
+   "description": "カイ＝サの通常攻撃はプラズマスタックを付与し、スタック数に応じて与える追加魔法ダメージが増加していく。味方の移動不能効果もプラズマスタックを付与する。さらに、アイテム購入によってアルティメット以外のスキルがアップグレードされる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "イカシアの雨",
+   "description": "6発のミサイルを発射する。ミサイルは周囲の敵に分散して、それぞれ<physicalDamage>40/55/70/85/100（＋増加攻撃力の55% ＋魔力の20%）の物理ダメージ</physicalDamage>を最大まで与える。同じチャンピオンまたはモンスターに複数のミサイルが当たると、与えるダメージが25%になる。<br><br><keywordMajor>進化</keywordMajor>: 代わりに12発のミサイルを発射する。<br>現在: <physicalDamage>/100増加攻撃力</physicalDamage>",
+   "cooldown": "10/9/8/7/6",
+   "cost": "55",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": [
+    "MaxDamageDisplay",
+    "f11.1"
+   ]
+  },
+  "w": {
+   "name": "ヴォイドシーカー",
+   "description": "ヴォイドのエネルギーを発射して最初に命中した敵に<magicDamage>30/55/80/105/130（＋合計攻撃力の130% ＋魔力の45%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>プラズマ</keywordMajor>を2スタック付与し、@spell.KaisaPassive:PDuration@秒間<keywordStealth>真の視界</keywordStealth>を得る。<br><br><keywordMajor>進化時</keywordMajor>: 代わりに<keywordMajor>プラズマ</keywordMajor>を3スタック付与し、チャンピオンに命中するとクールダウンが75%短縮される。<br>現在: <scaleAP>100/魔力100</scaleAP>",
+   "cooldown": "22/20/18/16/14",
+   "cost": "55/60/65/70/75",
+   "range": "3000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "スーパーチャージ",
+   "description": "ヴォイドエネルギーをスーパーチャージする。チャージ中は<speed>移動速度が</speed>増加し、ゴースト状態になる。その後4秒間、<attackSpeed>攻撃速度が40/50/60/70/80%</attackSpeed>増加する。<br><br>通常攻撃を行うと、このスキルのクールダウンが0.5秒短縮される。<br><br><keywordMajor>進化時</keywordMajor>: 0.5秒間、<keywordStealth>インビジブル</keywordStealth>状態にもなる。<br>現在: <attackSpeed>%/増加攻撃速度100%</attackSpeed>",
+   "cooldown": "16/14.5/13/11.5/10",
+   "cost": "30",
+   "range": "1",
+   "maxRank": 5,
+   "unresolved": [
+    "TotalMoveSpeed",
+    "f10.1"
+   ]
+  },
+  "r": {
+   "name": "キラーヴォイド",
+   "description": "<keywordMajor>プラズマ</keywordMajor>を付与した敵チャンピオンの近くにダッシュして、2秒間、<shield>耐久値100/150/200（＋合計攻撃力の90/135/180% ＋魔力の120%）のシールド</shield>を獲得する。",
+   "cooldown": "130/100/70",
+   "cost": "100",
+   "range": "2000/2500/3000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 4
+}

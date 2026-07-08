@@ -1,0 +1,51 @@
+{
+ "alias": "Ziggs",
+ "id": 115,
+ "name": "ジグス",
+ "title": "ヘクス爆薬のエキスパート",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ショートヒューズ",
+   "description": "一定時間ごとに、次の通常攻撃に追加魔法ダメージがつく。スキルを使用するたびに、次の追加ダメージまでの時間が短くなる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "バウンドボム",
+   "description": "地面にバウンドする爆弾を投げ、<magicDamage>80/130/180/230/280（＋魔力の60/65/70/75/80%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "6/5.5/5/4.5/4",
+   "cost": "50/55/60/65/70",
+   "range": "850",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "エンジニアボム",
+   "description": "発動の4秒後、またはこのスキルを<recast>再発動</recast>した時に起爆するヨードルグレネードを投げる。敵に<magicDamage>70/105/140/175/210（＋魔力の50%）の魔法ダメージ</magicDamage>を与えて<status>ノック</status><status>バック</status>させる。ジグスも弾き飛ばされるがダメージは受けない。<br><br>「エンジニアボム」は体力が25/27.5/30/32.5/35%未満のタワーを自動的に破壊する。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "80",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヘクステックマイン",
+   "description": "地面に地雷を複数設置する。敵が接触すると爆発し、<magicDamage>30/70/110/150/190（＋魔力の25/30/35/40/45%）の魔法ダメージ</magicDamage>と1.5秒間@Slow*-100@%の<status>スロウ効果</status>を与える。地雷は10秒間持続する。",
+   "cooldown": "16",
+   "cost": "70/80/90/100/110",
+   "range": "900",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "メガインフェルノボム",
+   "description": "究極の発明品を投げ、爆発範囲の中心部では<magicDamage>300/500/700（＋魔力の100%）の魔法ダメージ</magicDamage>を、その周辺では<magicDamage>195/325/455（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "120/95/70",
+   "cost": "100",
+   "range": "5000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

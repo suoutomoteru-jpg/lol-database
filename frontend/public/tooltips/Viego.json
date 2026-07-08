@@ -1,0 +1,51 @@
+{
+ "alias": "Viego",
+ "id": 234,
+ "name": "ヴィエゴ",
+ "title": "滅びの王",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "王の支配",
+   "description": "ヴィエゴの周囲で倒された敵は亡霊になる。ヴィエゴは亡霊に通常攻撃を行うことで、その倒された敵の死体を一時的に操れるようになり、対象の最大体力の一定割合にあたる体力を回復し、対象の通常スキルとアイテムを使用できる。対象のアルティメットスキルは自身のものと入れ替わり、自由に1回発動できるようになる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "滅びの王剣",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が<physicalDamage>現在体力の2/3/4/5/6%の物理ダメージ</physicalDamage>を追加で与える。直前にスキルでダメージを与えた敵に対する最初の通常攻撃が2回攻撃になる。この2撃目は<physicalDamage>合計攻撃力の20% ＋ 魔力の15%の物理ダメージ</physicalDamage>を与え、<healing>与えたダメージの150%にあたる体力</healing>を回復する。これらの追加効果は<keywordMajor>「憑依」</keywordMajor>している間も継続する。<br><br><spellActive>発動効果: </spellActive>前方に突きを放ち、<physicalDamage>25/40/55/70/85（＋合計攻撃力の70%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "5/4.5/4/3.5/3",
+   "cost": "",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "亡霊の嘆き",
+   "description": "<charge>チャージ開始:</charge> 「霧」の凝縮を開始して、自身が10%の<status>スロウ効果</status>を受ける。<br><br><release>解放:</release> 前方にダッシュして凝縮した「霧」を放つ。「霧」は最初に当たった敵に<magicDamage>80/135/190/245/300（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、チャージ時間に応じて0.25 - 1.25秒間<status>スタン</status>させる。<br>",
+   "cooldown": "8",
+   "cost": "",
+   "range": "400",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "彷徨える苦悶",
+   "description": "前方に亡霊を送り出し、最初に当たった地形に憑りつかせ、その周囲を8秒間、「霧」で覆う。自身は「霧」の中にいると<keywordStealth>カモフラージュ</keywordStealth>状態になり、<speed>移動速度が0.25/0.275/0.3/0.325/0.35（＋魔力の0.04%）</speed>、<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。",
+   "cooldown": "14/12/10/8/6",
+   "cost": "",
+   "range": "750",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ハートブレイカー",
+   "description": "現在<keywordMajor>憑依</keywordMajor>している魂を捨てて瞬間移動する。到着後、最も残り体力の割合が低いチャンピオンに通常攻撃を行い、少しの間だけ99%の<status>スロウ効果</status>を与えて、<physicalDamage>合計攻撃力の120% + 減少体力の12/16/20（＋増加攻撃力の5%）%の物理ダメージ</physicalDamage>を与える。周囲の他の敵は<status>ノックバック</status>されて、<physicalDamage>合計攻撃力の120%の物理ダメージ</physicalDamage>を受ける。",
+   "cooldown": "120/100/80",
+   "cost": "",
+   "range": "500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

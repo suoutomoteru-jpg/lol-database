@@ -1,0 +1,51 @@
+{
+ "alias": "Fiora",
+ "id": 114,
+ "name": "フィオラ",
+ "title": "高潔なるデュエリスト",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "デュエリスト・ダンス",
+   "description": "このチャンピオンの<keywordMajor>「急所」</keywordMajor>を特定している。<keywordMajor>「急所」</keywordMajor>を攻撃すると、自身は<healing>体力が回復</healing>して、<speed>移動速度</speed>が増加する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ファント",
+   "description": "指定方向にダッシュして、最も近くの敵、ワード、建造物のいずれかを突き、<physicalDamage>70/80/90/100/110（＋増加攻撃力の90/95/100/105/110%）の物理ダメージ</physicalDamage>を与える。この攻撃は<keywordMajor>「急所」</keywordMajor>およびこの一撃で倒せる敵を優先する。<br><br>敵に命中させると、このスキルのクールダウンが50%短縮される。",
+   "cooldown": "13/11.25/9.5/7.75/6",
+   "cost": "20",
+   "range": "400",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "リポスト",
+   "description": "0.75秒間、あらゆるダメージ、行動妨害効果、ステータス弱化効果を受け流した後、鋭い突きを行う。突きが最初に命中したチャンピオンに<magicDamage>110/150/190/230/270（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、2秒間<speed>移動速度</speed>を@MSSlowPercent*-100@%、<attackSpeed>攻撃速度を@AttackSlowPercent*-100@%</attackSpeed>低下させる<status>スロウ効果</status>を付与する。このスキルで<status>移動不能効果</status>を防いだ場合、突きを当てた敵には<status>スロウ効果</status>の代わりに<status>スタン効果</status>を与える。",
+   "cooldown": "24/22/20/18/16",
+   "cost": "50",
+   "range": "750",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ブレードワーク",
+   "description": "次の2回の通常攻撃は<attackSpeed>攻撃速度が50/60/70/80/90%</attackSpeed>増加する。最初の通常攻撃は1秒間@SlowPercent*-100@%の<status>スロウ効果</status>を与える。2回目の攻撃は必ずクリティカルになり、<physicalDamage>160/170/180/190/200%のダメージ</physicalDamage>を与える。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "40",
+   "range": "425",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "グランドチャレンジ",
+   "description": "<spellPassive>自動効果: </spellPassive><spellName>「デュエリスト・ダンス」</spellName>による<speed>増加移動速度</speed>が30/40/50%に上昇する。<br><br><spellActive>発動効果: </spellActive>チャンピオンの<keywordMajor>「急所」</keywordMajor>を4箇所すべて明らかにして、合計で<trueDamage>最大体力の@spell.FioraPassive:RDamageTotal@にあたる確定ダメージ</trueDamage>を与える。また、対象の近くにいる間は<spellName>「デュエリスト・ダンス」</spellName>の<speed>増加移動速度</speed>を獲得する。<br><br>8秒以内に4箇所の<keywordMajor>「急所」</keywordMajor>すべてを攻撃するか、敵チャンピオンが倒れるまでに<keywordMajor>「急所」</keywordMajor>を1箇所以上攻撃すると、その後5秒間、周囲の味方チャンピオンの<healing>体力が毎秒75/100/125（＋増加攻撃力の60%）</healing>回復する。",
+   "cooldown": "110/90/70",
+   "cost": "100",
+   "range": "500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,51 @@
+{
+ "alias": "MissFortune",
+ "id": 21,
+ "name": "ミス・フォーチュン",
+ "title": "美貌の賞金稼ぎ",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ラブタップ",
+   "description": "新しい対象に通常攻撃するたびに追加物理ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダブルアップ",
+   "description": "跳弾する弾丸を発砲して、対象とその背後にいる敵に<physicalDamage>20/45/70/95/120（＋合計攻撃力の100% ＋魔力の35%）の物理ダメージ</physicalDamage>を与える。<br><br>2体目への跳弾はクリティカル判定を持ち、<physicalDamage>20/45/70/95/120（＋合計攻撃力の100% ＋魔力の35%）の物理ダメージ</physicalDamage>を与える。1体目の敵を倒した場合は、必ずクリティカルになる。",
+   "cooldown": "7/6/5/4/3",
+   "cost": "40",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ストラット",
+   "description": "<passive>自動効果:</passive> 4秒間ダメージを受けずにいると<speed>移動速度が30/35/40/45/50</speed>増加する。さらに3秒経過すると、この効果による増加移動速度が<speed>60/70/80/90/100</speed>になる。<br><br><active>発動効果:</active> 4秒間、自動効果による増加<speed>移動速度</speed>が最大となり、<attackSpeed>攻撃速度が40/55/70/85/100%</attackSpeed>増加する。<br><br><spellName>「ラブタップ」</spellName>が発動すると、このスキルのクールダウンが2秒短縮される。",
+   "cooldown": "12",
+   "cost": "45",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "レイニングバレット",
+   "description": "2秒間、一定範囲内に弾丸の雨を降らせて視界を確保し、0.4（＋魔力の0.06%）の<status>スロウ効果</status>を付与して、毎秒<magicDamage>35/50/65/80/95（＋魔力の60%）の魔法ダメージ</magicDamage>を与える(合計<magicDamage>70/100/130/160/190（＋魔力の60%）の魔法ダメージ</magicDamage>)。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "80",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "バレットタイム",
+   "description": "3秒間かけて大量の銃弾を14/16/18回放ち、1回ごとに<physicalDamage>20/30/40（＋合計攻撃力の60% ＋魔力の25%）の物理ダメージ</physicalDamage>を与える(合計<physicalDamage>280/480/720（＋合計攻撃力の60% ＋魔力の25%）の物理ダメージ</physicalDamage>)。<br><br>1回ごとにクリティカル判定を持ち、クリティカル時は<physicalDamage>20/30/40（＋合計攻撃力の60% ＋魔力の25%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

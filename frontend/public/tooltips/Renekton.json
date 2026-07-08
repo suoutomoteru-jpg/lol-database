@@ -1,0 +1,51 @@
+{
+ "alias": "Renekton",
+ "id": 58,
+ "name": "レネクトン",
+ "title": "砂漠の解体屋",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "激情の支配",
+   "description": "攻撃に「フューリー」を獲得する。自身の体力が低下していると「フューリー」の獲得量が増加する。「フューリー」を消費するとスキルに追加効果を付与できる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ミートカット",
+   "description": "刃を振り回して<physicalDamage>60/90/120/150/180（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与え、命中したチャンピオン以外のユニット1体ごとに<healing>2/3/4/5/6（＋増加攻撃力の2%）の体力</healing>を回復し、チャンピオン1体ごとに<healing>12/20/28/36/44（＋増加攻撃力の17%）の体力</healing>を回復する。また、チャンピオン以外の対象1体あたり<keywordMajor>2.5フューリー</keywordMajor>、チャンピオン1体あたり<keywordMajor>10フューリー</keywordMajor>を獲得する。<br><br><keywordMajor>フューリーボーナス</keywordMajor>: ダメージが<physicalDamage>90/135/180/225/270（＋増加攻撃力の140%）の物理ダメージ</physicalDamage>に増加して、チャンピオン以外のユニットからの体力回復量が<healing>6/9/12/15/18（＋増加攻撃力の2%）</healing>に増加し、チャンピオンからの体力回復量が<healing>36/60/84/108/132（＋増加攻撃力の17%）</healing>に増加する。<keywordMajor>フューリー</keywordMajor>は生成しない。",
+   "cooldown": "7",
+   "cost": "",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "メッタ斬り",
+   "description": "次の通常攻撃が2回攻撃になり、0.75秒間<status>スタン</status>させて、合計<physicalDamage>10/40/70/100/130（＋合計攻撃力の75%）の物理ダメージ</physicalDamage>を与える。チャンピオンに命中すると追加で<keywordMajor>10フューリー</keywordMajor>を獲得する。<br><br><keywordMajor>フューリーボーナス</keywordMajor>: 通常攻撃の回数が3回に増え、<shield>シールド</shield>を破壊してから<physicalDamage>15/60/105/150/195（＋合計攻撃力の75%）の物理ダメージ</physicalDamage>を与え、1.5秒間<status>スタン効果</status>を付与する。<keywordMajor>フューリー</keywordMajor>は獲得しない。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "",
+   "range": "300",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "スライス・アンド・ダイス",
+   "description": "ダッシュして<physicalDamage>40/70/100/130/160（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与える。命中したチャンピオン以外の対象1体あたり<keywordMajor>2フューリー</keywordMajor>を獲得し、チャンピオン1体あたり<keywordMajor>10フューリー</keywordMajor>を獲得する。1体以上の敵に命中させると、4秒間このスキルを一度だけ<recast>再発動</recast>できる。<br><br><keywordMajor>フューリーボーナス</keywordMajor>: <recast>再発動</recast>するとダッシュして、代わりに<physicalDamage>70/115/160/205/250（＋増加攻撃力の135%）の物理ダメージ</physicalDamage>を与え、4秒間、<scaleArmor>物理防御を25/27.5/30/32.5/35%</scaleArmor>低下させる。<keywordMajor>フューリー</keywordMajor>は獲得しない。",
+   "cooldown": "16/14.5/13/11.5/10",
+   "cost": "",
+   "range": "450",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "セベクの怒り",
+   "description": "15秒間、邪悪なエネルギーに包み込まれ、<healing>最大体力が300/500/700</healing>増加して、<keywordMajor>20フューリー</keywordMajor>を得る。発動中は<magicDamage>60/150/240（＋魔力の10% ＋増加攻撃力の10%）の魔法ダメージ</magicDamage>を与え、毎秒<keywordMajor>5フューリー</keywordMajor>を得る。",
+   "cooldown": "120/100/80",
+   "cost": "",
+   "range": "20",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

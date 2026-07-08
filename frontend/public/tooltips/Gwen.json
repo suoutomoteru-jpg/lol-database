@@ -1,0 +1,51 @@
+{
+ "alias": "Gwen",
+ "id": 887,
+ "name": "グウェン",
+ "title": "聖なるお針子",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "裁断",
+   "description": "通常攻撃が対象の体力に応じて追加魔法ダメージを与える。この効果でチャンピオンに与えたダメージの一定割合を体力として回復する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "チョキチョキッ！",
+   "description": "<spellPassive>自動効果</spellPassive>: 通常攻撃が敵に命中するとスタックを1つ獲得する(最大4つ、6秒間持続)。<br><br><spellActive>発動効果</spellActive>: スタックを消費する。1回切って<magicDamage>10/14/18/22/26（＋魔力の5%）の魔法ダメージ</magicDamage>を与え、その後消費したスタック1つごとに再び切りつける。最後にもう一度切りつけて、<magicDamage>60/85/110/135/160（＋魔力の35%）の魔法ダメージ</magicDamage>を与える。<br><br>各攻撃の範囲中心部ではダメージの50%が<trueDamage>確定ダメージ</trueDamage>に変換され、命中した敵に<spellName>「裁断」</spellName>の効果を適用する。<br><rules><br>ミニオンには80%のダメージを与える。<br>ミニオンの体力が20%未満の場合は、減少ダメージではなく1000%の追加ダメージを与える。</rules>",
+   "cooldown": "6.5/5.75/5/4.25/3.5",
+   "cost": "40",
+   "range": "450",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "聖なる霧",
+   "description": "「聖なる霧」を召喚して、4秒間、または自分が範囲外に出るまで、霧の外側にいるすべての敵(タワーを除く)から対象指定されなくなる。霧の内側にいる間は、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が22/24/26/28/30（＋魔力の7%）増加する。<br><br>一度だけ<recast>再発動</recast>して、霧を自分のところまで動かせる。自分が最初に範囲外に出ようとした際に、このスキルは自動で<recast>再発動</recast>される。",
+   "cooldown": "22/21/20/19/18",
+   "cost": "60",
+   "range": "0",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "スキップスラッシュ",
+   "description": "ダッシュして4秒間、通常攻撃が強化される。<br><br>強化された通常攻撃は<attackSpeed>攻撃速度が30/42.5/55/67.5/80%</attackSpeed>、射程距離が75増加し、 <OnHit>通常攻撃時効果</OnHit>で<magicDamage>15（＋魔力の20%）の魔法ダメージ</magicDamage>を追加で与える。また最初の通常攻撃を敵に命中させると、このスキルのクールダウンが25/35/45/55/65%解消される。",
+   "cooldown": "13/12.5/12/11.5/11",
+   "cost": "35",
+   "range": "400",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "針仕事",
+   "description": "<spellActive>1回目の発動:</spellActive> 針を1本投げ、命中したすべての敵に<magicDamage>30/50/70（＋魔力の10%）の魔法ダメージ</magicDamage>を与えて1.5秒間@InitialSlow*-100@%の<status>スロウ効果</status>を付与し、<spellName>「裁断」</spellName>の効果を適用する。このスキルは6秒以内に2回まで<recast>再発動</recast>できる(再発動可能になるまでのクールダウンは1秒)。<br><br><recast>2回目の発動:</recast> 針を3本投げて<magicDamage>90/150/210（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。<br><recast>3回目の発動:</recast> 針を5本投げて<magicDamage>150/250/350（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "1200",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,51 @@
+{
+ "alias": "Volibear",
+ "id": 106,
+ "name": "ボリベア",
+ "title": "無慈悲の嵐",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "無慈悲の嵐",
+   "description": "通常攻撃およびスキルの使用で攻撃速度が増加していき、最終的に通常攻撃が周囲の敵に追加魔法ダメージを与えるようになる。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "稲妻の猛攻",
+   "description": "4秒間、<speed>移動速度が12/15.5/19/22.5/26%</speed>増加する。敵チャンピオンに向かう場合は倍になって<speed>24/31/38/45/52%</speed>増加する。発動後最初に行う通常攻撃が対象に<physicalDamage>10/20/30/40/50（＋合計攻撃力の100% ＋増加攻撃力の160%）の物理ダメージ</physicalDamage>を与え、1秒間<status>スタン</status>させる。<br><br>対象を<status>スタン</status>させる前に敵から<status>移動不能効果</status>を受けると激怒し、スキルは早めに終了するがクールダウンが解消される。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50",
+   "range": "300",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "激昂の斬撃",
+   "description": "敵に咬みついて<physicalDamage>5/30/55/80/105（＋合計攻撃力の110% ＋増加体力の6%）の物理ダメージ</physicalDamage>を与えて8秒間マークする。<br><br>このスキルをマークした対象に使用するとダメージが<physicalDamage>5/30/55/80/105（＋合計攻撃力の110% ＋増加体力の6%）</physicalDamage>に増加し、自身は<healing>20/35/50/65/80(+減少体力の8/11/14/17/20%)の体力</healing>を回復する。",
+   "cooldown": "5",
+   "cost": "20/25/30/35/40",
+   "range": "325",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "天破の一撃",
+   "description": "雷を落とす雷雲を召喚する。雷は<magicDamage>80/110/140/170/200（＋魔力の70%）(+最大体力の11/12/13/14/15%)の魔法ダメージ</magicDamage>を与えて、2秒間40%の<status>スロウ効果</status>を付与する。<br><br>自身が効果範囲内にいた場合は、3秒間、<shield>魔力の75%(+最大体力の14%)のシールド</shield>を獲得する。",
+   "cooldown": "16",
+   "cost": "50",
+   "range": "1200",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "嵐を起こす者",
+   "description": "変身して跳躍し、12秒間、<healing>体力が175/350/525</healing>、 射程距離が50増加する。<br><br>着地時に大地がひび割れて周囲のタワーを2/3/4秒間<status>無効化</status>し、<physicalDamage>300/500/700（＋魔力の125% ＋増加攻撃力の250%）の物理ダメージ</physicalDamage>を与える。周囲の敵には50%の<status>スロウ効果</status>を与える。このスロウ効果は1秒かけて元に戻る。自身の真下にいた敵には<physicalDamage>300/500/700（＋魔力の125% ＋増加攻撃力の250%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "160/135/110",
+   "cost": "100",
+   "range": "550",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

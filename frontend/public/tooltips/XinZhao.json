@@ -1,0 +1,53 @@
+{
+ "alias": "XinZhao",
+ "id": 5,
+ "name": "シン・ジャオ",
+ "title": "デマーシアの家令長",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "不退転",
+   "description": "通常攻撃が3回毎に追加ダメージを与えて自身を回復する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "三槍撃",
+   "description": "次の3回の通常攻撃が<physicalDamage>15/30/45/60/75（＋増加攻撃力の40%）の物理ダメージ</physicalDamage>を追加で与え、他のスキルのクールダウンを1秒短縮する。また、3回目の通常攻撃は対象を0.75秒間<status>ノックアップ</status>する。<br>",
+   "cooldown": "7/6.5/6/5.5/5",
+   "cost": "30",
+   "range": "375",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "風成雷鳴",
+   "description": "槍で薙ぎ払って<physicalDamage>30/40/50/60/70（＋合計攻撃力の30%）の物理ダメージ</physicalDamage>を与え、その後の突きで<physicalDamage>50/85/120/155/190（＋合計攻撃力の90% ＋魔力の65%）</physicalDamage>の物理ダメージを与える。突きが命中した敵には1.5（＋魔力の0.5%）秒間@Effect6Amount*-100@%の<status>スロウ効果</status>を与える。<br><br>突きが命中したチャンピオンと大型モンスターは3秒間、<keywordMajor>挑戦対象</keywordMajor>としてマークされ、<keywordStealth>ステルス</keywordStealth>状態でない限り可視化される。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "60/55/50/45/40",
+   "range": "1000",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "兵貴神速",
+   "description": "敵に突撃して、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の120%）の魔法ダメージ</magicDamage>を与え、0.5秒間30%の<status>スロウ効果</status>を付与する。<br><br>5秒間、<attackSpeed>攻撃速度が%()</attackSpeed>増加する。<br><br><keywordMajor>挑戦対象</keywordMajor>の敵には、このスキルの射程が増加する。<br>",
+   "cooldown": "11",
+   "cost": "50",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": [
+    "f1"
+   ]
+  },
+  "r": {
+   "name": "三日月槍守",
+   "description": "<spellPassive>自動効果</spellPassive>: 最後に通常攻撃または<spellName>「兵貴神速」</spellName>でダメージを与えたチャンピオンを3秒間、<keywordMajor>挑戦対象</keywordMajor>にする。<br><br><spellActive>発動効果: </spellActive>周囲を槍で薙ぎ払って<physicalDamage>75/175/275（＋増加攻撃力の100% ＋魔力の110%） + 現在体力の15%の物理ダメージ</physicalDamage>を与え、<keywordMajor>挑戦対象を除く</keywordMajor>すべての敵を<status>ノックバック</status>させる。<br> <br>その後4秒間、薙ぎ払いの範囲外にいる敵からはダメージを受けなくなる。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "500",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

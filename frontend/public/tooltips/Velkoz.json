@@ -1,0 +1,53 @@
+{
+ "alias": "Velkoz",
+ "id": 161,
+ "name": "ヴェル＝コズ",
+ "title": "ヴォイドの瞳",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "有機分解",
+   "description": "スキルが命中するたびに対象の<keywordName>「有機分解」</keywordName>が進行していき、3スタックすると確定ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "電離炸裂弾",
+   "description": "プラズマ弾を発射し、<magicDamage>80/120/160/200/240（＋魔力の90%）の魔法ダメージ</magicDamage>を与えて、70%の<status>スロウ効果</status>を付与する。この効果は1/1.4/1.8/2.2/2.6秒かけて元に戻る。最大射程に到達する、対象に命中する、または<recast>再発動</recast>すると、プラズマ弾が90度に分裂する。<br><br>このスキルでユニットをキルすると、<scaleMana>マナを20/22.5/25/27.5/30</scaleMana>回復する。",
+   "cooldown": "7",
+   "cost": "40/45/50/55/60",
+   "range": "1050",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ヴォイドの裂谷",
+   "description": "ヴォイドへの裂け目を開き、<magicDamage>30/50/70/90/110（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。その後、裂け目が爆発して<magicDamage>45/75/105/135/165（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは2つまでチャージできる(秒でリチャージ)。",
+   "cooldown": "1.5",
+   "cost": "50/55/60/65/70",
+   "range": "1050",
+   "maxRank": 5,
+   "unresolved": [
+    "AmmoRechargeTime"
+   ]
+  },
+  "e": {
+   "name": "地殻砕裂",
+   "description": "指定地点を爆発させ、敵を0.75秒間<status>ノックアップ</status>させて、<magicDamage>70/100/130/160/190（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。自身の近くにいる敵は<status>ノックアップ</status>ではなく<status>ノックバック</status>させる。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "50/55/60/65/70",
+   "range": "810",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "生体破壊光線",
+   "description": "カーソルの方向にビームを発射し、2.5秒かけて最大<magicDamage>450/700/925（＋魔力の125%）の魔法ダメージ</magicDamage>を与え、20%の<status>スロウ効果</status>を付与する。直前に<spellName>「有機分解」</spellName>でダメージを与えた敵には、代わりに<trueDamage>確定ダメージ</trueDamage>を与える。<br><br>ビームを受けている敵には、継続的に<keywordMajor>「分解」</keywordMajor>のスタックを付与する。",
+   "cooldown": "100/90/80",
+   "cost": "100",
+   "range": "1575",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

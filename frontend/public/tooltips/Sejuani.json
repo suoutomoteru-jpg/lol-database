@@ -1,0 +1,51 @@
+{
+ "alias": "Sejuani",
+ "id": 113,
+ "name": "セジュアニ",
+ "title": "極北の激憤",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "極北の激憤",
+   "description": "非戦闘状態が続くと、「氷結の鎧」を獲得して物理防御と魔法防御が増加し、スロウ効果を受けなくなる。「氷結の鎧」はダメージを受けたあとも少しの間だけ継続する。自身がスタンさせた敵を攻撃すると、その氷が砕けて大きな魔法ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "猪突凍進",
+   "description": "突進して敵に<magicDamage>90/140/190/240/290（＋魔力の75%）の魔法ダメージ</magicDamage>を与えて、0.5秒間<status>ノック</status><status>アップ</status>させる。敵チャンピオンに当たると、そこで突進が止まる。",
+   "cooldown": "18/16.5/15/13.5/12",
+   "cost": "60/65/70/75/80",
+   "range": "650",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "氷河の怒り",
+   "description": "フレイルを振って<physicalDamage>5/15/25/35/45（＋魔力の30% ＋合計体力の4%）の物理ダメージ</physicalDamage>を与え、ミニオンとジャングルモンスターを<status>ノックバック</status>させる。その後さらにフレイルを打ち付け、対象に<physicalDamage>5/25/45/65/85（＋魔力の60% ＋合計体力の8%）の物理ダメージ</physicalDamage>を与えて少しの間だけ<status>スロウ効果</status>を与える。<br><br>どちらの攻撃でも<spellName>「永久凍土」</spellName>のスタックを付与する。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "60",
+   "range": "600",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "永久凍土",
+   "description": "<spellPassive>自動効果:</spellPassive> 近くにいる味方の近接攻撃チャンピオンの通常攻撃が、チャンピオンとジャングルモンスターにスタックを1つ付与する。<br><br><spellPassive>発動効果:</spellPassive> 4スタックを付与した敵を対象として<magicDamage>55/105/155/205/255（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1秒間の<status>スタン効果</status>を付与する。",
+   "cooldown": "1.5",
+   "cost": "20",
+   "range": "560",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "グレイシャルプリズン",
+   "description": "真なる氷のボーラを投げ、最初に当たった敵チャンピオンを1秒間<status>スタン</status>させて可視化し、<magicDamage>125/150/175（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。<br><br>ボーラが射程の25%以上飛んだ場合は、<status>スタン</status>と可視化の効果時間が1.5秒間になる。その後、氷の嵐を発生させて、周囲の敵に2秒間、80%の<status>スロウ効果</status>を与える。効果を受けたすべての敵は<magicDamage>200/300/400（＋魔力の80%）の魔法ダメージ</magicDamage>を受ける。",
+   "cooldown": "120/105/90",
+   "cost": "100",
+   "range": "1300",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

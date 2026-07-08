@@ -1,0 +1,51 @@
+{
+ "alias": "Gnar",
+ "id": 150,
+ "name": "ナー",
+ "title": "ミッシングリンク",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ぷんすこ",
+   "description": "ナーは戦闘中に「怒り」が溜まっていく。「怒り」が最大の状態でスキルを使用するとメガナーに変身し、ステータスとスキルが変化する。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ブーメラン/ぽいっ",
+   "description": "<keywordMajor>ミニナー:</keywordMajor> ブーメランを投げて<physicalDamage>@spell.GnarQ:MiniTotalDamage@の物理ダメージ</physicalDamage>を与え、@spell.GnarQ:SlowDuration@秒間@spell.GnarQ:SlowAmount*100@%の<status>スロウ効果</status>を付与する。ブーメランは敵に当たると戻ってくるが、その際に与えるダメージは減少する。それぞれの敵に1回しか当たらない。ブーメランをキャッチすると、このスキルのクールダウンが@spell.GnarQ:MiniCDRefund*100@%短縮される。",
+   "cooldown": "16/14.5/13/11.5/10",
+   "cost": "",
+   "range": "1100",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "ごきげん/こてんぱん",
+   "description": "<keywordMajor>ミニナー(自動効果)</keywordMajor>: 同じ敵に通常攻撃かスキルが3回命中するたび、<magicDamage>@spell.GnarW:MiniTotalDamage@(+最大体力の@spell.GnarW:MiniPercentHPDamage*100@%)の魔法ダメージ</magicDamage>を追加で与え、<speed>移動速度が@spell.GnarR:RHyperMovementSpeedPercent@%</speed>増加する。この移動速度は@spell.GnarW:MiniHasteDuration@秒かけて元に戻る。",
+   "cooldown": "7",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ぴょんぴょん/ドーン！",
+   "description": "<keywordMajor>ミニナー:</keywordMajor> 跳躍して@spell.GnarE:MiniASDuration@秒間<attackSpeed>攻撃速度が@spell.GnarE:MinibAS*100@%</attackSpeed>増加する。ユニットの上に着地した場合は、もう一度跳ねてさらに遠くに移動する。敵の上で跳ねると<physicalDamage>@spell.GnarE:MiniTotalDamage@の物理ダメージ</physicalDamage>を与え、短時間@spell.GnarE:MoveSpeedMod*-100@%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "22/19.5/17/14.5/12",
+   "cost": "",
+   "range": "475",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ナー！",
+   "description": "<keywordMajor>ミニナー自動効果:</keywordMajor> <spellName>「ごきげん」</spellName>から得る<speed>移動速度</speed>が増加する。<br><br><keywordMajor>メガナー: </keywordMajor>周囲の敵を放り投げ、<physicalDamage>200/300/400（＋魔力の100% ＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与えて<status>ノックバック</status>させ、1.25/1.5/1.75秒間45%の<status>スロウ効果</status>を付与する。壁に衝突した敵には代わりに<physicalDamage>300/450/600（＋魔力の100% ＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、<status>スタン</status>させる。",
+   "cooldown": "90/60/30",
+   "cost": "",
+   "range": "590",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

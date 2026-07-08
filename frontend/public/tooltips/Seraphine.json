@@ -1,0 +1,51 @@
+{
+ "alias": "Seraphine",
+ "id": 147,
+ "name": "セラフィーン",
+ "title": "希望のメロディー",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "ステージプレゼンス",
+   "description": "通常スキルを3回使用すると、3回目のスキルが2連続で発動する。さらに味方の近くでスキルを使用すると、自身の次の通常攻撃は射程が増加し、追加魔法ダメージを与える。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ハイノート",
+   "description": "純粋な音を発射して、<magicDamage>60/85/110/135/160（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。チャンピオンおよびモンスターに対してはダメージが対象の減少体力に応じて増加し、体力が25%を下回っていると最大<magicDamage>105/148.75/192.5/236.25/280（＋魔力の50%）のダメージ</magicDamage>を与える。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "60/70/80/90/100",
+   "range": "900",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "サラウンドサウンド",
+   "description": "歌で周囲の味方チャンピオンを活気づけ、2.5秒間、味方には<speed>0.08（＋魔力の0.02%）の増加移動速度</speed>、自身には<speed>0.2（＋魔力の0.02%）の増加移動速度</speed>(効果時間をかけて減衰)を与え、両方に<shield>耐久値60/80/100/120/140（＋魔力の20%）のシールド</shield>を付与する。<br><br>自身がすでに<shield>シールド</shield>を獲得していた場合は味方に合流するように声をかけ、2.5秒後に、味方の<healing>減少体力の8/10/12/14/16%を回復</healing>させる。",
+   "cooldown": "22",
+   "cost": "70/75/80/85/90",
+   "range": "800",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "ビートドロップ",
+   "description": "強烈な音波を発射して直線上の敵に<magicDamage>70/100/130/160/190（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、1.1/1.2/1.3/1.4/1.5秒間99%の<status>スロウ効果</status>を付与する。<br><br>すでに<status>スロウ効果</status>を受けている敵には代わりに<status>スネア効果</status>を与え、<status>移動不能効果</status>を受けている敵は<status>スタン</status>させる。",
+   "cooldown": "11/10.5/10/9.5/9",
+   "cost": "60",
+   "range": "1300",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "アンコール",
+   "description": "ステージに上がって魅惑的な力を発射し、1.25/1.5/1.75秒間の<status>チャーム効果</status>と<magicDamage>150/200/250（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。<br><br>これに触れたチャンピオン(味方を含む)はパフォーマンスの一部となり、このスキルの射程が延長される。味方チャンピオンは最大の<keywordMajor>「ノート」</keywordMajor>を獲得する。",
+   "cooldown": "160/140/120",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,51 @@
+{
+ "alias": "Lux",
+ "id": 99,
+ "name": "ラックス",
+ "title": "光の才女",
+ "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "skills": {
+  "passive": {
+   "name": "イルミネーション",
+   "description": "攻撃スキルが命中した対象を数秒間「イルミネーション」でマークする。マークした対象にラックスの攻撃が命中すると、エネルギーが爆発して追加魔法ダメージを与える(追加ダメージの量はラックスのレベルに比例する)。",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ライトバインド",
+   "description": "光の玉を発射し、最初に命中した2体の敵に<magicDamage>80/120/160/200/240（＋魔力の75%）の魔法ダメージ</magicDamage>と2秒間の<status>スネア効果</status>を付与する。",
+   "cooldown": "",
+   "cost": "50",
+   "range": "1175",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "w": {
+   "name": "プリズムバリア",
+   "description": "杖を投げて、それに触れた味方に2.5秒間<shield>40/55/70/85/100（＋魔力の40%）のシールド</shield>を付与する。杖が戻ってくる際も同量の<shield>シールド</shield>を付与する。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "60/65/70/75/80",
+   "range": "1150",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "e": {
+   "name": "シンギュラリティ",
+   "description": "光の領域を作り出し、範囲内の敵に25/30/35/40/45%の<status>スロウ効果</status>を与えて視界を得る。5秒経過するか<recast>再発動</recast>で爆発し、<magicDamage>65/115/165/215/265（＋魔力の80%）の魔法ダメージ</magicDamage>を与えて<status>スロウ効果</status>を追加で1秒間付与する。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "70/80/90/100/110",
+   "range": "1100",
+   "maxRank": 5,
+   "unresolved": []
+  },
+  "r": {
+   "name": "ファイナルスパーク",
+   "description": "まばゆい光線を発射し、直線上の敵に<magicDamage>300/400/500（＋魔力の120%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "60/50/40",
+   "cost": "100",
+   "range": "3340",
+   "maxRank": 3,
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}
