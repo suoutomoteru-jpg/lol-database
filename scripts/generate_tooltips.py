@@ -60,8 +60,19 @@ def fnum(v) -> str:
 
 
 def fmt_values(vals: list, mult: float = 1.0) -> str:
-    """ランク毎数値リストを '25/70/115' 形式に（全ランク同値なら単一値に畳む）"""
-    out = [fnum(v * mult) for v in vals]
+    """ランク毎数値リストを '25/70/115' 形式に（全ランク同値なら単一値に畳む）
+
+    bin データには稀に文字列やネスト配列が混ざるため、数値化できない
+    要素はそのまま文字列として出力する。
+    """
+    out = []
+    for v in vals:
+        try:
+            out.append(fnum(float(v) * mult))
+        except (TypeError, ValueError):
+            out.append(str(v))
+    if not out:
+        return ""
     return out[0] if len(set(out)) == 1 else "/".join(out)
 
 
@@ -249,20 +260,47 @@ def eval_calculation(calc, values: dict, calcs: dict, max_rank: int, depth: int 
 # ── bin データからのスキル情報抽出 ─────────────────────
 
 
+def as_numbers(vals: list) -> list | None:
+    """リストを数値のみの list に変換する（数値化できない要素があれば None）"""
+    out = []
+    for v in vals:
+        try:
+            out.append(float(v))
+        except (TypeError, ValueError):
+            return None
+    return out
+
+
 def collect_data_values(spell: dict, max_rank: int) -> dict:
     """mSpell 直下の DataValues を {小文字名: ランク毎数値} で返す"""
     out = {}
     for key in ("mDataValues", "DataValues"):
         for dv in spell.get(key) or []:
+            if not isinstance(dv, dict):
+                continue
             name = dv.get("mName") or dv.get("name")
             vals = dv.get("mValues") or dv.get("values")
-            if isinstance(name, str) and isinstance(vals, list):
-                out[name.lower()] = slice_ranks(vals, max_rank)
-    # Effect{N}Amount 形式（旧式スキル）
+            nums = as_numbers(vals) if isinstance(vals, list) else None
+            if isinstance(name, str) and nums:
+                out[name.lower()] = slice_ranks(nums, max_rank)
+    # Effect{N}Amount 形式（旧式スキル）。@eN@ / @fN@ の別名でも参照される
     for i, eff in enumerate(spell.get("mEffectAmount") or []):
         vals = eff.get("value") if isinstance(eff, dict) else None
-        if isinstance(vals, list):
-            out[f"effect{i + 1}amount"] = slice_ranks(vals, max_rank)
+        nums = as_numbers(vals) if isinstance(vals, list) else None
+        if nums:
+            sliced = slice_ranks(nums, max_rank)
+            out[f"effect{i + 1}amount"] = sliced
+            out.setdefault(f"e{i + 1}", sliced)
+            out.setdefault(f"f{i + 1}", sliced)
+    # チャージ（アンモ）式スキルのリチャージ時間・最大チャージ数
+    ammo = spell.get("mAmmo") or spell.get("ammo") or {}
+    if isinstance(ammo, dict):
+        for akey, aval in ammo.items():
+            nums = as_numbers(aval) if isinstance(aval, list) else None
+            if nums:
+                # bin の "mAmmoRechargeTime" 形式は先頭の m を1文字だけ除去
+                norm = akey[1:] if len(akey) > 1 and akey[0] == "m" and akey[1].isupper() else akey
+                out.setdefault(norm.lower(), slice_ranks(nums, max_rank))
     return out
 
 
@@ -505,9 +543,13 @@ def main() -> int:
                     if u:
                         print(f"    {key.upper()}: {u}")
         except Exception as e:  # noqa: BLE001 - 1体の失敗で全体を止めない
+            import traceback
+
             failed += 1
+            tb = traceback.extract_tb(e.__traceback__)
+            where = f"{tb[-1].name}:{tb[-1].lineno}" if tb else "?"
             index["champions"].append({"alias": alias, "id": champ["id"], "error": str(e)})
-            print(f"[{i + 1}/{len(champs)}] {alias}  ❌ {e}")
+            print(f"[{i + 1}/{len(champs)}] {alias}  ❌ {e} ({where})")
 
     with open(f"{args.out}/index.json", "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=1)
