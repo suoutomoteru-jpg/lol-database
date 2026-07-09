@@ -292,7 +292,9 @@ def eval_calculation(calc, values: dict, calcs: dict, max_rank: int, depth: int 
             if res[0] == "nums":
                 return ("text", fmt_values(res[1], 100) + "%")
             if res[0] == "bpnum":
-                return ("text", f"{fnum(res[1] * 100)}%〜（レベルに応じて変化）")
+                # 1未満なら割合、1以上なら既に%単位の値とみなす
+                pct = res[1] * 100 if abs(res[1]) < 1 else res[1]
+                return ("text", f"{fnum(pct)}%〜（レベルに応じて変化）")
         return res
     if t == "GameCalculationModified":
         ref_name = str(calc.get("mModifiedGameCalculation", "")).lower()
@@ -431,7 +433,8 @@ def build_passive_details(spell: dict) -> list[str]:
             res is not None and res[0] == "bpnum"
             and re.search(r"percent|ratio", cname, re.I) and abs(res[1]) < 1
         ):
-            rendered: str | None = f"{fnum(res[1] * 100)}%〜（レベルに応じて増加）"
+            pct = res[1] * 100 if abs(res[1]) < 1 else res[1]
+            rendered: str | None = f"{fnum(pct)}%〜（レベルに応じて増加）"
         else:
             rendered = render_result(res)
             if rendered is not None:
