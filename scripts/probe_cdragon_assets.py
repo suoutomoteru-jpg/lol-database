@@ -1,27 +1,18 @@
 #!/usr/bin/env python3
 """
-CommunityDragon のロール/クラスアイコンの実パスを探すプローブ
+CommunityDragon のゲーム内ストリングテーブル（ツールチップ全文）を探すプローブ
 
-/json/ プレフィックスのディレクトリ一覧APIで候補ディレクトリを列挙し、
-role / class / position 系のファイル名を報告する。
+/json/ のディレクトリ一覧APIで game/ 配下を再帰的に歩き、
+stringtable / fontconfig / menu 系のファイルを探す。
 """
 
 import json
 import urllib.request
 
 BASE = "https://raw.communitydragon.org/json/latest"
-UA = {"User-Agent": "lol-database-asset-probe/1.0"}
+UA = {"User-Agent": "lol-database-asset-probe/2.0"}
 
-CANDIDATE_DIRS = [
-    "plugins/rcp-fe-lol-uikit/global/default/images",
-    "plugins/rcp-fe-lol-static-assets/global/default/images",
-    "plugins/rcp-fe-lol-static-assets/global/default/svg",
-    "plugins/rcp-fe-lol-champion-details/global/default",
-    "plugins/rcp-fe-lol-champ-select/global/default/images",
-    "plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions",
-]
-
-KEYWORDS = ("role", "class", "position", "assassin", "marksman", "mage", "fighter", "tank", "support")
+FILE_KEYWORDS = ("stringtable", "fontconfig", "trans", "main_")
 
 
 def listing(path: str):
@@ -30,28 +21,34 @@ def listing(path: str):
         return json.load(res)
 
 
+def walk(path: str, depth: int, max_children: int = 40):
+    try:
+        entries = listing(path)
+    except Exception as e:
+        print(f"{path}/ … (取得失敗) {e}")
+        return
+    files = [e["name"] for e in entries if e.get("type") == "file"]
+    dirs = [e["name"] for e in entries if e.get("type") == "directory"]
+
+    hits = [f for f in files if any(k in f.lower() for k in FILE_KEYWORDS)]
+    if hits:
+        print(f"★ {path}/ に一致: {hits}")
+    else:
+        print(f"{path}/  files={len(files)} dirs={dirs[:12]}{'…' if len(dirs) > 12 else ''}")
+
+    if depth <= 0:
+        return
+    for d in dirs[:max_children]:
+        walk(f"{path}/{d}", depth - 1)
+
+
 def main():
-    for d in CANDIDATE_DIRS:
-        print(f"\n=== {d}/")
-        try:
-            entries = listing(d)
-        except Exception as e:
-            print(f"  (取得失敗) {e}")
-            continue
-        dirs  = [e["name"] for e in entries if e.get("type") == "directory"]
-        files = [e["name"] for e in entries if e.get("type") == "file"]
-        hit_dirs  = [n for n in dirs  if any(k in n.lower() for k in KEYWORDS)]
-        hit_files = [n for n in files if any(k in n.lower() for k in KEYWORDS)]
-        print(f"  dirs: {hit_dirs if hit_dirs else dirs[:15]}")
-        print(f"  files(hit): {hit_files[:30]}")
-        # ヒットしたサブディレクトリは1階層だけ潜って中身も出す
-        for sub in hit_dirs[:4]:
-            try:
-                sub_entries = listing(f"{d}/{sub}")
-                names = [e["name"] for e in sub_entries if e.get("type") == "file"]
-                print(f"    {sub}/: {names[:30]}")
-            except Exception as e:
-                print(f"    {sub}/: (取得失敗) {e}")
+    # ゲーム本体側（ロケール別ディレクトリの有無も確認）
+    print("=== game/ 直下 ===")
+    walk("game", 0)
+    for root in ("game/ja_jp", "game/en_us", "game/data/menu", "game/ja_jp/data"):
+        print(f"\n=== {root} 以下（深さ3）===")
+        walk(root, 3)
 
 
 if __name__ == "__main__":
