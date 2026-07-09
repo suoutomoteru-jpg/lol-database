@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "再誕",
-   "description": "アニビアは力尽きると、体力が最大の状態で卵に戻る。",
+   "description": "アニビアは力尽きると、体力が最大の状態で卵に戻る。<br><br><strong>詳細数値</strong><br>・BonusResists: -40〜（レベルに応じて変化）<br>・BonusResistsTooltip: -40〜（レベルに応じて変化）",
    "unresolved": []
   },
   "q": {

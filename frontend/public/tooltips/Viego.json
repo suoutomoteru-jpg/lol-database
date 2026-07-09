@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "亡霊の嘆き",
-   "description": "<charge>チャージ開始:</charge> 「霧」の凝縮を開始して、自身が10%の<status>スロウ効果</status>を受ける。<br><br><release>解放:</release> 前方にダッシュして凝縮した「霧」を放つ。「霧」は最初に当たった敵に<magicDamage>80/135/190/245/300（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、チャージ時間に応じて0.25 - 1.25秒間<status>スタン</status>させる。<br>",
+   "description": "<charge>チャージ開始:</charge> 「霧」の凝縮を開始して、自身が10%の<status>スロウ効果</status>を受ける。<br><br><release>解放:</release> 前方にダッシュして凝縮した「霧」を放つ。「霧」は最初に当たった敵に<magicDamage>80/135/190/245/300（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、チャージ時間に応じて25% - 1.25秒間<status>スタン</status>させる。<br>",
    "cooldown": "8",
    "cost": "",
    "range": "400",

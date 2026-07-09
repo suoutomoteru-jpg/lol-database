@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "戦駆け",
-   "description": "敵チャンピオンを攻撃すると移動速度が短時間増加する。",
+   "description": "敵チャンピオンを攻撃すると移動速度が短時間増加する。<br><br><strong>詳細数値</strong><br>・移動速度: 55〜（レベルに応じて変化）",
    "unresolved": []
   },
   "q": {

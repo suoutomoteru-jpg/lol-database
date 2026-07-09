@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ファイヤーアップ！",
-   "description": "ミリオのスキルに触れた味方は、次の攻撃で追加のバーストダメージを与え、対象を炎上させる。",
+   "description": "ミリオのスキルに触れた味方は、次の攻撃で追加のバーストダメージを与え、対象を炎上させる。<br><br><strong>詳細数値</strong><br>・ADBurstRatio: 7%〜（レベルに応じて変化）",
    "unresolved": []
   },
   "q": {

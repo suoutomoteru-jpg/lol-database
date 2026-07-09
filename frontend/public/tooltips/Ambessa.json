@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ドレイクハウンドの猛攻",
-   "description": "スキルを発動中に通常攻撃または移動操作をすると、スキル発動後に短い距離をダッシュして、次の通常攻撃の射程距離、ダメージ、攻撃速度が増加し、気を回復する。",
+   "description": "スキルを発動中に通常攻撃または移動操作をすると、スキル発動後に短い距離をダッシュして、次の通常攻撃の射程距離、ダメージ、攻撃速度が増加し、気を回復する。<br><br><strong>詳細数値</strong><br>・{57d26a55}: 770〜（レベルに応じて変化） ＋ 合計クリティカル率の100%<br>・ダメージ: 5〜30（レベル比例） ＋ 増加攻撃力の25%<br>・Calc_OnHit_Energy_Refund: 40〜（レベルに応じて変化）<br>・Calc_Attack_Speed: 50%<br>・{d87d470b}: 0〜0（レベル比例）<br>・{01a5d393}: 5〜30（レベル比例） ＋ 増加攻撃力の25%",
    "unresolved": []
   },
   "q": {
@@ -39,13 +39,15 @@
   },
   "r": {
    "name": "公開処刑",
-   "description": "<spellPassive>自動効果</spellPassive>: <armorPen>10/20/30%の 物理防御貫通</armorPen>を獲得し、スキルで<healing>自身が与えたダメージの0.15/0.175/0.2（＋合計スタット18の50%）を回復</healing>する。<br><br><spellActive>発動効果</spellActive>: <attention>アンストッパブル</attention>状態となり、直線上の最も遠い敵チャンピオンにブリンクし、対象に0.75秒間<status>サプレッション効果</status>を与え、地面に叩きつけて<physicalDamage>150/250/350（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>と0.4秒間の<status>スタン効果</status>を与える。",
+   "description": "<spellPassive>自動効果</spellPassive>: <armorPen>10/20/30%の 物理防御貫通</armorPen>を獲得し、スキルで<healing>自身が与えたダメージのを回復</healing>する。<br><br><spellActive>発動効果</spellActive>: <attention>アンストッパブル</attention>状態となり、直線上の最も遠い敵チャンピオンにブリンクし、対象に0.75秒間<status>サプレッション効果</status>を与え、地面に叩きつけて<physicalDamage>150/250/350（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>と0.4秒間の<status>スタン効果</status>を与える。",
    "cooldown": "130/115/100",
    "cost": "",
    "range": "1250",
    "maxRank": 3,
-   "unresolved": []
+   "unresolved": [
+    "Calc_Omnivamp"
+   ]
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

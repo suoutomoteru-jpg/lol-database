@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "寄せ火",
-   "description": "自身の攻撃スキルが「マントラ」のクールダウンを短縮する。",
+   "description": "自身の攻撃スキルが「マントラ」のクールダウンを短縮する。<br><br><strong>詳細数値</strong><br>・SpellMantraRefund: 4",
    "unresolved": []
   },
   "q": {

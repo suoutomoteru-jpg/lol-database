@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "神秘の翼",
-   "description": "ラカンは定期的にシールドを獲得する。",
+   "description": "ラカンは定期的にシールドを獲得する。<br><br><strong>詳細数値</strong><br>・シールド: 30〜225（レベル比例） ＋ 魔力の95%<br>・クールダウン: 40〜（レベルに応じて変化）",
    "unresolved": []
   },
   "q": {

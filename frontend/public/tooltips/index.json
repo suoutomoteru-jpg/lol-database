@@ -1,6 +1,6 @@
 {
  "patch": "16.13.7915903+branch.releases-16-13.content.release",
- "generatedAt": "2026-07-08T07:01:20.379586+00:00",
+ "generatedAt": "2026-07-09T03:13:55.168298+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -36,7 +36,7 @@
    "alias": "Ambessa",
    "id": 799,
    "name": "アンベッサ",
-   "unresolvedCount": 0
+   "unresolvedCount": 1
   },
   {
    "alias": "Amumu",
@@ -96,7 +96,7 @@
    "alias": "Belveth",
    "id": 200,
    "name": "ベル＝ヴェス",
-   "unresolvedCount": 2
+   "unresolvedCount": 3
   },
   {
    "alias": "Blitzcrank",
@@ -125,8 +125,7 @@
   {
    "alias": "Caitlyn",
    "id": 51,
-   "name": "ケイトリン",
-   "unresolvedCount": 1
+   "error": "'float' object is not iterable"
   },
   {
    "alias": "Camille",
@@ -150,7 +149,7 @@
    "alias": "Corki",
    "id": 42,
    "name": "コーキ",
-   "unresolvedCount": 0
+   "unresolvedCount": 1
   },
   {
    "alias": "Darius",
@@ -324,7 +323,7 @@
    "alias": "Jhin",
    "id": 202,
    "name": "ジン",
-   "unresolvedCount": 0
+   "unresolvedCount": 1
   },
   {
    "alias": "Jinx",
@@ -456,7 +455,7 @@
    "alias": "Lucian",
    "id": 236,
    "name": "ルシアン",
-   "unresolvedCount": 0
+   "unresolvedCount": 1
   },
   {
    "alias": "Lulu",
@@ -570,7 +569,7 @@
    "alias": "Nilah",
    "id": 895,
    "name": "ニーラ",
-   "unresolvedCount": 0
+   "unresolvedCount": 3
   },
   {
    "alias": "Nocturne",
@@ -618,7 +617,7 @@
    "alias": "Pyke",
    "id": 555,
    "name": "パイク",
-   "unresolvedCount": 0
+   "unresolvedCount": 4
   },
   {
    "alias": "Qiyana",
@@ -726,7 +725,7 @@
    "alias": "Shaco",
    "id": 35,
    "name": "シャコ",
-   "unresolvedCount": 0
+   "unresolvedCount": 1
   },
   {
    "alias": "Shen",

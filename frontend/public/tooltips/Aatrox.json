@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "死兆の構え",
-   "description": "一定時間ごとに、次の通常攻撃が対象の最大体力に応じた追加<magicDamage>魔法ダメージ</magicDamage>を与え、同量の体力を回復する。",
+   "description": "一定時間ごとに、次の通常攻撃が対象の最大体力に応じた追加<magicDamage>魔法ダメージ</magicDamage>を与え、同量の体力を回復する。<br><br><strong>詳細数値</strong><br>・ダメージ: 0.04〜0.1（レベル比例）<br>・クールダウン: 22〜10（レベル比例）<br>・ダメージ: 100〜320（レベル比例）",
    "unresolved": []
   },
   "q": {

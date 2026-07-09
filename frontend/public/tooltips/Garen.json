@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "タフガイ",
-   "description": "一定時間ダメージや敵のスキルを受けていなければ、毎秒最大体力の一定割合を回復する。",
+   "description": "一定時間ダメージや敵のスキルを受けていなければ、毎秒最大体力の一定割合を回復する。<br><br><strong>詳細数値</strong><br>・RegenCalc: 150%〜（レベルに応じて変化）",
    "unresolved": []
   },
   "q": {
@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "勇気の護り",
-   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>物理防御が</scaleArmor>、<scaleMR>魔法防御が</scaleMR>増加する。ユニットを倒すと恒久的に<attention>物理防御と魔法防御を0.2</attention>獲得する(最大<attention>30</attention>)。<br><br><spellActive>発動効果:</spellActive> 4秒間、勇気を奮い立たせ、受けるダメージが25/29/33/37/41%軽減される。さらに、0.75秒間、<shield>耐久値65/85/105/125/145（＋増加体力の18%）のシールド</shield>を獲得し、<slow>行動妨害耐性が60%</slow>増加する。",
+   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>物理防御が</scaleArmor>、<scaleMR>魔法防御が</scaleMR>増加する。ユニットを倒すと恒久的に<attention>物理防御と魔法防御を20%</attention>獲得する(最大<attention>30</attention>)。<br><br><spellActive>発動効果:</spellActive> 4秒間、勇気を奮い立たせ、受けるダメージが25/29/33/37/41%軽減される。さらに、0.75秒間、<shield>耐久値65/85/105/125/145（＋増加体力の18%）のシールド</shield>を獲得し、<slow>行動妨害耐性が60%</slow>増加する。",
    "cooldown": "22/19.5/17/14.5/12",
    "cost": "",
    "range": "0",

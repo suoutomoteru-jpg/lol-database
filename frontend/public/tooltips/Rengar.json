@@ -7,12 +7,12 @@
  "skills": {
   "passive": {
    "name": "見えざる襲撃者",
-   "description": "茂みの中にいると、通常攻撃で対象に向かって飛びつく。<br><br>スキルを使用するたびにフェロシティを獲得する。フェロシティが最大になると次に使用するスキルが強化される。<br><br>敵チャンピオンを倒すと<font color='#BBFFFF'>「骨牙の首飾り」</font>のトロフィーを獲得し、増加攻撃力を獲得する。",
+   "description": "茂みの中にいると、通常攻撃で対象に向かって飛びつく。<br><br>スキルを使用するたびにフェロシティを獲得する。フェロシティが最大になると次に使用するスキルが強化される。<br><br>敵チャンピオンを倒すと<font color='#BBFFFF'>「骨牙の首飾り」</font>のトロフィーを獲得し、増加攻撃力を獲得する。<br><br><strong>詳細数値</strong><br>・移動速度: 30%〜（レベルに応じて変化）",
    "unresolved": []
   },
   "q": {
    "name": "逆上",
-   "description": "次に行う2回の通常攻撃の<attackSpeed>攻撃速度が40%</attackSpeed>増加する。最初の通常攻撃が<physicalDamage>20/55/90/125/160（＋合計攻撃力の100% ＋合計攻撃力の5%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> 最初の通常攻撃が<physicalDamage>35〜（レベルに応じて変化） ＋ 合計攻撃力の100% ＋ 合計攻撃力の20%の物理ダメージ</physicalDamage>を与え、5秒間<attackSpeed>50〜（レベルに応じて変化）攻撃速度</attackSpeed>が増加する。",
+   "description": "次に行う2回の通常攻撃の<attackSpeed>攻撃速度が40%</attackSpeed>増加する。最初の通常攻撃が<physicalDamage>20/55/90/125/160（＋合計攻撃力の100% ＋合計攻撃力の5%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> 最初の通常攻撃が<physicalDamage>35〜（レベルに応じて変化） ＋ 合計攻撃力の100% ＋ 合計攻撃力の20%の物理ダメージ</physicalDamage>を与え、5秒間<attackSpeed>5000%〜（レベルに応じて変化）攻撃速度</attackSpeed>が増加する。",
    "cooldown": "0.25",
    "cost": "",
    "range": "450",

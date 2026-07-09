@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ヘクステック榴散弾",
-   "description": "通常攻撃ダメージの一定割合を追加<trueDamage>確定ダメージ</trueDamage>として与える。",
+   "description": "通常攻撃ダメージの一定割合を追加<trueDamage>確定ダメージ</trueDamage>として与える。<br><br><strong>詳細数値</strong><br>・BasicAttackTOOLTIP: 合計攻撃力の20%<br>・CriticalStrikeTOOLTIP: 合計攻撃力の20%",
    "unresolved": []
   },
   "q": {
@@ -39,13 +39,15 @@
   },
   "r": {
    "name": "連発ミサイル",
-   "description": "ミサイルを発射する。ミサイルは敵に命中すると爆発し、周囲の敵に<physicalDamage>90/170/250（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。3発ごとに発射されるミサイルは、代わりに<physicalDamage>180/340/500（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは4回までチャージできる。チャンピオンに通常攻撃を行うと次のチャージまでの時間が<attention>2（＋合計スタット8の100%）</attention>秒短縮される。",
+   "description": "ミサイルを発射する。ミサイルは敵に命中すると爆発し、周囲の敵に<physicalDamage>90/170/250（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。3発ごとに発射されるミサイルは、代わりに<physicalDamage>180/340/500（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは4回までチャージできる。チャンピオンに通常攻撃を行うと次のチャージまでの時間が<attention></attention>秒短縮される。",
    "cooldown": "2",
    "cost": "35",
    "range": "1225",
    "maxRank": 3,
-   "unresolved": []
+   "unresolved": [
+    "AttackRefund"
+   ]
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "古代の呪術",
-   "description": "<mainText>ライズのスキルは増加したマナに応じて追加ダメージを与え、魔力に応じて最大マナが一定割合増加する。</mainText>",
+   "description": "<mainText>ライズのスキルは増加したマナに応じて追加ダメージを与え、魔力に応じて最大マナが一定割合増加する。</mainText><br><br><strong>詳細数値</strong><br>・{92bc0080}: 魔力の5%<br>・マナ: 魔力の1000%",
    "unresolved": []
   },
   "q": {

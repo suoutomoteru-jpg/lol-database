@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "トゲトゲ",
-   "description": "自身の物理防御と魔法防御に応じて攻撃力が増加する。",
+   "description": "自身の物理防御と魔法防御に応じて攻撃力が増加する。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計物理防御の15% ＋ 合計移動速度の15%",
    "unresolved": []
   },
   "q": {
