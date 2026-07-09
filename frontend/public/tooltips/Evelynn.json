@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "妖魔の影",
-   "description": "戦闘中以外は「妖魔の影」に包まれ、体力が低下している場合は体力が回復する。レベル6以降は「妖魔の影」でカモフラージュも獲得する。<br><br><strong>詳細数値</strong><br>・回復: 250〜（レベルに応じて変化） ＋ 魔力の250%<br>・回復: 15〜150（レベル比例）",
+   "description": "4秒間、通常攻撃やスキルを使用せずにいると<keywordMajor>「妖魔の影」</keywordMajor>に包まれる。<keywordMajor>「妖魔の影」</keywordMajor>に包まれている間は、<healing>体力が250〜（レベルに応じて変化） ＋ 魔力の250%</healing>未満であれば、<healing>毎秒15〜150（レベル比例）の体力</healing>を回復する。レベル6以降は、さらに<keywordStealth>カモフラージュ</keywordStealth>も獲得する。<br><br>チャンピオンまたはタワーからダメージを受けると、1.5秒間、<keywordMajor>「妖魔の影」</keywordMajor>が解除される。<br><br><rules><keywordStealth>カモフラージュ</keywordStealth>状態のユニットは敵チャンピオンが検出範囲内に入ってこない限り可視化されない。</rules><br>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "永遠の渇き",
-   "description": "通常攻撃が追加魔法ダメージを与える。自身の体力が50%未満の場合、追加魔法ダメージと同量の体力を回復する。自身の体力が25%未満の場合、この回復効果は3倍になる。<br><br><strong>詳細数値</strong><br>・ダメージ: 6〜55（レベル比例） ＋ 増加攻撃力の15% ＋ 魔力の10%",
+   "description": "通常攻撃時効果で<magicDamage>6〜55（レベル比例） ＋ 増加攻撃力の15% ＋ 魔力の10%の魔法ダメージ</magicDamage>を追加で与える。<br><br>自身の体力が50%未満の場合、<keywordMajor>「永遠の渇き」</keywordMajor>で<healing>与えたダメージの100%</healing>にあたる体力を回復する。自身の体力が25%未満の場合、代わりに<healing>与えたダメージの250%</healing>の体力を回復する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

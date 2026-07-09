@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "タフガイ",
-   "description": "一定時間ダメージや敵のスキルを受けていなければ、毎秒最大体力の一定割合を回復する。",
+   "description": "<br><br><rules>ミニオンおよびジャングルモンスター(エピックを除く)からのダメージには影響されない。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

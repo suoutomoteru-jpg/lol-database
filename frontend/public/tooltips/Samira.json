@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "デアデビルインパルス",
-   "description": "直前に命中したものとは異なる通常攻撃またはスキルを命中させることでコンボが増加していく。近接攻撃射程の通常攻撃は追加魔法ダメージを与える。<status>移動不能効果</status>を受けた敵に通常攻撃を行うと、自身の射程内までダッシュする。敵が<status>ノックアップ</status>していた場合は、少しの間だけ<status>ノックアップ</status>させたままにする。<br><br><strong>詳細数値</strong><br>・範囲: 650〜（レベルに応じて変化）<br>・移動速度: 2.75%〜（レベルに応じて変化）",
+   "description": "<br><br><rules>ダッシュ距離は650〜（レベルに応じて変化）ユニット。6秒間、通常攻撃かスキルで敵チャンピオンにダメージを与えなかった場合は、<keywordMajor>「スタイル」</keywordMajor>を失う</rules>。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

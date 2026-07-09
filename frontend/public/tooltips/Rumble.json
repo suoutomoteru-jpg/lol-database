@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ポンコツタイタン",
-   "description": "スキルを使用するたび、ヒートが溜まっていく。ヒートゲージが50%に達すると「デンジャーゾーン」に突入し、すべての通常スキルに追加効果が付与される。100%に達すると「オーバーヒート」し、攻撃速度が増加して通常攻撃に追加ダメージがつくが、数秒間スキルを使えなくなる。<br><br><strong>詳細数値</strong><br>・ダメージ: 5〜40（レベル比例） ＋ 魔力の25%<br>・モンスターへの上限: 65〜150（レベル比例）",
+   "description": "スキルを使用すると、<keywordMajor>ヒート</keywordMajor>が溜まっていく。<keywordMajor>50ヒート</keywordMajor>以上になると<keywordMajor>「デンジャーゾーン」</keywordMajor>に入り、通常スキルが追加効果を獲得する。<keywordMajor>150ヒート</keywordMajor>になると4秒間オーバーヒートする。<br><br>オーバーヒート中は自身が<status>サイレンス効果</status>を受けるが、<attackSpeed>攻撃速度が0.5〜1.3（レベル比例）</attackSpeed>増加し、通常攻撃が<magicDamage>5〜40（レベル比例） ＋ 魔力の25% + 最大体力の4%の魔法ダメージ</magicDamage>を追加で与えるようになる。<br><br><rules>最大体力に応じたダメージは、モンスターには65〜150（レベル比例）ダメージが上限となる。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

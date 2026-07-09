@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ヴォイドスキン",
-   "description": "カイ＝サの通常攻撃はプラズマスタックを付与し、スタック数に応じて与える追加魔法ダメージが増加していく。味方の移動不能効果もプラズマスタックを付与する。さらに、アイテム購入によってアルティメット以外のスキルがアップグレードされる。<br><br><strong>詳細数値</strong><br>・ダメージ: 4〜24（レベル比例） ＋ 魔力の12%<br>・ダメージ: 1〜6（レベル比例） ＋ 魔力の3%",
+   "description": "<br><br><rules><keywordMajor>プラズマ</keywordMajor>を消費すると、モンスターには最大で<magicDamage>400の魔法ダメージ</magicDamage>を与える。<br>チャンピオンレベル上昇で増加する<physicalDamage>攻撃力</physicalDamage>は<spellName>「イカシアの雨」</spellName>、<attackSpeed>攻撃速度</attackSpeed>は<spellName>「スーパーチャージ」</spellName>の<keywordMajor>「進化」</keywordMajor>をそれぞれ進める。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -24,12 +25,14 @@
   },
   "w": {
    "name": "ヴォイドシーカー",
-   "description": "ヴォイドのエネルギーを発射して最初に命中した敵に<magicDamage>30/55/80/105/130（＋合計攻撃力の130% ＋魔力の45%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>プラズマ</keywordMajor>を2スタック付与し、@spell.KaisaPassive:PDuration@秒間<keywordStealth>真の視界</keywordStealth>を得る。<br><br><keywordMajor>進化時</keywordMajor>: 代わりに<keywordMajor>プラズマ</keywordMajor>を3スタック付与し、チャンピオンに命中するとクールダウンが75%短縮される。<br>現在: <scaleAP>100/魔力100</scaleAP>",
+   "description": "ヴォイドのエネルギーを発射して最初に命中した敵に<magicDamage>30/55/80/105/130（＋合計攻撃力の130% ＋魔力の45%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>プラズマ</keywordMajor>を2スタック付与し、秒間<keywordStealth>真の視界</keywordStealth>を得る。<br><br><keywordMajor>進化時</keywordMajor>: 代わりに<keywordMajor>プラズマ</keywordMajor>を3スタック付与し、チャンピオンに命中するとクールダウンが75%短縮される。<br>現在: <scaleAP>100/魔力100</scaleAP>",
    "cooldown": "22/20/18/16/14",
    "cost": "55/60/65/70/75",
    "range": "3000",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "spell.KaisaPassive:PDuration"
+   ]
   },
   "e": {
    "name": "スーパーチャージ",
@@ -53,5 +56,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 4
+ "unresolvedCount": 5
 }

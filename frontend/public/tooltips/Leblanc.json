@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "鏡像",
-   "description": "自身の体力が40%を下回ると1秒間インビジブル状態になり、「鏡像」を発生させる。「鏡像」はダメージを与えず、最大8秒間持続する。",
+   "description": "<br><br><rules></rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ダブルストライク",
-   "description": "通常攻撃を数回行うごとに、通常攻撃が2回連続攻撃になる。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計攻撃力の50%",
+   "description": "<br><br><rules>2度目の攻撃は普通の通常攻撃として扱われ、クリティカル判定があり、通常攻撃時効果を適用する。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

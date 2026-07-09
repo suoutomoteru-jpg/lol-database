@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "アダプティブディフェンス",
-   "description": "敵チャンピオンに通常攻撃すると、その敵の主なダメージの種類(物理または魔法)に応じて、少しの間だけ自身の最大体力の一定割合にあたるシールドを獲得する。<br><br><strong>詳細数値</strong><br>・クールダウン: 18〜（レベルに応じて変化）<br>・シールド: 合計体力の20%",
+   "description": "敵チャンピオンに通常攻撃を行うと、その敵チャンピオンの主なダメージの種類(<physicalDamage>物理</physicalDamage>または<magicDamage>魔法</magicDamage>)に応じて、2秒間、<shield>耐久値合計体力の20%のシールド</shield>を獲得する。このシールドのクールダウンは18〜（レベルに応じて変化）秒。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "マナバリア",
-   "description": "体力が低下すると、マナの量に応じたシールドを獲得する。<br><br><strong>詳細数値</strong><br>・シールド: 最大マナの35%",
+   "description": "体力が30%未満になると、10秒間<shield>耐久値最大マナの35%のシールド</shield>を獲得する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "フコウとユーウツ",
-   "description": "一定時間ごとに強化され、次の通常スキルが敵にフィアー効果を与えてダッシュを阻止する。周囲の敵がダッシュするたびにマークを付与する。マークを消費すると追加ダメージを与え、強化効果のクールダウンも短縮される。<br><br><strong>詳細数値</strong><br>・効果時間: 75%〜（レベルに応じて増加）<br>・クールダウン: 25〜（レベルに応じて変化）",
+   "description": "<br><br><rules>チャンピオン以外の対象には40%〜（レベルに応じて変化）のダメージを与え、このスキルのクールダウンが10%短縮される。<br>このスキルで<status>フィアー効果</status>を受けた敵は、ヴェックスから離れるほど移動速度が遅くなる。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -39,7 +40,7 @@
   },
   "r": {
    "name": "影法師",
-   "description": "シャドウが興奮して突撃し、<magicDamage>@spell.VexR:RDamageCalc@の魔法ダメージ</magicDamage>を与えて、最初に命中した敵チャンピオンを4秒間マークする。<br><br><recast>再発動</recast>: マークしたチャンピオンまでダッシュして、到着時に<magicDamage>@spell.VexR:RecastDamageCalc@の魔法ダメージ</magicDamage>を与える。<br><br>このスキルでダメージを受けてから、@spell.VexR:TakedownWindow@秒以内にマークしたチャンピオンがデスすると、一時的にクールダウンがリセットされる。",
+   "description": "シャドウが興奮して突撃し、<magicDamage>75/125/175（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、最初に命中した敵チャンピオンを4秒間マークする。<br><br><recast>再発動</recast>: マークしたチャンピオンまでダッシュして、到着時に<magicDamage>150/250/350（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルでダメージを受けてから、8秒以内にマークしたチャンピオンがデスすると、一時的にクールダウンがリセットされる。",
    "cooldown": "140/120/100",
    "cost": "100",
    "range": "2000/2500/3000",

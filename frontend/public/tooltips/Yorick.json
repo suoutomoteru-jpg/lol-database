@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "魂の導き手",
-   "description": "<font color='#FF9900'>呪われし一群:</font> 周囲の敵に襲いかかり攻撃する「ミストウォーカー」を召喚する。<br><br><strong>詳細数値</strong><br>・回復: 100〜300（レベル比例） ＋ 増加体力の15%<br>・ダメージ: 15〜100（レベル比例） ＋ 増加攻撃力の20%<br>・ダメージ: 66%〜（レベルに応じて変化）<br>・攻撃速度: 8〜80%（レベル比例）",
+   "description": "<br><br><rules><keywordMajor>「ミストウォーカー」</keywordMajor><br>建造物には<physicalDamage>50%のダメージ</physicalDamage>を与える。<br>ジャングルモンスターには<physicalDamage>60%のダメージ</physicalDamage>を与える。<br>近接攻撃チャンピオンの通常攻撃から200%のダメージを受ける。<br>範囲ダメージからは66%〜（レベルに応じて変化）のダメージを受ける。<br>レーンミニオンからは60%のダメージを受ける。<br>ジャングルモンスターからは100%のダメージを受ける。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -30,12 +31,14 @@
   },
   "e": {
    "name": "悲嘆の霧",
-   "description": "「黒き霧」の塊を投げつけて<magicDamage>最大体力の6/6.5/7/7.5/8%（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与え、1.5秒間30%の<status>スロウ効果</status>を付与し、4秒間チャンピオンとモンスターをマークする。マークされた敵は継続的に周囲の墓を<spellName>「目覚め」</spellName>させ(最大召喚数である@Spell.YorickPassive:YorickPassiveGhoulMax@体は越えない)、<scaleArmor>物理防御が13/16/19/22/25%低下</scaleArmor>する。<br><br>自身と召喚したユニットは、マークされた対象に向かう際に<speed>移動速度が18/21/24/27/30%</speed>増加する。<keywordMajor>「ミストウォーカー」</keywordMajor>はマークされた敵が逃げると1回だけ飛びついて追いかける。",
+   "description": "「黒き霧」の塊を投げつけて<magicDamage>最大体力の6/6.5/7/7.5/8%（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与え、1.5秒間30%の<status>スロウ効果</status>を付与し、4秒間チャンピオンとモンスターをマークする。マークされた敵は継続的に周囲の墓を<spellName>「目覚め」</spellName>させ(最大召喚数である体は越えない)、<scaleArmor>物理防御が13/16/19/22/25%低下</scaleArmor>する。<br><br>自身と召喚したユニットは、マークされた対象に向かう際に<speed>移動速度が18/21/24/27/30%</speed>増加する。<keywordMajor>「ミストウォーカー」</keywordMajor>はマークされた敵が逃げると1回だけ飛びついて追いかける。",
    "cooldown": "12/11/10/9/8",
    "cost": "50/55/60/65/70",
    "range": "700",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "Spell.YorickPassive:YorickPassiveGhoulMax"
+   ]
   },
   "r": {
    "name": "嘆きの墓標",
@@ -47,5 +50,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

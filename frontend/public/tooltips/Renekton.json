@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "激情の支配",
-   "description": "攻撃に「フューリー」を獲得する。自身の体力が低下していると「フューリー」の獲得量が増加する。「フューリー」を消費するとスキルに追加効果を付与できる。",
+   "description": "通常攻撃ごとに<keywordMajor>5フューリー</keywordMajor>を獲得する。<keywordMajor>50フューリー</keywordMajor>以上になると、次に使用するスキルがフューリーを消費して強化される。非戦闘状態になると<keywordMajor>フューリー</keywordMajor>は減少していく。<br><br>体力が50%未満になると、獲得する<keywordMajor>フューリー</keywordMajor>が50%増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

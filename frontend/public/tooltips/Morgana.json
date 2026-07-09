@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ソウルサイフォン",
-   "description": "敵チャンピオン、大型ミニオン、中型および大型ジャングルモンスターにダメージを与えると自身の体力を回復する。",
+   "description": "チャンピオン、大型ミニオン、中型および大型ジャングルモンスターにスキルで与えたダメージの<healing>18%にあたる体力を回復</healing>する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

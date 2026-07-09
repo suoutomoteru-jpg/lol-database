@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "岩の皮膚",
-   "description": "チャンピオンまたはモンスターと戦闘中は、スタック可能な物理防御と最大体力に応じた自動回復を獲得する。<br><br><strong>詳細数値</strong><br>・物理防御: 6〜10（レベル比例）<br>・物理防御: 6〜10（レベル比例）",
+   "description": "<scaleArmor>6〜10（レベル比例）の物理防御</scaleArmor>を獲得して、<healing>5秒ごとに最大体力の0.35%</healing>を回復する。自身または<keywordMajor>分身</keywordMajor>が、敵チャンピオンもしくはジャングルモンスターに通常攻撃を行うかスキルを使用するたびに、これらのボーナスが5秒間100%増加して、最大5回までスタックする。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

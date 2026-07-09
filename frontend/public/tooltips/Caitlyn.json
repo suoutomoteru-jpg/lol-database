@@ -7,8 +7,11 @@
  "skills": {
   "passive": {
    "name": "ヘッドショット",
-   "description": "通常攻撃数回ごと、または自身のトラップやネットにかけた対象に、クリティカル率によってダメージが増加する「ヘッドショット」を発射できる。トラップまたはネットにかけた対象に対しては「ヘッドショット」の射程が2倍になる。",
-   "unresolved": []
+   "description": "<br><br><rules><keywordMajor>「ヘッドショット」</keywordMajor>のダメージはチャンピオンレベル、クリティカル率、クリティカルダメージに応じて増加する。<br><keywordMajor>「ヘッドショット」</keywordMajor>はチャンピオン以外の対象には<physicalDamage>の物理ダメージ</physicalDamage>を追加で与える。<br>トラップが当たった対象への追加ダメージは「」のスキルレベルに応じて増加する。</rules>",
+   "source": "stringtable",
+   "unresolved": [
+    "HeadShotMinionBonusDamage"
+   ]
   },
   "q": {
    "name": "ピースメーカー",
@@ -49,5 +52,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 2
 }

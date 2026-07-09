@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "スパークル！",
-   "description": "スキル使用後、次に行う通常攻撃が追加魔法ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 16〜（レベルに応じて変化） ＋ 魔力の20%",
+   "description": "<br><br><rules>強化された通常攻撃は直ちにダメージを与える。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ライジングスペルフォース",
-   "description": "スキルを連続で命中させるたびに攻撃速度が増加していく。最大5スタック。",
+   "description": "スキルが命中すると6秒間<attackSpeed>攻撃速度が10%</attackSpeed>増加する。これの効果は最大5回までスタックする。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

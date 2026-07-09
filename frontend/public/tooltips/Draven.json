@@ -7,8 +7,12 @@
  "skills": {
   "passive": {
    "name": "リーグ・オブ・ドレイヴン",
-   "description": "ドレイヴンが「回転斬斧」をキャッチするか、ミニオンおよび中立モンスター、タワーを破壊すると「名声」がたまる。敵チャンピオンを倒すとドレイヴンがスポットライトと喝采を浴び、「名声」の量に応じてゴールドを獲得する。",
-   "unresolved": []
+   "description": "チャンピオン以外のユニットをキル、タワーを破壊、<keywordMajor>「回転斬斧」</keywordMajor>をキャッチすることで1スタック獲得する。<br><br>チャンピオンをキルすると25ゴールドと、さらに1スタックにつき追加で2ゴールドを獲得する。倒されるとスタックを50%失う。<br><br>獲得したゴールドの合計: <statTracking></statTracking><br>最高報酬額: <statTracking></statTracking>",
+   "source": "stringtable",
+   "unresolved": [
+    "DravenPassiveGoldEarned",
+    "DravenPassiveHighestBounty"
+   ]
   },
   "q": {
    "name": "回転斬斧",
@@ -49,5 +53,5 @@
    ]
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 3
 }

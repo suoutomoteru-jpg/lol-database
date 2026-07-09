@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ヘクステックの親和性",
-   "description": "味方のタワーまたは自身が配置した砲台の近くにいると移動速度が増加する。",
+   "description": "自身の<keywordMajor>砲台</keywordMajor>と味方のタワー付近では、<speed>移動速度が20%</speed>増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

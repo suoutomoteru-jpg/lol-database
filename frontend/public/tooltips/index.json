@@ -1,1044 +1,1217 @@
 {
  "patch": "16.13.7915903+branch.releases-16-13.content.release",
- "generatedAt": "2026-07-09T03:21:53.474940+00:00",
+ "generatedAt": "2026-07-09T03:42:12.001970+00:00",
  "champions": [
   {
    "alias": "Aatrox",
    "id": 266,
    "name": "エイトロックス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ahri",
    "id": 103,
    "name": "アーリ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Akali",
    "id": 84,
    "name": "アカリ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Akshan",
    "id": 166,
    "name": "アクシャン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Alistar",
    "id": 12,
    "name": "アリスター",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ambessa",
    "id": 799,
    "name": "アンベッサ",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Amumu",
    "id": 32,
    "name": "アムム",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Anivia",
    "id": 34,
    "name": "アニビア",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Annie",
    "id": 1,
    "name": "アニー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Aphelios",
    "id": 523,
    "name": "アフェリオス",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Ashe",
    "id": 22,
    "name": "アッシュ",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "AurelionSol",
    "id": 136,
    "name": "オレリオン・ソル",
-   "unresolvedCount": 2
+   "unresolvedCount": 2,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Aurora",
    "id": 893,
    "name": "オーロラ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Azir",
    "id": 268,
    "name": "アジール",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Bard",
    "id": 432,
    "name": "バード",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Belveth",
    "id": 200,
    "name": "ベル＝ヴェス",
-   "unresolvedCount": 3
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Blitzcrank",
    "id": 53,
    "name": "ブリッツクランク",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Brand",
    "id": 63,
    "name": "ブランド",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Braum",
    "id": 201,
    "name": "ブラウム",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Briar",
    "id": 233,
    "name": "ブライアー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Caitlyn",
    "id": 51,
    "name": "ケイトリン",
-   "unresolvedCount": 1
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Camille",
    "id": 164,
    "name": "カミール",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Cassiopeia",
    "id": 69,
    "name": "カシオペア",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Chogath",
    "id": 31,
    "name": "チョ＝ガス",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Corki",
    "id": 42,
    "name": "コーキ",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Darius",
    "id": 122,
    "name": "ダリウス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Diana",
    "id": 131,
    "name": "ダイアナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "DrMundo",
    "id": 36,
    "name": "ドクター・ムンド",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Draven",
    "id": 119,
    "name": "ドレイヴン",
-   "unresolvedCount": 1
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ekko",
    "id": 245,
    "name": "エコー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Elise",
    "id": 60,
    "name": "エリス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Evelynn",
    "id": 28,
    "name": "イブリン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ezreal",
    "id": 81,
    "name": "エズリアル",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "FiddleSticks",
    "id": 9,
    "name": "フィドルスティックス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Fiora",
    "id": 114,
    "name": "フィオラ",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Fizz",
    "id": 105,
    "name": "フィズ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Galio",
    "id": 3,
    "name": "ガリオ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Gangplank",
    "id": 41,
    "name": "ガングプランク",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Garen",
    "id": 86,
    "name": "ガレン",
-   "unresolvedCount": 3
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Gnar",
    "id": 150,
    "name": "ナー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Gragas",
    "id": 79,
    "name": "グラガス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Graves",
    "id": 104,
    "name": "グレイブス",
-   "unresolvedCount": 0
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Gwen",
    "id": 887,
    "name": "グウェン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Hecarim",
    "id": 120,
    "name": "ヘカリム",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Heimerdinger",
    "id": 74,
    "name": "ハイマーディンガー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Hwei",
    "id": 910,
    "name": "フェイ",
-   "unresolvedCount": 0
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Illaoi",
    "id": 420,
    "name": "イラオイ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Irelia",
    "id": 39,
    "name": "イレリア",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ivern",
    "id": 427,
    "name": "アイバーン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Janna",
    "id": 40,
    "name": "ジャンナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "JarvanIV",
    "id": 59,
    "name": "ジャーヴァンⅣ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jax",
    "id": 24,
    "name": "ジャックス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jayce",
    "id": 126,
    "name": "ジェイス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jhin",
    "id": 202,
    "name": "ジン",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jinx",
    "id": 222,
    "name": "ジンクス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "KSante",
    "id": 897,
    "name": "カ・サンテ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kaisa",
    "id": 145,
    "name": "カイ＝サ",
-   "unresolvedCount": 4
+   "unresolvedCount": 5,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kalista",
    "id": 429,
    "name": "カリスタ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Karma",
    "id": 43,
    "name": "カルマ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Karthus",
    "id": 30,
    "name": "カーサス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kassadin",
    "id": 38,
    "name": "カサディン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Katarina",
    "id": 55,
    "name": "カタリナ",
-   "unresolvedCount": 2
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kayle",
    "id": 10,
    "name": "ケイル",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kayn",
    "id": 141,
    "name": "ケイン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kennen",
    "id": 85,
    "name": "ケネン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Khazix",
    "id": 121,
    "name": "カ＝ジックス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kindred",
    "id": 203,
    "name": "キンドレッド",
-   "unresolvedCount": 3
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kled",
    "id": 240,
    "name": "クレッド",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "KogMaw",
    "id": 96,
    "name": "コグ＝マウ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Leblanc",
    "id": 7,
    "name": "ルブラン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "LeeSin",
    "id": 64,
    "name": "リー・シン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Leona",
    "id": 89,
    "name": "レオナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Lillia",
    "id": 876,
    "name": "リリア",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Lissandra",
    "id": 127,
    "name": "リサンドラ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Locke",
    "id": 805,
    "name": "ロック",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Lucian",
    "id": 236,
    "name": "ルシアン",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Lulu",
    "id": 117,
    "name": "ルル",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Lux",
    "id": 99,
    "name": "ラックス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Malphite",
    "id": 54,
    "name": "マルファイト",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Malzahar",
    "id": 90,
    "name": "マルザハール",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Maokai",
    "id": 57,
    "name": "マオカイ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "MasterYi",
    "id": 11,
    "name": "マスター・イー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Mel",
    "id": 800,
    "name": "メル",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Milio",
    "id": 902,
    "name": "ミリオ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "MissFortune",
    "id": 21,
    "name": "ミス・フォーチュン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "MonkeyKing",
    "id": 62,
    "name": "ウーコン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Mordekaiser",
    "id": 82,
    "name": "モルデカイザー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Morgana",
    "id": 25,
    "name": "モルガナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Naafiri",
    "id": 950,
    "name": "ナフィーリ",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Nami",
    "id": 267,
    "name": "ナミ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Nasus",
    "id": 75,
    "name": "ナサス",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Nautilus",
    "id": 111,
    "name": "ノーチラス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Neeko",
    "id": 518,
    "name": "ニーコ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Nidalee",
    "id": 76,
    "name": "ニダリー",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Nilah",
    "id": 895,
    "name": "ニーラ",
-   "unresolvedCount": 3
+   "unresolvedCount": 4,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Nocturne",
    "id": 56,
    "name": "ノクターン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Nunu",
    "id": 20,
    "name": "ヌヌ＆ウィルンプ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Olaf",
    "id": 2,
    "name": "オラフ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Orianna",
    "id": 61,
    "name": "オリアナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ornn",
    "id": 516,
    "name": "オーン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Pantheon",
    "id": 80,
    "name": "パンテオン",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Poppy",
    "id": 78,
    "name": "ポッピー",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Pyke",
    "id": 555,
    "name": "パイク",
-   "unresolvedCount": 4
+   "unresolvedCount": 4,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Qiyana",
    "id": 246,
    "name": "キヤナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Quinn",
    "id": 133,
    "name": "クイン",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Rakan",
    "id": 497,
    "name": "ラカン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Rammus",
    "id": 33,
    "name": "ラムス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "RekSai",
    "id": 421,
    "name": "レク＝サイ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Rell",
    "id": 526,
    "name": "レル",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Renata",
    "id": 888,
    "name": "レナータ・グラスク",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Renekton",
    "id": 58,
    "name": "レネクトン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Rengar",
    "id": 107,
    "name": "レンガー",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Riven",
    "id": 92,
    "name": "リヴェン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Rumble",
    "id": 68,
    "name": "ランブル",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ryze",
    "id": 13,
    "name": "ライズ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Samira",
    "id": 360,
    "name": "サミーラ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Sejuani",
    "id": 113,
    "name": "セジュアニ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Senna",
    "id": 235,
    "name": "セナ",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Seraphine",
    "id": 147,
    "name": "セラフィーン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Sett",
    "id": 875,
    "name": "セト",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Shaco",
    "id": 35,
    "name": "シャコ",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Shen",
    "id": 98,
    "name": "シェン",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Shyvana",
    "id": 102,
    "name": "シヴァーナ",
-   "unresolvedCount": 3
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Singed",
    "id": 27,
    "name": "シンジド",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Sion",
    "id": 14,
    "name": "サイオン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Sivir",
    "id": 15,
    "name": "シヴィア",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Skarner",
    "id": 72,
    "name": "スカーナー",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Smolder",
    "id": 901,
    "name": "スモルダー",
-   "unresolvedCount": 3
+   "unresolvedCount": 6,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Sona",
    "id": 37,
    "name": "ソナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Soraka",
    "id": 16,
    "name": "ソラカ",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Swain",
    "id": 50,
    "name": "スウェイン",
-   "unresolvedCount": 0
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Sylas",
    "id": 517,
    "name": "サイラス",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Syndra",
    "id": 134,
    "name": "シンドラ",
-   "unresolvedCount": 1
+   "unresolvedCount": 5,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "TahmKench",
    "id": 223,
    "name": "タム・ケンチ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Taliyah",
    "id": 163,
    "name": "タリヤ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Talon",
    "id": 91,
    "name": "タロン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Taric",
    "id": 44,
    "name": "タリック",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Teemo",
    "id": 17,
    "name": "ティーモ",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Thresh",
    "id": 412,
    "name": "スレッシュ",
-   "unresolvedCount": 3
+   "unresolvedCount": 5,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Tristana",
    "id": 18,
    "name": "トリスターナ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Trundle",
    "id": 48,
    "name": "トランドル",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Tryndamere",
    "id": 23,
    "name": "トリンダメア",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "TwistedFate",
    "id": 4,
    "name": "ツイステッド・フェイト",
-   "unresolvedCount": 3
+   "unresolvedCount": 3,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Twitch",
    "id": 29,
    "name": "トゥイッチ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Udyr",
    "id": 77,
    "name": "ウディア",
-   "unresolvedCount": 2
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Urgot",
    "id": 6,
    "name": "アーゴット",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Varus",
    "id": 110,
    "name": "ヴァルス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Vayne",
    "id": 67,
    "name": "ヴェイン",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Veigar",
    "id": 45,
    "name": "ベイガー",
-   "unresolvedCount": 0
+   "unresolvedCount": 4,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Velkoz",
    "id": 161,
    "name": "ヴェル＝コズ",
-   "unresolvedCount": 1
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Vex",
    "id": 711,
    "name": "ヴェックス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Vi",
    "id": 254,
    "name": "ヴァイ",
-   "unresolvedCount": 1
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Viego",
    "id": 234,
    "name": "ヴィエゴ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Viktor",
    "id": 112,
    "name": "ビクター",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Vladimir",
    "id": 8,
    "name": "ブラッドミア",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Volibear",
    "id": 106,
    "name": "ボリベア",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Warwick",
    "id": 19,
    "name": "ワーウィック",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Xayah",
    "id": 498,
    "name": "ザヤ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Xerath",
    "id": 101,
    "name": "ゼラス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "XinZhao",
    "id": 5,
    "name": "シン・ジャオ",
-   "unresolvedCount": 1
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Yasuo",
    "id": 157,
    "name": "ヤスオ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Yone",
    "id": 777,
    "name": "ヨネ",
-   "unresolvedCount": 0
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Yorick",
    "id": 83,
    "name": "ヨリック",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Yunara",
    "id": 804,
    "name": "ユナラ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Yuumi",
    "id": 350,
    "name": "ユーミ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Zaahen",
    "id": 904,
    "name": "ザーヘン",
-   "unresolvedCount": 0
+   "unresolvedCount": 2,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Zac",
    "id": 154,
    "name": "ザック",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Zed",
    "id": 238,
    "name": "ゼド",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Zeri",
    "id": 221,
    "name": "ゼリ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Ziggs",
    "id": 115,
    "name": "ジグス",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Zilean",
    "id": 26,
    "name": "ジリアン",
-   "unresolvedCount": 0
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Zoe",
    "id": 142,
    "name": "ゾーイ",
-   "unresolvedCount": 0
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Zyra",
    "id": 143,
    "name": "ザイラ",
-   "unresolvedCount": 1
+   "unresolvedCount": 5,
+   "passiveSource": "stringtable"
   }
  ]
 }

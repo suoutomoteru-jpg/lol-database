@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "さざなみの後押し",
-   "description": "スキルが味方チャンピオンに命中するたびに、命中した相手の移動速度が短時間増加する。<br><br><strong>詳細数値</strong><br>・移動速度: 100（＋魔力の25%）",
+   "description": "スキルが味方チャンピオンに命中するたびに、対象の<speed>移動速度が100（＋魔力の25%）</speed>増加する。この移動速度は1.5秒かけて元に戻る。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

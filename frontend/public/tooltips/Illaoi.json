@@ -7,12 +7,13 @@
  "skills": {
   "passive": {
    "name": "旧神の預言者",
-   "description": "イラオイと、イラオイに<font color='#669900'>「器」</font>にされた者は、周囲の地形に一定時間ごとに触手を発生させる。触手は魂、<font color='#669900'>「器」</font>、イラオイの「過酷なる教訓」をくらった者を攻撃する。触手は命中すると敵に物理ダメージを与え、敵チャンピオンにダメージを与えた場合はイラオイを回復する。<br><br><strong>詳細数値</strong><br>・クールダウン: 18〜7（レベル比例）",
+   "description": "<br><br><rules>一度に複数の「叩きつけ」を受けた敵は、2つ目から受けるダメージが50%、3つ目以降から受けるダメージが25%になる。<br>触手は自らがキルされるか、イラオイが範囲外に出て30秒経過するまで持続する。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "触手の鉄槌",
-   "description": "<passive>自動効果:</passive> <keywordMajor>「叩きつけ」</keywordMajor>のダメージが<physicalDamage>@spell.IllaoiQ:TentacleDamageAmp*100@%</physicalDamage>増加する(現在は<physicalDamage>@spell.IllaoiQ:TentacleDamageTotal@の物理ダメージ</physicalDamage>)。<br><br><active>発動効果:</active> 偶像を振って、触手が前方に<keywordMajor>「叩きつけ」</keywordMajor>を行う。",
+   "description": "<passive>自動効果:</passive> <keywordMajor>「叩きつけ」</keywordMajor>のダメージが<physicalDamage>10/15/20/25/30%</physicalDamage>増加する(現在は<physicalDamage>9〜180（レベル比例） ＋ 合計攻撃力の110% ＋ 魔力の40%の物理ダメージ</physicalDamage>)。<br><br><active>発動効果:</active> 偶像を振って、触手が前方に<keywordMajor>「叩きつけ」</keywordMajor>を行う。",
    "cooldown": "10/9/8/7/6",
    "cost": "40/45/50/55/60",
    "range": "850",
@@ -39,7 +40,7 @@
   },
   "r": {
    "name": "信仰震",
-   "description": "偶像を地面にたたきつけ、周囲の敵ユニットに<physicalDamage>150/250/350（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、命中した敵チャンピオン1体ごとに触手が1本発生する。<br><br>このスキルを発動してから8秒間、触手は対象指定できなくなり、<keywordMajor>「叩きつけ」</keywordMajor>速度が50%増加する。また発動中は<spellName>「過酷なる教訓」</spellName>のクールダウンが@spell.IllaoiW:CooldownDuringR@秒になる。",
+   "description": "偶像を地面にたたきつけ、周囲の敵ユニットに<physicalDamage>150/250/350（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、命中した敵チャンピオン1体ごとに触手が1本発生する。<br><br>このスキルを発動してから8秒間、触手は対象指定できなくなり、<keywordMajor>「叩きつけ」</keywordMajor>速度が50%増加する。また発動中は<spellName>「過酷なる教訓」</spellName>のクールダウンが2秒になる。",
    "cooldown": "120/95/70",
    "cost": "100",
    "range": "450",

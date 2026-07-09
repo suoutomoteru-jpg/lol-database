@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "女帝の威風",
-   "description": "それぞれの敵に対する最初の通常攻撃またはスキルに追加ダメージが付与される。<br><br><strong>詳細数値</strong><br>・ダメージ: 15〜（レベルに応じて変化） ＋ 増加攻撃力の25% ＋ 魔力の30%<br>・クールダウン: 14〜14（レベル比例）",
+   "description": "通常攻撃とスキルが追加で<physicalDamage>15〜（レベルに応じて変化） ＋ 増加攻撃力の25% ＋ 魔力の30%の追加物理ダメージ</physicalDamage>を与える。この効果は対象ごとに25秒のクールダウンがある。<br><br><spellName>「」</spellName>を使って異なる武器の<keywordMajor>「エンチャントメント」</keywordMajor>を獲得すると、すべての対象に対してこの効果のクールダウンがリセットされる。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

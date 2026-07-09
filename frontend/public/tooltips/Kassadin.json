@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ヴォイドストーン",
-   "description": "受ける魔法ダメージが減少し、ユニットをすり抜けられるようになる。",
+   "description": "<br><rules></rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

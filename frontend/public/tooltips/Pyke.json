@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "沈みし者の力",
-   "description": "敵の視界外にいると、直前にチャンピオンからの攻撃で失った体力を回復する。また、パイクはいずれのソースからも増加最大体力を得ることはできず、代わりに増加攻撃力を得る。<br><br><strong>詳細数値</strong><br>・ダメージ: 80（＋増加攻撃力の800%）",
+   "description": "<br><br>増加攻撃力: <statTracking>攻撃力14</statTracking>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

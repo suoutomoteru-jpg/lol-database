@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "精霊の繋ぎ手",
-   "description": "4つの通常スキルで「型」を切り替え、スキルを再発動すると「型」がリフレッシュされて究極の効果を得る。さらに、スキル使用後、次の2回の通常攻撃の攻撃速度が増加する。<br><br><strong>詳細数値</strong><br>・攻撃速度: 30%<br>・クールダウン: 50〜（レベルに応じて変化）<br>・ダメージ: 0（＋合計攻撃力の10% ＋魔力の20%）",
+   "description": "<spellPassive>精霊の覚醒:</spellPassive> 4つの通常スキルで<i>「型」</i>を切り替える。クールダウン中のスキルを<recast>再発動</recast>すると再度そのボーナスを獲得し、アルティメットスキルの効果を得る(クールダウン50〜（レベルに応じて変化）秒)。<br><br><spellPassive>修行僧の鍛錬:</spellPassive> スキル使用後、4秒以内に行う次の2回の通常攻撃は<attackSpeed>攻撃速度が30%</attackSpeed>増加し、<keywordMajor>「覚醒」</keywordMajor>のクールダウンを5%短縮する。<br>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

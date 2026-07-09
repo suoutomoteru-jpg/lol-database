@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "呪いの手",
-   "description": "通常攻撃で敵に<font color='#9b0f5f'>「呪い」</font>をかける。呪われた対象は、魔法ダメージを受ける際に追加確定ダメージを受けるようになる。",
+   "description": "通常攻撃で敵に3秒間<keywordMajor>「呪い」</keywordMajor>をかける。呪われた対象は、魔法ダメージを受ける際に<trueDamage>10%の確定ダメージ</trueDamage>を追加で受けるようになる。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

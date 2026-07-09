@@ -8,6 +8,7 @@
   "passive": {
    "name": "宇宙の創造者",
    "description": "攻撃スキルを敵に命中させると、<font color='#3458eb'>「星屑」</font>のスタックを獲得できる。このスタックは各スキルを恒久的に強化する。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

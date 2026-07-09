@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "終わりなき喜び",
-   "description": "ラストヒットしたミニオンから得る経験値が増加する。また、周囲の味方の体力回復およびシールド効果を強化し、その味方と共有する。",
+   "description": "ミニオンをキルすると、自身および最も近くにいる味方1体が、本来ならキルを共有することで失うはずだった経験値の50%を獲得する。<br><br>味方チャンピオンのスキルから受ける<healing>体力回復効果が7.5%</healing>、<shield>シールド効果が15%</shield>増加する。ニーラに体力回復またはシールド効果を付与した味方も、この増加量と同じだけ体力回復またはシールド効果を受ける。味方が自身に体力回復またはシールド効果を付与すると、ニーラも前述の増加量と同じだけ体力回復またはシールド効果を受ける。<br><br><rules>ニーラが共有したシールドの最大効果時間は4秒。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -42,15 +43,16 @@
   },
   "r": {
    "name": "アポテオシス",
-   "description": "鞭の刃を振り回し、1秒かけて<physicalDamage>60/100/140（＋増加攻撃力の10%）の物理ダメージ</physicalDamage>を与える。そして最後に衝撃波で<physicalDamage>125/225/325（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与えて、周囲の敵を自身の方向に<status>引き寄せる</status>。<br><br>「アポテオシス」により、自身および周囲の味方が、敵チャンピオンに対する<healing>与ダメージの (+@spell.NilahQ:CritLifesteal@ 形なき刃)</healing>にあたる体力を回復し、余剰の体力回復量は6秒間<shield>シールド</shield>に変換される。",
+   "description": "鞭の刃を振り回し、1秒かけて<physicalDamage>60/100/140（＋増加攻撃力の10%）の物理ダメージ</physicalDamage>を与える。そして最後に衝撃波で<physicalDamage>125/225/325（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与えて、周囲の敵を自身の方向に<status>引き寄せる</status>。<br><br>「アポテオシス」により、自身および周囲の味方が、敵チャンピオンに対する<healing>与ダメージの (+ 形なき刃)</healing>にあたる体力を回復し、余剰の体力回復量は6秒間<shield>シールド</shield>に変換される。",
    "cooldown": "110/95/80",
    "cost": "100",
    "range": "400",
    "maxRank": 3,
    "unresolved": [
-    "ChampHealingPercent"
+    "ChampHealingPercent",
+    "spell.NilahQ:CritLifesteal"
    ]
   }
  },
- "unresolvedCount": 3
+ "unresolvedCount": 4
 }

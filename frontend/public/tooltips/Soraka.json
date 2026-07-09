@@ -7,8 +7,11 @@
  "skills": {
   "passive": {
    "name": "救済の足音",
-   "description": "近くにいる体力の少ない味方に向かって移動する際に、ソラカの移動速度が増加する。",
-   "unresolved": []
+   "description": "<br><br><rules>味方は自身から範囲以内にいる必要がある。</rules>",
+   "source": "stringtable",
+   "unresolved": [
+    "CastRange"
+   ]
   },
   "q": {
    "name": "星のささやき",
@@ -21,7 +24,7 @@
   },
   "w": {
    "name": "星霊の癒し",
-   "description": "自分以外の味方チャンピオン1体の<healing>体力を90/110/130/150/170（＋魔力の50%）</healing>回復する。<br><br>自身が<keywordMajor>「再生」</keywordMajor>の効果を受けている場合、体力コストが80/85/90/95/100%減少し、対象に@Spell.SorakaQ:HoTDuration@秒間<keywordMajor>「再生」</keywordMajor>を付与する。",
+   "description": "自分以外の味方チャンピオン1体の<healing>体力を90/110/130/150/170（＋魔力の50%）</healing>回復する。<br><br>自身が<keywordMajor>「再生」</keywordMajor>の効果を受けている場合、体力コストが80/85/90/95/100%減少し、対象に2.5秒間<keywordMajor>「再生」</keywordMajor>を付与する。",
    "cooldown": "6/5/4/3/2",
    "cost": "40/45/50/55/60",
    "range": "550",
@@ -47,5 +50,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

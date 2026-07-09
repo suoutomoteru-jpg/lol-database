@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ステージプレゼンス",
-   "description": "通常スキルを3回使用すると、3回目のスキルが2連続で発動する。さらに味方の近くでスキルを使用すると、自身の次の通常攻撃は射程が増加し、追加魔法ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 4〜25（レベル比例） ＋ 魔力の4%",
+   "description": "通常スキルを3回使用するごとに反響が発生し、3回目のスキルが自動的にもう一度発動される。<br><br>さらに、味方の心の中にある音楽からインスピレーションを得て、スキルを使用する際に周囲のそれぞれの味方に<keywordMajor>「ノート」</keywordMajor>を1つ付与する(<keywordMajor>「ノート」</keywordMajor>は6秒間持続し、味方1体あたり最大4つまでスタックする)。<keywordMajor>「ノート」</keywordMajor>1つにつき、通常攻撃の射程が25増加し、追加で<magicDamage>4〜25（レベル比例） ＋ 魔力の4%の魔法ダメージ</magicDamage>を与える。通常攻撃を行うと<keywordMajor>「ノート」</keywordMajor>は消費される。<br><br><rules>味方からの「ノート」は25%のダメージを与える。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

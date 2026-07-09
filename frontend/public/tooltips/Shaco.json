@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "バックスタブ",
-   "description": "対象の背後から攻撃した場合、通常攻撃と「ポイズンダガー」が追加ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 20〜35（レベル比例） ＋ 増加攻撃力の20%<br>・ダメージ: 15〜50（レベル比例） ＋ 魔力の10%<br>・ダメージ: 15〜50（レベル比例） ＋ 魔力の10%",
+   "description": "自分の方向を向いていない敵を攻撃した場合:<li>通常攻撃が<physicalDamage>20〜35（レベル比例） ＋ 増加攻撃力の20%の物理ダメージ</physicalDamage>を追加で与える。このダメージにはクリティカル判定がある。<li><spellName>「」</spellName>は<magicDamage>15〜50（レベル比例） ＋ 魔力の10%の魔法ダメージ</magicDamage>を追加で与える。このダメージは対象の体力が30%未満の場合、<magicDamage>15〜50（レベル比例） ＋ 魔力の10%の魔法ダメージ</magicDamage>まで増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

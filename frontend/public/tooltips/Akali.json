@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "刺客の刻印",
-   "description": "チャンピオンにスキルでダメージを与えると対象の周囲に気の輪が形成される。輪の外に出るとアカリの次の通常攻撃の射程とダメージが増加する。<br><br><strong>詳細数値</strong><br>・ダメージ: 35〜（レベルに応じて変化） ＋ 増加攻撃力の60% ＋ 魔力の55%",
+   "description": "<br><br><rules>自身が輪を超えると、敵に向かう際に<speed>移動速度</speed>が増加する。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

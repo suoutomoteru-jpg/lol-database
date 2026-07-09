@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "戦場の咆哮",
-   "description": "通常攻撃やクリティカル発生、敵にとどめを刺した際に「フューリー」がたまっていく。<br><br>自動効果: たまった「フューリー」の量に応じてクリティカル率が増加する。<br><br>たまった「フューリー」を消費して「血の欲望」を強化して発動できる。",
+   "description": "通常攻撃で<keywordMajor>フューリーを5</keywordMajor>、クリティカルが発生すると<keywordMajor>フューリーを10</keywordMajor>、ユニットをキルすると<keywordMajor>フューリーを10</keywordMajor>獲得する。非戦闘状態が8秒間続くと、その後毎秒<keywordMajor>フューリーが5</keywordMajor>ずつ減少していく。<br><br>たまった<keywordMajor>フューリー</keywordMajor>1ポイントにつき、クリティカル率が0.5%増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

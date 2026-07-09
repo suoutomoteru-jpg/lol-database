@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ファイヤーアップ！",
-   "description": "ミリオのスキルに触れた味方は、次の攻撃で追加のバーストダメージを与え、対象を炎上させる。",
+   "description": "<br><br><rules>複数回命中させても、炎上ダメージはスタックしない。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

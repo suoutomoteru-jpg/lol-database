@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "妖艶な蛇行",
-   "description": "カシオペアは獲得するあらゆる移動速度ボーナスの効果が増加する。",
+   "description": "カシオペアはあらゆる<speed>移動速度</speed>増加効果の効率が6%〜（レベルに応じて変化）増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

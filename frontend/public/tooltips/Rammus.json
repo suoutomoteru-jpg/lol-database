@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "トゲトゲ",
-   "description": "自身の物理防御と魔法防御に応じて攻撃力が増加する。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計物理防御の15% ＋ 合計移動速度の15%",
+   "description": "<scaleAD>攻撃力が合計物理防御の15% ＋ 合計移動速度の15%</scaleAD>増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -39,7 +40,7 @@
   },
   "r": {
    "name": "どーんどーん",
-   "description": "ジャンプしてから勢いよく着地して、一定範囲に<magicDamage>150/250/350（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、1.5秒間、30/40/50%の<status>スロウ効果</status>を与える。<spellName>「ころころ」</spellName>中に使用すると、範囲の中心にいた敵に追加で<magicDamage>@spell.PowerBall:PowerBallDamage@の魔法ダメージ</magicDamage>を与え、0.75秒間、<status>ノックアップ</status>する。<br><br>その後、3.5秒かけてその範囲に3回余震を発生させ、繰り返し<status>スロウ効果</status>を与える。<br><br>このスキルの射程は自身の<speed>移動速度</speed>に応じて増加する。",
+   "description": "ジャンプしてから勢いよく着地して、一定範囲に<magicDamage>150/250/350（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、1.5秒間、30/40/50%の<status>スロウ効果</status>を与える。<spellName>「ころころ」</spellName>中に使用すると、範囲の中心にいた敵に追加で<magicDamage>80/120/160/200/240（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、0.75秒間、<status>ノックアップ</status>する。<br><br>その後、3.5秒かけてその範囲に3回余震を発生させ、繰り返し<status>スロウ効果</status>を与える。<br><br>このスキルの射程は自身の<speed>移動速度</speed>に応じて増加する。",
    "cooldown": "120/105/90",
    "cost": "100",
    "range": "25000",

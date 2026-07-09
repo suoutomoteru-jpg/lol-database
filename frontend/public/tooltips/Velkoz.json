@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "有機分解",
-   "description": "スキルが命中するたびに対象の<keywordName>「有機分解」</keywordName>が進行していき、3スタックすると確定ダメージを与える。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 魔力の60% ＋ 35〜180（レベル比例）",
+   "description": "スキルを使用すると7秒間<keywordMajor>「分解」</keywordMajor>のスタックを付与する。3スタックになった敵に全スタックを消費して<trueDamage>魔力の60% ＋ 35〜180（レベル比例）の確定ダメージ</trueDamage>を与える。<br><br>通常攻撃は<keywordMajor>「分解」</keywordMajor>の効果時間を更新するが、新たなスタックを追加することはない。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

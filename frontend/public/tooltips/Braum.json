@@ -7,8 +7,11 @@
  "skills": {
   "passive": {
    "name": "漢の拳",
-   "description": "通常攻撃を命中させると「漢の拳」がスタックする。スタックが1つ以上ある敵には、<font color='#FFF673'>味方</font>の通常攻撃でも効果がスタックする。 <br><br>スタックが4つ溜まると対象はスタン状態になり、魔法ダメージを受ける。スタン状態になった敵はその後、数秒間はスタックが増加しない。ただしブラウムの攻撃が命中すると追加魔法ダメージを受ける。<br><br><strong>詳細数値</strong><br>・クールダウン: 8〜（レベルに応じて変化）<br>・効果時間: 1.25〜（レベルに応じて変化）",
-   "unresolved": []
+   "description": "通常攻撃が対象に命中すると、4秒間<keywordMajor>「漢の拳」</keywordMajor>を付与する。<keywordMajor>「漢の拳」</keywordMajor>を受けた敵には、味方の通常攻撃が追加のスタックを付与する。<br><br>4スタックで、対象は1.25〜（レベルに応じて変化）秒間<status>スタン</status>して、<magicDamage>75/120/165/210/255（＋合計体力の2.5%）の魔法ダメージ</magicDamage>を受ける。その後8〜（レベルに応じて変化）秒間はスタックを受けなくなるが、ブラウムの通常攻撃から<magicDamage>の魔法ダメージ</magicDamage>を追加で受ける。",
+   "source": "stringtable",
+   "unresolved": [
+    "OnHitDamage"
+   ]
   },
   "q": {
    "name": "冬の凍瘡",
@@ -47,5 +50,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

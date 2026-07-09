@@ -7,12 +7,13 @@
  "skills": {
   "passive": {
    "name": "始まりの地への誓い",
-   "description": "クリティカル攻撃が追加魔法ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 10%（＋魔力の0.1%）",
+   "description": "<br><br><rules></rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "精神修養",
-   "description": "<spellPassive>自動効果</spellPassive>: <OnHit>通常攻撃時効果</OnHit>で<magicDamage>5/10/15/20/25（＋魔力の20%）の魔法ダメージ</magicDamage>を与え、通常攻撃で<evolve>「解放」を1</evolve>(相手がチャンピオンの場合は<evolve>2</evolve>)獲得する。<br><br><spellPassive>発動効果</spellPassive>: <evolve>「解放」を8</evolve>消費して、5秒間、<attackSpeed>攻撃速度が20/30/40/50/60%</attackSpeed>増加し、<OnHit>通常攻撃時効果</OnHit>で<magicDamage>5/10/15/20/25（＋魔力の20%）の魔法ダメージ</magicDamage>を追加で与える。この効果時間中、通常攻撃が周囲の敵に拡散し、<physicalDamage>合計攻撃力の30%の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>超越状態</keywordMajor>: このスキルが即座に発動可能になり@Spell.YunaraR:Buff_Duration@秒間持続する。",
+   "description": "<spellPassive>自動効果</spellPassive>: <OnHit>通常攻撃時効果</OnHit>で<magicDamage>5/10/15/20/25（＋魔力の20%）の魔法ダメージ</magicDamage>を与え、通常攻撃で<evolve>「解放」を1</evolve>(相手がチャンピオンの場合は<evolve>2</evolve>)獲得する。<br><br><spellPassive>発動効果</spellPassive>: <evolve>「解放」を8</evolve>消費して、5秒間、<attackSpeed>攻撃速度が20/30/40/50/60%</attackSpeed>増加し、<OnHit>通常攻撃時効果</OnHit>で<magicDamage>5/10/15/20/25（＋魔力の20%）の魔法ダメージ</magicDamage>を追加で与える。この効果時間中、通常攻撃が周囲の敵に拡散し、<physicalDamage>合計攻撃力の30%の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>超越状態</keywordMajor>: このスキルが即座に発動可能になり5秒間持続する。",
    "cooldown": "0",
    "cost": "30",
    "range": "0",
@@ -21,7 +22,7 @@
   },
   "w": {
    "name": "裁きの弧/滅びの弧",
-   "description": "珠を掴み取って投げ、<magicDamage>55/95/135/175/215（＋増加攻撃力の85% ＋魔力の50%）の魔法ダメージ</magicDamage>と<status>99%のスロウ効果</status>を与える。このスロウ効果は1.5秒かけて元に戻る。珠は追加で毎秒<magicDamage>33/57/81/105/129（＋増加攻撃力の85% ＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>超越状態 - 滅びの弧</keywordMajor>: レーザー状に精霊魔法を発射して<magicDamage>@Spell.YunaraR:Calc_RW_Damage@の魔法ダメージ</magicDamage>と<status>@Spell.YunaraR:Calc_RW_Slow_Amount@のスロウ効果</status>を与える。このスロウ効果は@Spell.YunaraR:RW_Slow_Duration@秒かけて元に戻る。",
+   "description": "珠を掴み取って投げ、<magicDamage>55/95/135/175/215（＋増加攻撃力の85% ＋魔力の50%）の魔法ダメージ</magicDamage>と<status>99%のスロウ効果</status>を与える。このスロウ効果は1.5秒かけて元に戻る。珠は追加で毎秒<magicDamage>33/57/81/105/129（＋増加攻撃力の85% ＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>超越状態 - 滅びの弧</keywordMajor>: レーザー状に精霊魔法を発射して<magicDamage>160/320/480（＋増加攻撃力の120% ＋魔力の75%）の魔法ダメージ</magicDamage>と<status>99%のスロウ効果</status>を与える。このスロウ効果は1秒かけて元に戻る。",
    "cooldown": "",
    "cost": "60",
    "range": "1150",

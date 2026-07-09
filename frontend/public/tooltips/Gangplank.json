@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "背水の銃剣",
-   "description": "数秒毎に近接攻撃で敵に火を点ける。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 50〜250（レベル比例） ＋ 増加攻撃力の100%<br>・移動速度: 15〜30%（レベル比例）",
+   "description": "<br><br><rules>タワーに対するダメージは50%になる。<br><spellName></spellName>ではこのスキルは適用されない。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,26 +7,33 @@
  "skills": {
   "passive": {
    "name": "偉大なる悪の力",
-   "description": "ルーンテラを脅かす強大な悪であるベイガー、その力はとどまるところを知らない！敵チャンピオンからキルまたはアシストを獲得したり、スキルを命中させると、ベイガーの魔力は永続的に増加してゆく。",
+   "description": "<br><br>「偉大なる悪の力」で得た現在の<statTracking>魔力は1.5/1.75/2/2.25/2.5</statTracking>。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "イーヴィルストライク",
-   "description": "闇のエネルギーを発射し、最初に命中した敵2体に<magicDamage>80/120/160/200/240（＋魔力の50/55/60/65/70%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルで敵を倒すと<keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックが@Spell.VeigarPassive:dQKillStacks@増加する。対象が大型ミニオン、大型モンスターの場合は代わりにスタックを@Spell.VeigarPassive:dQKillStacksLarge@獲得する。",
+   "description": "闇のエネルギーを発射し、最初に命中した敵2体に<magicDamage>80/120/160/200/240（＋魔力の50/55/60/65/70%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルで敵を倒すと<keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックが増加する。対象が大型ミニオン、大型モンスターの場合は代わりにスタックを獲得する。",
    "cooldown": "6/5.5/5/4.5/4",
    "cost": "30/35/40/45/50",
    "range": "1000",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "Spell.VeigarPassive:dQKillStacks",
+    "Spell.VeigarPassive:dQKillStacksLarge"
+   ]
   },
   "w": {
    "name": "ダークマター",
-   "description": "ダークマターを落下させて、<magicDamage>85/140/195/250/305（＋魔力の70/80/90/100/110%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックが@Spell.VeigarPassive:PStacksPerDarkMatterCDR@たまるごとに、このスキルのクールダウンが@Spell.VeigarPassive:DarkMatterCDRIncrement*100@%短縮される。",
+   "description": "ダークマターを落下させて、<magicDamage>85/140/195/250/305（＋魔力の70/80/90/100/110%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックがたまるごとに、このスキルのクールダウンが%短縮される。",
    "cooldown": "0",
    "cost": "60/65/70/75/80",
    "range": "950",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "Spell.VeigarPassive:PStacksPerDarkMatterCDR",
+    "Spell.VeigarPassive:DarkMatterCDRIncrement"
+   ]
   },
   "e": {
    "name": "イベントホライズン",
@@ -47,5 +54,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 4
 }

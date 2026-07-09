@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ナイトハンター",
-   "description": "敵チャンピオンに向かって移動する時、移動速度が増加する。",
+   "description": "近くの敵チャンピオンに向かって移動する時、移動速度が30増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

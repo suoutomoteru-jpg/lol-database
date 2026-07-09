@@ -7,12 +7,13 @@
  "skills": {
   "passive": {
    "name": "見えざる脅威",
-   "description": "味方から<font color='#FFF673'>「孤立」</font>している周囲の敵ユニットをマークする。カ＝ジックスのスキルは<font color='#FFF673'>「孤立」</font>している対象が相手だと変化する。<br><br>敵の視界から消えるとカ＝ジックスは「見えざる脅威」を獲得し、次の通常攻撃で敵チャンピオンに追加魔法ダメージを与え、移動速度を数秒間、低下させる。",
+   "description": "敵の視界から消えると、チャンピオンに対する次の通常攻撃が<magicDamage>80/105/130/155/180（＋増加攻撃力の40%）の魔法ダメージ</magicDamage>を追加で与え、2秒間25%の<status>スロウ効果</status>を付与する。<br><br>周囲に味方がいない敵は<keywordMajor>「孤立」</keywordMajor>状態になる。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "甘美なる恐怖",
-   "description": "近くの敵1体を斬りつけて<physicalDamage>@spell.KhazixQ:BaseDamage@の物理ダメージ</physicalDamage>を与える。対象が他の敵から<keywordMajor>「孤立」</keywordMajor>している場合は、代わりに<physicalDamage>@spell.KhazixQ:IsoDamage@のダメージ</physicalDamage>を与える。",
+   "description": "近くの敵1体を斬りつけて<physicalDamage>80/105/130/155/180（＋増加攻撃力の105%）の物理ダメージ</physicalDamage>を与える。対象が他の敵から<keywordMajor>「孤立」</keywordMajor>している場合は、代わりに<physicalDamage>168/220.5/273/325.5/378（＋増加攻撃力の105%）のダメージ</physicalDamage>を与える。",
    "cooldown": "4",
    "cost": "20",
    "range": "325",
@@ -39,7 +40,7 @@
   },
   "r": {
    "name": "捕食の本能",
-   "description": "<spellActive>発動効果:</spellActive> 1.25秒間<keywordStealth>インビジブル</keywordStealth>状態になり、<speed>移動速度が40%</speed>増加する。12秒以内なら一度だけこのスキルを<recast>再発動</recast>できる。<br><br><spellPassive>自動効果:</spellPassive> このスキルのレベルを上げると、スキルの1つを<evolve>「進化」</evolve>させて、追加効果を付与できる。<li><spellName>甘美なる恐怖:</spellName> スキルと通常攻撃の射程が増加し、対象が<keywordMajor>「孤立」</keywordMajor>している場合はクールダウンが@spell.KhazixQ:Effect4Amount@%短縮される。<li><spellName>ヴォイドの刺棘:</spellName> 3つの棘を発射して@spell.KhazixW:Effect3Amount@%の<status>スロウ効果</status>を与え、<keywordMajor>「孤立」</keywordMajor>した対象には効果が増加する。<li><spellName>リープ:</spellName> 射程が増加し、チャンピオンからキルまたはアシストを奪うとクールダウンが解消される。<li><spellName>捕食の本能:</spellName> <keywordStealth>インビジブル</keywordStealth>状態の効果時間が2秒になり、2回<recast>再発動</recast>可能になる。",
+   "description": "<spellActive>発動効果:</spellActive> 1.25秒間<keywordStealth>インビジブル</keywordStealth>状態になり、<speed>移動速度が40%</speed>増加する。12秒以内なら一度だけこのスキルを<recast>再発動</recast>できる。<br><br><spellPassive>自動効果:</spellPassive> このスキルのレベルを上げると、スキルの1つを<evolve>「進化」</evolve>させて、追加効果を付与できる。<li><spellName>甘美なる恐怖:</spellName> スキルと通常攻撃の射程が増加し、対象が<keywordMajor>「孤立」</keywordMajor>している場合はクールダウンが45%短縮される。<li><spellName>ヴォイドの刺棘:</spellName> 3つの棘を発射して50%の<status>スロウ効果</status>を与え、<keywordMajor>「孤立」</keywordMajor>した対象には効果が増加する。<li><spellName>リープ:</spellName> 射程が増加し、チャンピオンからキルまたはアシストを奪うとクールダウンが解消される。<li><spellName>捕食の本能:</spellName> <keywordStealth>インビジブル</keywordStealth>状態の効果時間が2秒になり、2回<recast>再発動</recast>可能になる。",
    "cooldown": "100/85/70",
    "cost": "100",
    "range": "25000",

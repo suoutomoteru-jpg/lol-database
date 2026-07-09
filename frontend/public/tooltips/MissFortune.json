@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ラブタップ",
-   "description": "新しい対象に通常攻撃するたびに追加物理ダメージを与える。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計攻撃力の50%〜（レベルに応じて増加）<br>・ダメージ: 合計攻撃力の50%〜（レベルに応じて増加）",
+   "description": "<br><br><rules>ミニオンに対しては<physicalDamage>合計攻撃力の50%〜（レベルに応じて増加）</physicalDamage>のダメージを与える。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

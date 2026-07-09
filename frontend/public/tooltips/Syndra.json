@@ -7,47 +7,55 @@
  "skills": {
   "passive": {
    "name": "絶大なる魔力",
-   "description": "チャンピオンレベルの上昇および敵へのダメージによって「怒りの破片」を集め、スキルをアップグレードできる。<br><br><font color='#FF9900'>ダークスフィア</font>: チャージ数が1増加する<br><font color='#FF9900'>ダークフォース</font>: 追加確定ダメージを与える<br><font color='#FF9900'>闇の波導</font>: 幅が増加し、すべての対象にスロウ効果を付与する<br><font color='#FF9900'>魔力の奔流</font>: 体力が低下している対象にとどめを刺す<br><br><strong>詳細数値</strong><br>・マナ: 20〜（レベルに応じて変化）",
+   "description": "<evolve>「怒りの破片」</evolve>は最大で120個まで集めることができる。<evolve>「怒りの破片」</evolve>はスキルを強化し、敵から1個獲得するたびに<scaleMana>マナを20〜（レベルに応じて変化）</scaleMana>回復する。<br><br><evolve>「怒りの破片」</evolve>は以下の条件で集められる:<li>4秒以内に2つのスキルで敵チャンピオンにダメージを与えると<evolve>破片を1〜（レベルに応じて変化）個</evolve>獲得(クールダウン8秒)<li>スキルレベルを上げるたびに<evolve>破片を5個</evolve>獲得<li>大型ミニオンを倒すと<evolve>破片を1個</evolve>獲得<br><br><evolve>「怒りの破片」</evolve>が120個になると、<scaleAP>魔力が15%</scaleAP>増加する。<br>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "ダークスフィア",
-   "description": "<keywordMajor>「ダークスフィア」</keywordMajor>をつくりだし、敵に<magicDamage>90/125/160/195/230（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<keywordMajor>「ダークスフィア」</keywordMajor>はつくりだされてから6秒間持続し、他のスキルで操ることもできる。<br><br><evolve>怒りの破片@spell.SyndraPassive:Q1UpgradeThreshold@個</evolve>: <keywordMajor>「ダークスフィア」</keywordMajor>を2つまでチャージしておける。",
+   "description": "<keywordMajor>「ダークスフィア」</keywordMajor>をつくりだし、敵に<magicDamage>90/125/160/195/230（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<keywordMajor>「ダークスフィア」</keywordMajor>はつくりだされてから6秒間持続し、他のスキルで操ることもできる。<br><br><evolve>怒りの破片個</evolve>: <keywordMajor>「ダークスフィア」</keywordMajor>を2つまでチャージしておける。",
    "cooldown": "7",
    "cost": "40/45/50/55/60",
    "range": "800",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "spell.SyndraPassive:Q1UpgradeThreshold"
+   ]
   },
   "w": {
    "name": "ダークフォース",
-   "description": "発生中の<keywordMajor>「ダークスフィア」</keywordMajor>1つか敵ミニオン、エピック以外のモンスター1体を捕縛する。その後5秒間はそのまま移動可能で、<recast>再発動</recast>も可能となる。<br><br><recast>再発動</recast>: そのオブジェクトを投げ飛ばして<magicDamage>70/100/130/160/190（＋魔力の65%）の魔法ダメージ</magicDamage>を与え、秒間25%の<status>スロウ効果</status>を付与する。<br><br><evolve>怒りの破片@spell.SyndraPassive:WUpgradeThreshold@個</evolve>: このスキルが追加で<trueDamage>12%（＋魔力の2%）の確定ダメージ</trueDamage>を与える。<br>",
+   "description": "発生中の<keywordMajor>「ダークスフィア」</keywordMajor>1つか敵ミニオン、エピック以外のモンスター1体を捕縛する。その後5秒間はそのまま移動可能で、<recast>再発動</recast>も可能となる。<br><br><recast>再発動</recast>: そのオブジェクトを投げ飛ばして<magicDamage>70/100/130/160/190（＋魔力の65%）の魔法ダメージ</magicDamage>を与え、秒間25%の<status>スロウ効果</status>を付与する。<br><br><evolve>怒りの破片個</evolve>: このスキルが追加で<trueDamage>12%（＋魔力の2%）の確定ダメージ</trueDamage>を与える。<br>",
    "cooldown": "12/11/10/9/8",
    "cost": "60/70/80/90/100",
    "range": "925",
    "maxRank": 5,
    "unresolved": [
-    "f2"
+    "f2",
+    "spell.SyndraPassive:WUpgradeThreshold"
    ]
   },
   "e": {
    "name": "闇の波導",
-   "description": "魔力の波動を放って効果範囲内にある<keywordMajor>「ダークスフィア」</keywordMajor>や敵を<status>ノックバック</status>させ、<magicDamage>60/95/130/165/200（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>弾き飛ばした<keywordMajor>「ダークスフィア」</keywordMajor>は、衝突した敵に1.25秒間の<status>スタン効果</status>を付与し、<magicDamage>60/95/130/165/200（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br><evolve>怒りの破片@spell.SyndraPassive:EUpgradeThreshold@個</evolve>: このスキルの幅が増加し、敵に1.25秒間、<status>70%</status>の<status>スロウ効果</status>を与える。",
+   "description": "魔力の波動を放って効果範囲内にある<keywordMajor>「ダークスフィア」</keywordMajor>や敵を<status>ノックバック</status>させ、<magicDamage>60/95/130/165/200（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>弾き飛ばした<keywordMajor>「ダークスフィア」</keywordMajor>は、衝突した敵に1.25秒間の<status>スタン効果</status>を付与し、<magicDamage>60/95/130/165/200（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br><evolve>怒りの破片個</evolve>: このスキルの幅が増加し、敵に1.25秒間、<status>70%</status>の<status>スロウ効果</status>を与える。",
    "cooldown": "15",
    "cost": "50",
    "range": "650",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "spell.SyndraPassive:EUpgradeThreshold"
+   ]
   },
   "r": {
    "name": "魔力の奔流",
-   "description": "<spellPassive>自動効果</spellPassive>: <spellName>「魔力の奔流」</spellName>のスキルレベルごとに<spellName>「ダークスフィア」</spellName>のスキルヘイストが追加で10増加する。<br><br>強大な魔力を全解放して、自身の周囲を旋回する3つの<keywordMajor>「ダークスフィア」</keywordMajor>と周囲のスフィアを最大4つまで1体の敵チャンピオンに向けて放つ。<keywordMajor>「ダークスフィア」</keywordMajor>は1つあたり<magicDamage>80/120/160（＋魔力の20%）の魔法ダメージ</magicDamage>(最大で<magicDamage>560/840/1120（＋魔力の20%）の魔法ダメージ</magicDamage>)を与える。<br><br><evolve>@spell.SyndraPassive:RUpgradeThreshold@個の怒りの破片</evolve>: このスキルは体力15%未満の敵に<danger>とどめを刺す</danger>。",
+   "description": "<spellPassive>自動効果</spellPassive>: <spellName>「魔力の奔流」</spellName>のスキルレベルごとに<spellName>「ダークスフィア」</spellName>のスキルヘイストが追加で10増加する。<br><br>強大な魔力を全解放して、自身の周囲を旋回する3つの<keywordMajor>「ダークスフィア」</keywordMajor>と周囲のスフィアを最大4つまで1体の敵チャンピオンに向けて放つ。<keywordMajor>「ダークスフィア」</keywordMajor>は1つあたり<magicDamage>80/120/160（＋魔力の20%）の魔法ダメージ</magicDamage>(最大で<magicDamage>560/840/1120（＋魔力の20%）の魔法ダメージ</magicDamage>)を与える。<br><br><evolve>個の怒りの破片</evolve>: このスキルは体力15%未満の敵に<danger>とどめを刺す</danger>。",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "675",
    "maxRank": 3,
-   "unresolved": []
+   "unresolved": [
+    "spell.SyndraPassive:RUpgradeThreshold"
+   ]
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 5
 }

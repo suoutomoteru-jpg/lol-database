@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "見えざる襲撃者",
-   "description": "茂みの中にいると、通常攻撃で対象に向かって飛びつく。<br><br>スキルを使用するたびにフェロシティを獲得する。フェロシティが最大になると次に使用するスキルが強化される。<br><br>敵チャンピオンを倒すと<font color='#BBFFFF'>「骨牙の首飾り」</font>のトロフィーを獲得し、増加攻撃力を獲得する。<br><br><strong>詳細数値</strong><br>・移動速度: 30%〜（レベルに応じて変化）",
+   "description": "<br><rules><br>非戦闘状態が10秒間続くと、すべての<keywordMajor>フェロシティ</keywordMajor>を失う。<br>カ＝ジックスをキルすると、追加の<physicalDamage>攻撃力</physicalDamage>を獲得する。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

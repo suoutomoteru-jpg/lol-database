@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ルーンブレード",
-   "description": "スキルを使用すると剣に力が宿り、通常攻撃でその力を消費して追加ダメージを与える。",
+   "description": "<br><br><rules>追加ダメージはクリティカル判定を持つ。<br>モンスターには50の追加ダメージを与える。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

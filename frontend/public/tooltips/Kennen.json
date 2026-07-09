@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "嵐の刻印",
-   "description": "スキルを3回命中させた敵をスタンさせる。",
+   "description": "<br><rules>このスキルで6秒以内に敵を再度<status>スタン</status>させた場合は、代わりに0.5秒間<status>スタン</status>させる。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

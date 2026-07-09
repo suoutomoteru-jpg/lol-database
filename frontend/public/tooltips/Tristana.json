@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "ドロー＆グロー",
-   "description": "レベルが上がるごとに射程が増加する。<br><br><strong>詳細数値</strong><br>・範囲: 0〜150（レベル比例）",
+   "description": "通常攻撃、および<spellName>「」</spellName>と<spellName>「」</spellName>の射程距離が0〜150（レベル比例）拡大している。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

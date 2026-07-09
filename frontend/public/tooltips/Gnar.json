@@ -7,12 +7,13 @@
  "skills": {
   "passive": {
    "name": "ぷんすこ",
-   "description": "ナーは戦闘中に「怒り」が溜まっていく。「怒り」が最大の状態でスキルを使用するとメガナーに変身し、ステータスとスキルが変化する。<br><br><strong>詳細数値</strong><br>・範囲: 0〜100（レベル比例）<br>・移動速度: 0〜（レベルに応じて変化）<br>・回復: 100〜831（レベル比例）<br>・物理防御: 3.5〜54.5（レベル比例）",
+   "description": "<br><br><rules><keywordMajor>「怒り」</keywordMajor>が最大になってから4秒以内にスキルを使用しなかった場合、自動的に変身する。<br>13秒間ダメージを与えない、または受けないでいると、<keywordMajor>「怒り」</keywordMajor>は徐々に減少していく。<br>チャンピオンにダメージを与えた場合、獲得する<keywordMajor>「怒り」</keywordMajor>の量が増加する。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "ブーメラン/ぽいっ",
-   "description": "<keywordMajor>ミニナー:</keywordMajor> ブーメランを投げて<physicalDamage>@spell.GnarQ:MiniTotalDamage@の物理ダメージ</physicalDamage>を与え、@spell.GnarQ:SlowDuration@秒間@spell.GnarQ:SlowAmount*100@%の<status>スロウ効果</status>を付与する。ブーメランは敵に当たると戻ってくるが、その際に与えるダメージは減少する。それぞれの敵に1回しか当たらない。ブーメランをキャッチすると、このスキルのクールダウンが@spell.GnarQ:MiniCDRefund*100@%短縮される。",
+   "description": "<keywordMajor>ミニナー:</keywordMajor> ブーメランを投げて<physicalDamage>5/45/85/125/165（＋合計攻撃力の125%）の物理ダメージ</physicalDamage>を与え、2秒間15/20/25/30/35%の<status>スロウ効果</status>を付与する。ブーメランは敵に当たると戻ってくるが、その際に与えるダメージは減少する。それぞれの敵に1回しか当たらない。ブーメランをキャッチすると、このスキルのクールダウンが40%短縮される。",
    "cooldown": "16/14.5/13/11.5/10",
    "cost": "",
    "range": "1100",
@@ -21,7 +22,7 @@
   },
   "w": {
    "name": "ごきげん/こてんぱん",
-   "description": "<keywordMajor>ミニナー(自動効果)</keywordMajor>: 同じ敵に通常攻撃かスキルが3回命中するたび、<magicDamage>@spell.GnarW:MiniTotalDamage@(+最大体力の@spell.GnarW:MiniPercentHPDamage*100@%)の魔法ダメージ</magicDamage>を追加で与え、<speed>移動速度が@spell.GnarR:RHyperMovementSpeedPercent@%</speed>増加する。この移動速度は@spell.GnarW:MiniHasteDuration@秒かけて元に戻る。",
+   "description": "<keywordMajor>ミニナー(自動効果)</keywordMajor>: 同じ敵に通常攻撃かスキルが3回命中するたび、<magicDamage>0/10/20/30/40（＋魔力の100%）(+最大体力の6/8/10/12/14%)の魔法ダメージ</magicDamage>を追加で与え、<speed>移動速度が40/60/80%</speed>増加する。この移動速度は3秒かけて元に戻る。",
    "cooldown": "7",
    "cost": "",
    "range": "0",
@@ -30,7 +31,7 @@
   },
   "e": {
    "name": "ぴょんぴょん/ドーン！",
-   "description": "<keywordMajor>ミニナー:</keywordMajor> 跳躍して@spell.GnarE:MiniASDuration@秒間<attackSpeed>攻撃速度が@spell.GnarE:MinibAS*100@%</attackSpeed>増加する。ユニットの上に着地した場合は、もう一度跳ねてさらに遠くに移動する。敵の上で跳ねると<physicalDamage>@spell.GnarE:MiniTotalDamage@の物理ダメージ</physicalDamage>を与え、短時間@spell.GnarE:MoveSpeedMod*-100@%の<status>スロウ効果</status>を付与する。",
+   "description": "<keywordMajor>ミニナー:</keywordMajor> 跳躍して6秒間<attackSpeed>攻撃速度が40/45/50/55/60%</attackSpeed>増加する。ユニットの上に着地した場合は、もう一度跳ねてさらに遠くに移動する。敵の上で跳ねると<physicalDamage>50/85/120/155/190（＋合計体力の6%）の物理ダメージ</physicalDamage>を与え、短時間@spell.GnarE:MoveSpeedMod*-100@%の<status>スロウ効果</status>を付与する。",
    "cooldown": "22/19.5/17/14.5/12",
    "cost": "",
    "range": "475",

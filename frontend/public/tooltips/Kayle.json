@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "聖なる上昇",
-   "description": "レベルアップしてスキルポイントを使用すると、通常攻撃が天界の力により強化されていく。強化段階にしたがってケイルの翼が炎を帯び、攻撃速度、移動速度、射程距離、通常攻撃時の炎の波動が強化される。<br><br><strong>詳細数値</strong><br>・ダメージ: 20〜（レベルに応じて変化） ＋ 魔力の25% ＋ 増加攻撃力の10%",
+   "description": "<br><rules>炎の波動はスキル命中時効果を適用し、クリティカル判定を持つ。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -30,12 +31,14 @@
   },
   "e": {
    "name": "星炎の刃",
-   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃時に<magicDamage>15/20/25/30/35（＋魔力の20% ＋増加攻撃力の10%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 次の通常攻撃が遠隔攻撃になり、<magicDamage>減少体力の8/8.5/9/9.5/10%（＋魔力の1.5%）にあたる魔法ダメージ</magicDamage>を追加で与える。この通常攻撃はケイルが<scaleLevel>レベル@Spell.KaylePassive:LevelForPassiveRank2@</scaleLevel>になるとアップグレードされ、命中時に爆発して対象の周囲の敵にダメージを与えるようになる。",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃時に<magicDamage>15/20/25/30/35（＋魔力の20% ＋増加攻撃力の10%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 次の通常攻撃が遠隔攻撃になり、<magicDamage>減少体力の8/8.5/9/9.5/10%（＋魔力の1.5%）にあたる魔法ダメージ</magicDamage>を追加で与える。この通常攻撃はケイルが<scaleLevel>レベル</scaleLevel>になるとアップグレードされ、命中時に爆発して対象の周囲の敵にダメージを与えるようになる。",
    "cooldown": "8/7.5/7/6.5/6",
    "cost": "",
    "range": "550",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "Spell.KaylePassive:LevelForPassiveRank2"
+   ]
   },
   "r": {
    "name": "聖なる審判",
@@ -47,5 +50,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

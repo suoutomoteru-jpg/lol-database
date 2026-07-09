@@ -7,26 +7,31 @@
  "skills": {
   "passive": {
    "name": "夢想家の銘",
-   "description": "スキルで敵チャンピオンにダメージを与えると、最後の仕上げとなるサインを施せるよう、対象を下塗りする。<br><br>2つ目の攻撃スキルを敵に命中させるとサインが完成し、対象の足元に残る。少しするとサインは爆発し、範囲内のすべての敵に魔法ダメージを与える。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 40〜285（レベル比例） ＋ 魔力の35%",
+   "description": "<br><br><rules>各スキルはこの効果を対象ごとに1回しか発生させない。<br>フェイのスキルのスロウ効果同士はスタックするが効果が低下する(アイテムや他のソースからのスロウ効果は影響しない)。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "題材: 厄災",
-   "description": "厄災のビジョンを描き、敵に大ダメージを与える。<br><br><spellName>荒廃の炎</spellName><br>弾速の速い燃え盛る火球を発射する。火球は1体目の敵に命中すると爆発し、<magicDamage>50/80/110/140/170（＋魔力の80%） + 最大体力の3/4/5/6/7%にあたる魔法ダメージ</magicDamage>を与える。<br><br><spellName>断ち切る稲妻</spellName><br>射程が長く、発生までにディレイがある稲妻で攻撃し、<magicDamage>60/85/110/135/160（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。敵が孤立していた、または<status>移動不能効果</status>を受けていた場合は、対象の減少体力に応じてダメージが増加し、最大<magicDamage>120/201.875/302.5/421.875/560（＋魔力の30%）の魔法ダメージ</magicDamage>与える。<br><br><spellName>沸き立つ大地</spellName><br>直線上に火山噴火を引き起こし、範囲内の敵に<magicDamage>20/35/50/65/80（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。噴火した場所には溶岩溜まりが残り、@spell.HweiQE:Duration@秒間、その中にいる敵に@spell.HweiQE:SlowPercent@%の<status>スロウ効果</status>と<magicDamage>20/35/50/65/80（＋魔力の24%）の毎秒魔法ダメージ</magicDamage>を与える。",
+   "description": "厄災のビジョンを描き、敵に大ダメージを与える。<br><br><spellName>荒廃の炎</spellName><br>弾速の速い燃え盛る火球を発射する。火球は1体目の敵に命中すると爆発し、<magicDamage>50/80/110/140/170（＋魔力の80%） + 最大体力の3/4/5/6/7%にあたる魔法ダメージ</magicDamage>を与える。<br><br><spellName>断ち切る稲妻</spellName><br>射程が長く、発生までにディレイがある稲妻で攻撃し、<magicDamage>60/85/110/135/160（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。敵が孤立していた、または<status>移動不能効果</status>を受けていた場合は、対象の減少体力に応じてダメージが増加し、最大<magicDamage>120/201.875/302.5/421.875/560（＋魔力の30%）の魔法ダメージ</magicDamage>与える。<br><br><spellName>沸き立つ大地</spellName><br>直線上に火山噴火を引き起こし、範囲内の敵に<magicDamage>20/35/50/65/80（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。噴火した場所には溶岩溜まりが残り、3秒間、その中にいる敵に%の<status>スロウ効果</status>と<magicDamage>20/35/50/65/80（＋魔力の24%）の毎秒魔法ダメージ</magicDamage>を与える。",
    "cooldown": "10/9/8/7/6",
    "cost": "80/90/100/110/120",
    "range": "0",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "spell.HweiQE:SlowPercent"
+   ]
   },
   "w": {
    "name": "題材: 静謐",
-   "description": "静謐のビジョンを描き、自身と味方チャンピオンに補助効果を付与する。<br><br><spellName>流るる蒼</spellName><br>速い水の流れを直線上に作り出し、味方の<speed>移動速度を30/32.5/35/37.5/40%（＋魔力の3%）</speed>上昇させる。<br><br><spellName>内省の泉</spellName><br>守りの泉を作り出し、範囲内の味方チャンピオンに一定時間かけて<shield>耐久値100/140/180/220/260（＋魔力の60%）のシールド</shield>を付与する。自分以外の味方が受けるシールドの耐久値は@spell.HweiWW:ToolTipAllyMod*100@%低下する。<br><br><spellName>迸る光彩</spellName><br>3つの渦巻く光を作り出し、次の3回のスキルまたは通常攻撃を強化する。強化されたスキルまたは通常攻撃は、それぞれ<magicDamage>20/30/40/50/60（＋魔力の15%）の魔法ダメージ</magicDamage>を追加で与え、<scaleMana>45/50/55/60/65のマナ</scaleMana>を回復する。",
+   "description": "静謐のビジョンを描き、自身と味方チャンピオンに補助効果を付与する。<br><br><spellName>流るる蒼</spellName><br>速い水の流れを直線上に作り出し、味方の<speed>移動速度を30/32.5/35/37.5/40%（＋魔力の3%）</speed>上昇させる。<br><br><spellName>内省の泉</spellName><br>守りの泉を作り出し、範囲内の味方チャンピオンに一定時間かけて<shield>耐久値100/140/180/220/260（＋魔力の60%）のシールド</shield>を付与する。自分以外の味方が受けるシールドの耐久値は%低下する。<br><br><spellName>迸る光彩</spellName><br>3つの渦巻く光を作り出し、次の3回のスキルまたは通常攻撃を強化する。強化されたスキルまたは通常攻撃は、それぞれ<magicDamage>20/30/40/50/60（＋魔力の15%）の魔法ダメージ</magicDamage>を追加で与え、<scaleMana>45/50/55/60/65のマナ</scaleMana>を回復する。",
    "cooldown": "18/17.5/17/16.5/16",
    "cost": "90/95/100/105/110",
    "range": "0",
    "maxRank": 5,
-   "unresolved": []
+   "unresolved": [
+    "spell.HweiWW:ToolTipAllyMod"
+   ]
   },
   "e": {
    "name": "題材: 苦悩",
@@ -47,5 +52,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 2
 }

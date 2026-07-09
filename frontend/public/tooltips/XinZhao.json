@@ -7,8 +7,11 @@
  "skills": {
   "passive": {
    "name": "不退転",
-   "description": "通常攻撃が3回毎に追加ダメージを与えて自身を回復する。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計攻撃力の15%〜（レベルに応じて増加） ＋ 魔力の5%〜（レベルに応じて増加）<br>・最大体力比: 2%〜（レベルに応じて増加）<br>・回復: 40%〜（レベルに応じて増加）",
-   "unresolved": []
+   "description": "通常攻撃または<spellName>「風成雷鳴」</spellName>を3回行うごとに<physicalDamage>合計攻撃力の15%〜（レベルに応じて増加） ＋ 魔力の5%〜（レベルに応じて増加）の物理ダメージ</physicalDamage>を追加で与えて、<healing>体力を</healing>回復する。",
+   "source": "stringtable",
+   "unresolved": [
+    "TotalHealing"
+   ]
   },
   "q": {
    "name": "三槍撃",
@@ -49,5 +52,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 2
 }

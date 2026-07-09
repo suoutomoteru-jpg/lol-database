@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "王への貢物",
-   "description": "近くにいる敵ユニットの体力がゼロになると、自身の体力が回復する。回復量は、倒れたユニットの最大体力に比例する。",
+   "description": "自身の近くで敵が倒されると、<healing>その最大体力の1.8〜5.5%（レベル比例）にあたる体力</healing>を回復する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

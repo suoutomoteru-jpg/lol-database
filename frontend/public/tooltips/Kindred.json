@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "キンドレッドの刻印",
-   "description": "獲物とする対象に印を付ける。印をつけた獲物を狩ることで、通常スキルを恒常的に強化する。獲物を4体狩るごとに、通常攻撃の射程も強化される。",
+   "description": "<br><br>現在は<statTracking>射程距離が3</statTracking>増加している。<br><br><rules><keywordMajor>「刻印」</keywordMajor>を獲得するたびに、獲物のジャングルモンスターが敵ジャングルの奥にいるモンスターへと変更され、最終的にエピックモンスターになる。</rules>",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,8 +7,12 @@
  "skills": {
   "passive": {
    "name": "魂の束縛",
-   "description": "近くで倒れた敵の魂を集め、物理防御と魔力を永続的に獲得する。",
-   "unresolved": []
+   "description": "<br><br>現在の<keywordMajor>「魂」</keywordMajor>のボーナス: <scaleAP>魔力</scaleAP><statTracking></statTracking>、<scaleArmor>物理防御</scaleArmor><statTracking></statTracking><br><br><rules>チャンピオンと大型ミニオンからは必ず<keywordMajor>「魂」</keywordMajor>を回収できるが、小型ミニオンとジャングルモンスターからは回収できないこともある。エピックジャングルモンスターからは<keywordMajor>「魂」</keywordMajor>を2つ回収できる。</rules>",
+   "source": "stringtable",
+   "unresolved": [
+    "CurrentSoulBonus",
+    "CurrentSoulBonus"
+   ]
   },
   "q": {
    "name": "死の宣告",
@@ -52,5 +56,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 3
+ "unresolvedCount": 5
 }

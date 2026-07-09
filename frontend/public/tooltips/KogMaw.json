@@ -7,7 +7,8 @@
  "skills": {
   "passive": {
    "name": "イカシアの自爆",
-   "description": "倒されてから4秒後、コグ＝マウは爆発して周囲の敵に確定ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 140〜650（レベル比例）",
+   "description": "コグ＝マウは死亡後4秒間は移動し、ユニットの間を動くことができる。さらに<speed>移動速度が10%</speed>上がり、効果時間中<speed>移動速度50%</speed>まで上昇する。効果時間の最後に、爆発して周囲の敵に<trueDamage>140〜650（レベル比例）の確定ダメージ</trueDamage>を与える。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
