@@ -76,6 +76,24 @@ def fmt_values(vals: list, mult: float = 1.0) -> str:
     return out[0] if len(set(out)) == 1 else "/".join(out)
 
 
+FRACTION_RE = re.compile(r"^-?0?\.\d+(?:/-?0?\.\d+)*$")
+
+
+def maybe_percentify(rendered: str, following: str) -> str:
+    """0.4 のような割合値を 40% 表記に直す。
+
+    LCU の説明文が *100 の乗数を持たないまま割合値を参照するケース
+    （例: ロックの W の移動速度）への対応。直後が「秒」なら時間、
+    「%」なら既にパーセント値とみなして変換しない。
+    """
+    if not FRACTION_RE.fullmatch(rendered):
+        return rendered
+    nxt = following.lstrip()[:1]
+    if nxt in ("秒", "%", "％"):
+        return rendered
+    return "/".join(fnum(float(p) * 100) for p in rendered.split("/")) + "%"
+
+
 def slice_ranks(arr: list, max_rank: int) -> list:
     """bin の数値配列からランク 1..max_rank の値を取り出す。
 
@@ -102,8 +120,10 @@ STAT_NAMES = {
 FORMULA_NAMES = {0: "合計", 1: "基礎", 2: "増加"}
 
 
-def stat_label(stat: int, formula: int) -> str:
-    name = STAT_NAMES.get(stat, f"スタット{stat}")
+def stat_label(stat: int, formula: int) -> str | None:
+    name = STAT_NAMES.get(stat)
+    if name is None:
+        return None  # 未知のスタット参照は呼び出し側で計算式ごと除外する
     prefix = FORMULA_NAMES.get(formula, "")
     if stat == 0:
         return name  # 魔力は「合計魔力」と言わない
@@ -136,20 +156,26 @@ def eval_part(part, values: dict, max_rank: int):
     if t == "StatByCoefficientCalculationPart":
         coeff = float(part.get("mCoefficient", 1))
         label = stat_label(part.get("mStat", 0), part.get("mStatFormula", 0))
+        if label is None:
+            return None
         return ("text", f"{label}の{fnum(coeff * 100)}%")
 
     if t == "StatByNamedDataValueCalculationPart":
         name = str(part.get("mDataValue", "")).lower()
         label = stat_label(part.get("mStat", 0), part.get("mStatFormula", 0))
-        if name in values:
+        if label is not None and name in values:
             return ("text", f"{label}の{fmt_values(values[name], 100)}%")
         return None
 
     if t == "StatBySubPartCalculationPart":
         sub = eval_part(part.get("mSubpart"), values, max_rank)
         label = stat_label(part.get("mStat", 0), part.get("mStatFormula", 0))
-        if sub and sub[0] == "nums":
+        if label is None or sub is None:
+            return None
+        if sub[0] == "nums":
             return ("text", f"{label}の{fmt_values(sub[1], 100)}%")
+        if sub[0] == "bpnum":
+            return ("text", f"{label}の{fnum(sub[1] * 100)}%〜（レベルに応じて増加）")
         return None
 
     if t == "AbilityResourceByCoefficientCalculationPart":
@@ -161,9 +187,8 @@ def eval_part(part, values: dict, max_rank: int):
         return ("text", f"{fnum(s)}〜{fnum(e)}（レベル比例）")
 
     if t == "ByCharLevelBreakpointsCalculationPart":
-        # 残課題: ブレークポイント展開は未実装（起点値のみ）
-        start = part.get("mLevel1Value", 0)
-        return ("text", f"{fnum(start)}〜（レベルに応じて変化）")
+        # 残課題: ブレークポイント展開は未実装（起点値のみ保持し、表示側で整形）
+        return ("bpnum", float(part.get("mLevel1Value", 0)))
 
     if t == "SumOfSubPartsCalculationPart":
         parts = [eval_part(p, values, max_rank) for p in part.get("mSubparts", [])]
@@ -184,6 +209,10 @@ def eval_part(part, values: dict, max_rank: int):
 
 
 def combine_parts(parts: list, max_rank: int):
+    # 単独のレベル比例値はそのまま返す（呼び出し側で%等に整形できるように）
+    if len(parts) == 1 and parts[0] is not None and parts[0][0] == "bpnum":
+        return parts[0]
+
     nums = None
     texts = []
 
@@ -200,6 +229,8 @@ def combine_parts(parts: list, max_rank: int):
             sub_nums, sub_texts = p[1]
             add_nums(sub_nums)
             texts.extend(sub_texts)
+        elif p[0] == "bpnum":
+            texts.append(f"{fnum(p[1])}〜（レベルに応じて変化）")
         else:
             texts.append(p[1])
     if nums is not None and texts:
@@ -215,6 +246,8 @@ def render_result(res, mult: float = 1.0) -> str | None:
     if res is None:
         return None
     kind, val = res
+    if kind == "bpnum":
+        return f"{fnum(val * mult)}〜（レベルに応じて変化）"
     if kind == "nums":
         return fmt_values(val, mult)
     if kind == "text":
@@ -245,6 +278,8 @@ def eval_calculation(calc, values: dict, calcs: dict, max_rank: int, depth: int 
         if res and calc.get("mDisplayAsPercent"):
             if res[0] == "nums":
                 return ("text", fmt_values(res[1], 100) + "%")
+            if res[0] == "bpnum":
+                return ("text", f"{fnum(res[1] * 100)}%〜（レベルに応じて変化）")
         return res
     if t == "GameCalculationModified":
         ref_name = str(calc.get("mModifiedGameCalculation", "")).lower()
@@ -338,6 +373,60 @@ def find_spell_entry(bin_data: dict, script_name: str) -> dict | None:
     return None
 
 
+# ── パッシブの詳細数値 ──────────────────────────────────
+#
+# パッシブの説明文にはプレースホルダーが存在しないため、bin の計算式
+# （mSpellCalculations）を「詳細数値」リストとして説明文に追記する。
+
+PASSIVE_LABELS: list[tuple[str, str]] = [
+    ("percenthp", "最大体力比"), ("percenthealth", "最大体力比"), ("hpratio", "最大体力比"),
+    ("totaldamage", "合計ダメージ"),
+    ("addamage", "ダメージ（攻撃力反映）"), ("apdamage", "ダメージ（魔力反映）"),
+    ("damage", "ダメージ"),
+    ("perlegcd", "クールダウン（部位毎）"), ("cooldown", "クールダウン"), ("cd", "クールダウン"),
+    ("monstercap", "モンスターへの上限"), ("cap", "上限"),
+    ("duration", "効果時間"),
+    ("heal", "回復"), ("shield", "シールド"),
+    ("triggerrange", "発動範囲"), ("castrange", "射程"), ("range", "範囲"),
+    ("slowresist", "スロウ耐性"), ("slow", "スロウ"), ("stun", "スタン"),
+    ("movespeed", "移動速度"), ("ms", "移動速度"),
+    ("attackspeed", "攻撃速度"), ("armor", "物理防御"), ("mana", "マナ"),
+]
+
+
+def passive_label(name: str) -> str:
+    low = name.lower()
+    for key, label in PASSIVE_LABELS:
+        if key in low:
+            return label
+    return name
+
+
+def build_passive_details(spell: dict) -> list[str]:
+    """パッシブスペルの計算式を「ラベル: 値」の行に整形する"""
+    values = collect_data_values(spell, max_rank=1)
+    calcs = {k.lower(): v for k, v in (spell.get("mSpellCalculations") or {}).items()}
+    lines: list[str] = []
+    for cname, calc in (spell.get("mSpellCalculations") or {}).items():
+        if cname.lower() in ("rangecheck",):
+            continue
+        res = eval_calculation(calcs[cname.lower()], values, calcs, max_rank=1)
+        # percent/ratio 系の名前を持つ割合値は%表記に
+        if (
+            res is not None and res[0] == "bpnum"
+            and re.search(r"percent|ratio", cname, re.I) and abs(res[1]) < 1
+        ):
+            rendered: str | None = f"{fnum(res[1] * 100)}%〜（レベルに応じて増加）"
+        else:
+            rendered = render_result(res)
+            if rendered is not None:
+                rendered = maybe_percentify(rendered, "")
+        if not rendered:
+            continue
+        lines.append(f"{passive_label(cname)}: {rendered}")
+    return lines
+
+
 # ── プレースホルダー解決 ────────────────────────────────
 
 PLACEHOLDER_RE = re.compile(r"@([A-Za-z][\w.]*)(?:\*(\d+(?:\.\d+)?))?@")
@@ -370,6 +459,12 @@ def resolve_description(
         if name == "cost":
             return cost_str
 
+        def finish(rendered: str) -> str:
+            # 乗数なしで参照された割合値（0.4等）は%表記に直す
+            if mult == 1.0:
+                return maybe_percentify(rendered, m.string[m.end():])
+            return rendered
+
         for calc_map, val_map in (
             (calcs, values),
             (global_calcs, global_values),
@@ -378,9 +473,9 @@ def resolve_description(
                 res = eval_calculation(calc_map[name], val_map, calc_map, max_rank)
                 rendered = render_result(res, mult)
                 if rendered is not None:
-                    return rendered
+                    return finish(rendered)
             if name in val_map:
-                return fmt_values(val_map[name], mult)
+                return finish(fmt_values(val_map[name], mult))
 
         unresolved.append(raw)
         return ""
@@ -404,7 +499,7 @@ def generate_champion(champ: dict, patch: str) -> dict:
     )
     bin_data = get_json(f"{BASE}/game/data/characters/{folder}/{folder}.bin.json")
 
-    spell_names, _passive_ref = find_character_spells(bin_data)
+    spell_names, passive_ref = find_character_spells(bin_data)
 
     # 全スキルの値/計算式を集約（他スキル参照のフォールバック用）
     per_spell: dict[str, tuple[dict, dict]] = {}
@@ -443,6 +538,20 @@ def generate_champion(champ: dict, patch: str) -> dict:
         {}, {}, global_values, global_calcs,
         max_rank=1, cd_str="", cost_str="",
     )
+    # 説明文に数値がないため、bin の計算式から「詳細数値」を追記する
+    passive_spell = (
+        find_spell_entry(bin_data, passive_ref or "")
+        or find_spell_entry(bin_data, f"{alias}passive")
+        or find_spell_entry(bin_data, f"{alias}p")
+    )
+    if passive_spell:
+        detail_lines = build_passive_details(passive_spell)
+        if detail_lines:
+            passive_desc += (
+                "<br><br><strong>詳細数値</strong>"
+                + "".join(f"<br>・{line}" for line in detail_lines)
+            )
+
     skills["passive"] = {
         "name": passive.get("name", ""),
         "description": passive_desc,

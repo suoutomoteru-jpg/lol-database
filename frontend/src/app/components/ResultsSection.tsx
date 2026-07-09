@@ -1,5 +1,4 @@
 import { DataCard } from './DataCard';
-import { ScribbleCircle } from './doodles';
 import type { Champion, Item, TabType } from '../types/app';
 
 interface ResultsSectionProps {
@@ -8,18 +7,8 @@ interface ResultsSectionProps {
   activeTab: TabType;
 }
 
-function SectionHeader({ title, count }: { title: string; count?: number }) {
-  return (
-    <div className="flex items-baseline gap-2.5 mb-2">
-      <h2 className="text-sm font-semibold text-foreground">{title}</h2>
-      {count !== undefined && (
-        <span className="relative inline-flex items-center justify-center px-2 py-0.5 -rotate-2">
-          <ScribbleCircle className="absolute inset-0 w-full h-full text-primary/45" />
-          <span className="text-xs text-muted-foreground tabular-nums">{count}件</span>
-        </span>
-      )}
-    </div>
-  );
+function SectionHeader({ title }: { title: string }) {
+  return <h2 className="text-sm font-semibold text-foreground mb-2">{title}</h2>;
 }
 
 export function ResultsSection({ champions, items, activeTab }: ResultsSectionProps) {
@@ -41,7 +30,7 @@ export function ResultsSection({ champions, items, activeTab }: ResultsSectionPr
   if (activeTab === 'champions') {
     return (
       <div className="w-full max-w-4xl">
-        <SectionHeader title="チャンピオン" count={champions.length} />
+        <SectionHeader title="チャンピオン" />
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border">
           {champions.map(c => <DataCard key={c.id} data={c} type="champion" />)}
         </div>
@@ -51,7 +40,7 @@ export function ResultsSection({ champions, items, activeTab }: ResultsSectionPr
 
   return (
     <div className="w-full max-w-4xl">
-      <SectionHeader title="アイテム" count={items.length} />
+      <SectionHeader title="アイテム" />
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border">
         {items.map(i => <DataCard key={i.id} data={i} type="item" />)}
       </div>

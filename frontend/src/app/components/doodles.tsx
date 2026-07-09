@@ -20,15 +20,3 @@ export function CurlyArrow({ className }: { className?: string }) {
     </svg>
   );
 }
-
-/** 小さな手描き丸（件数バッジなどを囲む） */
-export function ScribbleCircle({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 44 28" preserveAspectRatio="none" aria-hidden className={className}>
-      <path
-        d="M22 3 C 33 2, 41 7, 41.5 13.5 C 42 21, 33 25.5, 21 25.5 C 10 25.5, 2.5 21.5, 2.5 14.5 C 2.5 8, 9 3.5, 19 3.2"
-        fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
-      />
-    </svg>
-  );
-}
