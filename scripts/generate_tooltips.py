@@ -31,6 +31,10 @@ import urllib.request
 BASE = "https://raw.communitydragon.org/latest"
 UA = {"User-Agent": "lol-database-tooltip-generator/1.0"}
 
+# ゲーム内ツールチップ全文（日本語ストリングテーブル）
+# ※ en_us というサブフォルダ名だが game/ja_jp ロケールWADの中身＝日本語
+STRINGTABLE_URL = f"{BASE}/game/ja_jp/data/menu/en_us/lol.stringtable.json"
+
 # ── HTTP ──────────────────────────────────────────────
 
 
@@ -436,9 +440,42 @@ def build_passive_details(spell: dict) -> list[str]:
     return lines
 
 
+# ── ストリングテーブル（ゲーム内ツールチップ本文）────────
+
+
+def load_stringtable() -> dict[str, str]:
+    """日本語ストリングテーブルを {小文字キー: 本文} で返す（失敗時は空）"""
+    try:
+        data = get_json(STRINGTABLE_URL)
+    except Exception as e:  # noqa: BLE001 - 取得失敗時は従来表示にフォールバック
+        print(f"ストリングテーブル取得失敗（フォールバック動作）: {e}")
+        return {}
+    entries = data.get("entries", data)
+    table = {
+        k.lower(): v for k, v in entries.items() if isinstance(v, str)
+    }
+    print(f"ストリングテーブル: {len(table)} エントリ")
+    return table
+
+
+def passive_tooltip_body(stringtable: dict[str, str], spell: dict) -> str | None:
+    """パッシブスペルの locキーからゲーム内ツールチップ本文を引く"""
+    if not stringtable:
+        return None
+    loc_keys = (
+        (spell.get("mClientData") or {}).get("mTooltipData") or {}
+    ).get("mLocKeys") or {}
+    for pref in ("keyTooltipExtended", "keyTooltip"):
+        key = loc_keys.get(pref)
+        if key and key.lower() in stringtable:
+            return stringtable[key.lower()]
+    return None
+
+
 # ── プレースホルダー解決 ────────────────────────────────
 
-PLACEHOLDER_RE = re.compile(r"@([A-Za-z][\w.]*)(?:\*(\d+(?:\.\d+)?))?@")
+# @Var@ / @Var*100@ / @Spell.XxxYyy:Var@（ストリングテーブルの相互参照形式）
+PLACEHOLDER_RE = re.compile(r"@([A-Za-z][\w.:]*)(?:\*(\d+(?:\.\d+)?))?@")
 ICON_RE = re.compile(r"%i:[^%]+%")
 
 
@@ -456,7 +493,8 @@ def resolve_description(
 
     def repl(m: re.Match) -> str:
         raw, mult_s = m.group(1), m.group(2)
-        name = raw.lower().split(".")[0]
+        # "Spell.UrgotPassive:PerLegCD" 形式はコロン以降が変数名
+        name = raw.split(":")[-1].lower().split(".")[0]
         mult = float(mult_s) if mult_s else 1.0
 
         if name == "spellmodifierdescriptionappend":
@@ -498,7 +536,7 @@ def resolve_description(
 # ── チャンピオン単位の生成 ──────────────────────────────
 
 
-def generate_champion(champ: dict, patch: str) -> dict:
+def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> dict:
     alias = champ["alias"]
     cid = champ["id"]
     folder = alias.lower()
@@ -542,28 +580,53 @@ def generate_champion(champ: dict, patch: str) -> dict:
     total_unresolved: list[str] = []
 
     passive = lcu.get("passive", {})
-    passive_desc, passive_unresolved = resolve_description(
-        passive.get("description", ""),
-        {}, {}, global_values, global_calcs,
-        max_rank=1, cd_str="", cost_str="",
-    )
-    # 説明文に数値がないため、bin の計算式から「詳細数値」を追記する
     passive_spell = (
         find_spell_entry(bin_data, passive_ref or "")
         or find_spell_entry(bin_data, f"{alias}passive")
         or find_spell_entry(bin_data, f"{alias}p")
     )
-    if passive_spell:
-        detail_lines = build_passive_details(passive_spell)
-        if detail_lines:
-            passive_desc += (
-                "<br><br><strong>詳細数値</strong>"
-                + "".join(f"<br>・{line}" for line in detail_lines)
-            )
+
+    # 第一候補: ゲーム内ツールチップ本文（ストリングテーブル）を bin の数値で解決
+    passive_desc = ""
+    passive_unresolved: list = []
+    passive_source = "lcu"
+    st_body = passive_tooltip_body(stringtable, passive_spell) if passive_spell else None
+    if st_body:
+        p_values = collect_data_values(passive_spell, max_rank=1)
+        p_calcs = {
+            k.lower(): v
+            for k, v in (passive_spell.get("mSpellCalculations") or {}).items()
+        }
+        body, st_unresolved = resolve_description(
+            st_body, p_values, p_calcs, global_values, global_calcs,
+            max_rank=1, cd_str="", cost_str="",
+        )
+        body = re.sub(r"\{\{[^}]*\}\}", "", body).strip()
+        # 解決できない変数が多すぎる場合は従来表示へフォールバック
+        if body and len(st_unresolved) <= 3:
+            passive_desc = body
+            passive_unresolved = st_unresolved
+            passive_source = "stringtable"
+
+    # フォールバック: LCU の短文 + bin 計算式の「詳細数値」追記
+    if passive_source != "stringtable":
+        passive_desc, passive_unresolved = resolve_description(
+            passive.get("description", ""),
+            {}, {}, global_values, global_calcs,
+            max_rank=1, cd_str="", cost_str="",
+        )
+        if passive_spell:
+            detail_lines = build_passive_details(passive_spell)
+            if detail_lines:
+                passive_desc += (
+                    "<br><br><strong>詳細数値</strong>"
+                    + "".join(f"<br>・{line}" for line in detail_lines)
+                )
 
     skills["passive"] = {
         "name": passive.get("name", ""),
         "description": passive_desc,
+        "source": passive_source,
         "unresolved": passive_unresolved,
     }
     total_unresolved.extend(f"P:{u}" for u in passive_unresolved)
@@ -629,6 +692,8 @@ def main() -> int:
     patch = str(meta.get("version", "unknown"))
     print(f"patch: {patch}")
 
+    stringtable = load_stringtable()
+
     summary = get_json(
         f"{BASE}/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json"
     )
@@ -649,14 +714,15 @@ def main() -> int:
     for i, champ in enumerate(sorted(champs, key=lambda c: c["alias"])):
         alias = champ["alias"]
         try:
-            data = generate_champion(champ, patch)
+            data = generate_champion(champ, patch, stringtable)
             with open(f"{args.out}/{alias}.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=1)
             n_unres = data["unresolvedCount"]
             total_unresolved += n_unres
             index["champions"].append(
                 {"alias": alias, "id": champ["id"], "name": data["name"],
-                 "unresolvedCount": n_unres}
+                 "unresolvedCount": n_unres,
+                 "passiveSource": data["skills"]["passive"].get("source", "lcu")}
             )
             ok += 1
             flag = "" if n_unres == 0 else f"  ⚠️ 未解決 {n_unres} 件"
@@ -681,6 +747,8 @@ def main() -> int:
     n_champ_unres = sum(
         1 for c in index["champions"] if c.get("unresolvedCount", 0) > 0
     )
+    n_st = sum(1 for c in index["champions"] if c.get("passiveSource") == "stringtable")
+    print(f"\nパッシブ本文をゲーム内表記で解決: {n_st} 体")
     print(f"\n完了: 成功 {ok} / 失敗 {failed}")
     print(f"未解決プレースホルダーあり: {n_champ_unres} 体 / 計 {total_unresolved} 件")
     # 少数の失敗ではジョブを止めない（index.json にエラーとして記録済み）
