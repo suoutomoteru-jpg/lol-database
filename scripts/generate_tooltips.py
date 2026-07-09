@@ -206,9 +206,10 @@ def eval_part(part, values: dict, max_rank: int):
         if p1 and p2 and p1[0] == "nums" and p2[0] == "nums":
             return ("nums", [a * b for a, b in zip(p1[1], p2[1])])
         if p1 and p2:
-            a = p1[1] if p1[0] == "text" else fmt_values(p1[1])
-            b = p2[1] if p2[0] == "text" else fmt_values(p2[1])
-            return ("text", f"{a}×{b}")
+            a = render_result(p1)
+            b = render_result(p2)
+            if a is not None and b is not None:
+                return ("text", f"{a}×{b}")
         return None
 
     return None
