@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "ゼル＝サイの怒り",
-   "description": "通常攻撃を行うと<keywordMajor>フューリーが@FuryFromAttacks@</keywordMajor>、スキルを発動すると<keywordMajor>フューリーが@FuryFromAbilities@</keywordMajor>たまる。<br><br><keywordMajor>地中潜伏中</keywordMajor>に@HealDuration@秒かけて<keywordMajor>フューリー</keywordMajor>を消費し、最大で<healing>体力を@HealAmount@</healing>回復する(チャンピオンレベルに応じて増加する)。<br><br><rules>体力が最大の場合は<keywordMajor>フューリー</keywordMajor>は消費されない。<br><keywordMajor>フューリー</keywordMajor>がたまらない状態が5秒間続くと、毎秒<keywordMajor>20のフューリー</keywordMajor>を失う。<br>ミニオンに通常攻撃を行った場合は<keywordMajor>16%のフューリー</keywordMajor>を獲得する。</rules>",
-   "source": "stringtable",
+   "description": "通常攻撃または通常スキルを当てると「フューリー」がたまる。地中潜伏中に「フューリー」を消費して自身の体力を回復する。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

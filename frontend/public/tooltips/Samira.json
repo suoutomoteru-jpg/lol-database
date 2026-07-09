@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "デアデビルインパルス",
-   "description": "直前とは異なる通常攻撃またはスキルで敵チャンピオンにダメージを与えると、コンボが増加していく。コンボによって<keywordMajor>「スタイル」</keywordMajor>のグレードが「E」から「S」まで増加していく(全6段階)。グレードが上がるごとに<speed>移動速度が@MSBonusNew@</speed>増加する。<br><br>近接攻撃射程の通常攻撃とスキルは追加で<magicDamage>@BonusMeleeDamage@の魔法ダメージ</magicDamage>を与える。この追加ダメージは対象の減少体力に応じて最大<magicDamage>@EmpoweredMeleeDamageTooltip@</magicDamage>まで増加する。<br><br><status>移動不能効果</status>を受けた敵に通常攻撃を行うと、自身の射程内までダッシュする。敵が<status>ノックアップ</status>していた場合は、少なくとも0.5秒間は<status>ノックアップ</status>させたままにする。<br><br><rules>ダッシュ距離は650〜（レベルに応じて変化）ユニット。6秒間、通常攻撃かスキルで敵チャンピオンにダメージを与えなかった場合は、<keywordMajor>「スタイル」</keywordMajor>を失う</rules>。",
-   "source": "stringtable",
+   "description": "直前に命中したものとは異なる通常攻撃またはスキルを命中させることでコンボが増加していく。近接攻撃射程の通常攻撃は追加魔法ダメージを与える。<status>移動不能効果</status>を受けた敵に通常攻撃を行うと、自身の射程内までダッシュする。敵が<status>ノックアップ</status>していた場合は、少しの間だけ<status>ノックアップ</status>させたままにする。<br><br><strong>詳細数値</strong><br>・範囲: 650〜（レベルに応じて変化）<br>・移動速度: 2.75%〜（レベルに応じて変化）",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

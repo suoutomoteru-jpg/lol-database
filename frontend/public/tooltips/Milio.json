@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "ファイヤーアップ！",
-   "description": "ミリオのスキルに触れた味方チャンピオンは、次の通常攻撃またはスキルで、<physicalDamage>その攻撃力の@ADBurstRatio@</physicalDamage>にあたる追加<magicDamage>魔法ダメージ</magicDamage>を与え、さらに@BurnDuration@秒かけて<magicDamage>@BurnDamage@の魔法ダメージ</magicDamage>を与える。<br><br><rules>複数回命中させても、炎上ダメージはスタックしない。</rules>",
-   "source": "stringtable",
+   "description": "ミリオのスキルに触れた味方は、次の攻撃で追加のバーストダメージを与え、対象を炎上させる。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

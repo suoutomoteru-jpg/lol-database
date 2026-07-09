@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "モリノトモダチ",
-   "description": "アイバーンはエピック以外のモンスターを攻撃できない。代わりにモンスターを右クリックすると、<healing>体力@HealthTooltip@</healing>と<scaleMana>マナ@ManaTooltip@</scaleMana>を消費して<font color='#55FF00'>「小さな森」</font>を作り出す。<br><br><font color='#55FF00'>小さな森:</font><li> @HarvestDuration@秒かけて成長する<li> 最大まで成長すると収穫可能になり、ジャングルモンスターたちを逃がしてゴールドと経験値を獲得する<li> <font color='#55FF00'>「小さな森」</font>に<spellName>「スマイト」</spellName>を使用すると、即座に成長させてモンスターを逃がし、ゴールドと経験値を獲得できる@SpellModifierDescriptionAppend@",
+   "description": "アイバーンはエピック以外のモンスターを攻撃できない。代わりにモンスターを右クリックすると、<healing>体力15〜（レベルに応じて変化）</healing>と<scaleMana>マナ20〜（レベルに応じて変化）</scaleMana>を消費して<font color='#55FF00'>「小さな森」</font>を作り出す。<br><br><font color='#55FF00'>小さな森:</font><li> 40〜（レベルに応じて変化）秒かけて成長する<li> 最大まで成長すると収穫可能になり、ジャングルモンスターたちを逃がしてゴールドと経験値を獲得する<li> <font color='#55FF00'>「小さな森」</font>に<spellName>「スマイト」</spellName>を使用すると、即座に成長させてモンスターを逃がし、ゴールドと経験値を獲得できる",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "炎上",
-   "description": "スキルで攻撃するたびに対象が<keywordMajor>炎上</keywordMajor>し、4秒かけて<magicDamage>最大体力の@PercentHealthDamage@%の魔法ダメージ</magicDamage>を与える。自身が<keywordMajor>炎上</keywordMajor>しているユニットを倒すと<scaleMana>@ManaRestore@マナ</scaleMana>を獲得する。<keywordMajor>「炎上」</keywordMajor>は最大で3スタックする。<br><br>チャンピオンまたは大型ジャングルモンスターに付与された<keywordMajor>「炎上」</keywordMajor>が3スタックに達すると2秒後に爆発し、周囲の敵に<magicDamage>最大体力の@ExplosionDamage@に相当する魔法ダメージ</magicDamage>を与える。<br><br><rules>モンスターに対しては与えるダメージが増加し、エピックジャングルモンスターに対しては毎秒最大50のダメージが80まで増加する。</rules><br><br><rules><keywordMajor>「炎上」</keywordMajor>の3スタックによる爆発は、ジャングルモンスターに対しては270〜（レベルに応じて変化）が上限。</rules>",
+   "description": "スキルで攻撃するたびに対象が<keywordMajor>炎上</keywordMajor>し、4秒かけて<magicDamage>最大体力の2%の魔法ダメージ</magicDamage>を与える。自身が<keywordMajor>炎上</keywordMajor>しているユニットを倒すと<scaleMana>20〜（レベルに応じて変化）マナ</scaleMana>を獲得する。<keywordMajor>「炎上」</keywordMajor>は最大で3スタックする。<br><br>チャンピオンまたは大型ジャングルモンスターに付与された<keywordMajor>「炎上」</keywordMajor>が3スタックに達すると2秒後に爆発し、周囲の敵に<magicDamage>最大体力の6〜12（レベル比例） ＋ 魔力の2%に相当する魔法ダメージ</magicDamage>を与える。<br><br><rules>モンスターに対しては与えるダメージが増加し、エピックジャングルモンスターに対しては毎秒最大50のダメージが80まで増加する。</rules><br><br><rules><keywordMajor>「炎上」</keywordMajor>の3スタックによる爆発は、ジャングルモンスターに対しては270〜（レベルに応じて変化）が上限。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

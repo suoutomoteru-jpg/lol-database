@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "イカサマダイス",
-   "description": "<br><br>騙し取ったゴールドの合計: <statTracking>@f1@</statTracking><br>クリティカルで騙し取ったゴールドの合計: <statTracking>@f2@</statTracking><br><br><rules>このスキルはクリティカル判定を持つ。</rules>",
-   "source": "stringtable",
+   "description": "ユニットを1体倒すたびに「幸運のサイコロ」を振り、1～6の追加ゴールドを獲得する。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

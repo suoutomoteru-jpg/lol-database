@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "見えざる脅威",
-   "description": "敵の視界から消えると、チャンピオンに対する次の通常攻撃が<magicDamage>80/105/130/155/180（＋増加攻撃力の40%）の魔法ダメージ</magicDamage>を追加で与え、2秒間25%の<status>スロウ効果</status>を付与する。<br><br>周囲に味方がいない敵は<keywordMajor>「孤立」</keywordMajor>状態になる。",
-   "source": "stringtable",
+   "description": "味方から<font color='#FFF673'>「孤立」</font>している周囲の敵ユニットをマークする。カ＝ジックスのスキルは<font color='#FFF673'>「孤立」</font>している対象が相手だと変化する。<br><br>敵の視界から消えるとカ＝ジックスは「見えざる脅威」を獲得し、次の通常攻撃で敵チャンピオンに追加魔法ダメージを与え、移動速度を数秒間、低下させる。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

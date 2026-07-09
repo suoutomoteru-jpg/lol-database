@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "キンドレッドの刻印",
-   "description": "アイテム欄の上にあるチャンピオンのアイコンをクリックすることで、チャンピオンを獲物として指定できる。また、自動的に特定のジャングルモンスターを獲物として指定し、ミニマップにアイコンが表示される。<br><br>獲物となっている対象からキルまたはアシストを奪うと、<keywordMajor>「刻印」</keywordMajor>を獲得して自身が強化される。<keywordMajor>「刻印」</keywordMajor>を@f2@個獲得すると射程距離が@f8@増加する。4個獲得後は<keywordMajor>「刻印」</keywordMajor>@f7@個ごとに射程距離がさらに@f9@増加する。<br><br><keywordMajor>「刻印」</keywordMajor>は自身の通常スキルを強化する:<li><spellName>「」</spellName>による<attackSpeed>攻撃速度が@QMarkBonus@</attackSpeed>増加する。<li><spellName>「」</spellName>が追加で<magicDamage>現在体力の@WMarkBonus@にあたるダメージ</magicDamage>を与える。<li><spellName>「」</spellName>が追加で<physicalDamage>減少体力の@EMarkBonus@にあたるダメージ</physicalDamage>を与える。<br><br>現在は<statTracking>射程距離が3</statTracking>増加している。<br><br><rules><keywordMajor>「刻印」</keywordMajor>を獲得するたびに、獲物のジャングルモンスターが敵ジャングルの奥にいるモンスターへと変更され、最終的にエピックモンスターになる。</rules>",
-   "source": "stringtable",
+   "description": "獲物とする対象に印を付ける。印をつけた獲物を狩ることで、通常スキルを恒常的に強化する。獲物を4体狩るごとに、通常攻撃の射程も強化される。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

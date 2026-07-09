@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "弱者必衰",
-   "description": "体力が@CurrentHealthThreshold*100@%未満の敵に対する通常攻撃が<magicDamage>最大体力の@MaxHPDamage@の魔法ダメージ</magicDamage>を追加で与える。同じ敵チャンピオンに対しては@PerUnitCD@秒ごとに一度のみ発動する。<br><br><rules>このスキルはジャングルモンスターには75%のダメージを与える。対象がエピックモンスターの場合、175ダメージが上限となる。</rules>",
-   "source": "stringtable",
+   "description": "残り体力の少ない敵を通常攻撃した場合、追加魔法ダメージを与える。同じ敵チャンピオンには数秒に1度しか効果が発生しない。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "沈みし者の力",
-   "description": "チャンピオンから受けたダメージの@OneEnemyCalc@を溜めておく。周囲に敵が1体以上いると、この割合が@AdditionalBonusCalc@に増加する。最大@DamageStorageMax@ダメージまで溜めておける。敵の<unique>視界から消える</unique>と、溜めていたダメージが急速に回復する。<br><br>さらに、<healing>体力14</healing>につき<physicalDamage>攻撃力1</physicalDamage>の変換率で、あらゆるソースから得た増加最大体力のすべてを攻撃力に変換する。 <br><br>増加攻撃力: <statTracking>攻撃力14</statTracking>",
-   "source": "stringtable",
+   "description": "敵の視界外にいると、直前にチャンピオンからの攻撃で失った体力を回復する。また、パイクはいずれのソースからも増加最大体力を得ることはできず、代わりに増加攻撃力を得る。<br><br><strong>詳細数値</strong><br>・ダメージ: 80（＋増加攻撃力の800%）",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

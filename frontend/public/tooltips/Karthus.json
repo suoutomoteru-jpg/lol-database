@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "怨嗟の叫び",
-   "description": "倒されてから7秒間、スキルをコスト無しで使用できる。",
-   "source": "stringtable",
+   "description": "カーサスは死亡すると同時に霊体化し、その場でスキルを発動できるようになる。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

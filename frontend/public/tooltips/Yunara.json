@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "始まりの地への誓い",
-   "description": "クリティカル攻撃が<magicDamage>@Calc_Damage_Amp@の魔法ダメージ</magicDamage>を追加で与える。<br><br><rules></rules>",
+   "description": "クリティカル攻撃が<magicDamage>10%（＋魔力の0.1%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><rules></rules>",
    "source": "stringtable",
    "unresolved": []
   },

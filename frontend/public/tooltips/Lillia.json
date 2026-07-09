@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "夢を集める大枝",
-   "description": "スキルによって対象に<keywordMajor>「夢のかけら」</keywordMajor>をふりかけ、@Duration@秒かけて<magicDamage>最大体力の@DotPercentTooltip@に相当する魔法ダメージ</magicDamage>を与える。この効果時間中に、対象が大型ジャングルモンスターの場合<healing>@MonsterHealTT@の体力</healing>を、チャンピオンの場合<healing>@ChampionHealTT@の体力</healing>を回復する。<br><br><rules>ジャングルモンスターには効果時間中に最大70〜180（レベル比例）のダメージを与える。</rules><br><rules>2体目以降の対象から受ける「夢のかけら」の体力回復量は15%になる。</rules><br><rules>このスキルは同時に1体のジャングルモンスターからしか回復しない。</rules>",
+   "description": "スキルによって対象に<keywordMajor>「夢のかけら」</keywordMajor>をふりかけ、3秒かけて<magicDamage>最大体力の5%（＋魔力の1.25%）に相当する魔法ダメージ</magicDamage>を与える。この効果時間中に、対象が大型ジャングルモンスターの場合<healing>39（＋魔力の2.5%）の体力</healing>を、チャンピオンの場合<healing>1〜15（レベル比例） ＋ 魔力の5%の体力</healing>を回復する。<br><br><rules>ジャングルモンスターには効果時間中に最大70〜180（レベル比例）のダメージを与える。</rules><br><rules>2体目以降の対象から受ける「夢のかけら」の体力回復量は15%になる。</rules><br><rules>このスキルは同時に1体のジャングルモンスターからしか回復しない。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

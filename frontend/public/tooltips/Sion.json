@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "名誉ある死",
-   "description": "サイオンは死亡後、復活して移動と通常攻撃が行えるようになるが、復活中は体力が急速に減っていく。また、@Lifesteal*100@%のライフスティールを獲得し、攻撃速度が大幅に増加して、通常攻撃が追加で<physicalDamage>最大体力の@PercentMaxHP*100@%の物理ダメージ</physicalDamage>を与える。<br><br>復活中は、すべてのスキルが移動速度を増加させる<spellName>「死の波動」</spellName>に変化する。<br><br><rules>チャンピオン以外への追加ダメージは最大75。<br>この状態の間は建造物に与えるダメージが40%になる。</rules>",
+   "description": "サイオンは死亡後、復活して移動と通常攻撃が行えるようになるが、復活中は体力が急速に減っていく。また、100%のライフスティールを獲得し、攻撃速度が大幅に増加して、通常攻撃が追加で<physicalDamage>最大体力の10%の物理ダメージ</physicalDamage>を与える。<br><br>復活中は、すべてのスキルが移動速度を増加させる<spellName>「死の波動」</spellName>に変化する。<br><br><rules>チャンピオン以外への追加ダメージは最大75。<br>この状態の間は建造物に与えるダメージが40%になる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ケンカの作法",
-   "description": "発動効果スキルを敵または建造物に当てると、@ShieldDuration@秒間<shield>耐久値@TotalShield@のシールド</shield>を獲得する。<br><br><rules>このスキルには16〜（レベルに応じて変化）秒間のクールダウンがあるが、<spellName>「メッタ打ち」</spellName>を発動させると、クールダウンが4秒短縮される。</rules>",
+   "description": "発動効果スキルを敵または建造物に当てると、3秒間<shield>耐久値合計体力の12%のシールド</shield>を獲得する。<br><br><rules>このスキルには16〜（レベルに応じて変化）秒間のクールダウンがあるが、<spellName>「メッタ打ち」</spellName>を発動させると、クールダウンが4秒短縮される。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

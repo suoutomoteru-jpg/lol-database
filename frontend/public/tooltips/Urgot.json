@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "エコーフレイム",
-   "description": "アーゴットは6本の脚にキャノンを装備している。通常攻撃と<spellName>「」</spellName>で対象の方を向いている脚のキャノンを発射し、<physicalDamage>@ADDamage@(+最大体力の@PercentHPRatio@)の物理ダメージ</physicalDamage>を与える。この効果には脚ごとに@PerLegCD@秒間のクールダウンがある。<br><br><rules>ジャングルモンスターには最大<physicalDamage>100〜360（レベル比例）のダメージ</physicalDamage>を与える。</rules>",
+   "description": "アーゴットは6本の脚にキャノンを装備している。通常攻撃と<spellName>「パージ」</spellName>で対象の方を向いている脚のキャノンを発射し、<physicalDamage>合計攻撃力の40%〜（レベルに応じて増加）(+最大体力の2%〜（レベルに応じて変化）)の物理ダメージ</physicalDamage>を与える。この効果には脚ごとに30〜（レベルに応じて変化）秒間のクールダウンがある。<br><br><rules>ジャングルモンスターには最大<physicalDamage>100〜360（レベル比例）のダメージ</physicalDamage>を与える。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

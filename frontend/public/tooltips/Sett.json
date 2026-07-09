@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "ファイティングスピリット",
-   "description": "通常攻撃で左右のパンチを交互に繰り出す。右パンチは左パンチに続いて素早く放たれ、追加で<physicalDamage>@RightPunchBonus@の物理ダメージ</physicalDamage>を与える。<br><br>減少体力@MissingHealthUnit*500@%ごとに<healing>体力自動回復が@TooltipRegenPerMissingHealthCalc@</healing>増加する。<br><br><rules>左パンチから2秒以内に右パンチを出さないと、再び左パンチに戻る。右パンチの<attackSpeed>攻撃速度</attackSpeed>は左パンチの8倍になる。</rules>",
-   "source": "stringtable",
+   "description": "通常攻撃で左右のパンチを交互に繰り出す。右のパンチの方が少し強く、速い。また、セトは負けず嫌いで、減少体力に応じて体力自動回復が増加する。<br><br><strong>詳細数値</strong><br>・回復: 3〜（レベルに応じて変化）",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

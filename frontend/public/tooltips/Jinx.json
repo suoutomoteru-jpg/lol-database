@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "超エキサイティン！",
-   "description": "自身がダメージを与えたチャンピオン、エピックモンスター、または建造物が@AssistMarkerDuration@秒以内に倒されるか破壊されると、@BuffDuration@秒間自身の<speed>移動速度が@MSBuff@%</speed>、<attackSpeed>攻撃速度が@ASBuff@%</attackSpeed>増加する。増加した移動速度は次第に減衰する。<br><br>この<attackSpeed>攻撃速度</attackSpeed>は、チャンピオンからキルまたはアシストを獲得することで、最大5回までをスタックさせることができる。<br><rules>この効果中は攻撃速度の上限を超えることができる。</rules>",
+   "description": "自身がダメージを与えたチャンピオン、エピックモンスター、または建造物が3秒以内に倒されるか破壊されると、6秒間自身の<speed>移動速度が175%</speed>、<attackSpeed>攻撃速度が25%</attackSpeed>増加する。増加した移動速度は次第に減衰する。<br><br>この<attackSpeed>攻撃速度</attackSpeed>は、チャンピオンからキルまたはアシストを獲得することで、最大5回までをスタックさせることができる。<br><rules>この効果中は攻撃速度の上限を超えることができる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

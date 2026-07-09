@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "極北の激憤",
-   "description": "@FrostArmorOOC@秒間チャンピオンまたは大型ジャングルモンスターからダメージを受けずにいると<status>スロウ効果</status>を受けなくなり、<scaleArmor>@TotalArmorTooltip@の物理防御</scaleArmor>と<scaleMR>@TotalMRTooltip@の魔法防御</scaleMR>を獲得する。<br><br>自身が<status>スタン</status>させた敵に対する最初の通常攻撃は追加で<magicDamage>最大体力の@PercentHPDamage@の魔法ダメージ</magicDamage>を与える。<br><br><rules>エピックモンスターに対する最大体力に応じたダメージは250が上限。<br>防御効果はチャンピオンまたは大型モンスターからダメージを受けたあとも3秒間持続する。</rules>",
+   "description": "12〜6（レベル比例）秒間チャンピオンまたは大型ジャングルモンスターからダメージを受けずにいると<status>スロウ効果</status>を受けなくなり、<scaleArmor>10（＋増加物理防御の75%）の物理防御</scaleArmor>と<scaleMR>10（＋増加移動速度の75%）の魔法防御</scaleMR>を獲得する。<br><br>自身が<status>スタン</status>させた敵に対する最初の通常攻撃は追加で<magicDamage>最大体力の10%の魔法ダメージ</magicDamage>を与える。<br><br><rules>エピックモンスターに対する最大体力に応じたダメージは250が上限。<br>防御効果はチャンピオンまたは大型モンスターからダメージを受けたあとも3秒間持続する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
