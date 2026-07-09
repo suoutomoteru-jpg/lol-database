@@ -604,24 +604,49 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
             k.lower(): v
             for k, v in (passive_spell.get("mSpellCalculations") or {}).items()
         }
+        # {{...}} 参照の展開用: スキルスクリプト名 → 表示名（spell_xxx_name 対策）
+        name_map: dict[str, str] = {}
+        for i, key in enumerate(("q", "w", "e", "r")):
+            script = spell_names[i] if i < len(spell_names) else f"{alias}{key.upper()}"
+            lcu_sp = next((s for s in lcu.get("spells", []) if s.get("spellKey") == key), {})
+            if lcu_sp.get("name"):
+                name_map[str(script).lower()] = lcu_sp["name"]
+        if passive_ref and passive.get("name"):
+            name_map[str(passive_ref).lower()] = passive["name"]
+
+        def expand_templates(text: str) -> str:
+            """{{key}} をストリングテーブル/スキル名で展開（2段のネストまで）"""
+            def sub_one(mm: re.Match) -> str:
+                tok = mm.group(1).lower()
+                if tok in stringtable:
+                    return stringtable[tok]
+                nm = re.fullmatch(r"spell_(.+?)_name", tok)
+                if nm and nm.group(1) in name_map:
+                    return name_map[nm.group(1)]
+                return mm.group(0)  # 展開不能 → 残して後段で候補ごと却下
+            for _ in range(2):
+                if "{{" not in text:
+                    break
+                text = re.sub(r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}", sub_one, text)
+            return text
+
+        lcu_passive_len = len(passive.get("description", ""))
         candidates: list[str] = []
         for st_body in passive_tooltip_bodies(stringtable, passive_spell):
+            expanded = expand_templates(st_body)
             body, st_unresolved = resolve_description(
-                st_body, p_values, p_calcs, global_values, global_calcs,
+                expanded, p_values, p_calcs, global_values, global_calcs,
                 max_rank=1, cd_str="", cost_str="",
             )
-            # {{spell_xxx_name}} 等の名前参照はストリングテーブル自身から引く
-            body = re.sub(
-                r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}",
-                lambda mm: stringtable.get(mm.group(1).lower(), ""),
-                body,
-            )
-            body = re.sub(r"\{\{[^}]*\}\}", "", body).strip()
-            # 未解決変数が1つでもあると本文に「穴」が空くため採用しない
-            if body and not st_unresolved:
-                candidates.append(body)
-        if candidates:
-            passive_desc = max(candidates, key=len)
+            body = body.strip()
+            # 穴あき文（未解決変数・未展開テンプレート）は採用しない
+            if not body or st_unresolved or "{{" in body or "@" in body:
+                continue
+            candidates.append(body)
+        best = max(candidates, key=len, default="")
+        # LCU の短文より短い候補（補足行だけ等）はゲーム内本文とみなさない
+        if best and len(best) >= lcu_passive_len:
+            passive_desc = best
             passive_source = "stringtable"
 
     # フォールバック: LCU の短文 + bin 計算式の「詳細数値」追記
