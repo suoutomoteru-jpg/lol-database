@@ -185,7 +185,9 @@ def eval_part(part, values: dict, max_rank: int):
         if sub[0] == "nums":
             return ("text", f"{label}の{fmt_values(sub[1], 100)}%")
         if sub[0] == "bpnum":
-            return ("text", f"{label}の{fnum(sub[1] * 100)}%〜（レベルに応じて増加）")
+            # 1未満なら割合（0.02→2%）、1以上なら既に%単位（ガレンの1.5等）
+            pct = sub[1] * 100 if abs(sub[1]) < 1 else sub[1]
+            return ("text", f"{label}の{fnum(pct)}%〜（レベルに応じて増加）")
         return None
 
     if t == "AbilityResourceByCoefficientCalculationPart":
@@ -607,6 +609,12 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
             body, st_unresolved = resolve_description(
                 st_body, p_values, p_calcs, global_values, global_calcs,
                 max_rank=1, cd_str="", cost_str="",
+            )
+            # {{spell_xxx_name}} 等の名前参照はストリングテーブル自身から引く
+            body = re.sub(
+                r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}",
+                lambda mm: stringtable.get(mm.group(1).lower(), ""),
+                body,
             )
             body = re.sub(r"\{\{[^}]*\}\}", "", body).strip()
             # 未解決変数が1つでもあると本文に「穴」が空くため採用しない
