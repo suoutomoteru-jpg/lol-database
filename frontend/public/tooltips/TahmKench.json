@@ -39,7 +39,7 @@
   },
   "r": {
    "name": "丸呑み",
-   "description": "数秒間、チャンピオンを呑み込む。<recast>再発動</recast>すると吐き出す。<br><br><specialRules>敵チャンピオン:</specialRules><spellName> 「舌慣らし」</spellName>が3スタック必要になる。最大3秒間呑み込み、<magicDamage>100/250/400 (+対象の最大体力の0.15（＋魔力の0.07%）)の魔法ダメージ</magicDamage>を与える。この効果中は40%の<status>スロウ効果</status>を受け、<keywordName>釘付け</keywordName>状態になる。<br><br><specialRules>味方チャンピオン:</specialRules> 最大3秒間呑み込み、<shield>耐久値650/800/950（＋魔力の100%）のシールド</shield>を付与する。このシールドは吐き出されたあと、徐々に減少していく。味方は自分から早めに出ることもできる。この効果中は自身も<status>釘付け状態</status>になるが、<keywordName>「川潜り」</keywordName>は使用可能で、3秒間、<speed>移動速度が60%</speed>増加する。",
+   "description": "数秒間、チャンピオンを呑み込む。<recast>再発動</recast>すると吐き出す。<br><br><specialRules>敵チャンピオン:</specialRules><spellName> 「舌慣らし」</spellName>が3スタック必要になる。最大3秒間呑み込み、<magicDamage>100/250/400 (+対象の最大体力の15%（＋魔力の0.07%）)の魔法ダメージ</magicDamage>を与える。この効果中は40%の<status>スロウ効果</status>を受け、<keywordName>釘付け</keywordName>状態になる。<br><br><specialRules>味方チャンピオン:</specialRules> 最大3秒間呑み込み、<shield>耐久値650/800/950（＋魔力の100%）のシールド</shield>を付与する。このシールドは吐き出されたあと、徐々に減少していく。味方は自分から早めに出ることもできる。この効果中は自身も<status>釘付け状態</status>になるが、<keywordName>「川潜り」</keywordName>は使用可能で、3秒間、<speed>移動速度が60%</speed>増加する。",
    "cooldown": "0",
    "cost": "100",
    "range": "25000",

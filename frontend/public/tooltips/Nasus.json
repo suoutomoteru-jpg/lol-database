@@ -41,7 +41,7 @@
   },
   "r": {
    "name": "アヌビスの怒り",
-   "description": "15秒間砂嵐を身にまとって巨大化し、<healing>最大体力が300/450/600</healing>増加して、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が40/55/70ずつ増加する。<br><br>砂嵐発生中は、周囲の敵に<magicDamage>対象の最大体力の0.03/0.04/0.05（＋魔力の0.01%）にあたる魔法ダメージ</magicDamage>を毎秒与え、<spellName>「サイフォンストライク」</spellName>のクールダウンが50%短縮される。",
+   "description": "15秒間砂嵐を身にまとって巨大化し、<healing>最大体力が300/450/600</healing>増加して、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が40/55/70ずつ増加する。<br><br>砂嵐発生中は、周囲の敵に<magicDamage>対象の最大体力の3/4/5%（＋魔力の0.01%）にあたる魔法ダメージ</magicDamage>を毎秒与え、<spellName>「サイフォンストライク」</spellName>のクールダウンが50%短縮される。",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "400",

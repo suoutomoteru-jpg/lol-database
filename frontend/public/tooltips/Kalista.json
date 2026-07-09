@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "戦の所作",
-   "description": "通常攻撃または「貫魂の一投」の準備アクション中に移動指示を出すと、攻撃時にその方向へ跳躍して移動する。<br><br><strong>詳細数値</strong><br>・移動速度: 0.28（＋合計クリティカル率の200%）",
+   "description": "通常攻撃または「貫魂の一投」の準備アクション中に移動指示を出すと、攻撃時にその方向へ跳躍して移動する。<br><br><strong>詳細数値</strong><br>・移動速度: 28%（＋合計クリティカル率の200%）",
    "unresolved": []
   },
   "q": {
@@ -30,7 +30,7 @@
   },
   "e": {
    "name": "引き裂く遺恨",
-   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が命中した敵に4秒間槍の幻影が残る。槍は何回でもスタックする。<br><br><spellActive>発動効果:</spellActive> 範囲内の敵に刺さった槍が炸裂し、<physicalDamage>5/15/25/35/45（＋合計攻撃力の70% ＋魔力の65%）</physicalDamage> + 2本目以降の槍1本につき<physicalDamage>7/14/21/28/35（＋合計攻撃力の20/27.5/35/42.5/50% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。また、命中した敵に2秒間、<attention>0.1/0.18/0.26/0.34/0.42（＋魔力の0.05%）</attention>の<status>スロウ効果</status>を付与する。<br><br>このスキルで敵を倒すと、このスキルのクールダウンが解消され、<scaleMana>10/15/20/25/30マナ</scaleMana>が還元される。",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が命中した敵に4秒間槍の幻影が残る。槍は何回でもスタックする。<br><br><spellActive>発動効果:</spellActive> 範囲内の敵に刺さった槍が炸裂し、<physicalDamage>5/15/25/35/45（＋合計攻撃力の70% ＋魔力の65%）</physicalDamage> + 2本目以降の槍1本につき<physicalDamage>7/14/21/28/35（＋合計攻撃力の20/27.5/35/42.5/50% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。また、命中した敵に2秒間、<attention>10/18/26/34/42%（＋魔力の0.05%）</attention>の<status>スロウ効果</status>を付与する。<br><br>このスキルで敵を倒すと、このスキルのクールダウンが解消され、<scaleMana>10/15/20/25/30マナ</scaleMana>が還元される。",
    "cooldown": "0",
    "cost": "30",
    "range": "1000",

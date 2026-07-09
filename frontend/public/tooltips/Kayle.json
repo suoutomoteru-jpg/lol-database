@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "天の祝福",
-   "description": "自身および味方チャンピオン1体を光で満たし、<healing>55/80/105/130/155（＋魔力の25%）の体力</healing>を回復して、2秒間、<speed>移動速度を0.24/0.28/0.32/0.36/0.4（＋魔力の0.08%）</speed>上昇させる。",
+   "description": "自身および味方チャンピオン1体を光で満たし、<healing>55/80/105/130/155（＋魔力の25%）の体力</healing>を回復して、2秒間、<speed>移動速度を24/28/32/36/40%（＋魔力の0.08%）</speed>上昇させる。",
    "cooldown": "15",
    "cost": "70/75/80/85/90",
    "range": "900",
@@ -30,7 +30,7 @@
   },
   "e": {
    "name": "星炎の刃",
-   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃時に<magicDamage>15/20/25/30/35（＋魔力の20% ＋増加攻撃力の10%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 次の通常攻撃が遠隔攻撃になり、<magicDamage>減少体力の0.08/0.085/0.09/0.095/0.1（＋魔力の1.5%）にあたる魔法ダメージ</magicDamage>を追加で与える。この通常攻撃はケイルが<scaleLevel>レベル@Spell.KaylePassive:LevelForPassiveRank2@</scaleLevel>になるとアップグレードされ、命中時に爆発して対象の周囲の敵にダメージを与えるようになる。",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃時に<magicDamage>15/20/25/30/35（＋魔力の20% ＋増加攻撃力の10%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 次の通常攻撃が遠隔攻撃になり、<magicDamage>減少体力の8/8.5/9/9.5/10%（＋魔力の1.5%）にあたる魔法ダメージ</magicDamage>を追加で与える。この通常攻撃はケイルが<scaleLevel>レベル@Spell.KaylePassive:LevelForPassiveRank2@</scaleLevel>になるとアップグレードされ、命中時に爆発して対象の周囲の敵にダメージを与えるようになる。",
    "cooldown": "8/7.5/7/6.5/6",
    "cost": "",
    "range": "550",

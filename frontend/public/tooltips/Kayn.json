@@ -7,12 +7,12 @@
  "skills": {
   "passive": {
    "name": "緋眼の大鎌",
-   "description": "ケインは自我を持つダーキンの古代武器ラーストを用いており、両者は常に互いの支配権をかけて争っている。この戦いは<font color='#fe5c50'>ダーキン</font>がケインを取り込むか、ケインがラーストを使いこなし<font color='#8484fb'>影の暗殺者</font>となるまで続く。<br><br><font color='#fe5c50'>ダーキン:</font> 敵チャンピオンにスキルで与えたダメージの一定割合にあたる体力を回復する。<br><br><font color='#8484fb'>影の暗殺者:</font> 敵チャンピオンと戦闘開始直後の数秒間、追加ダメージを与える。<br><br><strong>詳細数値</strong><br>・回復: 0.25（＋増加体力の0.005%）",
+   "description": "ケインは自我を持つダーキンの古代武器ラーストを用いており、両者は常に互いの支配権をかけて争っている。この戦いは<font color='#fe5c50'>ダーキン</font>がケインを取り込むか、ケインがラーストを使いこなし<font color='#8484fb'>影の暗殺者</font>となるまで続く。<br><br><font color='#fe5c50'>ダーキン:</font> 敵チャンピオンにスキルで与えたダメージの一定割合にあたる体力を回復する。<br><br><font color='#8484fb'>影の暗殺者:</font> 敵チャンピオンと戦闘開始直後の数秒間、追加ダメージを与える。<br><br><strong>詳細数値</strong><br>・回復: 25%（＋増加体力の0.005%）",
    "unresolved": []
   },
   "q": {
    "name": "飛影斬",
-   "description": "ダッシュしてから大鎌を振り、通り道にいた敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与えた後、周囲の敵にもう一度同じダメージを与える。<br><br><keywordMajor>ダーキンスレイヤー:</keywordMajor> 与えるダメージが<physicalDamage>合計攻撃力の65%(+最大体力の0.06（＋増加攻撃力の3.5%）)の物理ダメージ</physicalDamage>になる。",
+   "description": "ダッシュしてから大鎌を振り、通り道にいた敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与えた後、周囲の敵にもう一度同じダメージを与える。<br><br><keywordMajor>ダーキンスレイヤー:</keywordMajor> 与えるダメージが<physicalDamage>合計攻撃力の65%(+最大体力の6%（＋増加攻撃力の3.5%）)の物理ダメージ</physicalDamage>になる。",
    "cooldown": "7/6.5/6/5.5/5",
    "cost": "40",
    "range": "350",
@@ -39,7 +39,7 @@
   },
   "r": {
    "name": "真影侵壊",
-   "description": "<spellPassive>自動効果:</spellPassive> 自身がダメージを与えたチャンピオンを3.15秒間マークする。<br><br>マークされた敵に侵入して、対象指定不可になる。2.5秒後または<recast>再発動</recast>すると外に飛び出し、その敵に<physicalDamage>150/250/350（＋増加攻撃力の150%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>影の暗殺者:</keywordMajor> このスキルの射程と飛び出す際の距離が増加し、飛び出した際に<spellName>「緋眼の大鎌」</spellName>のクールダウンが解消される。<br><br><keywordMajor>ダーキンスレイヤー:</keywordMajor> 代わりに<physicalDamage>最大体力の0.15（＋増加攻撃力の0.1%）の物理ダメージ</physicalDamage>を与えて、<healing>体力を0.113（＋増加攻撃力の0.1%）</healing>回復する(ダメージ量の75%)。",
+   "description": "<spellPassive>自動効果:</spellPassive> 自身がダメージを与えたチャンピオンを3.15秒間マークする。<br><br>マークされた敵に侵入して、対象指定不可になる。2.5秒後または<recast>再発動</recast>すると外に飛び出し、その敵に<physicalDamage>150/250/350（＋増加攻撃力の150%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>影の暗殺者:</keywordMajor> このスキルの射程と飛び出す際の距離が増加し、飛び出した際に<spellName>「緋眼の大鎌」</spellName>のクールダウンが解消される。<br><br><keywordMajor>ダーキンスレイヤー:</keywordMajor> 代わりに<physicalDamage>最大体力の15%（＋増加攻撃力の0.1%）の物理ダメージ</physicalDamage>を与えて、<healing>体力を11.3%（＋増加攻撃力の0.1%）</healing>回復する(ダメージ量の75%)。",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "550",

@@ -12,7 +12,7 @@
   },
   "q": {
    "name": "エンバーストライク",
-   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が、<OnHit>通常攻撃時</OnHit>に<magicDamage>最大体力の0.01（＋増加攻撃力の0.011%）にあたる魔法ダメージ</magicDamage>を与え、さらにこのスキルのクールダウンを0.5秒短縮する。<br><br><spellActive>発動効果:</spellActive> 次の通常攻撃が対象とその周囲に命中し、<physicalDamage>10/15/20/25/30（＋合計攻撃力の110% ＋魔力の30%）の物理ダメージ</physicalDamage>を与える。このスキルは、通常攻撃後または少ししてから、4秒以内であれば<recast>再発動</recast>できる。<br><br><keywordMajor>ドラゴンフォーム:</keywordMajor> 追加で<recast>再発動</recast>が可能になり、次の通常攻撃で対象に噛みついて<trueDamage>15/22.5/30/37.5/45（＋合計攻撃力の110% ＋魔力の30%）の確定ダメージ</trueDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が、<OnHit>通常攻撃時</OnHit>に<magicDamage>最大体力の1%（＋増加攻撃力の0.011%）にあたる魔法ダメージ</magicDamage>を与え、さらにこのスキルのクールダウンを0.5秒短縮する。<br><br><spellActive>発動効果:</spellActive> 次の通常攻撃が対象とその周囲に命中し、<physicalDamage>10/15/20/25/30（＋合計攻撃力の110% ＋魔力の30%）の物理ダメージ</physicalDamage>を与える。このスキルは、通常攻撃後または少ししてから、4秒以内であれば<recast>再発動</recast>できる。<br><br><keywordMajor>ドラゴンフォーム:</keywordMajor> 追加で<recast>再発動</recast>が可能になり、次の通常攻撃で対象に噛みついて<trueDamage>15/22.5/30/37.5/45（＋合計攻撃力の110% ＋魔力の30%）の確定ダメージ</trueDamage>を与える。",
    "cooldown": "10/9/8/7/6",
    "cost": "",
    "range": "25000",

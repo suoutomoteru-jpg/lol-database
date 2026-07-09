@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "始まりの地への誓い",
-   "description": "クリティカル攻撃が追加魔法ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 0.1（＋魔力の0.1%）",
+   "description": "クリティカル攻撃が追加魔法ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 10%（＋魔力の0.1%）",
    "unresolved": []
   },
   "q": {

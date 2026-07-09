@@ -12,7 +12,7 @@
   },
   "q": {
    "name": "護刃招来",
-   "description": "<keywordMajor>「スピリットブレード」</keywordMajor>を自身の元へ呼び寄せる。このとき「スピリットブレード」が命中した敵は2秒間、シェンから離れる方向に動く際に25/30/35/40/45%の<status>スロウ効果</status>を受ける。<br><br>さらに、次の3回の通常攻撃が<magicDamage>10〜（レベルに応じて変化）</magicDamage> <magicDamage>(+最大体力の0.02/0.025/0.03/0.035/0.04（＋魔力の1.5%）)の魔法ダメージ</magicDamage>を与える。<keywordMajor>「スピリットブレード」</keywordMajor>が敵チャンピオンに命中していた場合は、このダメージが<magicDamage>10〜（レベルに応じて変化）</magicDamage> <magicDamage>(+最大体力の0.05/0.055/0.06/0.065/0.07（＋魔力の2%）)の魔法ダメージ</magicDamage>に増加し、これらの通常攻撃の<attackSpeed>攻撃速度が50%</attackSpeed>増加する。",
+   "description": "<keywordMajor>「スピリットブレード」</keywordMajor>を自身の元へ呼び寄せる。このとき「スピリットブレード」が命中した敵は2秒間、シェンから離れる方向に動く際に25/30/35/40/45%の<status>スロウ効果</status>を受ける。<br><br>さらに、次の3回の通常攻撃が<magicDamage>10〜（レベルに応じて変化）</magicDamage> <magicDamage>(+最大体力の2/2.5/3/3.5/4%（＋魔力の1.5%）)の魔法ダメージ</magicDamage>を与える。<keywordMajor>「スピリットブレード」</keywordMajor>が敵チャンピオンに命中していた場合は、このダメージが<magicDamage>10〜（レベルに応じて変化）</magicDamage> <magicDamage>(+最大体力の5/5.5/6/6.5/7%（＋魔力の2%）)の魔法ダメージ</magicDamage>に増加し、これらの通常攻撃の<attackSpeed>攻撃速度が50%</attackSpeed>増加する。",
    "cooldown": "8/7.25/6.5/5.75/5",
    "cost": "140/130/120/110/100",
    "range": "400",

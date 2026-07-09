@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "枯死の矢筒",
-   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が<magicDamage>4/13/22/31/40（＋魔力の25% ＋増加攻撃力の15%）の魔法ダメージ</magicDamage>を追加で与え、6秒間<keywordMajor>「枯死の呪い」</keywordMajor>のスタックを付与する(最大3スタック)。<br><br>自身の他のスキルが命中すると<keywordMajor>「枯死の呪い」</keywordMajor>のスタックが爆発し、1スタックにつき<magicDamage>最大体力の0.03/0.035/0.04/0.045/0.05（＋魔力の0.013%）にあたる魔法ダメージ</magicDamage>を与える(<magicDamage>最大体力の0.09/0.105/0.12/0.135/0.15（＋魔力の0.013%）のダメージ</magicDamage>が上限)。敵チャンピオンまたはエピックモンスターの<keywordMajor>「枯死の呪い」</keywordMajor>を発動させた場合、1スタックごとに通常スキルのクールダウンが13%解消される。<br><br><spellActive>発動効果:</spellActive> 次に使用する<spellName>「乾坤一擲」</spellName>が追加で<magicDamage>減少体力の6/8/10/12/14%の魔法ダメージ</magicDamage>を与える。このダメージはチャージ時間に応じて最大で<magicDamage>減少体力の6/8/10/12/14%</magicDamage>まで増加する。",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が<magicDamage>4/13/22/31/40（＋魔力の25% ＋増加攻撃力の15%）の魔法ダメージ</magicDamage>を追加で与え、6秒間<keywordMajor>「枯死の呪い」</keywordMajor>のスタックを付与する(最大3スタック)。<br><br>自身の他のスキルが命中すると<keywordMajor>「枯死の呪い」</keywordMajor>のスタックが爆発し、1スタックにつき<magicDamage>最大体力の3/3.5/4/4.5/5%（＋魔力の0.013%）にあたる魔法ダメージ</magicDamage>を与える(<magicDamage>最大体力の9/10.5/12/13.5/15%（＋魔力の0.013%）のダメージ</magicDamage>が上限)。敵チャンピオンまたはエピックモンスターの<keywordMajor>「枯死の呪い」</keywordMajor>を発動させた場合、1スタックごとに通常スキルのクールダウンが13%解消される。<br><br><spellActive>発動効果:</spellActive> 次に使用する<spellName>「乾坤一擲」</spellName>が追加で<magicDamage>減少体力の6/8/10/12/14%の魔法ダメージ</magicDamage>を与える。このダメージはチャージ時間に応じて最大で<magicDamage>減少体力の6/8/10/12/14%</magicDamage>まで増加する。",
    "cooldown": "40",
    "cost": "",
    "range": "750",

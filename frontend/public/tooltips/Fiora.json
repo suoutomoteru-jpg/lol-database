@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "デュエリスト・ダンス",
-   "description": "このチャンピオンの<keywordMajor>「急所」</keywordMajor>を特定している。<keywordMajor>「急所」</keywordMajor>を攻撃すると、自身は<healing>体力が回復</healing>して、<speed>移動速度</speed>が増加する。<br><br><strong>詳細数値</strong><br>・回復: 35〜100（レベル比例）<br>・ダメージ: 0.03（＋増加攻撃力の0.04%）<br>・ダメージ: 0.12（＋増加攻撃力の0.04%）",
+   "description": "このチャンピオンの<keywordMajor>「急所」</keywordMajor>を特定している。<keywordMajor>「急所」</keywordMajor>を攻撃すると、自身は<healing>体力が回復</healing>して、<speed>移動速度</speed>が増加する。<br><br><strong>詳細数値</strong><br>・回復: 35〜100（レベル比例）<br>・ダメージ: 3%（＋増加攻撃力の0.04%）<br>・ダメージ: 12%（＋増加攻撃力の0.04%）",
    "unresolved": []
   },
   "q": {

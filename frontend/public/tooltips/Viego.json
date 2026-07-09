@@ -30,7 +30,7 @@
   },
   "e": {
    "name": "彷徨える苦悶",
-   "description": "前方に亡霊を送り出し、最初に当たった地形に憑りつかせ、その周囲を8秒間、「霧」で覆う。自身は「霧」の中にいると<keywordStealth>カモフラージュ</keywordStealth>状態になり、<speed>移動速度が0.25/0.275/0.3/0.325/0.35（＋魔力の0.04%）</speed>、<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。",
+   "description": "前方に亡霊を送り出し、最初に当たった地形に憑りつかせ、その周囲を8秒間、「霧」で覆う。自身は「霧」の中にいると<keywordStealth>カモフラージュ</keywordStealth>状態になり、<speed>移動速度が25/27.5/30/32.5/35%（＋魔力の0.04%）</speed>、<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。",
    "cooldown": "14/12/10/8/6",
    "cost": "",
    "range": "750",

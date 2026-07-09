@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "パラレルトラップ",
-   "description": "<spellPassive>自動効果:</spellPassive> 体力が30%未満の敵に対して、通常攻撃が<magicDamage>減少体力の0.03（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果:</spellActive> 発動後、少ししてから時空の法則が捻じ曲げられた空間を作り出す。この空間は1.5秒間持続し、範囲内にいる敵に40%の<status>スロウ効果</status>を与える。自身がこの空間に入ると空間が爆発し、2.25秒間対象を<status>スタン</status>させて、自身は<shield>耐久値100/120/140/160/180（＋魔力の150%）のシールド</shield>を獲得する。",
+   "description": "<spellPassive>自動効果:</spellPassive> 体力が30%未満の敵に対して、通常攻撃が<magicDamage>減少体力の3%（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果:</spellActive> 発動後、少ししてから時空の法則が捻じ曲げられた空間を作り出す。この空間は1.5秒間持続し、範囲内にいる敵に40%の<status>スロウ効果</status>を与える。自身がこの空間に入ると空間が爆発し、2.25秒間対象を<status>スタン</status>させて、自身は<shield>耐久値100/120/140/160/180（＋魔力の150%）のシールド</shield>を獲得する。",
    "cooldown": "22/20/18/16/14",
    "cost": "30/35/40/45/50",
    "range": "1600",

@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "ゼファー",
-   "description": "<spellPassive>自動効果:</spellPassive> <speed>移動速度が0.06/0.07/0.08/0.09/0.1（＋魔力の0.02%）</speed>増加し、ゴースト化する。<br><br><spellActive>発動効果:</spellActive> エレメントの力で敵を攻撃して2秒間0.2/0.24/0.28/0.32/0.36（＋魔力の6%）の<status>スロウ効果</status>を付与し、<magicDamage>55/85/115/145/175（＋魔力の50%） + @spell.TailwindSelf:BonusDamage@の魔法ダメージ</magicDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> <speed>移動速度が6/7/8/9/10%（＋魔力の0.02%）</speed>増加し、ゴースト化する。<br><br><spellActive>発動効果:</spellActive> エレメントの力で敵を攻撃して2秒間20/24/28/32/36%（＋魔力の6%）の<status>スロウ効果</status>を付与し、<magicDamage>55/85/115/145/175（＋魔力の50%） + @spell.TailwindSelf:BonusDamage@の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "8/7.5/7/6.5/6",
    "cost": "50/55/60/65/70",
    "range": "-1",

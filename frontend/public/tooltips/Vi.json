@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "メッタ打ち",
-   "description": "<spellPassive>自動効果:</spellPassive> 同じ対象に通常攻撃が3回命中するたびに、<physicalDamage>最大体力の0.04/0.05/0.06/0.07/0.08（＋増加攻撃力の3.5%）の物理ダメージ</physicalDamage>を追加で与え、4秒間、対象の<scaleArmor>物理防御を20%</scaleArmor>低下させて、自身の<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。さらに、<spellName>「ケンカの作法」</spellName>の残りクールダウンが@spell.ViPassive:CDReductionOn3Hit@秒短縮される。",
+   "description": "<spellPassive>自動効果:</spellPassive> 同じ対象に通常攻撃が3回命中するたびに、<physicalDamage>最大体力の4/5/6/7/8%（＋増加攻撃力の3.5%）の物理ダメージ</physicalDamage>を追加で与え、4秒間、対象の<scaleArmor>物理防御を20%</scaleArmor>低下させて、自身の<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。さらに、<spellName>「ケンカの作法」</spellName>の残りクールダウンが@spell.ViPassive:CDReductionOn3Hit@秒短縮される。",
    "cooldown": "0",
    "cost": "",
    "range": "750",

@@ -12,7 +12,7 @@
   },
   "q": {
    "name": "神経毒/毒牙",
-   "description": "<keywordMajor>ヒト形態</keywordMajor>: 毒を注入し、<magicDamage>40/70/100/130/160(+現在体力の0.04（＋魔力の3%）)の魔法ダメージ</magicDamage>を与える。",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 毒を注入し、<magicDamage>40/70/100/130/160(+現在体力の4%（＋魔力の3%）)の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "6",
    "cost": "80/85/90/95/100",
    "range": "615",

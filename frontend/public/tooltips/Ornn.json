@@ -21,7 +21,7 @@
   },
   "w": {
    "name": "ふいごの息",
-   "description": "炎の息を吐きながら足を踏み鳴らして進み、アンストッパブル状態になって、0.75秒かけて<magicDamage>最大体力の12/13/14/15/16%の魔法ダメージ</magicDamage>を与える。炎の最後の一吐きが当たった敵は3秒間<keywordMajor>「脆弱」</keywordMajor>状態になる。<br><br><keywordMajor>「脆弱」</keywordMajor>状態の対象に<status>移動不能効果</status>を与えると、その効果時間を30%延長し、<magicDamage>最大体力の0.09〜0.17（レベル比例）の魔法ダメージ</magicDamage>を与える。オーンの通常攻撃は<keywordMajor>「脆弱」</keywordMajor>状態になった対象を<status>ノック</status><status>バック</status>させ、追加ダメージを与える。",
+   "description": "炎の息を吐きながら足を踏み鳴らして進み、アンストッパブル状態になって、0.75秒かけて<magicDamage>最大体力の12/13/14/15/16%の魔法ダメージ</magicDamage>を与える。炎の最後の一吐きが当たった敵は3秒間<keywordMajor>「脆弱」</keywordMajor>状態になる。<br><br><keywordMajor>「脆弱」</keywordMajor>状態の対象に<status>移動不能効果</status>を与えると、その効果時間を30%延長し、<magicDamage>最大体力の9〜17%（レベル比例）の魔法ダメージ</magicDamage>を与える。オーンの通常攻撃は<keywordMajor>「脆弱」</keywordMajor>状態になった対象を<status>ノック</status><status>バック</status>させ、追加ダメージを与える。",
    "cooldown": "12/11.5/11/10.5/10",
    "cost": "45/50/55/60/65",
    "range": "25000",

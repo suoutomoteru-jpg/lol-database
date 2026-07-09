@@ -39,7 +39,7 @@
   },
   "r": {
    "name": "マントラ",
-   "description": "次の8秒以内に使用するスキルが1回だけ強化される。<br><li><spellName>心炎</spellName>: 追加で<magicDamage>40/100/160（＋魔力の30%）の魔法ダメージ</magicDamage>を与えて炎の輪を残す。炎の輪は敵に<status>スロウ効果</status>を付与し、<magicDamage>40/130/220（＋魔力の50%）の魔法ダメージ</magicDamage>を追加で与える。<li><spellName>魂縛</spellName>: 鎖を繋いだ瞬間と、その効果時間の最後に<healing>減少体力の0.17（＋魔力の1%）</healing>を回復し、0.5/0.75/1秒長く<status>スネア効果</status>を与える。<li><spellName>激励</spellName>: 対象に付与する<shield>シールドの耐久値が45/85/125（＋魔力の45%）</shield>増加し、対象の周囲にいる味方にも、<shield>耐久値45/85/125（＋魔力の45%）のシールド</shield>と<speed>15%の増加移動速度</speed>を付与する。",
+   "description": "次の8秒以内に使用するスキルが1回だけ強化される。<br><li><spellName>心炎</spellName>: 追加で<magicDamage>40/100/160（＋魔力の30%）の魔法ダメージ</magicDamage>を与えて炎の輪を残す。炎の輪は敵に<status>スロウ効果</status>を付与し、<magicDamage>40/130/220（＋魔力の50%）の魔法ダメージ</magicDamage>を追加で与える。<li><spellName>魂縛</spellName>: 鎖を繋いだ瞬間と、その効果時間の最後に<healing>減少体力の17%（＋魔力の1%）</healing>を回復し、0.5/0.75/1秒長く<status>スネア効果</status>を与える。<li><spellName>激励</spellName>: 対象に付与する<shield>シールドの耐久値が45/85/125（＋魔力の45%）</shield>増加し、対象の周囲にいる味方にも、<shield>耐久値45/85/125（＋魔力の45%）のシールド</shield>と<speed>15%の増加移動速度</speed>を付与する。",
    "cooldown": "40/38/36",
    "cost": "",
    "range": "1100",

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "魂の導き手",
-   "description": "<font color='#FF9900'>呪われし一群:</font> 周囲の敵に襲いかかり攻撃する「ミストウォーカー」を召喚する。<br><br><strong>詳細数値</strong><br>・回復: 100〜300（レベル比例） ＋ 増加体力の15%<br>・ダメージ: 15〜100（レベル比例） ＋ 増加攻撃力の20%<br>・YorickPassiveSpawnThreshold: 8〜（レベルに応じて変化）<br>・ダメージ: 66%〜（レベルに応じて変化）<br>・攻撃速度: 0.08〜0.8（レベル比例）",
+   "description": "<font color='#FF9900'>呪われし一群:</font> 周囲の敵に襲いかかり攻撃する「ミストウォーカー」を召喚する。<br><br><strong>詳細数値</strong><br>・回復: 100〜300（レベル比例） ＋ 増加体力の15%<br>・ダメージ: 15〜100（レベル比例） ＋ 増加攻撃力の20%<br>・YorickPassiveSpawnThreshold: 8〜（レベルに応じて変化）<br>・ダメージ: 66%〜（レベルに応じて変化）<br>・攻撃速度: 8〜80%（レベル比例）",
    "unresolved": []
   },
   "q": {
@@ -30,7 +30,7 @@
   },
   "e": {
    "name": "悲嘆の霧",
-   "description": "「黒き霧」の塊を投げつけて<magicDamage>最大体力の0.06/0.065/0.07/0.075/0.08（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与え、1.5秒間30%の<status>スロウ効果</status>を付与し、4秒間チャンピオンとモンスターをマークする。マークされた敵は継続的に周囲の墓を<spellName>「目覚め」</spellName>させ(最大召喚数である@Spell.YorickPassive:YorickPassiveGhoulMax@体は越えない)、<scaleArmor>物理防御が13/16/19/22/25%低下</scaleArmor>する。<br><br>自身と召喚したユニットは、マークされた対象に向かう際に<speed>移動速度が18/21/24/27/30%</speed>増加する。<keywordMajor>「ミストウォーカー」</keywordMajor>はマークされた敵が逃げると1回だけ飛びついて追いかける。",
+   "description": "「黒き霧」の塊を投げつけて<magicDamage>最大体力の6/6.5/7/7.5/8%（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与え、1.5秒間30%の<status>スロウ効果</status>を付与し、4秒間チャンピオンとモンスターをマークする。マークされた敵は継続的に周囲の墓を<spellName>「目覚め」</spellName>させ(最大召喚数である@Spell.YorickPassive:YorickPassiveGhoulMax@体は越えない)、<scaleArmor>物理防御が13/16/19/22/25%低下</scaleArmor>する。<br><br>自身と召喚したユニットは、マークされた対象に向かう際に<speed>移動速度が18/21/24/27/30%</speed>増加する。<keywordMajor>「ミストウォーカー」</keywordMajor>はマークされた敵が逃げると1回だけ飛びついて追いかける。",
    "cooldown": "12/11/10/9/8",
    "cost": "50/55/60/65/70",
    "range": "700",

@@ -7,12 +7,12 @@
  "skills": {
   "passive": {
    "name": "精霊の繋ぎ手",
-   "description": "4つの通常スキルで「型」を切り替え、スキルを再発動すると「型」がリフレッシュされて究極の効果を得る。さらに、スキル使用後、次の2回の通常攻撃の攻撃速度が増加する。<br><br><strong>詳細数値</strong><br>・{6a8aaac9}: 15〜15（レベル比例）<br>・攻撃速度: 30%<br>・{1cfcbfbe}: 0.3〜0.8（レベル比例）<br>・{1800f4cb}: 0.2〜0.3（レベル比例）<br>・クールダウン: 50〜（レベルに応じて変化）<br>・ダメージ: 0（＋合計攻撃力の10% ＋魔力の20%）<br>・{73fab8fe}: 10（＋合計攻撃力の30% ＋魔力の40%）<br>・{5e1424c3}: 20（＋合計体力の5%）<br>・{01dc7936}: 5〜40（レベル比例） ＋ 合計攻撃力の40%",
+   "description": "4つの通常スキルで「型」を切り替え、スキルを再発動すると「型」がリフレッシュされて究極の効果を得る。さらに、スキル使用後、次の2回の通常攻撃の攻撃速度が増加する。<br><br><strong>詳細数値</strong><br>・{6a8aaac9}: 15〜15（レベル比例）<br>・攻撃速度: 30%<br>・{1cfcbfbe}: 30〜80%（レベル比例）<br>・{1800f4cb}: 20〜30%（レベル比例）<br>・クールダウン: 50〜（レベルに応じて変化）<br>・ダメージ: 0（＋合計攻撃力の10% ＋魔力の20%）<br>・{73fab8fe}: 10（＋合計攻撃力の30% ＋魔力の40%）<br>・{5e1424c3}: 20（＋合計体力の5%）<br>・{01dc7936}: 5〜40（レベル比例） ＋ 合計攻撃力の40%",
    "unresolved": []
   },
   "q": {
    "name": "野性の爪",
-   "description": "<spellActive>爪の型:</spellActive> 4秒間、<attackSpeed>攻撃速度が20/32/44/56/68%</attackSpeed>増加し、通常攻撃で<physicalDamage>6/12/18/24/30（＋増加攻撃力の20% ＋増加体力の1/1.2/1.4/1.6/1.8%）の物理ダメージ</physicalDamage> <OnHit>通常攻撃時効果</OnHit>を与える。さらに、この「型」で行う次の2回の通常攻撃が、追加で<physicalDamage>最大体力の0.03/0.04/0.05/0.06/0.07（＋増加攻撃力の0.035%）にあたる物理ダメージ</physicalDamage>を与え、射程距離が50増加する。<br><br><keywordMajor>覚醒:</keywordMajor> 増加<attackSpeed>攻撃速度</attackSpeed>が<attackSpeed></attackSpeed>に上昇し、最大体力に応じたダメージが<physicalDamage>0.03/0.04/0.05/0.06/0.07（＋0.02〜0.04（レベル比例） ＋増加攻撃力の0.05% ＋増加体力の0.001%）</physicalDamage>に増加する。さらに、次の2回の通常攻撃が6回電撃を放ち、孤立した対象に合計で<magicDamage>最大体力のにあたる魔法ダメージ</magicDamage>を与える(対象の周囲に他の敵がいる場合、電撃はそれらの敵に連鎖する)。<br>",
+   "description": "<spellActive>爪の型:</spellActive> 4秒間、<attackSpeed>攻撃速度が20/32/44/56/68%</attackSpeed>増加し、通常攻撃で<physicalDamage>6/12/18/24/30（＋増加攻撃力の20% ＋増加体力の1/1.2/1.4/1.6/1.8%）の物理ダメージ</physicalDamage> <OnHit>通常攻撃時効果</OnHit>を与える。さらに、この「型」で行う次の2回の通常攻撃が、追加で<physicalDamage>最大体力の3/4/5/6/7%（＋増加攻撃力の0.035%）にあたる物理ダメージ</physicalDamage>を与え、射程距離が50増加する。<br><br><keywordMajor>覚醒:</keywordMajor> 増加<attackSpeed>攻撃速度</attackSpeed>が<attackSpeed></attackSpeed>に上昇し、最大体力に応じたダメージが<physicalDamage>3/4/5/6/7%（＋0.02〜0.04（レベル比例） ＋増加攻撃力の0.05% ＋増加体力の0.001%）</physicalDamage>に増加する。さらに、次の2回の通常攻撃が6回電撃を放ち、孤立した対象に合計で<magicDamage>最大体力のにあたる魔法ダメージ</magicDamage>を与える(対象の周囲に他の敵がいる場合、電撃はそれらの敵に連鎖する)。<br>",
    "cooldown": "6",
    "cost": "20",
    "range": "600",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "焔の猛進",
-   "description": "<spellActive>猛進の型:</spellActive> <speed>移動速度が0.25/0.31/0.37/0.43/0.49（＋増加攻撃力の0.05%）</speed>増加し、4秒かけて元に戻る。さらに、通常攻撃を行うと対象までダッシュし、0.75秒間<status>スタン</status>させる(対象ごとにクールダウン6/5.6/5.2/4.8/4.4秒)。<br><br><keywordMajor>覚醒:</keywordMajor> 1.5秒間、<status>移動不能効果</status>および<status>行動妨害効果</status>を無視し、追加で<speed>移動速度が0.3〜0.4（レベル比例） ＋ 増加攻撃力の0.1%</speed>増加する。",
+   "description": "<spellActive>猛進の型:</spellActive> <speed>移動速度が25/31/37/43/49%（＋増加攻撃力の0.05%）</speed>増加し、4秒かけて元に戻る。さらに、通常攻撃を行うと対象までダッシュし、0.75秒間<status>スタン</status>させる(対象ごとにクールダウン6/5.6/5.2/4.8/4.4秒)。<br><br><keywordMajor>覚醒:</keywordMajor> 1.5秒間、<status>移動不能効果</status>および<status>行動妨害効果</status>を無視し、追加で<speed>移動速度が30〜40%（レベル比例） ＋ 増加攻撃力の0.1%</speed>増加する。",
    "cooldown": "6",
    "cost": "40",
    "range": "600",
@@ -42,7 +42,7 @@
   },
   "r": {
    "name": "氷翼の嵐",
-   "description": "<spellActive>嵐の型:</spellActive> 4秒間、極寒の嵐に身を包み、周囲の敵に毎秒<magicDamage>20/36/52（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、15/18/21%の<status>スロウ効果</status>を付与する。さらに、この「型」で行う次の2回の通常攻撃が、嵐の範囲内にいる敵に<magicDamage>10〜40（レベル比例） ＋ 魔力の35%の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>覚醒:</keywordMajor> 嵐を解き放ち、自身が最後に通常攻撃を行った敵を追跡させる。嵐はその効果時間をかけて追加で<magicDamage>最大体力の0.08〜0.14（レベル比例） ＋ 魔力の0.035%にあたる魔法ダメージ</magicDamage>を与え、追加で5%の<status>スロウ効果</status>を付与する。",
+   "description": "<spellActive>嵐の型:</spellActive> 4秒間、極寒の嵐に身を包み、周囲の敵に毎秒<magicDamage>20/36/52（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、15/18/21%の<status>スロウ効果</status>を付与する。さらに、この「型」で行う次の2回の通常攻撃が、嵐の範囲内にいる敵に<magicDamage>10〜40（レベル比例） ＋ 魔力の35%の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>覚醒:</keywordMajor> 嵐を解き放ち、自身が最後に通常攻撃を行った敵を追跡させる。嵐はその効果時間をかけて追加で<magicDamage>最大体力の8〜14%（レベル比例） ＋ 魔力の0.035%にあたる魔法ダメージ</magicDamage>を与え、追加で5%の<status>スロウ効果</status>を付与する。",
    "cooldown": "6",
    "cost": "40",
    "range": "370",

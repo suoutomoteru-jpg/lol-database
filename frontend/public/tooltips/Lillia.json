@@ -7,12 +7,12 @@
  "skills": {
   "passive": {
    "name": "夢を集める大枝",
-   "description": "スキルでチャンピオンかモンスターを攻撃すると、最大体力に応じた追加ダメージを継続的に与える。<br><br><strong>詳細数値</strong><br>・DotPercentTotal: 5（＋魔力の1.25%）<br>・ダメージ: 70〜180（レベル比例）<br>・{b5d0316f}: 6.5（＋魔力の2.5%）<br>・{395ffd44}: 1.625（＋魔力の2.5%）<br>・回復: 1〜15（レベル比例） ＋ 魔力の5%<br>・回復: 1〜15（レベル比例） ＋ 魔力の5%<br>・回復: 39（＋魔力の2.5%）<br>・{7969ffc2}: 9.75（＋魔力の2.5%）<br>・DotPercentTooltip: 0.05（＋魔力の1.25%）",
+   "description": "スキルでチャンピオンかモンスターを攻撃すると、最大体力に応じた追加ダメージを継続的に与える。<br><br><strong>詳細数値</strong><br>・DotPercentTotal: 5（＋魔力の1.25%）<br>・ダメージ: 70〜180（レベル比例）<br>・{b5d0316f}: 6.5（＋魔力の2.5%）<br>・{395ffd44}: 1.625（＋魔力の2.5%）<br>・回復: 1〜15（レベル比例） ＋ 魔力の5%<br>・回復: 1〜15（レベル比例） ＋ 魔力の5%<br>・回復: 39（＋魔力の2.5%）<br>・{7969ffc2}: 9.75（＋魔力の2.5%）<br>・DotPercentTooltip: 5%（＋魔力の1.25%）",
    "unresolved": []
   },
   "q": {
    "name": "花開く風",
-   "description": "<spellPassive>自動効果:</spellPassive> スキルが命中すると6.5秒間<speed>移動速度が0.03/0.04/0.05/0.06/0.07（＋魔力の0.03%）</speed>増加する。この効果は最大4回までスタックする。<br><br><spellActive>発動効果:</spellActive> 香炉を振り回して、<magicDamage>35/45/55/65/75（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、外縁部では追加で<trueDamage>35/45/55/65/75（＋魔力の35%）の確定ダメージ</trueDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> スキルが命中すると6.5秒間<speed>移動速度が3/4/5/6/7%（＋魔力の0.03%）</speed>増加する。この効果は最大4回までスタックする。<br><br><spellActive>発動効果:</spellActive> 香炉を振り回して、<magicDamage>35/45/55/65/75（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、外縁部では追加で<trueDamage>35/45/55/65/75（＋魔力の35%）の確定ダメージ</trueDamage>を与える。",
    "cooldown": "6/5.5/5/4.5/4",
    "cost": "65",
    "range": "450",

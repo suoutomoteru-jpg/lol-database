@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "王への貢物",
-   "description": "近くにいる敵ユニットの体力がゼロになると、自身の体力が回復する。回復量は、倒れたユニットの最大体力に比例する。<br><br><strong>詳細数値</strong><br>・RegenPercent: 0.018〜0.055（レベル比例）",
+   "description": "近くにいる敵ユニットの体力がゼロになると、自身の体力が回復する。回復量は、倒れたユニットの最大体力に比例する。<br><br><strong>詳細数値</strong><br>・RegenPercent: 1.8〜5.5%（レベル比例）",
    "unresolved": []
   },
   "q": {
@@ -39,7 +39,7 @@
   },
   "r": {
    "name": "暴虐なる搾取",
-   "description": "5秒間かけて敵チャンピオンの生命力を吸収し、<magicDamage>最大体力の0.2/0.25/0.3（＋魔力の0.02%）の魔法ダメージ</magicDamage>を与え、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御を40%</scaleMR>奪う。",
+   "description": "5秒間かけて敵チャンピオンの生命力を吸収し、<magicDamage>最大体力の20/25/30%（＋魔力の0.02%）の魔法ダメージ</magicDamage>を与え、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御を40%</scaleMR>奪う。",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "650",
