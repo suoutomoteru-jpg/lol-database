@@ -304,11 +304,6 @@ export function ChampionDetail() {
                 {ROLE_LABELS_JA[tag as Role] ?? tag}
               </span>
             ))}
-            {champion.partype !== 'None' && (
-              <span className="px-2.5 py-0.5 text-xs rounded-sm bg-background/60 backdrop-blur-sm border border-border/60 text-foreground/80">
-                {champion.partype}
-              </span>
-            )}
           </div>
 
           <div className="flex flex-wrap gap-x-7 gap-y-2 mt-6">
