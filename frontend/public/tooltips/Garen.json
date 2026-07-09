@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "タフガイ",
-   "description": "8秒間ダメージや敵のスキルを受けずにいると、5秒毎に<healing>最大体力の150%〜（レベルに応じて変化）</healing>を回復するようになる。",
+   "description": "@DamageTimer@秒間ダメージや敵のスキルを受けずにいると、5秒毎に<healing>最大体力の@RegenCalc@</healing>を回復するようになる。<br><br><rules>ミニオンおよびジャングルモンスター(エピックを除く)からのダメージには影響されない。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

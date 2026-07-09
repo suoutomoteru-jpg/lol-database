@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "クリーンカット",
-   "description": "<br><br><rules>強化された通常攻撃で指定された対象は、通常どおりに最大のダメージと通常攻撃時効果を受ける。</rules>",
+   "description": "スキル使用後、次の@f14@回の通常攻撃が軌道上のすべての敵に@f16*100@%のダメージを与え、@f12@秒間、<keywordMajor>羽根</keywordMajor>を落とす。<br><br><spellName>愛の跳躍:</spellName> ザヤとラカンは一緒にリコールできる。<br><br><rules>強化された通常攻撃で指定された対象は、通常どおりに最大のダメージと通常攻撃時効果を受ける。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

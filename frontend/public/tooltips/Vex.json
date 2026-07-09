@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "フコウとユーウツ",
-   "description": "25〜（レベルに応じて変化）秒ごとに「フコウ」に悩まされ、自身の次の通常スキルが敵を<status>ノックダウン</status>して、0.75〜（レベルに応じて変化）秒間<status>フィアー効果</status>を付与する。<br><br>周囲の敵がダッシュまたはブリンクするたびに、6秒間、その敵を<keywordMajor>「ユーウツ」</keywordMajor>でマークする。<keywordMajor>「ユーウツ」</keywordMajor>でマークされた敵に対する自身の次の通常攻撃は、<magicDamage>40〜150（レベル比例） ＋ 魔力の25%の魔法ダメージ</magicDamage>を追加で与え、このスキルのクールダウンを25%短縮する。",
+   "description": "@DoomCD@秒ごとに「フコウ」に悩まされ、自身の次の通常スキルが敵を<status>ノックダウン</status>して、@FearDuration@秒間<status>フィアー効果</status>を付与する。<br><br>周囲の敵がダッシュまたはブリンクするたびに、@GloomDuration@秒間、その敵を<keywordMajor>「ユーウツ」</keywordMajor>でマークする。<keywordMajor>「ユーウツ」</keywordMajor>でマークされた敵に対する自身の次の通常攻撃は、<magicDamage>@GloomProcCalc@の魔法ダメージ</magicDamage>を追加で与え、このスキルのクールダウンを@GloomCDChamp*100@%短縮する。<br><br><rules>チャンピオン以外の対象には40%〜（レベルに応じて変化）のダメージを与え、このスキルのクールダウンが10%短縮される。<br>このスキルで<status>フィアー効果</status>を受けた敵は、ヴェックスから離れるほど移動速度が遅くなる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

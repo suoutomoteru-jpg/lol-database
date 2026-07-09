@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "浪人道",
-   "description": "<br><br><rules>「不屈の心」は先に他のクリティカル率の増減を適用してから計算される。<br><onlyShowInGame>現在のボーナス: クリティカル率60/90/120/150/180%、<physicalDamage>増加攻撃力3/6/9/12/15</physicalDamage></onlyShowInGame></rules>",
+   "description": "<spellPassive>不惑の心:</spellPassive> 移動距離に応じて<keywordMajor>「波動」</keywordMajor>がたまっていく。「波動」の量はリソースゲージで確認できる。素早く移動することで、より多く<keywordMajor>「波動」</keywordMajor>をためることができる。<keywordMajor>「波動」</keywordMajor>が満タンの状態でチャンピオンやモンスターからダメージを受けると、<shield>耐久値@ShieldValue@のシールド</shield>を展開する。<br><br><spellPassive>不屈の心:</spellPassive> クリティカル率が@CritChanceMultiplier*100@%増加するが、クリティカルダメージが@CurrentCritDamage@に減少する。クリティカル率が100%を超えた分は1%あたり<physicalDamage>@YasuoCritToAD*.01@の増加攻撃力</physicalDamage>に変換される。<br><br><rules>「不屈の心」は先に他のクリティカル率の増減を適用してから計算される。<br><onlyShowInGame>現在のボーナス: クリティカル率60/90/120/150/180%、<physicalDamage>増加攻撃力3/6/9/12/15</physicalDamage></onlyShowInGame></rules>",
    "source": "stringtable",
    "unresolved": []
   },

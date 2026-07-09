@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "旅人の呼び声",
-   "description": "<br><br><rules><keywordMajor>チャイム</keywordMajor>の数に応じて<keywordMajor>ミィプ</keywordMajor>の出現時間が短縮され、最大数が増加する。<br><keywordMajor>チャイム</keywordMajor>が5個になると、<keywordMajor>ミィプ</keywordMajor>が1秒間、33%の<status>スロウ効果</status>も与えるようになる。<br><keywordMajor>チャイム</keywordMajor>が15個になると、<keywordMajor>ミィプ</keywordMajor>の攻撃が敵の周囲と背後にも命中するようになる。<br><keywordMajor>チャイム</keywordMajor>が35個になると範囲が拡大する。<br>チャイムから得る<speed>移動速度</speed>は最大150%までスタックする。<br>5分経過後、1分ごとにチャイムから得る経験値が1増加する。</rules>",
+   "description": "マップのランダムな場所に<font color='#cccc00'>チャイム</font>を召喚する。バードは<font color='#cccc00'>チャイム</font>に近づいて回収すると、@SpeedStackDuration@秒間、非戦闘時の<speed>移動速度が@TooltipMSPerStack@%</speed>上昇し(最大@MaxSpeedStacks@回スタック)、@f1@の経験値を獲得して、<scaleMana>最大マナの@TooltipManaRestore@%</scaleMana>を回復する。<br><br>@f5@秒ごとに<font color='#FF9900'>ミィプ</font>を1体呼び寄せる(最大: @f4@)。通常攻撃で<font color='#FF9900'>ミィプ</font>を1体消費して<magicDamage>@MeepDamageNoChime@(+<font color='#cccc00'>チャイム</font>@TooltipChimeDamageCheckpoint@個につき@DamagePerCheckpoint@)の魔法ダメージ</magicDamage>を追加で与える。また、その際に集めた<font color='#cccc00'>チャイム</font>の数に応じて追加の効果を付与する。<br><br><rules><keywordMajor>チャイム</keywordMajor>の数に応じて<keywordMajor>ミィプ</keywordMajor>の出現時間が短縮され、最大数が増加する。<br><keywordMajor>チャイム</keywordMajor>が5個になると、<keywordMajor>ミィプ</keywordMajor>が1秒間、33%の<status>スロウ効果</status>も与えるようになる。<br><keywordMajor>チャイム</keywordMajor>が15個になると、<keywordMajor>ミィプ</keywordMajor>の攻撃が敵の周囲と背後にも命中するようになる。<br><keywordMajor>チャイム</keywordMajor>が35個になると範囲が拡大する。<br>チャイムから得る<speed>移動速度</speed>は最大150%までスタックする。<br>5分経過後、1分ごとにチャイムから得る経験値が1増加する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

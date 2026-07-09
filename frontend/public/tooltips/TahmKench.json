@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "舌慣らし",
-   "description": "通常攻撃でダメージを与えると、<magicDamage>75/120/165/210/255（＋魔力の100%）の追加魔法ダメージ</magicDamage>を与える。ダメージを与えた対象がチャンピオンだった場合、5秒間<spellName>「」</spellName>がスタックされる(最大3回)。<br><br>3スタックが溜まると「味見」や<font color='#0bf7de'>「丸呑み」</font>が強化される。<br><br><rules>反映率は増加100ごとに1.25%</rules>",
+   "description": "通常攻撃でダメージを与えると、<magicDamage>75/120/165/210/255（＋魔力の100%）の追加魔法ダメージ</magicDamage>を与える。ダメージを与えた対象がチャンピオンだった場合、5秒間<spellName>「舌慣らし」</spellName>がスタックされる(最大3回)。<br><br>3スタックが溜まると「味見」や<font color='#0bf7de'>「丸呑み」</font>が強化される。<br><br><rules>反映率は増加100ごとに1.25%</rules>",
    "source": "stringtable",
    "unresolved": []
   },

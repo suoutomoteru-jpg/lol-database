@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "真紅の呪い",
-   "description": "通常攻撃とスキルが5秒間、出血を付与する。この出血は最大5回までスタックする。出血はスタック数に応じて<physicalDamage>2〜10（レベル比例） ＋ 増加攻撃力の10% - 2〜10（レベル比例） ＋ 増加攻撃力の10%の物理ダメージ</physicalDamage>を与え、<healing>自身は軽減前ダメージの25%にあたる体力を回復する</healing>。<br><br>自身の減少体力に応じて、<healing>体力回復効果</healing>が最大<health>40（＋増加体力の0.025%）%</health>まで増加する。ブライアーは基本体力自動回復を持たず、スキル発動コストとして<font color='#CC3300'>現在体力の5%</font>を消費する。<br>",
+   "description": "通常攻撃とスキルが@BleedDuration@秒間、出血を付与する。この出血は最大@MaxBleedStacks@回までスタックする。出血はスタック数に応じて<physicalDamage>@BleedDamageOverDurationTooltip@ - @BleedMaxDamageOverDurationTooltip@の物理ダメージ</physicalDamage>を与え、<healing>自身は軽減前ダメージの@HealPercent*100@%にあたる体力を回復する</healing>。<br><br>自身の減少体力に応じて、<healing>体力回復効果</healing>が最大<health>@TotalHealPerMissingHPPercentTooltip@%</health>まで増加する。ブライアーは基本体力自動回復を持たず、スキル発動コストとして<font color='#CC3300'>現在体力の@CurrentHealthPercentCost*100@%</font>を消費する。<br><br><rules>出血状態の敵が倒された際、残っていた出血ダメージの125%にあたる<healing>体力を回復</healing>する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "嵐の刻印",
-   "description": "スキルが6秒間スタックを付与する。3スタックになると敵は1.25秒間<status>スタン</status>し、自身は<keywordMajor>気を25</keywordMajor>回復する。",
+   "description": "スキルが@MarkDuration@秒間スタックを付与する。3スタックになると敵は@StunDuration@秒間<status>スタン</status>し、自身は<keywordMajor>気を@EnergyRestore@</keywordMajor>回復する。<br><rules>このスキルで6秒以内に敵を再度<status>スタン</status>させた場合は、代わりに0.5秒間<status>スタン</status>させる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

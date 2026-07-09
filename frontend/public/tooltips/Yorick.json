@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "魂の導き手",
-   "description": "<br><br><rules><keywordMajor>「ミストウォーカー」</keywordMajor><br>建造物には<physicalDamage>50%のダメージ</physicalDamage>を与える。<br>ジャングルモンスターには<physicalDamage>60%のダメージ</physicalDamage>を与える。<br>近接攻撃チャンピオンの通常攻撃から200%のダメージを受ける。<br>範囲ダメージからは66%〜（レベルに応じて変化）のダメージを受ける。<br>レーンミニオンからは60%のダメージを受ける。<br>ジャングルモンスターからは100%のダメージを受ける。</rules>",
+   "description": "周囲で敵が@YorickPassiveSpawnThreshold@体倒されるたびに墓が作られる。チャンピオンと大型モンスターは常に墓を残す。<br><br>これらはエリア内に最大@YorickPassiveGhoulMax@体まで、<keywordMajor>「ミストウォーカー」</keywordMajor>を<spellName>「目覚め」</spellName>させるために使用される。「ミストウォーカー」は<healing>体力が@YorickPassiveGhoulHealth@</healing>、<physicalDamage>攻撃力が@YorickPassiveGhoulDamage@</physicalDamage>。<br><br><rules><keywordMajor>「ミストウォーカー」</keywordMajor><br>建造物には<physicalDamage>50%のダメージ</physicalDamage>を与える。<br>ジャングルモンスターには<physicalDamage>60%のダメージ</physicalDamage>を与える。<br>近接攻撃チャンピオンの通常攻撃から200%のダメージを受ける。<br>範囲ダメージからは66%〜（レベルに応じて変化）のダメージを受ける。<br>レーンミニオンからは60%のダメージを受ける。<br>ジャングルモンスターからは100%のダメージを受ける。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

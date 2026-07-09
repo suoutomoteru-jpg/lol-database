@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "緋眼の大鎌",
-   "description": "<br><rules><br>どちらかの形態で最大チャージに到達してから4分経過すると、最大チャージではない形態にも変身可能になる。変身を完了していない間にチャージを獲得すると、このタイマーが5秒短縮される。<br>変身後に「ホームガード」を獲得する。<br></rules>",
+   "description": "<keywordMajor>ダーキンスレイヤー</keywordMajor>が勝利。<br><br><keywordMajor>ダーキンスレイヤー:</keywordMajor> チャンピオンに与えた物理ダメージの@KaynSlayerHealing@にあたる体力を回復する。",
    "source": "stringtable",
    "unresolved": []
   },

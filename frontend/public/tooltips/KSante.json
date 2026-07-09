@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "不屈の本能",
-   "description": "<br><br><rules>ミニオンに対するダメージは最小15-100(チャンピオンレベルに応じて)。<br>モンスターに対するダメージは最大20-105(チャンピオンレベルに応じて)。</rules><br>",
+   "description": "攻撃スキルを敵に命中させると、その対象をマークする。マークした敵に通常攻撃を行うと、<physicalDamage>@FlatDamage@ + 最大体力の@PercentHealthDamage@にあたる物理ダメージ</physicalDamage>を与えて、マークを消費する。<br><br><keywordMajor>オールアウト</keywordMajor>: 通常攻撃、スキル、固有スキルが追加で最大体力の@MaxHealthDamagePercent@の物理ダメージを与える。<br><br><rules>ミニオンに対するダメージは最小15-100(チャンピオンレベルに応じて)。<br>モンスターに対するダメージは最大20-105(チャンピオンレベルに応じて)。</rules><br>",
    "source": "stringtable",
    "unresolved": []
   },

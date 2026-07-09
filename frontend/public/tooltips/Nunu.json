@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "フレヨルドの呼び声",
-   "description": "チャンピオン、大型ジャングルモンスター、建造物にダメージを与えると、4秒間、ヌヌ＆ウィルンプおよび近くにいる味方1体の<attackSpeed>攻撃速度が20%</attackSpeed>、<speed>移動速度が10%</speed>増加する。<br><br>このバフを獲得中、ウィルンプの通常攻撃は周囲の他の敵に<physicalDamage>合計攻撃力の30%の物理ダメージ</physicalDamage>を追加で与える。",
+   "description": "チャンピオン、大型ジャングルモンスター、建造物にダメージを与えると、4秒間、ヌヌ＆ウィルンプおよび近くにいる味方1体の<attackSpeed>攻撃速度が@ASIncrease*100@%</attackSpeed>、<speed>移動速度が@MSIncrease*100@%</speed>増加する。<br><br>このバフを獲得中、ウィルンプの通常攻撃は周囲の他の敵に<physicalDamage>@CleaveDamage@の物理ダメージ</physicalDamage>を追加で与える。<br><br><rules>対象がチャンピオンか建造物だった場合、バフの効果範囲が増加する。<br>効果時間はスタックするが、効果は対象ごとに10秒に1回しか発生しない。<br>バフの対象は、効果を最大限に活用できるチャンピオンが優先して選ばれる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

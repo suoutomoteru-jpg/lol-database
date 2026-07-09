@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "この銃の名は｢囁き｣",
-   "description": "<br><rules>クリティカル率と増加攻撃速度に応じて攻撃力が増加する。<br>増加攻撃速度に応じて移動速度が増加する。<br>対象がモンスターの場合、失われた体力に応じたダメージは800が上限となる。</rules>",
+   "description": "ジンの銃「囁き」は攻撃速度が固定されていて@MaxAmmo@発撃つと再装弾する必要がある。@MaxAmmo@発目の弾丸は必ずクリティカルとなり、<physicalDamage>減少体力に応じて@FourthShotExecutePercent@の物理ダメージ</physicalDamage>を追加で与える。<br><br>さらに:<li><physicalDamage>@TotalADPercent@の増加攻撃力</physicalDamage>を獲得する。<li>ジンのクリティカルはダメージが@CritReductionPercent*100@%低下するかわりに、@HasteDuration@秒間、自身の<speed>移動速度が@CritMoveSpeedPercent@</speed>増加する。<br><br><br><rules>クリティカル率と増加攻撃速度に応じて攻撃力が増加する。<br>増加攻撃速度に応じて移動速度が増加する。<br>対象がモンスターの場合、失われた体力に応じたダメージは800が上限となる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "響振動",
-   "description": "スカーナーの通常攻撃、<spellName>「砕けし大地」</spellName>、<spellName>「大地の怒り」</spellName>、<spellName>「インペイル」</spellName>は、4秒間、敵に<keywordMajor>「振動」</keywordMajor>を付与する。<keywordMajor>「振動」</keywordMajor>が3スタックになると、その効果時間をかけて敵に<magicDamage>最大体力の5〜9（レベル比例）の魔法ダメージ</magicDamage>を与える。",
+   "description": "スカーナーの通常攻撃、<spellName>「砕けし大地」</spellName>、<spellName>「大地の怒り」</spellName>、<spellName>「インペイル」</spellName>は、@Duration@秒間、敵に<keywordMajor>「振動」</keywordMajor>を付与する。<keywordMajor>「振動」</keywordMajor>が@StacksToTriggerPassive@スタックになると、その効果時間をかけて敵に<magicDamage>最大体力の@PercentHealthDamage@の魔法ダメージ</magicDamage>を与える。<br><br><rules>モンスターに対しては合計ダメージ100〜300（レベル比例）が上限。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

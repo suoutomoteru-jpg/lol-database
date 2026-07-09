@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "弱者必衰",
-   "description": "<br><br><rules>このスキルはジャングルモンスターには75%のダメージを与える。対象がエピックモンスターの場合、175ダメージが上限となる。</rules>",
+   "description": "体力が@CurrentHealthThreshold*100@%未満の敵に対する通常攻撃が<magicDamage>最大体力の@MaxHPDamage@の魔法ダメージ</magicDamage>を追加で与える。同じ敵チャンピオンに対しては@PerUnitCD@秒ごとに一度のみ発動する。<br><br><rules>このスキルはジャングルモンスターには75%のダメージを与える。対象がエピックモンスターの場合、175ダメージが上限となる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

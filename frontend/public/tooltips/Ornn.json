@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "歩く鍛冶場",
-   "description": "オーンが獲得するあらゆる追加物理防御と追加魔法防御は、獲得量が増加する。<br><br>オーンはどこにいても、ゴールドを消費して消費アイテム以外のアイテムを作り出せる。<br><br>さらに、自身と味方のために名匠アイテムを作り出せる。",
-   "source": "lcu",
+   "description": "オーンはゴールドを消費して、消費アイテム以外のアイテムをどこにいても鍛造することができる。<br><br>レベル@MasterworkLevel@になると、自身のレジェンダリーアイテムのひとつを名匠アイテムにアップグレードする。レベル@MasterworkLevel@以降はレベルが上がるごとに、味方1体に近づいて対象をクリックすることで、その味方が持つレジェンダリーアイテムをアップグレードできる。<br><br>オーンはあらゆるソースから獲得する<healing>体力</healing>、<scaleArmor>物理防御</scaleArmor>、<scaleMR>魔法防御</scaleMR>が@BaseStatAmp*100@%増加する。この値はレジェンダリーアイテムをアップグレードするたびに@AdditionalMythicStatAmp*100@%増加する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

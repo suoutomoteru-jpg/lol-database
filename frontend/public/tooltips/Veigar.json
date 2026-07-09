@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "偉大なる悪の力",
-   "description": "スキルが敵チャンピオンに当たると<keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックを1獲得する。チャンピオンからキルまたはアシストを獲得すると追加で5スタック獲得する。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>を1スタック獲得するごとに<scaleAP>魔力が1</scaleAP>増加する。",
+   "description": "スキルが敵チャンピオンに当たると<keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックを@dAbilityStacks@獲得する。チャンピオンからキルまたはアシストを獲得すると追加で@dTakedownStacks@スタック獲得する。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>を1スタック獲得するごとに<scaleAP>魔力が@APPerStack@</scaleAP>増加する。<br><br>「偉大なる悪の力」で得た現在の<statTracking>魔力は1.5/1.75/2/2.25/2.5</statTracking>。",
    "source": "stringtable",
    "unresolved": []
   },

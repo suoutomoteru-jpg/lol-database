@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "王の支配",
-   "description": "<br><br><rules><keywordMajor>憑依中</keywordMajor>もサモナースペル、ルーン、トリンケットは自身のものを使用し、発動アイテムと消費アイテムは使用できない。アイテム自動効果のクールダウンは<keywordMajor>憑依</keywordMajor>全体で共有される。</rules>",
+   "description": "ヴィエゴに攻撃されてから@TakedownWindow@秒以内に倒された敵チャンピオンの魂は亡霊になる。ヴィエゴは亡霊に通常攻撃を行うことで対象に<keywordMajor>憑依</keywordMajor>し、<healing>敵の最大体力の@PercentHealthHeal@%にあたる体力</healing>を回復して、@TransformDuration@秒間、対象のアルティメット以外のスキルと通常攻撃、アイテムを使用できる。この間、対象のアルティメットスキルは自身のものと入れ替わり、自由に1回発動できるようになる。また、敵チャンピオンに向かう際に<speed>移動速度が@MoveSpeedPercent*100@%</speed>増加する。<br><br><rules><keywordMajor>憑依中</keywordMajor>もサモナースペル、ルーン、トリンケットは自身のものを使用し、発動アイテムと消費アイテムは使用できない。アイテム自動効果のクールダウンは<keywordMajor>憑依</keywordMajor>全体で共有される。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

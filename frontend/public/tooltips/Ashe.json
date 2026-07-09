@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "フロストショット",
-   "description": "<br><br><rules>クリティカル率とクリティカルダメージボーナスに応じて追加ダメージが増加する。</rules>",
+   "description": "通常攻撃とスキルによって対象に@SlowDuration@秒間、@SlowAmount@の<status>スロウ効果</status>を与える。通常攻撃が@DamageBonus@ダメージを与える。<br><br>アッシュのクリティカルは追加ダメージを与えない代わりに、<status>スロウ効果</status>を@EmpoweredSlowAmount@に増加させる(この増加効果は徐々に減衰する)。<br><br><rules>クリティカル率とクリティカルダメージボーナスに応じて追加ダメージが増加する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

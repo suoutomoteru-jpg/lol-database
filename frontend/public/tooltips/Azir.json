@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "シュリーマの遺産",
-   "description": "タワーの瓦礫から<keywordMajor>「太陽の円盤」</keywordMajor>を召喚できる。<keywordMajor>「太陽の円盤」</keywordMajor>は<magicDamage>230〜（レベルに応じて変化） ＋ 魔力の40%の魔法ダメージ</magicDamage>を与え、30〜（レベルに応じて変化）の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を持っているが、45秒かけて崩壊していく。",
+   "description": "タワーの瓦礫から<keywordMajor>「太陽の円盤」</keywordMajor>を召喚できる。<keywordMajor>「太陽の円盤」</keywordMajor>は<magicDamage>@TowerDamage@の魔法ダメージ</magicDamage>を与え、@BonusResists@の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を持っているが、@TowerDisintegrationTime@秒かけて崩壊していく。<br><br><rules>敵のネクサスとインヒビタータワーはこのスキルの対象にできない。<br>自身が倒されるか、距離が離れすぎると、<keywordMajor>「太陽の円盤」</keywordMajor>の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>は100減少する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

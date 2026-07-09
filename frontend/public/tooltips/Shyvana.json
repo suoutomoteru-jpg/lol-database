@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "スケールメイル",
-   "description": "<br><br><rules>大型のモンスターと砲台ミニオンからは1スタックを獲得する。<br>チャンピオンとエピックモンスターからは3スタックを獲得する。</rules>",
+   "description": "チャンピオン、大型ミニオン、モンスターをキルまたはアシストすると<spellName> %i:Shyvana%</spellName>のスタックを獲得する。スタックごとにシヴァーナは恒久的に<scaleArmor>@BonusArmor@の物理防御</scaleArmor>と<scaleMR>@BonusMagicResist@の魔法防御</scaleMR>を獲得する。<br><br><scaleArmor>増加物理防御: @Calc_Bonus_Armor@</scaleArmor><br><scaleMR>増加魔法防御: @Calc_Bonus_MR@</scaleMR><br><br><rules>大型のモンスターと砲台ミニオンからは1スタックを獲得する。<br>チャンピオンとエピックモンスターからは3スタックを獲得する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "灼熱の輝き",
-   "description": "通常攻撃とスキルで敵にダメージを与えるたびに、5秒間<keywordMajor>「圧倒」</keywordMajor>のスタックを付与し、スタックをリフレッシュする。<magicDamage>60/70/80（＋魔力の10%） + スタックごとに3/4/5（＋魔力の0.75%）の魔法ダメージ</magicDamage>を蓄積させる。スタックが適用されている間は、蓄積されたダメージ量が敵のシールドと体力の合計値を超えた時点で敵にとどめを刺す。<br><br>スキルを使用すると、次の通常攻撃が3発の飛翔物を追加で発射し、それぞれが<magicDamage>8〜30（レベル比例） ＋ 魔力の4%の魔法ダメージ</magicDamage>を与える。追加の飛翔物は最大で9発までスタックする。",
+   "description": "通常攻撃とスキルで敵にダメージを与えるたびに、@OverwhelmDuration@秒間<keywordMajor>「圧倒」</keywordMajor>のスタックを付与し、スタックをリフレッシュする。<magicDamage>@spell.MelR:PassiveFlatDamage@ + スタックごとに@spell.MelR:PassiveStackDamage@の魔法ダメージ</magicDamage>を蓄積させる。スタックが適用されている間は、蓄積されたダメージ量が敵のシールドと体力の合計値を超えた時点で敵にとどめを刺す。<br><br>スキルを使用すると、次の通常攻撃が@PassiveBonusMissiles@発の飛翔物を追加で発射し、それぞれが<magicDamage>@PassiveBonusMissileDamage@の魔法ダメージ</magicDamage>を与える。追加の飛翔物は最大で@MaxPassiveBonusMissiles@発までスタックする。<br><br><rules>ミニオンに使用した場合、<keywordMajor>「圧倒」</keywordMajor>の最初のスタックはダメージが0%低下する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ルーンブレード",
-   "description": "スキルを使用すると6秒間チャージを獲得する(最大3)。通常攻撃でチャージを消費し、<physicalDamage>45/75/105/135/165（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を追加で与える。",
+   "description": "スキルを使用すると6秒間チャージを獲得する(最大@Charges@)。通常攻撃でチャージを消費し、<physicalDamage>@TotalDamage@の物理ダメージ</physicalDamage>を追加で与える。<br><br><rules>追加ダメージはクリティカル判定を持つ。<br>モンスターには50の追加ダメージを与える。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

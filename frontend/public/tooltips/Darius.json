@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "大出血",
-   "description": "通常攻撃と攻撃スキルが対象に<keywordMajor>「大出血」</keywordMajor>を付与し、5秒かけて<physicalDamage>13〜30（レベル比例） ＋ 増加攻撃力の30%の物理ダメージ</physicalDamage>を与える。この効果は5回までスタックする。<br><br>敵が最大スタックになるか、<spellName>「」</spellName>で敵をキルすると、5秒間自身の<scaleAD>攻撃力が30〜（レベルに応じて変化）</scaleAD>増加し、あらゆる通常攻撃と攻撃スキルが<keywordMajor>「大出血」</keywordMajor>を5スタック付与するようになる。",
+   "description": "通常攻撃と攻撃スキルが対象に<keywordMajor>「大出血」</keywordMajor>を付与し、@BleedDuration@秒かけて<physicalDamage>@BleedDamagePerStack@の物理ダメージ</physicalDamage>を与える。この効果は@MaxStacks@回までスタックする。<br><br>敵が最大スタックになるか、<spellName>「」</spellName>で敵をキルすると、@BleedDuration@秒間自身の<scaleAD>攻撃力が@NoxianMightBonusAD@</scaleAD>増加し、あらゆる通常攻撃と攻撃スキルが<keywordMajor>「大出血」</keywordMajor>を@MaxStacks@スタック付与するようになる。<br><br><rules><keywordMajor>「大出血」</keywordMajor>はジャングルモンスターには250%のダメージを与える。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

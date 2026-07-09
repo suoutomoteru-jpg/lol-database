@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ヴォイドストーン",
-   "description": "受ける魔法ダメージが10%減少し、ゴースト化する。",
+   "description": "受ける魔法ダメージが@DamageReductionPercent*100@%減少し、ゴースト化する。<br><rules>ゴースト化したユニットは他のユニットをすり抜けて移動できる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

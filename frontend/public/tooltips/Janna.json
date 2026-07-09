@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "テイルウィンド",
-   "description": "ジャンナに向かって移動する際、味方チャンピオンは<speed>移動速度が6%</speed>増加する。<br><br>および<keywordMajor>「ゼファー」</keywordMajor>で、<magicDamage>増加クリティカル率の30%の追加魔法ダメージ</magicDamage>を与える。",
+   "description": "ジャンナに向かって移動する際、味方チャンピオンは<speed>移動速度が6%</speed>増加する。<br><br>%i:OnHit% <OnHit>通常攻撃時効果</OnHit>および<keywordMajor>「ゼファー」</keywordMajor>で、<magicDamage>増加クリティカル率の30%の追加魔法ダメージ</magicDamage>を与える。",
    "source": "stringtable",
    "unresolved": []
   },

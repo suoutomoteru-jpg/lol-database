@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ドロー＆グロー",
-   "description": "通常攻撃、および<spellName>「」</spellName>と<spellName>「」</spellName>の射程距離が0〜150（レベル比例）拡大している。",
+   "description": "通常攻撃、および<spellName>「ヨードルグレネード」</spellName>と<spellName>「バスターショット」</spellName>の射程距離が0〜150（レベル比例）拡大している。",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ダブルストライク",
-   "description": "4回毎の通常攻撃が、2回攻撃になる。2回目の攻撃は<physicalDamage>合計攻撃力の50%の物理ダメージ</physicalDamage>を与える。",
+   "description": "@AttackCount@回毎の通常攻撃が、2回攻撃になる。2回目の攻撃は<physicalDamage>@TotalDamage@の物理ダメージ</physicalDamage>を与える。<br><br><rules>2度目の攻撃は普通の通常攻撃として扱われ、クリティカル判定があり、通常攻撃時効果を適用する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

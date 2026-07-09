@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "我らは一つ",
-   "description": "30〜（レベルに応じて変化）秒ごとに<keywordMajor>「群れの同胞」</keywordMajor>を呼び出す。「群れの同胞」はナフィーリが対象としている敵を通常攻撃し、<physicalDamage>10〜20（レベル比例） ＋ 増加攻撃力の4%の物理ダメージ</physicalDamage>を与える。スキル使用後は、このダメージが<physicalDamage>10〜20（レベル比例） ＋ 増加攻撃力の4%</physicalDamage>に増加する。<br><br>チャンピオンか大型モンスターにスキルを命中させると、このスキルのクールダウンが4秒短縮され、敵をキルすると1秒短縮される。<br><br><keywordMajor>「群れの同胞」</keywordMajor>の最大数: 2〜（レベルに応じて変化）",
+   "description": "@PackmateSpawnCooldown@秒ごとに<keywordMajor>「群れの同胞」</keywordMajor>を呼び出す。「群れの同胞」はナフィーリが対象としている敵を通常攻撃し、<physicalDamage>@PackmateTotalDamage@の物理ダメージ</physicalDamage>を与える。スキル使用後は、このダメージが<physicalDamage>@FrenzyDamageTooltipOnly@</physicalDamage>に増加する。<br><br>チャンピオンか大型モンスターにスキルを命中させると、このスキルのクールダウンが@CooldownReduceOnAbilityHit@秒短縮され、敵をキルすると@CooldownReduceOnKill@秒短縮される。<br><br><keywordMajor>「群れの同胞」</keywordMajor>の最大数: @PackmateCap@<br><br><rules><keywordMajor>「群れの同胞」</keywordMajor>はモンスターには155%のダメージを与え、建造物には50%のダメージを与える。<br><keywordMajor>「群れの同胞」</keywordMajor>は範囲スキルおよび効果から76%〜（レベルに応じて変化）のダメージを受ける。<br><keywordMajor>「群れの同胞」</keywordMajor>はエピック以外のモンスターとミニオンから50%のダメージを受ける。<br><keywordMajor>「群れの同胞」</keywordMajor>は近接攻撃チャンピオンの通常攻撃から200%のダメージを受ける。</rules><br>",
    "source": "stringtable",
    "unresolved": []
   },

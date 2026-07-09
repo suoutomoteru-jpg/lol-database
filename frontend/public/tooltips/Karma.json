@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "寄せ火",
-   "description": "カルマは<spellName>「」</spellName>のポイントを1つ持った状態で試合を開始する。<br><br>スキルでチャンピオンにダメージを与えるたびに<spellName>「」</spellName>のクールダウンが4秒短縮される。",
+   "description": "カルマは<spellName>「マントラ」</spellName>のポイントを1つ持った状態で試合を開始する。<br><br>スキルでチャンピオンにダメージを与えるたびに<spellName>「マントラ」</spellName>のクールダウンが4秒短縮される。",
    "source": "stringtable",
    "unresolved": []
   },

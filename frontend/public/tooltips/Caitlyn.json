@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ヘッドショット",
-   "description": "通常攻撃5回ごとに<keywordMajor>「ヘッドショット」</keywordMajor>が発生する。茂みの中で行う通常攻撃は、2回分にカウントされる。<br><br><keywordMajor>「ヘッドショット」</keywordMajor>は<physicalDamage>50/90/130/170/210（＋増加攻撃力の30%）の物理ダメージ</physicalDamage>を追加で与える。敵が<spellName>「」</spellName>か<spellName>「」</spellName>の効果を受けていた場合、射程は2倍になる。<spellName>「」</spellName>に当たった敵への<keywordMajor>「ヘッドショット」</keywordMajor>は<physicalDamage>50/90/130/170/210（＋増加攻撃力の30%）の物理ダメージ</physicalDamage>を追加で与える。",
+   "description": "通常攻撃5回ごとに<keywordMajor>「ヘッドショット」</keywordMajor>が発生する。茂みの中で行う通常攻撃は、2回分にカウントされる。<br><br><keywordMajor>「ヘッドショット」</keywordMajor>は<physicalDamage>50/90/130/170/210（＋増加攻撃力の30%）の物理ダメージ</physicalDamage>を追加で与える。敵が<spellName>「L-90 カリバーネット」</spellName>か<spellName>「ヨードルトラップ」</spellName>の効果を受けていた場合、射程は2倍になる。<spellName>「ヨードルトラップ」</spellName>に当たった敵への<keywordMajor>「ヘッドショット」</keywordMajor>は<physicalDamage>50/90/130/170/210（＋増加攻撃力の30%）の物理ダメージ</physicalDamage>を追加で与える。",
    "source": "stringtable",
    "unresolved": []
   },

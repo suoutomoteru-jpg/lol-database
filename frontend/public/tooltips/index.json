@@ -1,6 +1,6 @@
 {
  "patch": "16.13.7915903+branch.releases-16-13.content.release",
- "generatedAt": "2026-07-09T03:44:00.948977+00:00",
+ "generatedAt": "2026-07-09T03:47:25.294220+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -700,7 +700,7 @@
    "id": 516,
    "name": "オーン",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Pantheon",
@@ -1001,7 +1001,7 @@
    "id": 4,
    "name": "ツイステッド・フェイト",
    "unresolvedCount": 3,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Twitch",

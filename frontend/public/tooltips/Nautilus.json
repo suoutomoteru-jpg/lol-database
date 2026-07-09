@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "鉄の錨",
-   "description": "<br><rules>同じ対象には6秒に1度しかこの効果は発動しない。</rules>",
+   "description": "対象に最初に行う通常攻撃が<physicalDamage>@TotalDamageTooltip@の物理ダメージ</physicalDamage>を与え、@RootDuration@秒間<status>スネア効果</status>を付与する。<br><rules>同じ対象には6秒に1度しかこの効果は発動しない。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

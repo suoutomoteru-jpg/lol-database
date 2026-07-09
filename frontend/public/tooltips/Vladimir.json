@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "真紅の盟約",
-   "description": "<scaleHealth>増加体力30</scaleHealth>ごとに<scaleAP>魔力が1</scaleAP>増加する。また、<scaleAP>魔力1</scaleAP>ごとに<scaleHealth>最大体力が1.6</scaleHealth>増加する。<br><br><scaleAP>増加魔力: 増加体力の100% ＋ 1.6×魔力の-100%×0.033</scaleAP><br><scaleHealth>増加体力: 魔力の100% ＋ 0.033×増加体力の-100%×1.696</scaleHealth>",
+   "description": "<scaleHealth>増加体力@Effect1Amount@</scaleHealth>ごとに<scaleAP>魔力が1</scaleAP>増加する。また、<scaleAP>魔力1</scaleAP>ごとに<scaleHealth>最大体力が@Effect2Amount@</scaleHealth>増加する。<br><br><scaleAP>増加魔力: @ApproximateAPBonusAvoidingRecursion@</scaleAP><br><scaleHealth>増加体力: @ApproximateHPBonusAvoidingRecursion@</scaleHealth><br><br><rules>このボーナス同士はカウントされない。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
