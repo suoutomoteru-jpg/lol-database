@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "鷲匠",
-   "description": "相棒であるデマーシアの鷲、ヴァロールが定期的に周囲の敵を<keywordMajor>「鷲匠」</keywordMajor>でマークする。<keywordMajor>「鷲匠」</keywordMajor>のマークが付与された敵に対して、クインの次の通常攻撃が追加物理ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 15〜120（レベル比例） ＋ 増加攻撃力の40%<br>・{929bc6f6}: 75",
+   "description": "相棒であるデマーシアの鷲、ヴァロールが定期的に周囲の敵を<keywordMajor>「鷲匠」</keywordMajor>でマークする。<keywordMajor>「鷲匠」</keywordMajor>のマークが付与された敵に対して、クインの次の通常攻撃が追加物理ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 15〜120（レベル比例） ＋ 増加攻撃力の40%",
    "unresolved": []
   },
   "q": {

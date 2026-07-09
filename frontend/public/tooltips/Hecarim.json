@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ウォーパス",
-   "description": "増加移動速度の一定割合と同量だけ攻撃力が増加する。<br><br><strong>詳細数値</strong><br>・BonusAD: 増加クリティカル率の12%〜（レベルに応じて増加）",
+   "description": "増加移動速度の一定割合と同量だけ攻撃力が増加する。",
    "unresolved": []
   },
   "q": {

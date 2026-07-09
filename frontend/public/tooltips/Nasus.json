@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ソウルイーター",
-   "description": "敵の魂のエネルギーを吸い取り、自身のライフスティールが増加する。<br><br><strong>詳細数値</strong><br>・LifestealTooltip: 12〜（レベルに応じて変化）",
+   "description": "敵の魂のエネルギーを吸い取り、自身のライフスティールが増加する。",
    "unresolved": []
   },
   "q": {

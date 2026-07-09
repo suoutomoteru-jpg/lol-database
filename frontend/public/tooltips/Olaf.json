@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "狂戦士の怒り",
-   "description": "減少体力に応じて攻撃速度とライフスティールが増加する。<br><br><strong>詳細数値</strong><br>・攻撃速度: 0.5〜1（レベル比例）<br>・MaxLifeSteal: 8〜25%（レベル比例）",
+   "description": "減少体力に応じて攻撃速度とライフスティールが増加する。<br><br><strong>詳細数値</strong><br>・攻撃速度: 0.5〜1（レベル比例）",
    "unresolved": []
   },
   "q": {

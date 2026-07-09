@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ヘクステック榴散弾",
-   "description": "通常攻撃ダメージの一定割合を追加<trueDamage>確定ダメージ</trueDamage>として与える。<br><br><strong>詳細数値</strong><br>・BasicAttackTOOLTIP: 合計攻撃力の20%<br>・CriticalStrikeTOOLTIP: 合計攻撃力の20%",
+   "description": "通常攻撃ダメージの一定割合を追加<trueDamage>確定ダメージ</trueDamage>として与える。",
    "unresolved": []
   },
   "q": {

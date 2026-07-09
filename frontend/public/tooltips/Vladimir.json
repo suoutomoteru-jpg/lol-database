@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "真紅の盟約",
-   "description": "増加体力を30得るたび魔力が1増加する。また、魔力1につき体力が1.6増加する(この固有スキル自身の効果とは重複しない)。<br><br><strong>詳細数値</strong><br>・ApproximateAPBonusAvoidingRecursion: 増加体力の100% ＋ 1.6×魔力の-100%×0.033<br>・ApproximateHPBonusAvoidingRecursion: 魔力の100% ＋ 0.033×増加体力の-100%×1.696",
+   "description": "増加体力を30得るたび魔力が1増加する。また、魔力1につき体力が1.6増加する(この固有スキル自身の効果とは重複しない)。",
    "unresolved": []
   },
   "q": {

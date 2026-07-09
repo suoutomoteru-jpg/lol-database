@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "妖艶な蛇行",
-   "description": "カシオペアは獲得するあらゆる移動速度ボーナスの効果が増加する。<br><br><strong>詳細数値</strong><br>・PercentHasteMod: 6%〜（レベルに応じて変化）",
+   "description": "カシオペアは獲得するあらゆる移動速度ボーナスの効果が増加する。",
    "unresolved": []
   },
   "q": {

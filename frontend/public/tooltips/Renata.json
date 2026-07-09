@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "レバレッジ",
-   "description": "通常攻撃が追加ダメージを与えて敵をマークする。味方はマークされた敵にダメージを与えると追加ダメージを与える。<br><br><strong>詳細数値</strong><br>・PercentAmpCalc: 0.01〜（レベルに応じて変化） ＋ 魔力の0.02%<br>・PercentAmpCalcSelf: 0.01〜（レベルに応じて変化） ＋ 魔力の0.02%",
+   "description": "通常攻撃が追加ダメージを与えて敵をマークする。味方はマークされた敵にダメージを与えると追加ダメージを与える。",
    "unresolved": []
   },
   "q": {

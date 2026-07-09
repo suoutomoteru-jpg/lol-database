@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "練気",
-   "description": "スキル使用後、次の通常攻撃2回の攻撃速度が増加し、それぞれ気を回復する。<br><br><strong>詳細数値</strong><br>・EnergyReturn: 10〜（レベルに応じて変化）<br>・TTFirstHitEnergy: 10〜（レベルに応じて変化）",
+   "description": "スキル使用後、次の通常攻撃2回の攻撃速度が増加し、それぞれ気を回復する。",
    "unresolved": []
   },
   "q": {

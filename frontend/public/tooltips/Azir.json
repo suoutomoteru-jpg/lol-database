@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "シュリーマの遺産",
-   "description": "アジールは敵や味方のタワーの残骸から「太陽の円盤」を召喚できる。<br><br><strong>詳細数値</strong><br>・ダメージ: 230〜（レベルに応じて変化） ＋ 魔力の40%<br>・BonusResists: 30〜（レベルに応じて変化）",
+   "description": "アジールは敵や味方のタワーの残骸から「太陽の円盤」を召喚できる。<br><br><strong>詳細数値</strong><br>・ダメージ: 230〜（レベルに応じて変化） ＋ 魔力の40%",
    "unresolved": []
   },
   "q": {
