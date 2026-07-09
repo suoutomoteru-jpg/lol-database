@@ -401,12 +401,13 @@ PASSIVE_LABELS: list[tuple[str, str]] = [
 ]
 
 
-def passive_label(name: str) -> str:
+def passive_label(name: str) -> str | None:
+    """辞書で訳せないものは None（内部名を露出させないため表示しない）"""
     low = name.lower()
     for key, label in PASSIVE_LABELS:
         if key in low:
             return label
-    return name
+    return None
 
 
 def build_passive_details(spell: dict) -> list[str]:
@@ -415,7 +416,8 @@ def build_passive_details(spell: dict) -> list[str]:
     calcs = {k.lower(): v for k, v in (spell.get("mSpellCalculations") or {}).items()}
     lines: list[str] = []
     for cname, calc in (spell.get("mSpellCalculations") or {}).items():
-        if cname.lower() in ("rangecheck",):
+        label = passive_label(cname)
+        if label is None or cname.lower() in ("rangecheck",):
             continue
         res = eval_calculation(calcs[cname.lower()], values, calcs, max_rank=1)
         # percent/ratio 系の名前を持つ割合値は%表記に
@@ -430,7 +432,7 @@ def build_passive_details(spell: dict) -> list[str]:
                 rendered = maybe_percentify(rendered, "")
         if not rendered:
             continue
-        lines.append(f"{passive_label(cname)}: {rendered}")
+        lines.append(f"{label}: {rendered}")
     return lines
 
 
