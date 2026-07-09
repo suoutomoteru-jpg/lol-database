@@ -458,18 +458,24 @@ def load_stringtable() -> dict[str, str]:
     return table
 
 
-def passive_tooltip_body(stringtable: dict[str, str], spell: dict) -> str | None:
-    """パッシブスペルの locキーからゲーム内ツールチップ本文を引く"""
+def passive_tooltip_bodies(stringtable: dict[str, str], spell: dict) -> list[str]:
+    """パッシブスペルの locキーからゲーム内ツールチップ本文の候補を引く。
+
+    keyTooltipExtended が「補足行のみ」のチャンピオンがいるため
+    （例: アーゴットはモンスター上限の1行だけ）、両方を候補として返し、
+    呼び出し側で解決結果が最も充実したものを採用する。
+    """
     if not stringtable:
-        return None
+        return []
     loc_keys = (
         (spell.get("mClientData") or {}).get("mTooltipData") or {}
     ).get("mLocKeys") or {}
-    for pref in ("keyTooltipExtended", "keyTooltip"):
+    bodies = []
+    for pref in ("keyTooltip", "keyTooltipExtended"):
         key = loc_keys.get(pref)
         if key and key.lower() in stringtable:
-            return stringtable[key.lower()]
-    return None
+            bodies.append(stringtable[key.lower()])
+    return bodies
 
 
 # ── プレースホルダー解決 ────────────────────────────────
@@ -590,22 +596,24 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
     passive_desc = ""
     passive_unresolved: list = []
     passive_source = "lcu"
-    st_body = passive_tooltip_body(stringtable, passive_spell) if passive_spell else None
-    if st_body:
+    if passive_spell:
         p_values = collect_data_values(passive_spell, max_rank=1)
         p_calcs = {
             k.lower(): v
             for k, v in (passive_spell.get("mSpellCalculations") or {}).items()
         }
-        body, st_unresolved = resolve_description(
-            st_body, p_values, p_calcs, global_values, global_calcs,
-            max_rank=1, cd_str="", cost_str="",
-        )
-        body = re.sub(r"\{\{[^}]*\}\}", "", body).strip()
-        # 解決できない変数が多すぎる場合は従来表示へフォールバック
-        if body and len(st_unresolved) <= 3:
-            passive_desc = body
-            passive_unresolved = st_unresolved
+        candidates: list[str] = []
+        for st_body in passive_tooltip_bodies(stringtable, passive_spell):
+            body, st_unresolved = resolve_description(
+                st_body, p_values, p_calcs, global_values, global_calcs,
+                max_rank=1, cd_str="", cost_str="",
+            )
+            body = re.sub(r"\{\{[^}]*\}\}", "", body).strip()
+            # 未解決変数が1つでもあると本文に「穴」が空くため採用しない
+            if body and not st_unresolved:
+                candidates.append(body)
+        if candidates:
+            passive_desc = max(candidates, key=len)
             passive_source = "stringtable"
 
     # フォールバック: LCU の短文 + bin 計算式の「詳細数値」追記
