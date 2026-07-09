@@ -1,4 +1,3 @@
-import { Squiggle } from './doodles';
 import type { TabType } from '../types/app';
 
 interface TabsFilterProps {
@@ -29,7 +28,7 @@ export function TabsFilter({ activeTab, onTabChange }: TabsFilterProps) {
           >
             {tab.label}
             {active && (
-              <Squiggle className="absolute -bottom-[3px] left-3 right-3 h-[7px] w-auto text-primary" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
             )}
           </button>
         );

@@ -5,18 +5,6 @@
  * 遊びを出す。色は currentColor を継承する。
  */
 
-/** ゆるく波打つ下線。親要素に absolute 配置して幅いっぱいに伸ばす */
-export function Squiggle({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 120 8" preserveAspectRatio="none" aria-hidden className={className}>
-      <path
-        d="M2 5.5 C 12 2, 24 7.5, 36 4.5 S 58 2.5, 70 5.2 S 94 7, 106 3.5 S 115 4.8, 118 4"
-        fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 /** くるっとカールした下向き矢印（注釈 → 対象を指す用） */
 export function CurlyArrow({ className }: { className?: string }) {
   return (
