@@ -76,22 +76,28 @@ def fmt_values(vals: list, mult: float = 1.0) -> str:
     return out[0] if len(set(out)) == 1 else "/".join(out)
 
 
-FRACTION_RE = re.compile(r"^-?0?\.\d+(?:/-?0?\.\d+)*$")
+# 先頭の割合値列（0.4 / 0.4〜0.7 / 0.4/0.45/0.5 等。1以上の値が混ざる場合は不一致）
+HEAD_FRACTIONS = re.compile(r"^(-?0?\.\d+(?:[/〜]-?0?\.\d+)*)(?=$|[^\d./〜])")
 
 
 def maybe_percentify(rendered: str, following: str) -> str:
     """0.4 のような割合値を 40% 表記に直す。
 
     LCU の説明文が *100 の乗数を持たないまま割合値を参照するケース
-    （例: ロックの W の移動速度）への対応。直後が「秒」なら時間、
-    「%」なら既にパーセント値とみなして変換しない。
+    （例: ロックの W の攻撃速度・移動速度）への対応。
+    「0.4〜0.7（レベル比例）」「0.4/0.45（＋魔力の…）」のような
+    複合表記でも先頭の数値列だけを変換する。
+    直後が「秒」なら時間、「%」なら既にパーセント値とみなして変換しない。
     """
-    if not FRACTION_RE.fullmatch(rendered):
+    m = HEAD_FRACTIONS.match(rendered)
+    if not m:
         return rendered
-    nxt = following.lstrip()[:1]
+    head, rest = m.group(1), rendered[m.end():]
+    nxt = (rest.lstrip() or following.lstrip())[:1]
     if nxt in ("秒", "%", "％"):
         return rendered
-    return "/".join(fnum(float(p) * 100) for p in rendered.split("/")) + "%"
+    converted = re.sub(r"-?0?\.\d+", lambda v: fnum(float(v.group()) * 100), head)
+    return f"{converted}%{rest}"
 
 
 def slice_ranks(arr: list, max_rank: int) -> list:
