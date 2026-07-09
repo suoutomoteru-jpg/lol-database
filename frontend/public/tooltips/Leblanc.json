@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "鏡像",
-   "description": "<br><br><rules></rules>",
+   "description": "自身の体力が40%を下回ると、1秒間<keywordStealth>インビジブル</keywordStealth>状態になり、ダメージを与えない分身を8秒間発生させる。分身はAltキーで動かせる。",
    "source": "stringtable",
    "unresolved": []
   },

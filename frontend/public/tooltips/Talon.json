@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "血塗られし慈悲",
-   "description": "<br><br><rules>継続ダメージ効果はジャングルモンスターには100%のダメージを与える。</rules>",
+   "description": "スキルでダメージを与えたチャンピオンまたは大型ジャングルモンスターに6秒間スタックを付与する(最大3スタック)。<br><br>3スタックの対象に通常攻撃を行うと、2秒かけて<physicalDamage>80〜280（レベル比例） ＋ 増加攻撃力の210%の物理ダメージ</physicalDamage>を追加で与える。",
    "source": "stringtable",
    "unresolved": []
   },

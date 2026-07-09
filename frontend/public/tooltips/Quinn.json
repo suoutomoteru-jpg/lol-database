@@ -7,11 +7,9 @@
  "skills": {
   "passive": {
    "name": "鷲匠",
-   "description": "<br><br><rules>クリティカル率に応じてクールダウンが短縮される。<br>モンスターに対してはの追加ダメージを与える。</rules>",
+   "description": "ヴァロールが2秒ごとに近くの敵1体に<keywordMajor>「鷲匠」</keywordMajor>のマークをつけ、4秒間可視化する。次の通常攻撃<OnHit>通常攻撃時効果</OnHit>は対象に<physicalDamage>15〜120（レベル比例） ＋ 増加攻撃力の40%の追加物理ダメージ</physicalDamage>を与える。",
    "source": "stringtable",
-   "unresolved": [
-    "BonusMonsterDmg"
-   ]
+   "unresolved": []
   },
   "q": {
    "name": "暗闇の強襲",
@@ -50,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

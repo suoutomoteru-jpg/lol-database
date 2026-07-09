@@ -7,11 +7,9 @@
  "skills": {
   "passive": {
    "name": "ブラバド",
-   "description": "スキル使用後、5秒以内に行う次の2回の通常攻撃は<attackSpeed>攻撃速度が100%</attackSpeed>増加し、<magicDamage>25〜93（レベル比例）×1 ＋ 増加物理防御の15%の魔法ダメージ</magicDamage>を追加で与える。さらに、自身の通常スキルのクールダウンを秒間短縮する。",
-   "source": "stringtable",
-   "unresolved": [
-    "CDR"
-   ]
+   "description": "スキル使用後の通常攻撃2回が素早くなり、追加魔法ダメージを付与する。さらに通常スキルのクールダウンを短縮する。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 25〜93（レベル比例）×1 ＋ 増加物理防御の15%",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "スターライトタッチ",
@@ -50,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

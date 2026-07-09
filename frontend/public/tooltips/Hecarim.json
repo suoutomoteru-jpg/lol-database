@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ウォーパス",
-   "description": "<br><br><rules>攻撃力は自身の増加移動速度に応じて増加する。</rules>",
+   "description": "チャンピオンレベルに応じて<scaleAD>攻撃力が増加クリティカル率の12%〜（レベルに応じて増加）</scaleAD>増加する。",
    "source": "stringtable",
    "unresolved": []
   },

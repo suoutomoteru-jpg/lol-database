@@ -7,12 +7,9 @@
  "skills": {
   "passive": {
    "name": "狩鬼道",
-   "description": "<br><br><rules>「不屈の心」は先に他のクリティカル率の増減を適用してから計算される。<br><onlyShowInGame>現在のボーナス: クリティカル率%、<physicalDamage>増加攻撃力</physicalDamage></onlyShowInGame></rules>",
-   "source": "stringtable",
-   "unresolved": [
-    "f2",
-    "f3"
-   ]
+   "description": "通常攻撃2回ごとに魔法ダメージを与える。さらに、クリティカル率が増加する。",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "斬命刀",
@@ -51,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 2
+ "unresolvedCount": 0
 }

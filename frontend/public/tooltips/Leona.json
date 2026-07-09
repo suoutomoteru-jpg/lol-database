@@ -7,11 +7,9 @@
  "skills": {
   "passive": {
    "name": "サンライト",
-   "description": "レオナのスキルは敵を2.5秒間マークする。他の味方チャンピオンがマークされた敵にダメージを与えると、マークを消費して、追加で<magicDamage>の魔法ダメージ</magicDamage>を与える。",
-   "source": "stringtable",
-   "unresolved": [
-    "TotalDamage"
-   ]
+   "description": "攻撃スキルが命中した敵に1.5秒間「サンライト」の効果を付与する。この状態の対象に味方チャンピオンがダメージを与えると「サンライト」を消費して追加魔法ダメージを与える。",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "シールド・オブ・デイブレイク",
@@ -50,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

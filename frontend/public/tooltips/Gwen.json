@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "裁断",
-   "description": "<br><rules>モンスターには最大で3（＋魔力の5%）のダメージを与える。体力が40%未満に低下したミニオンには8〜30（レベル比例）の追加ダメージを与える。</rules><br>",
+   "description": "通常攻撃が通常攻撃時効果により、<magicDamage>最大体力の1%（＋魔力の0.6%）にあたる魔法ダメージ</magicDamage>を追加で与える。このスキルでチャンピオンに与えた<healing>ダメージの50%</healing>を体力として回復する。最大<healing>10〜25（レベル比例） ＋ 魔力の6.5%</healing>まで。<br>",
    "source": "stringtable",
    "unresolved": []
   },

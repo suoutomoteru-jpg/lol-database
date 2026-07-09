@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "はぐれスライム",
-   "description": "<br><br><rules>スライム1体の体力はザックの最大<healing>体力</healing>の12%、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>は50%に相当する。</rules>",
+   "description": "スキルによる攻撃が命中するたびに<keywordMajor>スライム</keywordMajor>が飛び散り、それを回収すると<healing>最大体力が4〜8%（レベル比例）</healing>回復する。<br><br>体力がゼロになった場合、ザックは4体のスライムに分裂して再融合を始める。<scaleLevel>8〜（レベルに応じて変化）</scaleLevel>秒経ってもスライムが生き残っていた場合は、そのスライムの体力に応じて、ザックが10 - 50%の体力で復活する。この効果には300秒間のクールダウンがある。",
    "source": "stringtable",
    "unresolved": []
   },

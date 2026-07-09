@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "武魂の律動",
-   "description": "<br><br><rules>チャンピオン以外には最低20、最大400のダメージを与える。</rules>",
+   "description": "通常攻撃が<physicalDamage>現在体力の8%の物理ダメージ</physicalDamage>を追加で与える。この効果には対象ごとに6〜（レベルに応じて変化）秒間のクールダウンがある。",
    "source": "stringtable",
    "unresolved": []
   },

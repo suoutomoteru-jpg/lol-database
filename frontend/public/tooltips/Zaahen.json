@@ -7,12 +7,9 @@
  "skills": {
   "passive": {
    "name": "戦威修養",
-   "description": "敵チャンピオンに攻撃またはスキルを命中させると<keyword>不退転</keyword>のスタックを獲得する(最大12)。スタックごとに<physicalDamage>攻撃力が</physicalDamage>増加する。<br><br><keyword>不退転</keyword>が最大スタックになると、ザーヘンに付与される<physicalDamage>攻撃力</physicalDamage>が2倍になり、倒されると4秒間、固有時停止状態に入った後、<healing>最大体力の</healing>で復活する。<br><br>復活のクールダウンは、300〜（レベルに応じて変化）秒。<br><br><rules></rules>",
-   "source": "stringtable",
-   "unresolved": [
-    "PercentBonusADCalc",
-    "RevivePercentCalc"
-   ]
+   "description": "敵チャンピオンに対する攻撃およびスキルで「不退転」のスタックを獲得し、スタックごとに攻撃力が増加する。「不退転」が最大スタックになると、攻撃力が増加し、復活できるようになる。<br><br><strong>詳細数値</strong><br>・クールダウン: 300〜（レベルに応じて変化）",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "ダーキングレイヴ",
@@ -51,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 2
+ "unresolvedCount": 0
 }

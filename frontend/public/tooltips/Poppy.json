@@ -7,11 +7,9 @@
  "skills": {
   "passive": {
    "name": "鋼鉄の大使",
-   "description": "16〜（レベルに応じて変化）秒ごとに、次の通常攻撃がバックラーを投げつける攻撃に変化し、射程が350増加して、<magicDamage>20〜180（レベル比例）の魔法ダメージ</magicDamage>を追加で与える。バックラーは対象に当たると跳ね返り、近くに落ちる。自身がバックラーを拾うと<shield>耐久値のシールド</shield>を獲得するが、敵に踏まれると破壊される。<br><br>バックラーで対象をキルした場合、バックラーは自動的に自身のところまで戻ってくる。",
-   "source": "stringtable",
-   "unresolved": [
-    "ShieldValue"
-   ]
+   "description": "対象にバックラーを投げつける。対象に命中し跳ね返って落ちたバックラーを拾うことで、一時的にシールドを得る。<br><br><strong>詳細数値</strong><br>・クールダウン: 16〜（レベルに応じて変化）<br>・合計ダメージ: 20〜180（レベル比例）",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "ハンマーショック",
@@ -50,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

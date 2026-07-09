@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ヴォイドスキン",
-   "description": "<br><br><rules><keywordMajor>プラズマ</keywordMajor>を消費すると、モンスターには最大で<magicDamage>400の魔法ダメージ</magicDamage>を与える。<br>チャンピオンレベル上昇で増加する<physicalDamage>攻撃力</physicalDamage>は<spellName>「イカシアの雨」</spellName>、<attackSpeed>攻撃速度</attackSpeed>は<spellName>「スーパーチャージ」</spellName>の<keywordMajor>「進化」</keywordMajor>をそれぞれ進める。</rules>",
+   "description": "通常攻撃が4秒間、<keywordMajor>プラズマ</keywordMajor>をスタックさせ、<magicDamage>4〜24（レベル比例） ＋ 魔力の12%(+スタックごとに1〜6（レベル比例） ＋ 魔力の3%)の魔法ダメージ</magicDamage>を追加で与える。4スタックで敵に通常攻撃を行うと<keywordMajor>プラズマ</keywordMajor>を消費し、<magicDamage>減少体力の15%（＋魔力の0.06%）の魔法ダメージ</magicDamage>を与える。周囲の味方はチャンピオンに<status>移動不能効果</status>を与えると1スタックを付与する。<br><br>自身のステータスに応じて、外骨格が通常スキルを進化させる。<br><spellName>イカシアの雨</spellName>: <physicalDamage>40/55/70/85/100/増加攻撃力100</physicalDamage><br><spellName>ヴォイドシーカー</spellName>: <scaleAP>6/魔力6</scaleAP><br><spellName>スーパーチャージ</spellName>: <attackSpeed>0.25%/増加攻撃速度100%</attackSpeed>",
    "source": "stringtable",
    "unresolved": []
   },

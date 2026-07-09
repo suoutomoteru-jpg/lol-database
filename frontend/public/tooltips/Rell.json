@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "革新の鬨",
-   "description": "<br><br><rules>最低でも1.5〜3（レベル比例）は奪える。ミニオンおよびエピックジャングルモンスターからは奪えない。</rules>",
+   "description": "通常攻撃またはスキルを命中させると、5秒間、対象から<scaleArmor>物理防御を3%</scaleArmor>、<scaleMR>魔法防御を3%</scaleMR>奪う(最大15%)。通常攻撃時効果で<magicDamage>合計物理防御の5% ＋ 合計移動速度の5%の魔法ダメージ</magicDamage>を与える。",
    "source": "stringtable",
    "unresolved": []
   },

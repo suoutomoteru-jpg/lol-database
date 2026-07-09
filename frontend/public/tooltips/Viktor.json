@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "グロリアス・エヴォリューション",
-   "description": "<br><rules><br>アルティメットスキルは、アルティメット以外のスキルをすべて強化した後でなければアップグレードできない。</rules>",
+   "description": "敵を倒すたびに<keywordMajor>「ヘクス フラグメント」</keywordMajor>を獲得する。<keywordMajor>「ヘクス フラグメント」</keywordMajor>を100個獲得するごとに、発動効果スキルを1つ恒久的にアップグレードできる。すべての通常スキルをアップグレードすると、アルティメットスキルを強化できる。<br><br>ミニオンをキルすると<keywordMajor>「ヘクス フラグメント」</keywordMajor>を1個獲得する。<br>砲台ミニオンをキルすると<keywordMajor>「ヘクス フラグメント」</keywordMajor>を10個獲得する。<br>チャンピオンからキルまたはアシストを奪うと<keywordMajor>「ヘクス フラグメント」</keywordMajor>を20個獲得する。",
    "source": "stringtable",
    "unresolved": []
   },

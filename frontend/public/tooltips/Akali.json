@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "刺客の刻印",
-   "description": "<br><br><rules>自身が輪を超えると、敵に向かう際に<speed>移動速度</speed>が増加する。</rules>",
+   "description": "スキルが敵チャンピオンに命中すると、その周囲に4秒間輪が発生し、輪に向かう際に<speed>移動速度が30%〜（レベルに応じて変化）</speed>増加する。自身が輪の境界を越えると次の通常攻撃の射程が2倍になり、<magicDamage>35〜（レベルに応じて変化） ＋ 増加攻撃力の60% ＋ 魔力の55%の魔法ダメージ</magicDamage>を追加で与える。",
    "source": "stringtable",
    "unresolved": []
   },

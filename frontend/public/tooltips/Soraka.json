@@ -7,11 +7,9 @@
  "skills": {
   "passive": {
    "name": "救済の足音",
-   "description": "<br><br><rules>味方は自身から範囲以内にいる必要がある。</rules>",
+   "description": "体力が40%未満の味方チャンピオンへ向かっていく際、移動速度が<speed>90%</speed>増加する。",
    "source": "stringtable",
-   "unresolved": [
-    "CastRange"
-   ]
+   "unresolved": []
   },
   "q": {
    "name": "星のささやき",
@@ -50,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

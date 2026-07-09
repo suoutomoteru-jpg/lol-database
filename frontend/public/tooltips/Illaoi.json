@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "旧神の預言者",
-   "description": "<br><br><rules>一度に複数の「叩きつけ」を受けた敵は、2つ目から受けるダメージが50%、3つ目以降から受けるダメージが25%になる。<br>触手は自らがキルされるか、イラオイが範囲外に出て30秒経過するまで持続する。</rules>",
+   "description": "近くに触手が存在しないとき、神の力を呼び寄せて付近の地形に触手を生み出す(クールダウン<scaleLevel>18〜7（レベル比例）</scaleLevel>秒)。触手は自ら攻撃することはないが、イラオイがスキルを使うと連動して<keywordMajor>「叩きつけ」</keywordMajor>を行う。<br><br><keywordMajor>「叩きつけ」</keywordMajor>は<physicalDamage>9〜180（レベル比例） ＋ 合計攻撃力の110% ＋ 魔力の40%の物理ダメージ</physicalDamage>を与える。1体以上の敵チャンピオンに当たると、自身の<healing>減少体力の5%</healing>を回復する。",
    "source": "stringtable",
    "unresolved": []
   },

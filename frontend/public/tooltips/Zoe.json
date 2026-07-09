@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "スパークル！",
-   "description": "<br><br><rules>強化された通常攻撃は直ちにダメージを与える。</rules>",
+   "description": "スキル使用後、次に行う通常攻撃が<magicDamage>16〜（レベルに応じて変化） ＋ 魔力の20%の魔法ダメージ</magicDamage>を追加で与える。",
    "source": "stringtable",
    "unresolved": []
   },

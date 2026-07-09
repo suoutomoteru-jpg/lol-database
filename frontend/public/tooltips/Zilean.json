@@ -7,11 +7,9 @@
  "skills": {
   "passive": {
    "name": "タイムインボトル",
-   "description": "<br><br>付与した合計: <statTracking>経験値</statTracking><br><br><rules>戦闘中は経験値を付与できない。</rules>",
-   "source": "stringtable",
-   "unresolved": [
-    "TotalXP"
-   ]
+   "description": "時間を経験値として溜めて、味方に付与できる。味方のレベルを上げるのに必要な経験値が溜まっている状態で相手を右クリックすると、経験値を与えることができる。同時に、与えた量と同じ経験値を自身も獲得する。",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "タイムボム",
@@ -50,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

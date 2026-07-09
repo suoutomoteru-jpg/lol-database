@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "品定め",
-   "description": "<br><br><rules><br><speed>移動速度</speed>はスタックするが、30%を超えることはない。<br></rules>",
+   "description": "<spellName>「クーガーの心」</spellName>がスキルレベル1の状態で試合を開始する。<br><br>茂みに入ると2秒間<speed>移動速度が10%</speed>増加し、敵チャンピオンに向かっている場合は<speed>移動速度が30%</speed>増加する。<br><br><spellName>「槍投げ」</spellName>か<spellName>「虎挟み」</spellName>がチャンピオンまたはジャングルモンスターに命中すると、4秒間<keywordMajor>「マーキング」</keywordMajor>する。敵は<keywordMajor>「マーキング」</keywordMajor>されている間、<keywordStealth>真の視界</keywordStealth>で可視化され、ニダリーの<speed>移動速度が10%</speed>増加する。<keywordMajor>「マーキング」</keywordMajor>された敵に向かっている場合は<speed>移動速度が30%</speed>増加する。",
    "source": "stringtable",
    "unresolved": []
   },

@@ -1,6 +1,6 @@
 {
  "patch": "16.13.7915903+branch.releases-16-13.content.release",
- "generatedAt": "2026-07-09T03:42:12.001970+00:00",
+ "generatedAt": "2026-07-09T03:44:00.948977+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -132,8 +132,8 @@
    "alias": "Braum",
    "id": 201,
    "name": "ブラウム",
-   "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Briar",
@@ -146,7 +146,7 @@
    "alias": "Caitlyn",
    "id": 51,
    "name": "ケイトリン",
-   "unresolvedCount": 2,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {
@@ -202,8 +202,8 @@
    "alias": "Draven",
    "id": 119,
    "name": "ドレイヴン",
-   "unresolvedCount": 3,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Ekko",
@@ -293,8 +293,8 @@
    "alias": "Graves",
    "id": 104,
    "name": "グレイブス",
-   "unresolvedCount": 3,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Gwen",
@@ -335,15 +335,15 @@
    "alias": "Irelia",
    "id": 39,
    "name": "イレリア",
-   "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Ivern",
    "id": 427,
    "name": "アイバーン",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Janna",
@@ -503,8 +503,8 @@
    "alias": "Leona",
    "id": 89,
    "name": "レオナ",
-   "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Lillia",
@@ -713,8 +713,8 @@
    "alias": "Poppy",
    "id": 78,
    "name": "ポッピー",
-   "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Pyke",
@@ -734,7 +734,7 @@
    "alias": "Quinn",
    "id": 133,
    "name": "クイン",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -853,8 +853,8 @@
    "alias": "Shen",
    "id": 98,
    "name": "シェン",
-   "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Shyvana",
@@ -909,15 +909,15 @@
    "alias": "Soraka",
    "id": 16,
    "name": "ソラカ",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
    "alias": "Swain",
    "id": 50,
    "name": "スウェイン",
-   "unresolvedCount": 2,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Sylas",
@@ -958,8 +958,8 @@
    "alias": "Taric",
    "id": 44,
    "name": "タリック",
-   "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Teemo",
@@ -972,7 +972,7 @@
    "alias": "Thresh",
    "id": 412,
    "name": "スレッシュ",
-   "unresolvedCount": 5,
+   "unresolvedCount": 3,
    "passiveSource": "stringtable"
   },
   {
@@ -1119,8 +1119,8 @@
    "alias": "XinZhao",
    "id": 5,
    "name": "シン・ジャオ",
-   "unresolvedCount": 2,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Yasuo",
@@ -1133,8 +1133,8 @@
    "alias": "Yone",
    "id": 777,
    "name": "ヨネ",
-   "unresolvedCount": 2,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Yorick",
@@ -1161,8 +1161,8 @@
    "alias": "Zaahen",
    "id": 904,
    "name": "ザーヘン",
-   "unresolvedCount": 2,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Zac",
@@ -1196,8 +1196,8 @@
    "alias": "Zilean",
    "id": 26,
    "name": "ジリアン",
-   "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Zoe",

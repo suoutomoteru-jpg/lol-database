@@ -7,12 +7,9 @@
  "skills": {
   "passive": {
    "name": "恐襲の魔鴉",
-   "description": "<spellName>「帝国の眼」</spellName>、<spellName>「束縛の爪」</spellName>、敵チャンピオンのデスにより、<font color='#FF3F3F' size='18'>「魂のかけら」</font>を獲得する。<font color='#FF3F3F' size='18'>「魂のかけら」</font>は<healing>最大体力の6〜6%（レベル比例）</healing>を回復し、恒久的に自身の<healing>最大体力を15</healing>増加させる。<br><br>獲得した「魂のかけら」: <br>獲得した体力の合計: <scaleHealth></scaleHealth>",
-   "source": "stringtable",
-   "unresolved": [
-    "f1",
-    "MaxHealthGained"
-   ]
+   "description": "鴉たちが「魂のかけら」を回収し、スウェインの体力を回復して、最大体力を恒久的に上昇させる。<br><br><strong>詳細数値</strong><br>・回復: 6〜6%（レベル比例）<br>・回復: 6〜6%（レベル比例）",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "死の手",
@@ -51,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 2
+ "unresolvedCount": 0
 }

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "貪欲なる暗殺者",
-   "description": "<br><br><rules><keywordMajor>「短剣」</keywordMajor>によるこの攻撃はチャンピオンに通常攻撃時効果を適用する。</rules>",
+   "description": "自身がダメージを与えた敵チャンピオンが3秒以内にキルされると、自身の全スキルのクールダウンが15秒短縮する。<br><br>自身が<keywordMajor>「短剣」</keywordMajor>を拾うと、周囲の敵を斬りつけて<magicDamage>80/115/150/185/220（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。",
    "source": "stringtable",
    "unresolved": []
   },

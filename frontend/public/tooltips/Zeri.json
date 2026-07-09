@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "生体バッテリー",
-   "description": "<br><br><rules>ジャングルモンスターに対する最大体力に応じたダメージは300が上限。</rules>",
+   "description": "ゼリの通常攻撃はスキルとして扱われ、移動および<spellName>「」</spellName>を使用することでチャージされていく。チャージが完了していない通常攻撃は少量のチャージを消費して<magicDamage>10〜25（レベル比例） ＋ 魔力の3%の魔法ダメージ</magicDamage>を与え、<attention>体力が70〜160（レベル比例） ＋ 魔力の20%</attention>未満の敵には<danger>とどめを刺す</danger>。最大までチャージされた通常攻撃は<magicDamage>75〜160（レベル比例） ＋ 魔力の110% + 最大体力の1〜11%（レベル比例）の魔法ダメージ</magicDamage>を与え、全チャージを消費する。",
    "source": "stringtable",
    "unresolved": []
   },

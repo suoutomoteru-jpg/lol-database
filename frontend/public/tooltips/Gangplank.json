@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "背水の銃剣",
-   "description": "<br><br><rules>タワーに対するダメージは50%になる。<br><spellName></spellName>ではこのスキルは適用されない。</rules>",
+   "description": "近接通常攻撃で対象に火を点け、2.5秒かけて<trueDamage>50〜250（レベル比例） ＋ 増加攻撃力の100%の確定ダメージ</trueDamage>を追加で与える。また、2秒間、自身の<speed>移動速度が15〜30%（レベル比例）</speed>増加する。<br><br><keywordMajor>「火薬樽」</keywordMajor>を破壊すると、このスキルのクールダウンが解消されて、同じように<speed>移動速度</speed>が増加する。",
    "source": "stringtable",
    "unresolved": []
   },

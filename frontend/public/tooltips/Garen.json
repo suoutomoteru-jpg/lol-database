@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "タフガイ",
-   "description": "<br><br><rules>ミニオンおよびジャングルモンスター(エピックを除く)からのダメージには影響されない。</rules>",
+   "description": "8秒間ダメージや敵のスキルを受けずにいると、5秒毎に<healing>最大体力の150%〜（レベルに応じて変化）</healing>を回復するようになる。",
    "source": "stringtable",
    "unresolved": []
   },

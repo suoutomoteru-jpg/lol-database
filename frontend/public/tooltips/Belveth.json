@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "死のラベンダー",
-   "description": "<br><br><rules>ベル＝ヴェスの通常攻撃は他チャンピオンよりも速いが、与えるダメージが75%になり、通常攻撃時効果は75%の効率で適用される。<br>ベル＝ヴェスはチャンピオンレベルが上昇しても<attackSpeed>攻撃速度</attackSpeed>が増加せず、<attackSpeed>攻撃速度</attackSpeed>に上限が存在しない。<br></rules>",
+   "description": "スキル使用後にゴースト状態となり、次の2回の通常攻撃の<attackSpeed>攻撃速度が20〜40%（レベル比例）</attackSpeed>増加する。<br><br>大型ミニオンか大型モンスターからキルまたはアシストを奪うと<keywordMajor>「ラベンダー」を1</keywordMajor>スタック獲得する。チャンピオンおよびエピックモンスターからキルまたはアシストを奪うと<keywordMajor>「ラベンダー」を2</keywordMajor>スタック獲得する。各スタックは恒久的に<attackSpeed>攻撃速度を0.28〜1.1（レベル比例）%</attackSpeed>増加させる。<br><br>合計増加<attackSpeed>攻撃速度</attackSpeed>: <attackSpeed>0.28〜1.1（レベル比例）%</attackSpeed>",
    "source": "stringtable",
    "unresolved": []
   },

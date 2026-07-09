@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ゼロ・ドライブ",
-   "description": "<br><br><rules>この効果はモンスターには150%のダメージを与える。</rules>",
+   "description": "同じ対象に通常攻撃または攻撃スキルが3回命中するたびに追加で<magicDamage>30〜（レベルに応じて変化） ＋ 魔力の80%の魔法ダメージ</magicDamage>を与える。対象がチャンピオンだった場合は、2〜（レベルに応じて変化）秒間<speed>移動速度が50%〜（レベルに応じて変化）</speed>増加する。この効果は同じ敵に対して、4秒に1回しか発動しない。",
    "source": "stringtable",
    "unresolved": []
   },

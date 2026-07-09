@@ -7,13 +7,9 @@
  "skills": {
   "passive": {
    "name": "ニュー・デスティニー",
-   "description": "グレイブスは通常攻撃に独特の特性がある:<br><li><keywordMajor>弾</keywordMajor>を2発撃つとリロードする必要がある。<attackSpeed>攻撃速度</attackSpeed>はリロード時間をあまり短縮しないが、攻撃の間隔が大幅に短縮される。<li>通常攻撃は4発の弾丸を発射する。同じ対象に当たった場合、1発目の弾丸は<physicalDamage>の物理ダメージ</physicalDamage>を与え、2発目以降の弾丸は1発につき<physicalDamage>のダメージ</physicalDamage>を与える。クリティカル時は通常のクリティカル効果の代わりに弾丸が6発に増え、ダメージが増加する。建造物に対してはダメージが25%減少する。<li>弾丸はユニットを貫通しない。チャンピオン以外のユニットに複数の弾丸が命中すると<status>ノックバック</status>させる。",
-   "source": "stringtable",
-   "unresolved": [
-    "SingleBulletDamage",
-    "MultiBulletDamage",
-    "CritDamageMult"
-   ]
+   "description": "ショットガンには独特の特性がある。弾を撃ち尽くしたらリロードが必要となる。通常攻撃は弾丸を4発発射する。弾丸はユニットを貫通しない。チャンピオン以外のユニットは、複数の弾丸が命中するとノックバックする。",
+   "source": "lcu",
+   "unresolved": []
   },
   "q": {
    "name": "エンドライン",
@@ -52,5 +48,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 3
+ "unresolvedCount": 0
 }
