@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "やぶからヨードル",
-   "description": "ダメージを受けずに1.5秒間じっとしていると、次に動き出すまで<keywordStealth>インビジブル</keywordStealth>状態になる。茂みの中では、移動しても<keywordStealth>インビジブル</keywordStealth>状態が維持される。<br><br>この<keywordStealth>インビジブル</keywordStealth>状態が解除されると、5秒間、<attackSpeed>攻撃速度が20/20/40/60/80%（レベル1/2/5/10/15）</attackSpeed>増加する。<br><br><rules><keywordStealth>インビジブル</keywordStealth>状態のユニットは、タワーまたは<font color='#ee91d7'>真の視界</font color>によってのみ可視化される。</rules>",
+   "description": "ダメージを受けずに1.5秒間じっとしていると、次に動き出すまで<keywordStealth>インビジブル</keywordStealth>状態になる。茂みの中では、移動しても<keywordStealth>インビジブル</keywordStealth>状態が維持される。<br><br>この<keywordStealth>インビジブル</keywordStealth>状態が解除されると、5秒間、<attackSpeed>攻撃速度が20/40/60/80%（レベル1/5/10/15）</attackSpeed>増加する。<br><br><rules><keywordStealth>インビジブル</keywordStealth>状態のユニットは、タワーまたは<font color='#ee91d7'>真の視界</font color>によってのみ可視化される。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

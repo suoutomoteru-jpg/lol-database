@@ -40,7 +40,7 @@
   },
   "r": {
    "name": "マーキュリーキャノン/マーキュリーハンマー",
-   "description": "<keywordMajor>マーキュリーハンマー</keywordMajor>: 武器を<keywordMajor>「マーキュリーキャノン」</keywordMajor>に切り替えて射程距離が増加する。この際にスキルも切り替わる。また、次の通常攻撃が5秒間、<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御を20/20/25/30/35%（レベル1/2/6/11/16）</scaleArmor>低下させる。",
+   "description": "<keywordMajor>マーキュリーハンマー</keywordMajor>: 武器を<keywordMajor>「マーキュリーキャノン」</keywordMajor>に切り替えて射程距離が増加する。この際にスキルも切り替わる。また、次の通常攻撃が5秒間、<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御を20/25/30/35%（レベル1/6/11/16）</scaleArmor>低下させる。",
    "cooldown": "6",
    "cost": "",
    "range": "600",

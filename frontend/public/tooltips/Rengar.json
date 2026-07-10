@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "見えざる襲撃者",
-   "description": "茂みの中にいると、通常攻撃で敵に飛びかかる。<br><br>アルティメット以外のスキルを使用すると、<keywordMajor>フェロシティを1</keywordMajor>獲得する。また、飛びかかり始める時点で「見えざる襲撃者」によって<keywordMajor>フェロシティが1</keywordMajor>生成されるが、この方法で生成されたフェロシティが全くない場合に限る。<br> <br><keywordMajor>フェロシティが4</keywordMajor>になると、次に使用するアルティメット以外のスキルが強化される。強化されたスキルを使用すると、1.5秒間<speed>30/30/40/50%（レベル1/2/7/13）移動速度</speed>が増加する。<br><br>異なる対象からキルまたはアシストを獲得するたびに、<keywordMajor>「骨牙の首飾り」</keywordMajor>から得る<physicalDamage>攻撃力</physicalDamage>が増加する。<br><rules><br>非戦闘状態が10秒間続くと、すべての<keywordMajor>フェロシティ</keywordMajor>を失う。<br>カ＝ジックスをキルすると、追加の<physicalDamage>攻撃力</physicalDamage>を獲得する。</rules>",
+   "description": "茂みの中にいると、通常攻撃で敵に飛びかかる。<br><br>アルティメット以外のスキルを使用すると、<keywordMajor>フェロシティを1</keywordMajor>獲得する。また、飛びかかり始める時点で「見えざる襲撃者」によって<keywordMajor>フェロシティが1</keywordMajor>生成されるが、この方法で生成されたフェロシティが全くない場合に限る。<br> <br><keywordMajor>フェロシティが4</keywordMajor>になると、次に使用するアルティメット以外のスキルが強化される。強化されたスキルを使用すると、1.5秒間<speed>30/40/50%（レベル1/7/13）移動速度</speed>が増加する。<br><br>異なる対象からキルまたはアシストを獲得するたびに、<keywordMajor>「骨牙の首飾り」</keywordMajor>から得る<physicalDamage>攻撃力</physicalDamage>が増加する。<br><rules><br>非戦闘状態が10秒間続くと、すべての<keywordMajor>フェロシティ</keywordMajor>を失う。<br>カ＝ジックスをキルすると、追加の<physicalDamage>攻撃力</physicalDamage>を獲得する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
