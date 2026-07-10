@@ -117,17 +117,19 @@ def fmt_bp(vals: list, mult: float = 1.0, suffix: str = "") -> str:
     例: [30,30,...,23.75,...] → "30/23.75/17.5/11.25/5（レベル1/6/9/11/13）"
     変化点が多い（毎レベル成長など）場合はレンジ表記に畳む。
     """
-    pts = [(1, vals[0])]
-    for i in range(1, len(vals)):
-        if vals[i] != vals[i - 1]:
-            pts.append((i + 1, vals[i]))
+    # 丸め後の表示値で変化点を取る（0.02→0.0225 のような差は表示上同値）
+    shown = [fnum(v * mult) for v in vals]
+    pts = [(1, shown[0])]
+    for i in range(1, len(shown)):
+        if shown[i] != shown[i - 1]:
+            pts.append((i + 1, shown[i]))
     if len(pts) == 1:
-        return f"{fnum(vals[0] * mult)}{suffix}"
+        return f"{shown[0]}{suffix}"
     if len(pts) <= 6:
-        nums = "/".join(fnum(v * mult) for _, v in pts)
+        nums = "/".join(v for _, v in pts)
         lvls = "/".join(str(l) for l, _ in pts)
         return f"{nums}{suffix}（レベル{lvls}）"
-    return f"{fnum(vals[0] * mult)}〜{fnum(vals[-1] * mult)}{suffix}（レベル1〜18）"
+    return f"{shown[0]}〜{shown[-1]}{suffix}（レベル1〜18）"
 
 
 # 先頭の割合値列（0.4 / 0.4〜0.7 / 0.4/0.45/0.5 等。1以上の値が混ざる場合は不一致）

@@ -106,6 +106,20 @@ function BuildPath({ item }: {
   );
 }
 
+// ── <stats> ブロックの構造化 ────────────────────────────
+
+/** "攻撃力 65" のような行を ラベルHTML / 値 に分割する */
+function splitStatLines(statsHtml: string): Array<{ label: string; value: string }> {
+  return statsHtml
+    .split(/<br\s*\/?\s*>/i)
+    .map(l => l.trim())
+    .filter(Boolean)
+    .map(line => {
+      const m = line.match(/^([\s\S]*?)\s*([+-]?\d[\d.,]*\s*%?)\s*$/);
+      return m ? { label: m[1], value: m[2] } : { label: line, value: '' };
+    });
+}
+
 // ── メインページ ───────────────────────────────────────
 
 export function ItemDetail() {
@@ -151,8 +165,16 @@ export function ItemDetail() {
     );
   }
 
-  const description = injectStatLinks(processItemDescription(item.description));
+  const processed = injectStatLinks(processItemDescription(item.description));
+  const statsMatch = processed.match(/<div class="item-stats">([\s\S]*?)<\/div>/i);
+  const statLines = statsMatch ? splitStatLines(statsMatch[1]) : [];
+  const bodyHtml = processed
+    .replace(/<div class="item-stats">[\s\S]*?<\/div>/i, '')
+    .replace(/^(\s*<br>)+/i, '')
+    .trim();
   const goldEfficiency = calcGoldEfficiency(item.stats, item.tags, item.description, item.gold.total);
+  // メーターは150%を上限、100%の位置に基準線
+  const effBarWidth = goldEfficiency !== null ? `${Math.min(goldEfficiency, 150) / 1.5}%` : '0%';
 
   return (
     <div className="min-h-screen bg-background">
@@ -175,7 +197,7 @@ export function ItemDetail() {
         </Link>
       )}
       <div className="border-b border-border">
-        <div className="container mx-auto px-4 py-3 max-w-5xl">
+        <div className="container mx-auto px-4 py-2.5 max-w-4xl">
           <Link
             to="/"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -186,53 +208,90 @@ export function ItemDetail() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-5xl space-y-4">
+      <div className="container mx-auto px-4 py-5 max-w-4xl space-y-3">
 
-        {/* ヘッダー */}
-        <div className="flex items-center gap-4">
-          <img
-            src={item.imageUrl}
-            alt={item.name}
-            className="w-16 h-16 rounded-sm border border-border shadow flex-shrink-0"
-          />
-          <div className="min-w-0">
-            <h1
-              className="text-xl font-bold text-foreground leading-tight"
-              style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
-            >
-              <WbrName text={item.name} />
-            </h1>
-            {item.englishName && item.englishName !== item.name && (
-              <p className="font-display text-sm text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
-            )}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-muted-foreground">
-              <span className="text-primary font-semibold tabular-nums">{item.gold.total}G</span>
+        {/* ヘッダー: アイコン + 名前 + 価格/金銭効率メーター */}
+        <div className="bg-card border border-border rounded-md p-4 sm:p-5">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            <img
+              src={item.imageUrl}
+              alt={item.name}
+              className="w-20 h-20 rounded-md border-2 border-primary/40 flex-shrink-0"
+            />
+            <div className="min-w-0 flex-1">
+              <h1
+                className="text-2xl font-bold text-foreground leading-tight"
+                style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
+              >
+                <WbrName text={item.name} />
+              </h1>
+              {item.englishName && item.englishName !== item.name && (
+                <p className="font-display text-sm text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
+              )}
+            </div>
+            <div className="flex-shrink-0">
+              <p className="text-right text-xl font-bold text-primary tabular-nums leading-tight">
+                {item.gold.total}<span className="text-sm font-semibold ml-0.5">G</span>
+              </p>
               {goldEfficiency !== null && (
-                <>
-                  <span className="text-border">·</span>
-                  <span>
-                    金銭効率{' '}
-                    <span className="text-primary font-semibold tabular-nums">{goldEfficiency.toFixed(1)}%</span>
-                  </span>
-                </>
+                <div className="mt-2 w-40">
+                  <div className="flex items-baseline justify-between mb-1 text-[11px]">
+                    <span className="text-muted-foreground">金銭効率</span>
+                    <span className={`font-semibold tabular-nums ${goldEfficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
+                      {goldEfficiency.toFixed(1)}%
+                    </span>
+                  </div>
+                  <div className="relative h-1.5 bg-secondary rounded-full">
+                    <div
+                      className={`absolute inset-y-0 left-0 rounded-full ${goldEfficiency >= 100 ? 'bg-stat-hp/80' : 'bg-primary/80'}`}
+                      style={{ width: effBarWidth }}
+                    />
+                    {/* 100% の基準線 */}
+                    <div className="absolute -inset-y-0.5 w-px bg-foreground/50" style={{ left: `${100 / 1.5}%` }} />
+                  </div>
+                </div>
               )}
             </div>
           </div>
         </div>
 
-        {/* 説明 — キーワードをクリックするとポップアップ表示 */}
-        {description && (
-          <div className="bg-card border border-border rounded-md overflow-hidden">
-            <div
-              className="px-4 py-3 text-sm text-foreground leading-snug item-description"
-              dangerouslySetInnerHTML={{ __html: description }}
-              onClick={handleDescClick}
-            />
-          </div>
-        )}
+        {/* md以上: 左=ステータス+ビルドパス / 右=効果 */}
+        <div className="grid md:grid-cols-[260px_1fr] gap-3 items-start">
+          {statLines.length > 0 && (
+            <div className="bg-card border border-border rounded-md md:col-start-1" onClick={handleDescClick}>
+              <p className="px-4 pt-3 pb-1.5 text-sm font-semibold text-foreground">ステータス</p>
+              <div className="px-4 pb-2">
+                {statLines.map((line, i) => (
+                  <div
+                    key={i}
+                    className="flex items-baseline justify-between gap-3 py-1.5 text-sm border-t border-border/50 first:border-t-0"
+                  >
+                    <span
+                      className="text-muted-foreground min-w-0"
+                      dangerouslySetInnerHTML={{ __html: line.label }}
+                    />
+                    <span className="flex-shrink-0 font-semibold text-foreground tabular-nums">{line.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
-        {/* ビルドパス（素材 → このアイテム → アップグレード先） */}
-        <BuildPath item={item} />
+          {bodyHtml && (
+            <div className="bg-card border border-border rounded-md p-4 md:col-start-2 md:row-start-1 md:row-span-2">
+              <p className="text-sm font-semibold text-foreground mb-2">効果</p>
+              <div
+                className="text-sm text-foreground leading-relaxed item-description"
+                dangerouslySetInnerHTML={{ __html: bodyHtml }}
+                onClick={handleDescClick}
+              />
+            </div>
+          )}
+
+          <div className="md:col-start-1">
+            <BuildPath item={item} />
+          </div>
+        </div>
       </div>
 
       <BottomSheet
