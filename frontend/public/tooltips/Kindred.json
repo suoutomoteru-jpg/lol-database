@@ -24,7 +24,7 @@
   },
   "w": {
    "name": "狼の激昂",
-   "description": "<spellPassive>自動効果:</spellPassive> 移動と通常攻撃でスタックを獲得する。100スタックになると、次の通常攻撃で自身の減少体力に応じて最大<healing>47〜（レベルに応じて変化）の体力</healing>を回復する。<br><br><spellActive>発動効果:</spellActive> 縄張りを定め、子羊が最後に通常攻撃を行った敵に噛みつくよう狼に命令する。狼の噛みつきは<magicDamage>25/30/35/40/45（＋増加攻撃力の20% ＋魔力の20%）</magicDamage><magicDamage>(+現在体力の)の魔法ダメージ</magicDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> 移動と通常攻撃でスタックを獲得する。100スタックになると、次の通常攻撃で自身の減少体力に応じて最大<healing>47〜81（レベル1〜18）の体力</healing>を回復する。<br><br><spellActive>発動効果:</spellActive> 縄張りを定め、子羊が最後に通常攻撃を行った敵に噛みつくよう狼に命令する。狼の噛みつきは<magicDamage>25/30/35/40/45（＋増加攻撃力の20% ＋魔力の20%）</magicDamage><magicDamage>(+現在体力の)の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "18/17/16/15/14",
    "cost": "40",
    "range": "560",

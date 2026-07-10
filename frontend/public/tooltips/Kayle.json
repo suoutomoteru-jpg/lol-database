@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "聖なる上昇",
-   "description": "レベルが上がってスキルポイントを使用するにつれて通常攻撃が強化される。<br><br><ul><li><scaleLevel>レベル1 - ゼレス:</scaleLevel> 通常攻撃を行うと5秒間、<attackSpeed>攻撃速度が6%</attackSpeed>上昇する(最大5スタック)。最大スタックに到達すると「崇高」状態となり、<speed>移動速度が10%</speed>上昇する。<br></li><li><scaleLevel>レベル6 - アライズン: </scaleLevel>通常攻撃の射程距離が525まで延びる。<br></li><li><scaleLevel>レベル11 - アフレイム:</scaleLevel> 「崇高」状態で通常攻撃を行うと<magicDamage>20〜（レベルに応じて変化） ＋ 魔力の25% ＋ 増加攻撃力の10%の魔法ダメージ</magicDamage>を与える炎の波動を発射する。<br></li><li><scaleLevel>レベル16 - トランセンデント:</scaleLevel> 常に「崇高」状態となる。射程距離が625になる。</li></ul><br><rules>炎の波動はスキル命中時効果を適用し、クリティカル判定を持つ。</rules>",
+   "description": "レベルが上がってスキルポイントを使用するにつれて通常攻撃が強化される。<br><br><ul><li><scaleLevel>レベル1 - ゼレス:</scaleLevel> 通常攻撃を行うと5秒間、<attackSpeed>攻撃速度が6%</attackSpeed>上昇する(最大5スタック)。最大スタックに到達すると「崇高」状態となり、<speed>移動速度が10%</speed>上昇する。<br></li><li><scaleLevel>レベル6 - アライズン: </scaleLevel>通常攻撃の射程距離が525まで延びる。<br></li><li><scaleLevel>レベル11 - アフレイム:</scaleLevel> 「崇高」状態で通常攻撃を行うと<magicDamage>20〜41（レベル1〜18） ＋ 魔力の25% ＋ 増加攻撃力の10%の魔法ダメージ</magicDamage>を与える炎の波動を発射する。<br></li><li><scaleLevel>レベル16 - トランセンデント:</scaleLevel> 常に「崇高」状態となる。射程距離が625になる。</li></ul><br><rules>炎の波動はスキル命中時効果を適用し、クリティカル判定を持つ。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

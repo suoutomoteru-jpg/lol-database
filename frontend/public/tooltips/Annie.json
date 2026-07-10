@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "火遊びだいすき",
-   "description": "スキルを4回使用すると、次の攻撃スキルが対象を1.25〜（レベルに応じて変化）秒間<status>スタン</status>させる。<br><br>試合開始時および復活時は<spellName>「火遊びだいすき」</spellName>が使用可能な状態でスタートする。",
+   "description": "スキルを4回使用すると、次の攻撃スキルが対象を1.25/1.5/1.75（レベル1/6/11）秒間<status>スタン</status>させる。<br><br>試合開始時および復活時は<spellName>「火遊びだいすき」</spellName>が使用可能な状態でスタートする。",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "神秘の翼",
-   "description": "40〜（レベルに応じて変化）秒ごとに<shield>30〜225（レベル比例） ＋ 魔力の95%のシールド</shield>を獲得する。敵チャンピオンに通常攻撃かスキルを使用すると、このクールダウンが1秒短縮される。<br><br><keywordMajor>愛の跳躍</keywordMajor> - ザヤとラカンは一緒にリコールできる。",
+   "description": "40〜14.5（レベル1〜18）秒ごとに<shield>30〜225（レベル比例） ＋ 魔力の95%のシールド</shield>を獲得する。敵チャンピオンに通常攻撃かスキルを使用すると、このクールダウンが1秒短縮される。<br><br><keywordMajor>愛の跳躍</keywordMajor> - ザヤとラカンは一緒にリコールできる。",
    "source": "stringtable",
    "unresolved": []
   },

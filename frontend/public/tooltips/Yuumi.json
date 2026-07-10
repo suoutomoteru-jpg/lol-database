@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ネコはトモダチ",
-   "description": "通常攻撃またはスキルをチャンピオンに命中させると、<healing><health>体力が20〜110（レベル比例） ＋ 魔力の30%</health></healing>回復する。その後4秒以内に味方に<keywordMajor>くっつくと</keywordMajor>、味方も体力が<heal>回復</heal>する。この効果には20〜（レベルに応じて変化）秒間のクールダウンがある。<br><br><keywordMajor>くっついて</keywordMajor>いる味方がチャンピオンまたはミニオンをキルするたびに、その味方に対する<keywordMajor>「フレンドシップ」</keywordMajor>を獲得する。<keywordMajor>「フレンドシップ」</keywordMajor>が最も多い味方は<keywordMajor>「ベストフレンド」</keywordMajor>になる。その味方に<keywordMajor>くっついて</keywordMajor>いると、自身のスキルが追加効果を獲得する。<br><br><rules>すでに味方にくっついている状態だと、体力回復効果は自動的に発動する。</rules>",
+   "description": "通常攻撃またはスキルをチャンピオンに命中させると、<healing><health>体力が20〜110（レベル比例） ＋ 魔力の30%</health></healing>回復する。その後4秒以内に味方に<keywordMajor>くっつくと</keywordMajor>、味方も体力が<heal>回復</heal>する。この効果には20〜3（レベル1〜18）秒間のクールダウンがある。<br><br><keywordMajor>くっついて</keywordMajor>いる味方がチャンピオンまたはミニオンをキルするたびに、その味方に対する<keywordMajor>「フレンドシップ」</keywordMajor>を獲得する。<keywordMajor>「フレンドシップ」</keywordMajor>が最も多い味方は<keywordMajor>「ベストフレンド」</keywordMajor>になる。その味方に<keywordMajor>くっついて</keywordMajor>いると、自身のスキルが追加効果を獲得する。<br><br><rules>すでに味方にくっついている状態だと、体力回復効果は自動的に発動する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "気ままな往診",
-   "description": "次に受ける<status>移動不能効果</status>を無効化する。その際、代わりに<healing>現在体力の4%</healing>を失い、7秒間、近くに薬品の入った容器を落とす。その上を歩くと、このスキルのクールダウンが15秒間短縮されて、<healing>最大体力の4%</healing>を回復する。敵チャンピオンが上を歩くと容器は破壊される。<br><br>5秒ごとに<healing>最大体力の0.4%〜（レベルに応じて変化）</healing>を自動回復する。",
+   "description": "次に受ける<status>移動不能効果</status>を無効化する。その際、代わりに<healing>現在体力の4%</healing>を失い、7秒間、近くに薬品の入った容器を落とす。その上を歩くと、このスキルのクールダウンが15秒間短縮されて、<healing>最大体力の4%</healing>を回復する。敵チャンピオンが上を歩くと容器は破壊される。<br><br>5秒ごとに<healing>最大体力の0.4〜2.3%（レベル1〜18）</healing>を自動回復する。",
    "source": "stringtable",
    "unresolved": []
   },

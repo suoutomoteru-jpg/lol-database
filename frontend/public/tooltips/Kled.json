@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "弱虫トカゲ「スカール」",
-   "description": "<keywordMajor>騎乗時: </keywordMajor>クレッドの乗騎であるスカールがクレッドの代わりにダメージを受ける。スカールの体力がなくなると、クレッドは乗騎を降りる。<br><br><keywordMajor>非騎乗時: </keywordMajor>クレッドの<spellName>トラバサミロープ</spellName>が置き換わり、敵チャンピオンに向かう際に<speed>移動速度が70〜（レベルに応じて変化）</speed>増加し、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が4（＋増加体力の1%）増加する。この増加量は周囲の敵チャンピオン1体ごとに30%増加する(最大10（＋増加体力の1%）)。騎馬解除時、クレッドの通常攻撃はチャンピオンに与えるダメージが15%〜（レベルに応じて変化）低下する。<br><br>クレッドはチャンピオンに通常攻撃を行うと<keywordMajor>「勇気」を15</keywordMajor>獲得し、エピックモンスターまたは建造物に通常攻撃を行うと<keywordMajor>「勇気」を5</keywordMajor>獲得し、ミニオンをキルすると<keywordMajor>「勇気」を5</keywordMajor>獲得する。<keywordMajor>勇気</keywordMajor>が最大になると再び騎乗してスカールの体力の40%〜（レベルに応じて変化）を獲得する(30秒に1回のみ)。<br><br><rules>スカールは<healing>400〜1400（レベル比例）(+クレッドの増加体力の100%)の体力</healing>を持つ。<br>スカールから降りる際、すべての行動妨害効果を除去して、少しの間だけ対象指定不可になる。</rules>",
+   "description": "<keywordMajor>騎乗時: </keywordMajor>クレッドの乗騎であるスカールがクレッドの代わりにダメージを受ける。スカールの体力がなくなると、クレッドは乗騎を降りる。<br><br><keywordMajor>非騎乗時: </keywordMajor>クレッドの<spellName>トラバサミロープ</spellName>が置き換わり、敵チャンピオンに向かう際に<speed>移動速度が70〜155（レベル1〜18）</speed>増加し、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が4（＋増加体力の1%）増加する。この増加量は周囲の敵チャンピオン1体ごとに30%増加する(最大10（＋増加体力の1%）)。騎馬解除時、クレッドの通常攻撃はチャンピオンに与えるダメージが15/15/10/5/0%（レベル1/2/6/11/16）低下する。<br><br>クレッドはチャンピオンに通常攻撃を行うと<keywordMajor>「勇気」を15</keywordMajor>獲得し、エピックモンスターまたは建造物に通常攻撃を行うと<keywordMajor>「勇気」を5</keywordMajor>獲得し、ミニオンをキルすると<keywordMajor>「勇気」を5</keywordMajor>獲得する。<keywordMajor>勇気</keywordMajor>が最大になると再び騎乗してスカールの体力の40/40/50/60/70%（レベル1/2/6/11/16）を獲得する(30秒に1回のみ)。<br><br><rules>スカールは<healing>400〜1400（レベル比例）(+クレッドの増加体力の100%)の体力</healing>を持つ。<br>スカールから降りる際、すべての行動妨害効果を除去して、少しの間だけ対象指定不可になる。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "二挺拳銃",
-   "description": "スキル使用後、3.5秒以内に行う次の通常攻撃が2回攻撃になる。2発目の攻撃は対象に<physicalDamage>合計攻撃力の50%〜（レベルに応じて増加）の物理ダメージ</physicalDamage>を与え、ミニオンに対しては与えるダメージが<physicalDamage>合計攻撃力の100%</physicalDamage>に増加する。<br><br><attention>警戒: </attention>味方から体力回復効果またはシールドを直接付与されるか、自身の周囲で敵チャンピオンが<status>移動不能効果</status>を受けると、拳銃がエネルギーで<keywordMajor>「オーバーチャージ」</keywordMajor>され、その後2回の通常攻撃が<magicDamage>15（＋合計攻撃力の20%）の魔法ダメージ</magicDamage>を追加で与える。<br><rules>「警戒」は最大で4回まで強化通常攻撃を蓄えておける。</rules>",
+   "description": "スキル使用後、3.5秒以内に行う次の通常攻撃が2回攻撃になる。2発目の攻撃は対象に<physicalDamage>合計攻撃力の50/55/60%（レベル1/7/13）の物理ダメージ</physicalDamage>を与え、ミニオンに対しては与えるダメージが<physicalDamage>合計攻撃力の100%</physicalDamage>に増加する。<br><br><attention>警戒: </attention>味方から体力回復効果またはシールドを直接付与されるか、自身の周囲で敵チャンピオンが<status>移動不能効果</status>を受けると、拳銃がエネルギーで<keywordMajor>「オーバーチャージ」</keywordMajor>され、その後2回の通常攻撃が<magicDamage>15（＋合計攻撃力の20%）の魔法ダメージ</magicDamage>を追加で与える。<br><rules>「警戒」は最大で4回まで強化通常攻撃を蓄えておける。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

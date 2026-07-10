@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "シュリーマの遺産",
-   "description": "タワーの瓦礫から<keywordMajor>「太陽の円盤」</keywordMajor>を召喚できる。<keywordMajor>「太陽の円盤」</keywordMajor>は<magicDamage>230〜（レベルに応じて変化） ＋ 魔力の40%の魔法ダメージ</magicDamage>を与え、30〜（レベルに応じて変化）の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を持っているが、45秒かけて崩壊していく。<br><br><rules>敵のネクサスとインヒビタータワーはこのスキルの対象にできない。<br>自身が倒されるか、距離が離れすぎると、<keywordMajor>「太陽の円盤」</keywordMajor>の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>は100減少する。</rules>",
+   "description": "タワーの瓦礫から<keywordMajor>「太陽の円盤」</keywordMajor>を召喚できる。<keywordMajor>「太陽の円盤」</keywordMajor>は<magicDamage>230〜410（レベル1〜18） ＋ 魔力の40%の魔法ダメージ</magicDamage>を与え、30〜90（レベル1〜18）の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を持っているが、45秒かけて崩壊していく。<br><br><rules>敵のネクサスとインヒビタータワーはこのスキルの対象にできない。<br>自身が倒されるか、距離が離れすぎると、<keywordMajor>「太陽の円盤」</keywordMajor>の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>は100減少する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
@@ -22,7 +22,7 @@
   },
   "w": {
    "name": "目覚めよ！",
-   "description": "10秒間、<keywordMajor>砂塵兵</keywordMajor>を召喚する。自身が<keywordMajor>砂塵兵</keywordMajor>の近くにいる敵を通常攻撃するときは、兵士に命令を出して代わりに攻撃させ、その方向にいる敵に<magicDamage>50/65/80/95/110（＋0〜（レベルに応じて変化） ＋魔力の35/42.5/50/57.5/65%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは回までチャージできる。",
+   "description": "10秒間、<keywordMajor>砂塵兵</keywordMajor>を召喚する。自身が<keywordMajor>砂塵兵</keywordMajor>の近くにいる敵を通常攻撃するときは、兵士に命令を出して代わりに攻撃させ、その方向にいる敵に<magicDamage>50/65/80/95/110（＋0〜72（レベル1〜18） ＋魔力の35/42.5/50/57.5/65%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは回までチャージできる。",
    "cooldown": "1.5",
    "cost": "40/35/30/25/20",
    "range": "525",

@@ -7,13 +7,13 @@
  "skills": {
   "passive": {
    "name": "魂の導き手",
-   "description": "周囲で敵が8〜（レベルに応じて変化）体倒されるたびに墓が作られる。チャンピオンと大型モンスターは常に墓を残す。<br><br>これらはエリア内に最大4体まで、<keywordMajor>「ミストウォーカー」</keywordMajor>を<spellName>「目覚め」</spellName>させるために使用される。「ミストウォーカー」は<healing>体力が100〜300（レベル比例） ＋ 増加体力の15%</healing>、<physicalDamage>攻撃力が15〜100（レベル比例） ＋ 増加攻撃力の20%</physicalDamage>。<br><br><rules><keywordMajor>「ミストウォーカー」</keywordMajor><br>建造物には<physicalDamage>50%のダメージ</physicalDamage>を与える。<br>ジャングルモンスターには<physicalDamage>60%のダメージ</physicalDamage>を与える。<br>近接攻撃チャンピオンの通常攻撃から200%のダメージを受ける。<br>範囲ダメージからは66%〜（レベルに応じて変化）のダメージを受ける。<br>レーンミニオンからは60%のダメージを受ける。<br>ジャングルモンスターからは100%のダメージを受ける。</rules>",
+   "description": "周囲で敵が8〜2（レベル1〜18）体倒されるたびに墓が作られる。チャンピオンと大型モンスターは常に墓を残す。<br><br>これらはエリア内に最大4体まで、<keywordMajor>「ミストウォーカー」</keywordMajor>を<spellName>「目覚め」</spellName>させるために使用される。「ミストウォーカー」は<healing>体力が100〜300（レベル比例） ＋ 増加体力の15%</healing>、<physicalDamage>攻撃力が15〜100（レベル比例） ＋ 増加攻撃力の20%</physicalDamage>。<br><br><rules><keywordMajor>「ミストウォーカー」</keywordMajor><br>建造物には<physicalDamage>50%のダメージ</physicalDamage>を与える。<br>ジャングルモンスターには<physicalDamage>60%のダメージ</physicalDamage>を与える。<br>近接攻撃チャンピオンの通常攻撃から200%のダメージを受ける。<br>範囲ダメージからは66〜32%（レベル1〜18）のダメージを受ける。<br>レーンミニオンからは60%のダメージを受ける。<br>ジャングルモンスターからは100%のダメージを受ける。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "葬送",
-   "description": "次の通常攻撃が追加で<physicalDamage>30/50/70/90/110（＋合計攻撃力の50%）の物理ダメージ</physicalDamage>を与え、<healing>10〜（レベルに応じて変化） + 自身の減少体力の6/7/8/9/10%</healing>の体力を回復する。チャンピオン以外に対しては回復量が50%低下する。この通常攻撃がチャンピオンまたは大型モンスターに命中するか、対象を倒すと、墓が残る。<br><br>周囲に3つ以上の墓が存在し、このスキルが使用されていた場合は、<recast>再発動</recast>すると周囲の墓から<keywordMajor>「ミストウォーカー」</keywordMajor>を召喚できる。",
+   "description": "次の通常攻撃が追加で<physicalDamage>30/50/70/90/110（＋合計攻撃力の50%）の物理ダメージ</physicalDamage>を与え、<healing>10〜68（レベル1〜18） + 自身の減少体力の6/7/8/9/10%</healing>の体力を回復する。チャンピオン以外に対しては回復量が50%低下する。この通常攻撃がチャンピオンまたは大型モンスターに命中するか、対象を倒すと、墓が残る。<br><br>周囲に3つ以上の墓が存在し、このスキルが使用されていた場合は、<recast>再発動</recast>すると周囲の墓から<keywordMajor>「ミストウォーカー」</keywordMajor>を召喚できる。",
    "cooldown": "6/5.5/5/4.5/4",
    "cost": "20",
    "range": "0",
@@ -42,7 +42,7 @@
   },
   "r": {
    "name": "嘆きの墓標",
-   "description": "<healing>体力1050〜（レベルに応じて変化） ＋ 増加体力の60%</healing>、魔法攻撃力<magicDamage>50/75/100（＋増加攻撃力の30%）</magicDamage>の<keywordMajor>「霧の乙女」</keywordMajor>と2/3/4体の<keywordMajor>「ミストウォーカー」</keywordMajor>を召喚する。<keywordMajor>「霧の乙女」</keywordMajor>は周囲で倒された敵から自動的に<keywordMajor>「ミストウォーカー」</keywordMajor>を召喚し、攻撃時に敵チャンピオンをマークする。<keywordMajor>「霧の乙女」</keywordMajor>が攻撃している対象を自身が攻撃すると、<magicDamage>最大体力の2/2.5/3%にあたる魔法ダメージ</magicDamage>を与える。<br><br>10秒後、このスキルを<recast>再発動</recast>すると<keywordMajor>「霧の乙女」</keywordMajor>が解放されて、最も近いレーンを進んでいく。",
+   "description": "<healing>体力1050〜3200（レベル1〜18） ＋ 増加体力の60%</healing>、魔法攻撃力<magicDamage>50/75/100（＋増加攻撃力の30%）</magicDamage>の<keywordMajor>「霧の乙女」</keywordMajor>と2/3/4体の<keywordMajor>「ミストウォーカー」</keywordMajor>を召喚する。<keywordMajor>「霧の乙女」</keywordMajor>は周囲で倒された敵から自動的に<keywordMajor>「ミストウォーカー」</keywordMajor>を召喚し、攻撃時に敵チャンピオンをマークする。<keywordMajor>「霧の乙女」</keywordMajor>が攻撃している対象を自身が攻撃すると、<magicDamage>最大体力の2/2.5/3%にあたる魔法ダメージ</magicDamage>を与える。<br><br>10秒後、このスキルを<recast>再発動</recast>すると<keywordMajor>「霧の乙女」</keywordMajor>が解放されて、最も近いレーンを進んでいく。",
    "cooldown": "160/130/100",
    "cost": "100",
    "range": "600",

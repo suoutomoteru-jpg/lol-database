@@ -7,13 +7,13 @@
  "skills": {
   "passive": {
    "name": "見えざる襲撃者",
-   "description": "茂みの中にいると、通常攻撃で敵に飛びかかる。<br><br>アルティメット以外のスキルを使用すると、<keywordMajor>フェロシティを1</keywordMajor>獲得する。また、飛びかかり始める時点で「見えざる襲撃者」によって<keywordMajor>フェロシティが1</keywordMajor>生成されるが、この方法で生成されたフェロシティが全くない場合に限る。<br> <br><keywordMajor>フェロシティが4</keywordMajor>になると、次に使用するアルティメット以外のスキルが強化される。強化されたスキルを使用すると、1.5秒間<speed>30%〜（レベルに応じて変化）移動速度</speed>が増加する。<br><br>異なる対象からキルまたはアシストを獲得するたびに、<keywordMajor>「骨牙の首飾り」</keywordMajor>から得る<physicalDamage>攻撃力</physicalDamage>が増加する。<br><rules><br>非戦闘状態が10秒間続くと、すべての<keywordMajor>フェロシティ</keywordMajor>を失う。<br>カ＝ジックスをキルすると、追加の<physicalDamage>攻撃力</physicalDamage>を獲得する。</rules>",
+   "description": "茂みの中にいると、通常攻撃で敵に飛びかかる。<br><br>アルティメット以外のスキルを使用すると、<keywordMajor>フェロシティを1</keywordMajor>獲得する。また、飛びかかり始める時点で「見えざる襲撃者」によって<keywordMajor>フェロシティが1</keywordMajor>生成されるが、この方法で生成されたフェロシティが全くない場合に限る。<br> <br><keywordMajor>フェロシティが4</keywordMajor>になると、次に使用するアルティメット以外のスキルが強化される。強化されたスキルを使用すると、1.5秒間<speed>30/30/40/50%（レベル1/2/7/13）移動速度</speed>が増加する。<br><br>異なる対象からキルまたはアシストを獲得するたびに、<keywordMajor>「骨牙の首飾り」</keywordMajor>から得る<physicalDamage>攻撃力</physicalDamage>が増加する。<br><rules><br>非戦闘状態が10秒間続くと、すべての<keywordMajor>フェロシティ</keywordMajor>を失う。<br>カ＝ジックスをキルすると、追加の<physicalDamage>攻撃力</physicalDamage>を獲得する。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "逆上",
-   "description": "次に行う2回の通常攻撃の<attackSpeed>攻撃速度が40%</attackSpeed>増加する。最初の通常攻撃が<physicalDamage>20/55/90/125/160（＋合計攻撃力の100% ＋合計攻撃力の5%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> 最初の通常攻撃が<physicalDamage>35〜（レベルに応じて変化） ＋ 合計攻撃力の100% ＋ 合計攻撃力の20%の物理ダメージ</physicalDamage>を与え、5秒間<attackSpeed>50%〜（レベルに応じて変化）攻撃速度</attackSpeed>が増加する。",
+   "description": "次に行う2回の通常攻撃の<attackSpeed>攻撃速度が40%</attackSpeed>増加する。最初の通常攻撃が<physicalDamage>20/55/90/125/160（＋合計攻撃力の100% ＋合計攻撃力の5%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> 最初の通常攻撃が<physicalDamage>35〜240（レベル1〜18） ＋ 合計攻撃力の100% ＋ 合計攻撃力の20%の物理ダメージ</physicalDamage>を与え、5秒間<attackSpeed>50〜101%（レベル1〜18）攻撃速度</attackSpeed>が増加する。",
    "cooldown": "0.25",
    "cost": "",
    "range": "450",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "鉄球の投げ縄",
-   "description": "投げ縄を放ち、最初に命中した敵に<physicalDamage>55/100/145/190/235（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与えて可視化し、1.75秒間30/45/60/75/90%の<status>スロウ効果</status>を付与する。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> <physicalDamage>50〜（レベルに応じて変化） ＋ 増加攻撃力の80%の物理ダメージ</physicalDamage>を与え、1.75秒間<status>スネア効果</status>を付与する。",
+   "description": "投げ縄を放ち、最初に命中した敵に<physicalDamage>55/100/145/190/235（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与えて可視化し、1.75秒間30/45/60/75/90%の<status>スロウ効果</status>を付与する。<br><br><keywordMajor>最大フェロシティ:</keywordMajor> <physicalDamage>50〜305（レベル1〜18） ＋ 増加攻撃力の80%の物理ダメージ</physicalDamage>を与え、1.75秒間<status>スネア効果</status>を付与する。",
    "cooldown": "0.25",
    "cost": "",
    "range": "1000",

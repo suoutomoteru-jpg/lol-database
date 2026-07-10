@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "絶大なる魔力",
-   "description": "<evolve>「怒りの破片」</evolve>は最大で120個まで集めることができる。<evolve>「怒りの破片」</evolve>はスキルを強化し、敵から1個獲得するたびに<scaleMana>マナを20〜（レベルに応じて変化）</scaleMana>回復する。<br><br><evolve>「怒りの破片」</evolve>は以下の条件で集められる:<li>4秒以内に2つのスキルで敵チャンピオンにダメージを与えると<evolve>破片を1〜（レベルに応じて変化）個</evolve>獲得(クールダウン8秒)<li>スキルレベルを上げるたびに<evolve>破片を5個</evolve>獲得<li>大型ミニオンを倒すと<evolve>破片を1個</evolve>獲得<br><br><evolve>「怒りの破片」</evolve>が120個になると、<scaleAP>魔力が15%</scaleAP>増加する。<br>",
+   "description": "<evolve>「怒りの破片」</evolve>は最大で120個まで集めることができる。<evolve>「怒りの破片」</evolve>はスキルを強化し、敵から1個獲得するたびに<scaleMana>マナを20〜215（レベル1〜18）</scaleMana>回復する。<br><br><evolve>「怒りの破片」</evolve>は以下の条件で集められる:<li>4秒以内に2つのスキルで敵チャンピオンにダメージを与えると<evolve>破片を1/2/3（レベル1/11/18）個</evolve>獲得(クールダウン8秒)<li>スキルレベルを上げるたびに<evolve>破片を5個</evolve>獲得<li>大型ミニオンを倒すと<evolve>破片を1個</evolve>獲得<br><br><evolve>「怒りの破片」</evolve>が120個になると、<scaleAP>魔力が15%</scaleAP>増加する。<br>",
    "source": "stringtable",
    "unresolved": []
   },

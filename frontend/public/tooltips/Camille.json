@@ -7,13 +7,13 @@
  "skills": {
   "passive": {
    "name": "アダプティブディフェンス",
-   "description": "敵チャンピオンに通常攻撃を行うと、その敵チャンピオンの主なダメージの種類(<physicalDamage>物理</physicalDamage>または<magicDamage>魔法</magicDamage>)に応じて、2秒間、<shield>耐久値合計体力の20%のシールド</shield>を獲得する。このシールドのクールダウンは18〜（レベルに応じて変化）秒。",
+   "description": "敵チャンピオンに通常攻撃を行うと、その敵チャンピオンの主なダメージの種類(<physicalDamage>物理</physicalDamage>または<magicDamage>魔法</magicDamage>)に応じて、2秒間、<shield>耐久値合計体力の20%のシールド</shield>を獲得する。このシールドのクールダウンは18/14/10（レベル1/7/13）秒。",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "プレシジョンプロトコル",
-   "description": "次の通常攻撃が<physicalDamage>合計攻撃力の20/25/30/35/40%の追加物理ダメージ</physicalDamage>を与え、1秒間、<speed>移動速度が25/30/35/40/45%</speed>上昇する。このスキルは3.5秒以内なら<recast>再発動</recast>できる。<br><br><recast>再発動</recast>による通常攻撃が最初の攻撃から1.5秒以上経過してから命中した場合、追加ダメージが増加して<physicalDamage>合計攻撃力の20/25/30/35/40%</physicalDamage>になり、攻撃ダメージの40%〜（レベルに応じて変化）が<trueDamage>確定ダメージ</trueDamage>に変わる。<br><br><rules>このスキルはダメージを与えた際にスキル命中時効果を発動する。</rules>",
+   "description": "次の通常攻撃が<physicalDamage>合計攻撃力の20/25/30/35/40%の追加物理ダメージ</physicalDamage>を与え、1秒間、<speed>移動速度が25/30/35/40/45%</speed>上昇する。このスキルは3.5秒以内なら<recast>再発動</recast>できる。<br><br><recast>再発動</recast>による通常攻撃が最初の攻撃から1.5秒以上経過してから命中した場合、追加ダメージが増加して<physicalDamage>合計攻撃力の20/25/30/35/40%</physicalDamage>になり、攻撃ダメージの40〜108%（レベル1〜18）が<trueDamage>確定ダメージ</trueDamage>に変わる。<br><br><rules>このスキルはダメージを与えた際にスキル命中時効果を発動する。</rules>",
    "cooldown": "9/8/7/6/5",
    "cost": "25",
    "range": "325",

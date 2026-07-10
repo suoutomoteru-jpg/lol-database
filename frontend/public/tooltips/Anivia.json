@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "再誕",
-   "description": "アニビアは力尽きると体力が最大の状態で卵に戻り、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>に<Level>-40〜（レベルに応じて変化）</Level>の補正がかかる。卵状態のまま6秒経過すると、その時点の状態で復活する。",
+   "description": "アニビアは力尽きると体力が最大の状態で卵に戻り、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>に<Level>-40/-25/-10/5/20（レベル1/5/8/12/15）</Level>の補正がかかる。卵状態のまま6秒経過すると、その時点の状態で復活する。",
    "source": "stringtable",
    "unresolved": []
   },

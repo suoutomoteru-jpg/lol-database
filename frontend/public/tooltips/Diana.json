@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "繊月の刃",
-   "description": "<attackSpeed>攻撃速度が15〜35%（レベル比例）</attackSpeed>増加し、スキル使用後5秒間は<attackSpeed>15〜35%（レベル比例）</attackSpeed>まで増加する。<br><br>通常攻撃3回ごとに、周囲の敵に<magicDamage>20〜（レベルに応じて変化） ＋ 魔力の50%の魔法ダメージ</magicDamage>を追加で与える。 <br><br><rules>「繊月の刃」はモンスターには270%のダメージを与える。</rules>",
+   "description": "<attackSpeed>攻撃速度が15〜35%（レベル比例）</attackSpeed>増加し、スキル使用後5秒間は<attackSpeed>15〜35%（レベル比例）</attackSpeed>まで増加する。<br><br>通常攻撃3回ごとに、周囲の敵に<magicDamage>20〜220（レベル1〜18） ＋ 魔力の50%の魔法ダメージ</magicDamage>を追加で与える。 <br><br><rules>「繊月の刃」はモンスターには270%のダメージを与える。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

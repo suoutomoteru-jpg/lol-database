@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "妖艶な蛇行",
-   "description": "カシオペアはあらゆる<speed>移動速度</speed>増加効果の効率が6%〜（レベルに応じて変化）増加する。",
+   "description": "カシオペアはあらゆる<speed>移動速度</speed>増加効果の効率が6〜40%（レベル1〜18）増加する。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -31,7 +31,7 @@
   },
   "e": {
    "name": "ツインファング",
-   "description": "鋭利な牙を飛ばして<magicDamage>52〜（レベルに応じて変化） ＋ 魔力の10%の魔法ダメージ</magicDamage>を与える。敵が<keywordMajor>毒</keywordMajor>状態の場合、<magicDamage>20/45/70/95/120（＋魔力の55%）の魔法ダメージ</magicDamage>を追加で与えて、自身の<healing>体力を魔力の10/11.5/13/14.5/16%</healing>回復する。対象がレーンミニオンや小型モンスターの場合、体力回復量が<healing>魔力の10/11.5/13/14.5/16%</healing>に減少する。<br><br>このスキルで対象をキルすると、<scaleMana>マナが40</scaleMana>回復する。<br><br>",
+   "description": "鋭利な牙を飛ばして<magicDamage>52〜120（レベル1〜18） ＋ 魔力の10%の魔法ダメージ</magicDamage>を与える。敵が<keywordMajor>毒</keywordMajor>状態の場合、<magicDamage>20/45/70/95/120（＋魔力の55%）の魔法ダメージ</magicDamage>を追加で与えて、自身の<healing>体力を魔力の10/11.5/13/14.5/16%</healing>回復する。対象がレーンミニオンや小型モンスターの場合、体力回復量が<healing>魔力の10/11.5/13/14.5/16%</healing>に減少する。<br><br>このスキルで対象をキルすると、<scaleMana>マナが40</scaleMana>回復する。<br><br>",
    "cooldown": "0.75",
    "cost": "40",
    "range": "700",

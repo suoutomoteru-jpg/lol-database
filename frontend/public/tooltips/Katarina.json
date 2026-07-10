@@ -31,7 +31,7 @@
   },
   "e": {
    "name": "瞬歩",
-   "description": "近くの指定した味方、敵、<keywordMajor>「短剣」</keywordMajor>のいずれかの場所へ瞬間移動する。敵の場合は<magicDamage>20/30/40/50/60（＋魔力の25% ＋合計攻撃力の40%）の魔法ダメージ</magicDamage>を与え、敵以外の場合は射程内で最も近い敵ユニットを攻撃する。<br><br><keywordMajor>「短剣」</keywordMajor>を拾うと、このスキルのクールダウンが<scaleLevel>0.78〜（レベルに応じて変化）</scaleLevel>秒(<scaleLevel>78%〜（レベルに応じて変化）</scaleLevel>)短縮される。対象近くの場所ならどこでもブリンクできる。",
+   "description": "近くの指定した味方、敵、<keywordMajor>「短剣」</keywordMajor>のいずれかの場所へ瞬間移動する。敵の場合は<magicDamage>20/30/40/50/60（＋魔力の25% ＋合計攻撃力の40%）の魔法ダメージ</magicDamage>を与え、敵以外の場合は射程内で最も近い敵ユニットを攻撃する。<br><br><keywordMajor>「短剣」</keywordMajor>を拾うと、このスキルのクールダウンが<scaleLevel>78/78/84/90/96%（レベル1/2/6/11/16）</scaleLevel>秒(<scaleLevel>78/78/84/90/96%（レベル1/2/6/11/16）</scaleLevel>)短縮される。対象近くの場所ならどこでもブリンクできる。",
    "cooldown": "12/11/10/9/8",
    "cost": "",
    "range": "725",

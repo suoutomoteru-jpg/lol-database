@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "練気",
-   "description": "スキルを使用すると、次の通常攻撃2回の<attackSpeed>攻撃速度が40%</attackSpeed>増加する。最初の通常攻撃で<keywordMajor>気を10〜（レベルに応じて変化）</keywordMajor>、2回目の通常攻撃で<keywordMajor>気を10〜（レベルに応じて変化）</keywordMajor>回復する。",
+   "description": "スキルを使用すると、次の通常攻撃2回の<attackSpeed>攻撃速度が40%</attackSpeed>増加する。最初の通常攻撃で<keywordMajor>気を10/15/20（レベル1/7/13）</keywordMajor>、2回目の通常攻撃で<keywordMajor>気を10/15/20（レベル1/7/13）</keywordMajor>回復する。",
    "source": "stringtable",
    "unresolved": []
   },

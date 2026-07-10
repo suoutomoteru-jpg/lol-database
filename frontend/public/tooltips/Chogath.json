@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "暴食",
-   "description": "敵を倒すと、体力が<scaleLevel>18〜（レベルに応じて変化）</scaleLevel>、マナが<scaleLevel>4.72〜（レベルに応じて変化）</scaleLevel>回復する。",
+   "description": "敵を倒すと、体力が<scaleLevel>18〜52（レベル1〜18）</scaleLevel>、マナが<scaleLevel>4.72〜9.48（レベル1〜18）</scaleLevel>回復する。",
    "source": "stringtable",
    "unresolved": []
   },

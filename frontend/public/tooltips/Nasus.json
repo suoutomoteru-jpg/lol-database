@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "ソウルイーター",
-   "description": "敵の魂のエネルギーを吸い取り、自身のライフスティールが増加する。",
-   "source": "lcu",
+   "description": "ライフスティールが12/18/24（レベル1/7/13）%増加している。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "無慈悲の嵐",
-   "description": "スキルまたは通常攻撃でダメージを与えるたびに、6秒間、<attackSpeed>攻撃速度が5%（＋魔力の0.03%）</attackSpeed>増加する。最大5スタック。<br><br>5スタックになるとボリベアの爪が雷で発火し、通常攻撃時に対象および自身から最も近い4体の敵に<magicDamage>11〜（レベルに応じて変化） ＋ 魔力の45%の魔法ダメージ</magicDamage>を追加で与える。",
+   "description": "スキルまたは通常攻撃でダメージを与えるたびに、6秒間、<attackSpeed>攻撃速度が5%（＋魔力の0.03%）</attackSpeed>増加する。最大5スタック。<br><br>5スタックになるとボリベアの爪が雷で発火し、通常攻撃時に対象および自身から最も近い4体の敵に<magicDamage>11〜60（レベル1〜18） ＋ 魔力の45%の魔法ダメージ</magicDamage>を追加で与える。",
    "source": "stringtable",
    "unresolved": []
   },

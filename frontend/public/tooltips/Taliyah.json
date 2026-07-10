@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ロックサーフィン",
-   "description": "非戦闘状態で壁の近くに3秒以上いると、<speed>移動速度が10%〜（レベルに応じて変化）</speed>増加する。",
+   "description": "非戦闘状態で壁の近くに3秒以上いると、<speed>移動速度が10/10/15/25/40%（レベル1/2/9/12/15）</speed>増加する。",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,13 +7,13 @@
  "skills": {
   "passive": {
    "name": "パワーコード",
-   "description": "<passive>アッチェレランド</passive>: 通常スキルを使用し条件を満たすたびに「アッチェレランド」のスタックを獲得する。1スタックごとに通常スキルヘイストが恒久的に50%増加する(最大で通常スキルヘイスト60)。通常スキルヘイストが上限の60に達してからは、スタック獲得時に<keywordMajor>アルティメットスキル</keywordMajor>の現在のクールダウンが1.5秒短縮される。<br><br><passive>パワーコード</passive>: 通常スキルを3回使用すると、次の通常攻撃が追加で<magicDamage>20〜（レベルに応じて変化） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与え、最後に発動した旋律に応じた追加効果を獲得する。<br><li><spellName>ヒム・オブ・ヴァロー:</spellName> その通常攻撃が代わりに<magicDamage>30〜（レベルに応じて変化） ＋ 魔力の30%の魔法ダメージ</magicDamage>を与える。<li><spellName>パーセヴァランス:</spellName> 対象の与えるダメージが3秒間25%（＋魔力の0.04%）減少する。<li><spellName>セレリティ:</spellName> 対象に2秒間、50%（＋魔力の0.04%）の<status>スロウ効果</status>を与える。",
+   "description": "<passive>アッチェレランド</passive>: 通常スキルを使用し条件を満たすたびに「アッチェレランド」のスタックを獲得する。1スタックごとに通常スキルヘイストが恒久的に50%増加する(最大で通常スキルヘイスト60)。通常スキルヘイストが上限の60に達してからは、スタック獲得時に<keywordMajor>アルティメットスキル</keywordMajor>の現在のクールダウンが1.5秒短縮される。<br><br><passive>パワーコード</passive>: 通常スキルを3回使用すると、次の通常攻撃が追加で<magicDamage>20〜240（レベル1〜18） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与え、最後に発動した旋律に応じた追加効果を獲得する。<br><li><spellName>ヒム・オブ・ヴァロー:</spellName> その通常攻撃が代わりに<magicDamage>30〜360（レベル1〜18） ＋ 魔力の30%の魔法ダメージ</magicDamage>を与える。<li><spellName>パーセヴァランス:</spellName> 対象の与えるダメージが3秒間25%（＋魔力の0.04%）減少する。<li><spellName>セレリティ:</spellName> 対象に2秒間、50%（＋魔力の0.04%）の<status>スロウ効果</status>を与える。",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "ヒム・オブ・ヴァロー",
-   "description": "周囲の敵2体(チャンピオンを優先)に<magicDamage>50/85/120/155/190（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、その後新たな<keywordMajor>メロディー</keywordMajor>を開始する。ダメージを与えたチャンピオンの数だけ<keywordMajor>アッチェレランド</keywordMajor>のスタックを獲得する。<br><br><keywordMajor>メロディー:</keywordMajor> 3秒間オーラを獲得する。オーラは味方チャンピオンを強化し、5秒内の次の通常攻撃が追加で<magicDamage>10/15/20/25/30（＋魔力の10%）の魔法ダメージ</magicDamage>を与えるようになる。<br><br><keywordMajor>パワーコード - スタッカート:</keywordMajor> 「パワーコード」が追加ダメージを与える(<magicDamage>合計30〜（レベルに応じて変化） ＋ 魔力の30%の魔法ダメージ</magicDamage>)。",
+   "description": "周囲の敵2体(チャンピオンを優先)に<magicDamage>50/85/120/155/190（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、その後新たな<keywordMajor>メロディー</keywordMajor>を開始する。ダメージを与えたチャンピオンの数だけ<keywordMajor>アッチェレランド</keywordMajor>のスタックを獲得する。<br><br><keywordMajor>メロディー:</keywordMajor> 3秒間オーラを獲得する。オーラは味方チャンピオンを強化し、5秒内の次の通常攻撃が追加で<magicDamage>10/15/20/25/30（＋魔力の10%）の魔法ダメージ</magicDamage>を与えるようになる。<br><br><keywordMajor>パワーコード - スタッカート:</keywordMajor> 「パワーコード」が追加ダメージを与える(<magicDamage>合計30〜360（レベル1〜18） ＋ 魔力の30%の魔法ダメージ</magicDamage>)。",
    "cooldown": "8",
    "cost": "50/55/60/65/70",
    "range": "825",

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "アサルトアタック",
-   "description": "通常攻撃で2.5秒間スタックを獲得し、<attackSpeed>攻撃速度が5%〜（レベルに応じて変化）</attackSpeed>増加する(最大で<attackSpeed>攻撃速度5%〜（レベルに応じて変化）</attackSpeed>)。",
+   "description": "通常攻撃で2.5秒間スタックを獲得し、<attackSpeed>攻撃速度が5〜12.5%（レベル1〜18）</attackSpeed>増加する(最大で<attackSpeed>攻撃速度5〜12.5%（レベル1〜18）</attackSpeed>)。",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "グラナイトシールド",
-   "description": "8〜（レベルに応じて変化）秒間ダメージを受けずにいると、<shield>耐久値合計体力の10%のシールド</shield>を獲得する。",
+   "description": "8/7/6（レベル1/7/13）秒間ダメージを受けずにいると、<shield>耐久値合計体力の10%のシールド</shield>を獲得する。",
    "source": "stringtable",
    "unresolved": []
   },
