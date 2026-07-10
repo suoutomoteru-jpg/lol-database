@@ -13,8 +13,6 @@ CommunityDragon の本番パッチデータから、チャンピオン毎に:
     python3 scripts/generate_tooltips.py --only Urgot,Ahri --out /tmp/test
 
 既知の制限（残課題）:
-  - パッシブおよびレベル比例値の ByCharLevelBreakpoints 展開は未実装
-    （起点値のみ「X〜（レベルに応じて変化）」と表示）
   - 変身系チャンピオン（Jayce 等）は第1形態のスキルセットのみ対象
 
 依存: 標準ライブラリのみ
@@ -78,6 +76,58 @@ def fmt_values(vals: list, mult: float = 1.0) -> str:
     if not out:
         return ""
     return out[0] if len(set(out)) == 1 else "/".join(out)
+
+
+def expand_breakpoints(part: dict) -> list[float]:
+    """ByCharLevelBreakpoints をレベル1〜18の値の列に展開する。
+
+    ブレークポイントの数値フィールド:
+      {57fdc438} / mBonusPerLevelAtAndAfter: そのレベル以降、毎レベル加算
+      {02deb550} / mAdditionalBonusAtThisLevel: そのレベルで一度だけ加算
+      （未知のハッシュキーは一度だけ加算として扱う）
+    """
+    base = float(part.get("mLevel1Value", 0) or 0)
+    rate = float(part.get("mInitialBonusPerLevel", 0) or 0)
+    steps: dict[int, float] = {}
+    per_from: dict[int, float] = {}
+    for bp in part.get("mBreakpoints") or []:
+        if not isinstance(bp, dict):
+            continue
+        lvl = int(bp.get("mLevel", 0) or 0)
+        for k, v in bp.items():
+            if k in ("__type", "mLevel") or not isinstance(v, (int, float)):
+                continue
+            if k in ("{57fdc438}", "mBonusPerLevelAtAndAfter"):
+                per_from[lvl] = float(v)
+            else:
+                steps[lvl] = steps.get(lvl, 0.0) + float(v)
+    vals = [base]
+    cur = base
+    for lvl in range(2, 19):
+        if lvl in per_from:
+            rate = per_from[lvl]
+        cur += rate + steps.get(lvl, 0.0)
+        vals.append(round(cur, 4))
+    return vals
+
+
+def fmt_bp(vals: list, mult: float = 1.0, suffix: str = "") -> str:
+    """レベル系列を「値が変わるレベルだけ」の表記に整形する。
+
+    例: [30,30,...,23.75,...] → "30/23.75/17.5/11.25/5（レベル1/6/9/11/13）"
+    変化点が多い（毎レベル成長など）場合はレンジ表記に畳む。
+    """
+    pts = [(1, vals[0])]
+    for i in range(1, len(vals)):
+        if vals[i] != vals[i - 1]:
+            pts.append((i + 1, vals[i]))
+    if len(pts) == 1:
+        return f"{fnum(vals[0] * mult)}{suffix}"
+    if len(pts) <= 6:
+        nums = "/".join(fnum(v * mult) for _, v in pts)
+        lvls = "/".join(str(l) for l, _ in pts)
+        return f"{nums}{suffix}（レベル{lvls}）"
+    return f"{fnum(vals[0] * mult)}〜{fnum(vals[-1] * mult)}{suffix}（レベル1〜18）"
 
 
 # 先頭の割合値列（0.4 / 0.4〜0.7 / 0.4/0.45/0.5 等。1以上の値が混ざる場合は不一致）
@@ -184,10 +234,10 @@ def eval_part(part, values: dict, max_rank: int):
             return None
         if sub[0] == "nums":
             return ("text", f"{label}の{fmt_values(sub[1], 100)}%")
-        if sub[0] == "bpnum":
+        if sub[0] == "bp":
             # 1未満なら割合（0.02→2%）、1以上なら既に%単位（ガレンの1.5等）
-            pct = sub[1] * 100 if abs(sub[1]) < 1 else sub[1]
-            return ("text", f"{label}の{fnum(pct)}%〜（レベルに応じて増加）")
+            mult = 100 if abs(sub[1][0]) < 1 else 1
+            return ("text", f"{label}の{fmt_bp(sub[1], mult, '%')}")
         return None
 
     if t == "AbilityResourceByCoefficientCalculationPart":
@@ -199,8 +249,7 @@ def eval_part(part, values: dict, max_rank: int):
         return ("text", f"{fnum(s)}〜{fnum(e)}（レベル比例）")
 
     if t == "ByCharLevelBreakpointsCalculationPart":
-        # 残課題: ブレークポイント展開は未実装（起点値のみ保持し、表示側で整形）
-        return ("bpnum", float(part.get("mLevel1Value", 0)))
+        return ("bp", expand_breakpoints(part))
 
     if t == "SumOfSubPartsCalculationPart":
         parts = [eval_part(p, values, max_rank) for p in part.get("mSubparts", [])]
@@ -223,7 +272,7 @@ def eval_part(part, values: dict, max_rank: int):
 
 def combine_parts(parts: list, max_rank: int):
     # 単独のレベル比例値はそのまま返す（呼び出し側で%等に整形できるように）
-    if len(parts) == 1 and parts[0] is not None and parts[0][0] == "bpnum":
+    if len(parts) == 1 and parts[0] is not None and parts[0][0] == "bp":
         return parts[0]
 
     nums = None
@@ -242,8 +291,8 @@ def combine_parts(parts: list, max_rank: int):
             sub_nums, sub_texts = p[1]
             add_nums(sub_nums)
             texts.extend(sub_texts)
-        elif p[0] == "bpnum":
-            texts.append(f"{fnum(p[1])}〜（レベルに応じて変化）")
+        elif p[0] == "bp":
+            texts.append(fmt_bp(p[1]))
         else:
             texts.append(p[1])
     if nums is not None and texts:
@@ -259,8 +308,8 @@ def render_result(res, mult: float = 1.0) -> str | None:
     if res is None:
         return None
     kind, val = res
-    if kind == "bpnum":
-        return f"{fnum(val * mult)}〜（レベルに応じて変化）"
+    if kind == "bp":
+        return fmt_bp(val, mult)
     if kind == "nums":
         return fmt_values(val, mult)
     if kind == "text":
@@ -291,10 +340,10 @@ def eval_calculation(calc, values: dict, calcs: dict, max_rank: int, depth: int 
         if res and calc.get("mDisplayAsPercent"):
             if res[0] == "nums":
                 return ("text", fmt_values(res[1], 100) + "%")
-            if res[0] == "bpnum":
+            if res[0] == "bp":
                 # 1未満なら割合、1以上なら既に%単位の値とみなす
-                pct = res[1] * 100 if abs(res[1]) < 1 else res[1]
-                return ("text", f"{fnum(pct)}%〜（レベルに応じて変化）")
+                pm = 100 if abs(res[1][0]) < 1 else 1
+                return ("text", fmt_bp(res[1], pm, "%"))
         return res
     if t == "GameCalculationModified":
         ref_name = str(calc.get("mModifiedGameCalculation", "")).lower()
@@ -430,11 +479,10 @@ def build_passive_details(spell: dict) -> list[str]:
         res = eval_calculation(calcs[cname.lower()], values, calcs, max_rank=1)
         # percent/ratio 系の名前を持つ割合値は%表記に
         if (
-            res is not None and res[0] == "bpnum"
-            and re.search(r"percent|ratio", cname, re.I) and abs(res[1]) < 1
+            res is not None and res[0] == "bp"
+            and re.search(r"percent|ratio", cname, re.I) and abs(res[1][0]) < 1
         ):
-            pct = res[1] * 100 if abs(res[1]) < 1 else res[1]
-            rendered: str | None = f"{fnum(pct)}%〜（レベルに応じて増加）"
+            rendered: str | None = fmt_bp(res[1], 100, "%")
         else:
             rendered = render_result(res)
             if rendered is not None:
