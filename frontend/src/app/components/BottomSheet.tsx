@@ -163,10 +163,10 @@ export function BottomSheet({
                         {it.stats.slice(0, 2).map(s => (
                           <div
                             key={s.label}
-                            className="flex items-center justify-end gap-2 text-xs whitespace-nowrap"
+                            className="flex items-baseline justify-end gap-2 whitespace-nowrap"
                           >
-                            <span className="text-muted-foreground">{s.label}</span>
-                            <span className="text-foreground font-semibold tabular-nums">
+                            <span className="text-xs text-muted-foreground">{s.label}</span>
+                            <span className="text-base text-foreground font-bold tabular-nums">
                               {s.value}
                             </span>
                           </div>

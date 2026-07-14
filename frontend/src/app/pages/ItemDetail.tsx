@@ -442,29 +442,32 @@ export function ItemDetail() {
                     : <><Plus size={15} strokeWidth={3} /> Build</>}
               </button>
 
-              {/* ステータスチップ: タップで「このステータスが得られるアイテム」一覧 */}
+              {/* ステータスチップ: タップで「このステータスが得られるアイテム」一覧
+                  モバイルは行レイアウト（ラベル左・大きな数値右）、sm以上はピル */}
               {chips.length > 0 && (
-                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                <div className="mt-4 flex flex-col items-stretch gap-2 max-w-xs mx-auto
+                  sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center">
                   {chips.map((c, i) => {
                     const color = c.key ? (CHIP_VALUE_COLOR[c.key] ?? 'text-foreground') : 'text-foreground';
+                    const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 py-2.5
+                      sm:inline-flex sm:justify-start sm:rounded-full sm:py-2`;
                     const inner = (
                       <>
-                        <span className="text-muted-foreground text-xs">{c.plain}</span>
-                        <span className={`font-bold tabular-nums text-lg leading-none ${color}`}>+{c.value}</span>
+                        <span className="text-muted-foreground text-sm sm:text-xs">{c.plain}</span>
+                        <span className={`font-bold tabular-nums text-2xl sm:text-lg leading-none ${color}`}>+{c.value}</span>
                       </>
                     );
                     return c.key ? (
                       <button
                         key={i}
                         onClick={() => openSheet(c.key!, STAT_KEY_LABELS[c.key!] ?? c.plain)}
-                        className="inline-flex items-baseline gap-2 bg-card/95 border border-primary/35 rounded-full px-4 py-2
-                          hover:border-primary/70 hover:bg-card transition-colors"
+                        className={`${layout} bg-card/95 border border-primary/35 hover:border-primary/70 hover:bg-card transition-colors`}
                         title={`${STAT_KEY_LABELS[c.key] ?? c.plain}が得られるアイテムを見る`}
                       >
                         {inner}
                       </button>
                     ) : (
-                      <span key={i} className="inline-flex items-baseline gap-2 bg-card/70 border border-border rounded-full px-4 py-2">
+                      <span key={i} className={`${layout} bg-card/70 border border-border`}>
                         {inner}
                       </span>
                     );

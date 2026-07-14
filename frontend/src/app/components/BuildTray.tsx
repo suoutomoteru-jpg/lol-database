@@ -138,7 +138,7 @@ export function BuildTray() {
                 {statTotals.map(s => (
                   <div key={s.key} className="flex items-baseline justify-between gap-2">
                     <span className="text-xs text-muted-foreground truncate">{s.label}</span>
-                    <span className={`text-base font-bold tabular-nums ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
+                    <span className={`text-lg font-bold tabular-nums ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
                       +{formatStatValue(s.key, s.value)}
                     </span>
                   </div>
@@ -168,15 +168,15 @@ export function BuildTray() {
             ビルド<br />トレイ
           </button>
 
-          {/* スロット */}
-          <div className="flex gap-1.5 sm:gap-2 flex-shrink-0" data-tray-slots>
+          {/* スロット（モバイルは小さく詰める: バーの横幅オーバーフロー防止） */}
+          <div className="flex gap-1 sm:gap-2 flex-shrink-0" data-tray-slots>
             {entries.map(({ id, item }) => (
               <div key={id} className="relative group" data-tray-item={id}>
                 <Link to={`/item/${id}`} title={item.name}>
                   <img
                     src={itemImageUrl(version, item.image.full)}
                     alt={item.name}
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm border border-primary/50"
+                    className="w-8 h-8 sm:w-11 sm:h-11 rounded-sm border border-primary/50"
                   />
                 </Link>
                 <button
@@ -194,7 +194,7 @@ export function BuildTray() {
               <div
                 key={`empty-${i}`}
                 data-tray-slot="empty"
-                className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm border border-dashed border-muted-foreground/30
+                className="w-8 h-8 sm:w-11 sm:h-11 rounded-sm border border-dashed border-muted-foreground/30
                   flex items-center justify-center text-muted-foreground/40 text-sm"
               >
                 ＋
@@ -202,8 +202,8 @@ export function BuildTray() {
             ))}
           </div>
 
-          {/* 集計 */}
-          <div className="ml-auto flex items-center gap-3 sm:gap-5 min-w-0">
+          {/* 集計（モバイルは 合計G / 効率+グレード を2段積み） */}
+          <div className="ml-auto flex items-center gap-2 sm:gap-5 min-w-0">
             <div className="hidden md:flex items-center gap-4">
               {statTotals.slice(0, 3).map(s => (
                 <div key={s.key} className="text-right">
@@ -215,24 +215,23 @@ export function BuildTray() {
               ))}
             </div>
 
-            <div className="text-right flex-shrink-0">
-              <p className="text-[10px] text-muted-foreground leading-tight">合計</p>
-              <p className="text-base sm:text-lg font-bold text-primary tabular-nums leading-tight">
-                {Math.round(goldDisp).toLocaleString()}G
-              </p>
-            </div>
-
-            {efficiency !== null && (
-              <div className="flex items-center gap-1.5 flex-shrink-0">
-                <div className="text-right">
-                  <p className="text-[10px] text-muted-foreground leading-tight">効率</p>
-                  <p className={`text-base sm:text-lg font-bold tabular-nums leading-tight ${efficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
-                    {effDisp.toFixed(1)}%
-                  </p>
-                </div>
-                {grade && <GradeChip grade={grade} />}
+            <div className="flex flex-col items-end sm:flex-row sm:items-center sm:gap-5 flex-shrink-0">
+              <div className="flex items-baseline gap-1.5">
+                <span className="hidden sm:inline text-[10px] text-muted-foreground">合計</span>
+                <span className="text-base sm:text-lg font-bold text-primary tabular-nums leading-tight">
+                  {Math.round(goldDisp).toLocaleString()}G
+                </span>
               </div>
-            )}
+              {efficiency !== null && (
+                <div className="flex items-center gap-1.5">
+                  <span className="hidden sm:inline text-[10px] text-muted-foreground">効率</span>
+                  <span className={`text-base sm:text-lg font-bold tabular-nums leading-tight ${efficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
+                    {effDisp.toFixed(1)}%
+                  </span>
+                  {grade && <GradeChip grade={grade} />}
+                </div>
+              )}
+            </div>
 
             <button
               onClick={() => setExpanded(v => !v)}
