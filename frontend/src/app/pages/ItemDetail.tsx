@@ -57,22 +57,6 @@ function statKeyForLabel(plain: string): string | null {
   return null;
 }
 
-// ステータス台帳キー → チップ数値の文字色
-const CHIP_VALUE_COLOR: Record<string, string> = {
-  'stat:FlatPhysicalDamageMod': 'text-stat-ad',
-  'stat:PercentAttackSpeedMod': 'text-stat-ad',
-  'stat:FlatCritChanceMod':     'text-primary',
-  'custom:CritDamage':          'text-primary',
-  'stat:FlatMagicDamageMod':    'text-stat-ap',
-  'stat:FlatHPPoolMod':         'text-stat-hp',
-  'stat:FlatHPRegenMod':        'text-stat-hp',
-  'stat:FlatMPPoolMod':         'text-stat-mana',
-  'stat:FlatMPRegenMod':        'text-stat-mana',
-  'stat:FlatArmorMod':          'text-stat-armor',
-  'stat:FlatSpellBlockMod':     'text-stat-mr',
-  'stat:FlatMovementSpeedMod':  'text-stat-ms',
-};
-
 // ── 共通パーツ ─────────────────────────────────────────
 
 /** ゾーン見出し（設計図の工程ラベル） */
@@ -210,7 +194,7 @@ function RelatedByStat({ statKey, excludeId, items, onShowAll }: {
     <div className="mt-8">
       <div className="flex items-baseline justify-between mb-2.5">
         <p className="text-sm font-semibold text-foreground">
-          <span className={CHIP_VALUE_COLOR[statKey] ?? 'text-primary'}>{label}</span>
+          <span className="text-primary">{label}</span>
           をさらに伸ばすなら
         </p>
         <button
@@ -235,7 +219,7 @@ function RelatedByStat({ statKey, excludeId, items, onShowAll }: {
               </div>
               {line && (
                 <span className="flex-shrink-0 text-xs tabular-nums text-muted-foreground">
-                  {line.label} <b className="text-foreground text-base">{line.value}</b>
+                  {line.label} <b className="text-white text-base">{line.value}</b>
                 </span>
               )}
             </Link>
@@ -448,13 +432,12 @@ export function ItemDetail() {
                 <div className="mt-4 flex flex-col items-stretch gap-2 max-w-xs mx-auto
                   sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center">
                   {chips.map((c, i) => {
-                    const color = c.key ? (CHIP_VALUE_COLOR[c.key] ?? 'text-foreground') : 'text-foreground';
                     const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 py-2.5
                       sm:inline-flex sm:justify-start sm:rounded-full sm:py-2`;
                     const inner = (
                       <>
                         <span className="text-muted-foreground text-sm sm:text-xs">{c.plain}</span>
-                        <span className={`font-bold tabular-nums text-2xl sm:text-lg leading-none ${color}`}>+{c.value}</span>
+                        <span className="font-bold tabular-nums text-2xl sm:text-lg leading-none text-white">+{c.value}</span>
                       </>
                     );
                     return c.key ? (

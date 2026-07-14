@@ -17,21 +17,6 @@ import type { DDragonItem } from '../types/ddragon';
  * 差分を見せて組み替え（最適化ループ）を誘発する。
  */
 
-// ステータスキー → 数値の文字色（大まかな系統色のみ）
-const STAT_VALUE_COLOR: Record<string, string> = {
-  FlatPhysicalDamageMod: 'text-stat-ad',
-  PercentAttackSpeedMod: 'text-stat-ad',
-  FlatMagicDamageMod:    'text-stat-ap',
-  FlatHPPoolMod:         'text-stat-hp',
-  FlatHPRegenMod:        'text-stat-hp',
-  FlatMPPoolMod:         'text-stat-mana',
-  FlatMPRegenMod:        'text-stat-mana',
-  FlatArmorMod:          'text-stat-armor',
-  FlatSpellBlockMod:     'text-stat-mr',
-  FlatMovementSpeedMod:  'text-stat-ms',
-  PercentMovementSpeedMod: 'text-stat-ms',
-};
-
 interface StatTotal {
   key: string;
   label: string;
@@ -138,7 +123,7 @@ export function BuildTray() {
                 {statTotals.map(s => (
                   <div key={s.key} className="flex items-baseline justify-between gap-2">
                     <span className="text-xs text-muted-foreground truncate">{s.label}</span>
-                    <span className={`text-lg font-bold tabular-nums ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
+                    <span className="text-lg font-bold tabular-nums text-white">
                       +{formatStatValue(s.key, s.value)}
                     </span>
                   </div>
@@ -208,7 +193,7 @@ export function BuildTray() {
               {statTotals.slice(0, 3).map(s => (
                 <div key={s.key} className="text-right">
                   <p className="text-[10px] text-muted-foreground leading-tight">{s.label}</p>
-                  <p className={`text-lg font-bold tabular-nums leading-tight ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
+                  <p className="text-lg font-bold tabular-nums leading-tight text-white">
                     +{formatStatValue(s.key, s.value)}
                   </p>
                 </div>
