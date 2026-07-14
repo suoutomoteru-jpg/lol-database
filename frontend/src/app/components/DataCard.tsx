@@ -63,12 +63,20 @@ export function DataCard({ data, type, patchChange }: DataCardProps) {
           )}
         </div>
         <p className="flex items-center gap-1 text-xs text-muted-foreground/60 leading-tight mt-0.5">
-          <img
-            src={subtitleIcon}
-            alt=""
-            className="w-3 h-3 opacity-60"
-            loading="lazy"
-            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          {/* CSSマスクでアイコンを文字色と同色にする */}
+          <span
+            aria-hidden
+            className="w-3 h-3 inline-block bg-current"
+            style={{
+              WebkitMaskImage: `url(${subtitleIcon})`,
+              maskImage: `url(${subtitleIcon})`,
+              WebkitMaskSize: 'contain',
+              maskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              maskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskPosition: 'center',
+            }}
           />
           {subtitle}
         </p>

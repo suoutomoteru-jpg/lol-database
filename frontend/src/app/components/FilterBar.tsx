@@ -32,7 +32,7 @@ export function FilterBar({
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-1.5 w-full max-w-2xl">
+    <div className="flex flex-wrap justify-start gap-1.5 w-full max-w-2xl">
       {values.map(v => {
         const isActive = selected === v;
         const icon = iconUrl(v);
@@ -46,12 +46,20 @@ export function FilterBar({
             className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium border rounded-full transition-colors duration-100 ${colorClass}`}
           >
             {icon && (
-              <img
-                src={icon}
-                alt=""
-                className={`w-3.5 h-3.5 ${isActive ? '' : 'opacity-60'}`}
-                loading="lazy"
-                onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+              // CSSマスクでアイコンを文字色と同色の単色にする（元PNGの彩色を使わない）
+              <span
+                aria-hidden
+                className="w-3.5 h-3.5 inline-block bg-current"
+                style={{
+                  WebkitMaskImage: `url(${icon})`,
+                  maskImage: `url(${icon})`,
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                }}
               />
             )}
             {label(v)}

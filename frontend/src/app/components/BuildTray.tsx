@@ -134,11 +134,11 @@ export function BuildTray() {
             {statTotals.length === 0 ? (
               <p className="text-xs text-muted-foreground">ステータスなし</p>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1.5">
                 {statTotals.map(s => (
-                  <div key={s.key} className="flex items-baseline justify-between gap-2 text-xs">
-                    <span className="text-muted-foreground truncate">{s.label}</span>
-                    <span className={`font-semibold tabular-nums ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
+                  <div key={s.key} className="flex items-baseline justify-between gap-2">
+                    <span className="text-xs text-muted-foreground truncate">{s.label}</span>
+                    <span className={`text-base font-bold tabular-nums ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
                       +{formatStatValue(s.key, s.value)}
                     </span>
                   </div>
@@ -208,7 +208,7 @@ export function BuildTray() {
               {statTotals.slice(0, 3).map(s => (
                 <div key={s.key} className="text-right">
                   <p className="text-[10px] text-muted-foreground leading-tight">{s.label}</p>
-                  <p className={`text-sm font-bold tabular-nums leading-tight ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
+                  <p className={`text-lg font-bold tabular-nums leading-tight ${STAT_VALUE_COLOR[s.key] ?? 'text-foreground'}`}>
                     +{formatStatValue(s.key, s.value)}
                   </p>
                 </div>
@@ -217,7 +217,7 @@ export function BuildTray() {
 
             <div className="text-right flex-shrink-0">
               <p className="text-[10px] text-muted-foreground leading-tight">合計</p>
-              <p className="text-sm sm:text-base font-bold text-primary tabular-nums leading-tight">
+              <p className="text-base sm:text-lg font-bold text-primary tabular-nums leading-tight">
                 {Math.round(goldDisp).toLocaleString()}G
               </p>
             </div>
@@ -226,7 +226,7 @@ export function BuildTray() {
               <div className="flex items-center gap-1.5 flex-shrink-0">
                 <div className="text-right">
                   <p className="text-[10px] text-muted-foreground leading-tight">効率</p>
-                  <p className={`text-sm sm:text-base font-bold tabular-nums leading-tight ${efficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
+                  <p className={`text-base sm:text-lg font-bold tabular-nums leading-tight ${efficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
                     {effDisp.toFixed(1)}%
                   </p>
                 </div>
