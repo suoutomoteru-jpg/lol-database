@@ -10,8 +10,8 @@ export interface ItemDetailData {
   stats: Record<string, number>;
   tags: string[];
   imageUrl: string;
-  from: Array<{ id: string; name: string; imageUrl: string }>;
-  into: Array<{ id: string; name: string; imageUrl: string }>;
+  from: Array<{ id: string; name: string; imageUrl: string; gold: number }>;
+  into: Array<{ id: string; name: string; imageUrl: string; gold: number }>;
   version: string;
 }
 
@@ -49,7 +49,7 @@ export function useItem(itemId: string | undefined): UseItemResult {
         const resolve = (id: string) => {
           const it = allItems[id];
           if (!it) return null;
-          return { id, name: it.name, imageUrl: itemImageUrl(v, it.image.full) };
+          return { id, name: it.name, imageUrl: itemImageUrl(v, it.image.full), gold: it.gold.total };
         };
 
         setItem({

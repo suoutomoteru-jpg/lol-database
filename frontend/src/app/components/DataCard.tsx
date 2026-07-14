@@ -1,23 +1,31 @@
 import { Link } from 'react-router';
 import { roleIconUrl, itemTypeIconUrl, ROLE_LABELS_JA, ITEM_TYPE_LABELS_JA } from '../utils/roleAssets';
+import { prefetchChampion, prefetchItem } from '../utils/prefetch';
 import type { Champion, Item } from '../types/app';
+import type { ItemChange } from '../api/patchDiff';
 
 interface DataCardProps {
   data: Champion | Item;
   type: 'champion' | 'item';
+  /** 今パッチで 新規/変更 されたアイテムに付けるバッジ */
+  patchChange?: ItemChange;
 }
 
 function isChampion(data: Champion | Item): data is Champion {
   return 'role' in data;
 }
 
-export function DataCard({ data, type }: DataCardProps) {
+export function DataCard({ data, type, patchChange }: DataCardProps) {
   const subtitle = isChampion(data) ? ROLE_LABELS_JA[data.role] : ITEM_TYPE_LABELS_JA[data.type];
   const subtitleIcon = isChampion(data) ? roleIconUrl(data.role) : itemTypeIconUrl(data.type);
+  const prefetch = () => (isChampion(data) ? prefetchChampion(data.id) : prefetchItem());
 
   return (
     <Link
       to={type === 'champion' ? `/champion/${data.id}` : `/item/${data.id}`}
+      onPointerEnter={prefetch}
+      onTouchStart={prefetch}
+      onFocus={prefetch}
       className="group relative flex items-center gap-3 px-3 py-2 bg-card border border-border
         hover:bg-secondary transition-colors duration-100 overflow-hidden
         focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:z-10"
@@ -45,6 +53,12 @@ export function DataCard({ data, type }: DataCardProps) {
             <span className="flex-shrink-0 -rotate-3 text-[10px] font-bold px-1 py-0 rounded-sm
               bg-blue-500/20 text-blue-400 border border-blue-500/40 leading-4">
               ARAM
+            </span>
+          )}
+          {patchChange && (
+            <span className="flex-shrink-0 text-[10px] font-bold px-1 py-0 rounded-sm
+              text-hextech border border-hextech/40 leading-4">
+              {patchChange === 'new' ? 'NEW' : '変更'}
             </span>
           )}
         </div>

@@ -84,6 +84,14 @@ body {
   color: var(--color-primary);
 }
 
+/* アイテムページ: 設計図モチーフの薄いグリッド背景 */
+.assembly-stage {
+  background-image:
+    linear-gradient(rgba(200, 155, 60, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 155, 60, .04) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
 h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }
 h2 { font-size: 1.125rem; font-weight: 600; line-height: 1.4; }
 h3 { font-size: 0.9375rem; font-weight: 600; line-height: 1.5; }

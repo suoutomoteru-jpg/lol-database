@@ -15,7 +15,7 @@ export interface ItemSummary {
   stats: ItemStatLine[];
 }
 
-const STAT_LABELS: Record<string, string> = {
+export const STAT_LABELS: Record<string, string> = {
   FlatPhysicalDamageMod:         '攻撃力',
   FlatMagicDamageMod:            '魔力',
   FlatArmorMod:                  'AR',
@@ -39,7 +39,7 @@ const STAT_LABELS: Record<string, string> = {
   AbilityHaste:                  'スキルヘイスト',
 };
 
-function formatStatValue(key: string, val: number): string {
+export function formatStatValue(key: string, val: number): string {
   if (key.startsWith('Percent') || key === 'FlatCritChanceMod') {
     return `${Math.round(val * 100)}%`;
   }

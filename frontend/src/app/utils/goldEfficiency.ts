@@ -5,7 +5,7 @@
  * アイテムから算出）に基づき、合計価値 ÷ 実売価格 を効率として返す。
  */
 
-const GOLD_PER_STAT: Record<string, number> = {
+export const GOLD_PER_STAT: Record<string, number> = {
   FlatPhysicalDamageMod:         35,      // Long Sword: 350g / 10 AD
   FlatMagicDamageMod:            20,      // Amplifying Tome: 400g / 20 AP
   FlatArmorMod:                  20,      // Cloth Armor: 300g / 15 Armor

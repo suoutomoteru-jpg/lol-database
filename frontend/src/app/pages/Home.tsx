@@ -1,14 +1,57 @@
 import { useMemo } from 'react';
-import { useSearchParams } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { SearchBar } from '../components/SearchBar';
 import { TabsFilter } from '../components/TabsFilter';
 import { FilterBar } from '../components/FilterBar';
 import { ResultsSection } from '../components/ResultsSection';
 import { useChampions } from '../hooks/useChampions';
 import { useItems } from '../hooks/useItems';
+import { usePatchChanges } from '../hooks/usePatchChanges';
 import { displayPatch } from '../utils/patch';
+import { prefetchItem } from '../utils/prefetch';
 import { CurlyArrow } from '../components/doodles';
-import type { TabType, Role, ItemType } from '../types/app';
+import type { TabType, Role, ItemType, Item } from '../types/app';
+import type { ItemChange } from '../api/patchDiff';
+
+// ── 今パッチの変更アイテム（新規性シグナル: 再訪問時の発見をつくる）──
+
+function PatchChangesStrip({ items, changes }: {
+  items: Item[];
+  changes: Record<string, ItemChange>;
+}) {
+  const changed = useMemo(
+    () => items.filter(i => changes[i.id]),
+    [items, changes],
+  );
+  if (changed.length === 0) return null;
+
+  return (
+    <div className="w-full max-w-4xl">
+      <h2 className="text-sm font-semibold text-foreground mb-1.5">
+        今パッチの変更
+        <span className="ml-2 text-xs font-normal text-muted-foreground">数値やレシピが変わったアイテム</span>
+      </h2>
+      <div className="flex gap-2 overflow-x-auto pb-1.5 -mx-1 px-1">
+        {changed.map(i => (
+          <Link
+            key={i.id}
+            to={`/item/${i.id}`}
+            onPointerEnter={prefetchItem}
+            onTouchStart={prefetchItem}
+            className="flex-shrink-0 flex items-center gap-2 bg-card border border-border rounded-md pl-1.5 pr-2.5 py-1.5
+              hover:border-hextech/50 transition-colors"
+          >
+            <img src={i.icon} alt="" className="w-8 h-8 rounded-sm border border-border" loading="lazy" />
+            <span className="text-xs font-medium whitespace-nowrap">{i.name}</span>
+            <span className="text-[10px] font-bold text-hextech border border-hextech/40 rounded-sm px-1 leading-4">
+              {changes[i.id] === 'new' ? 'NEW' : '変更'}
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 // ── ロード中のスケルトン（カードと同じ形状・レイアウトシフトなし）──
 
@@ -34,6 +77,7 @@ function ResultsSkeleton() {
 export function Home() {
   const { champions, version, loading: champLoading } = useChampions();
   const { items, loading: itemLoading } = useItems();
+  const patchDiff = usePatchChanges();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const activeTab        = (searchParams.get('tab') as TabType) ?? 'items';
@@ -119,6 +163,10 @@ export function Home() {
             onItemTypeChange={t => set('itype', t)}
           />
 
+          {activeTab === 'items' && !loading && !q && patchDiff && (
+            <PatchChangesStrip items={items} changes={patchDiff.changes} />
+          )}
+
           {loading ? (
             <ResultsSkeleton />
           ) : (
@@ -126,6 +174,7 @@ export function Home() {
               champions={filteredChampions}
               items={filteredItems}
               activeTab={activeTab}
+              itemChanges={patchDiff?.changes}
             />
           )}
         </div>
