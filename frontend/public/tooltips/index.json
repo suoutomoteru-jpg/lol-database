@@ -1,6 +1,6 @@
 {
  "patch": "16.14.7945912+branch.releases-16-14.content.release",
- "generatedAt": "2026-07-15T07:01:01.878549+00:00",
+ "generatedAt": "2026-07-15T07:05:36.330861+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -27,7 +27,7 @@
    "alias": "Akshan",
    "id": 166,
    "name": "アクシャン",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -265,7 +265,7 @@
    "alias": "Gangplank",
    "id": 41,
    "name": "ガングプランク",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -1001,7 +1001,7 @@
    "id": 4,
    "name": "ツイステッド・フェイト",
    "unresolvedCount": 3,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Twitch",

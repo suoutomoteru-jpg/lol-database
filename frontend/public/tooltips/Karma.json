@@ -13,32 +13,32 @@
   },
   "q": {
    "name": "心炎",
-   "description": "精神の炎を解き放ち、最初に命中した対象と周囲の敵に<magicDamage>60/110/160/210/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間40%の<status>スロウ効果</status>を付与する。",
+   "description": "精神の炎を解き放ち、最初に命中した対象と周囲の敵に<magicDamage>60/110/160/210/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間40%の<status>スロウ効果</status>を付与する。<br><spellName>マントラ:</spellName> 強烈な精神の炎を放ち、最初に命中した対象と周囲の敵に追加で<magicDamage>40/100/160/220/280/340（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。炎は1.5秒間50%の<status>スロウ効果</status>を付与するゾーンを発生させる。その後ゾーンは爆発して<magicDamage>40/130/220/310/400/490（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "9/8/7/6/5",
    "cost": "40/50/60/70/80",
    "range": "950",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "w": {
    "name": "魂縛",
-   "description": "自身をチャンピオンまたはジャングルモンスターと鎖で繋ぎ、<magicDamage>40/65/90/115/140（＋魔力の45%）の魔法ダメージ</magicDamage>を与えて2秒間可視化する。鎖が切れなかった場合は対象に<magicDamage>40/65/90/115/140（＋魔力の45%）の魔法ダメージ</magicDamage>を再び与え、1.6/1.7/1.8/1.9/2秒間の<status>スネア効果</status>を与える。",
+   "description": "自身をチャンピオンまたはジャングルモンスターと鎖で繋ぎ、<magicDamage>40/65/90/115/140（＋魔力の45%）の魔法ダメージ</magicDamage>を与えて2秒間可視化する。鎖が切れなかった場合は対象に<magicDamage>40/65/90/115/140（＋魔力の45%）の魔法ダメージ</magicDamage>を再び与え、1.6/1.7/1.8/1.9/2秒間の<status>スネア効果</status>を与える。<br><spellName>マントラ:</spellName> 強化した鎖で<healing>減少体力の17%（＋魔力の1%）</healing>を回復し、<magicDamage>40/65/90/115/140（＋魔力の45%）の魔法ダメージ</magicDamage>を与えて2秒間対象を可視化する。鎖が切れなかった場合は、<healing>減少体力の17%（＋魔力の1%）</healing>を再度回復し、<status>スネア効果</status>の効果時間が0.5/0.75/1/1.25/1.5/1.75秒増加して、さらに<magicDamage>40/65/90/115/140（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "12",
    "cost": "50/55/60/65/70",
    "range": "675",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "e": {
    "name": "激励",
-   "description": "2.5秒間、味方チャンピオンに<shield>耐久値80/130/180/230/280（＋魔力の60%）のシールド</shield>を付与し、2秒間、<speed>移動速度を40%</speed>増加させる。",
+   "description": "2.5秒間、味方チャンピオンに<shield>耐久値80/130/180/230/280（＋魔力の60%）のシールド</shield>を付与し、2秒間、<speed>移動速度を40%</speed>増加させる。<br><spellName>マントラ:</spellName> パワーを集中させて味方チャンピオン1体に<shield>耐久値45/85/125/165/205/245（＋魔力の45%）のシールド</shield>を付与する。さらにシールドのパワーがあふれて、その周囲のチャンピオンに耐久値<shield>45/85/125/165/205/245（＋魔力の45%）のシールド</shield>と、<speed>15%の増加移動速度</speed>を付与する。",
    "cooldown": "10/9.5/9/8.5/8",
    "cost": "60/65/70/75/80",
    "range": "800",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {

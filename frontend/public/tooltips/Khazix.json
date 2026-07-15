@@ -13,42 +13,42 @@
   },
   "q": {
    "name": "甘美なる恐怖",
-   "description": "近くの敵1体を斬りつけて<physicalDamage>80/105/130/155/180/180（＋増加攻撃力の105%）の物理ダメージ</physicalDamage>を与える。対象が他の敵から<keywordMajor>「孤立」</keywordMajor>している場合は、代わりに<physicalDamage>168/220.5/273/325.5/378（＋増加攻撃力の105%）のダメージ</physicalDamage>を与える。",
+   "description": "近くの敵1体を斬りつけて<physicalDamage>80/105/130/155/180/180（＋増加攻撃力の105%）の物理ダメージ</physicalDamage>を与える。対象が他の敵から<keywordMajor>「孤立」</keywordMajor>している場合は、代わりに<physicalDamage>168/220.5/273/325.5/378（＋増加攻撃力の105%）のダメージ</physicalDamage>を与える。 <br><evolve>進化したスキル - 自動効果:</evolve> このスキルと通常攻撃の射程が増加する。<br><br><evolve>進化したスキル - 発動効果:</evolve> 強化された鉤爪で斬りつけ、<physicalDamage>80/105/130/155/180/180（＋増加攻撃力の105%）のダメージ</physicalDamage>を与える。<keywordMajor>「孤立」</keywordMajor>した対象には代わりに<physicalDamage>168/220.5/273/325.5/378（＋増加攻撃力の105%）のダメージ</physicalDamage>を与え、クールダウンが45%短縮される。",
    "cooldown": "4",
    "cost": "20",
    "range": "325",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "w": {
    "name": "ヴォイドの刺棘",
-   "description": "棘を発射して、最初に命中した対象と狭い範囲内の敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。自身が範囲内にいた場合は<healing>体力を55/75/95/115/135（＋魔力の50%）</healing>回復する。",
+   "description": "棘を発射して、最初に命中した対象と狭い範囲内の敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。自身が範囲内にいた場合は<healing>体力を55/75/95/115/135（＋魔力の50%）</healing>回復する。<br><evolve>進化したスキル:</evolve> 3つの棘を発射し、それぞれが最初に命中した対象と狭い範囲内の敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与え、2秒間可視化して40%の<status>スロウ効果</status>を付与する。自身が範囲内にいた場合は<healing>体力を55/75/95/115/135（＋魔力の50%）</healing>回復する。<keywordMajor>「孤立」</keywordMajor>した敵には、代わりに60%の<status>スロウ効果</status>を付与する。",
    "cooldown": "9",
    "cost": "55/60/65/70/75",
    "range": "1000",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "e": {
    "name": "リープ",
-   "description": "跳躍して着地時に<physicalDamage>65/100/135/170/205（＋増加攻撃力の40%）の物理ダメージ</physicalDamage>を与える。",
+   "description": "跳躍して着地時に<physicalDamage>65/100/135/170/205（＋増加攻撃力の40%）の物理ダメージ</physicalDamage>を与える。<br><evolve>進化したスキル:</evolve> 跳躍する距離が増加して、着地時に<physicalDamage>65/100/135/170/205（＋増加攻撃力の40%）の物理ダメージ</physicalDamage>を与える。チャンピオンからキルまたはアシストを奪うと、このスキルのクールダウンが解消される。",
    "cooldown": "20/18/16/14/12",
    "cost": "50",
    "range": "700",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {
    "name": "捕食の本能",
-   "description": "<spellActive>発動効果:</spellActive> 1.25秒間<keywordStealth>インビジブル</keywordStealth>状態になり、<speed>移動速度が40%</speed>増加する。12秒以内なら一度だけこのスキルを<recast>再発動</recast>できる。<br><br><spellPassive>自動効果:</spellPassive> このスキルのレベルを上げると、スキルの1つを<evolve>「進化」</evolve>させて、追加効果を付与できる。<li><spellName>甘美なる恐怖:</spellName> スキルと通常攻撃の射程が増加し、対象が<keywordMajor>「孤立」</keywordMajor>している場合はクールダウンが45%短縮される。<li><spellName>ヴォイドの刺棘:</spellName> 3つの棘を発射して40%の<status>スロウ効果</status>を与え、<keywordMajor>「孤立」</keywordMajor>した対象には効果が増加する。<li><spellName>リープ:</spellName> 射程が増加し、チャンピオンからキルまたはアシストを奪うとクールダウンが解消される。<li><spellName>捕食の本能:</spellName> <keywordStealth>インビジブル</keywordStealth>状態の効果時間が2秒になり、2回<recast>再発動</recast>可能になる。",
+   "description": "<spellActive>発動効果:</spellActive> 1.25秒間<keywordStealth>インビジブル</keywordStealth>状態になり、<speed>移動速度が40%</speed>増加する。12秒以内なら一度だけこのスキルを<recast>再発動</recast>できる。<br><evolve>進化したスキル:</evolve> 2秒間<keywordStealth>インビジブル</keywordStealth>状態になり、<speed>移動速度が40%</speed>増加する。10秒以内ならこのスキルを2回<recast>再発動</recast>できる。<br><spellPassive>自動効果:</spellPassive> このスキルのレベルを上げると、スキルの1つを<evolve>「進化」</evolve>させて、追加効果を付与できる。<li><spellName>甘美なる恐怖:</spellName> スキルと通常攻撃の射程が増加し、対象が<keywordMajor>「孤立」</keywordMajor>している場合はクールダウンが45%短縮される。<li><spellName>ヴォイドの刺棘:</spellName> 3つの棘を発射して40%の<status>スロウ効果</status>を与え、<keywordMajor>「孤立」</keywordMajor>した対象には効果が増加する。<li><spellName>リープ:</spellName> 射程が増加し、チャンピオンからキルまたはアシストを奪うとクールダウンが解消される。<li><spellName>捕食の本能:</spellName> <keywordStealth>インビジブル</keywordStealth>状態の効果時間が2秒になり、2回<recast>再発動</recast>可能になる。<br><br><spellPassive>自動効果:</spellPassive> このスキルのレベルを上げると、スキルの1つを<evolve>「進化」</evolve>させて、追加効果を付与できる。<li><spellName>甘美なる恐怖:</spellName> スキルと通常攻撃の射程が増加し、対象が<keywordMajor>「孤立」</keywordMajor>している場合はクールダウンが45%短縮される。<li><spellName>ヴォイドの刺棘:</spellName> 3つの棘を発射して40%の<status>スロウ効果</status>を与え、<keywordMajor>「孤立」</keywordMajor>した対象には効果が増加する。<li><spellName>リープ:</spellName> 射程が増加し、チャンピオンからキルまたはアシストを奪うとクールダウンが解消される。<li><spellName>捕食の本能:</spellName> <keywordStealth>インビジブル</keywordStealth>状態の効果時間が2秒になり、2回<recast>再発動</recast>可能になる。",
    "cooldown": "100/85/70",
    "cost": "100",
    "range": "25000",
    "maxRank": 3,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   }
  },

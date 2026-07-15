@@ -23,15 +23,13 @@
   },
   "w": {
    "name": "義賊の流儀",
-   "description": "",
+   "description": "<spellPassive>自動効果</spellPassive>: 味方をキルした敵チャンピオンを60秒間<keywordMajor>悪党</keywordMajor>としてマークする。アクシャンがダメージを与えた<keywordMajor>悪党</keywordMajor>が3秒以内に倒されると、アクシャンは100ゴールドを獲得し、その敵に倒された味方を蘇生する。その際、他のすべての敵から<keywordMajor>悪党</keywordMajor>のマークが解除される。<br><br><spellActive>発動効果</spellActive>: 2秒間<keywordStealth>カモフラージュ</keywordStealth>状態になる。自身が壁または茂みの近くにいる場合は、この効果が無限に続く。この方法で<keywordStealth>カモフラージュ</keywordStealth>中は、<keywordMajor>悪党</keywordMajor>に向かって移動する際に<speed>移動速度が80/90/100/110/120</speed>増加し、<scaleMana>12%の減少マナ自動回復</scaleMana>を獲得する。<br><spellPassive>自動効果</spellPassive>: 味方をキルした敵チャンピオンを60秒間<keywordMajor>悪党</keywordMajor>としてマークする。アクシャンがダメージを与えた<keywordMajor>悪党</keywordMajor>が3秒以内に倒されると、アクシャンとパートナーは100ゴールドを獲得する。その際、他のすべての敵から<keywordMajor>悪党</keywordMajor>のマークが解除される。<br><br><spellActive>発動効果</spellActive>: 2秒間<keywordStealth>カモフラージュ</keywordStealth>状態になる。自身が壁または茂みの近くにいる場合は、この効果が無限に続く。この方法で<keywordStealth>カモフラージュ</keywordStealth>中は、<keywordMajor>悪党</keywordMajor>に向かって移動する際に<speed>移動速度が80/90/100/110/120</speed>増加し、<scaleMana>12%の減少マナ自動回復</scaleMana>を獲得する。",
    "cooldown": "18/14/10/6/2",
    "cost": "40/30/20/10/0",
    "range": "5500",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": [
-    "tpl:{{ Spell_AkshanW_Tooltip_1 }}"
-   ]
+   "unresolved": []
   },
   "e": {
    "name": "ヒーロースイング",
@@ -54,5 +52,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }
