@@ -652,6 +652,9 @@ def make_template_expander(stringtable: dict[str, str], name_map: dict[str, str]
         return mm.group(0)  # 展開不能 → 残して呼び出し側で検出
 
     def expand(text: str) -> str:
+        # {{ Key_@f1@ }} のような動的サフィックス付きは @..@ を落として
+        # 前方一致展開に回す（アフェリオスRの武器ボーナス等）
+        text = re.sub(r"(\{\{\s*[A-Za-z0-9_]+)@[^@{}]*@[A-Za-z0-9_]*(\s*\}\})", r"\1\2", text)
         for _ in range(2):  # 2段のネストまで
             if "{{" not in text:
                 break
@@ -761,7 +764,8 @@ def apply_aphelios_weapons(
         return text
 
     gun_names = [
-        stringtable.get(f"apheliosgun_lorename_{i}", f"武器{i}") for i in range(1, 6)
+        re.sub(r"<[^>]+>", "", stringtable.get(f"apheliosgun_lorename_{i}", f"武器{i}"))
+        for i in range(1, 6)
     ]
 
     # Q: 武器ごとの発動スキル
@@ -960,7 +964,7 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
             script_maps=script_maps,
         )
         # 展開できなかった {{...}} は記録して表示からは除去する
-        for tok in re.findall(r"\{\{\s*[A-Za-z0-9_]+\s*\}\}", desc):
+        for tok in re.findall(r"\{\{[^{}]*\}\}", desc):
             unresolved.append(f"tpl:{tok}")
             desc = desc.replace(tok, "").strip()
 

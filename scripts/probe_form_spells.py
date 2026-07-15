@@ -70,6 +70,19 @@ def main() -> None:
         print()
 
 
+def probe_missing_template_keys() -> None:
+    """アクシャンW / ガングプランクQ のテンプレ参照先キーの実名調査"""
+    st = get_json(STRINGTABLE_URL)
+    entries = st.get("entries", st)
+    table = {k.lower(): v for k, v in entries.items() if isinstance(v, str)}
+    for pat in ("akshanw", "gangplankq"):
+        print(f"=== keys containing '{pat}' ===")
+        for k in sorted(table):
+            if pat in k:
+                print(f"  {k} (len={len(table[k])})")
+        print()
+
+
 def probe_aphelios_deep() -> None:
     """アフェリオス第3弾: 武器スペル本体（ハッシュ化パス）の特定"""
     bin_data = get_json(f"{BASE}/game/data/characters/aphelios/aphelios.bin.json")
@@ -106,5 +119,4 @@ def probe_aphelios_deep() -> None:
 
 
 if __name__ == "__main__":
-    main()
-    probe_aphelios_deep()
+    probe_missing_template_keys()
