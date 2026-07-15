@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ぜんまい仕掛け",
-   "description": "オリアナのスキルは<keywordMajor>ボール</keywordMajor>の位置から発生する。<keywordMajor>ボール</keywordMajor>はオリアナから離れすぎると自動的に戻ってくる。<br><br>オリアナの通常攻撃は追加で<magicDamage>10〜50（レベル比例） ＋ 魔力の15%の魔法ダメージ</magicDamage>を与える。4秒以内に同じ対象を連続で攻撃すると、追加で<magicDamage>10〜50（レベル比例） ＋ 魔力の15%の魔法ダメージ</magicDamage>(最大<magicDamage>10〜50（レベル比例） ＋ 魔力の15%ダメージ</magicDamage>)を与える。",
+   "description": "オリアナのスキルは<keywordMajor>ボール</keywordMajor>の位置から発生する。<keywordMajor>ボール</keywordMajor>はオリアナから離れすぎると自動的に戻ってくる。<br><br>オリアナの通常攻撃は追加で<magicDamage>10〜50（レベル比例） ＋ 魔力の15%の魔法ダメージ</magicDamage>を与える。4秒以内に同じ対象を連続で攻撃すると、追加で<magicDamage>10〜50（レベル比例） ＋ 魔力の15%×0.15の魔法ダメージ</magicDamage>(最大<magicDamage>10〜50（レベル比例） ＋ 魔力の15%×0.3ダメージ</magicDamage>)を与える。",
    "source": "stringtable",
    "unresolved": []
   },

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "戦士の咆哮",
-   "description": "敵チャンピオンを<status>スタン</status>させるか<status>ノックバック</status>または<status>ノックアップ</status>させる、もしくは敵が倒されるたびにスタックを獲得する。7スタックになると咆哮をあげ、自身の<healing>体力を合計体力の5%</healing>回復して、周囲の味方チャンピオンの<healing>体力を合計体力の5%</healing>回復する。<br><br>敵チャンピオンかエピックジャングルモンスターが倒されると、このスキルが最大までチャージされる。",
+   "description": "敵チャンピオンを<status>スタン</status>させるか<status>ノックバック</status>または<status>ノックアップ</status>させる、もしくは敵が倒されるたびにスタックを獲得する。7スタックになると咆哮をあげ、自身の<healing>体力を合計体力の5%</healing>回復して、周囲の味方チャンピオンの<healing>体力を合計体力の5%×1.4</healing>回復する。<br><br>敵チャンピオンかエピックジャングルモンスターが倒されると、このスキルが最大までチャージされる。",
    "source": "stringtable",
    "unresolved": []
   },

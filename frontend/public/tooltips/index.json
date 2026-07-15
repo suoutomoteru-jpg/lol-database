@@ -1,6 +1,6 @@
 {
  "patch": "16.14.7945912+branch.releases-16-14.content.release",
- "generatedAt": "2026-07-15T07:07:43.807534+00:00",
+ "generatedAt": "2026-07-15T09:09:53.567213+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -69,7 +69,7 @@
    "alias": "Aphelios",
    "id": 523,
    "name": "アフェリオス",
-   "unresolvedCount": 2,
+   "unresolvedCount": 0,
    "passiveSource": "lcu"
   },
   {
@@ -721,7 +721,7 @@
    "id": 555,
    "name": "パイク",
    "unresolvedCount": 4,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Qiyana",
@@ -1029,7 +1029,7 @@
    "id": 110,
    "name": "ヴァルス",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Vayne",
@@ -1071,7 +1071,7 @@
    "id": 234,
    "name": "ヴィエゴ",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Viktor",

@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ショートヒューズ",
-   "description": "秒ごとに、次の通常攻撃が追加で<magicDamage>20〜160（レベル1〜18） ＋ 魔力の50%の魔法ダメージ</magicDamage>を与える。建造物には<magicDamage>20〜160（レベル1〜18） ＋ 魔力の50%のダメージ</magicDamage>を与える。<br><br>スキルを使用すると次の追加ダメージまでの時間を4/5/6（レベル1/7/13）秒短縮する。",
+   "description": "秒ごとに、次の通常攻撃が追加で<magicDamage>20〜160（レベル1〜18） ＋ 魔力の50%の魔法ダメージ</magicDamage>を与える。建造物には<magicDamage>20〜160（レベル1〜18） ＋ 魔力の50%×1.75のダメージ</magicDamage>を与える。<br><br>スキルを使用すると次の追加ダメージまでの時間を4/5/6（レベル1/7/13）秒短縮する。",
    "source": "stringtable",
    "unresolved": []
   },

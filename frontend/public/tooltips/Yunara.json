@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "始まりの地への誓い",
-   "description": "クリティカル攻撃が<magicDamage>10%（＋魔力の0.1%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><rules></rules>",
+   "description": "クリティカル攻撃が<magicDamage>10%の魔法ダメージ</magicDamage>を追加で与える。<br><br><rules></rules>",
    "source": "stringtable",
    "unresolved": []
   },
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "カンメイの歩み/触れ得ぬ影",
-   "description": "1.5秒間、<speed>移動速度が30/35/40/45/50%</speed>増加する。敵チャンピオンに向かっている場合は<speed>移動速度が30/35/40/45/50%</speed>まで増加する。<br><br><keywordMajor>超越状態 - 触れ得ぬ影</keywordMajor>: 指定方向にダッシュする。",
+   "description": "1.5秒間、<speed>移動速度が30/35/40/45/50%</speed>増加する。敵チャンピオンに向かっている場合は<speed>移動速度が30/35/40/45/50%×1.5</speed>まで増加する。<br><br><keywordMajor>超越状態 - 触れ得ぬ影</keywordMajor>: 指定方向にダッシュする。",
    "cooldown": "9",
    "cost": "40",
    "range": "0",

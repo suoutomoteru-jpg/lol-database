@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "狂暴の宴",
-   "description": "<spellPassive>自動効果:</spellPassive> 次の通常攻撃で<attackSpeed>攻撃速度が150%</attackSpeed>増加する。この効果は通常攻撃を4回行うか、4秒経過すると終了する。<br><br>4回目の通常攻撃は<physicalDamage>20/30/40/50/60+最大体力の4.5/5/5.5/6/6.5%（＋増加攻撃力の2% ＋増加体力の0.4%）の物理ダメージ</physicalDamage>を追加で与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> 次の通常攻撃で<attackSpeed>攻撃速度が150%</attackSpeed>増加する。この効果は通常攻撃を4回行うか、4秒経過すると終了する。<br><br>4回目の通常攻撃は<physicalDamage>20/30/40/50/60+最大体力の4.5/5/5.5/6/6.5%（＋増加攻撃力の2%）の物理ダメージ</physicalDamage>を追加で与える。",
    "cooldown": "13/12/11/10/9",
    "cost": "",
    "range": "0",

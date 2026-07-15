@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "スゴイ毒ダ！",
-   "description": "通常攻撃で対象を毒<OnHit>通常攻撃時効果</OnHit>に侵し、毎秒<trueDamage>1/2/3/4/5（レベル1/5/9/13/17） ＋ 魔力の3%の確定ダメージ</trueDamage>を6秒間与える。この効果は6回までスタックする。<br><br>最大毎秒ダメージ: 1/2/3/4/5（レベル1/5/9/13/17） ＋ 魔力の3%",
+   "description": "通常攻撃で対象を毒<OnHit>通常攻撃時効果</OnHit>に侵し、毎秒<trueDamage>1/2/3/4/5（レベル1/5/9/13/17） ＋ 魔力の3%の確定ダメージ</trueDamage>を6秒間与える。この効果は6回までスタックする。<br><br>最大毎秒ダメージ: 1/2/3/4/5（レベル1/5/9/13/17） ＋ 魔力の3%×6",
    "source": "stringtable",
    "unresolved": []
   },
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "ボーン！",
-   "description": "<spellName>「スゴイ毒ダ！」</spellName>の毒を受けている周囲の敵すべてに<physicalDamage>20/30/40/50/60の物理ダメージ</physicalDamage>を与え、さらに<spellName>「スゴイ毒ダ！」</spellName>のスタック1つごとに<physicalDamage>15/20/25/30/35（＋増加攻撃力の35%）の物理ダメージ</physicalDamage>と<magicDamage>魔力の35%の魔法ダメージ</magicDamage>を追加で与える。<br><br>最大ダメージ: <physicalDamage>物理ダメージ110/150/190/230/270（＋増加攻撃力の210%）</physicalDamage>、<magicDamage>魔法ダメージ魔力の35%</magicDamage>",
+   "description": "<spellName>「スゴイ毒ダ！」</spellName>の毒を受けている周囲の敵すべてに<physicalDamage>20/30/40/50/60の物理ダメージ</physicalDamage>を与え、さらに<spellName>「スゴイ毒ダ！」</spellName>のスタック1つごとに<physicalDamage>15/20/25/30/35（＋増加攻撃力の35%）の物理ダメージ</physicalDamage>と<magicDamage>魔力の35%の魔法ダメージ</magicDamage>を追加で与える。<br><br>最大ダメージ: <physicalDamage>物理ダメージ110/150/190/230/270（＋増加攻撃力の210%）</physicalDamage>、<magicDamage>魔法ダメージ魔力の35%×6</magicDamage>",
    "cooldown": "12/11/10/9/8",
    "cost": "50/60/70/80/90",
    "range": "1200",

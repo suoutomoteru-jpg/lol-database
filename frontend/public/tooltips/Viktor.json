@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "パワーブラスト",
-   "description": "敵を狙い撃って<magicDamage>60/75/90/105/120（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、自身に<shield>耐久値40〜140（レベル比例） ＋ 魔力の25%のシールド</shield>を2.5秒間付与する。<br><br>4秒以内に行われる次の通常攻撃が<magicDamage>20/45/70/95/120（＋魔力の50% ＋合計攻撃力の100%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>アップグレード: </keywordMajor><shield>耐久値40〜140（レベル比例） ＋ 魔力の25%のシールド</shield>を付与し、2.5秒間、自身の移動速度が<speed>30%</speed>増加する。",
+   "description": "敵を狙い撃って<magicDamage>60/75/90/105/120（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、自身に<shield>耐久値40〜140（レベル比例） ＋ 魔力の25%のシールド</shield>を2.5秒間付与する。<br><br>4秒以内に行われる次の通常攻撃が<magicDamage>20/45/70/95/120（＋魔力の50% ＋合計攻撃力の100%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>アップグレード: </keywordMajor><shield>耐久値40〜140（レベル比例） ＋ 魔力の25%×1.6のシールド</shield>を付与し、2.5秒間、自身の移動速度が<speed>30%</speed>増加する。",
    "cooldown": "9/8/7/6/5",
    "cost": "45/50/55/60/65",
    "range": "600",

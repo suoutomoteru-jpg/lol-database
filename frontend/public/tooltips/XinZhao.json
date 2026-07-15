@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "風成雷鳴",
-   "description": "槍で薙ぎ払って<physicalDamage>30/40/50/60/70（＋合計攻撃力の30%）の物理ダメージ</physicalDamage>を与え、その後の突きで<physicalDamage>50/85/120/155/190（＋合計攻撃力の90% ＋魔力の65%）</physicalDamage>の物理ダメージを与える。突きが命中した敵には1.5（＋魔力の0.5%）秒間50%の<status>スロウ効果</status>を与える。<br><br>突きが命中したチャンピオンと大型モンスターは3秒間、<keywordMajor>挑戦対象</keywordMajor>としてマークされ、<keywordStealth>ステルス</keywordStealth>状態でない限り可視化される。",
+   "description": "槍で薙ぎ払って<physicalDamage>30/40/50/60/70（＋合計攻撃力の30%）の物理ダメージ</physicalDamage>を与え、その後の突きで<physicalDamage>50/85/120/155/190（＋合計攻撃力の90% ＋魔力の65%）</physicalDamage>の物理ダメージを与える。突きが命中した敵には1.5秒間50%の<status>スロウ効果</status>を与える。<br><br>突きが命中したチャンピオンと大型モンスターは3秒間、<keywordMajor>挑戦対象</keywordMajor>としてマークされ、<keywordStealth>ステルス</keywordStealth>状態でない限り可視化される。",
    "cooldown": "12/11/10/9/8",
    "cost": "60/55/50/45/40",
    "range": "1000",

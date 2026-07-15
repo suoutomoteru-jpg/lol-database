@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "跳撃の盾",
-   "description": "対象に向かって跳躍し、1秒間<status>スタン</status>させて<physicalDamage>6/6.5/7/7.5/8%（＋増加体力の0.004% ＋魔力の0.015%）の最大体力に応じた物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>「定命の意志」による強化効果:</keywordMajor> 次の通常攻撃が3回攻撃になり、合計<physicalDamage>の物理ダメージ</physicalDamage>を与える。",
+   "description": "対象に向かって跳躍し、1秒間<status>スタン</status>させて<physicalDamage>6/6.5/7/7.5/8%（＋魔力の0.015%）の最大体力に応じた物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>「定命の意志」による強化効果:</keywordMajor> 次の通常攻撃が3回攻撃になり、合計<physicalDamage>の物理ダメージ</physicalDamage>を与える。",
    "cooldown": "13/12/11/10/9",
    "cost": "55",
    "range": "600",
