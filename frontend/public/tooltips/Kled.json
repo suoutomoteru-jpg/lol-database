@@ -13,12 +13,12 @@
   },
   "q": {
    "name": "トラバサミロープ",
-   "description": "<keywordMajor>騎乗時: </keywordMajor>トラバサミを投げて<physicalDamage>30/55/80/105/130（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与え、最初に当たった敵チャンピオンか大型ジャングルモンスターにトラバサミを引っ掛ける。<br><br>トラバサミを引っ掛けた敵の側に1.75秒間留まると、自分のいる方向に敵を引っ張り<physicalDamage>60/110/160/210/260（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて<status>引き寄せ</status>、2.5秒間30/35/40/45/50%の<status>スロウ効果</status>を与える。",
+   "description": "<keywordMajor>騎乗時: </keywordMajor>トラバサミを投げて<physicalDamage>30/55/80/105/130（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与え、最初に当たった敵チャンピオンか大型ジャングルモンスターにトラバサミを引っ掛ける。<br><br>トラバサミを引っ掛けた敵の側に1.75秒間留まると、自分のいる方向に敵を引っ張り<physicalDamage>60/110/160/210/260（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて<status>引き寄せ</status>、2.5秒間30/35/40/45/50%の<status>スロウ効果</status>を与える。<br><br><keywordMajor>非騎乗時:</keywordMajor> ショットガンを発砲して<physicalDamage>35/50/65/80/95（＋増加攻撃力の65%）の物理ダメージ</physicalDamage>を与え、反動で自身を後方に飛ばす。2発目以降に命中した弾は与えるダメージが減少する。<br><br>敵チャンピオンまたはエピックモンスターに弾が1発当たるごとに、<keywordMajor>「勇気」</keywordMajor>を回復する。",
    "cooldown": "11/10/9/8/7",
    "cost": "",
    "range": "800",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "w": {

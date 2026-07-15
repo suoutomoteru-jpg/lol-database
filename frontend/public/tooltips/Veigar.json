@@ -23,12 +23,12 @@
   },
   "w": {
    "name": "ダークマター",
-   "description": "ダークマターを落下させて、<magicDamage>85/140/195/250/305（＋魔力の70/80/90/100/110%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックが50たまるごとに、このスキルのクールダウンが10%短縮される。",
+   "description": "ダークマターを落下させて、<magicDamage>85/140/195/250/305（＋魔力の70/80/90/100/110%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックが50たまるごとに、このスキルのクールダウンが10%短縮される。<br><br>現在のクールダウン短縮割合: <statTracking>120%</statTracking>",
    "cooldown": "0",
    "cost": "60/65/70/75/80",
    "range": "950",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "e": {

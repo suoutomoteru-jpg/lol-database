@@ -13,42 +13,42 @@
   },
   "q": {
    "name": "スカイバスター/ショックブラスト",
-   "description": "<keywordMajor>マーキュリーハンマー:</keywordMajor> 敵に飛びかかって、周囲の敵に<physicalDamage>60/110/160/210/260/310（＋増加攻撃力の135%）の物理ダメージ</physicalDamage>を与え、2秒間35/40/45/50/55/60%の<status>スロウ効果</status>を与える。<br><br><strong>◆ マーキュリーキャノン: ショックブラスト</strong><br><keywordMajor>マーキュリーキャノン</keywordMajor>: 電流の玉を発射し、最初に命中した敵とその周囲のすべての敵に<physicalDamage>80/121/162/203/244/285（＋増加攻撃力の130%）の物理ダメージ</physicalDamage>を与える。この玉は<spellName>「アクセルゲート」</spellName>を通過すると射程と速度が上昇し、ダメージが<physicalDamage>112/169.4/226.8/284.2/341.6/399（＋増加攻撃力の130%）</physicalDamage>に増加する。",
+   "description": "<keywordMajor>マーキュリーハンマー:</keywordMajor> 敵に飛びかかって、周囲の敵に<physicalDamage>60/110/160/210/260/310（＋増加攻撃力の135%）の物理ダメージ</physicalDamage>を与え、2秒間35/40/45/50/55/60%の<status>スロウ効果</status>を与える。<br><br><keywordMajor>マーキュリーキャノン</keywordMajor>: 電流の玉を発射し、最初に命中した敵とその周囲のすべての敵に<physicalDamage>80/121/162/203/244/285（＋増加攻撃力の130%）の物理ダメージ</physicalDamage>を与える。この玉は<spellName>「アクセルゲート」</spellName>を通過すると射程と速度が上昇し、ダメージが<physicalDamage>112/169.4/226.8/284.2/341.6/399（＋増加攻撃力の130%）</physicalDamage>に増加する。<br><br><strong>◆ マーキュリーキャノン: ショックブラスト</strong><br><keywordMajor>マーキュリーキャノン</keywordMajor>: 電流の玉を発射し、最初に命中した敵とその周囲のすべての敵に<physicalDamage>80/121/162/203/244/285（＋増加攻撃力の130%）の物理ダメージ</physicalDamage>を与える。この玉は<spellName>「アクセルゲート」</spellName>を通過すると射程と速度が上昇し、ダメージが<physicalDamage>112/169.4/226.8/284.2/341.6/399（＋増加攻撃力の130%）</physicalDamage>に増加する。",
    "cooldown": "16/14/12/10/8",
    "cost": "40",
    "range": "600",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "w": {
    "name": "ライトニング/ハイパーチャージ",
-   "description": "<keywordMajor>マーキュリーハンマー - 自動効果:</keywordMajor> <keywordMajor>「マーキュリーハンマー」</keywordMajor>による通常攻撃は<scaleMana>マナを15/17/19/21/23/25</scaleMana>回復する。<br><br><keywordMajor>マーキュリーハンマー - 発動効果:</keywordMajor> 電気のオーラを身にまとい、4秒かけて<magicDamage>140/200/260/320/380/440（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<br><br><strong>◆ マーキュリーキャノン: ハイパーチャージ</strong><br><keywordMajor>マーキュリーキャノン:</keywordMajor> キャノンをオーバーチャージして、次の3回の通常攻撃の<attackSpeed>攻撃速度</attackSpeed>が最大になる。この通常攻撃は<physicalDamage>合計攻撃力の70/78/86/94/102/110%の物理ダメージ</physicalDamage>を与える。",
+   "description": "<keywordMajor>マーキュリーハンマー - 自動効果:</keywordMajor> <keywordMajor>「マーキュリーハンマー」</keywordMajor>による通常攻撃は<scaleMana>マナを15/17/19/21/23/25</scaleMana>回復する。<br><br><keywordMajor>マーキュリーハンマー - 発動効果:</keywordMajor> 電気のオーラを身にまとい、4秒かけて<magicDamage>140/200/260/320/380/440（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>マーキュリーキャノン:</keywordMajor> キャノンをオーバーチャージして、次の3回の通常攻撃の<attackSpeed>攻撃速度</attackSpeed>が最大になる。この通常攻撃は<physicalDamage>合計攻撃力の70/78/86/94/102/110%の物理ダメージ</physicalDamage>を与える。<br><br><strong>◆ マーキュリーキャノン: ハイパーチャージ</strong><br><keywordMajor>マーキュリーキャノン:</keywordMajor> キャノンをオーバーチャージして、次の3回の通常攻撃の<attackSpeed>攻撃速度</attackSpeed>が最大になる。この通常攻撃は<physicalDamage>合計攻撃力の70/78/86/94/102/110%の物理ダメージ</physicalDamage>を与える。",
    "cooldown": "",
    "cost": "40",
    "range": "285",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "e": {
    "name": "サンダーブロー/アクセルゲート",
-   "description": "<keywordMajor>ハンマーフォーム</keywordMajor>: ハンマーを振って対象を<status>ノックバック</status>させ、<magicDamage>増加攻撃力の100%(+最大体力の8/10.8/13.6/16.4/19.2/22%)の魔法ダメージ</magicDamage>を与える。<br><br><strong>◆ マーキュリーキャノン: アクセルゲート</strong><br><keywordMajor>マーキュリーキャノン</keywordMajor>: 4秒間、アクセルゲートを設置し、通過した味方チャンピオンの<speed>移動速度を35/40/45/50/55/60%</speed>増加させる。増加した移動速度は3秒かけて元に戻る。",
+   "description": "<keywordMajor>ハンマーフォーム</keywordMajor>: ハンマーを振って対象を<status>ノックバック</status>させ、<magicDamage>増加攻撃力の100%(+最大体力の8/10.8/13.6/16.4/19.2/22%)の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>マーキュリーキャノン</keywordMajor>: 4秒間、アクセルゲートを設置し、通過した味方チャンピオンの<speed>移動速度を35/40/45/50/55/60%</speed>増加させる。増加した移動速度は3秒かけて元に戻る。<br><br><strong>◆ マーキュリーキャノン: アクセルゲート</strong><br><keywordMajor>マーキュリーキャノン</keywordMajor>: 4秒間、アクセルゲートを設置し、通過した味方チャンピオンの<speed>移動速度を35/40/45/50/55/60%</speed>増加させる。増加した移動速度は3秒かけて元に戻る。",
    "cooldown": "20/18/16/14/12",
    "cost": "55",
    "range": "240",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {
    "name": "マーキュリーキャノン/マーキュリーハンマー",
-   "description": "<keywordMajor>マーキュリーハンマー</keywordMajor>: 武器を<keywordMajor>「マーキュリーキャノン」</keywordMajor>に切り替えて射程距離が増加する。この際にスキルも切り替わる。また、次の通常攻撃が5秒間、<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御を20/25/30/35%（レベル1/6/11/16）</scaleArmor>低下させる。<br><br><strong>◆ マーキュリーキャノン時: マーキュリーハンマー/マーキュリーキャノン</strong><br><keywordMajor>マーキュリーキャノン:</keywordMajor> 武器を<keywordMajor>「マーキュリーハンマー」</keywordMajor>に切り替えて近接攻撃の射程に変化する。この際にスキルも切り替わり、<scaleArmor>5/12/19/26（レベル1/6/11/16） ＋ 増加攻撃力の7.5%の物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を獲得する。また、次の通常攻撃が<magicDamage>25/60/95/130（レベル1/6/11/16） ＋ 増加攻撃力の30%の魔法ダメージ</magicDamage>を追加で与える。",
+   "description": "<keywordMajor>マーキュリーハンマー</keywordMajor>: 武器を<keywordMajor>「マーキュリーキャノン」</keywordMajor>に切り替えて射程距離が増加する。この際にスキルも切り替わる。また、次の通常攻撃が5秒間、<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御を20/25/30/35%（レベル1/6/11/16）</scaleArmor>低下させる。<br><br><keywordMajor>マーキュリーキャノン:</keywordMajor> 武器を<keywordMajor>「マーキュリーハンマー」</keywordMajor>に切り替えて近接攻撃の射程に変化する。この際にスキルも切り替わり、<scaleArmor>5/12/19/26（レベル1/6/11/16） ＋ 増加攻撃力の7.5%の物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を獲得する。また、次の通常攻撃が<magicDamage>25/60/95/130（レベル1/6/11/16） ＋ 増加攻撃力の30%の魔法ダメージ</magicDamage>を追加で与える。<br><br><strong>◆ マーキュリーキャノン時: マーキュリーハンマー/マーキュリーキャノン</strong><br><keywordMajor>マーキュリーキャノン:</keywordMajor> 武器を<keywordMajor>「マーキュリーハンマー」</keywordMajor>に切り替えて近接攻撃の射程に変化する。この際にスキルも切り替わり、<scaleArmor>5/12/19/26（レベル1/6/11/16） ＋ 増加攻撃力の7.5%の物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を獲得する。また、次の通常攻撃が<magicDamage>25/60/95/130（レベル1/6/11/16） ＋ 増加攻撃力の30%の魔法ダメージ</magicDamage>を追加で与える。",
    "cooldown": "6",
    "cost": "",
    "range": "600",
    "maxRank": 3,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   }
  },

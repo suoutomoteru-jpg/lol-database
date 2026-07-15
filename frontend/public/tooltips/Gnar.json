@@ -13,32 +13,32 @@
   },
   "q": {
    "name": "ブーメラン/ぽいっ",
-   "description": "<keywordMajor>ミニナー:</keywordMajor> ブーメランを投げて<physicalDamage>5/45/85/125/165/205（＋合計攻撃力の125%）の物理ダメージ</physicalDamage>を与え、2秒間15/20/25/30/35/40%の<status>スロウ効果</status>を付与する。ブーメランは敵に当たると戻ってくるが、その際に与えるダメージは減少する。それぞれの敵に1回しか当たらない。ブーメランをキャッチすると、このスキルのクールダウンが40%短縮される。<br><br><strong>◆ メガナー: ぽいっ/ブーメラン</strong><br><keywordMajor>メガナー:</keywordMajor> 岩石を投げ、最初に命中した敵と周囲の敵に<physicalDamage>45/90/135/180/225/270（＋合計攻撃力の140%）の物理ダメージ</physicalDamage>を与え、2秒間30/35/40/45/50/55%の<status>スロウ効果</status>を付与する。岩石を拾うと、このスキルのクールダウンが70%短縮される。",
+   "description": "<keywordMajor>ミニナー:</keywordMajor> ブーメランを投げて<physicalDamage>5/45/85/125/165/205（＋合計攻撃力の125%）の物理ダメージ</physicalDamage>を与え、2秒間15/20/25/30/35/40%の<status>スロウ効果</status>を付与する。ブーメランは敵に当たると戻ってくるが、その際に与えるダメージは減少する。それぞれの敵に1回しか当たらない。ブーメランをキャッチすると、このスキルのクールダウンが40%短縮される。<br><br><keywordMajor>メガナー:</keywordMajor> 岩石を投げ、最初に命中した敵と周囲の敵に<physicalDamage>45/90/135/180/225/270（＋合計攻撃力の140%）の物理ダメージ</physicalDamage>を与え、2秒間30/35/40/45/50/55%の<status>スロウ効果</status>を付与する。岩石を拾うと、このスキルのクールダウンが70%短縮される。<br><br><strong>◆ メガナー: ぽいっ/ブーメラン</strong><br><keywordMajor>メガナー:</keywordMajor> 岩石を投げ、最初に命中した敵と周囲の敵に<physicalDamage>45/90/135/180/225/270（＋合計攻撃力の140%）の物理ダメージ</physicalDamage>を与え、2秒間30/35/40/45/50/55%の<status>スロウ効果</status>を付与する。岩石を拾うと、このスキルのクールダウンが70%短縮される。",
    "cooldown": "16/14.5/13/11.5/10",
    "cost": "",
    "range": "1100",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "w": {
    "name": "ごきげん/こてんぱん",
-   "description": "<keywordMajor>ミニナー(自動効果)</keywordMajor>: 同じ敵に通常攻撃かスキルが3回命中するたび、<magicDamage>0/10/20/30/40/50（＋魔力の100%）(+最大体力の6/8/10/12/14/16%)の魔法ダメージ</magicDamage>を追加で与え、<speed>移動速度が40/60/80/100/120/140%</speed>増加する。この移動速度は3秒かけて元に戻る。<br><br><strong>◆ メガナー: こてんぱん/ごきげん</strong><br><keywordMajor>メガナー:</keywordMajor> 一定範囲を叩きつけて<physicalDamage>45/75/105/135/165/195（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与え、1.25秒間<status>スタン</status>させる。",
+   "description": "<keywordMajor>ミニナー(自動効果)</keywordMajor>: 同じ敵に通常攻撃かスキルが3回命中するたび、<magicDamage>0/10/20/30/40/50（＋魔力の100%）(+最大体力の6/8/10/12/14/16%)の魔法ダメージ</magicDamage>を追加で与え、<speed>移動速度が40/60/80/100/120/140%</speed>増加する。この移動速度は3秒かけて元に戻る。<br><br><keywordMajor>メガナー:</keywordMajor> 一定範囲を叩きつけて<physicalDamage>45/75/105/135/165/195（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与え、1.25秒間<status>スタン</status>させる。<br><br><strong>◆ メガナー: こてんぱん/ごきげん</strong><br><keywordMajor>メガナー:</keywordMajor> 一定範囲を叩きつけて<physicalDamage>45/75/105/135/165/195（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与え、1.25秒間<status>スタン</status>させる。",
    "cooldown": "7",
    "cost": "",
    "range": "0",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "e": {
    "name": "ぴょんぴょん/ドーン！",
-   "description": "<keywordMajor>ミニナー:</keywordMajor> 跳躍して6秒間<attackSpeed>攻撃速度が40/45/50/55/60/65%</attackSpeed>増加する。ユニットの上に着地した場合は、もう一度跳ねてさらに遠くに移動する。敵の上で跳ねると<physicalDamage>50/85/120/155/190/225（＋合計体力の6%）の物理ダメージ</physicalDamage>を与え、短時間80%の<status>スロウ効果</status>を付与する。<br><br><strong>◆ メガナー: ドーン！/ぴょんぴょん</strong><br><keywordMajor>メガナー:</keywordMajor> 跳躍して着地時に周囲の敵に<physicalDamage>80/115/150/185/220/255（＋合計体力の6%）の物理ダメージ</physicalDamage>を与える。自身の真下にいた敵には短時間80%の<status>スロウ効果</status>も与える。",
+   "description": "<keywordMajor>ミニナー:</keywordMajor> 跳躍して6秒間<attackSpeed>攻撃速度が40/45/50/55/60/65%</attackSpeed>増加する。ユニットの上に着地した場合は、もう一度跳ねてさらに遠くに移動する。敵の上で跳ねると<physicalDamage>50/85/120/155/190/225（＋合計体力の6%）の物理ダメージ</physicalDamage>を与え、短時間80%の<status>スロウ効果</status>を付与する。<br><br><keywordMajor>メガナー:</keywordMajor> 跳躍して着地時に周囲の敵に<physicalDamage>80/115/150/185/220/255（＋合計体力の6%）の物理ダメージ</physicalDamage>を与える。自身の真下にいた敵には短時間80%の<status>スロウ効果</status>も与える。<br><br><strong>◆ メガナー: ドーン！/ぴょんぴょん</strong><br><keywordMajor>メガナー:</keywordMajor> 跳躍して着地時に周囲の敵に<physicalDamage>80/115/150/185/220/255（＋合計体力の6%）の物理ダメージ</physicalDamage>を与える。自身の真下にいた敵には短時間80%の<status>スロウ効果</status>も与える。",
    "cooldown": "22/19.5/17/14.5/12",
    "cost": "",
    "range": "475",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {

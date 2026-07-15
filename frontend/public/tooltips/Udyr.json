@@ -46,12 +46,12 @@
   },
   "r": {
    "name": "氷翼の嵐",
-   "description": "<spellActive>嵐の型:</spellActive> 4秒間、極寒の嵐に身を包み、周囲の敵に毎秒<magicDamage>20/36/52（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、15/18/21%の<status>スロウ効果</status>を付与する。さらに、この「型」で行う次の2回の通常攻撃が、嵐の範囲内にいる敵に<magicDamage>10〜40（レベル比例） ＋ 魔力の35%の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>覚醒:</keywordMajor> 嵐を解き放ち、自身が最後に通常攻撃を行った敵を追跡させる。嵐はその効果時間をかけて追加で<magicDamage>最大体力の8〜14%（レベル比例） ＋ 魔力の0.035%にあたる魔法ダメージ</magicDamage>を与え、追加で5%の<status>スロウ効果</status>を付与する。",
+   "description": "<spellActive>嵐の型:</spellActive> 4秒間、極寒の嵐に身を包み、周囲の敵に毎秒<magicDamage>20/36/52（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、15/18/21%の<status>スロウ効果</status>を付与する。さらに、この「型」で行う次の2回の通常攻撃が、嵐の範囲内にいる敵(嵐が終了していた場合は自身の周囲にいる敵)に<magicDamage>10〜40（レベル比例） ＋ 魔力の35%の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>覚醒:</keywordMajor> 嵐を解き放ち、自身が最後に通常攻撃を行った敵を追跡させる。嵐はその効果時間をかけて追加で<magicDamage>最大体力の8〜14%（レベル比例） ＋ 魔力の0.035%にあたる魔法ダメージ</magicDamage>を与え、追加で5%の<status>スロウ効果</status>を付与する。",
    "cooldown": "6",
    "cost": "40",
    "range": "370",
    "maxRank": 3,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   }
  },

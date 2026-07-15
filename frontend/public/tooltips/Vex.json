@@ -33,12 +33,12 @@
   },
   "e": {
    "name": "ヤミとばし",
-   "description": "移動中にサイズが増加するシャドウを指定地点に向かわせる。指定地点に到着すると<magicDamage>50/70/90/110/130（＋魔力の40/45/50/55/60%）の魔法ダメージ</magicDamage>を与え、2秒間30/35/40/45/50%の<status>スロウ効果</status>を付与する。<br><br>このスキルで敵をキルすると<keywordMajor>「フコウとユーウツ」</keywordMajor>のクールダウンが10%短縮される。<br><br>命中した敵に<keywordMajor>「ユーウツ」</keywordMajor>を付与する。",
+   "description": "移動中にサイズが増加するシャドウを指定地点に向かわせる。指定地点に到着すると<magicDamage>50/70/90/110/130（＋魔力の40/45/50/55/60%）の魔法ダメージ</magicDamage>を与え、2秒間30/35/40/45/50%の<status>スロウ効果</status>を付与する。<br><br>このスキルで敵をキルすると<keywordMajor>「フコウとユーウツ」</keywordMajor>のクールダウンが10%短縮される。<br><br>命中した敵に<keywordMajor>「ユーウツ」</keywordMajor>を付与する。<br><br><rules>チャンピオンをキルすると<keywordMajor>「フコウとユーウツ」</keywordMajor>のクールダウンが25%短縮される。<br>このスキルで<status>フィアー効果</status>を受けた敵は、ヴェックスからではなく、中心から外に向かって移動させられる。</rules>",
    "cooldown": "13",
    "cost": "70/80/90/100/110",
    "range": "800",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {

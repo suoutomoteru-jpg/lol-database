@@ -33,12 +33,12 @@
   },
   "e": {
    "name": "兵貴神速",
-   "description": "敵に突撃して、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の120%）の魔法ダメージ</magicDamage>を与え、0.5秒間30%の<status>スロウ効果</status>を付与する。<br><br>5秒間、<attackSpeed>攻撃速度が80/130/180/240/300/350%()</attackSpeed>増加する。<br><br><keywordMajor>挑戦対象</keywordMajor>の敵には、このスキルの射程が増加する。<br>",
+   "description": "敵に突撃して、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の120%）の魔法ダメージ</magicDamage>を与え、0.5秒間30%の<status>スロウ効果</status>を付与する。<br><br>5秒間、<attackSpeed>攻撃速度が80/130/180/240/300/350% =(<scaleLevel>38/46/54/62/70%</scaleLevel> + 恒久5%ごとに1%<scaleAP> +増加100ごとに10%</scaleAP>)</attackSpeed>増加する。<br><br><keywordMajor>挑戦対象</keywordMajor>の敵には、このスキルの射程が増加する。<br>",
    "cooldown": "11",
    "cost": "50",
    "range": "650",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {

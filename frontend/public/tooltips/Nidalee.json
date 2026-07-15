@@ -13,12 +13,12 @@
   },
   "q": {
    "name": "槍投げ/テイクダウン",
-   "description": "<keywordMajor>ヒト形態:</keywordMajor> 槍を投げて<magicDamage>70/90/110/130/150（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。ダメージは槍の飛距離に応じて最大<magicDamage>227.5/292.5/357.5/422.5/487.5（＋魔力の50%）の魔法ダメージ</magicDamage>まで増加する。<br><br><strong>◆ クーガー形態: 槍投げ/テイクダウン</strong><br><keywordMajor>クーガー形態: </keywordMajor>次の通常攻撃が<magicDamage>5/30/55/80/105/130（＋合計攻撃力の75% ＋魔力の40%）に加えて減少体力1%につき1/1.25/1.5/1.75/2/2.25%の魔法ダメージ</magicDamage>を追加で与える。<br><br>敵が<keywordMajor>「マーキング」</keywordMajor>されていた場合は、ダメージが30%増加する。",
+   "description": "<keywordMajor>ヒト形態:</keywordMajor> 槍を投げて<magicDamage>70/90/110/130/150（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。ダメージは槍の飛距離に応じて最大<magicDamage>227.5/292.5/357.5/422.5/487.5（＋魔力の50%）の魔法ダメージ</magicDamage>まで増加する。<br><br><keywordMajor>クーガー形態: </keywordMajor>次の通常攻撃が<magicDamage>5/30/55/80/105/130（＋合計攻撃力の75% ＋魔力の40%）に加えて減少体力1%につき1/1.25/1.5/1.75/2/2.25%の魔法ダメージ</magicDamage>を追加で与える。<br><br>敵が<keywordMajor>「マーキング」</keywordMajor>されていた場合は、ダメージが30%増加する。<br><br><strong>◆ クーガー形態: 槍投げ/テイクダウン</strong><br><keywordMajor>クーガー形態: </keywordMajor>次の通常攻撃が<magicDamage>5/30/55/80/105/130（＋合計攻撃力の75% ＋魔力の40%）に加えて減少体力1%につき1/1.25/1.5/1.75/2/2.25%の魔法ダメージ</magicDamage>を追加で与える。<br><br>敵が<keywordMajor>「マーキング」</keywordMajor>されていた場合は、ダメージが30%増加する。",
    "cooldown": "6",
    "cost": "50/55/60/65/70",
    "range": "1500",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "w": {
@@ -35,12 +35,12 @@
   },
   "e": {
    "name": "高揚/クロウ",
-   "description": "<keywordMajor>ヒト形態:</keywordMajor> <healing>体力を50/75/100/125/150（＋魔力の35%）</healing>回復する。回復量は減少体力に応じて最大<healing>100/150/200/250/300（＋魔力の35%）</healing>まで増加する。また7秒間、<attackSpeed>攻撃速度が30/40/50/60/70%</attackSpeed>増加する。<br><br><strong>◆ クーガー形態: クロウ/高揚</strong><br><keywordMajor>クーガー形態:</keywordMajor> 前方にいるすべての敵をかぎ爪で攻撃し、<magicDamage>70/130/190/250/310/370（＋増加攻撃力の70% ＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "<keywordMajor>ヒト形態:</keywordMajor> <healing>体力を50/75/100/125/150（＋魔力の35%）</healing>回復する。回復量は減少体力に応じて最大<healing>100/150/200/250/300（＋魔力の35%）</healing>まで増加する。また7秒間、<attackSpeed>攻撃速度が30/40/50/60/70%</attackSpeed>増加する。<br><br><keywordMajor>クーガー形態:</keywordMajor> 前方にいるすべての敵をかぎ爪で攻撃し、<magicDamage>70/130/190/250/310/370（＋増加攻撃力の70% ＋魔力の55%）の魔法ダメージ</magicDamage>を与える。<br><br><strong>◆ クーガー形態: クロウ/高揚</strong><br><keywordMajor>クーガー形態:</keywordMajor> 前方にいるすべての敵をかぎ爪で攻撃し、<magicDamage>70/130/190/250/310/370（＋増加攻撃力の70% ＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "12",
    "cost": "50/55/60/65/70",
    "range": "900",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {

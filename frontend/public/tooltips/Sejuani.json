@@ -23,12 +23,12 @@
   },
   "w": {
    "name": "氷河の怒り",
-   "description": "フレイルを振って<physicalDamage>5/15/25/35/45（＋魔力の30% ＋合計体力の4%）の物理ダメージ</physicalDamage>を与え、ミニオンとジャングルモンスターを<status>ノックバック</status>させる。その後さらにフレイルを打ち付け、対象に<physicalDamage>5/25/45/65/85（＋魔力の60% ＋合計体力の8%）の物理ダメージ</physicalDamage>を与えて少しの間だけ<status>スロウ効果</status>を与える。<br><br>どちらの攻撃でも<spellName>「永久凍土」</spellName>のスタックを付与する。",
+   "description": "フレイルを振って<physicalDamage>5/15/25/35/45（＋魔力の30% ＋合計体力の4%）の物理ダメージ</physicalDamage>を与え、ミニオンとジャングルモンスターを<status>ノックバック</status>させる。その後さらにフレイルを打ち付けて、対象に<physicalDamage>5/25/45/65/85（＋魔力の60% ＋合計体力の8%）の物理ダメージ</physicalDamage>を与えて、0.25秒間75%の<status>スロウ効果</status>を与える。<br><br>どちらの攻撃でも<spellName>「永久凍土」</spellName>のスタックを付与する。",
    "cooldown": "9/8/7/6/5",
    "cost": "60",
    "range": "600",
    "maxRank": 5,
-   "source": "lcu",
+   "source": "stringtable",
    "unresolved": []
   },
   "e": {
