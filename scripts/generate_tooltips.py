@@ -977,20 +977,32 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
             loc = (
                 (spell_obj.get("mClientData") or {}).get("mTooltipData") or {}
             ).get("mLocKeys") or {}
-            st_body = stringtable.get((loc.get("keyTooltip") or "").lower(), "")
-            if st_body:
+            plain_lcu = re.sub(r"<[^>]+>", "", desc)
+            best_st = ""
+            for loc_key in ("keyTooltip", "keyTooltipExtended"):
+                st_body = stringtable.get((loc.get(loc_key) or "").lower(), "")
+                if not st_body:
+                    continue
                 st_desc, st_unres = resolve_description(
                     expand(st_body), values, calcs, global_values, global_calcs,
                     max_rank, cd_str, cost_str, script_maps=script_maps,
                 )
                 plain_st = re.sub(r"<[^>]+>", "", st_desc)
-                plain_lcu = re.sub(r"<[^>]+>", "", desc)
-                if (
+                ok = (
                     st_desc and not st_unres
                     and "{{" not in st_desc and "@" not in st_desc
                     and len(plain_st) > len(plain_lcu)
-                ):
-                    desc, unresolved, source = st_desc, [], "stringtable"
+                )
+                if ok and len(plain_st) > len(re.sub(r"<[^>]+>", "", best_st)):
+                    best_st = st_desc
+                elif not ok and len(plain_st) > len(plain_lcu):
+                    # 差し替え候補だったのに却下された場合は理由をCIログに残す
+                    print(
+                        f"    st-gate skip {alias} {key.upper()}/{loc_key}: "
+                        f"unres={st_unres[:3]} tpl={'{{' in st_desc} at={'@' in st_desc}"
+                    )
+            if best_st:
+                desc, unresolved, source = best_st, [], "stringtable"
 
         # サブスペル（形態・武器別）のセクションを追記
         for label, script in (FORM_SPECS.get(alias, {}).get(key) or []):
