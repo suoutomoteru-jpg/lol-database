@@ -118,5 +118,35 @@ def probe_aphelios_deep() -> None:
         print(f"listing failed: {e}")
 
 
+def probe_aphelios_calcs() -> None:
+    """アフェリオス第5弾: 武器スペルの計算式JSON全文（ratio検証用）"""
+    bin_data = get_json(f"{BASE}/game/data/characters/aphelios/aphelios.bin.json")
+    targets = {
+        "apheliosseverumq": ["Haste", "TotalDamage", "NumAttacks", "HealAmount"],
+        "aphelioscalibrumq": ["SpellDamage"],
+        "apheliosinfernumq": ["QWaveDamage"],
+        "apheliosgravitumq": ["Damage"],
+        "arurf": [],
+    }
+    for path, entry in bin_data.items():
+        if not isinstance(entry, dict) or "mSpell" not in entry:
+            continue
+        script = str(entry.get("mScriptName") or path.split("/")[-1])
+        if script.lower() not in targets:
+            continue
+        calcs = entry["mSpell"].get("mSpellCalculations") or {}
+        wanted = targets[script.lower()]
+        print(f"########## {script} ##########")
+        for name, calc in calcs.items():
+            if wanted and name not in wanted:
+                continue
+            print(f"--- {name}")
+            print(json.dumps(calc, ensure_ascii=False, indent=1)[:2500])
+        # DataValues も表示
+        dvs = entry["mSpell"].get("mDataValues") or []
+        print("DataValues:", json.dumps(dvs, ensure_ascii=False)[:1500])
+        print()
+
+
 if __name__ == "__main__":
-    probe_missing_template_keys()
+    probe_aphelios_calcs()
