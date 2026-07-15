@@ -14,8 +14,7 @@ BASE = "https://raw.communitydragon.org/latest"
 UA = {"User-Agent": "lol-db-form-probe"}
 STRINGTABLE_URL = f"{BASE}/game/ja_jp/data/menu/en_us/lol.stringtable.json"
 
-TARGETS = ["aphelios", "elise", "nidalee", "gnar", "jayce", "yunara",
-           "akshan", "gangplank", "karma"]
+TARGETS: list[str] = []  # 第1弾で調査済み。第2弾はアフェリオス深掘りのみ
 
 
 def get_json(url: str):
@@ -71,5 +70,42 @@ def main() -> None:
         print()
 
 
+def probe_aphelios_deep() -> None:
+    """アフェリオス第2弾: 武器スペルの数値データの所在と、ST本文の変数形式"""
+    st = get_json(STRINGTABLE_URL)
+    entries = st.get("entries", st)
+    table = {k.lower(): v for k, v in entries.items() if isinstance(v, str)}
+
+    print("=== 武器別ツールチップ本文（変数形式の確認）===")
+    keys = (
+        [f"spell_apheliosq_tooltip_{i}" for i in range(1, 6)]
+        + [f"spell_apheliose_tooltipextended_long_{i}" for i in range(1, 6)]
+        + [f"spell_apheliosr_weaponmod_{i}" for i in range(1, 6)]
+        + ["spell_apheliose_tooltip", "spell_apheliosq_mastertooltipextended",
+           "spell_apheliosr_tooltip"]
+        + [f"apheliosgun_tooltip_{i}" for i in range(1, 6)]
+    )
+    for k in keys:
+        print(f"--- {k}")
+        print(table.get(k, "(なし)"))
+
+    print("\n=== skin0.bin 内のアフェリオス武器スペル ===")
+    try:
+        skin = get_json(f"{BASE}/game/data/characters/aphelios/skins/skin0.bin.json")
+        for path, entry in sorted(skin.items()):
+            if not isinstance(entry, dict) or "mSpell" not in entry:
+                continue
+            script = path.split("/")[-1]
+            if not re.search(r"calibrum|severum|gravitum|infernum|crescendum|apheliosq|apheliose|apheliosr", script, re.I):
+                continue
+            sp = entry["mSpell"]
+            dvs = [dv.get("mName") for dv in (sp.get("mDataValues") or []) if isinstance(dv, dict)]
+            n_calc = len(sp.get("mSpellCalculations") or {})
+            print(f"  {script}\tdv={dvs}\tcalcs={n_calc}")
+    except Exception as e:  # noqa: BLE001
+        print(f"skin0 fetch failed: {e}")
+
+
 if __name__ == "__main__":
     main()
+    probe_aphelios_deep()
