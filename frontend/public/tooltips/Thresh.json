@@ -3,7 +3,7 @@
  "id": 412,
  "name": "スレッシュ",
  "title": "縛鎖の看守",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "魂の束縛",
@@ -18,6 +18,7 @@
    "cost": "70",
    "range": "1075",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "50/55/60/65/70",
    "range": "950",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "TotalShield"
    ]
@@ -38,6 +40,7 @@
    "cost": "60/65/70/75/80",
    "range": "500",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "PAttackDamageMin",
     "PAttackDamageMax"
@@ -50,6 +53,7 @@
    "cost": "100",
    "range": "450",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

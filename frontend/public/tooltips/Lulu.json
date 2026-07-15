@@ -3,7 +3,7 @@
  "id": 117,
  "name": "ルル",
  "title": "森の妖精使い",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "仲良し妖精ピックス",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "ぴかぴかビーム",
-   "description": "ルルとピックスがそれぞれ貫通するビームを放ち、<magicDamage>60/95/130/165/200（＋魔力の50%）の魔法ダメージ</magicDamage>を与えて、@SlowAmount*-100@%の<status>スロウ効果</status>を付与する。この効果は2秒かけて元に戻る。<br><br>複数のビームが敵に命中した場合、2本目以降のビームは<magicDamage>30/47.5/65/82.5/100（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "ルルとピックスがそれぞれ貫通するビームを放ち、<magicDamage>60/95/130/165/200（＋魔力の50%）の魔法ダメージ</magicDamage>を与えて、80%の<status>スロウ効果</status>を付与する。この効果は2秒かけて元に戻る。<br><br>複数のビームが敵に命中した場合、2本目以降のビームは<magicDamage>30/47.5/65/82.5/100（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "7",
    "cost": "50/55/60/65/70",
    "range": "925",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "65",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "60/65/70/75/80",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "900",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

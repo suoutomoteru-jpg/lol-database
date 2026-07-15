@@ -3,7 +3,7 @@
  "id": 245,
  "name": "エコー",
  "title": "砕けた時を渡る少年",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ゼロ・ドライブ",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "タイムワインダー",
-   "description": "<magicDamage>80/95/110/125/140（＋魔力の30%）の魔法ダメージ</magicDamage>を与える装置を投げる。装置はチャンピオンに命中するか、最大射程に到達するとフィールドを展開し、範囲内の敵に@Effect2Amount*-100@%の<status>スロウ効果</status>を付与する。フィールド展開後、装置を自身のところに呼び戻し、<magicDamage>40/65/90/115/140（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "<magicDamage>80/95/110/125/140（＋魔力の30%）の魔法ダメージ</magicDamage>を与える装置を投げる。装置はチャンピオンに命中するか、最大射程に到達するとフィールドを展開し、範囲内の敵に40/45/50/55/60%の<status>スロウ効果</status>を付与する。フィールド展開後、装置を自身のところに呼び戻し、<magicDamage>40/65/90/115/140（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "9/8.5/8/7.5/7",
    "cost": "50/60/70/80/90",
    "range": "1075",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "30/35/40/45/50",
    "range": "1600",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "40/45/50/55/60",
    "range": "325",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "850",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

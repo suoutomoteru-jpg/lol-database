@@ -3,7 +3,7 @@
  "id": 3,
  "name": "ガリオ",
  "title": "伝説の巨像",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "巨像の一撃",
@@ -18,6 +18,7 @@
    "cost": "60/65/70/75/80",
    "range": "825",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "50",
    "range": "275",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "50",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "4000/4750/5500",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

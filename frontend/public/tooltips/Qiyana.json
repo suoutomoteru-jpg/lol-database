@@ -3,7 +3,7 @@
  "id": 246,
  "name": "キヤナ",
  "title": "エレメントの女帝",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "女帝の威風",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "エレメントの怒り/イシュタルの切先",
-   "description": "<keywordMajor>「エンチャントメント」</keywordMajor>を保有していない場合は斬撃を繰り出し、狭い範囲内の敵に<physicalDamage>70/100/130/160/190（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。保有している場合は、このスキルの射程が増加して、<keywordMajor>「エンチャントメント」</keywordMajor>の種類に応じた追加効果を獲得する:<li><keywordMajor>氷のエンチャントメント</keywordMajor>: 短時間の<status>スネア効果</status>を付与し、その後1秒間、@SlowPotency*-100@%の<status>スロウ効果</status>を付与する。<li><keywordMajor>岩のエンチャントメント</keywordMajor>: 体力が50%未満のユニットに<physicalDamage>70/100/130/160/190（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を追加で与える。<li><keywordMajor>草木のエンチャントメント</keywordMajor>: 自身を<keywordStealth>インビジブル</keywordStealth>状態にして<speed>移動速度を20%</speed>増加させる道が発生する。<br>",
+   "description": "<keywordMajor>「エンチャントメント」</keywordMajor>を保有していない場合は斬撃を繰り出し、狭い範囲内の敵に<physicalDamage>70/100/130/160/190（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。保有している場合は、このスキルの射程が増加して、<keywordMajor>「エンチャントメント」</keywordMajor>の種類に応じた追加効果を獲得する:<li><keywordMajor>氷のエンチャントメント</keywordMajor>: 短時間の<status>スネア効果</status>を付与し、その後1秒間、20%の<status>スロウ効果</status>を付与する。<li><keywordMajor>岩のエンチャントメント</keywordMajor>: 体力が50%未満のユニットに<physicalDamage>70/100/130/160/190（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を追加で与える。<li><keywordMajor>草木のエンチャントメント</keywordMajor>: 自身を<keywordStealth>インビジブル</keywordStealth>状態にして<speed>移動速度を20%</speed>増加させる道が発生する。<br>",
    "cooldown": "7",
    "cost": "35",
    "range": "525",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "25/30/35/40/45",
    "range": "1100",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "40/45/50/55/60",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "950",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

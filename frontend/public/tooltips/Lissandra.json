@@ -3,21 +3,22 @@
  "id": 127,
  "name": "リサンドラ",
  "title": "氷の魔女",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "アイスボーンへの服従",
-   "description": "リサンドラの近くで倒された敵チャンピオンは「氷の奴隷」になる。「氷の奴隷」は周囲の敵にスロウ効果を与え、少ししてから極度の寒さに砕け散り、周囲の対象に魔法ダメージを与える。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 120〜520（レベル1〜18） ＋ 魔力の50%",
-   "source": "lcu",
+   "description": "リサンドラの近くで倒された敵チャンピオンは氷の死霊として甦り、生存している敵を追いかける。氷の死霊の近くにいる敵は25%の<status>スロウ効果</status>を受ける。4秒後、氷の死霊は砕け散り、<magicDamage>120〜520（レベル1〜18） ＋ 魔力の50%の魔法ダメージ</magicDamage>を与える。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "アイスシャード",
-   "description": "氷の槍を放つ。槍は最初の敵に当たった時点で砕け散り、<magicDamage>80/115/150/185/220（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、1.5秒間@Effect3Amount*-100@%の<status>スロウ効果</status>を付与する。また、その対象の背後にいる敵にもダメージとスロウ効果を与える。",
+   "description": "氷の槍を放つ。槍は最初の敵に当たった時点で砕け散り、<magicDamage>80/115/150/185/220（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、1.5秒間20/24/28/32/36%の<status>スロウ効果</status>を付与する。また、その対象の背後にいる敵にもダメージとスロウ効果を与える。",
    "cooldown": "7/6/5/4/3",
    "cost": "55/60/65/70/75",
    "range": "725",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "40",
    "range": "450",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,15 +38,17 @@
    "cost": "80/85/90/95/100",
    "range": "1050",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
    "name": "フローズングレイブ",
-   "description": "自身または敵チャンピオンを氷の中に閉じ込める。敵に使用した場合は1.5秒間<status>スタン</status>させる。自身に使用した場合は2.5秒間、固有時停止状態になり、<healing>体力を100/150/200（＋魔力の55%）</healing>回復する。回復量は減少体力1%ごとに1%増加する。<br><br>いずれの場合も、その対象から闇の氷が広がり、<magicDamage>150/250/350（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。氷は3秒間持続し、敵に@SlowAmount*-100@%の<status>スロウ効果</status>を与える。",
+   "description": "自身または敵チャンピオンを氷の中に閉じ込める。敵に使用した場合は1.5秒間<status>スタン</status>させる。自身に使用した場合は2.5秒間、固有時停止状態になり、<healing>体力を100/150/200（＋魔力の55%）</healing>回復する。回復量は減少体力1%ごとに1%増加する。<br><br>いずれの場合も、その対象から闇の氷が広がり、<magicDamage>150/250/350（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。氷は3秒間持続し、敵に45/60/75%の<status>スロウ効果</status>を与える。",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "550",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

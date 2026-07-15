@@ -3,7 +3,7 @@
  "id": 8,
  "name": "ブラッドミア",
  "title": "真紅の死神",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "真紅の盟約",
@@ -18,15 +18,17 @@
    "cost": "",
    "range": "600",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "紅血の沼",
-   "description": "2秒間血の沼に潜り、1秒間<speed>移動速度が37.5%</speed>増加して、<keyword>対象指定不可</keyword>になり、<keyword>ゴースト化</keyword>する。増加した移動速度は徐々に元に戻る。血の沼に触れた敵は@MoveSpeedMod*-100@%の<status>スロウ効果</status>を受ける。<br><br>効果時間中に<magicDamage>80/135/190/245/300（＋増加体力の15%）の魔法ダメージ</magicDamage>を与え、自身は敵1体につき<healing>24/40.5/57/73.5/90（＋増加体力の15%）の体力</healing>を回復する。",
+   "description": "2秒間血の沼に潜り、1秒間<speed>移動速度が37.5%</speed>増加して、<keyword>対象指定不可</keyword>になり、<keyword>ゴースト化</keyword>する。増加した移動速度は徐々に元に戻る。血の沼に触れた敵は40%の<status>スロウ効果</status>を受ける。<br><br>効果時間中に<magicDamage>80/135/190/245/300（＋増加体力の15%）の魔法ダメージ</magicDamage>を与え、自身は敵1体につき<healing>24/40.5/57/73.5/90（＋増加体力の15%）の体力</healing>を回復する。",
    "cooldown": "28/25/22/19/16",
    "cost": "",
    "range": "350",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "",
    "range": "600",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "",
    "range": "625",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

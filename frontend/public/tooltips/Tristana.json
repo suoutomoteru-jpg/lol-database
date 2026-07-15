@@ -3,7 +3,7 @@
  "id": 18,
  "name": "トリスターナ",
  "title": "ヨードルの主砲",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ドロー＆グロー",
@@ -18,15 +18,17 @@
    "cost": "30/35/40/45/50",
    "range": "20",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "ロケットジャンプ",
-   "description": "自身を飛ばして、着地時に<magicDamage>70/105/140/175/210（＋増加攻撃力の100% ＋魔力の50%）の魔法ダメージ</magicDamage>を与え、2秒間@SlowMod*-100@%の<status>スロウ効果</status>を付与する。<br><br>チャンピオンからキルまたはアシストを獲得するか、チャンピオンに付着した<spellName>「ヨードルグレネード」</spellName>を最大スタックにして爆発させると、このスキルのクールダウンが解消される。",
+   "description": "自身を飛ばして、着地時に<magicDamage>70/105/140/175/210（＋増加攻撃力の100% ＋魔力の50%）の魔法ダメージ</magicDamage>を与え、2秒間40%の<status>スロウ効果</status>を付与する。<br><br>チャンピオンからキルまたはアシストを獲得するか、チャンピオンに付着した<spellName>「ヨードルグレネード」</spellName>を最大スタックにして爆発させると、このスキルのクールダウンが解消される。",
    "cooldown": "22/20/18/16/14",
    "cost": "30/35/40/45/50",
    "range": "900",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "50/55/60/65/70",
    "range": "550",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "550",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

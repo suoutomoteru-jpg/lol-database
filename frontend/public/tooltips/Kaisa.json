@@ -3,11 +3,11 @@
  "id": 145,
  "name": "カイ＝サ",
  "title": "虚無を知る娘",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ヴォイドスキン",
-   "description": "通常攻撃が4秒間、<keywordMajor>プラズマ</keywordMajor>をスタックさせ、<magicDamage>4〜24（レベル比例） ＋ 魔力の12%(+スタックごとに1〜6（レベル比例） ＋ 魔力の3%)の魔法ダメージ</magicDamage>を追加で与える。4スタックで敵に通常攻撃を行うと<keywordMajor>プラズマ</keywordMajor>を消費し、<magicDamage>減少体力の15%（＋魔力の0.06%）の魔法ダメージ</magicDamage>を与える。周囲の味方はチャンピオンに<status>移動不能効果</status>を与えると1スタックを付与する。<br><br>自身のステータスに応じて、外骨格が通常スキルを進化させる。<br><spellName>イカシアの雨</spellName>: <physicalDamage>40/55/70/85/100/増加攻撃力100</physicalDamage><br><spellName>ヴォイドシーカー</spellName>: <scaleAP>6/魔力6</scaleAP><br><spellName>スーパーチャージ</spellName>: <attackSpeed>0.25%/増加攻撃速度100%</attackSpeed><br><br><rules><keywordMajor>プラズマ</keywordMajor>を消費すると、モンスターには最大で<magicDamage>400の魔法ダメージ</magicDamage>を与える。<br>チャンピオンレベル上昇で増加する<physicalDamage>攻撃力</physicalDamage>は<spellName>「イカシアの雨」</spellName>、<attackSpeed>攻撃速度</attackSpeed>は<spellName>「スーパーチャージ」</spellName>の<keywordMajor>「進化」</keywordMajor>をそれぞれ進める。</rules>",
+   "description": "通常攻撃が4秒間、<keywordMajor>プラズマ</keywordMajor>をスタックさせ、<magicDamage>4〜24（レベル比例） ＋ 魔力の12%(+スタックごとに1〜6（レベル比例） ＋ 魔力の3%)の魔法ダメージ</magicDamage>を追加で与える。4スタックで敵に通常攻撃を行うと<keywordMajor>プラズマ</keywordMajor>を消費し、<magicDamage>減少体力の15%（＋魔力の0.06%）の魔法ダメージ</magicDamage>を与える。周囲の味方はチャンピオンに<status>移動不能効果</status>を与えると1スタックを付与する。<br><br>自身のステータスに応じて、外骨格が通常スキルを進化させる。<br><spellName>イカシアの雨</spellName>: <physicalDamage>40/55/70/85/100/増加攻撃力100</physicalDamage><br><spellName>ヴォイドシーカー</spellName>: <scaleAP>6/魔力100</scaleAP><br><spellName>スーパーチャージ</spellName>: <attackSpeed>0.25%/増加攻撃速度100%</attackSpeed><br><br><rules><keywordMajor>プラズマ</keywordMajor>を消費すると、モンスターには最大で<magicDamage>400の魔法ダメージ</magicDamage>を与える。<br>チャンピオンレベル上昇で増加する<physicalDamage>攻撃力</physicalDamage>は<spellName>「イカシアの雨」</spellName>、<attackSpeed>攻撃速度</attackSpeed>は<spellName>「スーパーチャージ」</spellName>の<keywordMajor>「進化」</keywordMajor>をそれぞれ進める。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
@@ -18,6 +18,7 @@
    "cost": "55",
    "range": "600",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "MaxDamageDisplay",
     "f11.1"
@@ -25,14 +26,13 @@
   },
   "w": {
    "name": "ヴォイドシーカー",
-   "description": "ヴォイドのエネルギーを発射して最初に命中した敵に<magicDamage>30/55/80/105/130（＋合計攻撃力の130% ＋魔力の45%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>プラズマ</keywordMajor>を2スタック付与し、秒間<keywordStealth>真の視界</keywordStealth>を得る。<br><br><keywordMajor>進化時</keywordMajor>: 代わりに<keywordMajor>プラズマ</keywordMajor>を3スタック付与し、チャンピオンに命中するとクールダウンが75%短縮される。<br>現在: <scaleAP>100/魔力100</scaleAP>",
+   "description": "ヴォイドのエネルギーを発射して最初に命中した敵に<magicDamage>30/55/80/105/130（＋合計攻撃力の130% ＋魔力の45%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>プラズマ</keywordMajor>を2スタック付与し、4秒間<keywordStealth>真の視界</keywordStealth>を得る。<br><br><keywordMajor>進化時</keywordMajor>: 代わりに<keywordMajor>プラズマ</keywordMajor>を3スタック付与し、チャンピオンに命中するとクールダウンが75%短縮される。<br>現在: <scaleAP>100/魔力100</scaleAP>",
    "cooldown": "22/20/18/16/14",
    "cost": "55/60/65/70/75",
    "range": "3000",
    "maxRank": 5,
-   "unresolved": [
-    "spell.KaisaPassive:PDuration"
-   ]
+   "source": "lcu",
+   "unresolved": []
   },
   "e": {
    "name": "スーパーチャージ",
@@ -41,6 +41,7 @@
    "cost": "30",
    "range": "1",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "TotalMoveSpeed",
     "f10.1"
@@ -53,8 +54,9 @@
    "cost": "100",
    "range": "2000/2500/3000",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },
- "unresolvedCount": 5
+ "unresolvedCount": 4
 }

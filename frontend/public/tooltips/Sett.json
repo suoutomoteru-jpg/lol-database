@@ -3,7 +3,7 @@
  "id": 875,
  "name": "セト",
  "title": "ザ・ボス",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ファイティングスピリット",
@@ -18,18 +18,18 @@
    "cost": "",
    "range": "0",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "ヘイメイカー",
-   "description": "<spellPassive>自動効果:</spellPassive> 被ダメージの100%を<keywordMajor>「闘魂」</keywordMajor>として獲得する(最大<keywordMajor>合計体力の50%</keywordMajor>)。<keywordMajor>「闘魂」</keywordMajor>はダメージを受けてから4秒後に急速に減衰する。<br><br><spellActive>発動効果:</spellActive> すべての<keywordMajor>「闘魂」</keywordMajor>を消費して、<shield>消費した「闘魂」の100%に当たるシールド</shield>を獲得する。このシールドは3秒かけて減衰する。その後、強烈なパンチをお見舞いし、中心部にいる敵に<trueDamage>80/100/120/140/160(+消費した「闘魂」の25%（＋増加攻撃力の0.25%）)の確定ダメージ</trueDamage>を与える(最大<trueDamage>ダメージ</trueDamage>)。中心部にいなかった敵には、代わりに<physicalDamage>物理ダメージ</physicalDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> 被ダメージの100%を<keywordMajor>「闘魂」</keywordMajor>として獲得する(最大<keywordMajor>合計体力の50%</keywordMajor>)。<keywordMajor>「闘魂」</keywordMajor>はダメージを受けてから4秒後に急速に減衰する。<br><br><spellActive>発動効果:</spellActive> すべての<keywordMajor>「闘魂」</keywordMajor>を消費して、<shield>消費した「闘魂」の100%に当たるシールド</shield>を獲得する。このシールドは3秒かけて減衰する。その後、強烈なパンチをお見舞いし、中心部にいる敵に<trueDamage>80/100/120/140/160(+消費した「闘魂」の25%（＋増加攻撃力の0.25%）)の確定ダメージ</trueDamage>を与える(最大<trueDamage>80/125/170/215/260/305ダメージ</trueDamage>)。中心部にいなかった敵には、代わりに<physicalDamage>物理ダメージ</physicalDamage>を与える。",
    "cooldown": "18/16.5/15/13.5/12",
    "cost": "",
    "range": "25000",
    "maxRank": 5,
-   "unresolved": [
-    "f1"
-   ]
+   "source": "lcu",
+   "unresolved": []
   },
   "e": {
    "name": "フェイスブレイカー",
@@ -38,6 +38,7 @@
    "cost": "",
    "range": "490",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -47,8 +48,9 @@
    "cost": "",
    "range": "400",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

@@ -3,7 +3,7 @@
  "id": 420,
  "name": "イラオイ",
  "title": "海の女司祭",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "旧神の預言者",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "触手の鉄槌",
-   "description": "<passive>自動効果:</passive> <keywordMajor>「叩きつけ」</keywordMajor>のダメージが<physicalDamage>10/15/20/25/30%</physicalDamage>増加する(現在は<physicalDamage>9〜180（レベル比例） ＋ 合計攻撃力の110% ＋ 魔力の40%の物理ダメージ</physicalDamage>)。<br><br><active>発動効果:</active> 偶像を振って、触手が前方に<keywordMajor>「叩きつけ」</keywordMajor>を行う。",
+   "description": "<passive>自動効果:</passive> <keywordMajor>「叩きつけ」</keywordMajor>のダメージが<physicalDamage>10/15/20/25/30/35%</physicalDamage>増加する(現在は<physicalDamage>9〜180（レベル比例） ＋ 合計攻撃力の110% ＋ 魔力の40%の物理ダメージ</physicalDamage>)。<br><br><active>発動効果:</active> 偶像を振って、触手が前方に<keywordMajor>「叩きつけ」</keywordMajor>を行う。",
    "cooldown": "10/9/8/7/6",
    "cost": "40/45/50/55/60",
    "range": "850",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "30",
    "range": "400",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "35/40/45/50/55",
    "range": "900",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "450",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

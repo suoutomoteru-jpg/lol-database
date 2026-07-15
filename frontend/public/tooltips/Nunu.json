@@ -3,7 +3,7 @@
  "id": 20,
  "name": "ヌヌ＆ウィルンプ",
  "title": "少年とイエティ",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "フレヨルドの呼び声",
@@ -18,6 +18,7 @@
    "cost": "60",
    "range": "125",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,24 +28,27 @@
    "cost": "50/55/60/65/70",
    "range": "7500",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
    "name": "雪玉連射",
-   "description": "ヌヌが雪玉を3つ投げて、雪玉1つにつき<magicDamage>15/22.5/30/37.5/45（＋魔力の12%）の魔法ダメージ</magicDamage>を与え、3つすべてが当たった敵には1秒間、@SlowAmount*-100@%の<status>スロウ効果</status>を与える。このスキルは最大2回まで<recast>再発動</recast>できる。<br><br>3秒後、雪玉による<status>スロウ効果</status>を受けた周囲の敵すべてに0.5〜1.5（レベル比例）秒間<status>スネア効果</status>を与え、追加で<magicDamage>20/30/40/50/60（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "ヌヌが雪玉を3つ投げて、雪玉1つにつき<magicDamage>15/22.5/30/37.5/45（＋魔力の12%）の魔法ダメージ</magicDamage>を与え、3つすべてが当たった敵には1秒間、30/35/40/45/50%の<status>スロウ効果</status>を与える。このスキルは最大2回まで<recast>再発動</recast>できる。<br><br>3秒後、雪玉による<status>スロウ効果</status>を受けた周囲の敵すべてに0.5〜1.5（レベル比例）秒間<status>スネア効果</status>を与え、追加で<magicDamage>20/30/40/50/60（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "14/13/12/11/10",
    "cost": "50/55/60/65/70",
    "range": "625",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
    "name": "アブソリュート・ゼロ",
-   "description": "最大3秒間詠唱して猛吹雪を呼び出す。吹雪の範囲内にいる敵に@SlowStartAmount*-100@%の<status>スロウ効果</status>を与え、このスロウ効果は効果時間中に@MaxSlowAmount*-100@%まで増加する。ヌヌとウィルンプは効果時間中に<shield>耐久値65/75/85（＋増加体力の30/40/50% ＋魔力の150%）のシールド</shield>を獲得する。シールドは効果時間後に3秒かけて減衰する。<br><br>猛吹雪は終了時に爆発を起こし、詠唱時間に応じて最大<magicDamage>625/925/1275（＋魔力の300%）の魔法ダメージ</magicDamage>を与える。<recast>再発動</recast>すると猛吹雪が早めに終了する。",
+   "description": "最大3秒間詠唱して猛吹雪を呼び出す。吹雪の範囲内にいる敵に50%の<status>スロウ効果</status>を与え、このスロウ効果は効果時間中に95%まで増加する。ヌヌとウィルンプは効果時間中に<shield>耐久値65/75/85（＋増加体力の30/40/50% ＋魔力の150%）のシールド</shield>を獲得する。シールドは効果時間後に3秒かけて減衰する。<br><br>猛吹雪は終了時に爆発を起こし、詠唱時間に応じて最大<magicDamage>625/925/1275（＋魔力の300%）の魔法ダメージ</magicDamage>を与える。<recast>再発動</recast>すると猛吹雪が早めに終了する。",
    "cooldown": "110/100/90",
    "cost": "100",
    "range": "650",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

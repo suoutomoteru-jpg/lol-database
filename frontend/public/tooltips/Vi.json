@@ -3,7 +3,7 @@
  "id": 254,
  "name": "ヴァイ",
  "title": "ピルトーヴァーの用心棒",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ケンカの作法",
@@ -18,18 +18,18 @@
    "cost": "50/60/70/80/90",
    "range": "250",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "メッタ打ち",
-   "description": "<spellPassive>自動効果:</spellPassive> 同じ対象に通常攻撃が3回命中するたびに、<physicalDamage>最大体力の4/5/6/7/8%（＋増加攻撃力の3.5%）の物理ダメージ</physicalDamage>を追加で与え、4秒間、対象の<scaleArmor>物理防御を20%</scaleArmor>低下させて、自身の<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。さらに、<spellName>「ケンカの作法」</spellName>の残りクールダウンが秒短縮される。",
+   "description": "<spellPassive>自動効果:</spellPassive> 同じ対象に通常攻撃が3回命中するたびに、<physicalDamage>最大体力の4/5/6/7/8%（＋増加攻撃力の3.5%）の物理ダメージ</physicalDamage>を追加で与え、4秒間、対象の<scaleArmor>物理防御を20%</scaleArmor>低下させて、自身の<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。さらに、<spellName>「ケンカの作法」</spellName>の残りクールダウンが4秒短縮される。",
    "cooldown": "0",
    "cost": "",
    "range": "750",
    "maxRank": 5,
-   "unresolved": [
-    "spell.ViPassive:CDReductionOn3Hit"
-   ]
+   "source": "lcu",
+   "unresolved": []
   },
   "e": {
    "name": "無慈悲な連撃",
@@ -38,6 +38,7 @@
    "cost": "26/32/38/44/50",
    "range": "400",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "AmmoRechargeTime"
    ]
@@ -49,8 +50,9 @@
    "cost": "100",
    "range": "800",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },
- "unresolvedCount": 2
+ "unresolvedCount": 1
 }

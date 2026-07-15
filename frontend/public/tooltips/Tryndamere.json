@@ -3,7 +3,7 @@
  "id": 23,
  "name": "トリンダメア",
  "title": "孤高の蛮王",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "戦場の咆哮",
@@ -18,15 +18,17 @@
    "cost": "",
    "range": "400",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "嘲りの叫び",
-   "description": "嘲りの言葉を浴びせ、4秒間チャンピオンの攻撃力を@ADReduction*-1@低下させる。トリンダメアに背を向けている敵は3.25秒間、@SlowPotency*-100@%の<status>スロウ効果</status>を受ける。",
+   "description": "嘲りの言葉を浴びせ、4秒間チャンピオンの攻撃力を20/35/50/65/80低下させる。トリンダメアに背を向けている敵は3.25秒間、30/35/40/45/50%の<status>スロウ効果</status>を受ける。",
    "cooldown": "14",
    "cost": "",
    "range": "850",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "",
    "range": "400",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

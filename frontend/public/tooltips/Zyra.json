@@ -3,7 +3,7 @@
  "id": 143,
  "name": "ザイラ",
  "title": "茨の目覚め",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "茨の楽園",
@@ -13,15 +13,13 @@
   },
   "q": {
    "name": "死華の棘",
-   "description": "複数の太いツルが広がって鋭い棘を生やし、<magicDamage>60/100/140/180/220（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルを<keywordMajor>種</keywordMajor>の近くで使用すると、<keywordMajor>種</keywordMajor>が成長して「棘吹草」になる。「棘吹草」は<magicDamage>の魔法ダメージ</magicDamage>を与え、秒間持続する。「棘吹草」は575の射程を持つ。",
+   "description": "複数の太いツルが広がって鋭い棘を生やし、<magicDamage>60/100/140/180/220（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルを<keywordMajor>種</keywordMajor>の近くで使用すると、<keywordMajor>種</keywordMajor>が成長して「棘吹草」になる。「棘吹草」は<magicDamage>15〜75（レベル比例） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与え、8秒間持続する。「棘吹草」は575の射程を持つ。",
    "cooldown": "7/6.5/6/5.5/5",
    "cost": "55",
    "range": "800",
    "maxRank": 5,
-   "unresolved": [
-    "spell.ZyraP:PlantDamage",
-    "spell.ZyraP:PlantDuration"
-   ]
+   "source": "lcu",
+   "unresolved": []
   },
   "w": {
    "name": "狂い咲き",
@@ -30,21 +28,20 @@
    "cost": "",
    "range": "850",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "AmmoRechargeTime"
    ]
   },
   "e": {
    "name": "捕縛の根",
-   "description": "前方にツルを送り出し、1/1.25/1.5/1.75/2秒間<status>スネア効果</status>を与えて、<magicDamage>60/95/130/165/200（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルが近くの<keywordMajor>種</keywordMajor>に触れると、<keywordMajor>種</keywordMajor>が成長して「棘鞭草」になり、<magicDamage>の魔法ダメージ</magicDamage>を与える。「棘鞭草」は秒間持続し、射程が400で、通常攻撃が2秒間30%の<status>スロウ効果</status>を与える。複数の「棘鞭草」が与えた<status>スロウ効果</status>は最大2回までスタックする。",
+   "description": "前方にツルを送り出し、1/1.25/1.5/1.75/2秒間<status>スネア効果</status>を与えて、<magicDamage>60/95/130/165/200（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルが近くの<keywordMajor>種</keywordMajor>に触れると、<keywordMajor>種</keywordMajor>が成長して「棘鞭草」になり、<magicDamage>15〜75（レベル比例） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与える。「棘鞭草」は8秒間持続し、射程が400で、通常攻撃が2秒間30%の<status>スロウ効果</status>を与える。複数の「棘鞭草」が与えた<status>スロウ効果</status>は最大2回までスタックする。",
    "cooldown": "11",
    "cost": "70/75/80/85/90",
    "range": "1100",
    "maxRank": 5,
-   "unresolved": [
-    "spell.ZyraP:PlantDamage",
-    "spell.ZyraP:PlantDuration"
-   ]
+   "source": "lcu",
+   "unresolved": []
   },
   "r": {
    "name": "茨のゆりかご",
@@ -53,8 +50,9 @@
    "cost": "100",
    "range": "700",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },
- "unresolvedCount": 5
+ "unresolvedCount": 1
 }

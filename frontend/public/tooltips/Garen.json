@@ -3,7 +3,7 @@
  "id": 86,
  "name": "ガレン",
  "title": "デマーシアの勇士",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "タフガイ",
@@ -18,6 +18,7 @@
    "cost": "",
    "range": "300",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "",
    "range": "0",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "ResistsForTooltip",
     "ResistsForTooltip"
@@ -34,24 +36,24 @@
   },
   "e": {
    "name": "ジャッジメント",
-   "description": "3秒間、高速で剣を回転させ、効果時間中に<physicalDamage>4/7/10/13/16（＋合計攻撃力の40/43/46/49/52%）の物理ダメージ</physicalDamage>を最大回与える。最も近い敵に与える<physicalDamage>ダメージは25%増加</physicalDamage>する。チャンピオンが攻撃を6回受けると、6秒間、<scaleArmor>物理防御が25%</scaleArmor>低下する。<br><br><recast>再発動</recast>: このスキルが早めに終了する。",
+   "description": "3秒間、高速で剣を回転させ、効果時間中に<physicalDamage>4/7/10/13/16（＋合計攻撃力の40/43/46/49/52%）の物理ダメージ</physicalDamage>を最大40/60/80/100/120/140回与える。最も近い敵に与える<physicalDamage>ダメージは25%増加</physicalDamage>する。チャンピオンが攻撃を6回受けると、6秒間、<scaleArmor>物理防御が25%</scaleArmor>低下する。<br><br><recast>再発動</recast>: このスキルが早めに終了する。",
    "cooldown": "9/8.25/7.5/6.75/6",
    "cost": "",
    "range": "325",
    "maxRank": 5,
-   "unresolved": [
-    "f1"
-   ]
+   "source": "lcu",
+   "unresolved": []
   },
   "r": {
    "name": "デマーシアの正義",
-   "description": "デマーシア魂を燃え上がらせ、敵に必殺の一撃を繰り出して<trueDamage>150/250/350(+減少体力の25/30/35%)の確定ダメージ</trueDamage>を与える。",
+   "description": "デマーシア魂を燃え上がらせ、敵に必殺の一撃を繰り出して<trueDamage>125/200/275(+減少体力の25/30/35%)の確定ダメージ</trueDamage>を与える。",
    "cooldown": "120/100/80",
    "cost": "",
    "range": "400",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },
- "unresolvedCount": 3
+ "unresolvedCount": 2
 }

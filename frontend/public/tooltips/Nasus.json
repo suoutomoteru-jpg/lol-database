@@ -3,7 +3,7 @@
  "id": 75,
  "name": "ナサス",
  "title": "砂漠の司書",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ソウルイーター",
@@ -18,6 +18,7 @@
    "cost": "20",
    "range": "255",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "TotalDamage"
    ]
@@ -29,15 +30,17 @@
    "cost": "80",
    "range": "700",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
    "name": "スピリットファイア",
-   "description": "神秘的な炎を発生させて、<magicDamage>50/80/110/140/170（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。範囲内の敵は<scaleArmor>物理防御が@ArmorShredPercent*-100@%</scaleArmor>低下し、5秒間かけて<magicDamage>50/80/110/140/170（＋魔力の12%）の魔法ダメージ</magicDamage>を受ける。",
+   "description": "神秘的な炎を発生させて、<magicDamage>50/80/110/140/170（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。範囲内の敵は<scaleArmor>物理防御が30/35/40/45/50%</scaleArmor>低下し、5秒間かけて<magicDamage>50/80/110/140/170（＋魔力の12%）の魔法ダメージ</magicDamage>を受ける。",
    "cooldown": "12",
    "cost": "60/70/80/90/100",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -47,6 +50,7 @@
    "cost": "100",
    "range": "400",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

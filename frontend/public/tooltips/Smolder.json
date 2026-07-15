@@ -3,7 +3,7 @@
  "id": 901,
  "name": "スモルダー",
  "title": "炎の幼龍",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "駆けだしドラゴン",
@@ -18,6 +18,7 @@
    "cost": "25",
    "range": "550",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "spell.SmolderP:Passive_QDamageIncrease",
     "Tier2_NumberOfBlowback",
@@ -31,6 +32,7 @@
    "cost": "50/55/60/65/70",
    "range": "1500",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "spell.SmolderP:Passive_WDamageIncrease"
    ]
@@ -42,6 +44,7 @@
    "cost": "65",
    "range": "700",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "TotalNumberOfAttacks",
     "spell.SmolderP:EBonusDamage"
@@ -54,6 +57,7 @@
    "cost": "100",
    "range": "4200",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

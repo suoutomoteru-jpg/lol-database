@@ -3,7 +3,7 @@
  "id": 240,
  "name": "クレッド",
  "title": "狂乱の騎兵",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "弱虫トカゲ「スカール」",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "トラバサミロープ",
-   "description": "<keywordMajor>騎乗時: </keywordMajor>トラバサミを投げて<physicalDamage>30/55/80/105/130（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与え、最初に当たった敵チャンピオンか大型ジャングルモンスターにトラバサミを引っ掛ける。<br><br>トラバサミを引っ掛けた敵の側に1.75秒間留まると、自分のいる方向に敵を引っ張り<physicalDamage>60/110/160/210/260（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて<status>引き寄せ</status>、2.5秒間@SlowAmount*-100@%の<status>スロウ効果</status>を与える。",
+   "description": "<keywordMajor>騎乗時: </keywordMajor>トラバサミを投げて<physicalDamage>30/55/80/105/130（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与え、最初に当たった敵チャンピオンか大型ジャングルモンスターにトラバサミを引っ掛ける。<br><br>トラバサミを引っ掛けた敵の側に1.75秒間留まると、自分のいる方向に敵を引っ張り<physicalDamage>60/110/160/210/260（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて<status>引き寄せ</status>、2.5秒間30/35/40/45/50%の<status>スロウ効果</status>を与える。",
    "cooldown": "11/10/9/8/7",
    "cost": "",
    "range": "800",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "",
    "range": "0",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "",
    "range": "550",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "",
    "range": "3500/4000/4500",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

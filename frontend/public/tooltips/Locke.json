@@ -3,7 +3,7 @@
  "id": 805,
  "name": "ロック",
  "title": "灰の祓魔師",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "シルバー・ステイク",
@@ -13,20 +13,22 @@
   },
   "q": {
    "name": "リチュアル・ネイル",
-   "description": "数本の<keywordMajor>「魂の釘」</keywordMajor>を構えて投げ、<magicDamage>50/60/70/80/90（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、命中した敵をマークする。釘は命中した本数に応じてスタックする<status>スロウ効果</status>を付与する(1/1/2秒間、25/25/60%)。<br><br>敵を通常攻撃すると<keywordMajor>「魂の釘」</keywordMajor>を消費し、スタックごとに<magicDamage>20/30/40/50/60（＋魔力の25/27.5/30/32.5/35%）の魔法ダメージ</magicDamage>を与える。ダメージは、釘が2本の場合20%、3本の場合40%増加する。",
+   "description": "数本の<keywordMajor>「魂の釘」</keywordMajor>を構えて投げ、<magicDamage>50/58/66/74/82（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、命中した敵をマークする。釘は命中した本数に応じてスタックする<status>スロウ効果</status>を付与する(1/1/2秒間、25/25/60%)。<br><br>敵を通常攻撃すると<keywordMajor>「魂の釘」</keywordMajor>を消費し、スタックごとに<magicDamage>18/26/34/42/50（＋魔力の25/27.5/30/32.5/35%）の魔法ダメージ</magicDamage>を与える。ダメージは、釘が2本の場合20%、3本の場合40%増加する。",
    "cooldown": "10/9/8/7/6",
    "cost": "70",
    "range": "950",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "ソウル・イグニッション",
-   "description": "魂を燃やし、<attackSpeed>攻撃速度を40〜70%（レベル比例）</attackSpeed>、<speed>移動速度を40/45/50/55/60%（＋魔力の0.02%）</speed>を増加させる。この効果は2秒かけて元に戻る。<br><br>6秒間、毎秒<trueDamage>現在体力の2%にあたる確定ダメージ</trueDamage>を受けるが、最後に受けた<healing>40/80/120/160/200（＋魔力の120%）</healing>のダメージを<healing>回復</healing>し、さらに減少体力と経過時間に応じて追加で<healing>40〜200（レベル比例） ＋ 魔力の20%の体力</healing>を回復する(最大で<healing>残り体力が150〜450（レベル比例） ＋ 魔力の60%</healing>になるまで)。<br><br><recast>再発動</recast>で早めに終了できる。",
+   "description": "魂を燃やし、<attackSpeed>攻撃速度を40〜70%（レベル比例）</attackSpeed>、<speed>移動速度を40/45/50/55/60%（＋魔力の0.02%）</speed>を増加させる。この効果は2秒かけて元に戻る。<br><br>6秒間、毎秒<trueDamage>現在体力の2%にあたる確定ダメージ</trueDamage>を受けるが、最後に受けた<healing>40/70/100/130/160（＋魔力の120%）</healing>のダメージを<healing>回復</healing>し、さらに減少体力と経過時間に応じて追加で<healing>40〜200（レベル比例） ＋ 魔力の20%の体力</healing>を回復する(最大で<healing>残り体力が150〜450（レベル比例） ＋ 魔力の60%</healing>になるまで)。<br><br><recast>再発動</recast>で早めに終了できる。",
    "cooldown": "20/18/16/14/12",
    "cost": "50",
    "range": "250",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "30/40/50/60/70",
    "range": "425",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "1000",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

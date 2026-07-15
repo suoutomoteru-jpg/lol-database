@@ -3,7 +3,7 @@
  "id": 711,
  "name": "ヴェックス",
  "title": "終わりなき憂鬱",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "フコウとユーウツ",
@@ -18,6 +18,7 @@
    "cost": "45/50/55/60/65",
    "range": "1200",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "75",
    "range": "475",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,15 +38,17 @@
    "cost": "70/80/90/100/110",
    "range": "800",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
    "name": "影法師",
-   "description": "シャドウが興奮して突撃し、<magicDamage>75/125/175（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、最初に命中した敵チャンピオンを4秒間マークする。<br><br><recast>再発動</recast>: マークしたチャンピオンまでダッシュして、到着時に<magicDamage>150/250/350（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルでダメージを受けてから、8秒以内にマークしたチャンピオンがデスすると、一時的にクールダウンがリセットされる。",
+   "description": "シャドウが興奮して突撃し、<magicDamage>75/125/175/225/275/325（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、最初に命中した敵チャンピオンを4秒間マークする。<br><br><recast>再発動</recast>: マークしたチャンピオンまでダッシュして、到着時に<magicDamage>150/250/350/450/550/650（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルでダメージを受けてから、8秒以内にマークしたチャンピオンがデスすると、一時的にクールダウンがリセットされる。",
    "cooldown": "140/120/100",
    "cost": "100",
    "range": "2000/2500/3000",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

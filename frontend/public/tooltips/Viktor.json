@@ -3,7 +3,7 @@
  "id": 112,
  "name": "ビクター",
  "title": "アーケインの先触れ",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "グロリアス・エヴォリューション",
@@ -18,15 +18,17 @@
    "cost": "45/50/55/60/65",
    "range": "600",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "グラビティフィールド",
-   "description": "4秒間、重力で拘束する装置を設置し、範囲内にいる敵に@SlowPotency*-1@%の<status>スロウ効果</status>を付与する。範囲内に1.25秒間いた敵は1.5秒間の<status>スタン効果</status>を受ける。<br><br><keywordMajor>固有スキルをアップグレード: </keywordMajor>1秒間、スキルの<status>スロウ効果</status>が20%増加する。<br><br><br>",
+   "description": "4秒間、重力で拘束する装置を設置し、範囲内にいる敵に33/36/39/42/45%の<status>スロウ効果</status>を付与する。範囲内に1.25秒間いた敵は1.5秒間の<status>スタン効果</status>を受ける。<br><br><keywordMajor>固有スキルをアップグレード: </keywordMajor>1秒間、スキルの<status>スロウ効果</status>が20%増加する。<br><br><br>",
    "cooldown": "17/16/15/14/13",
    "cost": "65",
    "range": "800",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "60/70/80/90/100",
    "range": "525",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "700",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

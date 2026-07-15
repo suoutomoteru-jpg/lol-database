@@ -3,7 +3,7 @@
  "id": 13,
  "name": "ライズ",
  "title": "ルーンの魔導師",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "古代の呪術",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "オーバーロード",
-   "description": "<spellPassive>自動効果:</spellPassive> <spellName>「ルーンプリズン」</spellName>と<spellName>「スペルフラックス」</spellName>はこのスキルのクールダウンを解消すると同時に、「ルーン」を4秒間チャージする(最大2ルーンまで)。<br><br><spellActive>発動効果:</spellActive> エネルギー弾を放ち、最初に命中した敵に<magicDamage>75/95/115/135/155（＋魔力の55% ＋最大マナの2%）の魔法ダメージ</magicDamage>を与える。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されていた場合、それを消費してこのスキルのダメージを50/75/100%増加させ、周囲の敵に<keywordMajor>「フラックス」</keywordMajor>を波及させる。<br><br>2ルーンがチャージされていた場合、全ルーンを放出して2秒間、<speed>移動速度が28/32/36/40/44%</speed>増加する。<br>",
+   "description": "<spellPassive>自動効果:</spellPassive> <spellName>「ルーンプリズン」</spellName>と<spellName>「スペルフラックス」</spellName>はこのスキルのクールダウンを解消すると同時に、「ルーン」を4秒間チャージする(最大2ルーンまで)。<br><br><spellActive>発動効果:</spellActive> エネルギー弾を放ち、最初に命中した敵に<magicDamage>75/95/115/135/155（＋魔力の55% ＋最大マナの2%）の魔法ダメージ</magicDamage>を与える。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されていた場合、それを消費してこのスキルのダメージを50/75/100/125/150/175%増加させ、周囲の敵に<keywordMajor>「フラックス」</keywordMajor>を波及させる。<br><br>2ルーンがチャージされていた場合、全ルーンを放出して2秒間、<speed>移動速度が28/32/36/40/44%</speed>増加する。<br>",
    "cooldown": "5",
    "cost": "40/38/36/34/32",
    "range": "1000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "50/60/70/80/90",
    "range": "615",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "35/45/55/65/75",
    "range": "615",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "3000",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

@@ -3,7 +3,7 @@
  "id": 115,
  "name": "ジグス",
  "title": "ヘクス爆薬のエキスパート",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ショートヒューズ",
@@ -18,6 +18,7 @@
    "cost": "50/55/60/65/70",
    "range": "850",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,15 +28,17 @@
    "cost": "80",
    "range": "1000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
    "name": "ヘクステックマイン",
-   "description": "地面に地雷を複数設置する。敵が接触すると爆発し、<magicDamage>30/70/110/150/190（＋魔力の25/30/35/40/45%）の魔法ダメージ</magicDamage>と1.5秒間@Slow*-100@%の<status>スロウ効果</status>を与える。地雷は10秒間持続する。",
+   "description": "地面に地雷を複数設置する。敵が接触すると爆発し、<magicDamage>30/70/110/150/190（＋魔力の25/30/35/40/45%）の魔法ダメージ</magicDamage>と1.5秒間10/20/30/40/50%の<status>スロウ効果</status>を与える。地雷は10秒間持続する。",
    "cooldown": "16",
    "cost": "70/80/90/100/110",
    "range": "900",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "5000",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

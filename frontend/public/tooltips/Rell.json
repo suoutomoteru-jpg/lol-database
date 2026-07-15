@@ -3,7 +3,7 @@
  "id": 526,
  "name": "レル",
  "title": "鋼鉄の乙女",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "革新の鬨",
@@ -18,15 +18,17 @@
    "cost": "50",
    "range": "600",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "フェロマンシー: 装着",
-   "description": "<spellPassive>自動効果 - 騎馬の俊足</spellPassive>: 騎乗中は<speed>移動速度が20/25/30/35/40</speed>増加する。<br><br><spellActive>発動効果 - 「フェロマンシー: 装着」: </spellActive>騎馬を解除して跳躍し、敵を<status>ノックアップ</status>させて、<magicDamage>60/90/120/150/180（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。自身は<shield>耐久値20/40/60/80/100（＋合計体力の11%）のシールド</shield>を獲得する。このシールドは再度騎乗するまで持続する。<br><br>その後、鎧身形態となって<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御が15%</scaleArmor>、<attackSpeed>攻撃速度が20%</attackSpeed>、射程距離が75増加する。鎧身形態中は<spellName>「フェロマンシー: 騎馬」</spellName>を使用できる。",
+   "description": "<spellPassive>自動効果 - 騎馬の俊足</spellPassive>: 騎乗中は<speed>移動速度が20/25/30/35/40/45</speed>増加する。<br><br><spellActive>発動効果 - 「フェロマンシー: 装着」: </spellActive>騎馬を解除して跳躍し、敵を<status>ノックアップ</status>させて、<magicDamage>60/90/120/150/180/210（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。自身は<shield>耐久値20/40/60/80/100/120（＋合計体力の11%）のシールド</shield>を獲得する。このシールドは再度騎乗するまで持続する。<br><br>その後、鎧身形態となって<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御が15%</scaleArmor>、<attackSpeed>攻撃速度が20%</attackSpeed>、射程距離が75増加する。鎧身形態中は<spellName>「フェロマンシー: 騎馬」</spellName>を使用できる。",
    "cooldown": "",
    "cost": "40",
    "range": "450",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "40",
    "range": "1200",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "200",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

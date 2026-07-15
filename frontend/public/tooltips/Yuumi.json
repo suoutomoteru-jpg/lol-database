@@ -3,7 +3,7 @@
  "id": 350,
  "name": "ユーミ",
  "title": "マジカルキャット",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ネコはトモダチ",
@@ -18,6 +18,7 @@
    "cost": "50/55/60/65/70",
    "range": "25000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "",
    "range": "25000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,15 +38,17 @@
    "cost": "80/90/100/110/120",
    "range": "25000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
    "name": "ファイナルチャプター",
-   "description": "3.5秒間詠唱して魔法のウェーブを5回発射する。このウェーブは両チームに影響を与える。<keywordMajor>くっついている</keywordMajor>間に初めて発動した時、マウスでウェーブの発射方向を操作できる。<br><br>敵に命中すると<magicDamage>75/125/175（＋魔力の25%）の魔法ダメージ</magicDamage>を与え、1.25秒間@BaseSlow*-100@%の<status>スロウ効果</status>を付与する。命中したウェーブの数ごとにスロウ効果が@BonusSlowPerWave*-100@%増加する。<br><br>味方チャンピオンはウェーブごとに<healing>30/50/70（＋魔力の12%）の体力</healing>を回復する。余剰の回復量は<shield>シールド</shield>に変換される。<br><br><keywordMajor>「ベストフレンド」ボーナス: </keywordMajor><keywordMajor>「ベストフレンド」</keywordMajor>は、回復量が<healing>30/50/70（＋魔力の12%）の体力</healing>まで増加する。<br><br><rules><spellName>「ユー＆ミー！」</spellName>を詠唱すると、ウェーブの進行方向が現在の方向で固定される。<br>詠唱中も移動したり、<spellName>「バビューン！」</spellName>を使用できる。</rules><br>",
+   "description": "3.5秒間詠唱して魔法のウェーブを5回発射する。このウェーブは両チームに影響を与える。<keywordMajor>くっついている</keywordMajor>間に初めて発動した時、マウスでウェーブの発射方向を操作できる。<br><br>敵に命中すると<magicDamage>75/125/175（＋魔力の25%）の魔法ダメージ</magicDamage>を与え、1.25秒間10%の<status>スロウ効果</status>を付与する。命中したウェーブの数ごとにスロウ効果が10%増加する。<br><br>味方チャンピオンはウェーブごとに<healing>30/50/70（＋魔力の12%）の体力</healing>を回復する。余剰の回復量は<shield>シールド</shield>に変換される。<br><br><keywordMajor>「ベストフレンド」ボーナス: </keywordMajor><keywordMajor>「ベストフレンド」</keywordMajor>は、回復量が<healing>30/50/70（＋魔力の12%）の体力</healing>まで増加する。<br><br><rules><spellName>「ユー＆ミー！」</spellName>を詠唱すると、ウェーブの進行方向が現在の方向で固定される。<br>詠唱中も移動したり、<spellName>「バビューン！」</spellName>を使用できる。</rules><br>",
    "cooldown": "120/110/100",
    "cost": "100",
    "range": "1100",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

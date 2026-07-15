@@ -3,12 +3,12 @@
  "id": 201,
  "name": "ブラウム",
  "title": "フレヨルドの漢気",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "漢の拳",
-   "description": "通常攻撃を命中させると「漢の拳」がスタックする。スタックが1つ以上ある敵には、<font color='#FFF673'>味方</font>の通常攻撃でも効果がスタックする。 <br><br>スタックが4つ溜まると対象はスタン状態になり、魔法ダメージを受ける。スタン状態になった敵はその後、数秒間はスタックが増加しない。ただしブラウムの攻撃が命中すると追加魔法ダメージを受ける。<br><br><strong>詳細数値</strong><br>・クールダウン: 8/6/4（レベル1/6/11）<br>・効果時間: 1.25/1.5/1.75（レベル1/7/13）",
-   "source": "lcu",
+   "description": "通常攻撃が対象に命中すると、4秒間<keywordMajor>「漢の拳」</keywordMajor>を付与する。<keywordMajor>「漢の拳」</keywordMajor>を受けた敵には、味方の通常攻撃が追加のスタックを付与する。<br><br>4スタックで、対象は1.25/1.5/1.75（レベル1/7/13）秒間<status>スタン</status>して、<magicDamage>75/120/165/210/255（＋合計体力の2.5%）の魔法ダメージ</magicDamage>を受ける。その後8/6/4（レベル1/6/11）秒間はスタックを受けなくなるが、ブラウムの通常攻撃から<magicDamage>30/48/66/84/102（＋合計体力の2.5%）の魔法ダメージ</magicDamage>を追加で受ける。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -18,6 +18,7 @@
    "cost": "45/50/55/60/65",
    "range": "1000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "40",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "30/35/40/45/50",
    "range": "25000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "1250",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

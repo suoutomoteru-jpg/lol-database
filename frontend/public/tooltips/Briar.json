@@ -3,7 +3,7 @@
  "id": 233,
  "name": "ブライアー",
  "title": "枷と飢え",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "真紅の呪い",
@@ -18,6 +18,7 @@
    "cost": "",
    "range": "475",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "",
    "range": "350",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "",
    "range": "400",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "",
    "range": "12000",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

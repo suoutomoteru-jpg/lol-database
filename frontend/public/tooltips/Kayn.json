@@ -3,7 +3,7 @@
  "id": 141,
  "name": "ケイン",
  "title": "無情の影",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "緋眼の大鎌",
@@ -18,15 +18,17 @@
    "cost": "40",
    "range": "350",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "刃影襲",
-   "description": "大鎌を振り上げ、敵に<physicalDamage>85/130/175/220/265（＋増加攻撃力の110%）の物理ダメージ</physicalDamage>を与えて@Effect3Amount*-100@%の<status>スロウ効果</status>を付与する。<status>スロウ効果</status>は1.5秒かけて元に戻る。<br><br><keywordMajor>影の暗殺者:</keywordMajor> 発動中も移動可能になり、射程が増加する。<br><br><keywordMajor>ダーキンスレイヤー:</keywordMajor> 追加で敵を1秒間ノックアップさせる。",
+   "description": "大鎌を振り上げ、敵に<physicalDamage>85/130/175/220/265（＋増加攻撃力の110%）の物理ダメージ</physicalDamage>を与えて90%の<status>スロウ効果</status>を付与する。<status>スロウ効果</status>は1.5秒かけて元に戻る。<br><br><keywordMajor>影の暗殺者:</keywordMajor> 発動中も移動可能になり、射程が増加する。<br><br><keywordMajor>ダーキンスレイヤー:</keywordMajor> 追加で敵を1秒間ノックアップさせる。",
    "cooldown": "13/12/11/10/9",
    "cost": "40/45/50/55/60",
    "range": "700",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "90",
    "range": "400",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "550",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

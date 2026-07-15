@@ -3,7 +3,7 @@
  "id": 110,
  "name": "ヴァルス",
  "title": "報復の一矢",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "復讐の化身",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "乾坤一擲",
-   "description": "<attention>チャージ開始:</attention> 弓を引き絞って次の射撃を準備し、自身が@MoveSpeedMod*-100@%の<status>スロウ効果</status>を受ける。4秒以内に発射しなかった場合は、スキルをキャンセルしてマナコストの50%を回復する。<br><br><attention>解放:</attention> 矢を放ち、<physicalDamage>53.334/100.001/146.667/193.334/240.001（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える。敵に命中するたびにダメージが15%低下する(最小33%)。ダメージと<keywordMajor>「枯死の呪い」</keywordMajor>の爆発効果は、チャージ時間に応じて最大50%まで増加する(最大<physicalDamage>80/150/220/290/360（＋増加攻撃力の120%）</physicalDamage>)。",
+   "description": "<attention>チャージ開始:</attention> 弓を引き絞って次の射撃を準備し、自身が20%の<status>スロウ効果</status>を受ける。4秒以内に発射しなかった場合は、スキルをキャンセルしてマナコストの50%を回復する。<br><br><attention>解放:</attention> 矢を放ち、<physicalDamage>53.334/100.001/146.667/193.334/240.001（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える。敵に命中するたびにダメージが15%低下する(最小33%)。ダメージと<keywordMajor>「枯死の呪い」</keywordMajor>の爆発効果は、チャージ時間に応じて最大50%まで増加する(最大<physicalDamage>80/150/220/290/360（＋増加攻撃力の120%）</physicalDamage>)。",
    "cooldown": "16/15/14/13/12",
    "cost": "50/55/60/65/70",
    "range": "925",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,15 +28,17 @@
    "cost": "",
    "range": "750",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
    "name": "滅びの矢雨",
-   "description": "複数の矢を射かけて<physicalDamage>60/90/120/150/180（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与え、土壌を4秒間穢す。穢れた土壌は敵に@SlowPercent*-100@%の<status>スロウ効果</status>を与え、40%の「重傷」を付与する。",
+   "description": "複数の矢を射かけて<physicalDamage>60/90/120/150/180（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与え、土壌を4秒間穢す。穢れた土壌は敵に30/35/40/45/50%の<status>スロウ効果</status>を与え、40%の「重傷」を付与する。",
    "cooldown": "18/16/14/12/10",
    "cost": "90",
    "range": "925",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "1300",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

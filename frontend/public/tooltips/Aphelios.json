@@ -3,7 +3,7 @@
  "id": 523,
  "name": "アフェリオス",
  "title": "信ずる者の武器",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "殺す者と導く者",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "武器ごとのスキル",
-   "description": "",
+   "description": "<strong>◆ <font color='#00e6b8'>キャリブラム</font></strong><br><font color='#00e6b8'>「<font color='#00e6b8'>キャリブラム</font>」<spellActive>発動効果:</spellActive></font> 長射程の攻撃を放ち、最初に命中した敵に<physicalDamage>70〜160（レベル1〜18） ＋ 増加攻撃力の42〜60%（レベル1〜18） ＋ 魔力の100%の物理ダメージ</physicalDamage>を与えてマークする。<br><br><strong>◆ <font color='#e6005c'>セヴェラム</font></strong><br><font color='#e6005c'>「<font color='#e6005c'>セヴェラム</font>」<spellActive>発動効果:</spellActive></font> 1.75秒間、<speed>移動速度が25%（＋魔力の0.1%）</speed>増加して、最も近くにいる敵を両方の武器で攻撃する。発で<physicalDamage>の物理ダメージ</physicalDamage>を与える。この攻撃はチャンピオンを優先する。<br><br><strong>◆ <font color='#1a75ff'>インファーナム</font></strong><br><font color='#1a75ff'>「<font color='#1a75ff'>インファーナム</font>」<spellActive>発動効果:</spellActive></font> 炎を波状に噴射して<physicalDamage>20〜110（レベル1〜18） ＋ 増加攻撃力の15〜21%（レベル1〜18） ＋ 魔力の70%の物理ダメージ</physicalDamage>を与える。その後、命中したすべての敵をオフハンド武器で通常攻撃する。<br><br><strong>◆ <font color='#ffffcc'>クレッシェンダム</font></strong><br><font color='#ffffcc'>「<font color='#ffffcc'>クレッシェンダム</font>」<spellActive>発動効果:</spellActive></font> オフハンド武器を搭載したルナリのセントリーを設置する。セントリーは20秒間持続する。敵が近づくと起動して4秒間発砲し、1発あたり<physicalDamage>35〜125（レベル1〜18） ＋ 増加攻撃力の34〜52%（レベル1〜18） ＋ 魔力の50%の物理ダメージ</physicalDamage>を与える。<br><br><strong>◆ <font color='#a64dff'>グラヴィタム</font></strong><br><font color='#a64dff'>「<font color='#a64dff'>グラヴィタム</font>」<spellActive>発動効果:</spellActive></font> 「<font color='#a64dff'>グラヴィタム</font>」で<status>スロウ効果</status>を与えた敵に重力場を発生させて、1秒間<status>スネア効果</status>を付与し、<magicDamage>50〜140（レベル1〜18） ＋ 増加攻撃力の32〜50%（レベル1〜18） ＋ 魔力の70%の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "9",
    "cost": "60",
    "range": "1450",
    "maxRank": 5,
+   "source": "stringtable",
    "unresolved": []
   },
   "w": {
@@ -27,28 +28,29 @@
    "cost": "",
    "range": "250",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
    "name": "武器キューシステム",
-   "description": "",
+   "description": "弾薬が切れた武器は次の武器と交代する（パッシブ参照）。各武器の通常攻撃特性と武器アクション:<br><br><strong>◆ <font color='#00e6b8'>キャリブラム</font></strong><br>通常攻撃射程が増加する。この武器を使ったスキルでダメージを与えると対象をマークし、自身はその対象に対して長射程の通常攻撃を行えるようになる。<br>長射程の攻撃を放ち、最初に命中した敵にダメージを与える。<br><br><strong>◆ <font color='#e6005c'>セヴェラム</font></strong><br>この武器を使用した通常攻撃およびスキルは<healing>体力を回復</healing>する。最大体力を超えて回復が可能。<br>1.75秒間移動速度が増加し、最も近くにいる敵に両方の武器を連続して発砲する。<br><br><strong>◆ <font color='#1a75ff'>インファーナム</font></strong><br>この武器で通常攻撃を行うと110%のダメージを与えて対象の背後に爆発を引き起こす。<br>指定方向に炎を放射して、命中したすべての敵にオフハンド武器で通常攻撃を行う。<br><br><strong>◆ <font color='#ffffcc'>クレッシェンダム</font></strong><br>この武器では対象との距離が近いほど通常攻撃を素早く行うことができ、スキル命中時に追加ダメージを与える。<br>オフハンド武器のコピーを搭載したセントリーを設置する。セントリーは近くにいる敵に通常攻撃を行う。<br><br><strong>◆ <font color='#a64dff'>グラヴィタム</font></strong><br>この武器で通常攻撃を行うと徐々に減衰する<status>スロウ効果</status>を付与する。<br>「<font color='#a64dff'>グラヴィタム</font>」による<status>スロウ効果</status>を受けているすべての敵に<status>スネア効果</status>を与える。",
    "cooldown": "0",
    "cost": "",
    "range": "1000",
    "maxRank": 5,
+   "source": "stringtable",
    "unresolved": []
   },
   "r": {
    "name": "月光の祈り",
-   "description": "凝縮された月光のエネルギーを発射する。月光はチャンピオンに命中した時点で爆発して、周囲の敵に<physicalDamage>125/175/225（＋増加攻撃力の20% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>その後、命中した全チャンピオンをメインハンド武器で通常攻撃する。{{ Spell_ApheliosR_WeaponMod_ }}",
+   "description": "凝縮された月光のエネルギーを発射する。月光はチャンピオンに命中した時点で爆発して、周囲の敵に<physicalDamage>125/175/225（＋増加攻撃力の20% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>その後、命中した全チャンピオンをメインハンド武器で通常攻撃する。{{ Spell_ApheliosR_WeaponMod_250/425/600/0/0/175 }}",
    "cooldown": "120/110/100",
    "cost": "100",
    "range": "1300",
    "maxRank": 3,
-   "unresolved": [
-    "f1"
-   ]
+   "source": "lcu",
+   "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 2
 }

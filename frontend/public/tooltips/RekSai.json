@@ -3,7 +3,7 @@
  "id": 421,
  "name": "レク＝サイ",
  "title": "地底の恐怖",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ゼル＝サイの怒り",
@@ -18,24 +18,27 @@
    "cost": "",
    "range": "325",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "潜伏/襲撃",
-   "description": "<keywordMajor>地上出現中:</keywordMajor> 地中に潜って専用スキルが使用可能になるが、通常攻撃ができなくなる。また、自身の視界が@VisionRadiusMod*-100@%狭まる代わりに<speed>移動速度が5/10/15/20/25</speed>増加し、視界外にいる周囲の移動する敵の位置が自身を含む味方にわかるようになる。",
+   "description": "<keywordMajor>地上出現中:</keywordMajor> 地中に潜って専用スキルが使用可能になるが、通常攻撃ができなくなる。また、自身の視界が65%狭まる代わりに<speed>移動速度が5/10/15/20/25</speed>増加し、視界外にいる周囲の移動する敵の位置が自身を含む味方にわかるようになる。",
    "cooldown": "4",
    "cost": "",
    "range": "1650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
    "name": "激情の牙/掘削",
-   "description": "<keywordMajor>地上出現中:</keywordMajor> 指定した対象に噛み付き、<physicalDamage>70/95/120/145/170（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<keywordMajor>「フューリー」</keywordMajor>が最大の場合は、代わりに<trueDamage>84/114/144/174/204（＋増加攻撃力の60%）の確定ダメージ</trueDamage>を与える。",
+   "description": "<keywordMajor>地上出現中:</keywordMajor> 指定した対象に噛み付き、<physicalDamage>70/95/120/145/170/195（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<keywordMajor>フューリー</keywordMajor>が最大の場合は、代わりに<trueDamage>84/114/144/174/204/234（＋増加攻撃力の60%）の確定ダメージ</trueDamage>を与える。",
    "cooldown": "6",
    "cost": "",
    "range": "250",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "",
    "range": "1500",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

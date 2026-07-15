@@ -3,7 +3,7 @@
  "id": 166,
  "name": "アクシャン",
  "title": "流浪の番人",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "ダーティーファイト",
@@ -18,16 +18,20 @@
    "cost": "60/65/70/75/80",
    "range": "850",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "義賊の流儀",
-   "description": "{{ Spell_AkshanW_Tooltip_1 }}",
+   "description": "",
    "cooldown": "18/14/10/6/2",
    "cost": "40/30/20/10/0",
    "range": "5500",
    "maxRank": 5,
-   "unresolved": []
+   "source": "lcu",
+   "unresolved": [
+    "tpl:{{ Spell_AkshanW_Tooltip_1 }}"
+   ]
   },
   "e": {
    "name": "ヒーロースイング",
@@ -36,6 +40,7 @@
    "cost": "70",
    "range": "800",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,8 +50,9 @@
    "cost": "100",
    "range": "2500",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

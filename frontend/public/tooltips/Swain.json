@@ -3,7 +3,7 @@
  "id": 50,
  "name": "スウェイン",
  "title": "ノクサス帝国元帥",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "恐襲の魔鴉",
@@ -18,15 +18,17 @@
    "cost": "40/45/50/55/60",
    "range": "750",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "帝国の眼",
-   "description": "悪魔の眼を開いて1.5秒間指定地点の視界を得て、<magicDamage>70/105/140/175/210（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、1.5秒間@Slow*-100@%の<status>スロウ効果</status>を付与する。<br><br>爆発が当たったチャンピオン1体につき<font color='#FF3F3F' size='18'>「魂のかけら」</font>を1個獲得する。爆発が当たった敵チャンピオンは6秒間可視化される。",
+   "description": "悪魔の眼を開いて1.5秒間指定地点の視界を得て、<magicDamage>70/105/140/175/210（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、1.5秒間50%の<status>スロウ効果</status>を付与する。<br><br>爆発が当たったチャンピオン1体につき<font color='#FF3F3F' size='18'>「魂のかけら」</font>を1個獲得する。爆発が当たった敵チャンピオンは6秒間可視化される。",
    "cooldown": "22/21/20/19/18",
    "cost": "60/65/70/75/80",
    "range": "5500/6000/6500/7000/7500",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "50/55/60/65/70",
    "range": "850",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "650",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

@@ -1,6 +1,6 @@
 {
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
- "generatedAt": "2026-07-10T06:15:48.042906+00:00",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "generatedAt": "2026-07-15T07:01:01.878549+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -27,7 +27,7 @@
    "alias": "Akshan",
    "id": 166,
    "name": "アクシャン",
-   "unresolvedCount": 0,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {
@@ -69,7 +69,7 @@
    "alias": "Aphelios",
    "id": 523,
    "name": "アフェリオス",
-   "unresolvedCount": 1,
+   "unresolvedCount": 2,
    "passiveSource": "lcu"
   },
   {
@@ -111,7 +111,7 @@
    "alias": "Belveth",
    "id": 200,
    "name": "ベル＝ヴェス",
-   "unresolvedCount": 3,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {
@@ -133,7 +133,7 @@
    "id": 201,
    "name": "ブラウム",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Briar",
@@ -244,7 +244,7 @@
    "alias": "Fiora",
    "id": 114,
    "name": "フィオラ",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -265,14 +265,14 @@
    "alias": "Gangplank",
    "id": 41,
    "name": "ガングプランク",
-   "unresolvedCount": 0,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {
    "alias": "Garen",
    "id": 86,
    "name": "ガレン",
-   "unresolvedCount": 3,
+   "unresolvedCount": 2,
    "passiveSource": "stringtable"
   },
   {
@@ -321,7 +321,7 @@
    "alias": "Hwei",
    "id": 910,
    "name": "フェイ",
-   "unresolvedCount": 2,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -392,13 +392,13 @@
    "id": 897,
    "name": "カ・サンテ",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Kaisa",
    "id": 145,
    "name": "カイ＝サ",
-   "unresolvedCount": 5,
+   "unresolvedCount": 4,
    "passiveSource": "stringtable"
   },
   {
@@ -440,7 +440,7 @@
    "alias": "Kayle",
    "id": 10,
    "name": "ケイル",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -518,7 +518,7 @@
    "id": 127,
    "name": "リサンドラ",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Locke",
@@ -622,7 +622,7 @@
    "alias": "Naafiri",
    "id": 950,
    "name": "ナフィーリ",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -812,7 +812,7 @@
    "id": 360,
    "name": "サミーラ",
    "unresolvedCount": 0,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Sejuani",
@@ -839,7 +839,7 @@
    "alias": "Sett",
    "id": 875,
    "name": "セト",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "lcu"
   },
   {
@@ -860,7 +860,7 @@
    "alias": "Shyvana",
    "id": 102,
    "name": "シヴァーナ",
-   "unresolvedCount": 3,
+   "unresolvedCount": 0,
    "passiveSource": "lcu"
   },
   {
@@ -930,7 +930,7 @@
    "alias": "Syndra",
    "id": 134,
    "name": "シンドラ",
-   "unresolvedCount": 5,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -1042,7 +1042,7 @@
    "alias": "Veigar",
    "id": 45,
    "name": "ベイガー",
-   "unresolvedCount": 4,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -1063,7 +1063,7 @@
    "alias": "Vi",
    "id": 254,
    "name": "ヴァイ",
-   "unresolvedCount": 2,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {
@@ -1119,7 +1119,7 @@
    "alias": "XinZhao",
    "id": 5,
    "name": "シン・ジャオ",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "lcu"
   },
   {
@@ -1140,7 +1140,7 @@
    "alias": "Yorick",
    "id": 83,
    "name": "ヨリック",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -1210,7 +1210,7 @@
    "alias": "Zyra",
    "id": 143,
    "name": "ザイラ",
-   "unresolvedCount": 5,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   }
  ]

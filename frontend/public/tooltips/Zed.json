@@ -3,7 +3,7 @@
  "id": 238,
  "name": "ゼド",
  "title": "影の頭領",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "弱者必衰",
@@ -18,6 +18,7 @@
    "cost": "75/70/65/60/55",
    "range": "900",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,15 +28,17 @@
    "cost": "40/35/30/25/20",
    "range": "650",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
    "name": "影薙ぎ",
-   "description": "自身と<keywordMajor>影</keywordMajor>が回転斬りを放ち、周囲にいる敵に<physicalDamage>70/92.5/115/137.5/160（＋増加攻撃力の70%）の物理ダメージ</physicalDamage>を与える。<br><br>自身の回転斬りが敵チャンピオンに命中する度に、<spellName>「影分身」</spellName>のクールダウンが3秒短縮する。<br><br><keywordMajor>影</keywordMajor>の回転斬りが命中した敵は、1.5秒間@MoveSpeedMod*-100@%の<status>スロウ効果</status>を受ける。敵に複数の回転斬りが命中してもダメージは重複しないが、@MoveSpeedModBonus*-100@%の<status>スロウ効果</status>を与える。",
+   "description": "自身と<keywordMajor>影</keywordMajor>が回転斬りを放ち、周囲にいる敵に<physicalDamage>70/92.5/115/137.5/160（＋増加攻撃力の70%）の物理ダメージ</physicalDamage>を与える。<br><br>自身の回転斬りが敵チャンピオンに命中する度に、<spellName>「影分身」</spellName>のクールダウンが3秒短縮する。<br><br><keywordMajor>影</keywordMajor>の回転斬りが命中した敵は、1.5秒間20/25/30/35/40%の<status>スロウ効果</status>を受ける。敵に複数の回転斬りが命中してもダメージは重複しないが、30/37.5/45/52.5/60%の<status>スロウ効果</status>を与える。",
    "cooldown": "5/4.5/4/3.5/3",
    "cost": "40",
    "range": "290",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "",
    "range": "625",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

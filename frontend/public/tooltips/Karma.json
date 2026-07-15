@@ -3,7 +3,7 @@
  "id": 43,
  "name": "カルマ",
  "title": "目覚めし者",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "寄せ火",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "心炎",
-   "description": "精神の炎を解き放ち、最初に命中した対象と周囲の敵に<magicDamage>60/110/160/210/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間@SlowAmount*-100@%の<status>スロウ効果</status>を付与する。",
+   "description": "精神の炎を解き放ち、最初に命中した対象と周囲の敵に<magicDamage>60/110/160/210/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間40%の<status>スロウ効果</status>を付与する。",
    "cooldown": "9/8/7/6/5",
    "cost": "40/50/60/70/80",
    "range": "950",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "50/55/60/65/70",
    "range": "675",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "60/65/70/75/80",
    "range": "800",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "",
    "range": "1100",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

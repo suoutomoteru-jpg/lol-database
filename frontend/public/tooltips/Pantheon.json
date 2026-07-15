@@ -3,7 +3,7 @@
  "id": 80,
  "name": "パンテオン",
  "title": "砕けぬ槍",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "定命の意志",
@@ -18,6 +18,7 @@
    "cost": "25",
    "range": "575",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "55",
    "range": "600",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "EmpoweredDamageMultCalcModified"
    ]
@@ -38,15 +40,17 @@
    "cost": "80",
    "range": "400",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
    "name": "偉大なる星路",
-   "description": "<spellPassive>自動効果:</spellPassive> 物理防御貫通が10/20/30%増加する。<br><br><spellActive>発動効果:</spellActive> 力を溜めてから大きく跳びあがる。その後、上空から槍を投げて、狭い範囲に<physicalDamage>70/100/130/160/190（＋増加攻撃力の115% ＋魔力の50%）の物理ダメージ</physicalDamage>を与え、2秒間、50%の<status>スロウ効果</status>を与える。<br><br>さらにその後、流星となって指定地点に上空から突撃する。直線上にいる敵に最大<magicDamage>300/500/700（＋魔力の100%）の魔法ダメージ</magicDamage>を与える(ダメージは落下地点から離れるほど減少し、最大50%低下する)。<br><br>このスキルを発動後は、<font color='#EDDA74'>「定命の意志」</font>が即座に使用可能になる。",
+   "description": "<spellPassive>自動効果:</spellPassive> 物理防御貫通が10/20/30%増加する。<br><br><spellActive>発動効果:</spellActive> 力を溜めてから大きく跳びあがる。その後、上空から槍を投げて、狭い範囲に<physicalDamage>70/100/130/160/190/220（＋増加攻撃力の115% ＋魔力の50%）の物理ダメージ</physicalDamage>を与え、2秒間、50%の<status>スロウ効果</status>を与える。<br><br>さらにその後、流星となって指定地点に上空から突撃する。直線上にいる敵に最大<magicDamage>300/500/700（＋魔力の100%）の魔法ダメージ</magicDamage>を与える(ダメージは落下地点から離れるほど減少し、最大50%低下する)。<br><br>このスキルを発動後は、<font color='#EDDA74'>「定命の意志」</font>が即座に使用可能になる。",
    "cooldown": "180/165/150",
    "cost": "100",
    "range": "5500",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

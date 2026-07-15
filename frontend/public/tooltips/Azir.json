@@ -3,7 +3,7 @@
  "id": 268,
  "name": "アジール",
  "title": "砂塵の皇帝",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "シュリーマの遺産",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "征服の勅命",
-   "description": "すべての<keywordMajor>砂塵兵</keywordMajor>を指定範囲に集結させる。<keywordMajor>砂塵兵</keywordMajor>は進路上でぶつかった敵に<magicDamage>60/80/100/120/140（＋魔力の35/40/45/50/55%）の魔法ダメージ</magicDamage>を与え、1秒間@SlowAmount*-100@%の<status>スロウ効果</status>を付与する。",
+   "description": "すべての<keywordMajor>砂塵兵</keywordMajor>を指定範囲に集結させる。<keywordMajor>砂塵兵</keywordMajor>は進路上でぶつかった敵に<magicDamage>60/80/100/120/140（＋魔力の35/40/45/50/55%）の魔法ダメージ</magicDamage>を与え、1秒間25%の<status>スロウ効果</status>を付与する。",
    "cooldown": "14/12/10/8/6",
    "cost": "70/80/90/100/110",
    "range": "740",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "40/35/30/25/20",
    "range": "525",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "MaxAmmo"
    ]
@@ -38,6 +40,7 @@
    "cost": "60",
    "range": "1100",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -47,6 +50,7 @@
    "cost": "100",
    "range": "250",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

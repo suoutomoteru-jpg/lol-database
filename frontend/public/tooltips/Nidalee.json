@@ -3,7 +3,7 @@
  "id": 76,
  "name": "ニダリー",
  "title": "半獣の狩人",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "品定め",
@@ -13,31 +13,34 @@
   },
   "q": {
    "name": "槍投げ/テイクダウン",
-   "description": "<keywordMajor>ヒト形態:</keywordMajor> 槍を投げて<magicDamage>70/90/110/130/150（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。ダメージは槍の飛距離に応じて最大<magicDamage>227.5/292.5/357.5/422.5/487.5（＋魔力の50%）の魔法ダメージ</magicDamage>まで増加する。",
+   "description": "<keywordMajor>ヒト形態:</keywordMajor> 槍を投げて<magicDamage>70/90/110/130/150（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。ダメージは槍の飛距離に応じて最大<magicDamage>227.5/292.5/357.5/422.5/487.5（＋魔力の50%）の魔法ダメージ</magicDamage>まで増加する。<br><br><strong>◆ クーガー形態: 槍投げ/テイクダウン</strong><br><keywordMajor>クーガー形態: </keywordMajor>次の通常攻撃が<magicDamage>5/30/55/80/105/130（＋合計攻撃力の75% ＋魔力の40%）に加えて減少体力1%につき1/1.25/1.5/1.75/2/2.25%の魔法ダメージ</magicDamage>を追加で与える。<br><br>敵が<keywordMajor>「マーキング」</keywordMajor>されていた場合は、ダメージが30%増加する。",
    "cooldown": "6",
    "cost": "50/55/60/65/70",
    "range": "1500",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "虎挟み/ジャンプ",
-   "description": "<keywordMajor>ヒト形態:</keywordMajor> インビジブル状態のトラップを2分間設置する。トラップは敵が踏むと4秒間、毎秒<magicDamage>10/20/30/40/50（＋魔力の5%）の魔法ダメージ</magicDamage>を与える。<br><br>トラップは同時に個まで設置しておくことができる。",
+   "description": "<keywordMajor>ヒト形態:</keywordMajor> インビジブル状態のトラップを2分間設置する。トラップは敵が踏むと4秒間、毎秒<magicDamage>10/20/30/40/50（＋魔力の5%）の魔法ダメージ</magicDamage>を与える。<br><br>トラップは同時に個まで設置しておくことができる。<br><br><strong>◆ クーガー形態: 虎挟み/ジャンプ</strong><br><keywordMajor>クーガー形態:</keywordMajor> 跳躍して、着地時に周囲の敵に<magicDamage>55/100/145/190/235/280（＋増加攻撃力の50% ＋魔力の30%）の魔法ダメージ</magicDamage>を与える。<keywordMajor>クーガー形態</keywordMajor>でユニットをキルすると、このスキルのクールダウンが3/2.5/2/1.5/1.5/1.5秒に短縮される。<br><br><keywordMajor>「マーキング」</keywordMajor>された敵に向かって跳躍する場合は飛距離が増加し、このスキルのクールダウンが3/2.5/2/1.5/1.5/1.5秒に短縮される。",
    "cooldown": "13/12/11/10/9",
    "cost": "30/35/40/45/50",
    "range": "900",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": [
     "MaxTraps"
    ]
   },
   "e": {
    "name": "高揚/クロウ",
-   "description": "<keywordMajor>ヒト形態:</keywordMajor> <healing>体力を50/75/100/125/150（＋魔力の35%）</healing>回復する。回復量は減少体力に応じて最大<healing>100/150/200/250/300（＋魔力の35%）</healing>まで増加する。また7秒間、<attackSpeed>攻撃速度が30/40/50/60/70%</attackSpeed>増加する。",
+   "description": "<keywordMajor>ヒト形態:</keywordMajor> <healing>体力を50/75/100/125/150（＋魔力の35%）</healing>回復する。回復量は減少体力に応じて最大<healing>100/150/200/250/300（＋魔力の35%）</healing>まで増加する。また7秒間、<attackSpeed>攻撃速度が30/40/50/60/70%</attackSpeed>増加する。<br><br><strong>◆ クーガー形態: クロウ/高揚</strong><br><keywordMajor>クーガー形態:</keywordMajor> 前方にいるすべての敵をかぎ爪で攻撃し、<magicDamage>70/130/190/250/310/370（＋増加攻撃力の70% ＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "12",
    "cost": "50/55/60/65/70",
    "range": "900",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -47,6 +50,7 @@
    "cost": "",
    "range": "20",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },

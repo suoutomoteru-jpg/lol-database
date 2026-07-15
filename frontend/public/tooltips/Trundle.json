@@ -3,7 +3,7 @@
  "id": 48,
  "name": "トランドル",
  "title": "トロールキング",
- "patch": "16.13.7915903+branch.releases-16-13.content.release",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
  "skills": {
   "passive": {
    "name": "王への貢物",
@@ -13,11 +13,12 @@
   },
   "q": {
    "name": "咬み付き",
-   "description": "次の通常攻撃が<physicalDamage>10/30/50/70/90（＋合計攻撃力の115/125/135/145/155%）の物理ダメージ</physicalDamage>を与え、短時間75%の<status>スロウ効果</status>を付与する。その後5秒間、自身の<physicalDamage>攻撃力が20/25/30/35/40</physicalDamage>増加し、敵は同じ時間だけ<physicalDamage>攻撃力を@SappedAD*-1@</physicalDamage>失う。",
+   "description": "次の通常攻撃が<physicalDamage>10/30/50/70/90（＋合計攻撃力の115/125/135/145/155%）の物理ダメージ</physicalDamage>を与え、短時間75%の<status>スロウ効果</status>を付与する。その後5秒間、自身の<physicalDamage>攻撃力が20/25/30/35/40</physicalDamage>増加し、敵は同じ時間だけ<physicalDamage>攻撃力を10/12.5/15/17.5/20</physicalDamage>失う。",
    "cooldown": "3.5",
    "cost": "20",
    "range": "300",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -27,6 +28,7 @@
    "cost": "40",
    "range": "750",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "e": {
@@ -36,6 +38,7 @@
    "cost": "75",
    "range": "1000",
    "maxRank": 5,
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
@@ -45,6 +48,7 @@
    "cost": "100",
    "range": "650",
    "maxRank": 3,
+   "source": "lcu",
    "unresolved": []
   }
  },
