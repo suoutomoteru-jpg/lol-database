@@ -176,9 +176,13 @@ def slice_ranks(arr: list, max_rank: int) -> list:
 # 「（＋増加攻撃力の135%）」のように後置する。
 
 STAT_NAMES = {
-    0: "魔力", 1: "物理防御", 2: "攻撃力", 3: "攻撃速度", 5: "魔法防御",
-    6: "移動速度", 7: "クリティカル率", 11: "最大体力", 12: "体力",
+    0: "魔力", 1: "物理防御", 2: "攻撃力", 3: "攻撃速度", 4: "攻撃速度",
+    5: "魔法防御", 6: "移動速度", 7: "クリティカル率", 11: "最大体力", 12: "体力",
 }
+
+# これ未満の係数はエンジン内部の微小項（毎フレーム更新用等）とみなして無視する
+# 例: アフェリオス セヴェラムQ の移動速度 25% + 0.001×stat（表示上は 25% が正）
+COEFF_EPSILON = 0.005
 FORMULA_NAMES = {0: "合計", 1: "基礎", 2: "増加"}
 
 
@@ -217,6 +221,8 @@ def eval_part(part, values: dict, max_rank: int):
 
     if t == "StatByCoefficientCalculationPart":
         coeff = float(part.get("mCoefficient", 1))
+        if abs(coeff) < COEFF_EPSILON:
+            return ("nums", [0.0] * max_rank)  # エンジン内部の微小項は無視
         label = stat_label(part.get("mStat", 0), part.get("mStatFormula", 0))
         if label is None:
             return None
@@ -360,6 +366,13 @@ def eval_calculation(calc, values: dict, calcs: dict, max_rank: int, depth: int 
             if base[0] == "combo":
                 nums, texts = base[1]
                 return ("combo", ([a * b for a, b in zip(nums, m[1])], texts))
+        # 乗数がスタット反映（テキスト）の場合は「基準×乗数」のテキストで表す
+        # （例: アフェリオス セヴェラムQ の合計ダメージ = 攻撃回数×合計攻撃力のX%）
+        if base and m:
+            base_r = render_result(base)
+            m_r = render_result(m)
+            if base_r is not None and m_r is not None:
+                return ("text", f"{base_r}×{m_r}")
         return base
     return None
 

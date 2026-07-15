@@ -148,5 +148,26 @@ def probe_aphelios_calcs() -> None:
         print()
 
 
+def probe_severum_datavalues() -> None:
+    """第6弾: StartingAttacks / ASCoeff の所在を bin 生テキストから探す"""
+    raw = json.dumps(
+        get_json(f"{BASE}/game/data/characters/aphelios/aphelios.bin.json"),
+        ensure_ascii=False,
+    )
+    for needle in ("StartingAttacks", "ASCoeff"):
+        print(f"=== '{needle}' の出現箇所 ===")
+        count = 0
+        for m in re.finditer(needle, raw):
+            count += 1
+            if count > 6:
+                break
+            s = max(0, m.start() - 200)
+            print("  ...", raw[s:m.end() + 120].replace("\\n", " "))
+            print()
+        if count == 0:
+            print("  （見つからず）")
+        print()
+
+
 if __name__ == "__main__":
-    probe_aphelios_calcs()
+    probe_severum_datavalues()

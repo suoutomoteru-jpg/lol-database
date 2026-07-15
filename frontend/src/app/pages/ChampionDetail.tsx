@@ -26,8 +26,9 @@ function SkillNav({
   activeSkill: SkillKey;
   onSelect: (key: SkillKey) => void;
 }) {
+  // backdrop-blurはstickyでスクロール毎に再合成が走りモバイルで重いため不使用
   return (
-    <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm border-y border-border py-3">
+    <div className="sticky top-0 z-10 bg-background border-y border-border py-3">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex justify-center gap-3">
           {skills.map(s => {
@@ -238,7 +239,7 @@ export function ChampionDetail() {
         <Link
           to={`/champion/${prevChampion.id}`}
           title={prevChampion.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all opacity-50 hover:opacity-100"
         >
           <ChevronLeft size={16} />
         </Link>
@@ -247,7 +248,7 @@ export function ChampionDetail() {
         <Link
           to={`/champion/${nextChampion.id}`}
           title={nextChampion.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all opacity-50 hover:opacity-100"
         >
           <ChevronRight size={16} />
         </Link>
@@ -270,7 +271,7 @@ export function ChampionDetail() {
           <div className="container mx-auto px-4 py-3 max-w-5xl">
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-background/50 backdrop-blur-sm text-sm text-foreground/80 hover:text-foreground hover:bg-background/70 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-background/50 text-sm text-foreground/80 hover:text-foreground hover:bg-background/70 transition-colors"
             >
               <ArrowLeft size={15} />
               戻る
@@ -291,7 +292,7 @@ export function ChampionDetail() {
             {[champion.role, ...champion.tags.filter(t => t !== champion.role)].map(tag => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs rounded-sm bg-background/60 backdrop-blur-sm border border-border/60 text-foreground/80"
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs rounded-sm bg-background/60 border border-border/60 text-foreground/80"
               >
                 {ROLE_LABELS_JA[tag as Role] && (
                   <img

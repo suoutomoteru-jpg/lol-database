@@ -104,9 +104,10 @@ export function BuildTray() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-30">
-      {/* 展開パネル: 合計ステータスの全リスト */}
+      {/* 展開パネル: 合計ステータスの全リスト
+          （backdrop-blurはモバイルのスクロール性能を落とすため不透過背景で代替） */}
       {expanded && (
-        <div className="border-t border-primary/30 bg-card/95 backdrop-blur-sm">
+        <div className="border-t border-primary/30 bg-card">
           <div className="container mx-auto px-4 py-3 max-w-4xl">
             <div className="flex items-baseline justify-between mb-2">
               <p className="text-xs font-semibold text-foreground">合計ステータス</p>
@@ -143,7 +144,7 @@ export function BuildTray() {
       )}
 
       {/* 本体バー */}
-      <div className="border-t border-primary/40 bg-[#0D141F]/97 backdrop-blur-sm">
+      <div className="border-t border-primary/40 bg-[#0D141F]">
         <div className="container mx-auto px-3 sm:px-4 max-w-4xl flex items-center gap-2.5 sm:gap-4 h-16">
           <button
             onClick={() => setExpanded(v => !v)}
