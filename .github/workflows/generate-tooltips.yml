@@ -20,8 +20,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Smoke test (3 champions)
-        run: python3 scripts/generate_tooltips.py --only Urgot,Ahri,Annie --out /tmp/smoke
+      - name: Smoke test (special champions included)
+        run: python3 scripts/generate_tooltips.py --only Urgot,Ahri,Annie,Aphelios,Elise,Nidalee,Gnar,Jayce,Yunara,Akshan,Gangplank,Karma --out /tmp/smoke
+
+      - name: Show smoke output for special champions
+        run: |
+          python3 - << 'EOF'
+          import json, re
+          for a in ("Aphelios", "Elise", "Jayce", "Yunara", "Akshan", "Gangplank", "Karma"):
+              d = json.load(open(f"/tmp/smoke/{a}.json"))
+              print(f"##### {a} unresolved={d['unresolvedCount']}")
+              for k in ("q", "w", "e", "r"):
+                  s = d["skills"][k]
+                  plain = re.sub(r"<[^>]+>", "", s["description"])
+                  print(f"[{k.upper()}] {s['name']} len={len(plain)} src={s.get('source')}")
+                  print(plain[:300])
+                  if s.get("unresolved"):
+                      print("  !!", s["unresolved"])
+              print()
+          EOF
 
       - name: Generate all champions
         run: python3 scripts/generate_tooltips.py --out frontend/public/tooltips

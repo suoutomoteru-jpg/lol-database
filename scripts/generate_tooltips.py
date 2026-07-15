@@ -427,14 +427,23 @@ def find_character_spells(bin_data: dict) -> tuple[list, str | None]:
 
 
 def find_spell_entry(bin_data: dict, script_name: str) -> dict | None:
-    """スクリプト名（例 UrgotQ）に一致する mSpell 持ちエントリを探す"""
+    """スクリプト名（例 UrgotQ）に一致する mSpell 持ちエントリを探す。
+
+    アフェリオスの武器スペル等はパスがハッシュ化されている（{9501e989} 等）ため、
+    パス末尾に加えて mScriptName / ObjectName フィールドでも照合する。
+    """
     if not script_name:
         return None
     target = script_name.lower()
     for path, entry in bin_data.items():
         if not isinstance(entry, dict) or "mSpell" not in entry:
             continue
-        if path.lower().split("/")[-1] == target:
+        names = {path.lower().split("/")[-1]}
+        for field in ("mScriptName", "ObjectName"):
+            v = entry.get(field)
+            if isinstance(v, str):
+                names.add(v.lower().split("/")[-1])
+        if target in names:
             return entry["mSpell"]
     return None
 
@@ -535,9 +544,12 @@ def passive_tooltip_bodies(stringtable: dict[str, str], spell: dict) -> list[str
 
 # ── プレースホルダー解決 ────────────────────────────────
 
-# @Var@ / @Var*100@ / @Spell.XxxYyy:Var@（ストリングテーブルの相互参照形式）
-PLACEHOLDER_RE = re.compile(r"@([A-Za-z][\w.:]*)(?:\*(\d+(?:\.\d+)?))?@")
+# @Var@ / @Var*100@ / @Var*-100@ / @Spell.XxxYyy:Var@（相互参照形式）
+# 乗数はスロウ値（負数格納）の反転用に負値も許容する
+PLACEHOLDER_RE = re.compile(r"@([A-Za-z][\w.:]*)(?:\*(-?\d+(?:\.\d+)?))?@")
 ICON_RE = re.compile(r"%i:[^%]+%")
+# 置換後に残った生プレースホルダーの検出（未対応形式の追跡用）
+LEFTOVER_RE = re.compile(r"@[A-Za-z][^@\s]{0,80}@")
 
 
 def resolve_description(
@@ -549,7 +561,14 @@ def resolve_description(
     max_rank: int,
     cd_str: str,
     cost_str: str,
+    script_maps: dict | None = None,
 ) -> tuple[str, list]:
+    """@変数@ を実数値に解決する。
+
+    script_maps: {スクリプト名(小文字): (values, calcs)} —
+    "@spell.JayceToTheSkies:Slow@" のようなクロススペル参照を、
+    参照先スペルの値で解決するための索引（bin 内の全スペル）。
+    """
     unresolved = []
 
     def repl(m: re.Match) -> str:
@@ -573,9 +592,19 @@ def resolve_description(
                 return maybe_percentify(rendered, m.string[m.end():])
             return rendered
 
-        for calc_map, val_map in (
-            (calcs, values),
-            (global_calcs, global_values),
+        # クロススペル参照: 参照先スペルの値/計算式を最優先で使う
+        lookups = []
+        low = raw.lower()
+        if ":" in low and script_maps:
+            script = low.split(":", 1)[0]
+            if script.startswith("spell."):
+                script = script[len("spell."):]
+            if script in script_maps:
+                lookups.append(script_maps[script])
+        lookups += [(values, calcs), (global_values, global_calcs)]
+
+        for val_map, calc_map in (
+            (v, c) if isinstance(c, dict) else (v, {}) for v, c in lookups
         ):
             if name in calc_map:
                 res = eval_calculation(calc_map[name], val_map, calc_map, max_rank)
@@ -589,9 +618,180 @@ def resolve_description(
         return ""
 
     out = PLACEHOLDER_RE.sub(repl, text)
+    # 正規表現にマッチしない形式のプレースホルダーが残っていたら記録する
+    for tok in LEFTOVER_RE.findall(out):
+        unresolved.append(f"raw:{tok}")
     out = ICON_RE.sub("", out)
     out = re.sub(r"[ \t]{2,}", " ", out)
     return out.strip(), unresolved
+
+
+# ── {{...}} テンプレート展開 ────────────────────────────
+
+
+def make_template_expander(stringtable: dict[str, str], name_map: dict[str, str]):
+    """{{key}} をストリングテーブル/スキル名で展開する関数を返す。
+
+    - 完全一致キーはその本文に展開
+    - 末尾が '_' のキー（例 Spell_ApheliosR_WeaponMod_）は前方一致する
+      全キーの本文を連結して展開（武器別バリエーションの列挙）
+    - spell_xxx_name はスキル表示名に展開
+    """
+
+    def sub_one(mm: re.Match) -> str:
+        tok = mm.group(1).lower()
+        if tok in stringtable:
+            return stringtable[tok]
+        if tok.endswith("_"):
+            hits = sorted(k for k in stringtable if k.startswith(tok))
+            if 0 < len(hits) <= 8:
+                return "<br>".join(stringtable[k] for k in hits)
+        nm = re.fullmatch(r"spell_(.+?)_name", tok)
+        if nm and nm.group(1) in name_map:
+            return name_map[nm.group(1)]
+        return mm.group(0)  # 展開不能 → 残して呼び出し側で検出
+
+    def expand(text: str) -> str:
+        for _ in range(2):  # 2段のネストまで
+            if "{{" not in text:
+                break
+            text = re.sub(r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}", sub_one, text)
+        return text
+
+    return expand
+
+
+# ── サブスペル（形態・武器別スキル）展開 ────────────────
+#
+# エリスの蜘蛛形態などの第2形態スキルは QWER スロットではなく
+# 独立したスペルとして bin に格納されている。ここに定義したスペルを
+# 該当スロットの説明文へセクションとして追記する。
+# スクリプト名は scripts/probe_form_spells.py の CI 出力で実データ確認済み。
+
+FORM_SPECS: dict[str, dict[str, list[tuple[str, str]]]] = {
+    "Elise": {
+        "q": [("蜘蛛形態", "EliseSpiderQCast")],
+        "w": [("蜘蛛形態", "EliseSpiderW")],
+        "e": [("蜘蛛形態", "EliseSpiderE")],
+        "r": [("蜘蛛形態", "EliseRSpider")],
+    },
+    "Nidalee": {
+        "q": [("クーガー形態", "Takedown")],
+        "w": [("クーガー形態", "Pounce")],
+        "e": [("クーガー形態", "Swipe")],
+    },
+    "Gnar": {
+        "q": [("メガナー", "GnarBigQ")],
+        "w": [("メガナー", "GnarBigW")],
+        "e": [("メガナー", "GnarBigE")],
+    },
+    "Jayce": {
+        "q": [("マーキュリーキャノン", "JayceShockBlast")],
+        "w": [("マーキュリーキャノン", "JayceHyperCharge")],
+        "e": [("マーキュリーキャノン", "JayceAccelerationGate")],
+        "r": [("マーキュリーキャノン時", "JayceStanceGtH")],
+    },
+}
+
+
+def build_subspell_section(
+    bin_data: dict,
+    stringtable: dict[str, str],
+    script: str,
+    label: str,
+    global_values: dict,
+    global_calcs: dict,
+    script_maps: dict,
+    expand,
+    max_rank: int,
+) -> tuple[str | None, list]:
+    """サブスペル1件をセクションHTMLに整形する（本文はゲーム内表記）"""
+    spell = find_spell_entry(bin_data, script)
+    if spell is None:
+        return None, [f"form:{script}:spell-not-found"]
+
+    values = collect_data_values(spell, max_rank)
+    calcs = {k.lower(): v for k, v in (spell.get("mSpellCalculations") or {}).items()}
+    loc = ((spell.get("mClientData") or {}).get("mTooltipData") or {}).get("mLocKeys") or {}
+    name = stringtable.get((loc.get("keyName") or "").lower(), "")
+    body = stringtable.get((loc.get("keyTooltip") or "").lower(), "")
+    if not body:
+        return None, [f"form:{script}:no-tooltip"]
+
+    text, unresolved = resolve_description(
+        expand(body), values, calcs, global_values, global_calcs,
+        max_rank, cd_str="", cost_str="", script_maps=script_maps,
+    )
+    if not text:
+        return None, [f"form:{script}:empty"]
+
+    title = f"{label}: {name}" if name and name not in label else label
+    return f"<br><br><strong>◆ {title}</strong><br>{text}", unresolved
+
+
+# ── アフェリオス専用: 5武器のスキル説明を合成 ───────────
+#
+# 武器別ツールチップは stringtable に spell_apheliosq_tooltip_1..5 等として
+# 全文が存在し、数値は @spell.ApheliosCalibrumQ:SpellDamage@ のような
+# クロススペル参照で bin 内のハッシュ化スペル（mScriptName で照合）から引ける。
+# インデックス対応: 1=キャリバー 2=セヴェラム 3=インファーナム
+#                   4=クレッシェンダム 5=グラヴィタム
+
+
+def apply_aphelios_weapons(
+    skills: dict,
+    stringtable: dict[str, str],
+    expand,
+    global_values: dict,
+    global_calcs: dict,
+    script_maps: dict,
+) -> list[str]:
+    unresolved_all: list[str] = []
+
+    def resolve_key(st_key: str, max_rank: int) -> str:
+        body = stringtable.get(st_key, "")
+        if not body:
+            unresolved_all.append(f"st:{st_key}:missing")
+            return ""
+        text, u = resolve_description(
+            expand(body), {}, {}, global_values, global_calcs,
+            max_rank, cd_str="", cost_str="", script_maps=script_maps,
+        )
+        unresolved_all.extend(u)
+        return text
+
+    gun_names = [
+        stringtable.get(f"apheliosgun_lorename_{i}", f"武器{i}") for i in range(1, 6)
+    ]
+
+    # Q: 武器ごとの発動スキル
+    q_rank = int(skills["q"].get("maxRank") or 6)
+    q_secs = []
+    for i, name in enumerate(gun_names, 1):
+        text = resolve_key(f"spell_apheliosq_tooltip_{i}", q_rank)
+        if text:
+            q_secs.append(f"<strong>◆ {name}</strong><br>{text}")
+    if q_secs:
+        skills["q"]["description"] = "<br><br>".join(q_secs)
+        skills["q"]["source"] = "stringtable"
+
+    # E: 武器キュー（武器ごとの通常攻撃特性と武器アクション）
+    e_secs = []
+    for i, name in enumerate(gun_names, 1):
+        parts = [
+            t for t in (
+                resolve_key(f"apheliosgun_autoattack_tooltip_{i}", 1),
+                resolve_key(f"apheliosgun_tooltip_{i}", 1),
+            ) if t
+        ]
+        if parts:
+            e_secs.append(f"<strong>◆ {name}</strong><br>" + "<br>".join(parts))
+    if e_secs:
+        intro = "弾薬が切れた武器は次の武器と交代する（パッシブ参照）。各武器の通常攻撃特性と武器アクション:"
+        skills["e"]["description"] = intro + "<br><br>" + "<br><br>".join(e_secs)
+        skills["e"]["source"] = "stringtable"
+
+    return unresolved_all
 
 
 # ── チャンピオン単位の生成 ──────────────────────────────
@@ -608,6 +808,33 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
     bin_data = get_json(f"{BASE}/game/data/characters/{folder}/{folder}.bin.json")
 
     spell_names, passive_ref = find_character_spells(bin_data)
+
+    # bin 内の全スペル索引（@spell.X:Var@ クロススペル参照・サブスペル展開用）
+    # ハッシュ化パスのスペルは mScriptName / ObjectName でも引けるようにする
+    script_maps: dict[str, tuple[dict, dict]] = {}
+    for path, entry in bin_data.items():
+        if isinstance(entry, dict) and isinstance(entry.get("mSpell"), dict):
+            sp = entry["mSpell"]
+            maps = (
+                collect_data_values(sp, 6),
+                {k.lower(): v for k, v in (sp.get("mSpellCalculations") or {}).items()},
+            )
+            script_maps.setdefault(path.split("/")[-1].lower(), maps)
+            for field in ("mScriptName", "ObjectName"):
+                v = entry.get(field)
+                if isinstance(v, str):
+                    script_maps.setdefault(v.lower().split("/")[-1], maps)
+
+    # {{...}} 参照の展開用: スキルスクリプト名 → 表示名（spell_xxx_name 対策）
+    name_map: dict[str, str] = {}
+    for i, key in enumerate(("q", "w", "e", "r")):
+        script = spell_names[i] if i < len(spell_names) else f"{alias}{key.upper()}"
+        lcu_sp = next((s for s in lcu.get("spells", []) if s.get("spellKey") == key), {})
+        if lcu_sp.get("name"):
+            name_map[str(script).lower()] = lcu_sp["name"]
+    if passive_ref and lcu.get("passive", {}).get("name"):
+        name_map[str(passive_ref).lower()] = lcu["passive"]["name"]
+    expand = make_template_expander(stringtable, name_map)
 
     # 全スキルの値/計算式を集約（他スキル参照のフォールバック用）
     per_spell: dict[str, tuple[dict, dict]] = {}
@@ -633,9 +860,18 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
         cost = slice_ranks(spell.get("mana") or [], max_rank)
         per_spell[key] = (values, calcs)
         per_spell[f"{key}:meta"] = (cd, cost)  # type: ignore[assignment]
+        per_spell[f"{key}:spell"] = spell  # type: ignore[assignment]
         for d, g in ((values, global_values), (calcs, global_calcs)):
             for k, v in d.items():
                 g.setdefault(k, v)
+
+    # 最終フォールバック: bin 内全スペルの値/計算式（QWERスロット優先のまま）
+    # サブスペル本文が参照する変数（アフェリオスR武器ボーナス等）を拾うため
+    for vals, cs in script_maps.values():
+        for k, v in vals.items():
+            global_values.setdefault(k, v)
+        for k, v in cs.items():
+            global_calcs.setdefault(k, v)
 
     skills: dict = {}
     total_unresolved: list[str] = []
@@ -657,39 +893,13 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
             k.lower(): v
             for k, v in (passive_spell.get("mSpellCalculations") or {}).items()
         }
-        # {{...}} 参照の展開用: スキルスクリプト名 → 表示名（spell_xxx_name 対策）
-        name_map: dict[str, str] = {}
-        for i, key in enumerate(("q", "w", "e", "r")):
-            script = spell_names[i] if i < len(spell_names) else f"{alias}{key.upper()}"
-            lcu_sp = next((s for s in lcu.get("spells", []) if s.get("spellKey") == key), {})
-            if lcu_sp.get("name"):
-                name_map[str(script).lower()] = lcu_sp["name"]
-        if passive_ref and passive.get("name"):
-            name_map[str(passive_ref).lower()] = passive["name"]
-
-        def expand_templates(text: str) -> str:
-            """{{key}} をストリングテーブル/スキル名で展開（2段のネストまで）"""
-            def sub_one(mm: re.Match) -> str:
-                tok = mm.group(1).lower()
-                if tok in stringtable:
-                    return stringtable[tok]
-                nm = re.fullmatch(r"spell_(.+?)_name", tok)
-                if nm and nm.group(1) in name_map:
-                    return name_map[nm.group(1)]
-                return mm.group(0)  # 展開不能 → 残して後段で候補ごと却下
-            for _ in range(2):
-                if "{{" not in text:
-                    break
-                text = re.sub(r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}", sub_one, text)
-            return text
-
         lcu_passive_len = len(passive.get("description", ""))
         candidates: list[str] = []
         for st_body in passive_tooltip_bodies(stringtable, passive_spell):
-            expanded = expand_templates(st_body)
+            expanded = expand(st_body)
             body, st_unresolved = resolve_description(
                 expanded, p_values, p_calcs, global_values, global_calcs,
-                max_rank=1, cd_str="", cost_str="",
+                max_rank=1, cd_str="", cost_str="", script_maps=script_maps,
             )
             body = body.strip()
             # 穴あき文（未解決変数・未展開テンプレート）は採用しない
@@ -707,7 +917,7 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
         passive_desc, passive_unresolved = resolve_description(
             passive.get("description", ""),
             {}, {}, global_values, global_calcs,
-            max_rank=1, cd_str="", cost_str="",
+            max_rank=1, cd_str="", cost_str="", script_maps=script_maps,
         )
         if passive_spell:
             detail_lines = build_passive_details(passive_spell)
@@ -735,8 +945,11 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
         cd_str = fmt_values(cd) if cd else ""
         cost_str = fmt_values(cost) if cost else ""
 
+        # {{テンプレ}} をゲーム内文面に展開してから変数解決する
+        # （アクシャンW・ガングプランクQ 等は説明文全体がテンプレ参照）
+        raw_desc = lcu_spell.get("dynamicDescription") or lcu_spell.get("description") or ""
         desc, unresolved = resolve_description(
-            lcu_spell.get("dynamicDescription") or lcu_spell.get("description") or "",
+            expand(raw_desc),
             values,
             calcs,
             global_values,
@@ -744,7 +957,47 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
             max_rank,
             cd_str,
             cost_str,
+            script_maps=script_maps,
         )
+        # 展開できなかった {{...}} は記録して表示からは除去する
+        for tok in re.findall(r"\{\{\s*[A-Za-z0-9_]+\s*\}\}", desc):
+            unresolved.append(f"tpl:{tok}")
+            desc = desc.replace(tok, "").strip()
+
+        # ゲーム内本文（ストリングテーブル）優先:
+        # 完全解決できて LCU 版より情報量が多い場合のみ差し替える
+        # （パッシブと同じ品質ゲート。ユナラのR強化説明などが該当）
+        source = "lcu"
+        spell_obj = per_spell.get(f"{key}:spell")
+        if isinstance(spell_obj, dict) and stringtable:
+            loc = (
+                (spell_obj.get("mClientData") or {}).get("mTooltipData") or {}
+            ).get("mLocKeys") or {}
+            st_body = stringtable.get((loc.get("keyTooltip") or "").lower(), "")
+            if st_body:
+                st_desc, st_unres = resolve_description(
+                    expand(st_body), values, calcs, global_values, global_calcs,
+                    max_rank, cd_str, cost_str, script_maps=script_maps,
+                )
+                plain_st = re.sub(r"<[^>]+>", "", st_desc)
+                plain_lcu = re.sub(r"<[^>]+>", "", desc)
+                if (
+                    st_desc and not st_unres
+                    and "{{" not in st_desc and "@" not in st_desc
+                    and len(plain_st) > len(plain_lcu)
+                ):
+                    desc, unresolved, source = st_desc, [], "stringtable"
+
+        # サブスペル（形態・武器別）のセクションを追記
+        for label, script in (FORM_SPECS.get(alias, {}).get(key) or []):
+            section, sub_unresolved = build_subspell_section(
+                bin_data, stringtable, script, label,
+                global_values, global_calcs, script_maps, expand, max_rank,
+            )
+            if section:
+                desc += section
+            unresolved.extend(sub_unresolved)
+
         total_unresolved.extend(f"{key.upper()}:{u}" for u in unresolved)
 
         rng = lcu_spell.get("range") or []
@@ -755,8 +1008,16 @@ def generate_champion(champ: dict, patch: str, stringtable: dict[str, str]) -> d
             "cost": cost_str,
             "range": fmt_values(rng[:max_rank]) if rng else "",
             "maxRank": max_rank,
+            "source": source,
             "unresolved": unresolved,
         }
+
+    # アフェリオス: Q/E を5武器の合成説明に差し替える
+    if alias == "Aphelios" and stringtable:
+        aphelios_unresolved = apply_aphelios_weapons(
+            skills, stringtable, expand, global_values, global_calcs, script_maps
+        )
+        total_unresolved.extend(aphelios_unresolved)
 
     return {
         "alias": alias,
