@@ -71,39 +71,38 @@ def main() -> None:
 
 
 def probe_aphelios_deep() -> None:
-    """アフェリオス第2弾: 武器スペルの数値データの所在と、ST本文の変数形式"""
-    st = get_json(STRINGTABLE_URL)
-    entries = st.get("entries", st)
-    table = {k.lower(): v for k, v in entries.items() if isinstance(v, str)}
+    """アフェリオス第3弾: 武器スペル本体（ハッシュ化パス）の特定"""
+    bin_data = get_json(f"{BASE}/game/data/characters/aphelios/aphelios.bin.json")
 
-    print("=== 武器別ツールチップ本文（変数形式の確認）===")
-    keys = (
-        [f"spell_apheliosq_tooltip_{i}" for i in range(1, 6)]
-        + [f"spell_apheliose_tooltipextended_long_{i}" for i in range(1, 6)]
-        + [f"spell_apheliosr_weaponmod_{i}" for i in range(1, 6)]
-        + ["spell_apheliose_tooltip", "spell_apheliosq_mastertooltipextended",
-           "spell_apheliosr_tooltip"]
-        + [f"apheliosgun_tooltip_{i}" for i in range(1, 6)]
-    )
-    for k in keys:
-        print(f"--- {k}")
-        print(table.get(k, "(なし)"))
+    print("=== 'CalibrumQ' を含むエントリの所在（生テキスト検索）===")
+    raw = json.dumps(bin_data, ensure_ascii=False)
+    for m in re.finditer(r"ApheliosCalibrumQ", raw):
+        s = max(0, m.start() - 120)
+        print("  ...", raw[s:m.end() + 60].replace("\n", " "), "...")
+        print()
 
-    print("\n=== skin0.bin 内のアフェリオス武器スペル ===")
+    print("=== mSpell を持つ全エントリの詳細（DataValues/calc名）===")
+    for path, entry in sorted(bin_data.items()):
+        if not isinstance(entry, dict) or "mSpell" not in entry:
+            continue
+        sp = entry["mSpell"]
+        dvs = [dv.get("mName") for dv in (sp.get("mDataValues") or []) if isinstance(dv, dict)]
+        calcs = list((sp.get("mSpellCalculations") or {}).keys())
+        if not dvs and not calcs:
+            continue
+        script = path.split("/")[-1]
+        extra = {k: entry[k] for k in entry if "script" in k.lower() or "name" in k.lower()}
+        print(f"--- {script}  entrykeys={list(extra.keys())}")
+        print(f"    dv={dvs[:12]}")
+        print(f"    calcs={calcs[:12]}")
+
+    print("\n=== ディレクトリ一覧 characters/aphelios/ ===")
     try:
-        skin = get_json(f"{BASE}/game/data/characters/aphelios/skins/skin0.bin.json")
-        for path, entry in sorted(skin.items()):
-            if not isinstance(entry, dict) or "mSpell" not in entry:
-                continue
-            script = path.split("/")[-1]
-            if not re.search(r"calibrum|severum|gravitum|infernum|crescendum|apheliosq|apheliose|apheliosr", script, re.I):
-                continue
-            sp = entry["mSpell"]
-            dvs = [dv.get("mName") for dv in (sp.get("mDataValues") or []) if isinstance(dv, dict)]
-            n_calc = len(sp.get("mSpellCalculations") or {})
-            print(f"  {script}\tdv={dvs}\tcalcs={n_calc}")
+        listing = get_json("https://raw.communitydragon.org/json/latest/game/data/characters/aphelios/")
+        for f in listing:
+            print("  ", f.get("name"), f.get("type"))
     except Exception as e:  # noqa: BLE001
-        print(f"skin0 fetch failed: {e}")
+        print(f"listing failed: {e}")
 
 
 if __name__ == "__main__":
