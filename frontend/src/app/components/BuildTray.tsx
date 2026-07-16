@@ -123,9 +123,9 @@ export function BuildTray() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-1.5">
                 {statTotals.map(s => (
                   <div key={s.key} className="flex items-baseline justify-between gap-2">
-                    <span className="text-xs text-muted-foreground truncate">{s.label}</span>
+                    <span className="text-xs text-foreground/75 truncate">{s.label}</span>
                     <span className="text-lg font-bold tabular-nums text-white">
-                      +{formatStatValue(s.key, s.value)}
+                      {formatStatValue(s.key, s.value)}
                     </span>
                   </div>
                 ))}
@@ -193,9 +193,9 @@ export function BuildTray() {
             <div className="hidden md:flex items-center gap-4">
               {statTotals.slice(0, 3).map(s => (
                 <div key={s.key} className="text-right">
-                  <p className="text-[10px] text-muted-foreground leading-tight">{s.label}</p>
+                  <p className="text-[10px] text-foreground/75 leading-tight">{s.label}</p>
                   <p className="text-lg font-bold tabular-nums leading-tight text-white">
-                    +{formatStatValue(s.key, s.value)}
+                    {formatStatValue(s.key, s.value)}
                   </p>
                 </div>
               ))}

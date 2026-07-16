@@ -218,7 +218,7 @@ function RelatedByStat({ statKey, excludeId, items, onShowAll }: {
                 <p className="text-xs font-semibold leading-tight line-clamp-2">{it.name}</p>
               </div>
               {line && (
-                <span className="flex-shrink-0 text-xs tabular-nums text-muted-foreground">
+                <span className="flex-shrink-0 text-xs tabular-nums text-foreground/70">
                   {line.label} <b className="text-white text-base">{line.value}</b>
                 </span>
               )}
@@ -434,10 +434,11 @@ export function ItemDetail() {
                   {chips.map((c, i) => {
                     const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 py-2.5
                       sm:inline-flex sm:justify-start sm:rounded-full sm:py-2`;
+                    // ラベルはmutedだとモバイルで読みにくいため明るめ、数値は白
                     const inner = (
                       <>
-                        <span className="text-muted-foreground text-sm sm:text-xs">{c.plain}</span>
-                        <span className="font-bold tabular-nums text-2xl sm:text-lg leading-none text-white">+{c.value}</span>
+                        <span className="text-foreground/85 text-sm sm:text-xs">{c.plain}</span>
+                        <span className="font-bold tabular-nums text-2xl sm:text-lg leading-none text-white">{c.value}</span>
                       </>
                     );
                     return c.key ? (

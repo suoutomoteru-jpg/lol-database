@@ -165,7 +165,7 @@ export function BottomSheet({
                             key={s.label}
                             className="flex items-baseline justify-end gap-2 whitespace-nowrap"
                           >
-                            <span className="text-xs text-muted-foreground">{s.label}</span>
+                            <span className="text-xs text-foreground/70">{s.label}</span>
                             <span className="text-base text-white font-bold tabular-nums">
                               {s.value}
                             </span>
