@@ -208,5 +208,38 @@ def probe_characterrecords_stats() -> None:
         print()
 
 
+def probe_ad_growth_history() -> None:
+    """第9弾: AD成長0はいつからか（DDragonバージョン横断）＋ bin全数値フィールド"""
+    dd = "https://ddragon.leagueoflegends.com"
+    versions = get_json(f"{dd}/api/versions.json")
+    # 15.x（2025）後半〜16.x（2026）の代表バージョンを抽出
+    wanted = []
+    for prefix in ("15.20", "15.24", "16.1.", "16.5", "16.10", "16.14"):
+        v = next((x for x in versions if x.startswith(prefix)), None)
+        if v:
+            wanted.append(v)
+    print("=== Urgot / Jinx の attackdamageperlevel 推移 ===")
+    for v in wanted:
+        try:
+            data = get_json(f"{dd}/cdn/{v}/data/en_US/champion.json")["data"]
+            u = data["Urgot"]["stats"]
+            j = data["Jinx"]["stats"]
+            print(f"{v}\tUrgot ad={u['attackdamage']} ad/lv={u['attackdamageperlevel']}"
+                  f"\tJinx ad={j['attackdamage']} ad/lv={j['attackdamageperlevel']}")
+        except Exception as e:  # noqa: BLE001
+            print(f"{v}\tfetch failed: {e}")
+
+    print("\n=== urgot bin CharacterRecords の全数値フィールド（ハッシュ含む）===")
+    bin_data = get_json(f"{BASE}/game/data/characters/urgot/urgot.bin.json")
+    for path, entry in bin_data.items():
+        if not isinstance(entry, dict) or "/characterrecords/root" not in path.lower():
+            continue
+        for k, v in entry.items():
+            if isinstance(v, (int, float)):
+                print(f"  {k} = {v}")
+            elif isinstance(v, dict) and all(isinstance(x, (int, float)) for x in v.values()) and v:
+                print(f"  {k} = {json.dumps(v)[:200]}")
+
+
 if __name__ == "__main__":
-    probe_characterrecords_stats()
+    probe_ad_growth_history()
