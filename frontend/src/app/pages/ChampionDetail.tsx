@@ -3,7 +3,12 @@ import { useParams, Link } from 'react-router';
 import { ArrowLeft, ChevronUp, ChevronLeft, ChevronRight, Clock, Droplet, Ruler } from 'lucide-react';
 import { useChampion } from '../hooks/useChampion';
 import { useChampions } from '../hooks/useChampions';
+import { useChampionStatEntries } from '../hooks/useChampionStatEntries';
 import { useItemsByStats } from '../hooks/useItemsByStats';
+import {
+  GAUGE_STATS, computeGauge, formatGaugeValue,
+  type ChampStatEntry, type GaugeLevel, type GaugeScope, type GaugeStatKey,
+} from '../utils/statGauges';
 import { championSplashUrl } from '../api/dataDragon';
 import { englishChampionName } from '../utils/championNames';
 import { roleIconUrl, ROLE_LABELS_JA } from '../utils/roleAssets';
@@ -136,6 +141,78 @@ function SkillBlock({
   );
 }
 
+// ── 基礎ステータスの相対評価ゲージ ─────────────────────
+//
+// 数値の下に母集団内パーセンタイルのバーと「◯◯内 上位◯%」を表示する。
+// 母集団はステータスごとに最適なもの（クラス／メレー・レンジド／全体）。
+// タップで母集団⇄全体を切替、Lv1⇄Lv18で成長込みの順位を再計算。
+
+function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampStatEntry[] }) {
+  const [level, setLevel] = useState<GaugeLevel>(1);
+  const [scopes, setScopes] = useState<Partial<Record<GaugeStatKey, GaugeScope>>>({});
+
+  const toggleScope = (key: GaugeStatKey) =>
+    setScopes(prev => ({ ...prev, [key]: prev[key] === 'all' ? 'peer' : 'all' }));
+
+  return (
+    <div className="mt-6 max-w-3xl">
+      <div className="flex items-center gap-2 mb-2.5">
+        <span className="text-[11px] text-foreground/60">基礎ステータス</span>
+        <div className="inline-flex rounded-md border border-border/70 overflow-hidden">
+          {([1, 18] as GaugeLevel[]).map(lv => (
+            <button
+              key={lv}
+              onClick={() => setLevel(lv)}
+              className={`px-2.5 py-0.5 text-[11px] font-semibold transition-colors ${
+                level === lv
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-background/50 text-foreground/60 hover:text-foreground'
+              }`}
+            >
+              Lv{lv}
+            </button>
+          ))}
+        </div>
+        <span className="text-[10px] text-foreground/45">バーは比較グループ内での位置（タップで全体比較）</span>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3">
+        {GAUGE_STATS.map(def => {
+          const scope = scopes[def.key] ?? 'peer';
+          const hasData = entries.length > 1;
+          const g = hasData ? computeGauge(entries, self, def.key, level, scope) : null;
+          return (
+            <button
+              key={def.key}
+              onClick={() => hasData && toggleScope(def.key)}
+              className="text-left"
+              title="タップで比較グループ⇄全体を切替"
+            >
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-[11px] text-foreground/70 leading-tight">{def.labelJa}</span>
+                <span className="text-base font-bold text-white tabular-nums leading-tight">
+                  {g ? formatGaugeValue(def.key, g.value) : formatGaugeValue(def.key, self.stats[def.key] ?? 0)}
+                </span>
+              </div>
+              <div className="relative h-1 bg-secondary/80 rounded-full mt-1.5">
+                <div
+                  className="absolute inset-y-0 left-0 bg-primary/85 rounded-full transition-[width] duration-300"
+                  style={{ width: `${g ? g.fillPct : 0}%` }}
+                />
+              </div>
+              {g && (
+                <p className="text-[10px] text-foreground/55 leading-tight mt-1 tabular-nums">
+                  {g.groupLabel}{g.groupLabel === '全チャンピオン' ? '中' : '内'} {g.rankLabel}
+                </p>
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // ── ロア（背景ストーリー・折りたたみ）───────────────────
 
 function LoreSection({ lore }: { lore: string }) {
@@ -166,6 +243,7 @@ export function ChampionDetail() {
   const { id } = useParams<{ id: string }>();
   const { champion, loading, error } = useChampion(id);
   const { champions } = useChampions();
+  const statEntries = useChampionStatEntries();
   const { statMap, mediumStatMap } = useItemsByStats();
   const [activeSkill, setActiveSkill] = useState<SkillKey>('P');
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -232,16 +310,11 @@ export function ChampionDetail() {
     );
   }
 
-  const { stats } = champion;
-
-  const statTags = [
-    { label: '体力',     value: stats.hp },
-    { label: 'マナ',     value: champion.partype !== 'None' ? stats.mp : null },
-    { label: '物理防御', value: stats.armor },
-    { label: '魔法防御', value: stats.spellblock },
-    { label: '移動速度', value: stats.movespeed },
-    { label: '射程',     value: stats.attackrange },
-  ].filter(s => s.value !== null);
+  const selfEntry: ChampStatEntry = {
+    id: champion.id,
+    tags: champion.tags,
+    stats: champion.stats,
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -318,14 +391,7 @@ export function ChampionDetail() {
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-x-7 gap-y-2 mt-6">
-            {statTags.map(s => (
-              <div key={s.label}>
-                <p className="text-[11px] text-muted-foreground leading-tight">{s.label}</p>
-                <p className="text-base font-semibold text-foreground tabular-nums leading-tight mt-0.5">{s.value}</p>
-              </div>
-            ))}
-          </div>
+          <StatGauges self={selfEntry} entries={statEntries} />
         </div>
       </div>
 
