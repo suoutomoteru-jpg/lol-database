@@ -56,6 +56,35 @@ export function statValueAt(stats: DDragonStats, key: GaugeStatKey, level: Gauge
   return base + growth * (level - 1);
 }
 
+/**
+ * DDragonの成長値欠落（パッチ16.2頃からattackdamageperlevelが全員0）の補完データ。
+ * CI（generate_stat_overrides.py）が最後に正常だったバージョンから生成する。
+ */
+export interface StatOverrides {
+  /** 補完値の取得元DDragonバージョン（例 "16.1.1"）。補完なしならnull */
+  source: string | null;
+  fields: Record<string, Record<string, number>>;
+}
+
+/** 現行値が0のフィールドだけ補完値で埋めたstatsを返す（元objectは変更しない） */
+export function applyStatOverrides(
+  championId: string,
+  stats: DDragonStats,
+  overrides: StatOverrides | null,
+): DDragonStats {
+  if (!overrides || !overrides.fields) return stats;
+  let out: DDragonStats | null = null;
+  for (const [field, perChamp] of Object.entries(overrides.fields)) {
+    const value = perChamp[championId];
+    if (value == null) continue;
+    const key = field as keyof DDragonStats;
+    if (Number(stats[key] ?? 0) !== 0) continue; // 現行値があれば触らない
+    out = out ?? { ...stats };
+    out[key] = value;
+  }
+  return out ?? stats;
+}
+
 /** レベルあたりの成長量（成長概念がない項目=null、成長値0=0を区別して返す） */
 export function growthPerLevel(stats: DDragonStats, key: GaugeStatKey): number | null {
   const growthField = GROWTH_FIELD[key];

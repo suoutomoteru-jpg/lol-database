@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  statValueAt, computeGauge, formatGaugeValue, growthLabel,
+  statValueAt, computeGauge, formatGaugeValue, growthLabel, applyStatOverrides,
   type ChampStatEntry,
 } from './statGauges';
 import type { DDragonStats } from '../types/ddragon';
@@ -118,5 +118,30 @@ describe('growthLabel', () => {
   it('移動速度・射程は成長の概念がないため null', () => {
     expect(growthLabel(stats({}), 'movespeed')).toBeNull();
     expect(growthLabel(stats({}), 'attackrange')).toBeNull();
+  });
+});
+
+describe('applyStatOverrides', () => {
+  const overrides = {
+    source: '16.1.1',
+    fields: { attackdamageperlevel: { Urgot: 4, Jinx: 3.25 } },
+  };
+
+  it('現行値が0のフィールドだけ補完する', () => {
+    const s = stats({ attackdamageperlevel: 0 });
+    const out = applyStatOverrides('Urgot', s, overrides);
+    expect(out.attackdamageperlevel).toBe(4);
+    expect(s.attackdamageperlevel).toBe(0); // 元は不変
+  });
+
+  it('現行値が入っていれば補完しない（DDragon修復時に自動で現行優先）', () => {
+    const s = stats({ attackdamageperlevel: 5 });
+    expect(applyStatOverrides('Urgot', s, overrides).attackdamageperlevel).toBe(5);
+  });
+
+  it('補完データにないチャンピオンや overrides=null はそのまま', () => {
+    const s = stats({ attackdamageperlevel: 0 });
+    expect(applyStatOverrides('Senna', s, overrides).attackdamageperlevel).toBe(0);
+    expect(applyStatOverrides('Urgot', s, null)).toBe(s);
   });
 });

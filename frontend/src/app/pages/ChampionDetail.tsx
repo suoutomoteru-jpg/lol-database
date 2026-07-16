@@ -6,7 +6,7 @@ import { useChampions } from '../hooks/useChampions';
 import { useChampionStatEntries } from '../hooks/useChampionStatEntries';
 import { useItemsByStats } from '../hooks/useItemsByStats';
 import {
-  GAUGE_STATS, computeGauge, formatGaugeValue, growthLabel,
+  GAUGE_STATS, applyStatOverrides, computeGauge, formatGaugeValue, growthLabel,
   type ChampStatEntry, type GaugeLevel, type GaugeScope, type GaugeStatKey,
 } from '../utils/statGauges';
 import { championSplashUrl } from '../api/dataDragon';
@@ -250,7 +250,7 @@ export function ChampionDetail() {
   const { id } = useParams<{ id: string }>();
   const { champion, loading, error } = useChampion(id);
   const { champions } = useChampions();
-  const statEntries = useChampionStatEntries();
+  const { entries: statEntries, overrides: statOverrides } = useChampionStatEntries();
   const { statMap, mediumStatMap } = useItemsByStats();
   const [activeSkill, setActiveSkill] = useState<SkillKey>('P');
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -320,7 +320,8 @@ export function ChampionDetail() {
   const selfEntry: ChampStatEntry = {
     id: champion.id,
     tags: champion.tags,
-    stats: champion.stats,
+    // DDragonのAD成長値欠落をCI生成の補完データで埋める
+    stats: applyStatOverrides(champion.id, champion.stats, statOverrides),
   };
 
   return (

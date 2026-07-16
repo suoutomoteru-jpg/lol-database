@@ -8,6 +8,7 @@ on:
   push:
     paths:
       - scripts/generate_tooltips.py
+      - scripts/generate_stat_overrides.py
       - .github/workflows/generate-tooltips.yml
 
 permissions:
@@ -42,6 +43,9 @@ jobs:
 
       - name: Generate all champions
         run: python3 scripts/generate_tooltips.py --out frontend/public/tooltips
+
+      - name: Generate stat overrides (DDragonのAD成長値欠落の補完)
+        run: python3 scripts/generate_stat_overrides.py --out frontend/public/tooltips
 
       - name: Commit generated tooltips
         run: |
