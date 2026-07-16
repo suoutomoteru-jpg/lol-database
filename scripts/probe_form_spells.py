@@ -169,5 +169,23 @@ def probe_severum_datavalues() -> None:
         print()
 
 
+def probe_ddragon_stats() -> None:
+    """第7弾: DDragon実データの stats フィールド（AD成長値の欠落調査）"""
+    dd = "https://ddragon.leagueoflegends.com"
+    version = get_json(f"{dd}/api/versions.json")[0]
+    print(f"version: {version}\n")
+
+    print("=== champion/Urgot.json（詳細）の stats ===")
+    detail = get_json(f"{dd}/cdn/{version}/data/ja_JP/champion/Urgot.json")
+    print(json.dumps(detail["data"]["Urgot"]["stats"], ensure_ascii=False, indent=1))
+
+    print("\n=== champion.json（一覧）の Urgot / Ambessa の stats ===")
+    listing = get_json(f"{dd}/cdn/{version}/data/ja_JP/champion.json")
+    for cid in ("Urgot", "Ambessa"):
+        c = listing["data"].get(cid)
+        print(f"--- {cid}")
+        print(json.dumps(c["stats"] if c else None, ensure_ascii=False, indent=1))
+
+
 if __name__ == "__main__":
-    probe_severum_datavalues()
+    probe_ddragon_stats()
