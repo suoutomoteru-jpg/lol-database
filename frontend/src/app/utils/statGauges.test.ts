@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  statValueAt, isRanged, computeGauge, formatGaugeValue,
+  statValueAt, computeGauge, formatGaugeValue,
   type ChampStatEntry,
 } from './statGauges';
 import type { DDragonStats } from '../types/ddragon';
@@ -37,12 +37,9 @@ describe('statValueAt', () => {
     expect(statValueAt(stats({ movespeed: 335 }), 'movespeed', 18)).toBe(335);
     expect(statValueAt(stats({ attackrange: 550 }), 'attackrange', 18)).toBe(550);
   });
-});
 
-describe('isRanged', () => {
-  it('射程300以上はレンジド', () => {
-    expect(isRanged(stats({ attackrange: 350 }))).toBe(true);
-    expect(isRanged(stats({ attackrange: 175 }))).toBe(false);
+  it('中間レベルも計算できる（スライダー用）', () => {
+    expect(statValueAt(stats({ hp: 600, hpperlevel: 100 }), 'hp', 10)).toBe(600 + 100 * 9);
   });
 });
 
@@ -63,9 +60,9 @@ describe('computeGauge', () => {
     expect(g.rankLabel).toBe('2位');
   });
 
-  it('射程はメレー/レンジド内で比較する', () => {
+  it('射程・攻撃速度もクラス内で比較する', () => {
     const g = computeGauge(all, all[3], 'attackrange', 1, 'peer');
-    expect(g.groupLabel).toBe('レンジド');
+    expect(g.groupLabel).toBe('メイジ');
     expect(g.total).toBe(2);
     expect(g.rank).toBe(1);
   });

@@ -2,12 +2,11 @@
  * 基礎ステータスの相対評価（パーセンタイルゲージ）
  *
  * 「上位◯%」は比較母集団を明示しないと意味を持たないため、
- * ステータスごとに意味のある母集団を選び、ラベルとして表示する:
- *   - 射程・攻撃速度: メレー／レンジド内（分布が二峰性のため）
- *   - 体力・攻撃力・防御系: 同クラス（DDragonタグの第1要素）内
+ * 母集団を選び、ラベルとして表示する:
+ *   - 体力・攻撃力・攻撃速度・防御系・射程: 同クラス（DDragonタグの第1要素）内
  *   - 移動速度: 全チャンピオン（共通の土俵）
  * タップで「母集団 ⇄ 全体」を切り替えられる。
- * Lv1/Lv18 の切替で成長値込みの順位を再計算する（＝伸びの可視化）。
+ * レベルスライダー（1〜18）で成長値込みの実値と順位を再計算する（＝伸びの可視化）。
  */
 
 import type { DDragonStats } from '../types/ddragon';
@@ -20,7 +19,8 @@ export interface ChampStatEntry {
   stats: DDragonStats;
 }
 
-export type GaugeLevel = 1 | 18;
+/** 1〜18 */
+export type GaugeLevel = number;
 export type GaugeScope = 'peer' | 'all';
 
 export const GAUGE_STATS = [
@@ -56,10 +56,6 @@ export function statValueAt(stats: DDragonStats, key: GaugeStatKey, level: Gauge
   return base + growth * (level - 1);
 }
 
-export function isRanged(stats: DDragonStats): boolean {
-  return Number(stats.attackrange ?? 0) >= 300;
-}
-
 function groupOf(
   key: GaugeStatKey,
   self: ChampStatEntry,
@@ -67,13 +63,6 @@ function groupOf(
 ): { label: string; members: ChampStatEntry[] } {
   if (key === 'movespeed') {
     return { label: '全チャンピオン', members: all };
-  }
-  if (key === 'attackrange' || key === 'attackspeed') {
-    const ranged = isRanged(self.stats);
-    return {
-      label: ranged ? 'レンジド' : 'メレー',
-      members: all.filter(e => isRanged(e.stats) === ranged),
-    };
   }
   const tag = self.tags[0] ?? 'Fighter';
   return {

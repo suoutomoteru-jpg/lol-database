@@ -156,23 +156,22 @@ function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampSta
 
   return (
     <div className="mt-6 max-w-3xl">
-      <div className="flex items-center gap-2 mb-2.5">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-2.5">
         <span className="text-[11px] text-foreground/60">基礎ステータス</span>
-        <div className="inline-flex rounded-md border border-border/70 overflow-hidden">
-          {([1, 18] as GaugeLevel[]).map(lv => (
-            <button
-              key={lv}
-              onClick={() => setLevel(lv)}
-              className={`px-2.5 py-0.5 text-[11px] font-semibold transition-colors ${
-                level === lv
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-background/50 text-foreground/60 hover:text-foreground'
-              }`}
-            >
-              Lv{lv}
-            </button>
-          ))}
-        </div>
+        {/* レベルスライダー: 1〜18の任意レベルで実値と順位を再計算 */}
+        <label className="inline-flex items-center gap-2">
+          <span className="text-xs font-bold text-white tabular-nums w-9">Lv{level}</span>
+          <input
+            type="range"
+            min={1}
+            max={18}
+            step={1}
+            value={level}
+            onChange={e => setLevel(Number(e.target.value))}
+            className="w-36 sm:w-44 h-1 accent-primary cursor-pointer"
+            aria-label="レベル"
+          />
+        </label>
         <span className="text-[10px] text-foreground/45">バーは比較グループ内での位置（タップで全体比較）</span>
       </div>
 
