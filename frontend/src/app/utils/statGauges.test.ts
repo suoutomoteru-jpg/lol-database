@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  statValueAt, computeGauge, formatGaugeValue,
+  statValueAt, computeGauge, formatGaugeValue, growthLabel,
   type ChampStatEntry,
 } from './statGauges';
 import type { DDragonStats } from '../types/ddragon';
@@ -102,5 +102,21 @@ describe('formatGaugeValue', () => {
     expect(formatGaugeValue('attackspeed', 0.625)).toBe('0.625');
     expect(formatGaugeValue('attackspeed', 0.9)).toBe('0.9');
     expect(formatGaugeValue('hp', 654.6)).toBe('655');
+  });
+});
+
+describe('growthLabel', () => {
+  it('通常の成長は +X/Lv、攻撃速度は %表記', () => {
+    expect(growthLabel(stats({ attackdamageperlevel: 4 }), 'attackdamage')).toBe('+4/Lv');
+    expect(growthLabel(stats({ attackspeedperlevel: 2.5 }), 'attackspeed')).toBe('+2.5%/Lv');
+  });
+
+  it('成長値0（セナのAD等）は「成長なし」', () => {
+    expect(growthLabel(stats({ attackdamageperlevel: 0 }), 'attackdamage')).toBe('成長なし');
+  });
+
+  it('移動速度・射程は成長の概念がないため null', () => {
+    expect(growthLabel(stats({}), 'movespeed')).toBeNull();
+    expect(growthLabel(stats({}), 'attackrange')).toBeNull();
   });
 });

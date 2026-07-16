@@ -56,6 +56,22 @@ export function statValueAt(stats: DDragonStats, key: GaugeStatKey, level: Gauge
   return base + growth * (level - 1);
 }
 
+/** レベルあたりの成長量（成長概念がない項目=null、成長値0=0を区別して返す） */
+export function growthPerLevel(stats: DDragonStats, key: GaugeStatKey): number | null {
+  const growthField = GROWTH_FIELD[key];
+  if (!growthField) return null;
+  return Number(stats[growthField] ?? 0);
+}
+
+/** 「+4/Lv」「+2.5%/Lv」「成長なし」の表示文字列 */
+export function growthLabel(stats: DDragonStats, key: GaugeStatKey): string | null {
+  const g = growthPerLevel(stats, key);
+  if (g === null) return null; // 移動速度・射程: 成長という概念がない
+  if (g === 0) return '成長なし';
+  const n = Math.round(g * 100) / 100;
+  return key === 'attackspeed' ? `+${n}%/Lv` : `+${n}/Lv`;
+}
+
 function groupOf(
   key: GaugeStatKey,
   self: ChampStatEntry,

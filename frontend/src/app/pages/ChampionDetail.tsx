@@ -6,7 +6,7 @@ import { useChampions } from '../hooks/useChampions';
 import { useChampionStatEntries } from '../hooks/useChampionStatEntries';
 import { useItemsByStats } from '../hooks/useItemsByStats';
 import {
-  GAUGE_STATS, computeGauge, formatGaugeValue,
+  GAUGE_STATS, computeGauge, formatGaugeValue, growthLabel,
   type ChampStatEntry, type GaugeLevel, type GaugeScope, type GaugeStatKey,
 } from '../utils/statGauges';
 import { championSplashUrl } from '../api/dataDragon';
@@ -188,7 +188,15 @@ function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampSta
               title="タップで比較グループ⇄全体を切替"
             >
               <div className="flex items-baseline justify-between gap-2">
-                <span className="text-[11px] text-foreground/70 leading-tight">{def.labelJa}</span>
+                <span className="text-[11px] text-foreground/70 leading-tight">
+                  {def.labelJa}
+                  {/* 成長の有無を明示（+4/Lv・成長なし。移動速度等は概念自体なし） */}
+                  {growthLabel(self.stats, def.key) && (
+                    <span className="ml-1 text-[9px] text-foreground/45 tabular-nums">
+                      {growthLabel(self.stats, def.key)}
+                    </span>
+                  )}
+                </span>
                 <span className="text-base font-bold text-white tabular-nums leading-tight">
                   {g ? formatGaugeValue(def.key, g.value) : formatGaugeValue(def.key, self.stats[def.key] ?? 0)}
                 </span>
