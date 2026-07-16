@@ -187,5 +187,26 @@ def probe_ddragon_stats() -> None:
         print(json.dumps(c["stats"] if c else None, ensure_ascii=False, indent=1))
 
 
+def probe_characterrecords_stats() -> None:
+    """第8弾: bin CharacterRecords の基礎ステータス（AD成長値の代替ソース確認）"""
+    for champ in ("urgot", "ambessa", "kayle"):
+        print(f"########## {champ} ##########")
+        bin_data = get_json(f"{BASE}/game/data/characters/{champ}/{champ}.bin.json")
+        for path, entry in bin_data.items():
+            if not isinstance(entry, dict):
+                continue
+            if "/characterrecords/root" not in path.lower():
+                continue
+            numeric = {
+                k: v for k, v in entry.items()
+                if isinstance(v, (int, float)) and re.search(
+                    r"damage|hp|health|armor|spellblock|mr|attack|speed|range|regen|level",
+                    k, re.I,
+                )
+            }
+            print(json.dumps(numeric, ensure_ascii=False, indent=1))
+        print()
+
+
 if __name__ == "__main__":
-    probe_ddragon_stats()
+    probe_characterrecords_stats()
