@@ -59,13 +59,16 @@ body {
   font-weight: 600;
 }
 
-/* スキル説明文内のタップ可能なステータス語（現在の文字色を薄く敷いたピル） */
+/* スキル説明文内のタップ可能なステータス語（現在の文字色を薄く敷いたピル）
+   上下パディングをem指定して、ハイライトが文字の上下中央に来るようにする */
 .stat-link {
   cursor: pointer;
   background: color-mix(in srgb, currentColor 13%, transparent);
-  border-radius: 4px;
-  padding: 0 3px;
+  border-radius: 5px;
+  padding: 0.14em 0.35em;
   margin: 0 1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
   transition: background 0.1s;
 }
 .stat-link:hover {

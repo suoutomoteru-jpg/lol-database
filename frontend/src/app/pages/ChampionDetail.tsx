@@ -91,23 +91,34 @@ function SkillBlock({
         <div className="min-w-0 pt-0.5">
           <h2 className="text-xl font-semibold text-foreground leading-tight">{skill.name}</h2>
           {hasMeta && (
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mt-2">
+              {/* CDは最重要情報なのでボックス+太字白で強調する */}
               {skill.cooldownBurn && (
-                <span className="inline-flex items-center gap-1.5" title="クールダウン">
-                  <Clock size={13} aria-hidden />
-                  <span className="tabular-nums text-foreground/85">{skill.cooldownBurn}s</span>
+                <span
+                  className="inline-flex items-baseline gap-1.5 bg-secondary/80 border border-border rounded-md px-2.5 py-1"
+                  title="クールダウン"
+                >
+                  <Clock size={13} className="self-center text-foreground/60" aria-hidden />
+                  <span className="text-[11px] text-foreground/70">CD</span>
+                  <span className="tabular-nums text-base font-bold text-white leading-none">
+                    {skill.cooldownBurn}
+                  </span>
+                  <span className="text-[11px] text-foreground/70">秒</span>
                 </span>
               )}
               {skill.costBurn && (
-                <span className="inline-flex items-center gap-1.5" title={skill.costType ?? 'コスト'}>
-                  <Droplet size={13} aria-hidden />
-                  <span className="tabular-nums text-foreground/85">{skill.costBurn}</span>
+                <span
+                  className="inline-flex items-baseline gap-1.5 px-1.5 py-1"
+                  title={skill.costType ?? 'コスト'}
+                >
+                  <Droplet size={13} className="self-center text-foreground/50" aria-hidden />
+                  <span className="tabular-nums text-sm font-semibold text-foreground/90">{skill.costBurn}</span>
                 </span>
               )}
               {skill.rangeBurn && (
-                <span className="inline-flex items-center gap-1.5" title="射程">
-                  <Ruler size={13} aria-hidden />
-                  <span className="tabular-nums text-foreground/85">{skill.rangeBurn}</span>
+                <span className="inline-flex items-baseline gap-1.5 px-1.5 py-1" title="射程">
+                  <Ruler size={13} className="self-center text-foreground/50" aria-hidden />
+                  <span className="tabular-nums text-sm font-semibold text-foreground/90">{skill.rangeBurn}</span>
                 </span>
               )}
             </div>
