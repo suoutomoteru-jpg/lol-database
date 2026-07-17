@@ -34,31 +34,9 @@ def listdir(path: str):
 
 
 def main() -> None:
-    # ── 0. ディレクトリ探索: items系binの実パスを見つける ──
-    for p in ["game/", "game/data/", "game/global/", "game/items/"]:
-        print(f"--- ls {p} ---")
-        for name, typ in listdir(p):
-            print(f"  {typ}\t{name}")
-        print()
-
-    # ── 1. items.bin の対象エントリ（パス候補を順に試す）──
-    candidates = [
-        f"{CD}/game/items.bin.json",
-        f"{CD}/game/global/items/items.bin.json",
-        f"{CD}/game/data/items/items.bin.json",
-    ]
-    bin_data = None
-    for url in candidates:
-        try:
-            bin_data = get_json(url)
-            print(f"OK: {url}")
-            break
-        except Exception as e:  # noqa: BLE001
-            print(f"NG: {url} ({e})")
-    if bin_data is None:
-        print("items.bin が見つからない（ディレクトリリストから特定する）")
-        return
-    print(f"=== items.bin.json: {len(bin_data)} root keys ===")
+    # ── 1. items.cdtb.bin の対象エントリ ──
+    bin_data = get_json(f"{CD}/game/items.cdtb.bin.json")
+    print(f"=== items.cdtb.bin.json: {len(bin_data)} root keys ===")
     hits = [k for k in bin_data if "2525" in k]
     print(f"キーに2525を含む: {hits}\n")
     for k in hits:
