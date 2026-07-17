@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router';
 import { ArrowLeft, ChevronUp, ChevronLeft, ChevronRight, Clock, Droplet, Ruler } from 'lucide-react';
 import { useChampion } from '../hooks/useChampion';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useChampions } from '../hooks/useChampions';
 import { useChampionStatEntries } from '../hooks/useChampionStatEntries';
 import { useItemsByStats } from '../hooks/useItemsByStats';
@@ -256,6 +257,10 @@ export function ChampionDetail() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
   const [activeLabel, setActiveLabel] = useState<string>('');
+
+  useDocumentTitle(
+    champion ? `${champion.name} スキル実数値・基礎ステータス | nunune.gg` : null,
+  );
 
   const handleStatClick = useCallback((key: string, label: string) => {
     setActiveStatKey(key);

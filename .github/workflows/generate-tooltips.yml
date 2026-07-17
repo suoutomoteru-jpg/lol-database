@@ -2,13 +2,20 @@ name: Generate champion tooltips
 
 # CommunityDragon の本番パッチデータから全チャンピオンの詳細ツールチップ JSON を
 # 生成し、frontend/public/tooltips/ にコミットする。
-# スクリプト変更時に自動実行（workflow_dispatch は手動実行用）。
+# - スクリプト変更時に自動実行
+# - 週1回のスケジュール実行で新パッチを無人追従
+#   ※ schedule はリポジトリの「デフォルトブランチ」のワークフローのみ発火する。
+#     公開ブランチをデフォルトに設定（または main へマージ）すると有効になる。
 on:
   workflow_dispatch:
+  schedule:
+    # 毎週木曜 03:00 UTC（日本時間 12:00）。LoLパッチは水曜(米国)配信のため翌日に追従
+    - cron: '0 3 * * 4'
   push:
     paths:
       - scripts/generate_tooltips.py
       - scripts/generate_stat_overrides.py
+      - scripts/generate_sitemap.py
       - .github/workflows/generate-tooltips.yml
 
 permissions:
@@ -47,11 +54,14 @@ jobs:
       - name: Generate stat overrides (DDragonのAD成長値欠落の補完)
         run: python3 scripts/generate_stat_overrides.py --out frontend/public/tooltips
 
+      - name: Generate sitemap
+        run: python3 scripts/generate_sitemap.py --tooltips frontend/public/tooltips --out frontend/public/sitemap.xml
+
       - name: Commit generated tooltips
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add frontend/public/tooltips
+          git add frontend/public/tooltips frontend/public/sitemap.xml
           if git diff --cached --quiet; then
             echo "変更なし（既に最新）"
           else

@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, Fragment } from 'react';
 import { Link, useParams } from 'react-router';
 import { ArrowLeft, ChevronLeft, ChevronRight, Plus, Check } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useItems } from '../hooks/useItems';
 import { useItemsByStats, type ItemSummary } from '../hooks/useItemsByStats';
 import { useBuildTray, addToTray, MAX_SLOTS } from '../hooks/useBuildTray';
@@ -242,6 +243,8 @@ export function ItemDetail() {
   const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
   const [activeLabel, setActiveLabel] = useState<string>('');
   const heroImgRef = useRef<HTMLImageElement>(null);
+
+  useDocumentTitle(item ? `${item.name} 効果・金銭効率・ビルドパス | nunune.gg` : null);
 
   const currentIdx = items.findIndex(it => it.id === id);
   const prevItem = currentIdx > 0 ? items[currentIdx - 1] : null;
