@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
-"""アイテムデータ調査プローブ #2: items.bin の計算式構造
+"""アイテムデータ調査プローブ #3: stringtable のアイテム説明テンプレート
 
-プロトプラズムハーネス（2525）の「ライフライン」数値（最大体力獲得量・
-回復量・CD）が DDragon/CDragon の説明文で 0/空欄になる問題。
-実数値は game/items.bin.json の GameCalculation にあるはずなので、
-その構造を確認する。
-
-出力:
-  1. items.bin.json 内の 2525 エントリ全文
-  2. 説明文に「壊れた0」を含む ja_JP アイテムの全件リスト（影響範囲）
+items.cdtb.bin の mDataValues / mItemCalculations は取得できた。
+残る問題は「説明文のどのスロットにどの変数が入るか」。
+ja stringtable の generatedtip_item_* テンプレートに @Var@ 形式で
+残っているはずなので、その存在と形式を確認する。
 """
 import json
 import re
 import urllib.request
 
-DD = "https://ddragon.leagueoflegends.com"
 CD = "https://raw.communitydragon.org/latest"
+STRINGTABLE_URL = f"{CD}/game/ja_jp/data/menu/en_us/lol.stringtable.json"
 
 
 def get_json(url: str):
@@ -24,40 +20,33 @@ def get_json(url: str):
         return json.loads(r.read().decode("utf-8"))
 
 
-def listdir(path: str):
-    """CDragon のディレクトリリスティング（/json/ プレフィックス）"""
-    url = f"https://raw.communitydragon.org/json/latest/{path}"
-    try:
-        return [(x.get("name"), x.get("type")) for x in get_json(url)]
-    except Exception as e:  # noqa: BLE001
-        return [("ERROR", str(e))]
-
-
 def main() -> None:
-    # ── 1. items.cdtb.bin の対象エントリ ──
-    bin_data = get_json(f"{CD}/game/items.cdtb.bin.json")
-    print(f"=== items.cdtb.bin.json: {len(bin_data)} root keys ===")
-    hits = [k for k in bin_data if "2525" in k]
-    print(f"キーに2525を含む: {hits}\n")
-    for k in hits:
-        print(f"----- {k} -----")
-        print(json.dumps(bin_data[k], ensure_ascii=False, indent=1)[:8000])
-        print()
+    st = get_json(STRINGTABLE_URL)
+    entries = st.get("entries", st)
+    print(f"=== stringtable entries: {len(entries)} ===")
 
-    # ── 2. 影響範囲: 「壊れた0」を含むアイテム ──
-    version = get_json(f"{DD}/api/versions.json")[0]
-    items = get_json(f"{DD}/cdn/{version}/data/ja_JP/item.json")["data"]
-    # <stats>ブロック外の本文で 「を0獲得」「が0回復」「(0秒)」「 0増加」等の疑わしいゼロ
-    pat = re.compile(r"(を0[獲回]|が0回復|\(0秒\)|\b0を獲得|ダメージを0|0のダメージ)")
-    broken = []
-    for iid, it in items.items():
-        desc = it.get("description", "")
-        body = re.sub(r"<stats>[\s\S]*?</stats>", "", desc)
-        if pat.search(body):
-            broken.append((iid, it.get("name", ""), it.get("maps", {}).get("11"), pat.findall(body)))
-    print(f"=== ja_JP 壊れた0を含むアイテム: {len(broken)}件 (version {version}) ===")
-    for iid, name, sr, marks in broken:
-        print(f"  {iid}\t{name}\tSR={sr}\t{marks}")
+    gen_item = [k for k in entries if k.startswith("generatedtip_item_")]
+    print(f"generatedtip_item_* keys: {len(gen_item)}")
+
+    # 対象アイテムのテンプレート全文
+    for iid in ["2525", "3040", "4011", "4637"]:
+        keys = sorted(k for k in entries if f"item_{iid}_" in k)
+        print(f"\n===== item {iid}: {len(keys)} keys =====")
+        for k in keys:
+            v = entries[k]
+            print(f"--- {k} ---")
+            print(v[:1200])
+            print()
+
+    # items.bin の SR 2525 の計算式（前回途切れた部分）
+    bin_data = get_json(f"{CD}/game/items.cdtb.bin.json")
+    e = bin_data.get("Items/2525", {})
+    print("===== Items/2525 mDataValues / mItemCalculations =====")
+    print(json.dumps({
+        "mDataValues": e.get("mDataValues"),
+        "mItemCalculations": e.get("mItemCalculations"),
+        "mItemDataClient_keys": (e.get("mItemDataClient") or {}).get("mDescription"),
+    }, ensure_ascii=False, indent=1))
 
 
 if __name__ == "__main__":
