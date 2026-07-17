@@ -382,7 +382,7 @@ export function ItemDetail() {
                   shadow-[0_0_0_5px_rgba(255,143,198,.10),0_0_36px_rgba(255,143,198,.18)]"
               />
 
-              <div className="mt-3 flex items-center justify-center gap-2 flex-wrap">
+              <div className="mt-3 flex items-baseline justify-center gap-2 flex-wrap">
                 <h1
                   className="text-2xl font-bold text-foreground leading-tight"
                   style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
@@ -426,7 +426,7 @@ export function ItemDetail() {
               <button
                 onClick={handleStack}
                 disabled={!canStack}
-                className={`mt-4 inline-flex items-center gap-1.5 rounded-full px-6 py-2 text-sm font-black transition-transform
+                className={`mt-4 inline-flex items-center gap-1.5 rounded-full px-6 pt-[7px] pb-[9px] text-sm font-black transition-transform
                   ${canStack
                     ? 'bg-primary text-primary-foreground -rotate-1 shadow-[0_0_18px_rgba(255,143,198,.45)] hover:-rotate-2 hover:scale-[1.03] active:scale-95'
                     : 'bg-secondary text-muted-foreground cursor-default'}`}
@@ -444,8 +444,9 @@ export function ItemDetail() {
                 <div className="mt-4 flex flex-col items-stretch gap-2 max-w-xs mx-auto
                   sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center">
                   {chips.map((c, i) => {
-                    const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 py-2.5
-                      sm:inline-flex sm:justify-start sm:rounded-full sm:py-2`;
+                    // 上下パディングは非対称（インク沈み約2pxの光学補正）
+                    const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 pt-[8px] pb-[12px]
+                      sm:inline-flex sm:justify-start sm:rounded-full sm:pt-[6px] sm:pb-[10px]`;
                     // ラベルはmutedだとモバイルで読みにくいため明るめ、数値はData voice
                     const inner = (
                       <>

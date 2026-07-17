@@ -80,7 +80,9 @@ button, a, input, [role="button"] {
   cursor: pointer;
   background: color-mix(in srgb, currentColor 13%, transparent);
   border-radius: 5px;
-  padding: 0.14em 0.35em;
+  /* 上下は非対称: 丸ゴのインクは行ボックス中心より約0.05em下に沈むため（canvas実測）、
+     下パディングを厚くしてハイライト内の文字を光学中央に置く */
+  padding: 0.1em 0.35em 0.18em;
   margin: 0 1px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;

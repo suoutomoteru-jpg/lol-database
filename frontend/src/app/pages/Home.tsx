@@ -135,7 +135,7 @@ export function Home() {
             <p className="hidden sm:block text-xs text-muted-foreground truncate">League of Legends データベース</p>
           </div>
           {version && (
-            <span className="flex-shrink-0 px-2.5 py-1 text-xs text-muted-foreground tabular-nums rounded-sm border border-border bg-card">
+            <span className="flex-shrink-0 px-2.5 pt-[3px] pb-[5px] text-xs text-muted-foreground tabular-nums rounded-sm border border-border bg-card">
               パッチ {displayPatch(version)}
             </span>
           )}

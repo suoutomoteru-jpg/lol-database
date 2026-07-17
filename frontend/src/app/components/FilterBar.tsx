@@ -44,7 +44,7 @@ export function FilterBar({
             key={v}
             onClick={() => onChange(v)}
             aria-pressed={isActive}
-            className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium border rounded-full transition-colors duration-100 ${colorClass}`}
+            className={`inline-flex items-center gap-1.5 px-3 pt-[3px] pb-[5px] text-xs font-medium border rounded-full transition-colors duration-100 ${colorClass}`}
           >
             {icon && (
               // CSSマスクでアイコンを文字色と同色の単色にする（元PNGの彩色を使わない）

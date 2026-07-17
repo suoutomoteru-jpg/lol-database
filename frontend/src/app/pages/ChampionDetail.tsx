@@ -117,7 +117,7 @@ function SkillBlock({
               {/* CDは最重要情報なのでボックス+太字白で強調する */}
               {skill.cooldownBurn && (
                 <span
-                  className="inline-flex items-baseline gap-1.5 bg-secondary/80 border border-border rounded-md px-2.5 py-1"
+                  className="inline-flex items-baseline gap-1.5 bg-secondary/80 border border-border rounded-md px-2.5 pt-[3px] pb-[5px]"
                   title="クールダウン"
                 >
                   <Clock size={13} className="self-center text-foreground/60" aria-hidden />
@@ -428,7 +428,7 @@ export function ChampionDetail() {
             {[champion.role, ...champion.tags.filter(t => t !== champion.role)].map(tag => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs rounded-sm bg-background/60 border border-border/60 text-foreground/80"
+                className="inline-flex items-center gap-1 px-2.5 pt-[1px] pb-[3px] text-xs rounded-sm bg-background/60 border border-border/60 text-foreground/80"
               >
                 {ROLE_LABELS_JA[tag as Role] && (
                   <img
