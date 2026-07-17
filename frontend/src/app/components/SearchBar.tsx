@@ -11,7 +11,13 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
   const composing = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => { inputRef.current?.focus(); }, []);
+  // オートフォーカスはデスクトップのみ（モバイルではキーボードが立ち上がり
+  // ファーストビューを隠してしまうため）
+  useEffect(() => {
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      inputRef.current?.focus();
+    }
+  }, []);
 
   // Sync external resets (e.g. tab change clears query)
   useEffect(() => {
@@ -26,7 +32,11 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
       />
       <input
         ref={inputRef}
-        type="text"
+        type="search"
+        name="q"
+        autoComplete="off"
+        spellCheck={false}
+        enterKeyHint="search"
         value={localValue}
         onChange={e => {
           setLocalValue(e.target.value);

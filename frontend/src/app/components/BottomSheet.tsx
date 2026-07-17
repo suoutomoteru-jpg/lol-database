@@ -52,13 +52,25 @@ export function BottomSheet({
       setMounted(true);
       // マウント直後の2フレーム目で表示位置へ（初期位置からの transition を確実に発火させる）
       const raf = requestAnimationFrame(() =>
-        requestAnimationFrame(() => setVisible(true)));
+        requestAnimationFrame(() => {
+          setVisible(true);
+          // ダイアログとしてフォーカスを移す（キーボード操作の起点）
+          sheetRef.current?.focus({ preventScroll: true });
+        }));
       return () => cancelAnimationFrame(raf);
     }
     setVisible(false);
     const t = setTimeout(() => setMounted(false), EXIT_MS);
     return () => clearTimeout(t);
   }, [isOpen]);
+
+  // Esc で閉じる（モーダルの基本操作）
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen, onClose]);
 
   // Reset toggle when stat changes (no remount — just prop update)
   useEffect(() => { setShowMedium(false); }, [statKey]);
@@ -101,7 +113,8 @@ export function BottomSheet({
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-150 ${
+        aria-hidden
+        className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-150 motion-reduce:transition-none ${
           visible ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={onClose}
@@ -110,9 +123,13 @@ export function BottomSheet({
       {/* Sheet */}
       <div
         ref={sheetRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={label ? `${label}が得られるアイテム` : 'アイテム一覧'}
+        tabIndex={-1}
         className={`fixed inset-x-0 bottom-0 z-50 flex flex-col bg-card rounded-t-2xl border-t border-border shadow-2xl
-          transition-transform duration-200 ease-out ${visible ? 'translate-y-0' : 'translate-y-full'}`}
-        style={{ height: '87dvh' }}
+          transition-transform duration-200 ease-out motion-reduce:transition-none ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+        style={{ height: '87dvh', paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         {/* Drag handle + header (swipe area) */}
         <div
@@ -127,6 +144,7 @@ export function BottomSheet({
             <button
               onPointerDown={e => e.stopPropagation()}
               onClick={onClose}
+              aria-label="閉じる"
               className="text-muted-foreground hover:text-foreground transition-colors p-1 -mr-1 rounded-sm"
             >
               <X size={16} />

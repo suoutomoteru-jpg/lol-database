@@ -45,6 +45,14 @@ export function BuildTray() {
   const [allItems, setAllItems] = useState<Record<string, DDragonItem> | null>(null);
   const [version, setVersion] = useState('');
   const [expanded, setExpanded] = useState(false);
+  // クリアは破壊的操作なので2タップ確認（3秒で自動解除）
+  const [confirmClear, setConfirmClear] = useState(false);
+
+  useEffect(() => {
+    if (!confirmClear) return;
+    const t = setTimeout(() => setConfirmClear(false), 3000);
+    return () => clearTimeout(t);
+  }, [confirmClear]);
 
   useEffect(() => {
     let cancelled = false;
@@ -133,21 +141,30 @@ export function BuildTray() {
             )}
             <div className="mt-2.5 flex justify-end">
               <button
-                onClick={clearTray}
-                className="text-[11px] text-muted-foreground hover:text-destructive border border-border rounded-sm px-2.5 py-1 transition-colors"
+                onClick={() => {
+                  if (!confirmClear) { setConfirmClear(true); return; }
+                  clearTray();
+                  setConfirmClear(false);
+                }}
+                className={`text-[11px] border rounded-sm px-2.5 py-1 transition-colors ${
+                  confirmClear
+                    ? 'text-destructive border-destructive/60'
+                    : 'text-muted-foreground hover:text-destructive border-border'
+                }`}
               >
-                トレイをクリア
+                {confirmClear ? 'もう一度タップで全て外す' : 'トレイをクリア'}
               </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* 本体バー */}
-      <div className="border-t border-primary/40 bg-[#0D141F]">
+      {/* 本体バー（safe-area: iPhoneホームバーとの重なり回避） */}
+      <div className="border-t border-primary/40 bg-[#0D141F] pb-[env(safe-area-inset-bottom)]">
         <div className="container mx-auto px-3 sm:px-4 max-w-4xl flex items-center gap-2.5 sm:gap-4 h-16">
           <button
             onClick={() => setExpanded(v => !v)}
+            aria-expanded={expanded}
             className="hidden sm:block flex-shrink-0 text-[10px] leading-snug tracking-[.18em] text-primary/90 hover:text-primary text-left"
             title="合計ステータスを表示"
           >
@@ -167,10 +184,12 @@ export function BuildTray() {
                 </Link>
                 <button
                   onClick={() => removeFromTray(id)}
+                  aria-label={`${item.name}を外す`}
                   title={`${item.name}を外す`}
                   className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-secondary border border-border
                     flex items-center justify-center text-muted-foreground
-                    sm:opacity-0 sm:group-hover:opacity-100 hover:text-destructive hover:border-destructive/50 transition-all"
+                    sm:opacity-0 sm:group-hover:opacity-100 sm:focus-visible:opacity-100
+                    hover:text-destructive hover:border-destructive/50 transition-[opacity,color,border-color]"
                 >
                   <X size={9} strokeWidth={3} />
                 </button>
@@ -221,8 +240,10 @@ export function BuildTray() {
 
             <button
               onClick={() => setExpanded(v => !v)}
+              aria-label="合計ステータスを表示"
+              aria-expanded={expanded}
               title="合計ステータスを表示"
-              className={`flex-shrink-0 p-1.5 rounded-sm border border-border text-muted-foreground hover:text-foreground transition-all ${expanded ? 'rotate-180' : ''}`}
+              className={`flex-shrink-0 p-1.5 rounded-sm border border-border text-muted-foreground hover:text-foreground transition-[transform,color] ${expanded ? 'rotate-180' : ''}`}
             >
               <ChevronUp size={14} />
             </button>

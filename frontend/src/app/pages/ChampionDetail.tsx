@@ -47,7 +47,7 @@ function SkillNav({
                 onClick={() => onSelect(s.key)}
                 aria-label={s.name}
                 aria-pressed={active}
-                className={`relative w-12 h-12 rounded-lg overflow-hidden border transition-all duration-100 ${
+                className={`relative w-12 h-12 rounded-lg overflow-hidden border transition-[transform,box-shadow,opacity,border-color] duration-100 ${
                   active
                     ? 'border-primary ring-1 ring-primary translate-y-[2px] shadow-[inset_0_2px_5px_rgba(0,0,0,.55)]'
                     : 'border-border shadow-[0_2.5px_0_rgba(0,0,0,.5)] opacity-60 hover:opacity-100 hover:-translate-y-px'
@@ -77,9 +77,22 @@ function SkillBlock({
 }) {
   const hasMeta = skill.cooldownBurn || skill.costBurn || skill.rangeBurn;
 
+  const activate = (target: HTMLElement) => {
+    const key = target.dataset.stat;
+    if (key) onStatClick(key, STAT_KEY_LABELS[key] ?? target.textContent ?? '');
+  };
+
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const key = (e.target as HTMLElement).dataset.stat;
-    if (key) onStatClick(key, STAT_KEY_LABELS[key] ?? (e.target as HTMLElement).textContent ?? '');
+    activate(e.target as HTMLElement);
+  };
+
+  // 刻印（role="button" の span）を Enter/Space でも開けるようにする
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const target = e.target as HTMLElement;
+    if (!target.dataset.stat) return;
+    e.preventDefault();
+    activate(target);
   };
 
   return (
@@ -140,6 +153,7 @@ function SkillBlock({
         className="text-foreground leading-relaxed text-base skill-description"
         dangerouslySetInnerHTML={{ __html: skill.description }}
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
       />
     </div>
   );
@@ -275,31 +289,51 @@ export function ChampionDetail() {
   const prevChampion = currentIdx > 0 ? champions[currentIdx - 1] : null;
   const nextChampion = currentIdx >= 0 && currentIdx < champions.length - 1 ? champions[currentIdx + 1] : null;
 
-  // スクロール検出
+  // トップへ戻るボタンの表示判定 + 最下部でのスクロールスパイ補正。
+  // （getBoundingClientRect のような要素ごとのレイアウト読み取りはしない）
   useEffect(() => {
     const onScroll = () => {
       setShowScrollTop(window.scrollY > 400);
-
-      const keys: SkillKey[] = ['R', 'E', 'W', 'Q', 'P'];
-      for (const key of keys) {
-        const el = document.getElementById(`skill-${key}`);
-        if (el && el.getBoundingClientRect().top <= 150) {
-          setActiveSkill(key);
-          break;
-        }
+      // 最下部: 最後のスキルは上端がナビ下端まで届かないことがあるため直接指定
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        setActiveSkill('R');
       }
     };
-
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // スキルのスクロールスパイ: スクロール毎の getBoundingClientRect を避け
+  // IntersectionObserver（ビューポート上部の判定帯）で現在地を追う
+  useEffect(() => {
+    if (!champion) return;
+    const keys: SkillKey[] = ['P', 'Q', 'W', 'E', 'R'];
+    const visible = new Set<SkillKey>();
+    const observer = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        const key = e.target.id.replace('skill-', '') as SkillKey;
+        if (e.isIntersecting) visible.add(key);
+        else visible.delete(key);
+      }
+      // ナビ下端より下に見えているうち最上位のスキル＝現在読んでいるスキル
+      for (const key of keys) {
+        if (visible.has(key)) { setActiveSkill(key); return; }
+      }
+    }, { rootMargin: '-96px 0px 0px 0px' });
+    for (const key of keys) {
+      const el = document.getElementById(`skill-${key}`);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, [champion]);
 
   function scrollToSkill(key: SkillKey) {
     setActiveSkill(key);
     const el = document.getElementById(`skill-${key}`);
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top, behavior: 'smooth' });
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
     }
   }
 
@@ -338,8 +372,9 @@ export function ChampionDetail() {
       {prevChampion && (
         <Link
           to={`/champion/${prevChampion.id}`}
+          aria-label={`前のチャンピオン: ${prevChampion.name}`}
           title={prevChampion.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all opacity-50 hover:opacity-100"
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
         >
           <ChevronLeft size={16} />
         </Link>
@@ -347,8 +382,9 @@ export function ChampionDetail() {
       {nextChampion && (
         <Link
           to={`/champion/${nextChampion.id}`}
+          aria-label={`次のチャンピオン: ${nextChampion.name}`}
           title={nextChampion.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all opacity-50 hover:opacity-100"
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
         >
           <ChevronRight size={16} />
         </Link>
@@ -429,7 +465,10 @@ export function ChampionDetail() {
       {/* トップへ戻るボタン */}
       {showScrollTop && (
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => window.scrollTo({
+            top: 0,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          })}
           aria-label="トップへ戻る"
           className="fixed bottom-8 right-8 bg-primary text-primary-foreground rounded-full p-4 shadow-lg hover:bg-primary/90 transition-colors"
         >

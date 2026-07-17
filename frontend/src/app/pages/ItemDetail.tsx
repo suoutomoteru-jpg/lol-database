@@ -258,6 +258,16 @@ export function ItemDetail() {
     if (key) openSheet(key, STAT_KEY_LABELS[key] ?? target.textContent ?? '');
   }, [openSheet]);
 
+  // 刻印（role="button" の span）を Enter/Space でも開けるようにする
+  const handleDescKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const target = e.target as HTMLElement;
+    const key = target.dataset.stat;
+    if (!key) return;
+    e.preventDefault();
+    openSheet(key, STAT_KEY_LABELS[key] ?? target.textContent ?? '');
+  }, [openSheet]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -312,8 +322,9 @@ export function ItemDetail() {
       {prevItem && (
         <Link
           to={`/item/${prevItem.id}`}
+          aria-label={`前のアイテム: ${prevItem.name}`}
           title={prevItem.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all opacity-50 hover:opacity-100"
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
         >
           <ChevronLeft size={16} />
         </Link>
@@ -321,8 +332,9 @@ export function ItemDetail() {
       {nextItem && (
         <Link
           to={`/item/${nextItem.id}`}
+          aria-label={`次のアイテム: ${nextItem.name}`}
           title={nextItem.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all opacity-50 hover:opacity-100"
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
         >
           <ChevronRight size={16} />
         </Link>
@@ -464,6 +476,7 @@ export function ItemDetail() {
                 <div
                   className="mt-5 text-left bg-card/95 border border-border border-l-[3px] border-l-primary/60 rounded-md px-4 py-3"
                   onClick={handleDescClick}
+                  onKeyDown={handleDescKeyDown}
                 >
                   <ZoneLabel className="mb-1.5">効果 EFFECT</ZoneLabel>
                   <div
