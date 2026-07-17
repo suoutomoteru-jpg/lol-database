@@ -1,8 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 // フォントはセルフホスト（Google Fonts への外部リクエストなし）
-// Noto Sans JP は可変フォント1系統で全ウェイトをカバー（CSS・転送量とも削減）
-import '@fontsource/marcellus/400.css'
+// Zen Maru Gothic（丸ゴ）がサイトの声。Noto Sans JP 可変はグリフ欠け時のフォールバック
+import '@fontsource/zen-maru-gothic/400.css'
+import '@fontsource/zen-maru-gothic/500.css'
+import '@fontsource/zen-maru-gothic/700.css'
+import '@fontsource/zen-maru-gothic/900.css'
 import '@fontsource-variable/noto-sans-jp'
 import './styles/theme.css'
 import App from './app/App.tsx'

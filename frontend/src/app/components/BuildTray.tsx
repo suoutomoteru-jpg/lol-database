@@ -27,12 +27,12 @@ interface StatTotal {
 
 function GradeChip({ grade }: { grade: 'S' | 'A' | 'B' | 'C' }) {
   const style =
-    grade === 'S' ? 'border-primary text-primary shadow-[0_0_10px_rgba(200,155,60,.45)]'
+    grade === 'S' ? 'border-primary text-primary shadow-[0_0_10px_rgba(255,143,198,.5)]'
     : grade === 'A' ? 'border-hextech/70 text-hextech'
     : 'border-border text-muted-foreground';
   return (
     <span
-      className={`inline-flex items-center justify-center w-6 h-6 rounded-sm border font-display text-sm leading-none ${style}`}
+      className={`inline-flex items-center justify-center w-6 h-6 rounded-sm border font-display font-black text-sm leading-none ${style}`}
       title={`ビルド効率グレード ${grade}`}
     >
       {grade}
@@ -160,7 +160,7 @@ export function BuildTray() {
       )}
 
       {/* 本体バー（safe-area: iPhoneホームバーとの重なり回避） */}
-      <div className="border-t border-primary/40 bg-[#0D141F] pb-[env(safe-area-inset-bottom)]">
+      <div className="border-t border-primary/40 bg-[#1D1631] pb-[env(safe-area-inset-bottom)]">
         <div className="container mx-auto px-3 sm:px-4 max-w-4xl flex items-center gap-2.5 sm:gap-4 h-16">
           <button
             onClick={() => setExpanded(v => !v)}
@@ -223,7 +223,7 @@ export function BuildTray() {
             <div className="flex flex-col items-end sm:flex-row sm:items-center sm:gap-5 flex-shrink-0">
               <div className="flex items-baseline gap-1.5">
                 <span className="hidden sm:inline text-[11px] text-foreground/70">合計</span>
-                <span className="text-base sm:text-lg font-bold text-primary tabular-nums leading-tight">
+                <span className="text-base sm:text-lg font-bold text-gold tabular-nums leading-tight">
                   {Math.round(goldDisp).toLocaleString()}G
                 </span>
               </div>

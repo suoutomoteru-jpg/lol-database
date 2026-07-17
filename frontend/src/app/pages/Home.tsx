@@ -129,7 +129,7 @@ export function Home() {
       <header className="border-b border-border">
         <div className="container mx-auto px-4 max-w-6xl h-14 flex items-center justify-between">
           <div className="flex items-baseline gap-2.5 min-w-0">
-            <h1 className="font-display font-normal text-xl text-primary tracking-wide whitespace-nowrap">
+            <h1 className="font-display font-black text-xl text-primary tracking-wide whitespace-nowrap">
               nunune<span className="text-hextech">.gg</span>
             </h1>
             <p className="hidden sm:block text-xs text-muted-foreground truncate">League of Legends データベース</p>
@@ -148,7 +148,7 @@ export function Home() {
           <h2 className="text-center text-xl sm:text-2xl font-bold text-foreground leading-snug text-balance">
             {version ? (
               <>
-                「<span className="font-display font-normal text-primary tracking-wide">{displayPatch(version)}</span>」の実数値、ぜんぶ。
+                「<span className="font-display font-black text-primary tracking-wide [text-shadow:0_0_18px_rgba(255,143,198,.55)]">{displayPatch(version)}</span>」の実数値、ぜんぶ。
               </>
             ) : (
               <>実数値、ぜんぶ。</>

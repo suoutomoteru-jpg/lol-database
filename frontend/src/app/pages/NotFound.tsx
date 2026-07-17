@@ -6,7 +6,7 @@ export function NotFound() {
 
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 px-4">
-      <p className="font-display text-5xl text-primary/70">404</p>
+      <p className="font-display font-black text-5xl text-primary/70">404</p>
       <p className="text-sm text-muted-foreground text-center">
         お探しのページは見つかりませんでした。<br />
         パッチで削除されたのかもしれません。
