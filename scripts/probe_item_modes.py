@@ -24,13 +24,28 @@ def get_json(url: str):
         return json.loads(r.read().decode("utf-8"))
 
 
+def listdir(path: str):
+    """CDragon のディレクトリリスティング（/json/ プレフィックス）"""
+    url = f"https://raw.communitydragon.org/json/latest/{path}"
+    try:
+        return [(x.get("name"), x.get("type")) for x in get_json(url)]
+    except Exception as e:  # noqa: BLE001
+        return [("ERROR", str(e))]
+
+
 def main() -> None:
+    # ── 0. ディレクトリ探索: items系binの実パスを見つける ──
+    for p in ["game/", "game/data/", "game/global/", "game/items/"]:
+        print(f"--- ls {p} ---")
+        for name, typ in listdir(p):
+            print(f"  {typ}\t{name}")
+        print()
+
     # ── 1. items.bin の対象エントリ（パス候補を順に試す）──
     candidates = [
         f"{CD}/game/items.bin.json",
         f"{CD}/game/global/items/items.bin.json",
         f"{CD}/game/data/items/items.bin.json",
-        f"{CD}/game/en_us/data/items/items.bin.json",
     ]
     bin_data = None
     for url in candidates:
@@ -41,7 +56,8 @@ def main() -> None:
         except Exception as e:  # noqa: BLE001
             print(f"NG: {url} ({e})")
     if bin_data is None:
-        raise SystemExit("items.bin が見つからない")
+        print("items.bin が見つからない（ディレクトリリストから特定する）")
+        return
     print(f"=== items.bin.json: {len(bin_data)} root keys ===")
     hits = [k for k in bin_data if "2525" in k]
     print(f"キーに2525を含む: {hits}\n")
