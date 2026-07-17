@@ -15,6 +15,7 @@ on:
     paths:
       - scripts/generate_tooltips.py
       - scripts/generate_stat_overrides.py
+      - scripts/generate_item_fixes.py
       - scripts/generate_sitemap.py
       - .github/workflows/generate-tooltips.yml
 
@@ -53,6 +54,9 @@ jobs:
 
       - name: Generate stat overrides (DDragonのAD成長値欠落の補完)
         run: python3 scripts/generate_stat_overrides.py --out frontend/public/tooltips
+
+      - name: Generate item description fixes (アイテム説明の0/空欄数値の修復)
+        run: python3 scripts/generate_item_fixes.py
 
       - name: Generate sitemap
         run: python3 scripts/generate_sitemap.py --tooltips frontend/public/tooltips --out frontend/public/sitemap.xml
