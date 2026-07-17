@@ -25,8 +25,23 @@ def get_json(url: str):
 
 
 def main() -> None:
-    # ── 1. items.bin の対象エントリ ──
-    bin_data = get_json(f"{CD}/game/items.bin.json")
+    # ── 1. items.bin の対象エントリ（パス候補を順に試す）──
+    candidates = [
+        f"{CD}/game/items.bin.json",
+        f"{CD}/game/global/items/items.bin.json",
+        f"{CD}/game/data/items/items.bin.json",
+        f"{CD}/game/en_us/data/items/items.bin.json",
+    ]
+    bin_data = None
+    for url in candidates:
+        try:
+            bin_data = get_json(url)
+            print(f"OK: {url}")
+            break
+        except Exception as e:  # noqa: BLE001
+            print(f"NG: {url} ({e})")
+    if bin_data is None:
+        raise SystemExit("items.bin が見つからない")
     print(f"=== items.bin.json: {len(bin_data)} root keys ===")
     hits = [k for k in bin_data if "2525" in k]
     print(f"キーに2525を含む: {hits}\n")
