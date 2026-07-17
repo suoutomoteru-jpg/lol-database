@@ -124,7 +124,7 @@ export function BuildTray() {
                 {statTotals.map(s => (
                   <div key={s.key} className="flex items-baseline justify-between gap-2">
                     <span className="text-xs text-foreground/75 truncate">{s.label}</span>
-                    <span className="text-lg font-bold tabular-nums text-white">
+                    <span className="num-data text-lg">
                       {formatStatValue(s.key, s.value)}
                     </span>
                   </div>
@@ -194,7 +194,7 @@ export function BuildTray() {
               {statTotals.slice(0, 3).map(s => (
                 <div key={s.key} className="text-right">
                   <p className="text-[10px] text-foreground/75 leading-tight">{s.label}</p>
-                  <p className="text-lg font-bold tabular-nums leading-tight text-white">
+                  <p className="num-data text-lg leading-tight">
                     {formatStatValue(s.key, s.value)}
                   </p>
                 </div>
@@ -203,14 +203,14 @@ export function BuildTray() {
 
             <div className="flex flex-col items-end sm:flex-row sm:items-center sm:gap-5 flex-shrink-0">
               <div className="flex items-baseline gap-1.5">
-                <span className="hidden sm:inline text-[10px] text-muted-foreground">合計</span>
+                <span className="hidden sm:inline text-[11px] text-foreground/70">合計</span>
                 <span className="text-base sm:text-lg font-bold text-primary tabular-nums leading-tight">
                   {Math.round(goldDisp).toLocaleString()}G
                 </span>
               </div>
               {efficiency !== null && (
                 <div className="flex items-center gap-1.5">
-                  <span className="hidden sm:inline text-[10px] text-muted-foreground">効率</span>
+                  <span className="hidden sm:inline text-[11px] text-foreground/70">効率</span>
                   <span className={`text-base sm:text-lg font-bold tabular-nums leading-tight ${efficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
                     {effDisp.toFixed(1)}%
                   </span>

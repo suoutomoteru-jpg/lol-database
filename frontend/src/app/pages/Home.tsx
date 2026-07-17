@@ -9,7 +9,6 @@ import { useItems } from '../hooks/useItems';
 import { usePatchChanges } from '../hooks/usePatchChanges';
 import { displayPatch } from '../utils/patch';
 import { prefetchItem } from '../utils/prefetch';
-import { CurlyArrow } from '../components/doodles';
 import type { TabType, Role, ItemType, Item } from '../types/app';
 import type { ItemChange } from '../api/patchDiff';
 
@@ -145,15 +144,24 @@ export function Home() {
 
       <div className="container mx-auto px-4 pt-8 pb-6 max-w-6xl">
         <div className="flex flex-col items-center gap-5">
-          {/* 手描きの注釈 → 検索バーを指す */}
-          <div className="flex flex-col items-center -mb-3">
-            <p className="-rotate-2 text-sm font-medium text-primary">
-              チャンピオン・アイテムを検索
-            </p>
-            <CurlyArrow className="w-6 h-8 mt-0.5 -ml-10 text-primary/60" />
-          </div>
+          {/* テーゼ: このサイトの主題は「パッチで動く実数値」 */}
+          <h2 className="text-center text-xl sm:text-2xl font-bold text-foreground leading-snug">
+            {version ? (
+              <>
+                「<span className="font-display font-normal text-primary tracking-wide">{displayPatch(version)}</span>」の実数値、ぜんぶ。
+              </>
+            ) : (
+              <>実数値、ぜんぶ。</>
+            )}
+          </h2>
 
           <SearchBar value={searchQuery} onChange={v => set('q', v)} />
+
+          {/* 今パッチの変更 = 再訪時の発見をファーストビューに */}
+          {!loading && !q && patchDiff && (
+            <PatchChangesStrip items={items} changes={patchDiff.changes} />
+          )}
+
           <TabsFilter activeTab={activeTab} onTabChange={handleTabChange} />
           <FilterBar
             activeTab={activeTab}
@@ -162,10 +170,6 @@ export function Home() {
             onRoleChange={r => set('role', r)}
             onItemTypeChange={t => set('itype', t)}
           />
-
-          {activeTab === 'items' && !loading && !q && patchDiff && (
-            <PatchChangesStrip items={items} changes={patchDiff.changes} />
-          )}
 
           {loading ? (
             <ResultsSkeleton />
