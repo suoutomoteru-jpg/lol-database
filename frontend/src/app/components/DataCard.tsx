@@ -48,7 +48,7 @@ export function DataCard({ data, type, patchChange }: DataCardProps) {
 
       {/* Name + subtitle */}
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-1.5 min-w-0">
+        <div className="flex items-baseline gap-1.5 min-w-0">
           <p className="text-sm font-semibold text-foreground truncate leading-tight">{data.name}</p>
           {!isChampion(data) && data.mapMode === 'aram' && (
             <span className="flex-shrink-0 -rotate-3 text-[10px] font-bold px-1 py-0 rounded-sm

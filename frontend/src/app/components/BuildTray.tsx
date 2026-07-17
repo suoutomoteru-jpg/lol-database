@@ -32,7 +32,7 @@ function GradeChip({ grade }: { grade: 'S' | 'A' | 'B' | 'C' }) {
     : 'border-border text-muted-foreground';
   return (
     <span
-      className={`inline-flex items-center justify-center w-6 h-6 rounded-sm border font-display font-black text-sm leading-none ${style}`}
+      className={`inline-flex items-center justify-center w-6 h-6 pb-px rounded-sm border font-display font-black text-sm leading-none ${style}`}
       title={`ビルド効率グレード ${grade}`}
     >
       {grade}
@@ -146,7 +146,7 @@ export function BuildTray() {
                   clearTray();
                   setConfirmClear(false);
                 }}
-                className={`text-[11px] border rounded-sm px-2.5 py-1 transition-colors ${
+                className={`text-[11px] border rounded-sm px-2.5 pt-[3px] pb-[5px] transition-colors ${
                   confirmClear
                     ? 'text-destructive border-destructive/60'
                     : 'text-muted-foreground hover:text-destructive border-border'
