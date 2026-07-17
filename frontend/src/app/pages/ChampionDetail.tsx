@@ -40,18 +40,21 @@ function SkillNav({
           {skills.map(s => {
             const active = activeSkill === s.key;
             return (
+              // スキル列はゲームと同じ「キーの並び」なので、キーキャップの文法で表す
+              // （選択中＝押し込まれた状態。装飾ではなく実際の操作と同型の構造）
               <button
                 key={s.key}
                 onClick={() => onSelect(s.key)}
                 aria-label={s.name}
-                className={`relative w-12 h-12 rounded-md overflow-hidden border transition-all duration-100 ${
+                aria-pressed={active}
+                className={`relative w-12 h-12 rounded-lg overflow-hidden border transition-all duration-100 ${
                   active
-                    ? 'border-primary ring-1 ring-primary'
-                    : 'border-border opacity-55 hover:opacity-100'
+                    ? 'border-primary ring-1 ring-primary translate-y-[2px] shadow-[inset_0_2px_5px_rgba(0,0,0,.55)]'
+                    : 'border-border shadow-[0_2.5px_0_rgba(0,0,0,.5)] opacity-60 hover:opacity-100 hover:-translate-y-px'
                 }`}
               >
                 <img src={s.imageUrl} alt="" className="w-full h-full object-cover" />
-                <span className="absolute bottom-0 right-0 px-1 text-[10px] font-bold leading-4 rounded-tl-sm bg-background/85 text-foreground">
+                <span className={`absolute bottom-0 right-0 px-1 text-[10px] font-bold leading-4 rounded-tl-sm bg-background/85 ${active ? 'text-primary' : 'text-foreground'}`}>
                   {s.key}
                 </span>
               </button>
@@ -106,7 +109,7 @@ function SkillBlock({
                 >
                   <Clock size={13} className="self-center text-foreground/60" aria-hidden />
                   <span className="text-[11px] text-foreground/70">CD</span>
-                  <span className="tabular-nums text-base font-bold text-white leading-none">
+                  <span className="num-data text-base leading-none">
                     {skill.cooldownBurn}
                   </span>
                   <span className="text-[11px] text-foreground/70">秒</span>
@@ -161,7 +164,7 @@ function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampSta
         <span className="text-[11px] text-foreground/60">基礎ステータス</span>
         {/* レベルスライダー: 1〜18の任意レベルで実値と順位を再計算 */}
         <label className="inline-flex items-center gap-2">
-          <span className="text-xs font-bold text-white tabular-nums w-9">Lv{level}</span>
+          <span className="num-data text-xs w-9">Lv{level}</span>
           <input
             type="range"
             min={1}
@@ -173,7 +176,7 @@ function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampSta
             aria-label="レベル"
           />
         </label>
-        <span className="text-[10px] text-foreground/45">バーは比較グループ内での位置（タップで全体比較）</span>
+        <span className="text-[11px] text-foreground/60">バーは比較グループ内での位置（タップで全体比較）</span>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-3">
@@ -193,12 +196,12 @@ function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampSta
                   {def.labelJa}
                   {/* 成長の有無を明示（+4/Lv・成長なし。移動速度等は概念自体なし） */}
                   {growthLabel(self.stats, def.key) && (
-                    <span className="ml-1 text-[9px] text-foreground/45 tabular-nums">
+                    <span className="ml-1 text-[10px] text-foreground/60 tabular-nums">
                       {growthLabel(self.stats, def.key)}
                     </span>
                   )}
                 </span>
-                <span className="text-base font-bold text-white tabular-nums leading-tight">
+                <span className="num-data text-base leading-tight">
                   {g ? formatGaugeValue(def.key, g.value) : formatGaugeValue(def.key, self.stats[def.key] ?? 0)}
                 </span>
               </div>
@@ -209,7 +212,7 @@ function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampSta
                 />
               </div>
               {g && (
-                <p className="text-[10px] text-foreground/55 leading-tight mt-1 tabular-nums">
+                <p className="text-[11px] text-foreground/70 leading-tight mt-1 tabular-nums">
                   {g.groupLabel}{g.groupLabel === '全チャンピオン' ? '中' : '内'} {g.rankLabel}
                 </p>
               )}
@@ -360,7 +363,7 @@ export function ChampionDetail() {
             className="w-full h-full object-cover object-[center_20%]"
             onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/25" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         </div>
 
         {/* 戻るリンク（ヒーロー上にオーバーレイ） */}

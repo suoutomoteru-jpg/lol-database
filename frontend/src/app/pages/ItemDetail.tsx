@@ -76,14 +76,13 @@ function Joint() {
 
 interface PathItem { id: string; name: string; imageUrl: string; gold: number }
 
-/** 素材ノード（左列）。lg では完成品側へ向かう接続線を右に伸ばす */
+/** 素材ノード（左列）。工程はゾーンラベルとジョイントで示し、接続線は引かない */
 function MaterialNode({ item }: { item: PathItem }) {
   return (
     <Link
       to={`/item/${item.id}`}
       className="relative flex items-center gap-2.5 bg-card/95 border border-border rounded-md p-2 pr-3
-        hover:border-primary/40 transition-colors
-        lg:after:content-[''] lg:after:absolute lg:after:top-1/2 lg:after:left-full lg:after:w-8 lg:after:h-px lg:after:bg-border"
+        hover:border-primary/40 transition-colors"
     >
       <img src={item.imageUrl} alt="" className="w-10 h-10 rounded-sm border border-border flex-shrink-0" loading="lazy" />
       <div className="min-w-0">
@@ -101,8 +100,7 @@ function EvolutionCluster({ into }: { into: PathItem[] }) {
   const minor = sorted.slice(2);
 
   return (
-    <div className="relative bg-card/60 border border-border rounded-md p-3
-      lg:before:content-[''] lg:before:absolute lg:before:top-10 lg:before:-left-8 lg:before:w-8 lg:before:h-px lg:before:bg-border">
+    <div className="relative bg-card/60 border border-border rounded-md p-3">
       <div className="flex items-baseline gap-2 mb-2.5">
         <p className="text-xs font-bold text-foreground">進化先</p>
         <span className="text-[10px] text-primary border border-primary/40 rounded-full px-2 py-px tabular-nums">
@@ -155,8 +153,7 @@ function FinalForm() {
 /** 素材なし = 基本アイテム */
 function BasicItem() {
   return (
-    <div className="relative border border-dashed border-muted-foreground/40 rounded-md px-3 py-4 text-center
-      lg:after:content-[''] lg:after:absolute lg:after:top-1/2 lg:after:left-full lg:after:w-8 lg:after:h-px lg:after:bg-border">
+    <div className="relative border border-dashed border-muted-foreground/40 rounded-md px-3 py-4 text-center">
       <p className="text-[10px] tracking-[.18em] text-foreground/70 font-semibold mb-1">BASIC ITEM</p>
       <p className="text-xs text-muted-foreground leading-relaxed">素材なし・基本アイテム<br />ショップで直接購入</p>
     </div>
@@ -219,8 +216,8 @@ function RelatedByStat({ statKey, excludeId, items, onShowAll }: {
                 <p className="text-xs font-semibold leading-tight line-clamp-2">{it.name}</p>
               </div>
               {line && (
-                <span className="flex-shrink-0 text-xs tabular-nums text-foreground/70">
-                  {line.label} <b className="text-white text-base">{line.value}</b>
+                <span className="flex-shrink-0 text-xs text-foreground/70">
+                  {line.label} <b className="num-data text-base">{line.value}</b>
                 </span>
               )}
             </Link>
@@ -437,11 +434,11 @@ export function ItemDetail() {
                   {chips.map((c, i) => {
                     const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 py-2.5
                       sm:inline-flex sm:justify-start sm:rounded-full sm:py-2`;
-                    // ラベルはmutedだとモバイルで読みにくいため明るめ、数値は白
+                    // ラベルはmutedだとモバイルで読みにくいため明るめ、数値はData voice
                     const inner = (
                       <>
                         <span className="text-foreground/85 text-sm sm:text-xs">{c.plain}</span>
-                        <span className="font-bold tabular-nums text-2xl sm:text-lg leading-none text-white">{c.value}</span>
+                        <span className="num-data text-2xl sm:text-lg leading-none">{c.value}</span>
                       </>
                     );
                     return c.key ? (

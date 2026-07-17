@@ -59,9 +59,13 @@ body {
   font-weight: 600;
 }
 
-/* スキル説明文内のタップ可能なステータス語（現在の文字色を薄く敷いたピル）
-   上下パディングをem指定して、ハイライトが文字の上下中央に来るようにする */
-.stat-link {
+/* ── 「刻印」: タップ可能なステータス語の統一文法 ──────────
+   この見た目＝「そのステータスが得られるアイテムへの入り口」。
+   スキル説明・アイテム説明どちらも同一スタイルで、
+   一度覚えればサイト全体で同じ操作ができる。
+   上下パディングはem指定（ハイライトを文字の上下中央に） */
+.stat-link,
+.stat-keyword {
   cursor: pointer;
   background: color-mix(in srgb, currentColor 13%, transparent);
   border-radius: 5px;
@@ -71,20 +75,37 @@ body {
   -webkit-box-decoration-break: clone;
   transition: background 0.1s;
 }
-.stat-link:hover {
+/* アイテム説明文（無彩色の本文中）では金色寄りで「押せる」ことを示す */
+.stat-keyword {
+  color: color-mix(in srgb, var(--color-primary) 85%, var(--color-foreground));
+}
+.stat-link:hover,
+.stat-keyword:hover {
   background: color-mix(in srgb, currentColor 24%, transparent);
 }
-
-/* Wikipedia-style inline stat links */
-.stat-keyword {
-  cursor: pointer;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
-  color: color-mix(in srgb, var(--color-primary) 85%, var(--color-foreground));
-  transition: color 0.1s, border-color 0.1s;
+.stat-link:active,
+.stat-keyword:active {
+  background: color-mix(in srgb, currentColor 32%, transparent);
 }
-.stat-keyword:hover {
-  border-bottom-color: var(--color-primary);
-  color: var(--color-primary);
+
+/* ── Data voice: 実数値の統一表記 ─────────────────────────
+   数値=白・太字・等幅数字 / 単位=小さく淡く。
+   場当たりの class 組み合わせを置き換える共通トークン */
+.num-data {
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.num-unit {
+  font-size: 0.72em;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+}
+
+/* キーボード操作時のフォーカスを全要素で可視化（品質の床） */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
 }
 
 /* アイテムページ: 設計図モチーフの薄いグリッド背景 */
