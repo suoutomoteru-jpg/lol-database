@@ -28,7 +28,8 @@ export function DataCard({ data, type, patchChange }: DataCardProps) {
       onFocus={prefetch}
       className="group relative flex items-center gap-3 px-3 py-2 bg-card border border-border
         hover:bg-secondary transition-colors duration-100 overflow-hidden
-        focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:z-10"
+        focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:z-10
+        [content-visibility:auto] [contain-intrinsic-size:auto_58px]"
     >
       {/* Left gold accent bar */}
       <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary

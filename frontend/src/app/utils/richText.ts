@@ -84,7 +84,7 @@ export function processTooltipHtml(raw: string): string {
   for (const [tag, color] of COLOR_MAP) {
     const statKey = TOOLTIP_TAG_STAT[tag.toLowerCase()];
     const open = statKey
-      ? `<span style="color:${color};cursor:pointer" data-stat="${statKey}">`
+      ? `<span style="color:${color};cursor:pointer" data-stat="${statKey}" role="button" tabindex="0">`
       : `<span style="color:${color}">`;
     s = s.replace(new RegExp(`<${tag}(?:\\s[^>]*)?>`, 'gi'), open);
     s = s.replace(new RegExp(`</${tag}>`, 'gi'), '</span>');
@@ -155,7 +155,7 @@ function buildInjector(
       if (part.startsWith('<')) return part;
       return part.replace(pattern, kw => {
         const key = map.get(kw);
-        return key ? `<span data-stat="${key}" class="${className}">${kw}</span>` : kw;
+        return key ? `<span data-stat="${key}" class="${className}" role="button" tabindex="0">${kw}</span>` : kw;
       });
     }).join('');
 }

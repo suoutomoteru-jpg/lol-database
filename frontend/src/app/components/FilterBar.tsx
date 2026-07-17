@@ -43,6 +43,7 @@ export function FilterBar({
           <button
             key={v}
             onClick={() => onChange(v)}
+            aria-pressed={isActive}
             className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium border rounded-full transition-colors duration-100 ${colorClass}`}
           >
             {icon && (

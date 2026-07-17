@@ -40,11 +40,21 @@
   --radius-2xl: 20px; /* ボトムシートの上端のみ */
 }
 
+/* ダークテーマをUAに伝える（スクロールバー・フォーム部品・rangeスライダーの描画） */
+html { color-scheme: dark; }
+
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  /* タップ表現は .stat-link:active 等で自前定義しているためUAのハイライトは消す */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ダブルタップズームの300ms遅延を殺す（ピンチズームは維持） */
+button, a, input, [role="button"] {
+  touch-action: manipulation;
 }
 
 /* Skill description */

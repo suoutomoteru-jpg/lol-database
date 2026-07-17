@@ -145,7 +145,7 @@ export function Home() {
       <div className="container mx-auto px-4 pt-8 pb-6 max-w-6xl">
         <div className="flex flex-col items-center gap-5">
           {/* テーゼ: このサイトの主題は「パッチで動く実数値」 */}
-          <h2 className="text-center text-xl sm:text-2xl font-bold text-foreground leading-snug">
+          <h2 className="text-center text-xl sm:text-2xl font-bold text-foreground leading-snug text-balance">
             {version ? (
               <>
                 「<span className="font-display font-normal text-primary tracking-wide">{displayPatch(version)}</span>」の実数値、ぜんぶ。
