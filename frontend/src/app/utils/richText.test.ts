@@ -28,7 +28,7 @@ describe('processItemDescription', () => {
       '<mainText><stats>攻撃力 65</stats><attention>40%</attention>増加</mainText>',
     );
     expect(out).toContain('<div class="item-stats">攻撃力 65</div>');
-    expect(out).toContain('<strong style="color:#C89B3C">40%</strong>');
+    expect(out).toContain('<strong style="color:#E8B34B">40%</strong>');
     expect(out).not.toContain('mainText');
   });
 

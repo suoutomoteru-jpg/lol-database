@@ -1,19 +1,20 @@
 @import "tailwindcss";
 @theme {
-  /* ── 基調色 ──────────────────────────────────────── */
-  --color-background:         #0A0F17;
-  --color-foreground:         #C8D6E5;
-  --color-card:               #111B28;
-  --color-primary:            #C89B3C; /* 金: アクティブ状態・金銭情報のみに使う */
-  --color-primary-foreground: #0A0F17;
-  --color-secondary:          #162030;
-  --color-muted:              #111B28;
-  --color-muted-foreground:   #4D6B85;
-  --color-accent:             #1A3454;
-  --color-hextech:            #0AC8B9; /* ヘクステック青緑: 第2アクセント */
-  --color-destructive:        #E84057;
-  --color-border:             #1B2B3C;
-  --color-ring:               #C89B3C;
+  /* ── 基調色「星屑ラウンジ」: 深いプラム×さくら×ミント ── */
+  --color-background:         #171226;
+  --color-foreground:         #EFE9FB;
+  --color-card:               #221A38;
+  --color-primary:            #FF8FC6; /* さくら: アクティブ状態・操作の入り口 */
+  --color-primary-foreground: #2A1030;
+  --color-secondary:          #2B2247;
+  --color-muted:              #221A38;
+  --color-muted-foreground:   #8D7FB0;
+  --color-accent:             #3A2D5E;
+  --color-hextech:            #7FE8D0; /* ミント: 第2アクセント（NEW・変更バッジ） */
+  --color-gold:               #E8B34B; /* 金: 金銭情報専用（価格・合計G） */
+  --color-destructive:        #FF6B81;
+  --color-border:             #372B55;
+  --color-ring:               #FF8FC6;
 
   /* ── ダメージ・ステータス色（ツールチップ内の数値装飾）── */
   --color-dmg-physical: #F58B3D;
@@ -28,16 +29,16 @@
   --color-stat-ms:      #F9E4B7;
 
   /* ── フォント ────────────────────────────────────── */
-  /* 見出し（欧文）: LoL 公式 Beaufort に近いセリフ。和文は Noto にフォールバック */
-  --font-display: 'Marcellus', 'Noto Sans JP Variable', serif;
-  --font-sans:    'Noto Sans JP Variable', system-ui, sans-serif;
+  /* 丸ゴがサイトの声。見出しは900、本文は400/500。Noto可変はフォールバック */
+  --font-display: 'Zen Maru Gothic', 'Noto Sans JP Variable', sans-serif;
+  --font-sans:    'Zen Maru Gothic', 'Noto Sans JP Variable', system-ui, sans-serif;
 
-  /* ── 角丸（統一スケール）──────────────────────────── */
-  --radius-xs: 3px;
-  --radius-sm: 4px;   /* 小さなチップ・サムネイル */
-  --radius-md: 6px;   /* カード・入力欄・ボタン */
-  --radius-lg: 10px;
-  --radius-2xl: 20px; /* ボトムシートの上端のみ */
+  /* ── 角丸（統一スケール・まる文法）─────────────────── */
+  --radius-xs: 5px;
+  --radius-sm: 8px;   /* 小さなチップ・サムネイル */
+  --radius-md: 12px;  /* カード・入力欄・ボタン */
+  --radius-lg: 16px;
+  --radius-2xl: 24px; /* ボトムシートの上端のみ */
 }
 
 /* ダークテーマをUAに伝える（スクロールバー・フォーム部品・rangeスライダーの描画） */
@@ -118,11 +119,11 @@ button, a, input, [role="button"] {
   outline-offset: 2px;
 }
 
-/* アイテムページ: 設計図モチーフの薄いグリッド背景 */
+/* アイテムページ: 設計図モチーフの薄いグリッド背景（さくら色の方眼） */
 .assembly-stage {
   background-image:
-    linear-gradient(rgba(200, 155, 60, .04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(200, 155, 60, .04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 143, 198, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 143, 198, .05) 1px, transparent 1px);
   background-size: 96px 96px;
 }
 

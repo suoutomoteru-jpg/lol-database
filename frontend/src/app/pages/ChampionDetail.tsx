@@ -221,7 +221,7 @@ function StatGauges({ self, entries }: { self: ChampStatEntry; entries: ChampSta
               </div>
               <div className="relative h-1 bg-secondary/80 rounded-full mt-1.5">
                 <div
-                  className="absolute inset-y-0 left-0 bg-primary/85 rounded-full transition-[width] duration-300"
+                  className="absolute inset-y-0 left-0 bg-primary/85 rounded-full shadow-[0_0_8px_rgba(255,143,198,.5)] transition-[width] duration-300"
                   style={{ width: `${g ? g.fillPct : 0}%` }}
                 />
               </div>
@@ -416,7 +416,7 @@ export function ChampionDetail() {
         </div>
 
         <div className="relative container mx-auto px-4 max-w-5xl pt-24 sm:pt-36 pb-6">
-          <p className="font-display text-sm text-primary/90 -rotate-2 inline-block">{englishChampionName(champion.id)}</p>
+          <p className="font-display font-bold text-sm text-primary/90 -rotate-2 inline-block">{englishChampionName(champion.id)}</p>
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 mt-0.5">
             <h1 className="text-4xl font-bold text-foreground tracking-tight">{champion.name}</h1>
             {champion.title && (

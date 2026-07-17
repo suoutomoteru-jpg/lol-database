@@ -28,7 +28,7 @@ export function TabsFilter({ activeTab, onTabChange }: TabsFilterProps) {
           >
             {tab.label}
             {active && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-primary shadow-[0_0_10px_rgba(255,143,198,.65)]" />
             )}
           </button>
         );

@@ -87,7 +87,7 @@ function MaterialNode({ item }: { item: PathItem }) {
       <img src={item.imageUrl} alt="" className="w-10 h-10 rounded-sm border border-border flex-shrink-0" loading="lazy" />
       <div className="min-w-0">
         <p className="text-xs font-semibold text-foreground leading-tight line-clamp-2">{item.name}</p>
-        <p className="text-[11px] text-primary tabular-nums mt-0.5">{item.gold}G</p>
+        <p className="text-[11px] text-gold tabular-nums mt-0.5">{item.gold}G</p>
       </div>
     </Link>
   );
@@ -117,7 +117,7 @@ function EvolutionCluster({ into }: { into: PathItem[] }) {
             <img src={up.imageUrl} alt="" className="w-10 h-10 rounded-sm border border-primary/40 flex-shrink-0" loading="lazy" />
             <div className="min-w-0">
               <p className="text-[11.5px] font-semibold leading-tight line-clamp-2">{up.name}</p>
-              <p className="text-[10px] text-primary tabular-nums">{up.gold}G</p>
+              <p className="text-[10px] text-gold tabular-nums">{up.gold}G</p>
             </div>
           </Link>
         ))}
@@ -379,7 +379,7 @@ export function ItemDetail() {
                 src={item.imageUrl}
                 alt={item.name}
                 className="w-24 h-24 mx-auto rounded-lg border-2 border-primary/70
-                  shadow-[0_0_0_5px_rgba(200,155,60,.08),0_0_36px_rgba(200,155,60,.14)]"
+                  shadow-[0_0_0_5px_rgba(255,143,198,.10),0_0_36px_rgba(255,143,198,.18)]"
               />
 
               <div className="mt-3 flex items-center justify-center gap-2 flex-wrap">
@@ -396,10 +396,10 @@ export function ItemDetail() {
                 )}
               </div>
               {item.englishName && item.englishName !== item.name && (
-                <p className="font-display text-sm text-primary/80 mt-0.5">{item.englishName}</p>
+                <p className="font-display font-bold text-sm text-primary/80 mt-0.5">{item.englishName}</p>
               )}
 
-              <p className="mt-2 text-xl font-bold text-primary tabular-nums">
+              <p className="mt-2 text-xl font-bold text-gold tabular-nums">
                 {item.gold.total}<span className="text-xs font-semibold ml-0.5">G</span>
               </p>
 
@@ -426,9 +426,9 @@ export function ItemDetail() {
               <button
                 onClick={handleStack}
                 disabled={!canStack}
-                className={`mt-4 inline-flex items-center gap-1.5 rounded-md px-5 py-2 text-sm font-bold transition-transform
+                className={`mt-4 inline-flex items-center gap-1.5 rounded-full px-6 py-2 text-sm font-black transition-transform
                   ${canStack
-                    ? 'bg-primary text-primary-foreground -rotate-1 shadow-[0_4px_16px_rgba(200,155,60,.25)] hover:-rotate-2 hover:scale-[1.03] active:scale-95'
+                    ? 'bg-primary text-primary-foreground -rotate-1 shadow-[0_0_18px_rgba(255,143,198,.45)] hover:-rotate-2 hover:scale-[1.03] active:scale-95'
                     : 'bg-secondary text-muted-foreground cursor-default'}`}
               >
                 {inTray
