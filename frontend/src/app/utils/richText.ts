@@ -24,6 +24,33 @@ function stripUnknownTags(s: string, isAllowed: (tag: string) => boolean): strin
   return s.replace(/<[^>]+>/g, match => (isAllowed(match.toLowerCase().trim()) ? match : ''));
 }
 
+// ── 最終防御: 属性ホワイトリストによるサニタイズ ─────────
+// 表示HTMLは dangerouslySetInnerHTML で描画される。ソースは
+// DDragon / CommunityDragon（第三者CDN）とCI生成JSONなので、
+// 万一データ側にイベントハンドラや危険なstyleが混入しても実行させない。
+// このモジュールが実際に生成する属性だけを通し、それ以外は全て捨てる。
+const ALLOWED_ATTRS = new Set(['class', 'style', 'data-stat', 'role', 'tabindex']);
+// style は自前が出力する color / cursor / opacity のみ許可（url()やexpression()等を排除）
+const SAFE_STYLE_RE = /^\s*(?:(?:color|cursor|opacity)\s*:\s*[^;:]+;?\s*)+$/i;
+const ATTR_RE = /([a-zA-Z-]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
+
+function sanitizeAttributes(html: string): string {
+  return html.replace(/<([a-zA-Z]+)((?:[^>"']|"[^"]*"|'[^']*')*)>/g, (_m, tag: string, attrs: string) => {
+    if (!attrs.trim()) return `<${tag}>`;
+    const kept: string[] = [];
+    let m: RegExpExecArray | null;
+    ATTR_RE.lastIndex = 0;
+    while ((m = ATTR_RE.exec(attrs)) !== null) {
+      const name = m[1].toLowerCase();
+      const value = m[2] ?? m[3] ?? m[4] ?? '';
+      if (!ALLOWED_ATTRS.has(name)) continue;                 // on*・href等は全排除
+      if (name === 'style' && !SAFE_STYLE_RE.test(value)) continue;
+      kept.push(value ? `${name}="${value.replace(/"/g, '&quot;')}"` : name);
+    }
+    return kept.length ? `<${tag} ${kept.join(' ')}>` : `<${tag}>`;
+  });
+}
+
 // ── スキルツールチップ ────────────────────────────────
 
 const AD   = 'var(--color-stat-ad)';
@@ -97,7 +124,7 @@ export function processTooltipHtml(raw: string): string {
   );
 
   s = decodeEntities(s);
-  return s.replace(/^(<br>\s*)+/, '').trim();
+  return sanitizeAttributes(s.replace(/^(<br>\s*)+/, '').trim());
 }
 
 // ── アイテム説明文 ────────────────────────────────────
@@ -135,7 +162,7 @@ export function processItemDescription(raw: string): string {
   s = decodeEntities(s);
   s = s.replace(/^(<br>\s*)+/, '').trim();
   s = s.replace(/(<br>\s*){3,}/g, '<br><br>');
-  return s;
+  return sanitizeAttributes(s);
 }
 
 // ── ステータス語のリンク注入（台帳から導出）─────────────
