@@ -1,7 +1,7 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
-  // Cloudflareダッシュボードで作成するプロジェクト名と一致させること
-  "name": "lol-database",
+  // Cloudflareダッシュボードで作成したプロジェクト名（lol-database-3）と一致させること
+  "name": "lol-database-3",
   "compatibility_date": "2026-07-01",
   // Workerスクリプトなし・静的アセットのみを配信する構成
   "assets": {
