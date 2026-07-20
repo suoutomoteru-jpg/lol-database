@@ -65,7 +65,9 @@ export function AdvancedFilter({
       <section>
         <h3 className="text-[11px] font-semibold text-muted-foreground uppercase tracking-widest mb-2">
           ステータス
-          <span className="ml-2 normal-case tracking-normal font-normal">複数選択ですべてを満たすアイテムに絞り込み</span>
+          <span className="ml-2 text-[9px] normal-case tracking-normal font-normal text-muted-foreground/60">
+            複数選択ですべてを満たすアイテムに絞り込み
+          </span>
         </h3>
         <div className="flex flex-wrap gap-1.5">
           {STAT_FILTERS.map(({ abbr, label }) => {

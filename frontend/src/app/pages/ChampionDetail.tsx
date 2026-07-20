@@ -375,9 +375,9 @@ export function ChampionDetail() {
           to={`/champion/${prevChampion.id}`}
           aria-label={`前のチャンピオン: ${prevChampion.name}`}
           title={prevChampion.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
+          className="fixed left-0 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-32 text-foreground/60 hover:text-foreground transition-colors"
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={40} strokeWidth={2.5} className="drop-shadow-[0_0_8px_rgba(0,0,0,.9)]" />
         </Link>
       )}
       {nextChampion && (
@@ -385,9 +385,9 @@ export function ChampionDetail() {
           to={`/champion/${nextChampion.id}`}
           aria-label={`次のチャンピオン: ${nextChampion.name}`}
           title={nextChampion.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
+          className="fixed right-0 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-32 text-foreground/60 hover:text-foreground transition-colors"
         >
-          <ChevronRight size={16} />
+          <ChevronRight size={40} strokeWidth={2.5} className="drop-shadow-[0_0_8px_rgba(0,0,0,.9)]" />
         </Link>
       )}
 
