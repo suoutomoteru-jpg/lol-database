@@ -144,15 +144,9 @@ export function Home() {
 
       <div className="container mx-auto px-4 pt-8 pb-6 max-w-6xl">
         <div className="flex flex-col items-center gap-5">
-          {/* テーゼ: このサイトの主題は「パッチで動く実数値」 */}
+          {/* タグライン */}
           <h2 className="text-center text-xl sm:text-2xl font-bold text-foreground leading-snug text-balance">
-            {version ? (
-              <>
-                「<span className="font-display font-black text-primary tracking-wide [text-shadow:0_0_18px_rgba(255,143,198,.55)]">{displayPatch(version)}</span>」の実数値、ぜんぶ。
-              </>
-            ) : (
-              <>実数値、ぜんぶ。</>
-            )}
+            はやくて見やすい、<span className="font-display font-black text-primary tracking-wide [text-shadow:0_0_18px_rgba(255,143,198,.55)]">LoL</span>のデータベース。
           </h2>
 
           <SearchBar value={searchQuery} onChange={v => set('q', v)} />
