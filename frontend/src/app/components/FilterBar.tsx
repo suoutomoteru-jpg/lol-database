@@ -9,8 +9,9 @@ interface FilterBarProps {
   onItemTypeChange: (type: ItemType | 'all') => void;
 }
 
+// 並び順はチャンピオン・アイテムで揃える（Magic=メイジ、Defense=タンク が対応）
 const ROLES: (Role | 'all')[] = ['all', 'Mage', 'Tank', 'Assassin', 'Fighter', 'Support', 'Marksman'];
-const ITEM_TYPES: (ItemType | 'all')[] = ['all', 'Fighter', 'Marksman', 'Assassin', 'Magic', 'Defense', 'Support'];
+const ITEM_TYPES: (ItemType | 'all')[] = ['all', 'Magic', 'Defense', 'Assassin', 'Fighter', 'Support', 'Marksman'];
 
 export function FilterBar({
   activeTab, selectedRole, selectedItemType, onRoleChange, onItemTypeChange,

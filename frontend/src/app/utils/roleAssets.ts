@@ -41,6 +41,6 @@ export const ITEM_TYPE_LABELS_JA: Record<ItemType, string> = {
   Marksman: 'マークスマン',
   Assassin: 'アサシン',
   Magic:    'メイジ',
-  Defense:  '防御',
+  Defense:  'タンク',
   Support:  'サポート',
 };
