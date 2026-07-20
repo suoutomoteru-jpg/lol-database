@@ -1,8 +1,10 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
+import { SlidersHorizontal } from 'lucide-react';
 import { SearchBar } from '../components/SearchBar';
 import { TabsFilter } from '../components/TabsFilter';
 import { FilterBar } from '../components/FilterBar';
+import { AdvancedFilter } from '../components/AdvancedFilter';
 import { ResultsSection } from '../components/ResultsSection';
 import { useChampions } from '../hooks/useChampions';
 import { useItems } from '../hooks/useItems';
@@ -83,6 +85,11 @@ export function Home() {
   const searchQuery      = searchParams.get('q')                ?? '';
   const selectedRole     = (searchParams.get('role') as Role | 'all') ?? 'all';
   const selectedItemType = (searchParams.get('itype') as ItemType | 'all') ?? 'all';
+  const selectedStats    = useMemo(
+    () => (searchParams.get('stats') ?? '').split(',').filter(Boolean),
+    [searchParams],
+  );
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   function set(key: string, value: string) {
     setSearchParams(prev => {
@@ -93,14 +100,25 @@ export function Home() {
     }, { replace: true });
   }
 
+  function setStats(stats: string[]) {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev);
+      if (stats.length > 0) next.set('stats', stats.join(','));
+      else next.delete('stats');
+      return next;
+    }, { replace: true });
+  }
+
   function handleTabChange(tab: TabType) {
     setSearchParams(prev => {
       const next = new URLSearchParams(prev);
       next.set('tab', tab);
       next.delete('role');
       next.delete('itype');
+      next.delete('stats');
       return next;
     }, { replace: true });
+    setShowAdvanced(false);
   }
 
   const q = searchQuery.toLowerCase();
@@ -117,9 +135,11 @@ export function Home() {
     if (activeTab === 'champions') return [];
     return items.filter(item => {
       if (!item.name.toLowerCase().includes(q)) return false;
-      return selectedItemType === 'all' || item.type === selectedItemType;
+      if (selectedItemType !== 'all' && item.type !== selectedItemType) return false;
+      // ステータスフィルターは AND 条件（選択した全ステータスを持つアイテムのみ）
+      return selectedStats.every(s => item.statTags.includes(s));
     });
-  }, [items, q, activeTab, selectedItemType]);
+  }, [items, q, activeTab, selectedItemType, selectedStats]);
 
   const loading = champLoading || itemLoading;
 
@@ -156,14 +176,47 @@ export function Home() {
             <PatchChangesStrip items={items} changes={patchDiff.changes} />
           )}
 
-          <TabsFilter activeTab={activeTab} onTabChange={handleTabChange} />
-          <FilterBar
-            activeTab={activeTab}
-            selectedRole={selectedRole}
-            selectedItemType={selectedItemType}
-            onRoleChange={r => set('role', r)}
-            onItemTypeChange={t => set('itype', t)}
-          />
+          {/* タブ行: 右端にアイテム用の詳細フィルターボタン */}
+          <div className="relative w-full max-w-2xl">
+            <TabsFilter activeTab={activeTab} onTabChange={handleTabChange} />
+            {activeTab === 'items' && (
+              <button
+                onClick={() => setShowAdvanced(v => !v)}
+                aria-expanded={showAdvanced}
+                className={`absolute right-0 top-1/2 -translate-y-[60%] inline-flex items-center gap-1.5 px-3 pt-[3px] pb-[5px]
+                  text-xs font-medium border rounded-full transition-colors duration-100 ${
+                  showAdvanced || selectedStats.length > 0
+                    ? 'border-primary/60 text-primary bg-primary/10'
+                    : 'border-border text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <SlidersHorizontal size={13} aria-hidden />
+                詳細フィルター
+                {selectedStats.length > 0 && (
+                  <span className="min-w-4 h-4 px-1 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground text-[10px] font-bold leading-none">
+                    {selectedStats.length}
+                  </span>
+                )}
+              </button>
+            )}
+          </div>
+
+          {activeTab === 'items' && showAdvanced ? (
+            <AdvancedFilter
+              selectedItemType={selectedItemType}
+              onItemTypeChange={t => set('itype', t)}
+              selectedStats={selectedStats}
+              onStatsChange={setStats}
+            />
+          ) : (
+            <FilterBar
+              activeTab={activeTab}
+              selectedRole={selectedRole}
+              selectedItemType={selectedItemType}
+              onRoleChange={r => set('role', r)}
+              onItemTypeChange={t => set('itype', t)}
+            />
+          )}
 
           {loading ? (
             <ResultsSkeleton />
