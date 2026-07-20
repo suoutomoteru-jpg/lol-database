@@ -132,7 +132,7 @@ export function Home() {
             <h1 className="font-display font-black text-xl text-primary tracking-wide whitespace-nowrap">
               nunune<span className="text-hextech">.gg</span>
             </h1>
-            <p className="hidden sm:block text-xs text-muted-foreground truncate">League of Legends データベース</p>
+            <p className="hidden sm:block text-xs text-muted-foreground truncate">はやくて見やすい、LoLのデータベース。</p>
           </div>
           {version && (
             <span className="flex-shrink-0 px-2.5 pt-[3px] pb-[5px] text-xs text-muted-foreground tabular-nums rounded-sm border border-border bg-card">
