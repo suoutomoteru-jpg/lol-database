@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { FEEDBACK_FORM_URL } from './ReportLink';
 
 /**
  * 全ページ共通フッター
@@ -25,6 +26,7 @@ export function SiteFooter() {
             {' / '}
             <a href="https://communitydragon.org" target="_blank" rel="noopener noreferrer" className="hover:text-foreground underline decoration-border">CommunityDragon</a>
           </span>
+          <a href={FEEDBACK_FORM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-foreground underline decoration-border">お問い合わせ・バグ報告</a>
           <Link to="/privacy" className="hover:text-foreground underline decoration-border">プライバシーポリシー</Link>
           <span>© {new Date().getFullYear()} nunune.gg</span>
         </div>

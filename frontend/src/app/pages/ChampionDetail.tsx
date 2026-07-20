@@ -16,6 +16,7 @@ import { roleIconUrl, ROLE_LABELS_JA } from '../utils/roleAssets';
 import { STAT_KEY_LABELS } from '../utils/stats';
 import type { Role } from '../types/app';
 import { BottomSheet } from '../components/BottomSheet';
+import { ReportLink } from '../components/ReportLink';
 import type { SkillData } from '../hooks/useChampion';
 
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
@@ -460,6 +461,7 @@ export function ChampionDetail() {
           <SkillBlock key={skill.key} skill={skill} onStatClick={handleStatClick} />
         ))}
         {champion.lore && <LoreSection lore={champion.lore} />}
+        <ReportLink />
       </div>
 
       {/* トップへ戻るボタン */}

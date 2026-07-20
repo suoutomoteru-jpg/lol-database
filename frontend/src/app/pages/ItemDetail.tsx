@@ -9,6 +9,7 @@ import { useBuildTray, addToTray, MAX_SLOTS } from '../hooks/useBuildTray';
 import { usePatchChanges } from '../hooks/usePatchChanges';
 import { BottomSheet } from '../components/BottomSheet';
 import { BuildTray } from '../components/BuildTray';
+import { ReportLink } from '../components/ReportLink';
 import { processItemDescription, injectStatLinks } from '../utils/richText';
 import { calcGoldEfficiency } from '../utils/goldEfficiency';
 import { STAT_KEY_LABELS, ITEM_KEYWORDS } from '../utils/stats';
@@ -512,6 +513,7 @@ export function ItemDetail() {
               onShowAll={openSheet}
             />
           )}
+          <ReportLink />
         </div>
       </div>
 
