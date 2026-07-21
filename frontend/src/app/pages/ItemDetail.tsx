@@ -449,24 +449,25 @@ export function ItemDetail() {
                     const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 pt-[8px] pb-[12px]
                       sm:inline-flex sm:justify-start sm:rounded-full sm:pt-[6px] sm:pb-[10px]`;
                     // ラベルはmutedだとモバイルで読みにくいため明るめ、数値はData voice
-                    const inner = (
-                      <>
-                        <span className="text-foreground/85 text-sm sm:text-xs">{c.plain}</span>
-                        <span className="num-data text-2xl sm:text-lg leading-none">{c.value}</span>
-                      </>
-                    );
                     return c.key ? (
+                      // タップ可能チップ: 「›」矢印＋押下スケールで、押せることを常時可視化する
                       <button
                         key={i}
                         onClick={() => openSheet(c.key!, STAT_KEY_LABELS[c.key!] ?? c.plain)}
-                        className={`${layout} bg-card/95 border border-primary/35 hover:border-primary/70 hover:bg-card transition-colors`}
+                        className={`${layout} bg-card/95 border border-primary/50 hover:border-primary hover:bg-card
+                          cursor-pointer transition-[border-color,background-color,transform] active:scale-[0.97]`}
                         title={`${STAT_KEY_LABELS[c.key] ?? c.plain}が得られるアイテムを見る`}
                       >
-                        {inner}
+                        <span className="text-foreground/85 text-sm sm:text-xs">{c.plain}</span>
+                        <span className="flex items-baseline gap-1">
+                          <span className="num-data text-2xl sm:text-lg leading-none">{c.value}</span>
+                          <ChevronRight size={16} strokeWidth={2.5} className="self-center text-primary -mr-1" aria-hidden />
+                        </span>
                       </button>
                     ) : (
                       <span key={i} className={`${layout} bg-card/70 border border-border`}>
-                        {inner}
+                        <span className="text-foreground/85 text-sm sm:text-xs">{c.plain}</span>
+                        <span className="num-data text-2xl sm:text-lg leading-none">{c.value}</span>
                       </span>
                     );
                   })}

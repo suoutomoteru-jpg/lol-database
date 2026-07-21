@@ -114,35 +114,42 @@ function SkillBlock({
         <div className="min-w-0 pt-0.5">
           <h2 className="text-xl font-semibold text-foreground leading-tight">{skill.name}</h2>
           {hasMeta && (
-            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mt-2">
-              {/* CDは最重要情報なのでボックス+太字白で強調する */}
+            <div className="mt-2 space-y-1.5">
+              {/* 1段目: CD（最重要情報なのでボックス+太字白で強調し、単独の段にする） */}
               {skill.cooldownBurn && (
-                <span
-                  className="inline-flex items-baseline gap-1.5 bg-secondary/80 border border-border rounded-md px-2.5 pt-[3px] pb-[5px]"
-                  title="クールダウン"
-                >
-                  <Clock size={13} className="self-center text-foreground/60" aria-hidden />
-                  <span className="text-[11px] text-foreground/70">CD</span>
-                  <span className="num-data text-base leading-none">
-                    {skill.cooldownBurn}
+                <div>
+                  <span
+                    className="inline-flex items-baseline gap-1.5 bg-secondary/80 border border-border rounded-md px-2.5 pt-[3px] pb-[5px]"
+                    title="クールダウン"
+                  >
+                    <Clock size={13} className="self-center text-foreground/60" aria-hidden />
+                    <span className="text-[11px] text-foreground/70">CD</span>
+                    <span className="num-data text-base leading-none">
+                      {skill.cooldownBurn}
+                    </span>
+                    <span className="text-[11px] text-foreground/70">秒</span>
                   </span>
-                  <span className="text-[11px] text-foreground/70">秒</span>
-                </span>
+                </div>
               )}
-              {skill.costBurn && (
-                <span
-                  className="inline-flex items-baseline gap-1.5 px-1.5 py-1"
-                  title={skill.costType ?? 'コスト'}
-                >
-                  <Droplet size={13} className="self-center text-foreground/50" aria-hidden />
-                  <span className="tabular-nums text-sm font-semibold text-foreground/90">{skill.costBurn}</span>
-                </span>
-              )}
-              {skill.rangeBurn && (
-                <span className="inline-flex items-baseline gap-1.5 px-1.5 py-1" title="射程">
-                  <Ruler size={13} className="self-center text-foreground/50" aria-hidden />
-                  <span className="tabular-nums text-sm font-semibold text-foreground/90">{skill.rangeBurn}</span>
-                </span>
+              {/* 2段目: 消費コスト・射程 */}
+              {(skill.costBurn || skill.rangeBurn) && (
+                <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5">
+                  {skill.costBurn && (
+                    <span
+                      className="inline-flex items-baseline gap-1.5 px-1.5 py-1"
+                      title={skill.costType ?? 'コスト'}
+                    >
+                      <Droplet size={13} className="self-center text-foreground/50" aria-hidden />
+                      <span className="tabular-nums text-sm font-semibold text-foreground/90">{skill.costBurn}</span>
+                    </span>
+                  )}
+                  {skill.rangeBurn && (
+                    <span className="inline-flex items-baseline gap-1.5 px-1.5 py-1" title="射程">
+                      <Ruler size={13} className="self-center text-foreground/50" aria-hidden />
+                      <span className="tabular-nums text-sm font-semibold text-foreground/90">{skill.rangeBurn}</span>
+                    </span>
+                  )}
+                </div>
               )}
             </div>
           )}
