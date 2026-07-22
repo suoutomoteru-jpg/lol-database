@@ -334,6 +334,11 @@ def eval_calculation(calc, values: dict, calcs: dict, max_rank: int, depth: int 
     if not isinstance(calc, dict) or depth > 3:
         return None
     t = calc.get("__type", "")
+    # CDragonがハッシュ化した派生型（例: {e9a3c91d} = mRangedMultiplier付き計算）も
+    # mFormulaParts を持てば GameCalculation として評価する。
+    # mRangedMultiplier（近接/遠隔差）は基準値=近接をそのまま表示するため無視する。
+    if t not in ("GameCalculation", "GameCalculationModified") and "mFormulaParts" in calc:
+        t = "GameCalculation"
     if t == "GameCalculation":
         parts = [eval_part(p, values, max_rank) for p in calc.get("mFormulaParts", [])]
         res = combine_parts(parts, max_rank)
