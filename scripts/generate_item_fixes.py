@@ -148,8 +148,12 @@ def expand_includes(text: str, st: dict[str, str], depth: int = 0) -> str:
     return INCLUDE_RE.sub(repl, text)
 
 
+# ハッシュ名の変数参照（例: @{e4d9f16b}@ — binの計算式キー自体がハッシュの場合）
+HASH_VAR_RE = re.compile(r"@(\{[0-9a-f]{8}\})(?:\*(-?\d+(?:\.\d+)?))?@")
+
+
 def resolve_vars(text: str, values: dict, calcs: dict) -> str:
-    """@Var@ / @Var*100@ を bin の値・計算式で解決する"""
+    """@Var@ / @Var*100@ / @{hash}@ を bin の値・計算式で解決する"""
 
     def repl(m: re.Match) -> str:
         name = m.group(1).lower()
@@ -163,7 +167,7 @@ def resolve_vars(text: str, values: dict, calcs: dict) -> str:
                 return rendered
         return m.group(0)  # 未解決のまま残し、後段のLEFTOVERチェックで弾く
 
-    return gt.PLACEHOLDER_RE.sub(repl, text)
+    return HASH_VAR_RE.sub(repl, gt.PLACEHOLDER_RE.sub(repl, text))
 
 
 def candidate_templates(iid: str, st: dict[str, str]) -> list[str]:
@@ -200,7 +204,7 @@ def render_one(template: str, st: dict[str, str], values: dict, calcs: dict) -> 
     s = gt.ICON_RE.sub("", s)          # %i:scaleHealth% 等のアイコン参照
     s = collapse_redundant_cooldown(s)
     s = re.sub(r"[ \t]+", " ", s)
-    if gt.LEFTOVER_RE.search(s) or "{{" in s:
+    if gt.LEFTOVER_RE.search(s) or "{{" in s or HASH_VAR_RE.search(s):
         return None  # 半端な解決結果は出荷しない
     if BROKEN_RE.search(body_without_stats(s)):
         return None
