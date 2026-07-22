@@ -60,6 +60,25 @@ def neutralize_broken_zero(desc: str) -> str:
     return s
 
 
+# テンプレートの「@Cooldown@ {{Item_Cooldown}}」展開で "90 (90秒)" のように
+# 同じ数字が重複することがある。同値のときだけ先頭の裸の数字を畳んで "(90秒)" にする。
+# （数字が異なる "5 (30秒)" 等は別々の意味なので残す）
+REDUNDANT_CD_RE = re.compile(r"(\d+(?:\.\d+)?)\s*\((\d+(?:\.\d+)?)秒\)")
+DOUBLE_PAREN_CD_RE = re.compile(r"\(\((\d+(?:\.\d+)?秒)\)\)")
+
+
+def collapse_redundant_cooldown(text: str) -> str:
+    # 「90 (90秒)」→「(90秒)」（同値のみ）。裸の数字とinclude展開の重複を畳む
+    s = REDUNDANT_CD_RE.sub(
+        lambda m: f"({m.group(2)}秒)" if m.group(1) == m.group(2) else m.group(0),
+        text,
+    )
+    # テンプレが「(@Cooldown@ {{Item_Cooldown}})」と外側括弧を持つと「((90秒))」に
+    # なるため二重括弧も畳む
+    s = DOUBLE_PAREN_CD_RE.sub(r"(\1)", s)
+    return s
+
+
 def body_without_stats(desc: str) -> str:
     return re.sub(r"<stats>[\s\S]*?</stats>", "", desc)
 
@@ -118,6 +137,7 @@ def render_from_template(iid: str, st: dict[str, str], entry: dict) -> str | Non
     s = resolve_vars(s, values, calcs)
     s = RUNTIME_COUNTER_RE.sub("", s)  # @f1@ 等の実行時カウンタは表示不能なので除去
     s = gt.ICON_RE.sub("", s)          # %i:scaleHealth% 等のアイコン参照
+    s = collapse_redundant_cooldown(s)  # "90 (90秒)" の重複を "(90秒)" に畳む
     s = re.sub(r"[ \t]+", " ", s)
     if gt.LEFTOVER_RE.search(s) or "{{" in s:
         return None  # 半端な解決結果は出荷しない
