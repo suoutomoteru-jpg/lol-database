@@ -13,15 +13,13 @@
   },
   "q": {
    "name": "幻惑",
-   "description": "瞬間移動して2.5/2.75/3/3.25/3.5秒間<keywordStealth>インビジブル</keywordStealth>状態になる。<spellName>「びっくり箱」</spellName>または<spellName>「ハルシネイト」</spellName>を使用しても<keywordStealth>インビジブル</keywordStealth>状態は解除されない。<br><br><keywordStealth>インビジブル</keywordStealth>状態中、次の通常攻撃が<physicalDamage>25/35/45/55/65（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を追加で与える。背後から攻撃した場合は、この通常攻撃がクリティカルになり、のダメージを与える。",
+   "description": "瞬間移動して2.5/2.75/3/3.25/3.5秒間<keywordStealth>インビジブル</keywordStealth>状態になる。<spellName>「びっくり箱」</spellName>または<spellName>「ハルシネイト」</spellName>を使用しても<keywordStealth>インビジブル</keywordStealth>状態は解除されない。<br><br><keywordStealth>インビジブル</keywordStealth>状態中、次の通常攻撃が<physicalDamage>25/35/45/55/65（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を追加で与える。背後から攻撃した場合は、この通常攻撃がクリティカルになり、1（＋0.6×-1（＋合計クリティカルダメージの100%））のダメージを与える。",
    "cooldown": "13/12.5/12/11.5/11",
    "cost": "40",
    "range": "400",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": [
-    "QCritDamageMod"
-   ]
+   "unresolved": []
   },
   "w": {
    "name": "びっくり箱",
@@ -54,5 +52,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 0
 }

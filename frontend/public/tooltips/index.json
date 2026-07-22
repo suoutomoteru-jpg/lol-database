@@ -1,6 +1,6 @@
 {
  "patch": "16.14.7945912+branch.releases-16-14.content.release",
- "generatedAt": "2026-07-22T01:23:24.200787+00:00",
+ "generatedAt": "2026-07-22T02:01:27.575154+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -308,7 +308,7 @@
    "id": 120,
    "name": "ヘカリム",
    "unresolvedCount": 0,
-   "passiveSource": "stringtable"
+   "passiveSource": "lcu"
   },
   {
    "alias": "Heimerdinger",
@@ -720,7 +720,7 @@
    "alias": "Pyke",
    "id": 555,
    "name": "パイク",
-   "unresolvedCount": 4,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {
@@ -826,7 +826,7 @@
    "id": 235,
    "name": "セナ",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Seraphine",
@@ -846,7 +846,7 @@
    "alias": "Shaco",
    "id": 35,
    "name": "シャコ",
-   "unresolvedCount": 1,
+   "unresolvedCount": 0,
    "passiveSource": "stringtable"
   },
   {

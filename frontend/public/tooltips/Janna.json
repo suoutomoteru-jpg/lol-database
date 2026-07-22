@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "テイルウィンド",
-   "description": "ジャンナに向かって移動する際、味方チャンピオンは<speed>移動速度が6%</speed>増加する。<br><br> <OnHit>通常攻撃時効果</OnHit>および<keywordMajor>「ゼファー」</keywordMajor>で、<magicDamage>増加クリティカル率の30%の追加魔法ダメージ</magicDamage>を与える。",
+   "description": "ジャンナに向かって移動する際、味方チャンピオンは<speed>移動速度が6%</speed>増加する。<br><br> <OnHit>通常攻撃時効果</OnHit>および<keywordMajor>「ゼファー」</keywordMajor>で、<magicDamage>10/15/20/25/30の追加魔法ダメージ</magicDamage>を与える。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "ゼファー",
-   "description": "<spellPassive>自動効果:</spellPassive> <speed>移動速度が6/7/8/9/10%（＋魔力の0.02%）</speed>増加し、ゴースト化する。<br><br><spellActive>発動効果:</spellActive> エレメントの力で敵を攻撃して2秒間20/24/28/32/36%（＋魔力の6%）の<status>スロウ効果</status>を付与し、<magicDamage>55/85/115/145/175（＋魔力の50%） + 増加クリティカル率の30%の魔法ダメージ</magicDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> <speed>移動速度が6/7/8/9/10%（＋魔力の0.02%）</speed>増加し、ゴースト化する。<br><br><spellActive>発動効果:</spellActive> エレメントの力で敵を攻撃して2秒間20/24/28/32/36%（＋魔力の6%）の<status>スロウ効果</status>を付与し、<magicDamage>55/85/115/145/175（＋魔力の50%） + 10/15/20/25/30の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "8/7.5/7/6.5/6",
    "cost": "50/55/60/65/70",
    "range": "-1",

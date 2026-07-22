@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "ステッドファスト",
-   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>合計物理防御の12%の物理防御</scaleArmor>と<scaleMR>合計移動速度の12%の魔法防御</scaleMR>を獲得する。体力が40%未満の場合、このボーナスは2倍になる。<br><br><spellActive>発動効果:</spellActive> <speed>移動速度が40%</speed>増加し、2秒間、自分の周囲に敵のダッシュを止めるゾーンを作り出す。このゾーンで止めた敵に<magicDamage>70/110/150/190/230（＋魔力の70%）の魔法ダメージ</magicDamage>を与えて<status>釘付け</status>にし、2秒間、25%の<status>スロウ効果</status>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>合計物理防御の12%の物理防御</scaleArmor>と<scaleMR>合計魔法防御の12%の魔法防御</scaleMR>を獲得する。体力が40%未満の場合、このボーナスは2倍になる。<br><br><spellActive>発動効果:</spellActive> <speed>移動速度が40%</speed>増加し、2秒間、自分の周囲に敵のダッシュを止めるゾーンを作り出す。このゾーンで止めた敵に<magicDamage>70/110/150/190/230（＋魔力の70%）の魔法ダメージ</magicDamage>を与えて<status>釘付け</status>にし、2秒間、25%の<status>スロウ効果</status>を与える。",
    "cooldown": "20/18/16/14/12",
    "cost": "50",
    "range": "400",
