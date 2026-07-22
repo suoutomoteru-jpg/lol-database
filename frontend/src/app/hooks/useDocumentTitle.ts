@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const DEFAULT_TITLE = 'nunune.gg — LoL 日本語データベース';
+const DEFAULT_TITLE = 'nunune — LoL 日本語データベース';
 
 /** ページごとに document.title を設定する（アンマウント時は既定に戻す） */
 export function useDocumentTitle(title: string | null | undefined) {

@@ -8,7 +8,7 @@
 実行方法:
     python3 scripts/generate_sitemap.py --tooltips frontend/public/tooltips \
         --out frontend/public/sitemap.xml
-    環境変数 SITE_URL でベースURLを変更可能（既定 https://nunune.gg）
+    環境変数 SITE_URL でベースURLを変更可能（既定 https://nunune.pages.dev）
 """
 
 import argparse
@@ -61,7 +61,7 @@ def main() -> int:
     ap.add_argument("--out", required=True, help="出力先 sitemap.xml")
     args = ap.parse_args()
 
-    base = os.environ.get("SITE_URL", "https://nunune.gg").rstrip("/")
+    base = os.environ.get("SITE_URL", "https://nunune.pages.dev").rstrip("/")
     today = datetime.date.today().isoformat()
 
     with open(f"{args.tooltips}/index.json", encoding="utf-8") as f:

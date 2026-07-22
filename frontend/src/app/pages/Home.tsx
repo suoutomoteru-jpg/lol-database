@@ -130,7 +130,7 @@ export function Home() {
         <div className="container mx-auto px-4 max-w-6xl h-14 flex items-center justify-between">
           <div className="flex items-baseline gap-2.5 min-w-0">
             <h1 className="font-display font-black text-xl text-primary tracking-wide whitespace-nowrap">
-              nunune<span className="text-hextech">.gg</span>
+              nunu<span className="text-hextech">ne</span>
             </h1>
             <p className="hidden sm:block text-xs text-muted-foreground truncate">League of Legends データベース</p>
           </div>

@@ -12,7 +12,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export function Privacy() {
-  useDocumentTitle('プライバシーポリシー | nunune.gg');
+  useDocumentTitle('プライバシーポリシー | nunune');
 
   return (
     <div className="min-h-screen bg-background">
@@ -30,7 +30,7 @@ export function Privacy() {
 
         <Section title="概要">
           <p>
-            nunune.gg（以下「本サービス」）は、League of Legends のチャンピオン・アイテム情報を
+            nunune（以下「本サービス」）は、League of Legends のチャンピオン・アイテム情報を
             閲覧できる非公式のデータベースサービスです。本ポリシーは、本サービスにおける
             利用者情報の取り扱いについて定めるものです。
           </p>
