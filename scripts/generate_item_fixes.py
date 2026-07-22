@@ -83,6 +83,29 @@ def body_without_stats(desc: str) -> str:
     return re.sub(r"<stats>[\s\S]*?</stats>", "", desc)
 
 
+# ── 「数値なし効果文」の検出 ─────────────────────────────
+# Riotの静的エクスポートは、0ではなく値ごと省略する壊れ方もする
+# （例: 終わりなき飢え「体力を回復する」— いくら回復するのか書かれていない）。
+# 効果を主張する語を含むのに数字が1つもない節をフラグする。
+EFFECT_WORD_RE = re.compile(r"ダメージ|回復|シールド|増加|減少|獲得|吸収|軽減|移動速度|攻撃速度")
+DIGIT_RE = re.compile(r"[0-9０-９]")
+
+
+def numberless_effect_clauses(desc: str) -> list[str]:
+    body = re.sub(r"<[^>]+>", "", body_without_stats(desc))
+    body = re.sub(r"\{\{[^}]*\}\}", "", body)
+    clauses = re.split(r"[。\n]", body)
+    return [
+        c.strip()
+        for c in clauses
+        if c.strip() and EFFECT_WORD_RE.search(c) and not DIGIT_RE.search(c)
+    ]
+
+
+def digit_count(desc: str) -> int:
+    return len(DIGIT_RE.findall(re.sub(r"<[^>]+>", "", body_without_stats(desc))))
+
+
 def fnv1a(s: str) -> str:
     """CDragonのハッシュキー（FNV-1a 32bit / 小文字）"""
     h = 0x811C9DC5
@@ -197,16 +220,22 @@ def main() -> int:
         if int(iid) >= 100000:
             continue  # モード用の複製ID（フロントは正規IDのみ表示）
         desc = it.get("description", "")
-        if not BROKEN_RE.search(body_without_stats(desc)):
+        broken = bool(BROKEN_RE.search(body_without_stats(desc)))
+        numberless = numberless_effect_clauses(desc)
+        if not broken and not numberless:
             continue
         entry = bin_data.get(f"Items/{iid}") or {}
 
         fixed = render_from_template(iid, st, entry)
         if fixed is not None and fixed != desc:
-            fixes[iid] = fixed
-            stats["template"] += 1
-            print(f"  template   {iid}\t{it.get('name', '')}")
-            continue
+            # 数値なし文が動機の場合は「数字が増えた」ときのみ採用（改悪防止）。
+            # 壊れ0が動機なら従来どおり（0の除去自体が改善）
+            if broken or digit_count(fixed) > digit_count(desc):
+                fixes[iid] = fixed
+                stats["template"] += 1
+                why = "0壊れ" if broken else f"数値なし{len(numberless)}文"
+                print(f"  template   {iid}\t{it.get('name', '')}\t({why})")
+                continue
 
         patched = fallback_repair(desc, entry)
         if patched is not None and patched != desc:
@@ -215,8 +244,25 @@ def main() -> int:
             print(f"  fallback   {iid}\t{it.get('name', '')}")
             continue
 
-        stats["skipped"] += 1
-        print(f"  skipped    {iid}\t{it.get('name', '')}")
+        if broken:
+            stats["skipped"] += 1
+            print(f"  skipped    {iid}\t{it.get('name', '')}")
+
+    # ── 残存レポート: 修正適用後もなお数値なし効果文が残る正規アイテム ──
+    print("\n===== 残存する数値なし効果文（修正適用後） =====")
+    residual = 0
+    for iid, it in sorted(items.items(), key=lambda x: int(x[0])):
+        if int(iid) >= 100000:
+            continue
+        shown = fixes.get(iid, it.get("description", ""))
+        clauses = numberless_effect_clauses(shown)
+        if clauses:
+            residual += 1
+            sr = (it.get("maps") or {}).get("11")
+            print(f"  {iid}\t{it.get('name', '')}\tSR={sr}")
+            for c in clauses[:3]:
+                print(f"      ・{c[:80]}")
+    print(f"残存 {residual} アイテム")
 
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(
