@@ -166,22 +166,73 @@ def resolve_vars(text: str, values: dict, calcs: dict) -> str:
     return gt.PLACEHOLDER_RE.sub(repl, text)
 
 
-def render_from_template(iid: str, st: dict[str, str], entry: dict) -> str | None:
-    template = st.get(f"generatedtip_item_{iid}_externaldescription")
-    if not template:
-        return None
-    values, calcs = build_bin_context(entry)
+def candidate_templates(iid: str, st: dict[str, str]) -> list[str]:
+    """説明文の再構築元テンプレート候補（数値スロットの多い順に試す）。
+
+    日本語のexternaldescriptionは数値スロット自体を持たないことがある
+    （例: 終わりなき飢え）。その場合もショップ用テンプレートや
+    動的ツールチップ(item_{id}_tooltip)には @Var@ 入りの文面が存在する。
+    """
+    out = []
+    ext = st.get(f"generatedtip_item_{iid}_externaldescription")
+    if ext:
+        out.append(ext)
+    for key in (f"generatedtip_item_{iid}_tooltipshopextended",
+                f"generatedtip_item_{iid}_tooltipshop"):
+        t = st.get(key)
+        if t:
+            m = re.search(r"<mainText>[\s\S]*?</mainText>", t)
+            if m:
+                out.append(m.group(0))
+    tt = st.get(f"item_{iid}_tooltip")
+    if tt:
+        stats = re.search(r"<stats>[\s\S]*?</stats>", ext or "")
+        prefix = f"<mainText>{stats.group(0)}<br><br>" if stats else "<mainText>"
+        out.append(prefix + tt + "</mainText>")
+    return out
+
+
+def render_one(template: str, st: dict[str, str], values: dict, calcs: dict) -> str | None:
     s = expand_includes(template, st)
     s = resolve_vars(s, values, calcs)
     s = RUNTIME_COUNTER_RE.sub("", s)  # @f1@ 等の実行時カウンタは表示不能なので除去
+    s = s.replace("@ExtendedStats@", "")
     s = gt.ICON_RE.sub("", s)          # %i:scaleHealth% 等のアイコン参照
-    s = collapse_redundant_cooldown(s)  # "90 (90秒)" の重複を "(90秒)" に畳む
+    s = collapse_redundant_cooldown(s)
     s = re.sub(r"[ \t]+", " ", s)
     if gt.LEFTOVER_RE.search(s) or "{{" in s:
         return None  # 半端な解決結果は出荷しない
     if BROKEN_RE.search(body_without_stats(s)):
         return None
     return s.strip()
+
+
+def render_from_template(iid: str, st: dict[str, str], entry: dict,
+                         bin_data: dict | None = None) -> str | None:
+    values, calcs = build_bin_context(entry)
+    # アイテム付属スペル/バフ側 (Items/{id}/...) の変数・計算式も合流（本体優先）
+    if bin_data is not None:
+        prefix_key = f"Items/{iid}/"
+        for key, sub in bin_data.items():
+            if not (isinstance(sub, dict) and key.startswith(prefix_key)):
+                continue
+            spell = sub.get("mSpell") or sub
+            sv, _ = build_bin_context(spell)
+            for k, v in sv.items():
+                values.setdefault(k, v)
+            sub_calcs = spell.get("mSpellCalculations")
+            if isinstance(sub_calcs, dict):
+                for k, v in sub_calcs.items():
+                    if isinstance(v, dict):
+                        calcs.setdefault(str(k).lower(), v)
+                        calcs.setdefault(f"{{{fnv1a(str(k))}}}", v)
+    # 候補のうち、ゲートを通り数字が最も多いものを採用
+    best = None
+    for tpl in candidate_templates(iid, st):
+        s = render_one(tpl, st, values, calcs)
+        if s is not None and (best is None or digit_count(s) > digit_count(best)):
+            best = s
+    return best
 
 
 def fallback_repair(desc: str, entry: dict) -> str | None:
@@ -226,7 +277,7 @@ def main() -> int:
             continue
         entry = bin_data.get(f"Items/{iid}") or {}
 
-        fixed = render_from_template(iid, st, entry)
+        fixed = render_from_template(iid, st, entry, bin_data)
         if fixed is not None and fixed != desc:
             # 数値なし文が動機の場合は「数字が増えた」ときのみ採用（改悪防止）。
             # 壊れ0が動機なら従来どおり（0の除去自体が改善）
