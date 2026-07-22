@@ -83,18 +83,33 @@ def body_without_stats(desc: str) -> str:
     return re.sub(r"<stats>[\s\S]*?</stats>", "", desc)
 
 
+def fnv1a(s: str) -> str:
+    """CDragonのハッシュキー（FNV-1a 32bit / 小文字）"""
+    h = 0x811C9DC5
+    for b in s.lower().encode():
+        h ^= b
+        h = (h * 0x01000193) & 0xFFFFFFFF
+    return f"{h:08x}"
+
+
 def build_bin_context(entry: dict) -> tuple[dict, dict]:
-    """binエントリから 変数辞書 / 計算式辞書 を作る（max_rank=1相当）"""
+    """binエントリから 変数辞書 / 計算式辞書 を作る（max_rank=1相当）。
+
+    binの一部は変数を {a99340ef} のようなハッシュで参照するため
+    （例: 2520のmRangedMultiplier→RangeModifier）、名前に加えて
+    FNV-1aハッシュ形式のエイリアスキーでも引けるようにする。
+    """
     values: dict[str, list] = {}
     for dv in entry.get("mDataValues", []) or []:
         name = str(dv.get("mName", "")).lower()
         if name:
             values[name] = [float(dv.get("mValue", 0))]
-    calcs = {
-        str(k).lower(): v
-        for k, v in (entry.get("mItemCalculations") or {}).items()
-        if isinstance(v, dict)
-    }
+            values[f"{{{fnv1a(name)}}}"] = values[name]
+    calcs: dict[str, dict] = {}
+    for k, v in (entry.get("mItemCalculations") or {}).items():
+        if isinstance(v, dict):
+            calcs[str(k).lower()] = v
+            calcs[f"{{{fnv1a(str(k))}}}"] = v
     return values, calcs
 
 
