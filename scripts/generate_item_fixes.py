@@ -158,13 +158,18 @@ def resolve_vars(text: str, values: dict, calcs: dict) -> str:
     def repl(m: re.Match) -> str:
         name = m.group(1).lower()
         mult = float(m.group(2)) if m.group(2) else 1.0
-        if name in values:
-            return gt.fnum(values[name][0] * mult)
-        if name in calcs:
-            res = gt.eval_calculation(calcs[name], values, calcs, max_rank=1)
-            rendered = gt.render_result(res, mult)
-            if rendered is not None:
-                return rendered
+        # binのキー側がハッシュ化されている場合に備え、名前→ハッシュの照合も行う
+        # （例: 2517はテンプレが平文名、binの計算式キーは {e4d9f16b}）
+        keys = (name, f"{{{fnv1a(name)}}}")
+        for k in keys:
+            if k in values:
+                return gt.fnum(values[k][0] * mult)
+        for k in keys:
+            if k in calcs:
+                res = gt.eval_calculation(calcs[k], values, calcs, max_rank=1)
+                rendered = gt.render_result(res, mult)
+                if rendered is not None:
+                    return rendered
         return m.group(0)  # 未解決のまま残し、後段のLEFTOVERチェックで弾く
 
     return HASH_VAR_RE.sub(repl, gt.PLACEHOLDER_RE.sub(repl, text))
