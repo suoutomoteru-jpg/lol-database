@@ -242,7 +242,7 @@ export function ItemDetail() {
   const [activeLabel, setActiveLabel] = useState<string>('');
   const heroImgRef = useRef<HTMLImageElement>(null);
 
-  useDocumentTitle(item ? `${item.name} 効果・金銭効率・ビルドパス | nunune.gg` : null);
+  useDocumentTitle(item ? `${item.name} 効果・金銭効率・ビルドパス | nunune` : null);
 
   const currentIdx = items.findIndex(it => it.id === id);
   const prevItem = currentIdx > 0 ? items[currentIdx - 1] : null;

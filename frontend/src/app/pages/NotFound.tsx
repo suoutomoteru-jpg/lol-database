@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 
 export function NotFound() {
-  useDocumentTitle('ページが見つかりません | nunune.gg');
+  useDocumentTitle('ページが見つかりません | nunune');
 
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 px-4">

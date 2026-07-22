@@ -284,7 +284,7 @@ export function ChampionDetail() {
   const [activeLabel, setActiveLabel] = useState<string>('');
 
   useDocumentTitle(
-    champion ? `${champion.name} スキル実数値・基礎ステータス | nunune.gg` : null,
+    champion ? `${champion.name} スキル実数値・基礎ステータス | nunune` : null,
   );
 
   const handleStatClick = useCallback((key: string, label: string) => {
