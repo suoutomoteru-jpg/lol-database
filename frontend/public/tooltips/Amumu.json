@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "だだっこ",
-   "description": "<spellPassive>自動効果:</spellPassive> 自身の受ける物理ダメージが5/7/9/11/13（＋増加物理防御の3% ＋増加移動速度の3%）軽減される。また通常攻撃を受けると、このスキルのクールダウンが0.75秒短縮される。<br><br><spellActive>発動効果:</spellActive> だだをこねて周囲の敵に<magicDamage>65/95/125/155/185（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> 自身の受ける物理ダメージが5/7/9/11/13（＋増加物理防御の3% ＋増加魔法防御の3%）軽減される。また通常攻撃を受けると、このスキルのクールダウンが0.75秒短縮される。<br><br><spellActive>発動効果:</spellActive> だだをこねて周囲の敵に<magicDamage>65/95/125/155/185（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "9/8/7/6/5",
    "cost": "35",
    "range": "350",

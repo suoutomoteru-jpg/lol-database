@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "狩鬼道",
-   "description": "通常攻撃2回ごとに魔法ダメージを与える。さらに、クリティカル率が増加する。",
+   "description": "通常攻撃2回ごとに魔法ダメージを与える。さらに、クリティカル率が増加する。<br><br><strong>詳細数値</strong><br>・ダメージ: 合計クリティカルダメージの100%",
    "source": "lcu",
    "unresolved": []
   },

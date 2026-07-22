@@ -175,9 +175,18 @@ def slice_ranks(arr: list, max_rank: int) -> list:
 # 評価し、数値パート同士は合算、テキストパート（スタット反映分）は
 # 「（＋増加攻撃力の135%）」のように後置する。
 
+# mStat番号→表示名。番号の意味は実証ベースで確定したもののみ登録する:
+#  - 6=魔法防御: ガーゴイル(3193)のBonusMR計算式 / 2525の物理防御(1)とのペア /
+#    全チャンピオン本文語投票で確認（旧「移動速度」は誤りだった）
+#  - 29=脅威: 脅威アイテム3種(2520/3179/6696)の看板パッシブが全て参照
+#  - 34=攻撃速度: 4011のTotalAS計算式 / 本文語投票
+#  - 9=クリティカルダメージ: 本文語投票3-0
+# 証拠のない番号（7/8/13/31等）は誤表示を避けるため未登録のまま
+# （未知statを含む計算式は数値を出さず、フォールバックで数値を伏せる）
 STAT_NAMES = {
     0: "魔力", 1: "物理防御", 2: "攻撃力", 3: "攻撃速度", 4: "攻撃速度",
-    5: "魔法防御", 6: "移動速度", 7: "クリティカル率", 11: "最大体力", 12: "体力",
+    5: "魔法防御", 6: "魔法防御", 9: "クリティカルダメージ",
+    11: "最大体力", 12: "体力", 29: "脅威", 34: "攻撃速度",
 }
 
 # これ未満の係数はエンジン内部の微小項（毎フレーム更新用等）とみなして無視する
@@ -186,13 +195,17 @@ COEFF_EPSILON = 0.005
 FORMULA_NAMES = {0: "合計", 1: "基礎", 2: "増加"}
 
 
+# 基礎/増加の区別を持たないステータス（「合計脅威」等の不自然な接頭辞を避ける）
+NO_PREFIX_STATS = {0, 29}
+
+
 def stat_label(stat: int, formula: int) -> str | None:
     name = STAT_NAMES.get(stat)
     if name is None:
         return None  # 未知のスタット参照は呼び出し側で計算式ごと除外する
+    if stat in NO_PREFIX_STATS:
+        return name  # 魔力・脅威は「合計◯◯」と言わない
     prefix = FORMULA_NAMES.get(formula, "")
-    if stat == 0:
-        return name  # 魔力は「合計魔力」と言わない
     return f"{prefix}{name}"
 
 
@@ -226,6 +239,9 @@ def eval_part(part, values: dict, max_rank: int):
         label = stat_label(part.get("mStat", 0), part.get("mStatFormula", 0))
         if label is None:
             return None
+        # 脅威1につき25 のような大係数は「脅威×25」表記（2500%は読みにくい）
+        if abs(coeff) >= 5:
+            return ("text", f"{label}×{fnum(coeff)}")
         return ("text", f"{label}の{fnum(coeff * 100)}%")
 
     if t == "StatByNamedDataValueCalculationPart":

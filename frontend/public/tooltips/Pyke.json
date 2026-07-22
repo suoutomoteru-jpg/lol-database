@@ -23,41 +23,34 @@
   },
   "w": {
    "name": "ゴーストウォーター",
-   "description": "<keywordStealth>カモフラージュ</keywordStealth>状態になり、<speed>移動速度が%</speed>増加する。この増加移動速度は5秒かけて元に戻る。",
+   "description": "<keywordStealth>カモフラージュ</keywordStealth>状態になり、<speed>移動速度が45（＋脅威の200%）%</speed>増加する。この増加移動速度は5秒かけて元に戻る。",
    "cooldown": "14/13/12/11/10",
    "cost": "65",
    "range": "600",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": [
-    "MoveSpeed"
-   ]
+   "unresolved": []
   },
   "e": {
    "name": "亡者の引き波",
-   "description": "その場に溺死者の亡霊を残してダッシュする。少ししてから亡霊は自身のところまで追い付き、チャンピオンに秒間の<status>スタン効果</status>と<physicalDamage>100/150/200/250/300（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。",
+   "description": "その場に溺死者の亡霊を残してダッシュする。少ししてから亡霊は自身のところまで追い付き、チャンピオンに1.25（＋脅威の1%）秒間の<status>スタン効果</status>と<physicalDamage>100/150/200/250/300（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。",
    "cooldown": "15/14/13/12/11",
    "cost": "40",
    "range": "550",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": [
-    "StunDuration"
-   ]
+   "unresolved": []
   },
   "r": {
    "name": "水底の急襲",
-   "description": "十字型の範囲内のすべての敵チャンピオンに攻撃して、体力が<scaleAD></scaleAD>を下回る対象のところまで瞬間移動して<danger>とどめを刺す</danger>。体力がこのしきい値を上回っているチャンピオンおよびチャンピオン以外の敵は、代わりにこの体力しきい値の50%にあたる物理ダメージ(<physicalDamage></physicalDamage>)を受ける。<br><br>十字の範囲内で敵チャンピオンが倒されると、20秒間、このスキルをコスト無しで<recast>再発動</recast>可能になる。そのチャンピオンにとどめを刺したのが自身だった場合、最後にアシストした味方もキルゴールドを獲得する。自分以外がとどめを刺した場合、自身もキルゴールドを獲得できる。<br>",
+   "description": "十字型の範囲内のすべての敵チャンピオンに攻撃して、体力が<scaleAD>250〜550（レベル1〜18） ＋ 増加攻撃力の80% ＋ 脅威の150%</scaleAD>を下回る対象のところまで瞬間移動して<danger>とどめを刺す</danger>。体力がこのしきい値を上回っているチャンピオンおよびチャンピオン以外の敵は、代わりにこの体力しきい値の50%にあたる物理ダメージ(<physicalDamage>250〜550（レベル1〜18） ＋ 増加攻撃力の80% ＋ 脅威の150%×0.5</physicalDamage>)を受ける。<br><br>十字の範囲内で敵チャンピオンが倒されると、20秒間、このスキルをコスト無しで<recast>再発動</recast>可能になる。そのチャンピオンにとどめを刺したのが自身だった場合、最後にアシストした味方もキルゴールドを獲得する。自分以外がとどめを刺した場合、自身もキルゴールドを獲得できる。<br>",
    "cooldown": "100/85/70",
    "cost": "100",
    "range": "750",
    "maxRank": 3,
    "source": "lcu",
-   "unresolved": [
-    "RDamage",
-    "ReducedDamageFinal"
-   ]
+   "unresolved": []
   }
  },
- "unresolvedCount": 4
+ "unresolvedCount": 0
 }

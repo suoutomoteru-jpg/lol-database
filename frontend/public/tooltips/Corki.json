@@ -7,7 +7,7 @@
  "skills": {
   "passive": {
    "name": "ヘクステック榴散弾",
-   "description": "コーキの通常攻撃と<keywordMajor>追撃</keywordMajor>が<trueDamage>20%の追加確定ダメージ</trueDamage>を与える。<br>通常攻撃: <trueDamage>合計攻撃力の20%</trueDamage><br>クリティカル: <trueDamage>合計攻撃力の20%</trueDamage>",
+   "description": "コーキの通常攻撃と<keywordMajor>追撃</keywordMajor>が<trueDamage>20%の追加確定ダメージ</trueDamage>を与える。<br>通常攻撃: <trueDamage>合計攻撃力の20%</trueDamage><br>クリティカル: <trueDamage>合計攻撃力の20%×合計クリティカルダメージの100%</trueDamage>",
    "source": "stringtable",
    "unresolved": []
   },
