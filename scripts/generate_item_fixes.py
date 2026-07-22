@@ -29,10 +29,35 @@ DD = "https://ddragon.leagueoflegends.com"
 CD = "https://raw.communitydragon.org/latest"
 OUT_PATH = Path(__file__).resolve().parent.parent / "frontend/public/tooltips/item-desc-fixes.json"
 
-# <stats>ブロック外の本文に現れる「壊れた0」（動的値の未解決）
-BROKEN_RE = re.compile(r"(を0[獲回]|が0回復|\(0秒\)|ダメージを0|0のダメージ|耐久値0)")
+# <stats>ブロック外の本文に現れる「壊れた0」（動的値の未解決）。
+# Riotの静的エクスポートは動的計算値を0で出すため、ダメージ/回復/シールド/CDの
+# 各文型を検出する。0.5秒 等の正当な数値を誤検出しないよう、0の直後が
+# 「の◯◯ダメージ」「回復」「獲得」「秒)」等の限定文脈のときのみ壊れ判定する。
+BROKEN_RE = re.compile(
+    r"(を0[獲回]|が0回復|\(0秒\)|ダメージを0|0のダメージ|0の[^。<>]{0,10}?ダメージ|耐久値0|0のシールド|0を獲得)"
+)
 INCLUDE_RE = re.compile(r"\{\{\s*([\w.]+)\s*\}\}")
 RUNTIME_COUNTER_RE = re.compile(r"@f\d+@")
+
+# 数値を確定できない場合に、誤った「0」を残さず真実だが数値なしの文へ整える置換。
+# （例: 「0の確定ダメージ」→「確定ダメージ」。0という誤情報を出すより無難）
+NEUTRALIZE_SUBS = [
+    (re.compile(r"0の([^。<>]{0,10}?ダメージ)"), r"\1"),
+    (re.compile(r"ダメージを0与える"), "ダメージを与える"),
+    (re.compile(r"耐久値0の(シールド)"), r"\1"),
+    (re.compile(r"耐久値@[^@]+@の(シールド)"), r"\1"),
+    (re.compile(r"を0獲得"), "を獲得"),
+    (re.compile(r"を0を獲得"), "を獲得"),
+    (re.compile(r"体力が0回復"), "体力が回復"),
+    (re.compile(r"が0回復"), "が回復"),
+]
+
+
+def neutralize_broken_zero(desc: str) -> str:
+    s = desc
+    for pat, rep in NEUTRALIZE_SUBS:
+        s = pat.sub(rep, s)
+    return s
 
 
 def body_without_stats(desc: str) -> str:
@@ -101,16 +126,23 @@ def render_from_template(iid: str, st: dict[str, str], entry: dict) -> str | Non
     return s.strip()
 
 
-def fallback_cooldown_patch(desc: str, entry: dict) -> str | None:
-    """テンプレート再構築に失敗した場合: (0秒) だけでも直す"""
-    if "(0秒)" not in desc:
+def fallback_repair(desc: str, entry: dict) -> str | None:
+    """テンプレート再構築に失敗した場合の最小修復。
+    (0秒)はbinのCD値で置換し、確定できないダメージ/回復/シールドの誤った0は
+    数値を伏せた真実の文へ整える（0という誤情報は残さない）。"""
+    s = desc
+    if "(0秒)" in s:
+        values, _ = build_bin_context(entry)
+        cds = {v[0] for k, v in values.items() if "cooldown" in k and v[0] > 0}
+        if len(cds) == 1:
+            s = s.replace("(0秒)", f"({gt.fnum(cds.pop())}秒)")
+        else:
+            s = s.replace(" (0秒)", "").replace("(0秒)", "")
+    s = neutralize_broken_zero(s)
+    # まだ壊れた0が残る（想定外の文型）なら誤情報回避のため見送り
+    if BROKEN_RE.search(body_without_stats(s)):
         return None
-    values, _ = build_bin_context(entry)
-    cds = {v[0] for k, v in values.items() if "cooldown" in k and v[0] > 0}
-    if len(cds) == 1:
-        return desc.replace("(0秒)", f"({gt.fnum(cds.pop())}秒)")
-    # CDが特定できない場合は、英語版と同様に表記自体を落とす（誤情報よりも省略）
-    return desc.replace(" (0秒)", "").replace("(0秒)", "")
+    return s if s != desc else None
 
 
 def main() -> int:
@@ -140,7 +172,7 @@ def main() -> int:
             print(f"  template   {iid}\t{it.get('name', '')}")
             continue
 
-        patched = fallback_cooldown_patch(desc, entry)
+        patched = fallback_repair(desc, entry)
         if patched is not None and patched != desc:
             fixes[iid] = patched
             stats["fallback"] += 1
