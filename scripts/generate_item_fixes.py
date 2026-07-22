@@ -159,6 +159,7 @@ def fallback_repair(desc: str, entry: dict) -> str | None:
         else:
             s = s.replace(" (0秒)", "").replace("(0秒)", "")
     s = neutralize_broken_zero(s)
+    s = collapse_redundant_cooldown(s)  # "90(90秒)" 等の重複を畳む
     # まだ壊れた0が残る（想定外の文型）なら誤情報回避のため見送り
     if BROKEN_RE.search(body_without_stats(s)):
         return None
