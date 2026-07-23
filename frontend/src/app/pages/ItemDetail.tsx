@@ -41,11 +41,16 @@ function WbrName({ text }: { text: string }) {
 
 // ── <stats> ブロックの構造化 ────────────────────────────
 
-/** "攻撃力 65" のような行を ラベルHTML / 値 に分割する */
+/**
+ * "攻撃力<attention>65</attention>" のような行を ラベル / 値 に分割する。
+ * DDragonの生データは数値がタグで囲まれ、ラベルとの間に区切り文字がない
+ * （"攻撃力<attention>40</attention>"）ため、タグを剥いた平文で末尾の数値を
+ * 切り出す。タグ付きのまま正規表現をかけると閉じタグに阻まれて一致しない。
+ */
 function splitStatLines(statsHtml: string): Array<{ label: string; value: string }> {
   return statsHtml
     .split(/<br\s*\/?\s*>/i)
-    .map(l => l.trim())
+    .map(l => l.replace(/<[^>]+>/g, '').trim())
     .filter(Boolean)
     .map(line => {
       const m = line.match(/^([\s\S]*?)\s*([+-]?\d[\d.,]*\s*%?)\s*$/);
