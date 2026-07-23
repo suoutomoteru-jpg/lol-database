@@ -1,43 +1,31 @@
 #!/usr/bin/env python3
-"""調査プローブ: 複数の候補URLを比較し、どれが最新ビルドかを特定する
+"""調査プローブ: アイテム説明文<stats>ブロックの実際のマークアップ構造を確認する
 
-過去に誤作成した Cloudflare Workers 版が生きたまま残っていて、
-ユーザーがブックマーク/検索結果からそちらを開いている可能性を検証する。
+frontend/src/app/pages/ItemDetail.tsx の splitStatLines() が
+<attention>数値</attention> のようなタグ付き数値をどう処理しているか、
+実データで再現できているかを検証する。
 """
+import json
 import re
 import urllib.request
-import urllib.error
 
-CANDIDATES = [
-    "https://nunune.pages.dev",
-    "https://nunune.suoutomoteru.workers.dev",
-]
+DD = "https://ddragon.leagueoflegends.com"
 
-def get(url, timeout=20):
+def get_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": "probe"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read().decode("utf-8", errors="replace"), dict(r.headers), r.status
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read().decode())
 
-for site in CANDIDATES:
-    print(f"\n== {site} ==")
-    try:
-        html, headers, status = get(site + "/")
-    except urllib.error.HTTPError as e:
-        print(f"HTTPエラー: {e.code}")
+version = get_json(f"{DD}/api/versions.json")[0]
+data = get_json(f"{DD}/cdn/{version}/data/ja_JP/item.json")["data"]
+
+SAMPLES = ["3031", "3068", "3153", "3078", "6653"]
+for sid in SAMPLES:
+    it = data.get(sid)
+    if not it:
         continue
-    except urllib.error.URLError as e:
-        print(f"接続不可（DNS未解決/プロジェクト削除済みの可能性）: {e.reason}")
-        continue
-    print(f"status: {status}")
-    title = re.search(r"<title>([^<]*)</title>", html)
-    print(f"title: {title.group(1) if title else '(なし)'}")
-    entry = re.search(r'src="(/assets/index-[^"]+\.js)"', html)
-    print(f"entry js: {entry.group(1) if entry else '(なし)'}")
-    print(f"cache-control: {headers.get('cache-control')} / cf-cache-status: {headers.get('cf-cache-status')} / server: {headers.get('server')}")
-    if entry:
-        try:
-            js, _, _ = get(site + entry.group(1))
-            has_panel = "アイテムをえらぶ" in js
-            print(f"QuickSwitchPanelマーカー: {'○ あり（新版）' if has_panel else '× なし（旧版）'}")
-        except Exception as e:
-            print(f"JS取得失敗: {e}")
+    desc = it["description"]
+    m = re.search(r"<stats>([\s\S]*?)</stats>", desc, re.I)
+    print(f"\n=== {sid} {it['name']} ===")
+    print("raw <stats> block:")
+    print(repr(m.group(1)) if m else "(なし)")
