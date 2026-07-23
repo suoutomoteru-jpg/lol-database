@@ -123,7 +123,7 @@ export interface GaugeInfo {
   /** バーの塗り幅（0-100）。母集団内で高いほど大きい */
   fillPct: number;
   groupLabel: string;
-  /** 「2位」「上位15%」のような表示文字列 */
+  /** 「上位15%」のような表示文字列（表記は上位n%に統一） */
   rankLabel: string;
 }
 
@@ -143,16 +143,8 @@ export function computeGauge(
   const better = values.filter(v => v > value + 1e-9).length;
   const rank = better + 1;
   const fillPct = ((total - rank + 0.5) / total) * 100;
-  // 上位3位は順位、上半分は「上位◯%」、下半分は「下位◯%」（上位99%は不自然なため）
-  let rankLabel: string;
-  if (rank <= 3) {
-    rankLabel = `${rank}位`;
-  } else {
-    const topPct = Math.round((rank / total) * 100);
-    rankLabel = topPct <= 50
-      ? `上位${Math.max(1, topPct)}%`
-      : `下位${Math.max(1, Math.round(((total - rank + 1) / total) * 100))}%`;
-  }
+  // 表記は「上位n%」に統一（1位=上位1%、最下位は上位100%に近づく）
+  const rankLabel = `上位${Math.max(1, Math.round((rank / total) * 100))}%`;
   return { value, rank, total, fillPct, groupLabel: group.label, rankLabel };
 }
 

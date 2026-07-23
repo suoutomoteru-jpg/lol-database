@@ -57,7 +57,7 @@ describe('computeGauge', () => {
     expect(g.groupLabel).toBe('ファイター');
     expect(g.total).toBe(3);
     expect(g.rank).toBe(2);
-    expect(g.rankLabel).toBe('2位');
+    expect(g.rankLabel).toBe('上位67%');
   });
 
   it('射程・攻撃速度もクラス内で比較する', () => {
@@ -74,17 +74,18 @@ describe('computeGauge', () => {
     expect(g.rank).toBe(1);
   });
 
-  it('4位以下はパーセント表示（上半分=上位/下半分=下位）', () => {
+  it('順位は常に「上位n%」で表記される（1位=上位5%、17位=上位85%）', () => {
     const many = Array.from({ length: 20 }, (_, i) =>
       entry(`X${i}`, 'Fighter', { hp: 500 + i * 10 }));
-    // hp=530 → 上から17番目 → 下位表記
     const low = computeGauge(many, many[3], 'hp', 1, 'peer');
     expect(low.rank).toBe(17);
-    expect(low.rankLabel).toBe('下位20%');
-    // hp=650 → 上から5番目 → 上位25%
+    expect(low.rankLabel).toBe('上位85%');
     const high = computeGauge(many, many[15], 'hp', 1, 'peer');
     expect(high.rank).toBe(5);
     expect(high.rankLabel).toBe('上位25%');
+    const top = computeGauge(many, many[19], 'hp', 1, 'peer');
+    expect(top.rank).toBe(1);
+    expect(top.rankLabel).toBe('上位5%');
   });
 
   it('Lv18で成長込みの順位が入れ替わる', () => {

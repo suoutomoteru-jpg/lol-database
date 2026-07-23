@@ -9,9 +9,11 @@ import { useBuildTray, addToTray, MAX_SLOTS } from '../hooks/useBuildTray';
 import { usePatchChanges } from '../hooks/usePatchChanges';
 import { BottomSheet } from '../components/BottomSheet';
 import { BuildTray } from '../components/BuildTray';
+import { QuickSwitchPanel } from '../components/QuickSwitchPanel';
 import { ReportLink } from '../components/ReportLink';
 import { processItemDescription, injectStatLinks } from '../utils/richText';
 import { calcGoldEfficiency } from '../utils/goldEfficiency';
+import { computeItemStatRank } from '../utils/itemStatRank';
 import { STAT_KEY_LABELS, ITEM_KEYWORDS } from '../utils/stats';
 import { flyToTray } from '../utils/flyToTray';
 
@@ -439,18 +441,36 @@ export function ItemDetail() {
                     : <><Plus size={15} strokeWidth={3} /> Build</>}
               </button>
 
-              {/* ステータスチップ: タップで「このステータスが得られるアイテム」一覧
-                  モバイルは行レイアウト（ラベル左・大きな数値右）、sm以上はピル */}
+              {/* ステータス行: ラベル・ゲージ・上位n%・数値・›を1行に統合。
+                  ゲージはチャンピオン画面と同じ文法（そのステータスを持つ完成アイテム内の位置） */}
               {chips.length > 0 && (
-                <div className="mt-4 flex flex-col items-stretch gap-2 max-w-xs mx-auto
-                  sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center">
+                <div className="mt-4 flex flex-col items-stretch gap-2 max-w-sm mx-auto">
                   {chips.map((c, i) => {
+                    const rank = c.key
+                      ? computeItemStatRank(
+                          statMap.get(c.key) ?? [],
+                          STAT_KEY_LABELS[c.key] ?? c.plain,
+                          item.id,
+                          c.value,
+                        )
+                      : null;
+                    const gauge = rank ? (
+                      <span className="flex-1 flex items-center gap-2 min-w-0">
+                        <span className="relative block flex-1 h-1 bg-secondary rounded-full">
+                          <span
+                            className="absolute inset-y-0 left-0 bg-primary/85 rounded-full shadow-[0_0_8px_rgba(255,143,198,.5)]"
+                            style={{ width: `${rank.fillPct}%` }}
+                          />
+                        </span>
+                        <span className="text-[10px] text-hextech tabular-nums whitespace-nowrap">上位{rank.topPct}%</span>
+                      </span>
+                    ) : (
+                      <span className="flex-1" />
+                    );
                     // 上下パディングは非対称（インク沈み約2pxの光学補正）
-                    const layout = `flex items-baseline justify-between gap-2 rounded-lg px-4 pt-[8px] pb-[12px]
-                      sm:inline-flex sm:justify-start sm:rounded-full sm:pt-[6px] sm:pb-[10px]`;
-                    // ラベルはmutedだとモバイルで読みにくいため明るめ、数値はData voice
+                    const layout = 'flex items-center gap-3 rounded-lg px-4 pt-[8px] pb-[10px]';
                     return c.key ? (
-                      // タップ可能チップ: 「›」矢印＋押下スケールで、押せることを常時可視化する
+                      // タップ可能行: 「›」矢印＋押下スケールで、押せることを常時可視化する
                       <button
                         key={i}
                         onClick={() => openSheet(c.key!, STAT_KEY_LABELS[c.key!] ?? c.plain)}
@@ -458,16 +478,16 @@ export function ItemDetail() {
                           cursor-pointer transition-[border-color,background-color,transform] active:scale-[0.97]`}
                         title={`${STAT_KEY_LABELS[c.key] ?? c.plain}が得られるアイテムを見る`}
                       >
-                        <span className="text-foreground/85 text-sm sm:text-xs">{c.plain}</span>
-                        <span className="flex items-baseline gap-1">
-                          <span className="num-data text-2xl sm:text-lg leading-none">{c.value}</span>
-                          <ChevronRight size={16} strokeWidth={2.5} className="self-center text-primary -mr-1" aria-hidden />
-                        </span>
+                        <span className="text-foreground/85 text-sm whitespace-nowrap">{c.plain}</span>
+                        {gauge}
+                        <span className="num-data text-xl leading-none">{c.value}</span>
+                        <ChevronRight size={16} strokeWidth={2.5} className="text-primary -mr-1 flex-shrink-0" aria-hidden />
                       </button>
                     ) : (
                       <span key={i} className={`${layout} bg-card/70 border border-border`}>
-                        <span className="text-foreground/85 text-sm sm:text-xs">{c.plain}</span>
-                        <span className="num-data text-2xl sm:text-lg leading-none">{c.value}</span>
+                        <span className="text-foreground/85 text-sm whitespace-nowrap">{c.plain}</span>
+                        {gauge}
+                        <span className="num-data text-xl leading-none">{c.value}</span>
                       </span>
                     );
                   })}
@@ -519,6 +539,8 @@ export function ItemDetail() {
       </div>
 
       <BuildTray />
+
+      <QuickSwitchPanel items={items} currentId={item.id} />
 
       <BottomSheet
         isOpen={activeStatKey !== null}
