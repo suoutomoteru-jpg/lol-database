@@ -1,53 +1,43 @@
 #!/usr/bin/env python3
-"""調査プローブ: nunune.pages.dev にライブ配信中のビルドを特定する
+"""調査プローブ: 複数の候補URLを比較し、どれが最新ビルドかを特定する
 
-index.html のタイトル・canonical・エントリJSのハッシュと、
-遅延チャンク（ItemDetail）内の新機能マーカーの有無を確認し、
-どのコミット時点のビルドが配信されているかを推定する。
+過去に誤作成した Cloudflare Workers 版が生きたまま残っていて、
+ユーザーがブックマーク/検索結果からそちらを開いている可能性を検証する。
 """
 import re
 import urllib.request
+import urllib.error
 
-SITE = "https://nunune.pages.dev"
+CANDIDATES = [
+    "https://nunune.pages.dev",
+    "https://nunune.suoutomoteru.workers.dev",
+]
 
-def get(url):
+def get(url, timeout=20):
     req = urllib.request.Request(url, headers={"User-Agent": "probe"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read().decode("utf-8", errors="replace"), dict(r.headers)
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read().decode("utf-8", errors="replace"), dict(r.headers), r.status
 
-html, headers = get(SITE + "/")
-print("== index.html ==")
-for pat, name in [
-    (r"<title>([^<]*)</title>", "title"),
-    (r'rel="canonical" href="([^"]+)"', "canonical"),
-    (r'property="og:url" content="([^"]+)"', "og:url"),
-]:
-    m = re.search(pat, html)
-    print(f"{name}: {m.group(1) if m else '(なし)'}")
-print("age:", headers.get("age"), "/ cf-cache-status:", headers.get("cf-cache-status"))
-
-entry = re.search(r'src="(/assets/index-[^"]+\.js)"', html)
-print("entry js:", entry.group(1) if entry else "(なし)")
-
-markers = {
-    "アイテムをえらぶ": "QuickSwitchPanel（今回追加）",
-    "が得られるアイテムを見る": "ステータス行タップ（従来から＝検査自体の妥当性確認）",
-}
-
-if entry:
-    js, _ = get(SITE + entry.group(1))
-    # 遅延チャンクのファイル名を拾って全部検査する
-    chunks = sorted(set(re.findall(r'assets/[A-Za-z]+-[\w-]+\.js', js)))
-    print(f"chunks: {len(chunks)}")
-    blob = js
-    for c in chunks:
+for site in CANDIDATES:
+    print(f"\n== {site} ==")
+    try:
+        html, headers, status = get(site + "/")
+    except urllib.error.HTTPError as e:
+        print(f"HTTPエラー: {e.code}")
+        continue
+    except urllib.error.URLError as e:
+        print(f"接続不可（DNS未解決/プロジェクト削除済みの可能性）: {e.reason}")
+        continue
+    print(f"status: {status}")
+    title = re.search(r"<title>([^<]*)</title>", html)
+    print(f"title: {title.group(1) if title else '(なし)'}")
+    entry = re.search(r'src="(/assets/index-[^"]+\.js)"', html)
+    print(f"entry js: {entry.group(1) if entry else '(なし)'}")
+    print(f"cache-control: {headers.get('cache-control')} / cf-cache-status: {headers.get('cf-cache-status')} / server: {headers.get('server')}")
+    if entry:
         try:
-            body, _ = get(f"{SITE}/{c}")
-            blob += body
+            js, _, _ = get(site + entry.group(1))
+            has_panel = "アイテムをえらぶ" in js
+            print(f"QuickSwitchPanelマーカー: {'○ あり（新版）' if has_panel else '× なし（旧版）'}")
         except Exception as e:
-            print(f"  {c}: 取得失敗 {e}")
-    print("\n== 新機能マーカー ==")
-    for needle, desc in markers.items():
-        print(f"{'○' if needle in blob else '×'} {desc}: {needle!r}")
-    m = re.search(r'ItemDetail-[\w-]+\.js', js)
-    print("ItemDetail chunk:", m.group(0) if m else "(なし)")
+            print(f"JS取得失敗: {e}")
