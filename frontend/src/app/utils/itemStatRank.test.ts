@@ -21,6 +21,26 @@ describe('computeItemStatRank', () => {
     expect(r!.rank).toBe(2);
     expect(r!.total).toBe(5);
     expect(r!.topPct).toBe(40);
+    expect(r!.tied).toBe(false);
+  });
+
+  it('同じ値を持つアイテムが他にもあれば tied=true（表示は「n位タイ」）', () => {
+    const tiedTop: ItemSummary[] = [
+      item('a', '攻撃力', '80'),
+      item('b', '攻撃力', '80'),
+      item('c', '攻撃力', '60'),
+      item('d', '攻撃力', '55'),
+      item('e', '攻撃力', '40'),
+    ];
+    const r1 = computeItemStatRank(tiedTop, '攻撃力', 'a', '80');
+    expect(r1!.rank).toBe(1);
+    expect(r1!.tied).toBe(true);
+    const r2 = computeItemStatRank(tiedTop, '攻撃力', 'b', '80');
+    expect(r2!.rank).toBe(1);
+    expect(r2!.tied).toBe(true);
+    // 単独の値は tied=false
+    const r3 = computeItemStatRank(tiedTop, '攻撃力', 'c', '60');
+    expect(r3!.tied).toBe(false);
   });
 
   it('1位は上位n%の最小値（切り上げで1%未満にならない）', () => {

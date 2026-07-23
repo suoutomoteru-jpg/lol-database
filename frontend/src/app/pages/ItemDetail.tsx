@@ -447,7 +447,8 @@ export function ItemDetail() {
               </button>
 
               {/* ステータス行: ラベル→数値・›。ランキングはラベル横に
-                  「【◯◯アイテム内n位】」を小さく添える（そのステータスを持つ完成アイテム内の順位） */}
+                  「【カテゴリ内n位】」を小さく添える（そのステータスを持つ完成アイテム内の順位。
+                  同値の場合は「n位タイ」で同着を明示） */}
               {chips.length > 0 && (
                 <div className="mt-4 flex flex-col items-stretch gap-2 max-w-sm mx-auto">
                   {chips.map((c, i) => {
@@ -474,7 +475,7 @@ export function ItemDetail() {
                           <span className="text-foreground/85 text-sm whitespace-nowrap">{c.plain}</span>
                           {rank && (
                             <span className="text-[10px] text-hextech tabular-nums truncate">
-                              【{STAT_KEY_LABELS[c.key] ?? c.plain}アイテム内{rank.rank}位】
+                              【カテゴリ内{rank.rank}位{rank.tied ? 'タイ' : ''}】
                             </span>
                           )}
                         </span>

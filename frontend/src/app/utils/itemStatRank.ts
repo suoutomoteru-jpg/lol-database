@@ -15,6 +15,8 @@ export interface ItemStatRank {
   topPct: number;
   /** バーの塗り幅（0-100）。母集団内で高いほど大きい */
   fillPct: number;
+  /** 同じ値を持つアイテムが他にもある（同着）か */
+  tied: boolean;
 }
 
 const MIN_POPULATION = 5;
@@ -58,11 +60,13 @@ export function computeItemStatRank(
   if (total < MIN_POPULATION) return null;
 
   const better = values.filter(v => v > selfValue + 1e-9).length;
+  const tiedCount = values.filter(v => Math.abs(v - selfValue) < 1e-9).length;
   const rank = better + 1;
   return {
     rank,
     total,
     topPct: Math.max(1, Math.round((rank / total) * 100)),
     fillPct: ((total - rank + 0.5) / total) * 100,
+    tied: tiedCount > 1,
   };
 }
