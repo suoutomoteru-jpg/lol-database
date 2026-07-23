@@ -13,7 +13,6 @@ import { QuickSwitchPanel } from '../components/QuickSwitchPanel';
 import { ReportLink } from '../components/ReportLink';
 import { processItemDescription, injectStatLinks } from '../utils/richText';
 import { calcGoldEfficiency } from '../utils/goldEfficiency';
-import { computeItemStatRank } from '../utils/itemStatRank';
 import { STAT_KEY_LABELS, ITEM_KEYWORDS } from '../utils/stats';
 import { flyToTray } from '../utils/flyToTray';
 
@@ -446,20 +445,10 @@ export function ItemDetail() {
                     : <><Plus size={15} strokeWidth={3} /> Build</>}
               </button>
 
-              {/* ステータス行: ラベル→数値・›。ランキングはラベル横に
-                  「【カテゴリ内n位】」を小さく添える（そのステータスを持つ完成アイテム内の順位。
-                  同値の場合は「n位タイ」で同着を明示） */}
+              {/* ステータス行: ラベル→数値・›（タップで同ステータスのアイテム一覧） */}
               {chips.length > 0 && (
                 <div className="mt-4 flex flex-col items-stretch gap-2 max-w-sm mx-auto">
                   {chips.map((c, i) => {
-                    const rank = c.key
-                      ? computeItemStatRank(
-                          statMap.get(c.key) ?? [],
-                          STAT_KEY_LABELS[c.key] ?? c.plain,
-                          item.id,
-                          c.value,
-                        )
-                      : null;
                     // 上下パディングは非対称（インク沈み約2pxの光学補正）
                     const layout = 'flex items-center gap-3 rounded-lg px-4 pt-[8px] pb-[10px]';
                     return c.key ? (
@@ -471,14 +460,7 @@ export function ItemDetail() {
                           cursor-pointer transition-[border-color,background-color,transform] active:scale-[0.97]`}
                         title={`${STAT_KEY_LABELS[c.key] ?? c.plain}が得られるアイテムを見る`}
                       >
-                        <span className="flex items-baseline gap-1.5 flex-1 min-w-0">
-                          <span className="text-foreground/85 text-sm whitespace-nowrap">{c.plain}</span>
-                          {rank && (
-                            <span className="text-[10px] text-hextech tabular-nums truncate">
-                              【カテゴリ内{rank.rank}位{rank.tied ? 'タイ' : ''}】
-                            </span>
-                          )}
-                        </span>
+                        <span className="text-foreground/85 text-sm whitespace-nowrap flex-1 min-w-0 text-left">{c.plain}</span>
                         <span className="flex items-baseline gap-1 flex-shrink-0">
                           <span className="num-data text-xl leading-none">{c.value}</span>
                           <ChevronRight size={16} strokeWidth={2.5} className="text-primary -mr-1" aria-hidden />

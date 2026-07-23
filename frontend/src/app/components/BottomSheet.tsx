@@ -160,40 +160,50 @@ export function BottomSheet({
             </p>
           ) : (
             <ul className="divide-y divide-border">
-              {sorted.map(it => (
-                <li key={it.id}>
-                  <Link
-                    to={`/item/${it.id}`}
-                    onClick={onClose}
-                    className="flex items-center gap-3 px-4 py-3 hover:bg-muted/30 active:bg-muted/50 transition-colors"
-                  >
-                    <img
-                      src={it.imageUrl}
-                      alt={it.name}
-                      className="w-10 h-10 rounded-sm border border-border flex-shrink-0"
-                      loading="lazy"
-                    />
-                    <span className="flex-1 min-w-0 text-sm text-foreground font-medium leading-tight truncate">
-                      {it.name}
-                    </span>
-                    {it.stats.length > 0 && (
-                      <div className="flex-shrink-0 space-y-0.5">
-                        {it.stats.slice(0, 2).map(s => (
-                          <div
-                            key={s.label}
-                            className="flex items-baseline justify-end gap-2 whitespace-nowrap"
-                          >
-                            <span className="text-xs text-foreground/70">{s.label}</span>
-                            <span className="text-base text-white font-bold tabular-nums">
-                              {s.value}
-                            </span>
+              {sorted.map(it => {
+                // タップしたステータス（label）を先頭に置き、他はそのままの順で全件表示する
+                const ordered = [
+                  ...it.stats.filter(s => s.label === label),
+                  ...it.stats.filter(s => s.label !== label),
+                ];
+                return (
+                  <li key={it.id}>
+                    <Link
+                      to={`/item/${it.id}`}
+                      onClick={onClose}
+                      className="flex items-start gap-3 px-4 py-3 hover:bg-muted/30 active:bg-muted/50 transition-colors"
+                    >
+                      <img
+                        src={it.imageUrl}
+                        alt={it.name}
+                        className="w-10 h-10 rounded-sm border border-border flex-shrink-0"
+                        loading="lazy"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm text-foreground font-medium leading-tight">{it.name}</p>
+                        {ordered.length > 0 && (
+                          <div className="flex flex-wrap gap-x-2.5 gap-y-0.5 mt-1">
+                            {ordered.map(s => {
+                              const isPrimary = s.label === label;
+                              return (
+                                <span
+                                  key={s.label}
+                                  className={`text-xs whitespace-nowrap ${isPrimary ? 'text-primary' : 'text-foreground/60'}`}
+                                >
+                                  {s.label}
+                                  <span className={`ml-1 text-sm font-bold tabular-nums ${isPrimary ? 'text-primary' : 'text-white'}`}>
+                                    {s.value}
+                                  </span>
+                                </span>
+                              );
+                            })}
                           </div>
-                        ))}
+                        )}
                       </div>
-                    )}
-                  </Link>
-                </li>
-              ))}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           )}
 
