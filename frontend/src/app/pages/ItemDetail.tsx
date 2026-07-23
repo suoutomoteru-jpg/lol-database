@@ -446,8 +446,8 @@ export function ItemDetail() {
                     : <><Plus size={15} strokeWidth={3} /> Build</>}
               </button>
 
-              {/* ステータス行: ラベル・ゲージ・上位n%・数値・›を1行に統合。
-                  ゲージはチャンピオン画面と同じ文法（そのステータスを持つ完成アイテム内の位置） */}
+              {/* ステータス行: ラベル→数値・›。ランキングはラベル横に
+                  「【◯◯アイテム内n位】」を小さく添える（そのステータスを持つ完成アイテム内の順位） */}
               {chips.length > 0 && (
                 <div className="mt-4 flex flex-col items-stretch gap-2 max-w-sm mx-auto">
                   {chips.map((c, i) => {
@@ -459,19 +459,6 @@ export function ItemDetail() {
                           c.value,
                         )
                       : null;
-                    const gauge = rank ? (
-                      <span className="flex-1 flex items-center gap-2 min-w-0">
-                        <span className="relative block flex-1 h-1 bg-secondary rounded-full">
-                          <span
-                            className="absolute inset-y-0 left-0 bg-primary/85 rounded-full shadow-[0_0_8px_rgba(255,143,198,.5)]"
-                            style={{ width: `${rank.fillPct}%` }}
-                          />
-                        </span>
-                        <span className="text-[10px] text-hextech tabular-nums whitespace-nowrap">上位{rank.topPct}%</span>
-                      </span>
-                    ) : (
-                      <span className="flex-1" />
-                    );
                     // 上下パディングは非対称（インク沈み約2pxの光学補正）
                     const layout = 'flex items-center gap-3 rounded-lg px-4 pt-[8px] pb-[10px]';
                     return c.key ? (
@@ -483,15 +470,22 @@ export function ItemDetail() {
                           cursor-pointer transition-[border-color,background-color,transform] active:scale-[0.97]`}
                         title={`${STAT_KEY_LABELS[c.key] ?? c.plain}が得られるアイテムを見る`}
                       >
-                        <span className="text-foreground/85 text-sm whitespace-nowrap">{c.plain}</span>
-                        {gauge}
-                        <span className="num-data text-xl leading-none">{c.value}</span>
-                        <ChevronRight size={16} strokeWidth={2.5} className="text-primary -mr-1 flex-shrink-0" aria-hidden />
+                        <span className="flex items-baseline gap-1.5 flex-1 min-w-0">
+                          <span className="text-foreground/85 text-sm whitespace-nowrap">{c.plain}</span>
+                          {rank && (
+                            <span className="text-[10px] text-hextech tabular-nums truncate">
+                              【{STAT_KEY_LABELS[c.key] ?? c.plain}アイテム内{rank.rank}位】
+                            </span>
+                          )}
+                        </span>
+                        <span className="flex items-baseline gap-1 flex-shrink-0">
+                          <span className="num-data text-xl leading-none">{c.value}</span>
+                          <ChevronRight size={16} strokeWidth={2.5} className="text-primary -mr-1" aria-hidden />
+                        </span>
                       </button>
                     ) : (
                       <span key={i} className={`${layout} bg-card/70 border border-border`}>
-                        <span className="text-foreground/85 text-sm whitespace-nowrap">{c.plain}</span>
-                        {gauge}
+                        <span className="text-foreground/85 text-sm whitespace-nowrap flex-1">{c.plain}</span>
                         <span className="num-data text-xl leading-none">{c.value}</span>
                       </span>
                     );
