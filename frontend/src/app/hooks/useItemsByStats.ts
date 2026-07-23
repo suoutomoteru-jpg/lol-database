@@ -15,10 +15,13 @@ export interface ItemSummary {
   stats: ItemStatLine[];
 }
 
+// ラベルはステータス台帳（utils/stats.ts の labelJa）と同じ語彙に揃える。
+// ここが食い違うと、カテゴリ内ランキング（itemStatRank）や
+// 「さらに伸ばすなら」のラベル照合が一致せず、該当ステータスが集計されない。
 export const STAT_LABELS: Record<string, string> = {
   FlatPhysicalDamageMod:         '攻撃力',
   FlatMagicDamageMod:            '魔力',
-  FlatArmorMod:                  'AR',
+  FlatArmorMod:                  '物理防御',
   FlatSpellBlockMod:             '魔法防御',
   FlatHPPoolMod:                 '体力',
   FlatMPPoolMod:                 'マナ',
@@ -27,15 +30,15 @@ export const STAT_LABELS: Record<string, string> = {
   PercentCritDamageMod:          'クリティカルダメージ',
   PercentAttackSpeedMod:         '攻撃速度',
   PercentLifeStealMod:           'ライフスティール',
-  PercentHealAndShieldPower:     'H&Sパワー',
-  FlatHPRegenMod:                '体力回復',
-  FlatMPRegenMod:                'マナ回復',
+  PercentHealAndShieldPower:     'ヒール＆シールドパワー',
+  FlatHPRegenMod:                '体力自動回復',
+  FlatMPRegenMod:                'マナ自動回復',
   PercentMovementSpeedMod:       '移動速度%',
   FlatGoldPer10Mod:              'ゴールド/10s',
   FlatArmorPenetrationMod:       '脅威',
-  PercentArmorPenetrationMod:    'APen',
-  FlatMagicPenetrationMod:       'MPen',
-  PercentMagicPenetrationMod:    'MPen%',
+  PercentArmorPenetrationMod:    '物理防御貫通',
+  FlatMagicPenetrationMod:       '魔法防御貫通',
+  PercentMagicPenetrationMod:    '魔法防御貫通%',
   AbilityHaste:                  'スキルヘイスト',
 };
 
