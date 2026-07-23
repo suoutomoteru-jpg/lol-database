@@ -23,6 +23,10 @@ function parseNum(v: string): number {
   return parseFloat(v.replace(/[^0-9.]/g, '')) || 0;
 }
 
+function isPercent(v: string): boolean {
+  return /%\s*$/.test(v.trim());
+}
+
 export function computeItemStatRank(
   list: ItemSummary[],
   label: string,
@@ -31,13 +35,15 @@ export function computeItemStatRank(
 ): ItemStatRank | null {
   const selfValue = parseNum(selfValueRaw);
   if (selfValue <= 0) return null;
+  const selfPct = isPercent(selfValueRaw);
 
-  // ラベルが一致するステータス行を持つアイテムだけを母集団にする
+  // ラベルが一致し、かつ単位（%か実数か）が同じステータス行を持つ
+  // アイテムだけを母集団にする（魔法防御貫通の40%と実数18を混ぜない）
   const values: number[] = [];
   let selfIncluded = false;
   for (const it of list) {
     const line = it.stats.find(s => s.label === label);
-    if (!line) continue;
+    if (!line || isPercent(line.value) !== selfPct) continue;
     if (it.id === selfId) {
       selfIncluded = true;
       values.push(selfValue);

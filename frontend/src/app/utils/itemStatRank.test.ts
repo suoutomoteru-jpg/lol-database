@@ -61,4 +61,33 @@ describe('computeItemStatRank', () => {
     expect(computeItemStatRank(AD_ITEMS, '攻撃力', 'b', '')).toBeNull();
     expect(computeItemStatRank(AD_ITEMS, '攻撃力', 'b', '0')).toBeNull();
   });
+
+  it('%と実数は同じラベルでも別母集団として扱う', () => {
+    const pen = [
+      item('a', '魔法防御貫通', '40%'),
+      item('b', '魔法防御貫通', '35%'),
+      item('c', '魔法防御貫通', '30%'),
+      item('d', '魔法防御貫通', '25%'),
+      item('e', '魔法防御貫通', '20%'),
+      item('f', '魔法防御貫通', '18'), // 実数（フラット）
+    ];
+    const r = computeItemStatRank(pen, '魔法防御貫通', 'c', '30%');
+    expect(r!.total).toBe(5); // 実数の18は含まれない
+    expect(r!.rank).toBe(3);
+    // 実数側は母集団5件未満 → 非表示
+    expect(computeItemStatRank(pen, '魔法防御貫通', 'f', '18')).toBeNull();
+  });
+});
+
+describe('descStatLines（説明文からのステータス行補完）との連携', () => {
+  it('正規化済みラベル同士で照合できる', async () => {
+    const { descStatLines } = await import('../hooks/useItemsByStats');
+    const desc = '<mainText><stats>攻撃力 <attention>55</attention><br>スキルヘイスト <attention>20</attention><br>基本マナ自動回復 <attention>100%</attention></stats></mainText>';
+    const lines = descStatLines(desc);
+    expect(lines).toEqual([
+      { label: '攻撃力', value: '55' },
+      { label: 'スキルヘイスト', value: '20' },
+      { label: 'マナ自動回復', value: '100%' },
+    ]);
+  });
 });
