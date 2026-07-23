@@ -9,6 +9,7 @@
   X-Frame-Options: DENY
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cache-Control: public, max-age=0, must-revalidate
 
 # 不変ハッシュ付きアセットは長期キャッシュ
 /assets/*
