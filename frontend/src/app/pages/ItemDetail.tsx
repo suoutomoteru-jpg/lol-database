@@ -11,6 +11,7 @@ import { BottomSheet } from '../components/BottomSheet';
 import { BuildTray } from '../components/BuildTray';
 import { QuickSwitchPanel } from '../components/QuickSwitchPanel';
 import { ReportLink } from '../components/ReportLink';
+import { HeaderSearch } from '../components/HeaderSearch';
 import { processItemDescription, injectStatLinks } from '../utils/richText';
 import { calcGoldEfficiency } from '../utils/goldEfficiency';
 import { STAT_KEY_LABELS, ITEM_KEYWORDS } from '../utils/stats';
@@ -348,14 +349,15 @@ export function ItemDetail() {
       )}
 
       <div className="border-b border-border">
-        <div className="container mx-auto px-4 py-2.5 max-w-6xl">
+        <div className="container mx-auto px-4 py-2.5 max-w-6xl flex items-center justify-between gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
           >
             <ArrowLeft size={15} />
             戻る
           </Link>
+          <HeaderSearch />
         </div>
       </div>
 

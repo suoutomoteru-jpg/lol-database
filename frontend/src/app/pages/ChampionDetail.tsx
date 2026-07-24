@@ -17,6 +17,7 @@ import { STAT_KEY_LABELS } from '../utils/stats';
 import type { Role } from '../types/app';
 import { BottomSheet } from '../components/BottomSheet';
 import { ReportLink } from '../components/ReportLink';
+import { HeaderSearch } from '../components/HeaderSearch';
 import type { SkillData } from '../hooks/useChampion';
 
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
@@ -410,16 +411,17 @@ export function ChampionDetail() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         </div>
 
-        {/* 戻るリンク（ヒーロー上にオーバーレイ） */}
+        {/* 戻るリンク + 検索（ヒーロー上にオーバーレイ） */}
         <div className="relative z-10">
-          <div className="container mx-auto px-4 py-3 max-w-5xl">
+          <div className="container mx-auto px-4 py-3 max-w-5xl flex items-center justify-between gap-3">
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-background/50 text-sm text-foreground/80 hover:text-foreground hover:bg-background/70 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-background/50 text-sm text-foreground/80 hover:text-foreground hover:bg-background/70 transition-colors flex-shrink-0"
             >
               <ArrowLeft size={15} />
               戻る
             </Link>
+            <HeaderSearch />
           </div>
         </div>
 
