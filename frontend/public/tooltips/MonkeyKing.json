@@ -1,0 +1,56 @@
+{
+ "alias": "MonkeyKing",
+ "id": 62,
+ "name": "ウーコン",
+ "title": "美猴王",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "岩の皮膚",
+   "description": "<scaleArmor>6〜10（レベル比例）の物理防御</scaleArmor>を獲得して、<healing>5秒ごとに最大体力の0.35%</healing>を回復する。自身または<keywordMajor>分身</keywordMajor>が、敵チャンピオンもしくはジャングルモンスターに通常攻撃を行うかスキルを使用するたびに、これらのボーナスが5秒間100%増加して、最大5回までスタックする。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "強棒打",
+   "description": "自身と<keywordMajor>分身</keywordMajor>が行う次の通常攻撃の射程距離が135/145/155/165/175増加する。また対象に<physicalDamage>20/45/70/95/120（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を追加で与えて、3秒間<scaleArmor>物理防御を10/15/20/25/30%</scaleArmor>低下させる。<br><br>自身または<keywordMajor>分身</keywordMajor>が敵を通常効果かスキルで攻撃するたびに、このスキルのクールダウンが0.5秒短縮される。<br><br><rules>このスキルはダメージを与えた際にスキル命中時効果を発動する。</rules>",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "20",
+   "range": "250/275/300/325/350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "戦士の幻惑",
+   "description": "ダッシュして1秒間<keywordStealth>インビジブル</keywordStealth>状態になり、発動地点に自身の動かない<keywordMajor>分身</keywordMajor>を4秒間出現させる。<br><br><keywordMajor>分身</keywordMajor>はウーコンが直前にダメージを与えた近くにいる敵を攻撃し、ウーコンがアルティメットスキルを使用するとそれを模倣する。<keywordMajor>分身</keywordMajor>の与えるダメージは通常の40/45/50/55/60%になる。",
+   "cooldown": "22/21/20/19/18",
+   "cost": "60/55/50/45/40",
+   "range": "275",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "乱像猿技",
+   "description": "敵1体に向かってダッシュし、<keywordMajor>分身</keywordMajor>を放つ。<keywordMajor>分身</keywordMajor>は対象の近くにいる別の敵に向かって同じようにダッシュする(最大2体まで)。命中した敵にはそれぞれ<magicDamage>80/120/160/200/240（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。その後、自身と分身が5秒間<attackSpeed>40/45/50/55/60%の攻撃速度</attackSpeed>を獲得する。<br><br>",
+   "cooldown": "10/9.25/8.5/7.75/7",
+   "cost": "30/35/40/45/50",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "旋風猿舞",
+   "description": "<speed>20%の移動速度</speed>を獲得して如意棒を振り回し、周囲の敵を0.6秒間<status>ノックアップ</status>させて<physicalDamage>合計攻撃力の137.5%×2(+最大体力の4/6/8%×2)の物理ダメージ</physicalDamage>を2秒かけて与える。<br><br>このスキルは8秒以内であれば再び発動させることが可能で、その後クールダウンに入る。",
+   "cooldown": "130/110/90",
+   "cost": "100",
+   "range": "315",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

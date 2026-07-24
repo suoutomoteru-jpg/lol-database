@@ -1,0 +1,56 @@
+{
+ "alias": "Pyke",
+ "id": 555,
+ "name": "パイク",
+ "title": "ブラッドハーバーの殺戮鬼",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "沈みし者の力",
+   "description": "チャンピオンから受けたダメージの9%を溜めておく。周囲に敵が1体以上いると、この割合が40%に増加する。最大80（＋増加攻撃力の800%）ダメージまで溜めておける。敵の<unique>視界から消える</unique>と、溜めていたダメージが急速に回復する。<br><br>さらに、<healing>体力14</healing>につき<physicalDamage>攻撃力1</physicalDamage>の変換率で、あらゆるソースから得た増加最大体力のすべてを攻撃力に変換する。 <br><br>増加攻撃力: <statTracking>攻撃力14</statTracking>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ボーンスキューア",
+   "description": "<tap>短く押す(タップ):</tap> 突きを繰り出し、チャンピオンを優先して最初に当たった敵に<physicalDamage>100/150/200/250/300（＋増加攻撃力の75%）の物理ダメージ</physicalDamage>を与える。その後、対象に1秒間、90%の<status>スロウ効果</status>を与える。<br><br><hold>長く押す(ホールド): </hold>銛を投げ、最初に当たった敵に<physicalDamage>100/150/200/250/300（＋増加攻撃力の75%）の物理ダメージ</physicalDamage>を与えて自身の方向に<status>引き寄せる</status>。その後、対象に1秒間、90%の<status>スロウ効果</status>を与える。<br><br>このスキルが敵チャンピオンに命中するか、詠唱が途中で中断されると、マナコストの75%にあたるマナが回復する。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "70/75/80/85/90",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ゴーストウォーター",
+   "description": "<keywordStealth>カモフラージュ</keywordStealth>状態になり、<speed>移動速度が45（＋脅威の200%）%</speed>増加する。この増加移動速度は5秒かけて元に戻る。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "65",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "亡者の引き波",
+   "description": "その場に溺死者の亡霊を残してダッシュする。少ししてから亡霊は自身のところまで追い付き、チャンピオンに1.25（＋脅威の1%）秒間の<status>スタン効果</status>と<physicalDamage>100/150/200/250/300（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "40",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "水底の急襲",
+   "description": "十字型の範囲内のすべての敵チャンピオンに攻撃して、体力が<scaleAD>250〜550（レベル1〜18） ＋ 増加攻撃力の80% ＋ 脅威の150%</scaleAD>を下回る対象のところまで瞬間移動して<danger>とどめを刺す</danger>。体力がこのしきい値を上回っているチャンピオンおよびチャンピオン以外の敵は、代わりにこの体力しきい値の50%にあたる物理ダメージ(<physicalDamage>250〜550（レベル1〜18） ＋ 増加攻撃力の80% ＋ 脅威の150%×0.5</physicalDamage>)を受ける。<br><br>十字の範囲内で敵チャンピオンが倒されると、20秒間、このスキルをコスト無しで<recast>再発動</recast>可能になる。そのチャンピオンにとどめを刺したのが自身だった場合、最後にアシストした味方もキルゴールドを獲得する。自分以外がとどめを刺した場合、自身もキルゴールドを獲得できる。<br>",
+   "cooldown": "100/85/70",
+   "cost": "100",
+   "range": "750",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

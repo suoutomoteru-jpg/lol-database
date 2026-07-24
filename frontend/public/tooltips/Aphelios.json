@@ -1,0 +1,56 @@
+{
+ "alias": "Aphelios",
+ "id": 523,
+ "name": "アフェリオス",
+ "title": "信ずる者の武器",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "殺す者と導く者",
+   "description": "アフェリオスは妹のアルーンが作った5種類のルナリ武器を使って戦う。一度に2種類の武器を保持でき、1つはメインハンド、もう1つはオフハンドに装備する。各武器にはそれぞれ独自の通常攻撃とスキルがある。通常攻撃とスキルは各武器の弾薬を消費する。弾薬が切れるとアフェリオスはその武器を捨て、5種類あるうちの次の武器をアルーンが召喚する。<br><br><strong>詳細数値</strong><br>・攻撃速度: 54%<br>・ダメージ: 24",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "武器ごとのスキル",
+   "description": "<strong>◆ キャリブラム</strong><br><font color='#00e6b8'>「<font color='#00e6b8'>キャリブラム</font>」<spellActive>発動効果:</spellActive></font> 長射程の攻撃を放ち、最初に命中した敵に<physicalDamage>70〜160（レベル1〜18） ＋ 増加攻撃力の42〜60%（レベル1〜18） ＋ 魔力の100%の物理ダメージ</physicalDamage>を与えてマークする。<br><br><strong>◆ セヴェラム</strong><br><font color='#e6005c'>「<font color='#e6005c'>セヴェラム</font>」<spellActive>発動効果:</spellActive></font> 1.75秒間、<speed>移動速度が25%</speed>増加して、最も近くにいる敵を両方の武器で攻撃する。6（＋増加攻撃速度の33.334%）発で<physicalDamage>6（＋増加攻撃速度の33.334%）×合計攻撃力の19〜40%（レベル1〜18）の物理ダメージ</physicalDamage>を与える。この攻撃はチャンピオンを優先する。<br><br><strong>◆ インファーナム</strong><br><font color='#1a75ff'>「<font color='#1a75ff'>インファーナム</font>」<spellActive>発動効果:</spellActive></font> 炎を波状に噴射して<physicalDamage>20〜110（レベル1〜18） ＋ 増加攻撃力の15〜21%（レベル1〜18） ＋ 魔力の70%の物理ダメージ</physicalDamage>を与える。その後、命中したすべての敵をオフハンド武器で通常攻撃する。<br><br><strong>◆ クレッシェンダム</strong><br><font color='#ffffcc'>「<font color='#ffffcc'>クレッシェンダム</font>」<spellActive>発動効果:</spellActive></font> オフハンド武器を搭載したルナリのセントリーを設置する。セントリーは20秒間持続する。敵が近づくと起動して4秒間発砲し、1発あたり<physicalDamage>35〜125（レベル1〜18） ＋ 増加攻撃力の34〜52%（レベル1〜18） ＋ 魔力の50%の物理ダメージ</physicalDamage>を与える。<br><br><strong>◆ グラヴィタム</strong><br><font color='#a64dff'>「<font color='#a64dff'>グラヴィタム</font>」<spellActive>発動効果:</spellActive></font> 「<font color='#a64dff'>グラヴィタム</font>」で<status>スロウ効果</status>を与えた敵に重力場を発生させて、1秒間<status>スネア効果</status>を付与し、<magicDamage>50〜140（レベル1〜18） ＋ 増加攻撃力の32〜50%（レベル1〜18） ＋ 魔力の70%の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "9",
+   "cost": "60",
+   "range": "1450",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "w": {
+   "name": "フェーズ",
+   "description": "メインハンド武器とオフハンド武器を切り替え、<b>「<font color='#a64dff'>グラヴィタム</font><br><font color='#00e6b8'>キャリブラム</font><br><font color='#e6005c'>セヴェラム</font><br><font color='#1a75ff'>インファーナム</font><br><font color='#ffffcc'>クレッシェンダム</font><br>ミラーチャクラム<br><font color='#a64dff'>グラヴィタム</font>」</b>を装備する。",
+   "cooldown": "0.8",
+   "cost": "",
+   "range": "250",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "e": {
+   "name": "武器キューシステム",
+   "description": "弾薬が切れた武器は次の武器と交代する（パッシブ参照）。各武器の通常攻撃特性と武器アクション:<br><br><strong>◆ キャリブラム</strong><br>通常攻撃射程が増加する。この武器を使ったスキルでダメージを与えると対象をマークし、自身はその対象に対して長射程の通常攻撃を行えるようになる。<br>長射程の攻撃を放ち、最初に命中した敵にダメージを与える。<br><br><strong>◆ セヴェラム</strong><br>この武器を使用した通常攻撃およびスキルは<healing>体力を回復</healing>する。最大体力を超えて回復が可能。<br>1.75秒間移動速度が増加し、最も近くにいる敵に両方の武器を連続して発砲する。<br><br><strong>◆ インファーナム</strong><br>この武器で通常攻撃を行うと110%のダメージを与えて対象の背後に爆発を引き起こす。<br>指定方向に炎を放射して、命中したすべての敵にオフハンド武器で通常攻撃を行う。<br><br><strong>◆ クレッシェンダム</strong><br>この武器では対象との距離が近いほど通常攻撃を素早く行うことができ、スキル命中時に追加ダメージを与える。<br>オフハンド武器のコピーを搭載したセントリーを設置する。セントリーは近くにいる敵に通常攻撃を行う。<br><br><strong>◆ グラヴィタム</strong><br>この武器で通常攻撃を行うと徐々に減衰する<status>スロウ効果</status>を付与する。<br>「<font color='#a64dff'>グラヴィタム</font>」による<status>スロウ効果</status>を受けているすべての敵に<status>スネア効果</status>を与える。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "r": {
+   "name": "月光の祈り",
+   "description": "凝縮された月光のエネルギーを発射する。月光はチャンピオンに命中した時点で爆発して、周囲の敵に<physicalDamage>125/175/225（＋増加攻撃力の20% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>その後、命中した全チャンピオンをメインハンド武器で通常攻撃する。<br><br><font color='#00e6b8'>「<font color='#00e6b8'>キャリブラム</font>」ボーナス:</font> この方法で適用したマークが消費時にそれぞれ追加で<physicalDamage>50/80/110の物理ダメージ</physicalDamage>を与える。<br><br><br><font color='#e6005c'>「<font color='#e6005c'>セヴェラム</font>」ボーナス:</font> <healing>250/350/450の体力</healing>を回復する。<br><br><br><font color='#1a75ff'>「<font color='#1a75ff'>インファーナム</font>」ボーナス:</font> 月光の爆発は追加で<physicalDamage>50/100/150（＋増加攻撃力の25%）の物理ダメージ</PhysicalDamage>を与え、その後の通常攻撃は爆発して、周囲の対象にそれぞれ90%のダメージを与える。<br><br><br><font color='#ffffcc'>「<font color='#ffffcc'>クレッシェンダム</font>」ボーナス: </font>「ミラーチャクラム」を5個追加で召喚する。<br><br><br><font color='#a64dff'>「<font color='#a64dff'>グラヴィタム</font>」ボーナス:</font> <status>スロウ効果</status>が99%に増加する。また、これらの対象に与える<spellName>「束縛のエクリプス」</spellName>の<status>スネア効果</status>時間が1.35秒間に増加する。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "1300",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

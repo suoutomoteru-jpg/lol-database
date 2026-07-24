@@ -1,0 +1,56 @@
+{
+ "alias": "Gangplank",
+ "id": 41,
+ "name": "ガングプランク",
+ "title": "大海原の大災厄",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "背水の銃剣",
+   "description": "近接通常攻撃で対象に火を点け、2.5秒かけて<trueDamage>50〜250（レベル比例） ＋ 増加攻撃力の100%の確定ダメージ</trueDamage>を追加で与える。また、2秒間、自身の<speed>移動速度が15〜30%（レベル比例）</speed>増加する。<br><br><keywordMajor>「火薬樽」</keywordMajor>を破壊すると、このスキルのクールダウンが解消されて、同じように<speed>移動速度</speed>が増加する。<br><br><rules>タワーに対するダメージは50%になる。<br><spellName>偽りの発砲</spellName>ではこのスキルは適用されない。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "偽りの発砲",
+   "description": "弾丸を発射し<physicalDamage>10/40/70/100/130（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。このスキルで対象を倒すと、追加で3/4/5/6/7ゴールドと4/5/6/7/8シルバーサーペントを獲得する。<br><br>シルバーサーペントはショップで<spellName>「一斉砲撃」</spellName>をアップグレードする際に使用する。<br>弾丸を発射し<physicalDamage>10/40/70/100/130（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。対象がチャンピオンの場合、与えたダメージの7%にあたるゴールドとシルバーサーペントを獲得する。このスキルで対象を倒すと、追加で3/4/5/6/7ゴールドと4/5/6/7/8シルバーサーペントを獲得する。<br><br>シルバーサーペントはショップで<spellName>「一斉砲撃」</spellName>をアップグレードする際に使用する。<br><br>奪ったゴールドの合計: <statTracking>10/40/70/100/130ゴールド</statTracking><br>奪ったシルバーサーペントの合計: <statTracking>25%シルバーサーペント</statTracking>",
+   "cooldown": "4.5",
+   "cost": "50/45/40/35/30",
+   "range": "625",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "w": {
+   "name": "壊血病治癒",
+   "description": "オレンジを大量摂取して、<status>行動妨害効果</status>をすべて解除し、<healing>45/70/95/120/145（＋魔力の90%）(+減少体力の13%)</healing>を回復する。",
+   "cooldown": "22/20/18/16/14",
+   "cost": "60/70/80/90/100",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "火薬樽",
+   "description": "自身および敵チャンピオンが通常攻撃可能な「火薬樽」を25秒間設置する。敵が破壊した場合、樽はそのまま消滅する。自身が破壊した場合、樽は爆発して2秒間40/50/60/70/80%の<status>スロウ効果</status>を付与し、物理防御の40%を無視して<physicalDamage>通常攻撃のダメージ</physicalDamage>を与える。チャンピオンに対しては、追加で<physicalDamage>75/95/115/135/155の物理ダメージ</physicalDamage>を与える。<br><br>樽の体力は2/1/0.5（レベル1/7/13）秒ごとに減少していく。爆発した樽と爆発範囲が重なっている樽は誘爆するが、同じ対象には1回しかダメージを与えない。<spellName>「偽りの発砲」</spellName>による樽の爆発で対象を倒した場合、追加ゴールドを獲得する。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "一斉砲撃",
+   "description": "海賊船に合図を送り、8秒かけてマップ上の任意の場所を12回砲撃させる。それぞれの砲撃で0.5秒間30%の<status>スロウ効果</status>と<magicDamage>40/70/100（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。最大ダメージ: 480/840/1200（＋魔力の10%）<br><br>このスキルは<spellName>「偽りの発砲」</spellName>で集めたシルバーサーペントを使ってショップでアップグレードできる。<br><br><spellName>乱れ撃ち</spellName>: 砲撃回数が6回増加する。<br><spellName>死の女神</spellName>: 巨大な砲弾を放ち、<trueDamage>120/210/300（＋魔力の30%）の確定ダメージ</trueDamage>を与え、1秒間、75%の<status>スロウ効果</status>を付与する。<br><spellName>士気上昇</spellName>: 2秒間、「一斉砲撃」の範囲内の味方の<speed>移動速度が40%</speed>増加する。",
+   "cooldown": "160/140/120",
+   "cost": "100",
+   "range": "30000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

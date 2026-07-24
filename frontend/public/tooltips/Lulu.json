@@ -1,0 +1,56 @@
+{
+ "alias": "Lulu",
+ "id": 117,
+ "name": "ルル",
+ "title": "森の妖精使い",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "仲良し妖精ピックス",
+   "description": "妖精のピックスが戦闘に協力してくれる。ルルが通常攻撃を行うとピックスが対象に向けて3つのビームを放ち、最初に当たった敵に<magicDamage>5〜39（レベル比例） ＋ 魔力の5%×3の魔法ダメージ</magicDamage>を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ぴかぴかビーム",
+   "description": "ルルとピックスがそれぞれ貫通するビームを放ち、<magicDamage>60/95/130/165/200（＋魔力の50%）の魔法ダメージ</magicDamage>を与えて、80%の<status>スロウ効果</status>を付与する。この効果は2秒かけて元に戻る。<br><br>複数のビームが敵に命中した場合、2本目以降のビームは<magicDamage>30/47.5/65/82.5/100（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "7",
+   "cost": "50/55/60/65/70",
+   "range": "925",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "イタズラ",
+   "description": "味方チャンピオンに使用すると、3/3.25/3.5/3.75/4秒間、<speed>移動速度を25%</speed>、<attackSpeed>攻撃速度を20/22.5/25/27.5/30%</attackSpeed>増加させる。<br><br>敵チャンピオンに使用すると、1.2/1.4/1.6/1.8/2秒間、対象に<status>ポリモーフ効果</status>を付与する。",
+   "cooldown": "18",
+   "cost": "65",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ピックス、おねがい！",
+   "description": "味方に使用するとピックスが味方の元へ飛んでいき、6秒間<spellName>「仲良し妖精ピックス」</spellName>を付与する。味方がチャンピオンの場合は、2.5秒間、<shield>耐久値70/110/150/190/230（＋魔力の50%）のシールド</shield>も付与する。<br><br>敵チャンピオンに使用するとピックスが邪魔をして、<magicDamage>70/110/150/190/230（＋魔力の50%）の魔法ダメージ</magicDamage>を与えて、4秒間、対象の<keywordStealth>真の視界</keywordStealth>を得る。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "60/65/70/75/80",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "おおきくなぁれ！",
+   "description": "味方1体を巨大化させ、周囲の敵を1秒間<status>ノックアップ</status>させる。巨大化した味方は7秒間、<healing>最大体力が275/425/575（＋魔力の55%）</healing> 増加し、周囲の敵に30/45/60%の<status>スロウ効果</status> を付与する。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "900",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,58 @@
+{
+ "alias": "Corki",
+ "id": 42,
+ "name": "コーキ",
+ "title": "豪気の爆撃手",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヘクステック榴散弾",
+   "description": "コーキの通常攻撃と<keywordMajor>追撃</keywordMajor>が<trueDamage>20%の追加確定ダメージ</trueDamage>を与える。<br>通常攻撃: <trueDamage>合計攻撃力の20%</trueDamage><br>クリティカル: <trueDamage>合計攻撃力の20%×合計クリティカルダメージの100%</trueDamage>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "閃光弾",
+   "description": "爆弾を発射し、<magicDamage>60/105/150/195/240（＋増加攻撃力の125% ＋魔力の100%）の魔法ダメージ</magicDamage>を与える。また、爆発範囲と命中したチャンピオンを6秒間可視化する。",
+   "cooldown": "9/8.5/8/7.5/7",
+   "cost": "60/65/70/75/80",
+   "range": "825",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ワルキューレ機行",
+   "description": "飛行して通り道を焼き、2.5秒間炎上させる。炎の中にいる敵は効果時間内に最大<magicDamage>150/225/300/375/450（＋魔力の150% ＋増加攻撃力の200%）の魔法ダメージ</magicDamage>を受ける。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "80/85/90/95/100",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ガトリングガン",
+   "description": "前方にガトリングガンを撃ち、4秒かけて毎秒<physicalDamage>80/130/180/230/280（＋増加攻撃力の240%）の物理ダメージ</physicalDamage>を与え、対象の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を最大で12/14/16/18/20低下させる。",
+   "cooldown": "12",
+   "cost": "50/55/60/65/70",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "連発ミサイル",
+   "description": "ミサイルを発射する。ミサイルは敵に命中すると爆発し、周囲の敵に<physicalDamage>90/170/250（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。3発ごとに発射されるミサイルは、代わりに<physicalDamage>180/340/500（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは4回までチャージできる。チャンピオンに通常攻撃を行うと次のチャージまでの時間が<attention></attention>秒短縮される。",
+   "cooldown": "2",
+   "cost": "35",
+   "range": "1225",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "AttackRefund"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

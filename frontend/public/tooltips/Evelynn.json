@@ -1,0 +1,56 @@
+{
+ "alias": "Evelynn",
+ "id": 28,
+ "name": "イブリン",
+ "title": "苦悶の抱擁",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "妖魔の影",
+   "description": "4秒間、通常攻撃やスキルを使用せずにいると<keywordMajor>「妖魔の影」</keywordMajor>に包まれる。<keywordMajor>「妖魔の影」</keywordMajor>に包まれている間は、<healing>体力が250〜590（レベル1〜18） ＋ 魔力の250%</healing>未満であれば、<healing>毎秒15〜150（レベル比例）の体力</healing>を回復する。レベル6以降は、さらに<keywordStealth>カモフラージュ</keywordStealth>も獲得する。<br><br>チャンピオンまたはタワーからダメージを受けると、1.5秒間、<keywordMajor>「妖魔の影」</keywordMajor>が解除される。<br><br><rules><keywordStealth>カモフラージュ</keywordStealth>状態のユニットは敵チャンピオンが検出範囲内に入ってこない限り可視化されない。</rules><br>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヘイトスパイク",
+   "description": "鞭で攻撃して最初に当たった敵に<magicDamage>25/30/35/40/45（＋魔力の25%）の魔法ダメージ</magicDamage>を与え、その対象に対する次の3回の通常攻撃またはスキルが追加で<magicDamage>15/25/35/45/55（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。このスキルは最大3回まで<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> 最も近くにいる敵を貫通するトゲを飛ばし、当たったすべての敵に<magicDamage>25/30/35/40/45（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "4",
+   "cost": "40/45/50/55/60",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "アリュール",
+   "description": "チャンピオンまたはモンスターを5秒間マークする。その対象に通常攻撃またはスキルが命中するとマークを消費し、マナが還元されて、対象に0.75秒間、45%の<status>スロウ効果</status>を与える。<br><br>マークが2.5秒以上持続していた場合、マークを消費して以下の追加効果を付与する:<li>対チャンピオン: 1.25/1.5/1.75/2/2.25秒間の<status>チャーム効果</status>を与え、4秒間、<scaleMR>魔法防御を35/37.5/40/42.5/45%</scaleMR>低下させる。<li>対モンスター: 3/3.25/3.5/3.75/4秒間の<status>チャーム効果</status>と、<magicDamage>250/300/350/400/450（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "60/70/80/90/100",
+   "range": "1200/1300/1400/1500/1600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ウィップラッシュ",
+   "description": "敵を鞭で打って<magicDamage>60/90/120/150/180(+最大体力の3%（＋魔力の1.5%）)の魔法ダメージ</magicDamage>を与える。2秒間、<speed>移動速度が30/35/40/45/50%</speed>増加する。<br><br><keywordMajor>「妖魔の影」</keywordMajor>に包まれると、このスキルのクールダウンがリセットされて強化される。このスキルが強化されている間は、対象までダッシュして、対象および通り道にいたすべての敵に<magicDamage>80/120/160/200/240(+最大体力の4%（＋魔力の2.5%）)の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "8",
+   "cost": "40/45/50/55/60",
+   "range": "210",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ラストカレス",
+   "description": "悪魔のエネルギーを解放して大ダメージを与え、対象指定されなくなって後方にワープする。<magicDamage>125/250/375（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、<healing>体力が30%</healing>未満の敵に対しては与えるダメージが<magicDamage>300/600/900（＋魔力の75%）</magicDamage>に増加する。発動時に「妖魔の影」が1.25秒のクールダウンに入る。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

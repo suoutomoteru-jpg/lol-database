@@ -1,0 +1,56 @@
+{
+ "alias": "Qiyana",
+ "id": 246,
+ "name": "キヤナ",
+ "title": "エレメントの女帝",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "女帝の威風",
+   "description": "通常攻撃とスキルが追加で<physicalDamage>15〜83（レベル1〜18） ＋ 増加攻撃力の25% ＋ 魔力の30%の追加物理ダメージ</physicalDamage>を与える。この効果は対象ごとに25秒のクールダウンがある。<br><br><spellName>「大地の力」</spellName>を使って異なる武器の<keywordMajor>「エンチャントメント」</keywordMajor>を獲得すると、すべての対象に対してこの効果のクールダウンがリセットされる。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "エレメントの怒り/イシュタルの切先",
+   "description": "<keywordMajor>「エンチャントメント」</keywordMajor>を保有していない場合は斬撃を繰り出し、狭い範囲内の敵に<physicalDamage>70/100/130/160/190（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。保有している場合は、このスキルの射程が増加して、<keywordMajor>「エンチャントメント」</keywordMajor>の種類に応じた追加効果を獲得する:<li><keywordMajor>氷のエンチャントメント</keywordMajor>: 短時間の<status>スネア効果</status>を付与し、その後1秒間、20%の<status>スロウ効果</status>を付与する。<li><keywordMajor>岩のエンチャントメント</keywordMajor>: 体力が50%未満のユニットに<physicalDamage>70/100/130/160/190（＋増加攻撃力の85%）×0.6の物理ダメージ</physicalDamage>を追加で与える。<li><keywordMajor>草木のエンチャントメント</keywordMajor>: 自身を<keywordStealth>インビジブル</keywordStealth>状態にして<speed>移動速度を20%</speed>増加させる道が発生する。<br>",
+   "cooldown": "7",
+   "cost": "35",
+   "range": "525",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "大地の力",
+   "description": "<spellPassive>自動効果:</spellPassive> 武器が<keywordMajor>「エンチャントメント」</keywordMajor>を獲得していると、<attackSpeed>攻撃速度が15/20/25/30/35%</attackSpeed>増加し、通常攻撃が<magicDamage>8/16/24/32/40（＋魔力の45% ＋増加攻撃力の20%）の魔法ダメージ</magicDamage>を追加で与える。また非戦闘時、近くに<keywordMajor>「エンチャントメント」</keywordMajor>に使ったものと同種の地形が存在する場合は、<speed>移動速度が3/5/7/9/11%</speed>増加する。<br><br><spellActive>発動効果:</spellActive> 近くの茂み、壁、川までダッシュして、それに対応した<keywordMajor>「エンチャントメント」</keywordMajor>を武器に付与する。これを行うと<spellName>「エレメントの怒り/イシュタルの切先」</spellName>のクールダウンが解消される。",
+   "cooldown": "7",
+   "cost": "25/30/35/40/45",
+   "range": "1100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "俊烈",
+   "description": "敵を通り過ぎるようにダッシュし、<physicalDamage>50/90/130/170/210（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "40/45/50/55/60",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "天賦絢爛",
+   "description": "衝撃波を発生させる。衝撃波は敵を<status>ノックバック</status>させて、地形に当たると爆発する。爆発はその地形全体に沿って進み、0.5 - 1秒間の<status>スタン効果</status>と<physicalDamage>100/200/300（＋増加攻撃力の125%）</physicalDamage><physicalDamage>(+最大体力の10%)の物理ダメージ</physicalDamage>を与える。<status>スタン効果</status>の時間は、爆発の移動距離に応じて低下する。<br><br>少ししてから、衝撃波が通った場所にあった川と茂みも爆発し、同じダメージと<status>スタン効果</status>を与える。",
+   "cooldown": "120",
+   "cost": "100",
+   "range": "950",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

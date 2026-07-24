@@ -1,0 +1,56 @@
+{
+ "alias": "Quinn",
+ "id": 133,
+ "name": "クイン",
+ "title": "デマーシアの両翼",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "鷲匠",
+   "description": "ヴァロールが2秒ごとに近くの敵1体に<keywordMajor>「鷲匠」</keywordMajor>のマークをつけ、4秒間可視化する。次の通常攻撃<OnHit>通常攻撃時効果</OnHit>は対象に<physicalDamage>15〜120（レベル比例） ＋ 増加攻撃力の40%の追加物理ダメージ</physicalDamage>を与える。<br><br><rules>クリティカル率に応じてクールダウンが短縮される。<br>モンスターに対しては75の追加ダメージを与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "暗闇の強襲",
+   "description": "ヴァロールに急降下するように命じ、最初に命中した敵を<keywordMajor>「鷲匠」</keywordMajor>でマークして、1.75秒間その視界範囲を狭め、周囲のすべての敵に<physicalDamage>65/100/135/170/205（＋増加攻撃力の80/85/90/95/100% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。<br><br>最初に命中した敵がチャンピオン以外だった場合は、1.75秒間<status>武装解除</status>させる。",
+   "cooldown": "11/10.5/10/9.5/9",
+   "cost": "50/55/60/65/70",
+   "range": "1025",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "鷲の眼",
+   "description": "<spellPassive>自動効果:</spellPassive> <keywordMajor>「鷲匠」</keywordMajor>でマークされた対象に通常攻撃を行うと、2秒間、<attackSpeed>攻撃速度が28/41/54/67/80%</attackSpeed>、<speed>移動速度が20/25/30/35/40%</speed>増加する。<br><br><spellActive>発動効果:</spellActive> ヴァロールが周囲を偵察し、自身を中心とした広範囲の視界を2秒間確保する。",
+   "cooldown": "50/45/40/35/30",
+   "cost": "",
+   "range": "2100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "飛翔撃",
+   "description": "敵のところまでダッシュして<physicalDamage>40/65/90/115/140（＋増加攻撃力の20%）の物理ダメージ</physicalDamage>を与え、対象を<keywordMajor>「鷲匠」</keywordMajor>でマークする。その後、後方に飛びのいて対象から離れ、少しだけ対象を<status>ノック</status><status>バック</status>して、50%の<status>スロウ効果</status>を与える。このスロウ効果は1.5秒かけて減衰する。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "50",
+   "range": "675",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "相棒",
+   "description": "ヴァロールを呼び寄せ、2秒間の詠唱後に連携して、<speed>移動速度が70/100/130%</speed>増加する。連携後はこのスキルを<recast>再発動</recast>できるようになる。通常攻撃を行うか、<spellName>「暗闇の強襲」</spellName>または<spellName>「飛翔撃」</spellName>を使用すると、自動的にこのスキルを<recast>再発動</recast>する。<br><br><recast>再発動</recast>: クインとヴァロールが空中から攻撃し、<physicalDamage>60/90/120（＋増加攻撃力の35%）の物理ダメージ</physicalDamage>を与えて、チャンピオンを<keywordMajor>「鷲匠」</keywordMajor>でマークし、このスキルを終了する。",
+   "cooldown": "3",
+   "cost": "50/25/0",
+   "range": "700",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

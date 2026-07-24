@@ -1,0 +1,56 @@
+{
+ "alias": "Riven",
+ "id": 92,
+ "name": "リヴェン",
+ "title": "贖罪の追放者",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ルーンブレード",
+   "description": "スキルを使用すると6秒間チャージを獲得する(最大3)。通常攻撃でチャージを消費し、<physicalDamage>45/75/105/135/165（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を追加で与える。<br><br><rules>追加ダメージはクリティカル判定を持つ。<br>モンスターには50の追加ダメージを与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "折れた翼",
+   "description": "前方にダッシュして<physicalDamage>45/75/105/135/165（＋増加攻撃力の60/65/70/75/80%）の物理ダメージ</physicalDamage>を与える。このスキルは2回<recast>再発動</recast>できる。1回目の<recast>再発動</recast>は通常の効果と同じだが、2回目の再発動では別の効果を獲得する:<br><br><recast>再発動</recast>: 前方に跳躍して剣を叩きつけ、周囲の敵に<physicalDamage>45/75/105/135/165（＋増加攻撃力の60/65/70/75/80%）の物理ダメージ</physicalDamage>を与えて、0.75秒間<status>ノックアップ</status>させる。",
+   "cooldown": "13",
+   "cost": "",
+   "range": "275",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "気功破",
+   "description": "剣からルーンの力を解き放ち、<physicalDamage>65/95/125/155/185（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与えて、0.75秒間<status>スタン</status>させる。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "",
+   "range": "260",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "勇躍",
+   "description": "素早くダッシュして1.5秒間<shield>耐久値70/95/120/145/170（＋増加攻撃力の110%）のシールド</shield>を獲得する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "",
+   "range": "250",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "追放者の剣",
+   "description": "剣が神秘的な力に包まれ、15秒間<physicalDamage>攻撃力が合計攻撃力の25%</physicalDamage>増加して、攻撃スキルと通常攻撃の射程が増加する。また、効果時間中はこのスキルを<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> 風の斬撃を放ち、対象の減少体力に応じて<physicalDamage>100/150/200（＋増加攻撃力の60%）</physicalDamage> - <physicalDamage>300/450/600（＋増加攻撃力の180%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "120/90/60",
+   "cost": "",
+   "range": "200",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

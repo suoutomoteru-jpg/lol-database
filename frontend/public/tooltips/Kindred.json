@@ -1,0 +1,62 @@
+{
+ "alias": "Kindred",
+ "id": 203,
+ "name": "キンドレッド",
+ "title": "永遠なる狩人",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "キンドレッドの刻印",
+   "description": "獲物とする対象に印を付ける。印をつけた獲物を狩ることで、通常スキルを恒常的に強化する。獲物を4体狩るごとに、通常攻撃の射程も強化される。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "矢の輪舞",
+   "description": "跳躍して最大3体の敵に矢を放ち、<physicalDamage>40/65/90/115/140（＋増加攻撃力の75%）の物理ダメージ</physicalDamage>を与えて、4秒間<attackSpeed>攻撃速度が</attackSpeed>増加する。<br><br><spellName>「狼の激昂」</spellName>の効果範囲内にいた場合、このスキルのクールダウンが4/3.5/3/2.5/2秒に短縮される。",
+   "cooldown": "9",
+   "cost": "35",
+   "range": "340",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalQAttackSpeed"
+   ]
+  },
+  "w": {
+   "name": "狼の激昂",
+   "description": "<spellPassive>自動効果:</spellPassive> 移動と通常攻撃でスタックを獲得する。100スタックになると、次の通常攻撃で自身の減少体力に応じて最大<healing>47〜81（レベル1〜18）の体力</healing>を回復する。<br><br><spellActive>発動効果:</spellActive> 縄張りを定め、子羊が最後に通常攻撃を行った敵に噛みつくよう狼に命令する。狼の噛みつきは<magicDamage>25/30/35/40/45（＋増加攻撃力の20% ＋魔力の20%）</magicDamage><magicDamage>(+現在体力の)の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "40",
+   "range": "560",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "PercentWolfDamage"
+   ]
+  },
+  "e": {
+   "name": "忍び寄る恐怖",
+   "description": "敵を衰弱させて、1秒間30（＋魔力の5%）%の<status>スロウ効果</status>を与える。<br><br>同じ対象に間隔4秒以内に通常攻撃を連続で行うと、3回目の通常攻撃で狼にその敵を襲撃させて、<physicalDamage>80/110/140/170/200（＋増加攻撃力の100%）</physicalDamage> + <physicalDamage>対象の減少体力のの物理ダメージ</physicalDamage>を追加で与える。",
+   "cooldown": "14/12.5/11/9.5/8",
+   "cost": "",
+   "range": "500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "PercentBiteDamage"
+   ]
+  },
+  "r": {
+   "name": "羊の執行猶予",
+   "description": "4秒間、地面に祝福を与えて、その中にいる味方、敵、中立のあらゆるユニットが死を免れる。残り体力が10%になったユニットは、範囲内にいる間はダメージも回復効果も受けなくなる。<br><br>祝福が終了すると、範囲内にいる全ユニットの<healing>体力が225/300/375</healing>回復する。",
+   "cooldown": "160/140/120",
+   "cost": "100",
+   "range": "500",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 3
+}

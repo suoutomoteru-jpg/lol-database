@@ -1,0 +1,58 @@
+{
+ "alias": "Draven",
+ "id": 119,
+ "name": "ドレイヴン",
+ "title": "栄光ある処刑人",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "リーグ・オブ・ドレイヴン",
+   "description": "ドレイヴンが「回転斬斧」をキャッチするか、ミニオンおよび中立モンスター、タワーを破壊すると「名声」がたまる。敵チャンピオンを倒すとドレイヴンがスポットライトと喝采を浴び、「名声」の量に応じてゴールドを獲得する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "回転斬斧",
+   "description": "<keywordMajor>「回転斬斧」</keywordMajor>により、次の通常攻撃が追加で<physicalDamage>40/45/50/55/60（＋増加攻撃力の75/85/95/105/115%）の物理ダメージ</physicalDamage>を与え、斧が空中に跳ね返る。斧をキャッチすると再び<keywordMajor>「回転斬斧」</keywordMajor>の効果を得る。<br><br><keywordMajor>「回転斬斧」</keywordMajor>は2回までスタックする。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "45",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "血の疼き",
+   "description": "ゴースト化して<speed>移動速度が50/55/60/65/70%</speed>増加し(1.5秒かけて元に戻る)、3秒間<attackSpeed>攻撃速度が20/25/30/35/40%</attackSpeed>増加する。<br><br><keywordMajor>「回転斬斧」</keywordMajor>をキャッチすると、このスキルのクールダウンがリセットされる。",
+   "cooldown": "12",
+   "cost": "40/35/30/25/20",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "薙ぎ払い",
+   "description": "斧を横向きに投げ、<physicalDamage>75/110/145/180/215（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与えて<status>ノックバック</status>させ、2秒間20/25/30/35/40%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "70",
+   "range": "1050",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "死の車輪",
+   "description": "2本の巨大な斧を投げて<physicalDamage>200/300/400（＋増加攻撃力の110/130/150%）の物理ダメージ</physicalDamage>を与える。チャンピオンに当たるか<recast>再発動</recast>すると斧は反転して自身のもとに戻ってくる。斧は敵に当たるたびにダメージが5%低下し、最小50%まで低下する。<br><br><keywordMajor>「死の車輪」</keywordMajor>によって敵チャンピオンの体力が現在の<keywordMajor>「リーグ・オブ・ドレイヴン」</keywordMajor>のスタック数の100%()を下回った場合、その対象にとどめを刺す。",
+   "cooldown": "100/90/80",
+   "cost": "100",
+   "range": "20000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "RPassiveTrueDamage"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

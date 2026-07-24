@@ -1,0 +1,56 @@
+{
+ "alias": "Darius",
+ "id": 122,
+ "name": "ダリウス",
+ "title": "ノクサスの戦斧",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "大出血",
+   "description": "通常攻撃と攻撃スキルが対象に<keywordMajor>「大出血」</keywordMajor>を付与し、5秒かけて<physicalDamage>13〜30（レベル比例） ＋ 増加攻撃力の30%の物理ダメージ</physicalDamage>を与える。この効果は5回までスタックする。<br><br>敵が最大スタックになるか、<spellName>「ノクサスギロチン」</spellName>で敵をキルすると、5秒間自身の<scaleAD>攻撃力が30〜230（レベル1〜18）</scaleAD>増加し、あらゆる通常攻撃と攻撃スキルが<keywordMajor>「大出血」</keywordMajor>を5スタック付与するようになる。<br><br><rules><keywordMajor>「大出血」</keywordMajor>はジャングルモンスターには250%のダメージを与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "皆殺しの斧",
+   "description": "斧を構えてから振り回し、刃の部分では<physicalDamage>50/80/110/140/170（＋合計攻撃力の100/110/120/130/140%）の物理ダメージ</physicalDamage>を、柄の部分では<physicalDamage>17.5/28/38.5/49/59.5（＋合計攻撃力の100/110/120/130/140%）のダメージ</physicalDamage>を与える。柄が命中した敵は<keywordMajor>「大出血」</keywordMajor>のスタックを受けない。<br><br>刃が命中した敵チャンピオンまたは大型ジャングルモンスター1体ごとに、<healing>減少体力の17%</healing>を回復する(最大<healing>51%</healing>まで)。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "25/30/35/40/45",
+   "range": "1",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "脚削ぎ",
+   "description": "次の通常攻撃が<physicalDamage>合計攻撃力の140/145/150/155/160%の物理ダメージ</physicalDamage>を与え、1秒間90%の<status>スロウ効果</status>を付与する。<br><br>このスキルで対象を倒すと、発動時に消費したマナを回復し、クールダウンが50%短縮される。<br><br><rules>このスキルはダメージを与えた際にスキル命中時効果を発動する。</rules>",
+   "cooldown": "5",
+   "cost": "40",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "捕縛",
+   "description": "<spellPassive>自動効果:</spellPassive> 物理防御貫通が20/25/30/35/40%増加する。<br><br><spellActive>発動効果:</spellActive> 斧を引っかけて敵を<status>引き寄せ</status>、<status>ノックアップ</status>して、1秒間40%の<status>スロウ効果</status>を与える。",
+   "cooldown": "26/23.5/21/18.5/16",
+   "cost": "70/60/50/40/30",
+   "range": "535",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ノクサスギロチン",
+   "description": "敵に飛びかかって強烈な一撃を加え、<trueDamage>125/250/375（＋増加攻撃力の75%）の確定ダメージ</trueDamage>を与える。対象の<keywordMajor>「大出血」</keywordMajor>のスタックごとにダメージが20%増加し、最大<trueDamage>250/500/750（＋増加攻撃力の75%）ダメージ</trueDamage>まで増加する。<br><br>このスキルで対象を倒した場合、20秒以内なら一度だけ<recast>再発動</recast>することができる。スキルレベル3になるとマナコストがゼロになり、キルでクールダウンが完全に解消されるようになる。",
+   "cooldown": "120/100/80",
+   "cost": "100/100/0",
+   "range": "460",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

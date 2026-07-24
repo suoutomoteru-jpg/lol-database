@@ -1,0 +1,56 @@
+{
+ "alias": "Sona",
+ "id": 37,
+ "name": "ソナ",
+ "title": "沈黙の弦奏師",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "パワーコード",
+   "description": "<passive>アッチェレランド</passive>: 通常スキルを使用し条件を満たすたびに「アッチェレランド」のスタックを獲得する。1スタックごとに通常スキルヘイストが恒久的に50%増加する(最大で通常スキルヘイスト60)。通常スキルヘイストが上限の60に達してからは、スタック獲得時に<keywordMajor>アルティメットスキル</keywordMajor>の現在のクールダウンが1.5秒短縮される。<br><br><passive>パワーコード</passive>: 通常スキルを3回使用すると、次の通常攻撃が追加で<magicDamage>20〜240（レベル1〜18） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与え、最後に発動した旋律に応じた追加効果を獲得する。<br><li><spellName>ヒム・オブ・ヴァロー:</spellName> その通常攻撃が代わりに<magicDamage>30〜360（レベル1〜18） ＋ 魔力の30%の魔法ダメージ</magicDamage>を与える。<li><spellName>パーセヴァランス:</spellName> 対象の与えるダメージが3秒間25%減少する。<li><spellName>セレリティ:</spellName> 対象に2秒間、50%の<status>スロウ効果</status>を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヒム・オブ・ヴァロー",
+   "description": "周囲の敵2体(チャンピオンを優先)に<magicDamage>50/85/120/155/190（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、その後新たな<keywordMajor>メロディー</keywordMajor>を開始する。ダメージを与えたチャンピオンの数だけ<keywordMajor>アッチェレランド</keywordMajor>のスタックを獲得する。<br><br><keywordMajor>メロディー:</keywordMajor> 3秒間オーラを獲得する。オーラは味方チャンピオンを強化し、5秒内の次の通常攻撃が追加で<magicDamage>10/15/20/25/30（＋魔力の10%）の魔法ダメージ</magicDamage>を与えるようになる。<br><br><keywordMajor>パワーコード - スタッカート:</keywordMajor> 「パワーコード」が追加ダメージを与える(<magicDamage>合計30〜360（レベル1〜18） ＋ 魔力の30%の魔法ダメージ</magicDamage>)。",
+   "cooldown": "8",
+   "cost": "50/55/60/65/70",
+   "range": "825",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "パーセヴァランス",
+   "description": "<spellPassive>発動効果:</spellPassive> 自身および近くにいる味方チャンピオン1体の<healing>体力を30/45/60/75/90（＋魔力の30%）</healing>回復する(現在体力が最も少ない味方を優先)。その後、新たな<keywordMajor>メロディー</keywordMajor>を始める。<br><br><keywordMajor>メロディー:</keywordMajor> 3秒間オーラを獲得する。オーラは味方チャンピオンに1.5秒間、<shield>耐久値25/45/65/85/105（＋魔力の25%）のシールド</shield>を付与する。<br><br>ダメージを受けた味方を回復するか、シールドで他の味方のダメージを25/45/65/85/105以上防ぐたびに、<keywordMajor>アッチェレランド</keywordMajor>のスタックを1獲得する。<br><br><keywordMajor>パワーコード - ディミヌエンド:</keywordMajor> 「パワーコード」が追加で、対象の与える物理および魔法ダメージを3秒間25%減少させる。",
+   "cooldown": "",
+   "cost": "80/85/90/95/100",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "セレリティ",
+   "description": "<spellPassive>発動効果:</spellPassive> 新たな<keywordMajor>メロディー</keywordMajor>を始め、3秒間<speed>移動速度が20%</speed>増加する。ダメージを受けなければ、この効果時間は最大7秒間まで延長される。<br><br><keywordMajor>メロディー:</keywordMajor> 3秒間オーラを獲得する。オーラは味方チャンピオンに3秒間、<speed>10/12/14/16/18%の移動速度</speed>を付与する。<br><br><keywordMajor>パワーコード - テンポ:</keywordMajor> 「パワーコード」が追加で、対象に2秒間50%の<status>スロウ効果</status>を与える。",
+   "cooldown": "14",
+   "cost": "65",
+   "range": "430",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "クレッシェンド",
+   "description": "魅惑的な和音を演奏し、敵を1.5秒間<status>スタン</status>させ、<magicDamage>150/250/350（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "900",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

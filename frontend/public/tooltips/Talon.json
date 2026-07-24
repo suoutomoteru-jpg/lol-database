@@ -1,0 +1,56 @@
+{
+ "alias": "Talon",
+ "id": 91,
+ "name": "タロン",
+ "title": "将軍の懐刀",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "血塗られし慈悲",
+   "description": "スキルでダメージを与えたチャンピオンまたは大型ジャングルモンスターに6秒間スタックを付与する(最大3スタック)。<br><br>3スタックの対象に通常攻撃を行うと、2秒かけて<physicalDamage>80〜280（レベル比例） ＋ 増加攻撃力の210%の物理ダメージ</physicalDamage>を追加で与える。<br><br><rules>継続ダメージ効果はジャングルモンスターには100%のダメージを与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ノクサスの刃",
+   "description": "対象に向かってジャンプして<physicalDamage>65/85/105/125/145（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。近接攻撃の射程で使用した場合はクリティカルになり、代わりに<physicalDamage>65/85/105/125/145（＋増加攻撃力の100%）×1.5（＋増加クリティカルダメージの100%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルで対象を倒すと<healing>体力を9〜55（レベル比例）</healing>回復して、このスキルのクールダウンが50%解消される。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "40",
+   "range": "575",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "飛燕手裏剣",
+   "description": "複数の刃を投げ、<physicalDamage>50/60/70/80/90（＋増加攻撃力の40%）の物理ダメージ</physicalDamage>を与える。その後、刃は自身のところに戻ってきて<physicalDamage>60/90/120/150/180（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与え、1秒間40/45/50/55/60%の<status>スロウ効果</status>を与える。",
+   "cooldown": "9/8.5/8/7.5/7",
+   "cost": "50/55/60/65/70",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "暗殺者の跳躍",
+   "description": "最も近くにある地形や建造物を飛び越える。同一の地形や建造物は再び飛び越えられるようになるまで160/135/110/85/60秒間待つ必要がある。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "シャドウアサルト",
+   "description": "周囲に複数の刃を投げて<physicalDamage>90/135/180（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。さらに<speed>移動速度が40/55/70%</speed>増加して、2.5秒間<keywordStealth>インビジブル</keywordStealth>状態になる。<keywordStealth>インビジブル</keywordStealth>状態が終了すると投げた刃が自身のところに戻り、再び<physicalDamage>90/135/180（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>通常攻撃か<spellName>「ノクサスの刃」</spellName>で<keywordStealth>インビジブル</keywordStealth>状態をキャンセルすると、刃はその対象がいる位置に集まる。",
+   "cooldown": "100/80/60",
+   "cost": "100",
+   "range": "550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

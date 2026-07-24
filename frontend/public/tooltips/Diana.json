@@ -1,0 +1,56 @@
+{
+ "alias": "Diana",
+ "id": 131,
+ "name": "ダイアナ",
+ "title": "嘲りの月",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "繊月の刃",
+   "description": "<attackSpeed>攻撃速度が15〜35%（レベル比例）</attackSpeed>増加し、スキル使用後5秒間は<attackSpeed>15〜35%（レベル比例）×3</attackSpeed>まで増加する。<br><br>通常攻撃3回ごとに、周囲の敵に<magicDamage>20〜220（レベル1〜18） ＋ 魔力の50%の魔法ダメージ</magicDamage>を追加で与える。 <br><br><rules>「繊月の刃」はモンスターには270%のダメージを与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "月影",
+   "description": "弧を描くように月の力を放ち、<magicDamage>70/105/140/175/210（＋魔力の70%）の魔法ダメージ</magicDamage>を与えて、3秒間<keywordMajor>「月光」</keywordMajor>でマークする。<br><br><keywordMajor>「月光」</keywordMajor>は<keywordStealth>ステルス</keywordStealth>状態の敵をのぞいて可視化する。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "50",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "朧月の羽衣",
+   "description": "5秒間、自身の周囲を回る3つの月光の玉を発生させる。月光の玉は接触すると爆発して、それぞれ<magicDamage>20/32/44/56/68（＋魔力の18%）の魔法ダメージ</magicDamage>を与える(最大<magicDamage>60/96/132/168/204（＋魔力の18%）ダメージ</magicDamage>)。<br><br>また同じ時間、<shield>耐久値45/60/75/90/105（＋魔力の30% ＋増加体力の11%）のシールド</shield>を獲得する。最後の月光の玉が爆発すると、追加で<shield>耐久値45/60/75/90/105（＋魔力の30% ＋増加体力の11%）のシールド</shield>を獲得し、効果時間が更新される。",
+   "cooldown": "15/13.5/12/10.5/9",
+   "cost": "40/45/50/55/60",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "月下美刃",
+   "description": "復讐心に燃える月の化身となり、敵のところまでダッシュして<magicDamage>50/70/90/110/130（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。対象が<keywordMajor>「月光」</keywordMajor>を受けていた場合は、このスキルのクールダウンが解消される。",
+   "cooldown": "22/20/18/16/14",
+   "cost": "40/45/50/55/60",
+   "range": "825",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "崩月",
+   "description": "周囲の敵を<status>引き寄せ</status>、2秒間40/50/60%の<status>スロウ効果</status>を与えて可視化する。<br><br>1体以上の敵チャンピオンに命中させると月に呼びかけ、<magicDamage>200/300/400（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。このダメージは2体目以降で引き寄せたチャンピオンが1体増えるごとに<magicDamage>35/60/85（＋魔力の15%）</magicDamage>増加する。追加ダメージは最大で<magicDamage>175/300/425（＋魔力の15%）ダメージ</magicDamage>まで。",
+   "cooldown": "100/90/80",
+   "cost": "100",
+   "range": "475",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

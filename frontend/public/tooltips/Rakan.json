@@ -1,0 +1,56 @@
+{
+ "alias": "Rakan",
+ "id": 497,
+ "name": "ラカン",
+ "title": "魅惑の翼",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "神秘の翼",
+   "description": "40〜14.5（レベル1〜18）秒ごとに<shield>30〜225（レベル比例） ＋ 魔力の95%のシールド</shield>を獲得する。敵チャンピオンに通常攻撃かスキルを使用すると、このクールダウンが1秒短縮される。<br><br><keywordMajor>愛の跳躍</keywordMajor> - ザヤとラカンは一緒にリコールできる。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "キラリ羽根",
+   "description": "魔法の羽根を投げて、最初に当たった敵ユニットに<magicDamage>70/115/160/205/250（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<br><br>羽根がチャンピオンかエピックジャングルモンスターに当たると、3秒後、または自身が味方チャンピオンに触れた時に、自身と周囲の味方の<healing>体力を40〜210（レベル比例） ＋ 魔力の55%</healing>回復する。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "45",
+   "range": "850",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "華麗なる登場",
+   "description": "ダッシュしてから回転して宙に舞い上がり、1秒間<status>ノックアップ</status>させて<magicDamage>70/120/170/220/270（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50/60/70/80/90",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "バトルダンス",
+   "description": "味方チャンピオンのところまでダッシュして、3秒間<shield>耐久値50/75/100/125/150（＋魔力の70%）のシールド</shield>を付与する。<br><br>このスキルは5秒以内なら一度だけ<recast>再発動</recast>できる。",
+   "cooldown": "0",
+   "cost": "40/45/50/55/60",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "みんなオレに夢中",
+   "description": "4秒間、<speed>移動速度が75%</speed>増加する。自身が触れた敵に初回のみ<magicDamage>100/200/300（＋魔力の50%）の魔法ダメージ</magicDamage>と1/1.25/1.5秒間の<status>チャーム効果</status>を与える。最初にチャンピオンに触れたときには、自身の<speed>移動速度が150%</speed>増加し、徐々に元に戻る。",
+   "cooldown": "130/110/90",
+   "cost": "100",
+   "range": "150",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

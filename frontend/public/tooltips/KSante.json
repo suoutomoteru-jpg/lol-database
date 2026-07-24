@@ -1,0 +1,56 @@
+{
+ "alias": "KSante",
+ "id": 897,
+ "name": "カ・サンテ",
+ "title": "ナズーマの誇り",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "不屈の本能",
+   "description": "攻撃スキルを敵に命中させると、その対象をマークする。マークした敵に通常攻撃を行うと、<physicalDamage>12 + 最大体力の2/3/4/5/6/7%にあたる物理ダメージ</physicalDamage>を与えて、マークを消費する。<br><br><keywordMajor>オールアウト</keywordMajor>: 通常攻撃、スキル、固有スキルが追加で最大体力の1%（＋増加物理防御の0.01% ＋増加魔法防御の0.01%）の物理ダメージを与える。<br><br><rules>ミニオンに対するダメージは最小15-100(チャンピオンレベルに応じて)。<br>モンスターに対するダメージは最大20-105(チャンピオンレベルに応じて)。</rules><br>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "破撃のエントーフォ",
+   "description": "武器を叩きつけて<physicalDamage>70/100/130/160/190（＋増加物理防御の40% ＋増加魔法防御の40%）の物理ダメージ</physicalDamage>を与え、0.5秒間、80%の<status>スロウ効果</status>を与える。敵に命中すると、6秒間「破撃のエントーフォ」のスタックを1獲得する。2スタックになると衝撃波を放つようになり、1秒間敵を<status>スタン</status>させて<status>引き寄せる</status>。<br><br><keywordMajor>オールアウト</keywordMajor>: クールダウンが33.333%短縮される。",
+   "cooldown": "3.5",
+   "cost": "20",
+   "range": "450",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "切り開く猛進",
+   "description": "40%-1秒間、武器を構えて防御態勢を取る。この間はアンストッパブル状態になって、受けるダメージが30%軽減される。その後、前方に突撃して<physicalDamage>45/75/105/135/165 + 最大体力の8%（＋増加物理防御の0.02% ＋増加魔法防御の0.02%）の物理ダメージ</physicalDamage>を与え、命中した敵を<status>ノックバック</status>し、50%-1.75秒間(チャージ時間に応じて)<status>スタン</status>させる。<br><br><keywordMajor>オールアウト:</keywordMajor> クールダウンが解消される。追加で10-80%の<trueDamage>確定ダメージ</trueDamage>(チャージ時間に応じて)を与え、ダメージ軽減効果が75%に増加し、ダッシュ速度が増加するが、<status>ノックバック</status>と<status>スタン</status>を与えなくなる。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "40/45/50/55/60",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "辰砂の足取り",
+   "description": "ダッシュして2秒間、<shield>耐久値70/112.5/155/197.5/240（＋増加体力の13.5%）のシールド</shield>を獲得する。味方までダッシュする場合はダッシュ距離が大幅に増加し、その味方も<shield>シールドを獲得</shield>する。<br><br><keywordMajor>オールアウト</keywordMajor>: クールダウンが50%短縮されて、ダッシュ速度が増加する。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "45/50/55/60/65",
+   "range": "525",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "オールアウト",
+   "description": "エントーフォを砕き、敵チャンピオン1体を<status>ノックバック</status>して<physicalDamage>80/115/150の物理ダメージ</physicalDamage>を与え、その後、対象の背後までダッシュして、15秒間、<keywordMajor>「オールアウト」</keywordMajor>状態になる。敵が壁にぶつかった場合は壁を越えて<status>ノックバック</status>し、自身はもう一度攻撃を行って<physicalDamage>80/115/150（＋増加体力の5%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>「オールアウト」</keywordMajor>中はスキルがアップグレードされて、<attackSpeed>攻撃速度が40/60/80%</attackSpeed>、増加物理防御貫通が50%、<omnivamp>オムニヴァンプが20%</omnivamp>増加するが、<healing>最大体力が35%</healing>、<scaleArmor>増加物理防御が85%</scaleArmor>、<scaleMR>増加魔法防御が85%</scaleMR>低下する。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "250",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

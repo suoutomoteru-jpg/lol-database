@@ -1,0 +1,58 @@
+{
+ "alias": "Vi",
+ "id": 254,
+ "name": "ヴァイ",
+ "title": "ピルトーヴァーの用心棒",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ケンカの作法",
+   "description": "発動効果スキルを敵または建造物に当てると、3秒間<shield>耐久値合計体力の12%のシールド</shield>を獲得する。<br><br><rules>このスキルには16〜7.5（レベル1〜18）秒間のクールダウンがあるが、<spellName>「メッタ打ち」</spellName>を発動させると、クールダウンが4秒短縮される。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "真っすぐいってぶっとばす",
+   "description": "<charge>チャージ開始:</charge> 強烈なパンチのチャージを開始して、自身は15%の<status>スロウ効果</status>を受ける。<br><br><release>解放:</release> 前方にダッシュして、命中したすべての敵にチャージ時間に応じて<physicalDamage>40/60/80/100/120（＋増加攻撃力の60%） - 100/150/200/250/300（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。また、命中した攻撃すべてが<spellName>「メッタ打ち」</spellName>の連続攻撃にカウントされる。敵チャンピオンに衝突するとその場で停止し、対象を<status>ノック</status><status>バック</status>させる。",
+   "cooldown": "12/10.5/9/7.5/6",
+   "cost": "50/60/70/80/90",
+   "range": "250",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "メッタ打ち",
+   "description": "<spellPassive>自動効果:</spellPassive> 同じ対象に通常攻撃が3回命中するたびに、<physicalDamage>最大体力の4/5/6/7/8%（＋増加攻撃力の3.5%）の物理ダメージ</physicalDamage>を追加で与え、4秒間、対象の<scaleArmor>物理防御を20%</scaleArmor>低下させて、自身の<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。さらに、<spellName>「ケンカの作法」</spellName>の残りクールダウンが4秒短縮される。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "無慈悲な連撃",
+   "description": "次の通常攻撃が対象とその背後の敵に<physicalDamage>10/30/50/70/90（＋合計攻撃力の110% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは2回までチャージできる(秒でリチャージ)。",
+   "cooldown": "1",
+   "cost": "26/32/38/44/50",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "AmmoRechargeTime"
+   ]
+  },
+  "r": {
+   "name": "突入捜査",
+   "description": "敵チャンピオン1体を選び出して可視化し、そこまで阻止不能状態でダッシュする。ダッシュ後、対象を1.3秒間<status>ノック</status><status>アップ</status>して、<physicalDamage>150/250/350（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与える。<br><br>当たった他の敵にもダメージを与え、横方向に弾き飛ばし、0.75秒間<status>スタン</status>させる。",
+   "cooldown": "140/115/90",
+   "cost": "100",
+   "range": "800",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

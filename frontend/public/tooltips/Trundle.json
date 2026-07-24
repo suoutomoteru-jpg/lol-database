@@ -1,0 +1,56 @@
+{
+ "alias": "Trundle",
+ "id": 48,
+ "name": "トランドル",
+ "title": "トロールキング",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "王への貢物",
+   "description": "自身の近くで敵が倒されると、<healing>その最大体力の1.8〜5.5%（レベル比例）にあたる体力</healing>を回復する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "咬み付き",
+   "description": "次の通常攻撃が<physicalDamage>10/30/50/70/90（＋合計攻撃力の115/125/135/145/155%）の物理ダメージ</physicalDamage>を与え、短時間75%の<status>スロウ効果</status>を付与する。その後5秒間、自身の<physicalDamage>攻撃力が20/25/30/35/40</physicalDamage>増加し、敵は同じ時間だけ<physicalDamage>攻撃力を10/12.5/15/17.5/20</physicalDamage>失う。",
+   "cooldown": "3.5",
+   "cost": "20",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "凍てつく大地",
+   "description": "8秒間、一定範囲を凍らせる。自身は範囲内にいる間、<speed>移動速度が20/28/36/44/52%</speed>、<attackSpeed>攻撃速度が30/45/60/75/90%</attackSpeed>、回復量が25%増加する。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "40",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "氷冷の柱",
+   "description": "6秒間持続する氷の柱を作り出し、その上にいた敵を少しだけ<status>ノックバック</status>する。また、周囲の敵に34/38/42/46/50%の<status>スロウ効果</status>を与える。",
+   "cooldown": "21/19.5/18/16.5/15",
+   "cost": "75",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "暴虐なる搾取",
+   "description": "5秒間かけて敵チャンピオンの生命力を吸収し、<magicDamage>最大体力の20/25/30%（＋魔力の0.02%）の魔法ダメージ</magicDamage>を与え、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御を40%</scaleMR>奪う。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

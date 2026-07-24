@@ -1,0 +1,56 @@
+{
+ "alias": "MasterYi",
+ "id": 11,
+ "name": "マスター・イー",
+ "title": "ウージューの剣客",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ダブルストライク",
+   "description": "4回毎の通常攻撃が、2回攻撃になる。2回目の攻撃は<physicalDamage>合計攻撃力の50%の物理ダメージ</physicalDamage>を与える。<br><br><rules>2度目の攻撃は普通の通常攻撃として扱われ、クリティカル判定があり、通常攻撃時効果を適用する。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "アルファストライク",
+   "description": "対象指定不可状態になってテレポートし、対象の近くの敵を素早く攻撃して、4回以上攻撃が命中したすべての敵に<physicalDamage>20/40/60/80/100（＋合計攻撃力の70%）の物理ダメージ</physicalDamage>を与える。<br><br>他の対象がいない場合は同じ敵を何度も攻撃して、2回目以降の攻撃では25%のダメージ(<physicalDamage>5/10/15/20/25（＋合計攻撃力の70%）</physicalDamage>)を与える。1体の対象には合計で最大<physicalDamage>35/70/105/140/175（＋合計攻撃力の70%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "20/19.5/19/18.5/18",
+   "cost": "50/55/60/65/70",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "明鏡止水",
+   "description": "詠唱し、4秒かけて<healing>120/200/280/360/440（＋魔力の100%）の体力</healing>を回復する。この回復量は自身の減少体力に応じて最大100%まで増加する。<br><br>詠唱中および詠唱後0.5秒間は、受けるダメージが70%軽減される。最初の0.5秒間が経過すると、ダメージ軽減割合が45/47.5/50/52.5/55%に低下する。",
+   "cooldown": "",
+   "cost": "40",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ウージュースタイル",
+   "description": "5秒間、通常攻撃が追加で<trueDamage>20/25/30/35/40（＋増加攻撃力の35%）の確定ダメージ</trueDamage>を与える。",
+   "cooldown": "14",
+   "cost": "",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ハイランダー",
+   "description": "<spellPassive>自動効果:</spellPassive> チャンピオンからキルまたはアシストを獲得すると、通常スキルの残りクールダウンが70%短縮される。<br><br><spellActive>発動効果:</spellActive> トランス状態になり、7秒間、<speed>移動速度が35/45/55%</speed>、<attackSpeed>攻撃速度が25/45/65%</attackSpeed>増加して、すべての<status>スロウ効果</status>を受けなくなる。チャンピオンからキルまたはアシストを獲得すると、このスキルの効果時間が7秒延長される。",
+   "cooldown": "85",
+   "cost": "100",
+   "range": "1",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "RekSai",
+ "id": 421,
+ "name": "レク＝サイ",
+ "title": "地底の恐怖",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ゼル＝サイの怒り",
+   "description": "通常攻撃または通常スキルを当てると「フューリー」がたまる。地中潜伏中に「フューリー」を消費して自身の体力を回復する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "女王の怒り/獲物定め",
+   "description": "<keywordMajor>地上出現中:</keywordMajor> 3秒間、次の3回までの通常攻撃は<attackSpeed>攻撃速度が35%</attackSpeed>増加し、周囲にいる敵に<physicalDamage>合計攻撃力の30/35/40/45/50%の物理ダメージ</physicalDamage>を追加で与える。このスキルの効果時間は、攻撃によってリフレッシュされる。<br><br><keywordMajor>地中潜伏中:</keywordMajor> 指定方向にヴォイドのエネルギーを帯びた土を発射し、最初に命中した敵の周囲に小さな爆発を巻き起こして範囲内の敵に<magicDamage>50/80/110/140/170/200（＋増加攻撃力の25% ＋魔力の70%）の魔法ダメージ</magicDamage>を与える。このスキルが命中した敵ユニットは、ステルス状態の敵を除いて5秒間可視化される。チャンピオンに命中した場合には、<keywordMajor>フューリーが25</keywordMajor>たまる。",
+   "cooldown": "4/3.5/3/2.5/2",
+   "cost": "",
+   "range": "325",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "w": {
+   "name": "潜伏/襲撃",
+   "description": "<keywordMajor>地上出現中:</keywordMajor> 地中に潜って専用スキルが使用可能になるが、通常攻撃ができなくなる。また、自身の視界が65%狭まる代わりに<speed>移動速度が5/10/15/20/25</speed>増加し、視界外にいる周囲の移動する敵の位置が自身を含む味方にわかるようになる。<br><br><keywordMajor>地中潜伏中:</keywordMajor> 地上に飛び出し、周囲のすべての敵に<magicDamage>30/55/80/105/130/155（＋魔力の80%）の魔法ダメージ</magicDamage>を与えて、メイン対象と周囲のチャンピオン、周囲の大型モンスターを1秒間<status>ノックアップ</status>させる。<status>ノックアップ</status>は、同じ敵に対しては10/9/8/7/6/5秒ごとに一度しか発動しない。",
+   "cooldown": "4",
+   "cost": "",
+   "range": "1650",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "e": {
+   "name": "激情の牙/掘削",
+   "description": "<keywordMajor>地上出現中:</keywordMajor> 指定した対象に噛み付き、<physicalDamage>70/95/120/145/170/195（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<keywordMajor>フューリー</keywordMajor>が最大の場合は、代わりに<trueDamage>84/114/144/174/204/234（＋増加攻撃力の60%）の確定ダメージ</trueDamage>を与える。<br><br><keywordMajor>地中潜伏中:</keywordMajor> トンネルを掘りながら前方に進み、2カ所の開口部をつなぐ。開口部は10分間持続する。開口部をクリックすると、トンネル内を移動して反対側の開口部から出ることができる。使用したトンネルは6/5/4/3/2/1秒間のクールダウンに入る。トンネルは同時に8カ所まで設置可能。",
+   "cooldown": "6",
+   "cost": "",
+   "range": "250",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ヴォイドラッシュ",
+   "description": "5秒前までに自身がダメージを与えた敵1体に狙いを定め、地中に潜って対象指定不可状態になる。その後、少ししてから対象に向かって阻止不能状態でリープし、<physicalDamage>150/250/350（＋増加攻撃力の100%）に最大体力の15/20/25%を加えた物理ダメージ</physicalDamage>を与え、<keywordMajor>「潜伏/襲撃」</keywordMajor>のクールダウンが解消される。",
+   "cooldown": "120/100/80",
+   "cost": "",
+   "range": "1500",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

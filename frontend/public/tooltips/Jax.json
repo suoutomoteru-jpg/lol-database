@@ -1,0 +1,56 @@
+{
+ "alias": "Jax",
+ "id": 24,
+ "name": "ジャックス",
+ "title": "最強の武器使い",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "アサルトアタック",
+   "description": "通常攻撃で2.5秒間スタックを獲得し、<attackSpeed>攻撃速度が5/6.5/8/9.5/11/12.5%（レベル1/4/7/10/13/16）</attackSpeed>増加する(最大で<attackSpeed>攻撃速度5/6.5/8/9.5/11/12.5%（レベル1/4/7/10/13/16）×8</attackSpeed>)。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "リープストライク",
+   "description": "味方か敵のユニットまたはワードまで跳躍して、対象が敵の場合は<physicalDamage>65/105/145/185/225（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "65",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "パワーバッシュ",
+   "description": "武器に力を送り込み、次の通常攻撃または<spellName>「リープストライク」</spellName>が<magicDamage>50/85/120/155/190（＋魔力の60%）の魔法ダメージ</magicDamage>を追加で与える。",
+   "cooldown": "7/6/5/4/3",
+   "cost": "30",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "カウンターストライク",
+   "description": "最大2秒間、防御態勢を取って通常攻撃を回避し、範囲攻撃スキルから受けるダメージを25%軽減する。2秒経つか<recast>再発動</recast>すると、周囲の敵に<magicDamage>40/70/100/130/160（＋魔力の70%） + 最大体力の4%の魔法ダメージ</magicDamage>を与え、1秒間<status>スタン</status>させる。<br><br>このダメージは通常攻撃を回避するたびに20%、最大<magicDamage>80/140/200/260/320（＋魔力の70%） + 最大体力の8%</magicDamage>まで増加する。",
+   "cooldown": "17/15/13/11/9",
+   "cost": "50/60/70/80/90",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ウェポングランドマスター",
+   "description": "<spellPassive>自動効果:</spellPassive> 2.5秒以内に通常攻撃を3回行うたびに、<magicDamage>75/130/185（＋魔力の60%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 街灯を叩きつけて、周囲の敵に<magicDamage>100/175/250（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。チャンピオン1体に命中した場合は8秒間、<scaleArmor>物理防御が45/60/75（＋増加攻撃力の40%）</scaleArmor>、<scaleMR>魔法防御が27/36/45（＋増加攻撃力の40%）</scaleMR>増加する。命中したチャンピオンが1体増えるごとに、追加で<scaleArmor>物理防御が20/25/30（＋増加攻撃力の10%）</scaleArmor>、<scaleMR>魔法防御が12/15/18（＋増加攻撃力の10%）</scaleMR>増加する。この効果時間中は、通常攻撃3回ごとではなく、2回ごとに<magicDamage>魔法ダメージ</magicDamage>を追加で与える。",
+   "cooldown": "110/100/90",
+   "cost": "100",
+   "range": "260",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "Orianna",
+ "id": 61,
+ "name": "オリアナ",
+ "title": "時計仕掛けの舞姫",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ぜんまい仕掛け",
+   "description": "オリアナのスキルは<keywordMajor>ボール</keywordMajor>の位置から発生する。<keywordMajor>ボール</keywordMajor>はオリアナから離れすぎると自動的に戻ってくる。<br><br>オリアナの通常攻撃は追加で<magicDamage>10〜50（レベル比例） ＋ 魔力の15%の魔法ダメージ</magicDamage>を与える。4秒以内に同じ対象を連続で攻撃すると、追加で<magicDamage>10〜50（レベル比例） ＋ 魔力の15%×0.15の魔法ダメージ</magicDamage>(最大<magicDamage>10〜50（レベル比例） ＋ 魔力の15%×0.3ダメージ</magicDamage>)を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "オーダー: 攻撃",
+   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が指定地点に移動し、周囲の敵と移動時に触れた敵に<magicDamage>60/90/120/150/180（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。2体目以降の敵に与えるダメージは30%低下する。",
+   "cooldown": "7/6/5/4/3",
+   "cost": "35",
+   "range": "815",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "オーダー: 乱磁場",
+   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が電磁波を放ち、周囲の敵に<magicDamage>70/110/150/190/230（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><br>その後、発動地点に3秒間力場が残され、範囲内の敵に20/25/30/35/40%の<status>スロウ効果</status>を付与し、味方の<speed>移動速度を20/25/30/35/40%</speed>増加させる。これらの効果は2秒かけて元に戻る。",
+   "cooldown": "7",
+   "cost": "60/65/70/75/80",
+   "range": "225",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "オーダー: 防御",
+   "description": "<spellPassive>自動効果:</spellPassive> <keywordMajor>ボール</keywordMajor>が警護している味方チャンピオンに<scaleArmor>6/12/18/24/30の物理防御</scaleArmor>と<scaleMR>6/12/18/24/30の魔法防御</scaleMR>を付与する。<br><br><spellActive>発動効果:</spellActive> オリアナが<keywordMajor>ボール</keywordMajor>に味方チャンピオンの警護を命じ、<shield>耐久値55/90/125/160/195（＋魔力の45%）のシールド</shield>を2.5秒間付与する。<keywordMajor>ボール</keywordMajor>が移動中に当たった敵は<magicDamage>60/90/120/150/180（＋魔力の30%）の魔法ダメージ</magicDamage>を受ける。",
+   "cooldown": "9",
+   "cost": "60",
+   "range": "1095",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "オーダー: ショックウェーブ",
+   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が衝撃波を放ち、周囲の敵に<magicDamage>225/350/475（＋魔力の110%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>ボール</keywordMajor>のほうへ<status>引き寄せる</status>。",
+   "cooldown": "110/95/80",
+   "cost": "100",
+   "range": "410",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

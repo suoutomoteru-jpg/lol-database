@@ -1,0 +1,56 @@
+{
+ "alias": "Aatrox",
+ "id": 266,
+ "name": "エイトロックス",
+ "title": "ダーキンの暴剣",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "死兆の構え",
+   "description": "通常攻撃が<magicDamage>最大体力の4〜10%（レベル比例）の魔法ダメージ</magicDamage>を追加で与え、<healing>与えたダメージの100%にあたる体力</healing>を回復する。ミニオンに対しては効果が25%に低下する。この効果には22〜10（レベル比例）秒のクールダウンがある。<br><br>チャンピオンおよび大型ジャングルモンスターを通常攻撃またはスキルで攻撃すると、この効果のクールダウンが2秒短縮される。<spellName>「ダーキンブレード」</spellName>の剣先で攻撃した場合は4秒短縮される。<br><br><rules>モンスターに与えるダメージは100〜320（レベル比例）が上限。<br>複数に命中するスキルでもクールダウンは1回しか短縮されない。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダーキンブレード",
+   "description": "大剣を叩きつけて<physicalDamage>10/25/40/55/70（＋合計攻撃力の60/67.5/75/82.5/90%）の物理ダメージ</physicalDamage>を与える。剣先が当たった場合は対象を少しの間<status>ノックアップ</status>させて、代わりに<physicalDamage>17.5/43.75/70/96.25/122.5（＋合計攻撃力の60/67.5/75/82.5/90%）</physicalDamage>のダメージを与える。このスキルは2回<recast>再発動</recast>可能で、発動するごとに効果範囲が変わり、ダメージも25%増加する。",
+   "cooldown": "14/12/10/8/6",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "炎獄の鎖",
+   "description": "鎖を放ち、最初に命中した敵に1.5秒間25/27.5/30/32.5/35%の<status>スロウ効果</status>を与え、<physicalDamage>30/40/50/60/70（＋合計攻撃力の40%）の物理ダメージ</physicalDamage>を与える。チャンピオンと大型ジャングルモンスターは、命中時に発生したエリアから1.5秒以内に出なければ、中心に向かって<status>引き寄せられ</status>、再び同量のダメージを受ける。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "",
+   "range": "825",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "影進撃",
+   "description": "<spellPassive>自動効果:</spellPassive> 敵チャンピオンに与えたダメージの<lifeSteal>16%（＋増加体力の1.1%）</lifeSteal>にあたる体力を回復する。<br><br><spellActive>発動効果:</spellActive> ダッシュする。このスキルは他のスキルの発動中にも使用できる。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ワールドエンダー",
+   "description": "悪魔としての真の姿をさらし、3秒間周囲のミニオンに<status>フィアー効果</status>を与えて、<speed>移動速度が60/80/100%</speed>増加する(10秒かけて元に戻る)。また、この効果時間中は<scaleAD>攻撃力が20/30/40%</scaleAD>、<healing>自己回復量が50/75/100%</healing>増加する。<br><br>チャンピオンからキルまたはアシストを奪うと効果時間が5秒延長されて、<speed>移動速度</speed>の増加効果が更新される。",
+   "cooldown": "120/100/80",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

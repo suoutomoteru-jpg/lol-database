@@ -117,6 +117,11 @@ export function championImageUrl(version: string, championId: string): string {
   return `${BASE_URL}/cdn/${version}/img/champion/${championId}.png`;
 }
 
+// スプラッシュアート（バージョン非依存パス）
+export function championSplashUrl(championId: string): string {
+  return `${BASE_URL}/cdn/img/champion/splash/${championId}_0.jpg`;
+}
+
 // fileName は item.image.full の値（例: "3031.png"）
 export function itemImageUrl(version: string, fileName: string): string {
   return `${BASE_URL}/cdn/${version}/img/item/${fileName}`;
@@ -188,6 +193,20 @@ export async function fetchAllItemsRaw(version: string): Promise<Record<string, 
 
 // ── アイテム一覧 ────────────────────────────────────────
 
+/**
+ * 正規アイテムIDかどうか（6桁IDはモード限定バリアントなので除外）
+ *
+ * Riot はクイックプレイ/Arena/特殊キュー用のアイテム変種を
+ * 22xxxx / 32xxxx / 44xxxx / 66xxxx のような6桁IDで配信しており、
+ * SRマップ上で動くモードのものは maps["11"]=true が立つため
+ * maps だけでは通常ドラフトのアイテムと区別できない
+ * （例: ゼファー=663172, ギャンブラーの剣=667101）。
+ * 正規のSR/ARAMアイテムはすべて5桁以下のID。
+ */
+function isCanonicalItemId(id: string): boolean {
+  return parseInt(id, 10) < 100000;
+}
+
 function deduplicateByName(entries: [string, DDragonItem][]): [string, DDragonItem][] {
   const nameMap = new Map<string, [string, DDragonItem]>();
   for (const entry of entries) {
@@ -208,12 +227,13 @@ function deduplicateByName(entries: [string, DDragonItem][]): [string, DDragonIt
  * Riot が map11 に誤タグしたARAM系アイテムと判断して 'aram' を付与する。
  */
 export async function fetchItemList(version: string): Promise<[string, DDragonItem, 'aram'?][]> {
-  const key = dataKey(version, 'items-v2');
+  const key = dataKey(version, 'items-v3');
   const cached = readCache<[string, DDragonItem, 'aram'?][]>(key);
   if (cached) return cached;
 
   const allItems = await fetchAllItemsRaw(version);
-  const filtered = Object.entries(allItems).filter(([, item]) =>
+  const filtered = Object.entries(allItems).filter(([id, item]) =>
+    isCanonicalItemId(id) &&
     item.gold.purchasable &&
     item.gold.total >= 2000 &&
     item.maps?.['11'] === true &&
@@ -236,12 +256,13 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
  * 条件: 購入可能 & ハウリングアビス対応(map12) & SRには非対応(map11≠true) & 合計コスト2000G以上
  */
 export async function fetchItemListAram(version: string): Promise<[string, DDragonItem][]> {
-  const key = dataKey(version, 'items-aram');
+  const key = dataKey(version, 'items-aram-v2');
   const cached = readCache<[string, DDragonItem][]>(key);
   if (cached) return cached;
 
   const allItems = await fetchAllItemsRaw(version);
-  const filtered = Object.entries(allItems).filter(([, item]) =>
+  const filtered = Object.entries(allItems).filter(([id, item]) =>
+    isCanonicalItemId(id) &&
     item.gold.purchasable &&
     item.gold.total >= 2000 &&
     item.maps?.['12'] === true &&
@@ -277,12 +298,13 @@ export async function fetchItemEnNames(version: string): Promise<Record<string, 
 // ── アイテム一覧（700G以上）──────────────────────────────
 
 export async function fetchItemListMedium(version: string): Promise<[string, DDragonItem][]> {
-  const key = dataKey(version, 'items-medium');
+  const key = dataKey(version, 'items-medium-v2');
   const cached = readCache<[string, DDragonItem][]>(key);
   if (cached) return cached;
 
   const allItems = await fetchAllItemsRaw(version);
-  const filtered = Object.entries(allItems).filter(([, item]) =>
+  const filtered = Object.entries(allItems).filter(([id, item]) =>
+    isCanonicalItemId(id) &&
     item.gold.purchasable &&
     item.gold.total >= 700 &&
     item.maps?.['11'] === true &&

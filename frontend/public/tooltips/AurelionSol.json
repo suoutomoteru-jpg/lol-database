@@ -1,0 +1,60 @@
+{
+ "alias": "AurelionSol",
+ "id": 136,
+ "name": "オレリオン・ソル",
+ "title": "星を創りし者",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "宇宙の創造者",
+   "description": "攻撃スキルを敵に命中させると、<font color='#3458eb'>「星屑」</font>のスタックを獲得できる。このスタックは各スキルを恒久的に強化する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "星炎の息吹",
+   "description": "星炎を最大3.25/3.25/3.25/3.25/9999秒間吹き出して、最初に命中した敵に毎秒<magicDamage>45/60/75/90/105（＋魔力の55%）の魔法ダメージ</magicDamage>を与え、周囲の敵にはその50%のダメージを与える。<br><br>同じ敵に星炎を当て続けると、1秒ごとに爆発を引き起こして<magicDamage>60/70/80/90/100（＋魔力の30%）の魔法ダメージ</magicDamage> + <magicDamage>最大体力のにあたる魔法ダメージ</magicDamage>を与え、さらに対象がチャンピオンだった場合は<font color='#3458eb'>「星屑」を2個</font>獲得する。",
+   "cooldown": "3",
+   "cost": "35/40/45/50/55",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "BurstBonusTrueDamageToChamps"
+   ]
+  },
+  "w": {
+   "name": "天空への飛翔",
+   "description": "指定方向に飛翔する。飛翔中は<spellName>「星炎の息吹」</spellName>のクールダウンと最大詠唱時間がなくなり、基本ダメージが8/9/10/11/12%増加する。<br><br>自身がダメージを与えたチャンピオンから3秒以内にキルまたはアシストを獲得すると、このスキルのクールダウンが90%短縮される。<br><br><recast>再発動:</recast> 飛翔を早めに終了する。",
+   "cooldown": "22/20.5/19/17.5/16",
+   "cost": "50/55/60/65/70",
+   "range": "1500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "特異点",
+   "description": "ブラックホールを召喚して5秒間、敵に毎秒<magicDamage>10/15/20/25/30（＋魔力の12%）の魔法ダメージ</magicDamage>を与え、その中心に向かって<status>引き付ける</status>。中心部にいる敵は体力が<scaleHealth>最大体力の%</scaleHealth>を下回っていると、即座に倒される。<br><br>ブラックホールの範囲内で敵が倒されるたびに<font color='#3458eb'>「星屑」</font>を獲得する。また、範囲内に敵チャンピオンを捕らえている間も、毎秒<font color='#3458eb'>「星屑」</font>を獲得する。",
+   "cooldown": "12",
+   "cost": "90",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "CurrentExecutionThreshold"
+   ]
+  },
+  "r": {
+   "name": "星の邂逅/崩れ落つ天穹",
+   "description": "天空から星をひとつ引き寄せ、地上に衝突させて<magicDamage>150/250/350（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、敵を1秒間<status>スタン</status>させる。また、命中したチャンピオン1体ごとに<font color='#3458eb'>「星屑」を5個</font>獲得する。<br><br><font color='#3458eb'>「星屑」を75個</font>集めると、次に使用する<spellName>「星の邂逅」</spellName>が<spellName>「崩れ落つ天穹」</spellName>に変化する。<br><br><spellName>崩れ落つ天穹</spellName>: 宇宙から激しい星の怒りを降らせて、広範囲に<magicDamage>187.5/312.5/437.5（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、命中した敵を1秒間<status>ノックアップ</status>させる。さらに、巨大な衝撃波を発生させて、チャンピオンとエピックモンスターに<magicDamage>135/225/315（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、命中したすべての敵に1秒間50%の<status>スロウ効果</status>を与える。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "1250",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 2
+}

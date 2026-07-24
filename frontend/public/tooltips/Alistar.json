@@ -1,0 +1,56 @@
+{
+ "alias": "Alistar",
+ "id": 12,
+ "name": "アリスター",
+ "title": "ミノタウロスの戦士",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "戦士の咆哮",
+   "description": "敵チャンピオンを<status>スタン</status>させるか<status>ノックバック</status>または<status>ノックアップ</status>させる、もしくは敵が倒されるたびにスタックを獲得する。7スタックになると咆哮をあげ、自身の<healing>体力を合計体力の5%</healing>回復して、周囲の味方チャンピオンの<healing>体力を合計体力の5%×1.4</healing>回復する。<br><br>敵チャンピオンかエピックジャングルモンスターが倒されると、このスキルが最大までチャージされる。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "圧砕",
+   "description": "地面を叩きつけ、敵を1秒間<status>ノックアップ</status>させ、<magicDamage>60/100/140/180/220（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50/55/60/65/70",
+   "range": "365",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "頭突き",
+   "description": "敵に頭突きして<status>ノック</status><status>バック</status>させ、<magicDamage>55/110/165/220/275（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50/55/60/65/70",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "踏破",
+   "description": "地面を踏み鳴らしゴースト状態になって、5秒かけて周囲の敵に<magicDamage>80/110/140/170/200（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。衝撃波がチャンピオンにダメージを与えるたびにスタックを獲得する。<br><br>5スタック到達時、次のチャンピオンに対する通常攻撃は1秒間<status>スタン</status>させ、追加で<magicDamage>20〜275（レベル1〜18）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "50/55/60/65/70",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "不屈の意志",
+   "description": "あらゆる<status>行動妨害効果</status>を直ちに除去し、7秒間受けるダメージを55/65/75%軽減する。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "1",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

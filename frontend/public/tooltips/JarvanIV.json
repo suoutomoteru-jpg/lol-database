@@ -1,0 +1,56 @@
+{
+ "alias": "JarvanIV",
+ "id": 59,
+ "name": "ジャーヴァンⅣ",
+ "title": "デマーシアの儀範",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "武魂の律動",
+   "description": "通常攻撃が<physicalDamage>現在体力の8%の物理ダメージ</physicalDamage>を追加で与える。この効果には対象ごとに6/5/4/3（レベル1/6/11/16）秒間のクールダウンがある。<br><br><rules>チャンピオン以外には最低20、最大400のダメージを与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ドラゴンストライク",
+   "description": "槍を伸ばして<physicalDamage>90/130/170/210/250（＋増加攻撃力の145%）の物理ダメージ</physicalDamage>を与え、3秒間、<scaleArmor>物理防御を10/14/18/22/26%</scaleArmor>低下させる。<br><br>槍が<spellName>「デマーシアの旗印」</spellName>に当たると自身をそこまで引き寄せ、通り道にいた敵を0.75秒間<status>ノックアップ</status>する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "45/50/55/60/65",
+   "range": "770",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ゴールデンイージス",
+   "description": "王国の神聖な力を得て、周囲の敵に2秒間15/20/25/30/35%の<status>スロウ効果</status>を与え、自身は<shield>耐久値60/80/100/120/140（＋増加攻撃力の70%）のシールド</shield>を獲得する。このシールドは命中した敵チャンピオン1体につき、耐久値が<shield>合計体力の1.3%</shield>増加する。",
+   "cooldown": "9",
+   "cost": "30",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "デマーシアの旗印",
+   "description": "<spellPassive>自動効果:</spellPassive> <attackSpeed>攻撃速度が20/22.5/25/27.5/30%</attackSpeed>増加する。<br><br><spellActive>発動効果:</spellActive> 軍旗を投げて地面に突き刺し、<magicDamage>80/120/160/200/240（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。また8秒間、旗の周囲にいる味方の<attackSpeed>攻撃速度を20/22.5/25/27.5/30%</attackSpeed>増加させる。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "55",
+   "range": "860",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "決戦場",
+   "description": "敵チャンピオンに向かって雄々しく跳躍し、対象および周囲の敵に<physicalDamage>200/325/450（＋増加攻撃力の180%）の物理ダメージ</physicalDamage>を与え、3.5秒間、周囲を通過不能な障壁で囲い込む。<br><br>障壁は<recast>再発動</recast>すると消滅する。",
+   "cooldown": "120/105/90",
+   "cost": "100",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

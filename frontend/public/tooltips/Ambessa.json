@@ -1,0 +1,58 @@
+{
+ "alias": "Ambessa",
+ "id": 799,
+ "name": "アンベッサ",
+ "title": "戦乱の母",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ドレイクハウンドの猛攻",
+   "description": "スキル発動時に通常攻撃か移動操作をすると、スキル使用後にその方向にダッシュする。<br><br>スキルの詠唱を開始するごとに、4秒のチャージを付与する(最大3)。チャージ中、<attention>射程距離が75 </attention>、<attackSpeed>攻撃速度が50% </attackSpeed>増加する。通常攻撃はチャージを1つ消費して<physicalDamage>5〜30（レベル比例） ＋ 増加攻撃力の25%の物理ダメージ</physicalDamage>を与え、<keywordMajor>40/55/70（レベル1/7/13）の気</keywordMajor>を回復する。<br><br><rules>詠唱時間、スキルの効果時間、または攻撃中に発された指示は保存される。スキルまたは攻撃が終了すると、一番最近保存された指示が実行される。チャージ攻撃の予備動作はキャンセルできない。スキル詠唱中に攻撃指示を発した後に停止指示を発すると、ダッシュがキャンセルされるが、ターゲットが射程範囲内にいる場合は攻撃指示は維持される。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "カニングスイープ/サンダリングスラム",
+   "description": "<spellActive>カニングスイープ</spellActive>: 両手の武器を自身の前方に向かって振り回し、範囲の最端部にいる敵に<physicalDamage>40/60/80/100/120（＋増加攻撃力の60%） + 最大体力の4/4.5/5/5.5/6%の物理ダメージ</physicalDamage>を与える。その他の敵はすべて50%のダメージを受ける。その後「<spellActive>サンダリングスラム</spellActive>」を構える。<br><br><spellActive>サンダリングスラム</spellActive>: 敵に刃を叩きつけ、最初に当たった敵に<physicalDamage>50/75/100/125/150（＋増加攻撃力の90%） + 最大体力の4/4.5/5/5.5/6%の物理ダメージ</physicalDamage>を与える。その他の敵はすべて50%のダメージを受ける。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "70",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "断交",
+   "description": "1.5秒間<shield>50〜320（レベル比例） ＋ 増加攻撃力の150%のシールド</shield>を獲得し、0.5秒間構える。その後地面を叩きつけ、周囲の敵に<physicalDamage>50/75/100/125/150（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与える。敵チャンピオン、大型モンスター、建造物からのダメージをブロックしていた場合、周囲の敵への<physicalDamage>物理ダメージは75/112.5/150/187.5/225（＋増加攻撃力の50%）</physicalDamage>に増加する。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "70",
+   "range": "325",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ラセレイト",
+   "description": "周囲に鎖を振り回し、<physicalDamage>40/60/80/100/120（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、<status>99%</status>の<status>スロウ効果</status>を与える(1秒かけて徐々に戻る)。このスキルから<spellName> 「 ドレイクハウンドの猛攻 」 </spellName>を発動すると、もう一度攻撃する。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "70",
+   "range": "325",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "公開処刑",
+   "description": "<spellPassive>自動効果</spellPassive>: <armorPen>10/20/30%の 物理防御貫通</armorPen>を獲得し、スキルで<healing>自身が与えたダメージのを回復</healing>する。<br><br><spellActive>発動効果</spellActive>: <attention>アンストッパブル</attention>状態となり、直線上の最も遠い敵チャンピオンにブリンクし、対象に0.75秒間<status>サプレッション効果</status>を与え、地面に叩きつけて<physicalDamage>150/250/350（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>と0.4秒間の<status>スタン効果</status>を与える。",
+   "cooldown": "130/115/100",
+   "cost": "",
+   "range": "1250",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "Calc_Omnivamp"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

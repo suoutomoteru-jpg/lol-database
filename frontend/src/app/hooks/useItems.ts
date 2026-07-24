@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchItemList, fetchItemListAram, itemImageUrl } from '../api/dataDragon';
 import { mapItemType } from '../utils/itemType';
-import type { Item } from '../data/mock-data';
+import type { Item } from '../types/app';
 import type { DDragonItem } from '../types/ddragon';
 
 // Priority-ordered (user-specified order + Crit/AS added)
@@ -35,6 +35,12 @@ const STAT_TAG_MAP: TagEntry[] = [
   // lethality (flat armor pen)
   { key: 'FlatArmorPenetrationMod',    abbr: 'Lethal' },
   { key: '脅威',                       abbr: 'Lethal', isDesc: true },
+  // lifesteal — stat-based first, then description fallback
+  { key: 'PercentLifeStealMod',        abbr: 'LS' },
+  { key: 'ライフスティール',           abbr: 'LS', isDesc: true },
+  // heal & shield power
+  { key: 'PercentHealAndShieldPower',  abbr: 'HSP' },
+  { key: 'ヒール[&＆]シールドパワー',  abbr: 'HSP', isDesc: true },
 ];
 
 function computeStatTags(
@@ -83,7 +89,7 @@ export function useItems(): UseItemsResult {
         const makeItem = (id: string, item: DDragonItem, mapMode?: 'aram'): Item => ({
           id,
           name: item.name,
-          type: mapItemType(item.tags),
+          type: mapItemType(item.tags, item.description.replace(/<[^>]+>/g, '')),
           icon: itemImageUrl(v, item.image.full),
           statTags: computeStatTags(item.stats, item.tags, item.description),
           ...(mapMode ? { mapMode } : {}),

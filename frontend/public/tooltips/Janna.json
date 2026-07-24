@@ -1,0 +1,56 @@
+{
+ "alias": "Janna",
+ "id": 40,
+ "name": "ジャンナ",
+ "title": "嵐の怒り",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "テイルウィンド",
+   "description": "ジャンナに向かって移動する際、味方チャンピオンは<speed>移動速度が6%</speed>増加する。<br><br> <OnHit>通常攻撃時効果</OnHit>および<keywordMajor>「ゼファー」</keywordMajor>で、<magicDamage>10/15/20/25/30の追加魔法ダメージ</magicDamage>を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ハウリングゲイル",
+   "description": "竜巻を召喚する。竜巻は3秒かけて成長し、その後進路上にいる敵に<magicDamage>55/90/125/160/195（＋魔力の50%） - 55/90/125/160/195（＋魔力の50% ＋3×10/15/20/25/30（＋魔力の10%））の魔法ダメージ</magicDamage>を与えて、50% - 1.25秒間<status>ノックアップ</status>させる。移動距離、ダメージ、<status>ノックアップ</status>時間は竜巻の成長に応じて増加する。<recast>再発動</recast>すると、即座に竜巻を送り出せる。",
+   "cooldown": "14",
+   "cost": "90/95/100/105/110",
+   "range": "1075",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ゼファー",
+   "description": "<spellPassive>自動効果:</spellPassive> <speed>移動速度が6/7/8/9/10%（＋魔力の0.02%）</speed>増加し、ゴースト化する。<br><br><spellActive>発動効果:</spellActive> エレメントの力で敵を攻撃して2秒間20/24/28/32/36%（＋魔力の6%）の<status>スロウ効果</status>を付与し、<magicDamage>55/85/115/145/175（＋魔力の50%） + 10/15/20/25/30の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "50/55/60/65/70",
+   "range": "-1",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ストームブレス",
+   "description": "味方のチャンピオンまたはタワーに4秒間、<shield>耐久値80/120/160/200/240（＋魔力の55%）のシールド</shield>を付与する。シールド展開中の対象は<scaleAD>攻撃力が10/15/20/25/30（＋魔力の10%）</scaleAD>増加する。<br><br>敵チャンピオンにスキルで移動妨害効果を与えるたびにクールダウンが20%短縮される。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "70/75/80/85/90",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "モンスーン",
+   "description": "魔法の嵐を召喚して、周囲の敵を<status>ノックバック</status>させ、3秒かけて周囲の味方の<healing>体力を300/450/600（＋魔力の50%）</healing>回復する。移動するかスキルを使用すると嵐が早めに終了する。",
+   "cooldown": "130/115/100",
+   "cost": "100",
+   "range": "725",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

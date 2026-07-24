@@ -1,0 +1,58 @@
+{
+ "alias": "Pantheon",
+ "id": 80,
+ "name": "パンテオン",
+ "title": "砕けぬ槍",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "定命の意志",
+   "description": "スキルか通常攻撃を5回行うと、次の通常スキルが強化される。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "彗星の槍",
+   "description": "<font color='#FF8C00'>短く押す(タップ):</font> 槍を突き出し、命中した敵に<physicalDamage>70/100/130/160/190（＋増加攻撃力の115%）の物理ダメージ</physicalDamage>を与える。このスキルのクールダウンが60%短縮される。<br><br><font color='#FF8C00'>長く押す(ホールド):</font> 槍を投げ、最初に命中した敵に<physicalDamage>70/100/130/160/190（＋増加攻撃力の115% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。それ以降の敵に与えるダメージは50%減少する。<br><br>対象の体力が20%未満の場合、このスキルは強化され<physicalDamage>155/230/305/380/455（＋増加攻撃力の230%）の物理ダメージ</physicalDamage>を与える。<br><br><font color='#EDDA74'>「定命の意志」による強化効果:</font> 追加で<physicalDamage>20〜240（レベル比例） ＋ 増加攻撃力の115%の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "11/10.25/9.5/8.75/8",
+   "cost": "25",
+   "range": "575",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "跳撃の盾",
+   "description": "対象に向かって跳躍し、1秒間<status>スタン</status>させて<physicalDamage>6/6.5/7/7.5/8%（＋魔力の0.015%）の最大体力に応じた物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>「定命の意志」による強化効果:</keywordMajor> 次の通常攻撃が3回攻撃になり、合計<physicalDamage>の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "55",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "EmpoweredDamageMultCalcModified"
+   ]
+  },
+  "e": {
+   "name": "イージスの猛攻",
+   "description": "盾を構え、1.5秒間にわたり指定方向の敵を攻撃する。効果時間中はその方向からのタワー以外のダメージを無効化し、継続的に<physicalDamage>合計攻撃力の100%の物理ダメージ</physicalDamage>を与える。詠唱終了後に盾で一撃を放ち、<physicalDamage>55/105/155/205/255（＋増加攻撃力の150%）の物理ダメージ</physicalDamage>を与える。<br><br><font color='#EDDA74'>「定命の意志」による強化効果:</font> 盾での一撃を放つと4秒間、<scaleArmor>物理防御5〜30（レベル比例） ＋ 増加体力の2.5%</scaleArmor>と<scaleMR>魔法防御5〜30（レベル比例） ＋ 増加体力の2.5%</scaleMR>が増加し、1.5秒間、<speed>移動速度が60%</speed>増加する。<br>",
+   "cooldown": "22/21/20/19/18",
+   "cost": "80",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "偉大なる星路",
+   "description": "<spellPassive>自動効果:</spellPassive> 物理防御貫通が10/20/30%増加する。<br><br><spellActive>発動効果:</spellActive> 力を溜めてから大きく跳びあがる。その後、上空から槍を投げて、狭い範囲に<physicalDamage>70/100/130/160/190/220（＋増加攻撃力の115% ＋魔力の50%）の物理ダメージ</physicalDamage>を与え、2秒間、50%の<status>スロウ効果</status>を与える。<br><br>さらにその後、流星となって指定地点に上空から突撃する。直線上にいる敵に最大<magicDamage>300/500/700（＋魔力の100%）の魔法ダメージ</magicDamage>を与える(ダメージは落下地点から離れるほど減少し、最大50%低下する)。<br><br>このスキルを発動後は、<font color='#EDDA74'>「定命の意志」</font>が即座に使用可能になる。",
+   "cooldown": "180/165/150",
+   "cost": "100",
+   "range": "5500",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "KogMaw",
+ "id": 96,
+ "name": "コグ＝マウ",
+ "title": "深淵のアギト",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "イカシアの自爆",
+   "description": "コグ＝マウは死亡後4秒間は移動し、ユニットの間を動くことができる。さらに<speed>移動速度が10%</speed>上がり、効果時間中<speed>移動速度50%</speed>まで上昇する。効果時間の最後に、爆発して周囲の敵に<trueDamage>140〜650（レベル比例）の確定ダメージ</trueDamage>を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "腐食粘液",
+   "description": "<spellPassive>自動効果:</spellPassive><attackSpeed> 攻撃速度が5/10/15/20/25%</attackSpeed>増加する。<br><br><spellActive>発動効果:</spellActive> 苛性の粘液を飛ばし、最初に命中した敵に<magicDamage>80/125/170/215/260（＋魔力の90%）の魔法ダメージ</magicDamage>を与え、4秒間<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御を16/20/24/28/32%</scaleMR>低下させる。",
+   "cooldown": "7",
+   "cost": "40",
+   "range": "1175",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "有機性魔力砲",
+   "description": "8秒間、射程距離が130/150/170/190/210増加して、通常攻撃が<magicDamage>最大体力に応じて3/3.7/4.5/5.2/6%（＋魔力の1.5%）の魔法ダメージ</magicDamage><OnHit>通常攻撃時効果</OnHit>を追加で与える。",
+   "cooldown": "17",
+   "cost": "40",
+   "range": "530",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヴォイド分泌液",
+   "description": "胆液を吐き出して<magicDamage>70/110/150/190/230（＋魔力の65%）の魔法ダメージ</magicDamage>を与え、その跡に3秒間、粘液を残す。粘液内の敵は40/45/50/55/60%の<status>スロウ効果</status>を受ける。",
+   "cooldown": "12",
+   "cost": "40/55/70/85/100",
+   "range": "1200",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "生体空撃砲",
+   "description": "指定範囲に酸を飛ばし、<magicDamage>100/140/180（＋魔力の35/40/45% ＋増加攻撃力の75%）(+減少体力1%ごとに0.833%)の魔法ダメージ</magicDamage>を与えて、命中した敵を2秒間可視化する。<healing>体力が40%</healing>未満の敵は、代わりに<magicDamage>200/280/360（＋魔力の35/40/45% ＋増加攻撃力の75%）の魔法ダメージ</magicDamage>を受ける。<br><br>8秒以内に連続で使用すると、コストが<scaleMana>40マナ</scaleMana>ずつ増加する(最大: <scaleMana>400マナ</scaleMana>)。",
+   "cooldown": "2/1.5/1",
+   "cost": "40",
+   "range": "1300/1550/1800",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

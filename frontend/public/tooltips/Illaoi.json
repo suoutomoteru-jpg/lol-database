@@ -1,0 +1,56 @@
+{
+ "alias": "Illaoi",
+ "id": 420,
+ "name": "イラオイ",
+ "title": "海の女司祭",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "旧神の預言者",
+   "description": "近くに触手が存在しないとき、神の力を呼び寄せて付近の地形に触手を生み出す(クールダウン<scaleLevel>18〜7（レベル比例）</scaleLevel>秒)。触手は自ら攻撃することはないが、イラオイがスキルを使うと連動して<keywordMajor>「叩きつけ」</keywordMajor>を行う。<br><br><keywordMajor>「叩きつけ」</keywordMajor>は<physicalDamage>9〜180（レベル比例） ＋ 合計攻撃力の110% ＋ 魔力の40%の物理ダメージ</physicalDamage>を与える。1体以上の敵チャンピオンに当たると、自身の<healing>減少体力の5%</healing>を回復する。<br><br><rules>一度に複数の「叩きつけ」を受けた敵は、2つ目から受けるダメージが50%、3つ目以降から受けるダメージが25%になる。<br>触手は自らがキルされるか、イラオイが範囲外に出て30秒経過するまで持続する。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "触手の鉄槌",
+   "description": "<passive>自動効果:</passive> <keywordMajor>「叩きつけ」</keywordMajor>のダメージが<physicalDamage>10/15/20/25/30/35%</physicalDamage>増加する(現在は<physicalDamage>9〜180（レベル比例） ＋ 合計攻撃力の110% ＋ 魔力の40%の物理ダメージ</physicalDamage>)。<br><br><active>発動効果:</active> 偶像を振って、触手が前方に<keywordMajor>「叩きつけ」</keywordMajor>を行う。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "40/45/50/55/60",
+   "range": "850",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "過酷なる教訓",
+   "description": "次の通常攻撃で対象に飛びかかり、追加で<physicalDamage>最大体力の3/3.5/4/4.5/5%（＋合計攻撃力の3.5%）の物理ダメージ</physicalDamage>を与える。攻撃が命中すると、付近にある触手もまた対象へ向かって<keywordMajor>「叩きつけ」</keywordMajor>を行う。",
+   "cooldown": "4",
+   "cost": "30",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "魂の試練",
+   "description": "イラオイが敵チャンピオンから7秒間、魂を引きずり出す。この魂を攻撃すると、魂が受けたダメージのうち25/30/35/40/45%（＋合計攻撃力の0.08%）が本体に反映される。<br><br>魂が倒されるか対象が魂から遠く離れた場合、対象は4秒間マークされ、1.5秒間80%の<status>スロウ状態</status>となる。マークされた敵は、可能であれば触手を発生させる。<br><br>触手は魂とマークされた敵に4/3.5/3（レベル1/7/13）秒ごとに自動的に<keywordMajor>「叩きつけ」</keywordMajor>を行う。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "35/40/45/50/55",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "信仰震",
+   "description": "偶像を地面にたたきつけ、周囲の敵ユニットに<physicalDamage>150/250/350（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、命中した敵チャンピオン1体ごとに触手が1本発生する。<br><br>このスキルを発動してから8秒間、触手は対象指定できなくなり、<keywordMajor>「叩きつけ」</keywordMajor>速度が50%増加する。また発動中は<spellName>「過酷なる教訓」</spellName>のクールダウンが2秒になる。",
+   "cooldown": "120/95/70",
+   "cost": "100",
+   "range": "450",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

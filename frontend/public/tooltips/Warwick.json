@@ -1,0 +1,56 @@
+{
+ "alias": "Warwick",
+ "id": 19,
+ "name": "ワーウィック",
+ "title": "解き放たれたゾウンの激憤",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "永遠の渇き",
+   "description": "通常攻撃時効果で<magicDamage>6〜55（レベル比例） ＋ 増加攻撃力の15% ＋ 魔力の10%の魔法ダメージ</magicDamage>を追加で与える。<br><br>自身の体力が50%未満の場合、<keywordMajor>「永遠の渇き」</keywordMajor>で<healing>与えたダメージの100%</healing>にあたる体力を回復する。自身の体力が25%未満の場合、代わりに<healing>与えたダメージの250%</healing>の体力を回復する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "野獣の牙",
+   "description": "<tap>短く押す(タップ):</tap> 前方にダッシュして噛みつき、<magicDamage>合計攻撃力の120% ＋ 魔力の100%(+最大体力の6/7/8/9/10%)の魔法ダメージ</magicDamage>を与え、<healing>与えたダメージの25/37.5/50/62.5/75%にあたる体力を回復</healing>する。<br><br><hold>長押し:</hold> 前方にダッシュして対象に深く噛みつき、対象の背後にジャンプする。噛みつき中は対象が移動すると自身も一緒に移動する。口を離したときに同量のダメージを与えて回復効果を得る。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "80/85/90/95/100",
+   "range": "365",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "血の追跡",
+   "description": "<spellPassive>自動効果</spellPassive>: 体力が50%未満のチャンピオンを感知し、そのチャンピオンに向かう際に<speed>移動速度が35/42.5/50/57.5/65%</speed>増加する。体力が50%未満の敵にスキルを使用するか通常攻撃を行うと、<speed>攻撃速度が70/80/90/100/110%</speed>増加する。これらの効果は体力が25%未満の敵に対しては200%増加する。<br><br><spellActive>発動効果:</spellActive> 少しの間だけすべての敵を感知し、体力量にかかわらず、最も近くにいるチャンピオンに対して、このスキルの自動効果を8秒間獲得する。チャンピオンがいなかった場合は、このスキルのクールダウンが30%短縮される。",
+   "cooldown": "80/70/60/50/40",
+   "cost": "55",
+   "range": "4000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "怒りの咆哮",
+   "description": "2.5秒間、35/40/45/50/55%のダメージ軽減効果を獲得する。効果時間が終了すると咆哮をあげ、周囲の敵に1秒間<status>フィアー効果</status>を与える。<recast>再発動</recast>すると、このスキルを早めに終了できる。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "40",
+   "range": "375",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "絶狼牙連撃",
+   "description": "自身の<speed>移動速度</speed>に応じて長い距離をジャンプし、最初に接触したチャンピオンに1.5秒間の詠唱の間<status>サプレッション効果</status>を与える。また、この間に対象のチャンピオンに3回通常攻撃を行って、<magicDamage>175/350/525（＋増加攻撃力の167%）の魔法ダメージ</magicDamage>を与える。詠唱中に<healing>与えた全ダメージの100%にあたる体力を回復</healing>する。",
+   "cooldown": "110/90/70",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,58 @@
+{
+ "alias": "Zyra",
+ "id": 143,
+ "name": "ザイラ",
+ "title": "茨の目覚め",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "茨の楽園",
+   "description": "13.6〜9.05（レベル比例）秒ごとに自身の周囲に30秒間持続する<keywordMajor>種</keywordMajor>を発生させる。同時に最大8個まで<keywordMajor>種</keywordMajor>を発生させられる。<keywordMajor>種</keywordMajor>は敵チャンピオンに踏まれると破壊される。自身が茂みに隠れている間は<keywordMajor>種</keywordMajor>は発生しない。<br><br><keywordMajor>種</keywordMajor>は他のスキルで使用され、植物を発生させて<magicDamage>15〜75（レベル比例） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与える。<br><br><rules>ザイラの植物は、モンスターに対して<magicDamage>50〜100（レベル比例）の追加魔法ダメージ</magicDamage>を与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "死華の棘",
+   "description": "複数の太いツルが広がって鋭い棘を生やし、<magicDamage>60/100/140/180/220（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルを<keywordMajor>種</keywordMajor>の近くで使用すると、<keywordMajor>種</keywordMajor>が成長して「棘吹草」になる。「棘吹草」は<magicDamage>15〜75（レベル比例） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与え、8秒間持続する。「棘吹草」は575の射程を持つ。",
+   "cooldown": "7/6.5/6/5.5/5",
+   "cost": "55",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "狂い咲き",
+   "description": "60秒間持続する<keywordMajor>種</keywordMajor>を植える。敵チャンピオンが<keywordMajor>種</keywordMajor>を踏むと、2秒間対象の<keywordStealth>真の視界</keywordStealth>を得るが、種は破壊される。<br><br>このスキルは2つまでチャージでき、秒で1つリチャージされる。敵のミニオンまたはモンスターをキルすると、リチャージ時間が35%短縮される。チャンピオンからキルまたはアシストを奪うと、代わりにリチャージ時間が100%短縮される。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "850",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "AmmoRechargeTime"
+   ]
+  },
+  "e": {
+   "name": "捕縛の根",
+   "description": "前方にツルを送り出し、1/1.25/1.5/1.75/2秒間<status>スネア効果</status>を与えて、<magicDamage>60/95/130/165/200（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルが近くの<keywordMajor>種</keywordMajor>に触れると、<keywordMajor>種</keywordMajor>が成長して「棘鞭草」になり、<magicDamage>15〜75（レベル比例） ＋ 魔力の20%の魔法ダメージ</magicDamage>を与える。「棘鞭草」は8秒間持続し、射程が400で、通常攻撃が2秒間30%の<status>スロウ効果</status>を与える。複数の「棘鞭草」が与えた<status>スロウ効果</status>は最大2回までスタックする。",
+   "cooldown": "11",
+   "cost": "70/75/80/85/90",
+   "range": "1100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "茨のゆりかご",
+   "description": "大自然の怒りを呼び覚まし、茨を成長させて<magicDamage>200/300/400（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。2秒後にツルが跳ね上がり、1秒間<status>ノックアップ</status>させる。<br><br>茨に接触した植物は怒り狂い、効果時間がリセットされて、<healing>50%の体力</healing>を獲得し、通常攻撃で50%の追加ダメージを与える。",
+   "cooldown": "110/100/90",
+   "cost": "100",
+   "range": "700",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

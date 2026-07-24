@@ -1,0 +1,58 @@
+{
+ "alias": "Mel",
+ "id": 800,
+ "name": "メル",
+ "title": "魂の反照",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "灼熱の輝き",
+   "description": "通常攻撃とスキルで敵にダメージを与えるたびに、5秒間<keywordMajor>「圧倒」</keywordMajor>のスタックを付与し、スタックをリフレッシュする。<magicDamage>60/70/80/90/100/110（＋魔力の10%） + スタックごとに3/4/5/6/7/8（＋魔力の0.75%）の魔法ダメージ</magicDamage>を蓄積させる。スタックが適用されている間は、蓄積されたダメージ量が敵のシールドと体力の合計値を超えた時点で敵にとどめを刺す。<br><br>スキルを使用すると、次の通常攻撃が3発の飛翔物を追加で発射し、それぞれが<magicDamage>8〜30（レベル比例） ＋ 魔力の4%の魔法ダメージ</magicDamage>を与える。追加の飛翔物は最大で9発までスタックする。<br><br><rules>ミニオンに使用した場合、<keywordMajor>「圧倒」</keywordMajor>の最初のスタックはダメージが50%低下する。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "輝きの連撃",
+   "description": "指定地点に向かって6/7/8/9/10発の飛翔物を連続で発射する。飛翔物は指定地点の周囲に爆発を引き起こす。<br><br>最初の爆発の命中時に<magicDamage>60/85/110/135/160（＋魔力の55%）の魔法ダメージ</magicDamage>を与え、その後の爆発はそれぞれ<magicDamage>5/7/9/11/13（＋魔力の5%）の魔法ダメージ</magicDamage>、最大で合計<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "70/75/80/85/90",
+   "range": "950",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "AllDamageHit"
+   ]
+  },
+  "w": {
+   "name": "反駁",
+   "description": "自身の周囲にバリアを形成する。このバリアは敵チャンピオンの発射物を反射し、耐久値<shield>80/110/140/170/200（＋魔力の70%）のシールド</shield>を0.75秒間獲得する。また、自身の<speed>移動速度を40%</speed>増加させる。この移動速度は0.75秒かけて元に戻る。<br><br>反射された発射物は<magicDamage>元のダメージの40/45/50/55/60%を魔法ダメージ</magicDamage>として与える。",
+   "cooldown": "38/35/33/29/26",
+   "cost": "80/60/40/20/0",
+   "range": "250",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "陽光の枷",
+   "description": "輝くオーブを発射し、中心にいた敵には1.5秒間、<status>スネア効果</status>を与え、<magicDamage>60/105/150/195/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<br><br>オーブは周囲に敵対的範囲を作り出し、敵に30%の<status>スロウ効果</status>を与えて、<magicDamage>毎秒16/28/40/52/64（＋魔力の8%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "11/10.5/10/9.5/9",
+   "cost": "50/60/70/80/90",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "黄金蝕",
+   "description": "<spellPassive>自動効果</spellPassive>: <keywordMajor>「圧倒」</keywordMajor>のダメージが<magicDamage>60/70/80（＋魔力の10%） + スタックごとに3/4/5（＋魔力の0.75%）の魔法ダメージ</magicDamage>に増加する。<br><br><spellActive>発動効果</spellActive>: <keywordMajor>「圧倒」</keywordMajor>を付与されたすべての敵に向けてパワーを解き放ち、<magicDamage>125/200/275（＋魔力の30%） + <keywordMajor>「圧倒」</keywordMajor>のスタックごとに4/7/10（＋魔力の4%）の魔法ダメージ</magicDamage>を与える。<br><br><rules>敵チャンピオンに<keywordMajor>「圧倒」</keywordMajor>が付与されていない時は使用できない。</rules>",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

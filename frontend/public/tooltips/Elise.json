@@ -1,0 +1,56 @@
+{
+ "alias": "Elise",
+ "id": 60,
+ "name": "エリス",
+ "title": "蜘蛛の女帝",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "蜘蛛の女帝",
+   "description": "エリスは試合開始の時点でアルティメットスキルのレベルが1になっているため、最初から<keywordMajor>ヒト形態</keywordMajor>と<keywordMajor>蜘蛛形態</keywordMajor>を切り替えることができる。<br><br><keywordMajor>ヒト形態:</keywordMajor> スキルが命中するたび、眠った状態の<keywordMajor>幼体</keywordMajor>を1体獲得する(最大2/3/4/5/6/7体)。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: 通常攻撃が<magicDamage>12/22/32/42/52/62（＋魔力の15%）の魔法ダメージ</magicDamage>を追加で与え、<healing>体力が6/8/10/12/14/16（＋魔力の8%）</healing>回復する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "神経毒/毒牙",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 毒を注入し、<magicDamage>40/70/100/130/160(+現在体力の4%（＋魔力の3%）)の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>蜘蛛形態:</keywordMajor> 飛びかかって毒の牙でかみつき、<magicDamage>50/80/110/140/170/200(+減少体力の8%（＋魔力の3%）)の魔法ダメージ</magicDamage>を与える。<br><br><strong>◆ 蜘蛛形態: 毒牙/神経毒</strong><br><keywordMajor>蜘蛛形態:</keywordMajor> 飛びかかって毒の牙でかみつき、<magicDamage>50/80/110/140/170/200(+減少体力の8%（＋魔力の3%）)の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "6",
+   "cost": "80/85/90/95/100",
+   "range": "615",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "w": {
+   "name": "子蜘蛛爆弾/猛食",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 子蜘蛛を1体放つ。この子蜘蛛は指定地点に向かって移動し、敵に接触するか3秒経過すると破裂して<magicDamage>60/100/140/180/220/260（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellPassive>自動効果</spellPassive>: <keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が5/10/15/20/25/30%</attackSpeed>増加する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellActive>発動効果</spellActive>: 3秒間、自身と<keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が60/75/90/105/120/135%</attackSpeed>増加する。<br><br><strong>◆ 蜘蛛形態: 猛食/子蜘蛛爆弾</strong><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellPassive>自動効果</spellPassive>: <keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が5/10/15/20/25/30%</attackSpeed>増加する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellActive>発動効果</spellActive>: 3秒間、自身と<keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が60/75/90/105/120/135%</attackSpeed>増加する。",
+   "cooldown": "12",
+   "cost": "60/70/80/90/100",
+   "range": "950",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "e": {
+   "name": "繭化/蜘蛛の糸",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 繭を放って最初に命中した敵を1.6/1.8/2/2.2/2.4秒間<status>スタン</status>させて可視化する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: エリスと<keywordMajor>幼体</keywordMajor>が上空に跳びあがって、最大で2秒間対象指定されなくなり、指定した敵のそばに降下する。降下から5秒間は、<spellName>「蜘蛛の女帝」</spellName>による追加ダメージと体力回復効果が40/55/70/85/100/115%増加する。<br><br><br><strong>◆ 蜘蛛形態: 蜘蛛の糸/繭化</strong><br><keywordMajor>蜘蛛形態</keywordMajor>: エリスと<keywordMajor>幼体</keywordMajor>が上空に跳びあがって、最大で2秒間対象指定されなくなり、指定した敵のそばに降下する。降下から5秒間は、<spellName>「蜘蛛の女帝」</spellName>による追加ダメージと体力回復効果が40/55/70/85/100/115%増加する。<br>",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "50",
+   "range": "1075",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "r": {
+   "name": "蜘蛛形態",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 恐ろしい蜘蛛の姿になる。通常攻撃が近接に変化して、スキルも<keywordMajor>蜘蛛形態</keywordMajor>専用のものに変化する。さらに眠っている<keywordMajor>幼体</keywordMajor>をすべて呼び起こす。<br><br><keywordMajor>幼体</keywordMajor>は敵に<magicDamage>10/20/30/40/50/60（＋魔力の15%）の魔法ダメージ</magicDamage>を与え、範囲攻撃スキルを受けた際はダメージが25%軽減される。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: <keywordMajor>ヒト形態</keywordMajor>へと戻り、残されたすべての<keywordMajor>幼体</keywordMajor>は眠りにつく。<br><br><strong>◆ 蜘蛛形態: ヒト形態</strong><br><keywordMajor>蜘蛛形態</keywordMajor>: <keywordMajor>ヒト形態</keywordMajor>へと戻り、残されたすべての<keywordMajor>幼体</keywordMajor>は眠りにつく。",
+   "cooldown": "3",
+   "cost": "",
+   "range": "20",
+   "maxRank": 3,
+   "source": "stringtable",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

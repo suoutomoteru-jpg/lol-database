@@ -1,0 +1,56 @@
+{
+ "alias": "Urgot",
+ "id": 6,
+ "name": "アーゴット",
+ "title": "ドレッドノート",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "エコーフレイム",
+   "description": "アーゴットは6本の脚にキャノンを装備している。通常攻撃と<spellName>「パージ」</spellName>で対象の方を向いている脚のキャノンを発射し、<physicalDamage>合計攻撃力の40/52/64/76/88/100%（レベル1/6/9/11/13/15）(+最大体力の2/3/4/5/6%（レベル1/6/9/11/13）)の物理ダメージ</physicalDamage>を与える。この効果には脚ごとに30/20/10/5/2.5（レベル1/6/9/11/13）秒間のクールダウンがある。<br><br><rules>ジャングルモンスターには最大<physicalDamage>100〜360（レベル比例）のダメージ</physicalDamage>を与える。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "コラプトシェル",
+   "description": "榴弾を発射して<physicalDamage>25/70/115/160/205（＋合計攻撃力の70%）の物理ダメージ</physicalDamage>を与え、1.25秒間45/50/55/60/65%の<status>スロウ効果</status>を与える。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "70",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "パージ",
+   "description": "<spellPassive>自動効果:</spellPassive> 自身の他のスキルが、最後に命中したチャンピオンを5秒間マークする。<br><br><spellActive>発動効果:</spellActive> 最も近くにいる敵(マークした敵を優先)にチェーンガンを発砲する。1秒間に3回通常攻撃を行い、1回ごとに<physicalDamage>12（＋合計攻撃力の20/23.5/27/30.5/34%）の物理ダメージ</physicalDamage>を与える。発砲中も移動可能で、40%の<status>スロウ</status>耐性を獲得するが、<speed>移動速度が125</speed>低下する。<br><br>スキルレベルが最大になると、このスキルが無限に持続して、<toggle>発動/非発動</toggle>を切り替えられるようになる。",
+   "cooldown": "12/9/6/3/0",
+   "cost": "40/30/20/10/0",
+   "range": "490",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ディスデイン",
+   "description": "前方に突撃して、4秒間<shield>耐久値55/75/95/115/135（＋増加攻撃力の135% ＋増加体力の13.5%）のシールド</shield>を獲得し、最初に当たったチャンピオンを1.5秒間<status>スタン</status>させて自身の背後に投げる。突撃中にぶつかったすべての敵は、<physicalDamage>90/120/150/180/210（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を受ける。",
+   "cooldown": "16/15.5/15/14.5/14",
+   "cost": "60/70/80/90/100",
+   "range": "475",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "デスグラインダー",
+   "description": "ケミドリルを発射する。ドリルは最初に当たったチャンピオンに突き刺さり、<physicalDamage>100/225/350（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与えて、4秒間、減少体力1%につき1%の<status>スロウ効果</status>を与える(最大75%)。<br><br>突き刺した対象の体力が25%未満になると、このスキルを<recast>再発動</recast>できるようになり、対象に<status>サプレッション効果</status>を与えて自身のところまで引き寄せる。引き寄せ終えると対象をキルし、周囲の敵に1.5秒間の<status>フィアー効果</status>を与える。",
+   "cooldown": "100/85/70",
+   "cost": "100",
+   "range": "2500",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "Renata",
+ "id": 888,
+ "name": "レナータ・グラスク",
+ "title": "ケミテック長者",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "レバレッジ",
+   "description": "通常攻撃が敵を6秒間マークし、マークが付与されていない敵には<magicDamage>最大体力の1〜3.3%（レベル1〜18） ＋ 魔力の0.02%にあたる魔法ダメージ</magicDamage>を追加で与える。<br><br>味方チャンピオンの通常攻撃とスキルはこのマークを消費し、<magicDamage>最大体力の1〜3.3%（レベル1〜18） ＋ 魔力の0.02%にあたる魔法ダメージ</magicDamage>を与える。<br><br><rules>同時に1体の対象にしかマークできない。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "手荒い挨拶",
+   "description": "腕からミサイルを発射して、最初に命中した敵に1秒間の<status>スネア効果</status>を付与し、<magicDamage>80/125/170/215/260（＋魔力の80%）</magicDamage>の<magicDamage>魔法ダメージ</magicDamage>を与える。<br><br><recast>再発動:</recast> その敵を指定方向に<status>引き寄せて</status>投げ飛ばす。投げた対象をぶつけた敵に<magicDamage>80/125/170/215/260（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。投げられた敵がチャンピオンだった場合は、0.5秒間の<status>スタン効果</status>も付与する。",
+   "cooldown": "16",
+   "cost": "80",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "緊急支援",
+   "description": "味方チャンピオンにバフを付与し、<attackSpeed>攻撃速度を10/15/20/25/30%（＋魔力の1%）</attackSpeed>、敵に向かう際の<speed>移動速度を10/12.5/15/17.5/20%（＋魔力の1%）</speed>増加させる。この効果は5秒かけて徐々に増加し、最大で<attackSpeed>攻撃速度は20/30/40/50/60%（＋魔力の1%）</attackSpeed>、<speed>移動速度は20/25/30/35/40%（＋魔力の1%）</speed>まで増加する。キルまたはアシストを奪うと、このバフの効果時間がリフレッシュされる。<br><br>この味方は倒されると体力が最大まで回復する。この体力はその後3秒かけて徐々に減衰していく。<br><br>体力が減衰している間に、この味方がキルまたはアシストを獲得すると、その体力が<healing>最大体力の20%</healing>になって、体力の減衰が止まる。<br><br><rules>体力が徐々に減衰している間、回復などの効果によってデスを先延ばしにすることはできるが、そのチャンピオンがキルまたはアシストを獲得しなければ、デスを完全に防ぐことはできない。また、チャンピオンは一度しかデスを先延ばしにできない。</rules>",
+   "cooldown": "28/27/26/25/24",
+   "cost": "80",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ロイヤリティープログラム",
+   "description": "2発のケミテックミサイルを発射する。ミサイルは周囲の敵および触れた敵に<magicDamage>65/95/125/155/185（＋魔力の55%）の魔法ダメージ</magicDamage>を与えて2秒間、30%の<status>スロウ効果</status>を付与する。また、触れた味方には3秒間、<shield>耐久値50/65/80/95/110（＋魔力の50%）のシールド</shield>を付与する。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "70/80/90/100/110",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "敵対的買収",
+   "description": "化学物質の波を送り出し、1.25/1.75/2.25秒間敵を<status>バーサーク状態</status>にして、一番近くのユニットに通常攻撃させる。この際、敵は敵自身の味方を優先して通常攻撃を行う。<br><br><status>バーサーク状態</status>の間、敵は<attackSpeed>攻撃速度が100%</attackSpeed>増加する。",
+   "cooldown": "150/130/110",
+   "cost": "100",
+   "range": "2000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

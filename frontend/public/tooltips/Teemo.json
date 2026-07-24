@@ -1,0 +1,58 @@
+{
+ "alias": "Teemo",
+ "id": 17,
+ "name": "ティーモ",
+ "title": "俊足の斥候",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "やぶからヨードル",
+   "description": "ダメージを受けずに1.5秒間じっとしていると、次に動き出すまで<keywordStealth>インビジブル</keywordStealth>状態になる。茂みの中では、移動しても<keywordStealth>インビジブル</keywordStealth>状態が維持される。<br><br>この<keywordStealth>インビジブル</keywordStealth>状態が解除されると、5秒間、<attackSpeed>攻撃速度が20/40/60/80%（レベル1/5/10/15）</attackSpeed>増加する。<br><br><rules><keywordStealth>インビジブル</keywordStealth>状態のユニットは、タワーまたは<font color='#ee91d7'>真の視界</font color>によってのみ可視化される。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "目つぶしダーツ",
+   "description": "ダーツを放ち、対象に2/2.25/2.5/2.75/3秒間の<status>ブラインド効果</status>と、<magicDamage>80/125/170/215/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "7",
+   "cost": "70/75/80/85/90",
+   "range": "680",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "駆け足！",
+   "description": "<spellPassive>自動効果:</spellPassive> チャンピオンまたはタワーから5秒間ダメージを受けないでいると、<speed>移動速度が12/16/20/24/28%</speed>増加する。<br><br><spellActive>発動効果:</spellActive> 3秒間全力疾走し、<speed>移動速度が24/32/40/48/56%</speed>増加する。この効果は攻撃を受けても消滅しない。",
+   "cooldown": "14",
+   "cost": "40",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "毒たっぷり吹き矢",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃で毒<OnHit>通常攻撃時効果</OnHit>を付与し、追加で<magicDamage>9/23/37/51/65（＋魔力の30% ＋増加攻撃力の5%）の魔法ダメージ</magicDamage>を与える。さらに4秒かけて<magicDamage>24/48/72/96/120（＋魔力の10% ＋増加攻撃力の2.5%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "680",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "毒キノコ",
+   "description": "キノコのトラップを投げる。トラップは踏まれると爆発して、30/40/50%の<status>スロウ効果</status>を与え、4秒かけて<magicDamage>200/325/450（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。その間、敵は可視化される。<br><br>トラップはステルス状態になり、5分間持続する。投げたトラップが設置済みのトラップに当たると、バウンドしてから設置される。このスキルは3/4/5個までチャージ可能(秒でリチャージ)。<br>",
+   "cooldown": "0.25",
+   "cost": "75/55/35",
+   "range": "600/750/900",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "AmmoRechargeTime"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "Milio",
+ "id": 902,
+ "name": "ミリオ",
+ "title": "やさしき炎",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ファイヤーアップ！",
+   "description": "ミリオのスキルに触れた味方は、次の攻撃で追加のバーストダメージを与え、対象を炎上させる。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ウルトラメガファイヤーキック",
+   "description": "炎のボールをキックして、最初に命中した敵を<status>ノックバック</status>させる。命中したボールは対象を跳び越えて爆発し、周囲の敵に<magicDamage>80/140/200/260/320（＋魔力の120%）の魔法ダメージ</magicDamage>を与え、1.5秒間40/45/50/55/60%の<status>スロウ効果</status>を付与する。<br><br>「<spellName>ウルトラメガファイヤーキック</spellName>」が1体でも敵チャンピオンに命中すると、そのマナコストの50%が回復する。",
+   "cooldown": "",
+   "cost": "50/55/60/65/70",
+   "range": "1200",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "癒しの焚き火",
+   "description": "6秒間、味方チャンピオンを追いかける焚き火を作り出す。その近くにいる味方チャンピオンは射程距離が10/12.5/15/17.5/20%増加し、効果時間をかけて<healing>体力が70/90/110/130/150（＋魔力の15%）</healing>回復する。また、焚き火は3秒ごとに<spellName>「ファイヤーアップ！」</spellName>を適用する。<br><br><recast>再発動:</recast> 焚き火が追いかける味方を変更する。",
+   "cooldown": "29/27/25/23/21",
+   "cost": "90/100/110/120/130",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "抱擁のぬくもり",
+   "description": "味方チャンピオンを防御の炎で包み、2.5秒間、<shield>耐久値45/75/105/135/165（＋魔力の45%）のシールド</shield>を付与し、<speed>移動速度を12/14/16/18/20%</speed>増加させる。<br><br>このスキルは2回までチャージ可能で、同じ対象にその効果をスタックさせることができる。",
+   "cooldown": "0.5",
+   "cost": "50/60/70/80/90",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "生命の息吹",
+   "description": "穏やかな炎の波動を放ち、周囲の味方チャンピオンから<status>行動妨害効果</status>と<status>移動不能効果</status>を除去して、対象の<healing>体力を150/250/350（＋魔力の50%）</healing>回復し、3秒間65%の行動妨害耐性を付与する。",
+   "cooldown": "160/145/130",
+   "cost": "100",
+   "range": "700",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

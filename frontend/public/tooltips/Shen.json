@@ -1,0 +1,56 @@
+{
+ "alias": "Shen",
+ "id": 98,
+ "name": "シェン",
+ "title": "黄昏の瞳",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "内気功",
+   "description": "スキルを使用すると、自身にシールドを展開する。また味方、もしくは敵チャンピオンに対してスキルを使用すると、この効果のクールダウンが短縮される。<br><br><strong>詳細数値</strong><br>・クールダウン: 4〜7.995（レベル1〜18）",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "護刃招来",
+   "description": "<keywordMajor>「スピリットブレード」</keywordMajor>を自身の元へ呼び寄せる。このとき「スピリットブレード」が命中した敵は2秒間、シェンから離れる方向に動く際に25/30/35/40/45%の<status>スロウ効果</status>を受ける。<br><br>さらに、次の3回の通常攻撃が<magicDamage>10/16/22/28/34/40（レベル1/4/7/10/13/16）</magicDamage> <magicDamage>(+最大体力の2/2.5/3/3.5/4%（＋魔力の1.5%）)の魔法ダメージ</magicDamage>を与える。<keywordMajor>「スピリットブレード」</keywordMajor>が敵チャンピオンに命中していた場合は、このダメージが<magicDamage>10/16/22/28/34/40（レベル1/4/7/10/13/16）</magicDamage> <magicDamage>(+最大体力の5/5.5/6/6.5/7%（＋魔力の2%）)の魔法ダメージ</magicDamage>に増加し、これらの通常攻撃の<attackSpeed>攻撃速度が50%</attackSpeed>増加する。",
+   "cooldown": "8/7.25/6.5/5.75/5",
+   "cost": "140/130/120/110/100",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "防人の帳",
+   "description": "1.75秒間、<keywordMajor>「スピリットブレード」</keywordMajor>の位置に防御フィールドを展開する。フィールド内にいる味方チャンピオンへの通常攻撃はブロックされる。<br><br>フィールド発生時、範囲内に守るべき味方チャンピオンがいない場合は、最大2秒間まで発動を待機する。",
+   "cooldown": "16/14.5/13/11.5/10",
+   "cost": "40",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "殺気駆け",
+   "description": "<spellPassive>自動効果:</spellPassive> <spellName>「護刃招来」</spellName>かこのスキルでダメージを与えると、<keywordMajor>気を30/40/50（レベル1/4/12）</keywordMajor>回復する。<br><br><spellActive>発動効果:</spellActive> ダッシュしてチャンピオンとジャングルモンスターに1.5秒間の<status>タウント効果</status>を付与し、<physicalDamage>60/85/110/135/160（＋増加体力の11%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "18/16/14/12/10",
+   "cost": "150",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "瞬身護法",
+   "description": "距離に関係なく、味方チャンピオン1体に5秒間、対象の減少体力に応じて<shield>耐久値120/220/320（＋増加体力の15% ＋魔力の135%）</shield> - <shield>192/352/512（＋増加体力の15% ＋魔力の135%）のシールド</shield>を付与する(シールドは減少体力60%で最大になる)。3秒間詠唱してから、<keywordMajor>「スピリットブレード」</keywordMajor>と一緒に味方の位置までワープする。",
+   "cooldown": "200/180/160",
+   "cost": "",
+   "range": "35000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

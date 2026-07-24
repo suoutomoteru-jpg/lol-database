@@ -1,25 +1,61 @@
 @import "tailwindcss";
 @theme {
-  --color-background:         #0A0F17;
-  --color-foreground:         #C8D6E5;
-  --color-card:               #111B28;
-  --color-primary:            #C89B3C;
-  --color-primary-foreground: #0A0F17;
-  --color-secondary:          #162030;
-  --color-muted:              #111B28;
-  --color-muted-foreground:   #4D6B85;
-  --color-accent:             #1A3454;
-  --color-destructive:        #E84057;
-  --color-border:             #1B2B3C;
-  --color-ring:               #C89B3C;
-  --radius:                   0.25rem;
+  /* ── 基調色「星屑ラウンジ」: 深いプラム×さくら×ミント ── */
+  --color-background:         #171226;
+  --color-foreground:         #EFE9FB;
+  --color-card:               #221A38;
+  --color-primary:            #FF8FC6; /* さくら: アクティブ状態・操作の入り口 */
+  --color-primary-foreground: #2A1030;
+  --color-secondary:          #2B2247;
+  --color-muted:              #221A38;
+  --color-muted-foreground:   #8D7FB0;
+  --color-accent:             #3A2D5E;
+  --color-hextech:            #7FE8D0; /* ミント: 第2アクセント（NEW・変更バッジ） */
+  --color-gold:               #E8B34B; /* 金: 金銭情報専用（価格・合計G） */
+  --color-destructive:        #FF6B81;
+  --color-border:             #372B55;
+  --color-ring:               #FF8FC6;
+
+  /* ── ダメージ・ステータス色（ツールチップ内の数値装飾）── */
+  --color-dmg-physical: #F58B3D;
+  --color-dmg-magic:    #7EC8E3;
+  --color-dmg-true:     #F0E6D2;
+  --color-stat-ad:      #F58B3D;
+  --color-stat-ap:      #7EC8E3;
+  --color-stat-hp:      #2EC46B;
+  --color-stat-mana:    #5383E8;
+  --color-stat-armor:   #C8AA6E;
+  --color-stat-mr:      #A08FD0;
+  --color-stat-ms:      #F9E4B7;
+
+  /* ── フォント ────────────────────────────────────── */
+  /* 丸ゴがサイトの声。見出しは900、本文は400/500。Noto可変はフォールバック */
+  --font-display: 'Zen Maru Gothic', 'Noto Sans JP Variable', sans-serif;
+  --font-sans:    'Zen Maru Gothic', 'Noto Sans JP Variable', system-ui, sans-serif;
+
+  /* ── 角丸（統一スケール・まる文法）─────────────────── */
+  --radius-xs: 5px;
+  --radius-sm: 8px;   /* 小さなチップ・サムネイル */
+  --radius-md: 12px;  /* カード・入力欄・ボタン */
+  --radius-lg: 16px;
+  --radius-2xl: 24px; /* ボトムシートの上端のみ */
 }
+
+/* ダークテーマをUAに伝える（スクロールバー・フォーム部品・rangeスライダーの描画） */
+html { color-scheme: dark; }
 
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: 'Poppins', 'M PLUS Rounded 1c', system-ui, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  /* タップ表現は .stat-link:active 等で自前定義しているためUAのハイライトは消す */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ダブルタップズームの300ms遅延を殺す（ピンチズームは維持） */
+button, a, input, [role="button"] {
+  touch-action: manipulation;
 }
 
 /* Skill description */
@@ -34,16 +70,63 @@ body {
   font-weight: 600;
 }
 
-/* Wikipedia-style inline stat links */
+/* ── 「刻印」: タップ可能なステータス語の統一文法 ──────────
+   この見た目＝「そのステータスが得られるアイテムへの入り口」。
+   スキル説明・アイテム説明どちらも同一スタイルで、
+   一度覚えればサイト全体で同じ操作ができる。
+   上下パディングはem指定（ハイライトを文字の上下中央に） */
+.stat-link,
 .stat-keyword {
   cursor: pointer;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
-  color: color-mix(in srgb, var(--color-primary) 85%, var(--color-foreground));
-  transition: color 0.1s, border-color 0.1s;
+  background: color-mix(in srgb, currentColor 13%, transparent);
+  border-radius: 5px;
+  /* 上下は非対称: 丸ゴのインクは行ボックス中心より約0.05em下に沈むため（canvas実測）、
+     下パディングを厚くしてハイライト内の文字を光学中央に置く */
+  padding: 0.1em 0.35em 0.18em;
+  margin: 0 1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background 0.1s;
 }
+/* アイテム説明文（無彩色の本文中）では金色寄りで「押せる」ことを示す */
+.stat-keyword {
+  color: color-mix(in srgb, var(--color-primary) 85%, var(--color-foreground));
+}
+.stat-link:hover,
 .stat-keyword:hover {
-  border-bottom-color: var(--color-primary);
-  color: var(--color-primary);
+  background: color-mix(in srgb, currentColor 24%, transparent);
+}
+.stat-link:active,
+.stat-keyword:active {
+  background: color-mix(in srgb, currentColor 32%, transparent);
+}
+
+/* ── Data voice: 実数値の統一表記 ─────────────────────────
+   数値=白・太字・等幅数字 / 単位=小さく淡く。
+   場当たりの class 組み合わせを置き換える共通トークン */
+.num-data {
+  color: #fff;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.num-unit {
+  font-size: 0.72em;
+  font-weight: 400;
+  color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+}
+
+/* キーボード操作時のフォーカスを全要素で可視化（品質の床） */
+:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* アイテムページ: 設計図モチーフの薄いグリッド背景（さくら色の方眼） */
+.assembly-stage {
+  background-image:
+    linear-gradient(rgba(255, 143, 198, .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 143, 198, .05) 1px, transparent 1px);
+  background-size: 96px 96px;
 }
 
 h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }

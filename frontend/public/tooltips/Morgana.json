@@ -1,0 +1,56 @@
+{
+ "alias": "Morgana",
+ "id": 25,
+ "name": "モルガナ",
+ "title": "堕天の高潔",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ソウルサイフォン",
+   "description": "チャンピオン、大型ミニオン、中型および大型ジャングルモンスターにスキルで与えたダメージの<healing>18%にあたる体力を回復</healing>する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダークバインド",
+   "description": "星炎を飛ばし、最初に当たった敵に2/2.25/2.5/2.75/3秒間の<status>スネア効果</status>と<magicDamage>80/135/190/245/300（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "",
+   "cost": "50/55/60/65/70",
+   "range": "1250",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "苦悶の影",
+   "description": "5秒間地面を燃やし、毎秒<magicDamage>18/31/44/57/70（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。ダメージ量は対象の減少体力に応じて最大で<magicDamage>36/62/88/114/140（＋魔力の20%）</magicDamage>増加する。<br><br>このスキルのクールダウンは、自身が<spellName>「ソウルサイフォン」</spellName>で回復するたびに5%短縮される。",
+   "cooldown": "12",
+   "cost": "70/80/90/100/110",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ブラックシールド",
+   "description": "味方チャンピオンに5秒間<shield>100/155/210/265/320（＋魔力の70%）のマジックシールド</shield>を付与する。このシールドが持続している間は<status>行動妨害効果</status>と<status>移動不能効果</status>を防ぐ。",
+   "cooldown": "26/23.5/21/18.5/16",
+   "cost": "80",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "魂の足枷",
+   "description": "近くにいる敵チャンピオンと自身を鎖でつないで<magicDamage>200/275/350（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、20%の<status>スロウ効果</status>を与える。3秒後、鎖を振りほどけなかった敵に追加で<magicDamage>200/275/350（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、1.5/1.75/2秒間<status>スタン</status>させる。<br><br>このスキルを使用中は自身の<speed>移動速度が20/40/60%</speed>増加する。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "625",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

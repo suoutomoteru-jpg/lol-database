@@ -1,0 +1,56 @@
+{
+ "alias": "Jinx",
+ "id": 222,
+ "name": "ジンクス",
+ "title": "暴走パンクガール",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "超エキサイティン！",
+   "description": "自身がダメージを与えたチャンピオン、エピックモンスター、または建造物が3秒以内に倒されるか破壊されると、6秒間自身の<speed>移動速度が175%</speed>、<attackSpeed>攻撃速度が25%</attackSpeed>増加する。増加した移動速度は次第に減衰する。<br><br>この<attackSpeed>攻撃速度</attackSpeed>は、チャンピオンからキルまたはアシストを獲得することで、最大5回までをスタックさせることができる。<br><rules>この効果中は攻撃速度の上限を超えることができる。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "スイッチング！",
+   "description": "ロケットランチャーの「フィッシュボーン」と、ミニガンの「パウパウガン」との間で武器を切り替える。<br><br>ロケットランチャーを使っている間は、通常攻撃の射程が100/125/150/175/200延び、対象とその周囲の敵に<physicalDamage>合計攻撃力の110%の物理ダメージ</physicalDamage>を与える。ただし増加攻撃速度が10%低下し、マナを消費する。<br><br>ミニガンを使っている間は、通常攻撃を繰り出すたびに<attackSpeed>攻撃速度</attackSpeed>が2.5秒間増加する。この効果は3回までスタックする(<attackSpeed>最大で+30/55/80/105/130%</attackSpeed>)。",
+   "cooldown": "0.9",
+   "cost": "20",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "シビレーザー！",
+   "description": "電撃を放ち、最初に命中した敵に<physicalDamage>10/60/110/160/210（＋合計攻撃力の140%）の物理ダメージ</physicalDamage>を与える。さらに2秒間、対象に40/50/60/70/80%の<status>スロウ効果</status>を与えて可視化する。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "40/45/50/55/60",
+   "range": "1450",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "パックンチョッパー！",
+   "description": "5秒間持続する「パックンチョッパー！」を3個投げる。「パックンチョッパー！」は敵チャンピオンが触れると爆発し、1.5秒間<status>スネア効果</status>を与えて、周囲にいる敵に<magicDamage>90/140/190/240/290（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "24/20.5/17/13.5/10",
+   "cost": "90",
+   "range": "925",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "スーパーメガデスロケット！",
+   "description": "ロケットを発射する。ロケットは発射後に1秒間かけてダメージが増加し、敵チャンピオンに命中すると爆発して<physicalDamage>20/35/50（＋増加攻撃力の12%） - 200/350/500（＋増加攻撃力の120%） + 対象の減少体力の25/30/35%に相当する物理ダメージ</physicalDamage>を与える。周囲にいる敵は80%のダメージを受ける。<br><br><rules>モンスターに対する減少体力に応じたダメージは1200が上限。</rules>",
+   "cooldown": "85/65/45",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

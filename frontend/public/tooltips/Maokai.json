@@ -1,0 +1,56 @@
+{
+ "alias": "Maokai",
+ "id": 57,
+ "name": "マオカイ",
+ "title": "歪みし樹人",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "魔樹液",
+   "description": "次に行う通常攻撃で、<healing>体力を合計体力の4〜12.8%（レベル1〜18）</healing>回復する。<br><br>スキルを使用するか、敵チャンピオンのスキルが自身に命中するたびに、クールダウンが4秒短縮される。大型モンスターおよびエピックモンスターの通常攻撃またはスキルはクールダウンを1.5秒短縮する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "茨打ち",
+   "description": "拳で地面を打ちつけて、敵に<magicDamage>75/120/165/210/255（＋魔力の40%） + 最大体力の2/2.5/3/3.5/4%の魔法ダメージ</magicDamage>と一時的な<status>スロウ効果</status>を与える。﻿また、周囲の敵を<status>ノックバック</status>させる。",
+   "cooldown": "7/6.5/6/5.5/5",
+   "cost": "40",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "樹人の進撃",
+   "description": "巨大な動く根の塊になって対象指定されなくなり、敵に向かってダッシュする。対象に到達すると、敵に1/1.1/1.2/1.3/1.4秒間の<status>スネア効果</status>と<magicDamage>60/85/110/135/160（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "60",
+   "range": "525",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "苗木投げ",
+   "description": "苗木を投げる。苗木は30秒間見張り番になり、近くにいる敵を追いかけ、接触すると爆発して周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の25% ＋増加体力の5%）の魔法ダメージ</magicDamage>を与えて、2秒間45%の<status>スロウ効果</status>を付与する。苗木が敵チャンピオンまたはエピックモンスターに命中すると、<keywordMajor>「魔樹液」</keywordMajor>のクールダウンが追加で4秒短縮される。<br><br>茂みの中に配置された苗木の持続時間は30（＋増加体力の1.5%）秒間となり、爆発範囲が拡大して、2秒かけて<magicDamage>100/150/200/250/300（＋魔力の50% ＋増加体力の10%）の魔法ダメージ</magicDamage>を与え、45%（＋増加体力の0.01%）の<status>スロウ効果</status>を付与するようになる。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "60/65/70/75/80",
+   "range": "1100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "大地の捕縛",
+   "description": "茨や棘で作られた巨大な波を召喚する。波は移動距離に応じて当たった敵に75% - 2.25秒間の<status>スネア効果</status>と<magicDamage>150/225/300（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。チャンピオンに命中すると自身の<speed>移動速度が40/50/60%</speed>増加する。この移動速度は2秒かけて徐々に元に戻る。",
+   "cooldown": "130/110/90",
+   "cost": "100",
+   "range": "3000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

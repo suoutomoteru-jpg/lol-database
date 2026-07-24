@@ -1,0 +1,56 @@
+{
+ "alias": "Kayle",
+ "id": 10,
+ "name": "ケイル",
+ "title": "天空の正義",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "聖なる上昇",
+   "description": "レベルが上がってスキルポイントを使用するにつれて通常攻撃が強化される。<br><br><ul><li><scaleLevel>レベル1 - ゼレス:</scaleLevel> 通常攻撃を行うと5秒間、<attackSpeed>攻撃速度が6%</attackSpeed>上昇する(最大5スタック)。最大スタックに到達すると「崇高」状態となり、<speed>移動速度が10%</speed>上昇する。<br></li><li><scaleLevel>レベル6 - アライズン: </scaleLevel>通常攻撃の射程距離が525まで延びる。<br></li><li><scaleLevel>レベル11 - アフレイム:</scaleLevel> 「崇高」状態で通常攻撃を行うと<magicDamage>20〜41（レベル1〜18） ＋ 魔力の25% ＋ 増加攻撃力の10%の魔法ダメージ</magicDamage>を与える炎の波動を発射する。<br></li><li><scaleLevel>レベル16 - トランセンデント:</scaleLevel> 常に「崇高」状態となる。射程距離が625になる。</li></ul><br><rules>炎の波動はスキル命中時効果を適用し、クリティカル判定を持つ。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "裁きの射光",
+   "description": "敵に当たると停止する天界の剣を飛ばす。天界の剣は対象とその後ろにいる敵に<magicDamage>60/90/120/150/180（＋魔力の50% ＋増加攻撃力の60%）の魔法ダメージ</magicDamage>を与え、2秒間25/30/35/40/45%の<status>スロウ効果</status>を付与する。さらに4秒間、<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御を15%</scaleArmor>低下させる。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "60/70/80/90/100",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "天の祝福",
+   "description": "自身および味方チャンピオン1体を光で満たし、<healing>55/80/105/130/155（＋魔力の25%）の体力</healing>を回復して、2秒間、<speed>移動速度を24/28/32/36/40%</speed>上昇させる。",
+   "cooldown": "15",
+   "cost": "70/75/80/85/90",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "星炎の刃",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃時に<magicDamage>15/20/25/30/35（＋魔力の20% ＋増加攻撃力の10%）の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 次の通常攻撃が遠隔攻撃になり、<magicDamage>減少体力の8/8.5/9/9.5/10%（＋魔力の1.5%）にあたる魔法ダメージ</magicDamage>を追加で与える。この通常攻撃はケイルが<scaleLevel>レベル11</scaleLevel>になるとアップグレードされ、命中時に爆発して対象の周囲の敵にダメージを与えるようになる。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "聖なる審判",
+   "description": "2.5秒間、味方チャンピオンを無敵状態する。その後、そのチャンピオンの周囲にいる敵に<magicDamage>200/300/400（＋魔力の70% ＋増加攻撃力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "160/120/80",
+   "cost": "100/50/0",
+   "range": "900",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

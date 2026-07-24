@@ -1,0 +1,56 @@
+{
+ "alias": "Briar",
+ "id": 233,
+ "name": "ブライアー",
+ "title": "枷と飢え",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "真紅の呪い",
+   "description": "通常攻撃とスキルが5秒間、出血を付与する。この出血は最大5回までスタックする。出血はスタック数に応じて<physicalDamage>2〜10（レベル比例） ＋ 増加攻撃力の10%×5 - 2〜10（レベル比例） ＋ 増加攻撃力の10%×10の物理ダメージ</physicalDamage>を与え、<healing>自身は軽減前ダメージの25%にあたる体力を回復する</healing>。<br><br>自身の減少体力に応じて、<healing>体力回復効果</healing>が最大<health>40%</health>まで増加する。ブライアーは基本体力自動回復を持たず、スキル発動コストとして<font color='#CC3300'>現在体力の5%</font>を消費する。<br><br><rules>出血状態の敵が倒された際、残っていた出血ダメージの125%にあたる<healing>体力を回復</healing>する。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヘッドラッシュ",
+   "description": "対象のもとに跳躍して0.85秒間<status>スタン</status>させ、<physicalDamage>60/85/110/135/160（＋魔力の60% ＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与える。さらに5秒間、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を10/12.5/15/17.5/20%低下させる。<br><br><rules>このスキルを<keywordMajor>「血の狂乱」</keywordMajor>中にミニオンまたはモンスターに対して発動した場合、チャンピオンを優先して攻撃しなくなる。</rules>",
+   "cooldown": "13/12/11/10/9",
+   "cost": "",
+   "range": "475",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "血の狂乱/衝動噛み",
+   "description": "跳躍して<keywordMajor>「血の狂乱」</keywordMajor>状態になり、5秒間、最も近くの敵(チャンピオンを優先)を追いかけて通常攻撃する。<keywordMajor>「血の狂乱」</keywordMajor>状態では<attackSpeed>攻撃速度が55/65/75/85/95%</attackSpeed>、<speed>移動速度が24/33/42/51/60%</speed>増加し、通常攻撃が対象の周囲の敵に<physicalDamage>合計攻撃力の60/70/80/90/100%の物理ダメージ</physicalDamage>を与えるようになる。<br><br>このスキルを<recast>再発動</recast>すると、次の通常攻撃が強化される。強化された通常攻撃は<physicalDamage>5/20/35/50/65（＋合計攻撃力の105%） + 減少体力の9（＋増加攻撃力の2.5%）%の物理ダメージ</physicalDamage>を与え、自身は<healing>合計体力の5% + 与えたダメージの24/28/32/36/40%にあたる体力を回復</healing>する。<br>",
+   "cooldown": "14/13/12/11/10",
+   "cost": "",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "呪福の叫び",
+   "description": "<charge>チャージ開始:</charge> <keywordMajor>「血の狂乱」</keywordMajor>状態を解除してエネルギーを溜める。チャージ中は35%のダメージ軽減効果を獲得し、1秒かけて<healing>合計体力の10/11.5/13/14.5/16%の体力</healing>を回復する。<br><br><release>解放:</release> 叫び声を上げ、チャージ時間に応じて最大<magicDamage>80/115/150/185/220（＋増加攻撃力の100% ＋魔力の100%）の魔法ダメージ</magicDamage>を与え、0.5秒間80%の<status>スロウ効果</status>を付与する。最大までチャージすると、叫び声が敵を<status>ノックバック</status>させる。対象が壁に当たった場合、<magicDamage>140/215/290/365/440（＋増加攻撃力の240% ＋魔力の240%）の魔法ダメージ</magicDamage>を与えて、1.5秒間<status>スタン</status>させる。",
+   "cooldown": "16",
+   "cost": "",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "迫りくる死",
+   "description": "首枷に付けられた魔石ヘモリスを蹴り飛ばし、最初に命中したチャンピオンを獲物としてマークして、獲物のもとまで飛んでいく。着地時に付近のすべての敵に<magicDamage>150/250/350（＋魔力の130%）の魔法ダメージ</magicDamage>を与えて、獲物以外の敵を1.5秒間<status>逃走</status>させる。その後、強化された<keywordMajor>「血の狂乱」</keywordMajor>状態になり、デスするまで獲物を追いかけ通常攻撃する。この間、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が合計攻撃力の20%、ライフスティールが10/15/20%、<speed>移動速度が追加で10/20/30%</speed>増加する。",
+   "cooldown": "120/100/80",
+   "cost": "",
+   "range": "12000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

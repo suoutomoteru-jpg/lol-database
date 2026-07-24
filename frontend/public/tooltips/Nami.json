@@ -1,0 +1,56 @@
+{
+ "alias": "Nami",
+ "id": 267,
+ "name": "ナミ",
+ "title": "潮呼びの巫女",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "さざなみの後押し",
+   "description": "スキルが味方チャンピオンに命中するたびに、対象の<speed>移動速度が100（＋魔力の25%）</speed>増加する。この移動速度は1.5秒かけて元に戻る。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "水の牢獄",
+   "description": "水泡を飛ばし、敵に1.5秒間の<status>スタン効果</status>と、<magicDamage>90/145/200/255/310（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "60",
+   "range": "875",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "潮の流れ",
+   "description": "味方と敵チャンピオンの間を交互に跳ね返る水流を放つ。水流は最大3体まで命中するが、同じチャンピオンに跳ね返ることはない。<li>味方の<healing>体力を55/80/105/130/155（＋魔力の40%）</healing>回復して、近くの敵チャンピオンに跳ね返る。<li>敵に<magicDamage>60/95/130/165/200（＋魔力の50%）の魔法ダメージ</magicDamage>を与えて、近くの味方チャンピオンに跳ね返る。<br>跳ね返るたびにダメージと回復量に-20%（＋魔力の15%）の補正がかかる。",
+   "cooldown": "",
+   "cost": "70/75/80/85/90",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "潮使いの祝福",
+   "description": "6秒間、味方チャンピオン1体の通常攻撃とスキルが3回分強化されて、対象に1秒間15/20/25/30/35%（＋魔力の5%）の<status>スロウ効果</status>と、追加で<magicDamage>20/35/50/65/80（＋魔力の20%）の魔法ダメージ</magicDamage>を与えるようになる。",
+   "cooldown": "11",
+   "cost": "55/60/65/70/75",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "海神の舞",
+   "description": "大きな波を起こし、0.5秒間<status>ノックアップ</status>して、70%の<status>スロウ効果</status>と<magicDamage>150/250/350（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<status>スロウ効果</status>時間は波の移動距離に比例して長くなる(最長4秒)。<br><br>波に触れた味方は<spellName>「さざなみの後押し」</spellName>の2倍の効果を得る。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "2550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

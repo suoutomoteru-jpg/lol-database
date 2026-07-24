@@ -1,0 +1,56 @@
+{
+ "alias": "Neeko",
+ "id": 518,
+ "name": "ニーコ",
+ "title": "不思議のカメレオン",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "駆け巡る色彩",
+   "description": "マップ上の他のユニットに擬態できる。味方チャンピオンにはいつでも擬態可能だが、味方または中立のユニットに擬態する場合、そのユニットの側に立って「ショウ＝マ」を獲得してからでないと擬態できない。<status>移動不能効果</status>を受ける、攻撃スキルを詠唱する、チャンピオン以外に擬態した状態で敵タワーにダメージを与える、またはダメージを受けて擬態時の体力バーがゼロになると、擬態が解除される。<br><br><rules>擬態中は、そのユニットが持つ様々な性質を獲得する(長所だけでなく、短所も受け継ぐ)。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "弾ける花弁",
+   "description": "<magicDamage>60/110/160/210/260（＋魔力の60%）の魔法ダメージ</magicDamage>を与える種を投げる。これで敵をキルするか、チャンピオンまたは大型モンスターに当てると、再度爆発して<magicDamage>35/60/85/110/135（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。追加の爆発は最大2回まで。",
+   "cooldown": "9/8.5/8/7.5/7",
+   "cost": "50/60/70/80/90",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "シェイプスプリッター",
+   "description": "<passive>自動効果:</passive> 通常攻撃3回ごとに追加で<magicDamage>30/65/100/135/170（＋魔力の60%）の魔法ダメージ</magicDamage>を与えて、1秒間<speed>移動速度が10/17.5/25/32.5/40%</speed>増加する。<br><br><active>発動効果:</active> 0.5秒間<keywordStealth>インビジブル</keywordStealth>状態になって、3秒間持続するクローンを送り出す。自身とクローンは3秒間、<speed>移動速度が20/25/30/35/40%</speed>増加する。<br><br><rules>クローンは「ペット移動のクリック」のホットキーを押すか、このスキルを<recast>再発動</recast>することで操作できる。<br>スキル、エモート、リコールを使用すると、クローンもそれを真似る。</rules>",
+   "cooldown": "16/15/14/13/12",
+   "cost": "",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "からまれ！",
+   "description": "<magicDamage>70/105/140/175/210（＋魔力の65%）の魔法ダメージ</magicDamage>と0.7/0.9/1.1/1.3/1.5秒間の<status>スネア効果</status>を与える輪を飛ばす。<br><br>敵に当たると輪が強化されて、サイズが拡大して速度が上がり、<status>スネア効果</status>が1.8/2.1/2.4/2.7/3秒間になる。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "60/65/70/75/80",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ポップブロッサム",
+   "description": "少ししてから宙に舞い上がり、周囲のすべての敵を0.6秒間<status>ノックアップ</status>させる。その後着地して、周囲のすべての敵に<magicDamage>150/350/550（＋魔力の120%）の魔法ダメージ</magicDamage>を与え、0.75秒間<status>スタン</status>させる。<br><br><rules>擬態中はこのスキルを密かに準備できる。このスキルを発動してから0.5秒後に擬態は解除される。</rules>",
+   "cooldown": "120/105/90",
+   "cost": "100",
+   "range": "600",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchItemList, fetchItemListMedium, itemImageUrl } from '../api/dataDragon';
+import { STAT_DEFS, itemHasStat, ITEM_KEYWORDS, STAT_KEY_LABELS } from '../utils/stats';
 import type { DDragonItem } from '../types/ddragon';
 
 export interface ItemStatLine {
@@ -14,10 +15,13 @@ export interface ItemSummary {
   stats: ItemStatLine[];
 }
 
-const STAT_LABELS: Record<string, string> = {
+// ラベルはステータス台帳（utils/stats.ts の labelJa）と同じ語彙に揃える。
+// ここが食い違うと、カテゴリ内ランキング（itemStatRank）や
+// 「さらに伸ばすなら」のラベル照合が一致せず、該当ステータスが集計されない。
+export const STAT_LABELS: Record<string, string> = {
   FlatPhysicalDamageMod:         '攻撃力',
   FlatMagicDamageMod:            '魔力',
-  FlatArmorMod:                  'AR',
+  FlatArmorMod:                  '物理防御',
   FlatSpellBlockMod:             '魔法防御',
   FlatHPPoolMod:                 '体力',
   FlatMPPoolMod:                 'マナ',
@@ -26,19 +30,46 @@ const STAT_LABELS: Record<string, string> = {
   PercentCritDamageMod:          'クリティカルダメージ',
   PercentAttackSpeedMod:         '攻撃速度',
   PercentLifeStealMod:           'ライフスティール',
-  PercentHealAndShieldPower:     'H&Sパワー',
-  FlatHPRegenMod:                '体力回復',
-  FlatMPRegenMod:                'マナ回復',
-  PercentMovementSpeedMod:       '移動速度%',
+  PercentHealAndShieldPower:     'ヒール＆シールドパワー',
+  FlatHPRegenMod:                '体力自動回復',
+  FlatMPRegenMod:                'マナ自動回復',
+  PercentMovementSpeedMod:       '移動速度',
   FlatGoldPer10Mod:              'ゴールド/10s',
   FlatArmorPenetrationMod:       '脅威',
-  PercentArmorPenetrationMod:    'APen',
-  FlatMagicPenetrationMod:       'MPen',
-  PercentMagicPenetrationMod:    'MPen%',
+  PercentArmorPenetrationMod:    '物理防御貫通',
+  FlatMagicPenetrationMod:       '魔法防御貫通',
+  PercentMagicPenetrationMod:    '魔法防御貫通',
   AbilityHaste:                  'スキルヘイスト',
 };
 
-function formatStatValue(key: string, val: number): string {
+// ── 説明文<stats>ブロックからのステータス行抽出 ────────
+//
+// DDragonのstats欄はスキルヘイスト・脅威・オムニヴァンプ等を持たないため、
+// 説明文の<stats>ブロックを解析してステータス行を補完する。
+// ラベルは台帳のキーワード表で正規化する（「基本マナ自動回復」→「マナ自動回復」等）。
+
+const STATS_BLOCK_RE = /<stats>([\s\S]*?)<\/stats>/i;
+const HTML_TAG_RE = /<[^>]+>/g;
+const STAT_LINE_RE = /^([\s\S]*?)\s*([+-]?\d[\d.,]*\s*%?)\s*$/;
+
+export function descStatLines(description: string): ItemStatLine[] {
+  const m = description.match(STATS_BLOCK_RE);
+  if (!m) return [];
+  const out: ItemStatLine[] = [];
+  for (const raw of m[1].split(/<br\s*\/?\s*>/i)) {
+    const plain = raw.replace(HTML_TAG_RE, '').trim();
+    if (!plain) continue;
+    const lm = plain.match(STAT_LINE_RE);
+    if (!lm) continue;
+    // 台帳キーワード（長い語優先ソート済み）で正規ラベルへ寄せる
+    const kw = ITEM_KEYWORDS.find(k => lm[1].includes(k.text));
+    if (!kw) continue;
+    out.push({ label: STAT_KEY_LABELS[kw.key] ?? lm[1].trim(), value: lm[2].replace(/\s+/g, '') });
+  }
+  return out;
+}
+
+export function formatStatValue(key: string, val: number): string {
   if (key.startsWith('Percent') || key === 'FlatCritChanceMod') {
     return `${Math.round(val * 100)}%`;
   }
@@ -61,6 +92,11 @@ function buildMap(version: string, items: [string, DDragonItem, ...unknown[]][])
         value: formatStatValue(k, v),
       }));
 
+    // stats欄にないステータス（スキルヘイスト・脅威等）を説明文から補完
+    for (const line of descStatLines(item.description)) {
+      if (!statLines.some(s => s.label === line.label)) statLines.push(line);
+    }
+
     const summary: ItemSummary = {
       id,
       name: item.name,
@@ -68,26 +104,12 @@ function buildMap(version: string, items: [string, DDragonItem, ...unknown[]][])
       stats: statLines,
     };
 
-    for (const [key, val] of Object.entries(item.stats)) {
-      if (val) add(`stat:${key}`, summary);
-    }
+    // ステータス台帳（utils/stats.ts）に基づいて逆引きマップを構築する
     const tags = item.tags ?? [];
-    for (const tag of tags) {
-      add(`tag:${tag}`, summary);
-    }
-
     const plainDesc = item.description.replace(/<[^>]+>/g, '');
-    if (/シールド/.test(plainDesc))                                            add('custom:Shield', summary);
-    if (/物理防御貫通/.test(plainDesc) || item.stats['PercentArmorPenetrationMod']) add('custom:ArmorPen', summary);
-    if (item.stats['FlatArmorPenetrationMod'] || /脅威/.test(plainDesc))      add('custom:Lethality', summary);
-    if (/魔法防御貫通/.test(plainDesc) || item.stats['FlatMagicPenetrationMod'] || item.stats['PercentMagicPenetrationMod']) add('custom:MagicPen', summary);
-    if (item.stats['PercentLifeStealMod'] || /ライフスティール/.test(plainDesc)) add('custom:LifeSteal', summary);
-    if (item.stats['PercentHealAndShieldPower'] || /ヒール[&＆]シールドパワー/.test(plainDesc)) add('custom:HealAndShieldPower', summary);
-    if (item.stats['PercentCritDamageMod'] || /クリティカルダメージ/.test(plainDesc)) add('custom:CritDamage', summary);
-    // CooldownReduction は DDragon の旧タグ名。stat / 両タグ名 / 説明文の4経路で検出
-    if (item.stats['AbilityHaste'] || tags.includes('AbilityHaste') || tags.includes('CooldownReduction') || /スキルヘイスト/.test(plainDesc)) add('custom:AbilityHaste', summary);
-    if (tags.includes('Tenacity') || /行動妨害耐性/.test(plainDesc))          add('custom:Tenacity', summary);
-    if (tags.includes('OnHit') || /通常攻撃時効果/.test(plainDesc))           add('custom:OnHit', summary);
+    for (const def of STAT_DEFS) {
+      if (itemHasStat(def, item.stats, tags, plainDesc)) add(def.key, summary);
+    }
   }
 
   for (const list of result.values()) {

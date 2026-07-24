@@ -1,0 +1,56 @@
+{
+ "alias": "Varus",
+ "id": 110,
+ "name": "ヴァルス",
+ "title": "報復の一矢",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "復讐の化身",
+   "description": "敵をキルすると、5/7/9/11（レベル1/6/11/16）秒間、<attackSpeed>攻撃速度が10/15/20%（レベル1/7/13）</attackSpeed>、<scaleAD>攻撃力が増加攻撃速度の1100%</scaleAD>、<scaleAP>魔力が増加攻撃速度の1100%</scaleAP>増加する。<br><br>チャンピオンからキルまたはアシストを奪うと、代わりに<attackSpeed>攻撃速度が攻撃速度上限を無視して30%</attackSpeed>、<scaleAD>攻撃力が増加攻撃速度の3300%</scaleAD>、<scaleAP>魔力が増加攻撃速度の3300%</scaleAP>増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "乾坤一擲",
+   "description": "<attention>チャージ開始:</attention> 弓を引き絞って次の射撃を準備し、自身が20%の<status>スロウ効果</status>を受ける。4秒以内に発射しなかった場合は、スキルをキャンセルしてマナコストの50%を回復する。<br><br><attention>解放:</attention> 矢を放ち、<physicalDamage>53.334/100.001/146.667/193.334/240.001（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える。敵に命中するたびにダメージが15%低下する(最小33%)。ダメージと<keywordMajor>「枯死の呪い」</keywordMajor>の爆発効果は、チャージ時間に応じて最大50%まで増加する(最大<physicalDamage>80/150/220/290/360（＋増加攻撃力の120%）</physicalDamage>)。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "50/55/60/65/70",
+   "range": "925",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "枯死の矢筒",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が<magicDamage>4/13/22/31/40（＋魔力の25% ＋増加攻撃力の15%）の魔法ダメージ</magicDamage>を追加で与え、6秒間<keywordMajor>「枯死の呪い」</keywordMajor>のスタックを付与する(最大3スタック)。<br><br>自身の他のスキルが命中すると<keywordMajor>「枯死の呪い」</keywordMajor>のスタックが爆発し、1スタックにつき<magicDamage>最大体力の3/3.5/4/4.5/5%（＋魔力の0.013%）にあたる魔法ダメージ</magicDamage>を与える(<magicDamage>最大体力の9/10.5/12/13.5/15%（＋魔力の0.013%）のダメージ</magicDamage>が上限)。敵チャンピオンまたはエピックモンスターの<keywordMajor>「枯死の呪い」</keywordMajor>を発動させた場合、1スタックごとに通常スキルのクールダウンが13%解消される。<br><br><spellActive>発動効果:</spellActive> 次に使用する<spellName>「乾坤一擲」</spellName>が追加で<magicDamage>減少体力の6/8/10/12/14%の魔法ダメージ</magicDamage>を与える。このダメージはチャージ時間に応じて最大で<magicDamage>減少体力の6/8/10/12/14%×1.5</magicDamage>まで増加する。",
+   "cooldown": "40",
+   "cost": "",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "滅びの矢雨",
+   "description": "複数の矢を射かけて<physicalDamage>60/90/120/150/180（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与え、土壌を4秒間穢す。穢れた土壌は敵に30/35/40/45/50%の<status>スロウ効果</status>を与え、40%の「重傷」を付与する。",
+   "cooldown": "18/16/14/12/10",
+   "cost": "90",
+   "range": "925",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "穢れの連鎖",
+   "description": "穢れの蔓を放ち、最初に命中したチャンピオンに2秒間<status>スネア効果</status>を与え、<magicDamage>150/250/350（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<status>スネア効果</status>を与えた敵には、効果時間中に<keywordMajor>「枯死の呪い」</keywordMajor>を3スタック付与する。<br><br>この穢れは、その対象から他のまだ穢れを受けていない敵チャンピオンへと広がる。穢れが到達すると、その対象は同量のダメージと<status>スネア</status>効果を受ける。",
+   "cooldown": "100/80/60",
+   "cost": "100",
+   "range": "1300",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

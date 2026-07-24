@@ -1,0 +1,56 @@
+{
+ "alias": "Mordekaiser",
+ "id": 82,
+ "name": "モルデカイザー",
+ "title": "鋼の魂奪者",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "無窮の闇",
+   "description": "通常攻撃が<magicDamage>魔力の40%の魔法ダメージ</magicDamage>を追加で与える。<br><br>チャンピオンまたはジャングルモンスターに通常スキルか通常攻撃を3回当てると、自身を負のエネルギーが包む。このエネルギーは毎秒<magicDamage>5（＋魔力の30%）(+最大体力の1〜5（レベル比例）%)の魔法ダメージ</magicDamage>を与え、自身の<speed>移動速度が3/6/9%（レベル1/6/11）</speed>増加する。<br><br><rules>ダメージオーラと増加移動速度は4秒間持続し、チャンピオンまたはジャングルモンスターにスキルか通常攻撃を当てるたびに持続時間が更新される。<br>このスキルがモンスターに与えるダメージは毎秒最大40〜200（レベル比例）。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "滅魂の一撃",
+   "description": "ナイトフォールを地面に叩きつけ、<magicDamage>80/115/150/185/220（＋0〜45（レベル1〜18） ＋増加攻撃力の120% ＋魔力の70%）の魔法ダメージ</magicDamage>を与える。命中した敵が1体のみだった場合はダメージが<magicDamage>104/155.25/210/268.25/330（＋0〜45（レベル1〜18） ＋増加攻撃力の120% ＋魔力の70%）</magicDamage>に上昇する。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "",
+   "range": "675",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "不滅の鎧",
+   "description": "<passive>自動効果:</passive> 与えたダメージの45%と受けたダメージの7.5%を蓄える。<br><br><active>発動効果:</active> 蓄えたダメージを<shield>シールド</shield>として獲得する。<recast>再発動</recast>すると<healing>残ったシールド量の35/37.5/40/42.5/45%を体力</healing>として回復する。<br><br>最小シールド量: <shield>合計体力の5%</shield><br>最大シールド量: <shield>合計体力の30%</shield>",
+   "cooldown": "12/11/10/9/8",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "死の呪縛",
+   "description": "<spellActive>発動効果:</spellActive> 敵を自身の方向に引き寄せ、<magicDamage>60/80/100/120/140（＋魔力の45%）の魔法ダメージを与える。</magicDamage>",
+   "cooldown": "18/16/14/12/10",
+   "cost": "",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "死の国",
+   "description": "チャンピオン1体を7秒間冥界へと引きずりこみ、その間、敵のコアステータスの13%を奪い取る。<br><br>冥界の中で敵を倒した場合は相手の魂を吸収し、その対象が復活するまで奪ったステータスが維持される。",
+   "cooldown": "140/120/100",
+   "cost": "",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

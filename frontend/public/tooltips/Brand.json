@@ -1,0 +1,56 @@
+{
+ "alias": "Brand",
+ "id": 63,
+ "name": "ブランド",
+ "title": "復讐の炎",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "炎上",
+   "description": "スキルで攻撃するたびに対象が<keywordMajor>炎上</keywordMajor>し、4秒かけて<magicDamage>最大体力の2%の魔法ダメージ</magicDamage>を与える。自身が<keywordMajor>炎上</keywordMajor>しているユニットを倒すと<scaleMana>20〜39.983（レベル1〜18）マナ</scaleMana>を獲得する。<keywordMajor>「炎上」</keywordMajor>は最大で3スタックする。<br><br>チャンピオンまたは大型ジャングルモンスターに付与された<keywordMajor>「炎上」</keywordMajor>が3スタックに達すると2秒後に爆発し、周囲の敵に<magicDamage>最大体力の6〜12（レベル比例） ＋ 魔力の2%に相当する魔法ダメージ</magicDamage>を与える。<br><br><rules>モンスターに対しては与えるダメージが増加し、エピックジャングルモンスターに対しては毎秒最大50のダメージが80まで増加する。</rules><br><br><rules><keywordMajor>「炎上」</keywordMajor>の3スタックによる爆発は、ジャングルモンスターに対しては270/355/440/525（レベル1/6/11/16）が上限。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "焦炎",
+   "description": "火の玉を放ち、最初に命中した敵に<magicDamage>70/100/130/160/190（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。<br><br>対象が<keywordMajor>炎上</keywordMajor>している場合、1.75秒間<status>スタン</status>させる。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "70",
+   "range": "1050",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "烈火の柱",
+   "description": "純然たる炎の柱を発生させて<magicDamage>75/120/165/210/255（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>炎上</keywordMajor>しているユニットは、代わりに<magicDamage>93.75/150/206.25/262.5/318.75（＋魔力の70%）のダメージ</magicDamage>を受ける。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "60/70/80/90/100",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "焼灼",
+   "description": "強力な爆風で対象を攻撃し、周囲のユニットに<magicDamage>55/80/105/130/155（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>対象が<keywordMajor>炎上</keywordMajor>している場合は、この効果範囲が2倍になる。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "70/75/80/85/90",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "業火",
+   "description": "指定した対象に最大5回まで跳ね返る強力な火炎弾を放つ。この火炎弾は自身または他の敵に向かって跳ね返り、敵に命中するたびに<magicDamage>100/175/250（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。この跳ね返りは、優先的に敵チャンピオンの<keywordMajor>「炎上」</keywordMajor>スタックを最大にしようとする。<br><br><keywordMajor>炎上</keywordMajor>している対象には、短時間30/45/60%の<status>スロウ効果</status>を与える。",
+   "cooldown": "100/90/80",
+   "cost": "100",
+   "range": "750",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

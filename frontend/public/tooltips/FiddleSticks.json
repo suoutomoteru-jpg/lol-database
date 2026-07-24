@@ -1,0 +1,56 @@
+{
+ "alias": "FiddleSticks",
+ "id": 9,
+ "name": "フィドルスティックス",
+ "title": "古の恐怖",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "無害なカカシ",
+   "description": "トリンケットが<keywordMajor>「身代わり人形」</keywordMajor>に置き換わる。敵に見つかると<keywordMajor>「身代わり人形」</keywordMajor>は少しの間フィドルスティックスのふりをする。フィドルスティックスは2秒間動かずにいると、<keywordMajor>「身代わり人形」</keywordMajor>のふりをする。チャンピオンレベル6になると<keywordMajor>「身代わり人形」</keywordMajor>が6秒間周囲のワードを可視化する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "テラー",
+   "description": "<spellPassive>自動効果:</spellPassive> 非戦闘時で敵に見られていない状態または<keywordMajor>「身代わり人形」</keywordMajor>のふりをしているときにスキルで敵にダメージを与えると、1.2/1.4/1.6/1.8/2秒間<status>フィアー効果</status>を与える。<br><br><spellActive>発動効果:</spellActive> 敵に1.2/1.4/1.6/1.8/2秒間<status>フィアー効果</status>を与えて、<magicDamage>現在体力の4/4.5/5/5.5/6%の魔法ダメージ</magicDamage>を与える。対象が直前にフィドルスティックスから<status>フィアー効果</status>を受けていた場合は、代わりに<magicDamage>現在体力の4/4.5/5/5.5/6%×2の魔法ダメージ</magicDamage>を与える。<br>",
+   "cooldown": "15/14.5/14/13.5/13",
+   "cost": "65",
+   "range": "575",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "豊かな収穫",
+   "description": "詠唱して周囲の敵の魂を吸収し、2秒間、毎秒<magicDamage>60/90/120/150/180（＋魔力の45%）の魔法ダメージ</magicDamage>を与え、最後の瞬間には<magicDamage>減少体力の12/14.5/17/19.5/22%の魔法ダメージ</magicDamage>を追加で与える。自身は<healing>ダメージの25/32.5/40/47.5/55%にあたる体力</healing>を回復する。<br><br>詠唱を中断されずに終えると、残りクールダウンが60%短縮される。<br>",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "60/65/70/75/80",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "刈り取り",
+   "description": "闇の魔法を解き放ち、<magicDamage>70/105/140/175/210（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、1.25秒間30/35/40/45/50%の<status>スロウ効果</status>を付与する。範囲の中心にいる敵には同じ時間<status>サイレンス効果</status>も与える。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "40/45/50/55/60",
+   "range": "850",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "クロウストーム",
+   "description": "1.5秒間の詠唱後にテレポートして凶暴なカラスの群れを解き放ち、5秒かけて<magicDamage>750/1250/1750（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "140/110/80",
+   "cost": "100",
+   "range": "800",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

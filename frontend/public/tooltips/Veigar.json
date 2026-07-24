@@ -1,0 +1,56 @@
+{
+ "alias": "Veigar",
+ "id": 45,
+ "name": "ベイガー",
+ "title": "小さき大魔王",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "偉大なる悪の力",
+   "description": "スキルが敵チャンピオンに当たると<keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックを1獲得する。チャンピオンからキルまたはアシストを獲得すると追加で5スタック獲得する。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>を1スタック獲得するごとに<scaleAP>魔力が1</scaleAP>増加する。<br><br>「偉大なる悪の力」で得た現在の<statTracking>魔力は1.5/1.75/2/2.25/2.5</statTracking>。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "イーヴィルストライク",
+   "description": "闇のエネルギーを発射し、最初に命中した敵2体に<magicDamage>80/120/160/200/240（＋魔力の50/55/60/65/70%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルで敵を倒すと<keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックが1増加する。対象が大型ミニオン、大型モンスターの場合は代わりにスタックを3獲得する。",
+   "cooldown": "6/5.5/5/4.5/4",
+   "cost": "30/35/40/45/50",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ダークマター",
+   "description": "ダークマターを落下させて、<magicDamage>85/140/195/250/305（＋魔力の70/80/90/100/110%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>「偉大なる悪の力」</keywordMajor>のスタックが50たまるごとに、このスキルのクールダウンが10%短縮される。<br><br>現在のクールダウン短縮割合: <statTracking>120%</statTracking>",
+   "cooldown": "0",
+   "cost": "60/65/70/75/80",
+   "range": "950",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "e": {
+   "name": "イベントホライズン",
+   "description": "空間の境界をねじ曲げて檻を作り出す。檻を通過した敵は1.5/1.75/2/2.25/2.5秒間<status>スタン効果</status>を受ける。檻は3秒間持続する。",
+   "cooldown": "20/18.5/17/15.5/14",
+   "cost": "70/75/80/85/90",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "メテオバースト",
+   "description": "敵チャンピオン1体に闇の大魔法を放ち、対象の減少体力に応じて<magicDamage>175/250/325（＋魔力の65/70/75%）-350/500/650（＋魔力の65/70/75%）の魔法ダメージ</magicDamage>を与える。ダメージは敵の体力が33%を下回ると最大になる。",
+   "cooldown": "120/90/60",
+   "cost": "100",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

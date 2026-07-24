@@ -1,0 +1,58 @@
+{
+ "alias": "Ashe",
+ "id": 22,
+ "name": "アッシュ",
+ "title": "氷の射手",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "フロストショット",
+   "description": "通常攻撃が命中した対象にスロウ効果を付与する。さらにその対象に通常攻撃をすると、ダメージが増加する。<br><br>アッシュのクリティカルは追加ダメージを一切与えない代わりに、対象により強力なスロウ効果を付与する。<br><br><strong>詳細数値</strong><br>・スロウ: 20〜30%（レベル比例）<br>・スロウ: 40〜60%（レベル比例）",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "レンジャーフォーカス",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で4秒間スタックを獲得する。4スタックで、このスキルを発動できる。<br><br><spellPassive>発動効果:</spellPassive> 6秒間<attackSpeed>攻撃速度が20/30/40/50/60%</attackSpeed>増加し、通常攻撃が代わりに<physicalDamage>合計攻撃力の110/115/120/125/130%ダメージ</physicalDamage>を与えるようになる。",
+   "cooldown": "0",
+   "cost": "30",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ボレー",
+   "description": "7/8/9/10/11本の矢を斉射し、それぞれの矢が<physicalDamage>60/95/130/165/200（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。同じ敵に複数の矢が当たっても、ダメージは最初に命中した分しか発生しない。",
+   "cooldown": "18/14.5/11/7.5/4",
+   "cost": "75/70/65/60/55",
+   "range": "1200",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "スカウトホーク",
+   "description": "マップ上の任意の場所に鷹を飛ばして5秒間視界を獲得する。また、鷹は飛行中通過する周辺の視界も確保する。<br><br>このスキルは2回までチャージできる(秒ごとにチャージ)。",
+   "cooldown": "5",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "ChargeCooldown"
+   ]
+  },
+  "r": {
+   "name": "クリスタルアロー",
+   "description": "クリスタル状の氷矢を放ち、最初にあたった敵チャンピオンを<status>スタン</status>させて<magicDamage>200/400/600（＋魔力の120%）の魔法ダメージ</magicDamage>を与える。<status>スタン</status>効果時間は矢の移動距離に応じて最大3.5秒まで増加する。周囲の敵は<spellName>「フロストショット」</spellName>で<status>スロウ効果</status>を受ける。",
+   "cooldown": "100/80/60",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

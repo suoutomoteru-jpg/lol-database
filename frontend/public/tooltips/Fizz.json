@@ -1,0 +1,56 @@
+{
+ "alias": "Fizz",
+ "id": 105,
+ "name": "フィズ",
+ "title": "波間のトリックスター",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "シーファイター",
+   "description": "ゴースト化して、自身が受けるあらゆるダメージを4（＋魔力の1%）軽減する。<br><br><rules>ゴースト化したユニットは他のユニットをすり抜けて移動する。<br>ジャングルモンスターに対してはダメージ軽減効果が14（＋魔力の1%）になる。<br>軽減されるダメージは最大で50%まで。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ウニトゲストライク",
+   "description": "敵に向かって突進して反対側へ突き抜け、<physicalDamage>合計攻撃力の100%の物理ダメージ</physicalDamage>と<magicDamage>10/25/40/55/70（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "50",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "シートライデント",
+   "description": "<spellPassive>自動効果</spellPassive>: 通常攻撃で敵を出血させ、3秒かけて<magicDamage>30/45/60/75/90（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果</spellActive>: 次の通常攻撃が追加で<magicDamage>50/75/100/125/150（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。この通常攻撃で対象を倒した場合、<scaleMana>30/40/50/60/70マナ</scaleMana>を回復し、このスキルのクールダウンが1秒まで短縮される。倒せなかった場合は5秒間、通常攻撃が追加で<magicDamage>20/25/30/35/40（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "7/6/5/4/3",
+   "cost": "30/40/50/60/70",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "プレイ/トリックスター",
+   "description": "槍の上に飛び乗って0.75秒間、対象指定不可になり、その後周囲の敵に<magicDamage>80/130/180/230/280（＋魔力の95%）の魔法ダメージ</magicDamage>を与えて、2秒間40/45/50/55/60%の<status>スロウ効果</status>を付与する。<br><br>対象指定不可の間は、このスキルを<recast>再発動</recast>して再度ダッシュすることができる。再発動するとその時点で対象指定不可の状態は解除され、ダメージ範囲は狭くなり、<status>スロウ効果</status>を付与しなくなる。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "75/80/85/90/95",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "フィッシング",
+   "description": "魚を発射する。魚は最初に命中したチャンピオンに貼り付き、対象の<keywordStealth>真の視界</keywordStealth>を得る。また、魚は命中するまでに飛んだ距離に応じて、40% - 80%の<status>スロウ効果</status>を付与する。<br><br>2秒後、 地面からサメが飛び出し、魚の貼り付いた対象を1秒間<status>ノックアップ</status>させ、それ以外を<status>ノックバック</status>させる。また、魚が命中するまでに飛んだ距離に応じて、<magicDamage>180/300/420（＋魔力の60%） - 270/450/630（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "1300",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

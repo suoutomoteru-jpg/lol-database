@@ -1,0 +1,61 @@
+{
+ "alias": "Thresh",
+ "id": 412,
+ "name": "スレッシュ",
+ "title": "縛鎖の看守",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "魂の束縛",
+   "description": "倒れた敵に近づくと<keywordMajor>「魂」</keywordMajor>を刈り取る。<keywordMajor>「魂」</keywordMajor>1つにつき<scaleArmor>1の物理防御</scaleArmor>と<scaleAP>1の魔力</scaleAP>を獲得する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "死の宣告",
+   "description": "鎌を投げて、最初に命中したユニットを1.5秒間<status>スタン</status>させ、自身の方向に<status>引き寄せる</status>。鎌は<magicDamage>100/150/200/250/300（＋魔力の90%）の魔法ダメージ</magicDamage>を与え、効果時間中は対象の<keywordStealth>真の視界</keywordStealth>を得る。<br><br>このスキルを<recast>再発動</recast>すると、自身を敵の方向に引き寄せる。<br><br>このスキルは命中すると、クールダウンが2秒短縮される。",
+   "cooldown": "19/16.5/14/11.5/9",
+   "cost": "70",
+   "range": "1075",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "嘆きの魂灯",
+   "description": "ランタンを投げる。味方はランタンをクリックすると、スレッシュのところまでダッシュする。<br><br>また、ランタンは自身および最初にそれを利用した味方チャンピオン1体に4秒間、<shield>耐久値のシールド</shield>を付与する。",
+   "cooldown": "21/20/19/18/17",
+   "cost": "50/55/60/65/70",
+   "range": "950",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalShield"
+   ]
+  },
+  "e": {
+   "name": "絶望の鎖",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が前回の通常攻撃から経過した時間に応じて、<magicDamage></magicDamage> - <magicDamage>の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 鎖を振り、振った方向に敵を<status>引き寄せる</status>か<status>押し出す</status>。さらに、命中した敵には1秒間20/25/30/35/40%の<status>スロウ効果</status>を付与し、<magicDamage>75/120/165/210/255（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "13/12.25/11.5/10.75/10",
+   "cost": "60/65/70/75/80",
+   "range": "500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "PAttackDamageMin",
+    "PAttackDamageMax"
+   ]
+  },
+  "r": {
+   "name": "魂の牢獄",
+   "description": "霊体の壁による牢獄を出現させて、2秒間チャンピオンに99%の<status>スロウ効果</status>を付与し、<magicDamage>250/400/550（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。壁の1枚が接触されて破壊されると、残りの壁はダメージを与えなくなり、<status>スロウ効果</status>の時間が半分になる。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "450",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 3
+}

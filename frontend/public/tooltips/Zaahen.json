@@ -1,0 +1,56 @@
+{
+ "alias": "Zaahen",
+ "id": 904,
+ "name": "ザーヘン",
+ "title": "沈まぬ者",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "戦威修養",
+   "description": "敵チャンピオンに対する攻撃およびスキルで「不退転」のスタックを獲得し、スタックごとに攻撃力が増加する。「不退転」が最大スタックになると、攻撃力が増加し、復活できるようになる。<br><br><strong>詳細数値</strong><br>・クールダウン: 300/240/180/120（レベル1/6/11/16）",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダーキングレイヴ",
+   "description": "次の通常攻撃で2回斬りつけ、<physicalDamage>15/30/45/60/75（＋増加攻撃力の20/25/30/35/40%）の追加物理ダメージ</physicalDamage>を与え、<healing>最大体力の5/6/7/8/9%</healing>を回復する。<br><br><recast>再発動:</recast> 次の通常攻撃が<physicalDamage>25/50/75/100/125（＋増加攻撃力の20/25/30/35/40%）の追加物理ダメージ</physicalDamage>を与え、対象を0.75秒間<status>ノックアップ</status>させる。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "25",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "戦慄の再臨",
+   "description": "指定方向を突き刺し、命中した敵に<physicalDamage>40/60/80/100/120（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与え、その後、敵を自身の方へ<status>引き寄せ</status>、さらに<physicalDamage>30/50/70/90/110（＋増加攻撃力の30%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "50",
+   "range": "850",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "絢爛たる進撃",
+   "description": "ダッシュしてから自身の周囲を斬りつけ、周囲の敵に<physicalDamage>40/60/80/100/120（＋増加攻撃力の50%）の物理ダメージを</physicalDamage>与える。<br><br>斬撃の端にいる敵には代わりに<physicalDamage>60/90/120/150/180（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>と<magicDamage>最大体力の4/4.5/5/5.5/6%にあたる魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "40",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "無慈悲なる裁き",
+   "description": "<spellPassive>自動効果:</spellPassive> <armorPen>10/20/30%の 物理防御貫通</armorPen>を獲得する。<br><br><spellActive>発動効果: </spellActive>上昇し、詠唱中は50%のダメージ軽減効果を獲得する。<br><br>その後、下方へ突き刺し、<physicalDamage>250/400/550（＋増加攻撃力の200%）の物理ダメージ</physicalDamage>を与え、<healing>敵チャンピオンに与えたダメージの33%にあたる体力</healing>を回復する。",
+   "cooldown": "110/95/80",
+   "cost": "100",
+   "range": "600",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

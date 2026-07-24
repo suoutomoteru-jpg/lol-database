@@ -1,0 +1,56 @@
+{
+ "alias": "Blitzcrank",
+ "id": 53,
+ "name": "ブリッツクランク",
+ "title": "偉大なるスチームゴーレム",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "マナバリア",
+   "description": "体力が30%未満になると、10秒間<shield>耐久値最大マナの35%のシールド</shield>を獲得する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ロケットグラブ",
+   "description": "右手を発射して最初に命中した敵を自身の方向に<status>引き寄せ</status>、<magicDamage>110/160/210/260/310（＋魔力の120%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "100",
+   "range": "1079",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "オーバードライブ",
+   "description": "エネルギーをスーパーチャージして、5秒間、<speed>移動速度を60/65/70/75/80%</speed>、<attackSpeed>攻撃速度を30/40/50/60/70%</attackSpeed>増加させる。増加した移動速度は効果時間中に徐々に元に戻る。<br><br>その後、自身が1.5秒間、30%の<status>スロウ効果</status>を受ける。",
+   "cooldown": "15",
+   "cost": "75",
+   "range": "1",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "パワーフィスト",
+   "description": "拳にエネルギーを充填する。次の通常攻撃で対象を1秒間<status>ノックアップ</status>させ、<physicalDamage>合計攻撃力の200% ＋ 魔力の25%の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "7/6.5/6/5.5/5",
+   "cost": "25",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "イナズマフィールド",
+   "description": "<spellPassive>自動効果: </spellPassive>このスキルが発動可能な間はブリッツクランクの拳が帯電し、通常攻撃を行った敵にマークを付ける。マークされた敵は1秒後に<magicDamage>50/100/150（＋魔力の30/40/50% ＋最大マナの2%）の魔法ダメージ</magicDamage>を受ける。<br><br><spellActive>発動効果: </spellActive>オーバーチャージして周囲の敵に<magicDamage>275/400/525（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、0.5秒間<status>サイレンス状態</status>にする。また、対象のシールドも消滅させる。",
+   "cooldown": "60/40/20",
+   "cost": "100",
+   "range": "600",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

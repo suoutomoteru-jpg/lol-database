@@ -1,0 +1,56 @@
+{
+ "alias": "TahmKench",
+ "id": 223,
+ "name": "タム・ケンチ",
+ "title": "川の王様",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "舌慣らし",
+   "description": "通常攻撃でダメージを与えると、<magicDamage>75/120/165/210/255（＋魔力の100%）の追加魔法ダメージ</magicDamage>を与える。ダメージを与えた対象がチャンピオンだった場合、5秒間<spellName>「舌慣らし」</spellName>がスタックされる(最大3回)。<br><br>3スタックが溜まると「味見」や<font color='#0bf7de'>「丸呑み」</font>が強化される。<br><br><rules>反映率は増加100ごとに1.25%</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "味見",
+   "description": "最初に命中した敵に<magicDamage>75/120/165/210/255（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、2秒間、50%の<status>スロウ効果</status>を与える。<br><br>チャンピオンに命中すると、<healing>10/15/20/25/30 + 自身の減少体力の5/5.5/6/6.5/7%</healing>の体力を回復し、<spellName>「舌慣らし」</spellName>のスタックを適用して、<magicDamage>75/120/165/210/255（＋魔力の100%）の追加魔法ダメージ</magicDamage>を与える。対象のチャンピオンに<spellName>「舌慣らし」</spellName>を3スタック付与していた場合は、スタックを消費して対象を1.5秒間<status>スタン</status>させる。<br><br>対象の敵チャンピオンに<spellName>「舌慣らし」</spellName>を3スタック付与していた場合は、舌を伸ばしている最中に<font color='#0bf7de'>「丸呑み」</font>を使用することで、離れたところから呑み込める。",
+   "cooldown": "7/6.5/6/5.5/5",
+   "cost": "50/46/42/38/34",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "川潜り",
+   "description": "水中に潜ってから指定位置に現れ、範囲内のすべての敵に<magicDamage>100/135/170/205/240（＋魔力の150%）の魔法ダメージ</magicDamage>を与えて、1秒間<status>ノックアップ</status>させる。敵チャンピオンに命中した場合は、クールダウンと<scaleMana>マナ</scaleMana>コストの40/42.5/45/47.5/50%が回復する。<br><br><font color='#0bf7de'>「丸呑み」</font>した味方も一緒に連れていくことができる(いつでも早めに出ることが可能)。",
+   "cooldown": "21/20/19/18/17",
+   "cost": "60/75/90/105/120",
+   "range": "1000/1050/1100/1150/1200",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ゆるゆる皮膜",
+   "description": "<passive>自動効果:</passive> 受けたダメージの15/23/31/39/47%を<spellName>「ゆるゆる皮膜」</spellName>で蓄える。この割合は周囲に敵チャンピオンが2体以上いた場合は42/44/46/48/50%に増加する。4秒以上ダメージを受けずにいると、<spellName>「ゆるゆる皮膜」</spellName>が急速に消費されて、その値の0.6〜1（レベル比例）にあたる体力を回復する。<br><br><active>発動効果:</active> 蓄えたすべての<spellName>「ゆるゆる皮膜」</spellName>を<shield>シールド</shield>に変換する。このシールドは2.5秒間持続する。",
+   "cooldown": "3",
+   "cost": "",
+   "range": "2400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "丸呑み",
+   "description": "数秒間、チャンピオンを呑み込む。<recast>再発動</recast>すると吐き出す。<br><br><specialRules>敵チャンピオン:</specialRules><spellName> 「舌慣らし」</spellName>が3スタック必要になる。最大3秒間呑み込み、<magicDamage>100/250/400 (+対象の最大体力の15%)の魔法ダメージ</magicDamage>を与える。この効果中は40%の<status>スロウ効果</status>を受け、<keywordName>釘付け</keywordName>状態になる。<br><br><specialRules>味方チャンピオン:</specialRules> 最大3秒間呑み込み、<shield>耐久値650/800/950（＋魔力の100%）のシールド</shield>を付与する。このシールドは吐き出されたあと、徐々に減少していく。味方は自分から早めに出ることもできる。この効果中は自身も<status>釘付け状態</status>になるが、<keywordName>「川潜り」</keywordName>は使用可能で、3秒間、<speed>移動速度が60%</speed>増加する。",
+   "cooldown": "0",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

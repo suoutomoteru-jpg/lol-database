@@ -1,0 +1,56 @@
+{
+ "alias": "Tristana",
+ "id": 18,
+ "name": "トリスターナ",
+ "title": "ヨードルの主砲",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ドロー＆グロー",
+   "description": "通常攻撃、および<spellName>「ヨードルグレネード」</spellName>と<spellName>「バスターショット」</spellName>の射程距離が0〜150（レベル比例）拡大している。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ラピッドファイア",
+   "description": "フルオート射撃になり、7秒間<attackSpeed>攻撃速度が60/75/90/105/120%</attackSpeed>増加する。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "30/35/40/45/50",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ロケットジャンプ",
+   "description": "自身を飛ばして、着地時に<magicDamage>70/105/140/175/210（＋増加攻撃力の100% ＋魔力の50%）の魔法ダメージ</magicDamage>を与え、2秒間40%の<status>スロウ効果</status>を付与する。<br><br>チャンピオンからキルまたはアシストを獲得するか、チャンピオンに付着した<spellName>「ヨードルグレネード」</spellName>を最大スタックにして爆発させると、このスキルのクールダウンが解消される。",
+   "cooldown": "22/20/18/16/14",
+   "cost": "30/35/40/45/50",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヨードルグレネード",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で敵を倒すと周囲の敵に<magicDamage>45/60/75/90/105（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果:</spellActive> 敵またはタワーにグレネードを付着させ、4秒後に周囲の敵に<physicalDamage>60/85/110/135/160（＋増加攻撃力の80% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。通常攻撃かスキルを命中させるたびに、ダメージが25%増加する(最大4スタック)。<br><br>4スタックした瞬間にグレネードは起爆する(最大<physicalDamage>120/170/220/270/320（＋増加攻撃力の80% ＋魔力の50%）の物理ダメージ</physicalDamage>)。",
+   "cooldown": "16/15.5/15/14.5/14",
+   "cost": "50/55/60/65/70",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "バスターショット",
+   "description": "巨大な砲弾を発射して、対象に<magicDamage>225/275/325（＋増加攻撃力の70% ＋魔力の100%）の魔法ダメージ</magicDamage>を与え、周囲の敵と一緒に<status>ノックバック</status>させ、0.4/0.55/0.7秒間<status>スタン</status>させる。",
+   "cooldown": "100",
+   "cost": "100",
+   "range": "550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

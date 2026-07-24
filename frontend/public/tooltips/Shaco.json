@@ -1,0 +1,56 @@
+{
+ "alias": "Shaco",
+ "id": 35,
+ "name": "シャコ",
+ "title": "悪魔の道化師",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "バックスタブ",
+   "description": "自分の方向を向いていない敵を攻撃した場合:<li>通常攻撃が<physicalDamage>20〜35（レベル比例） ＋ 増加攻撃力の20%の物理ダメージ</physicalDamage>を追加で与える。このダメージにはクリティカル判定がある。<li><spellName>「ポイズンダガー」</spellName>は<magicDamage>15〜50（レベル比例） ＋ 魔力の10%の魔法ダメージ</magicDamage>を追加で与える。このダメージは対象の体力が30%未満の場合、<magicDamage>15〜50（レベル比例） ＋ 魔力の10%×1.5の魔法ダメージ</magicDamage>まで増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "幻惑",
+   "description": "瞬間移動して2.5/2.75/3/3.25/3.5秒間<keywordStealth>インビジブル</keywordStealth>状態になる。<spellName>「びっくり箱」</spellName>または<spellName>「ハルシネイト」</spellName>を使用しても<keywordStealth>インビジブル</keywordStealth>状態は解除されない。<br><br><keywordStealth>インビジブル</keywordStealth>状態中、次の通常攻撃が<physicalDamage>25/35/45/55/65（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を追加で与える。背後から攻撃した場合は、この通常攻撃がクリティカルになり、1（＋0.6×-1（＋合計クリティカルダメージの100%））のダメージを与える。",
+   "cooldown": "13/12.5/12/11.5/11",
+   "cost": "40",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "びっくり箱",
+   "description": "トラップを設置する。トラップは2秒後にステルス状態になり、40（＋魔力の10%）秒間持続する。敵が近づくか可視化されると発動し、周囲の敵チャンピオンに0.5/0.75/1/1.25/1.5秒間(ミニオンとジャングルモンスターに対しては2秒間)<status>フィアー効果</status>を与える。<br><br>トラップは発動すると5秒間周囲のすべての敵を攻撃して<magicDamage>10/15/20/25/30（＋魔力の12%）の魔法ダメージ</magicDamage>を与え、対象が1体の場合は代わりに<magicDamage>25/40/55/70/85（＋魔力の18%）のダメージ</magicDamage>を与える。<br><br>「びっくり箱」の攻撃はモンスターに対して<magicDamage>20/35/50/65/80のダメージ</magicDamage>を追加で与える。",
+   "cooldown": "15",
+   "cost": "70/65/60/55/50",
+   "range": "500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ポイズンダガー",
+   "description": "<spellPassive>自動効果:</spellPassive> このスキルが使用可能な時は、通常攻撃が対象に2秒間、20/22.5/25/27.5/30%の<status>スロウ効果</status>を付与する。<br><br><spellActive>発動効果:</spellActive> ナイフを投げて<magicDamage>70/95/120/145/170（＋増加攻撃力の80% ＋魔力の60%）の魔法ダメージ</magicDamage>を与え、3秒間20/22.5/25/27.5/30%の<status>スロウ効果</status>を付与する。対象の体力が30%未満の場合、代わりに<magicDamage>105/142.5/180/217.5/255（＋増加攻撃力の80% ＋魔力の60%）のダメージ</magicDamage>を与える。",
+   "cooldown": "8",
+   "cost": "75",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ハルシネイト",
+   "description": "一瞬姿を消してから、分身を伴って出現する。分身は体力が尽きるか18秒間経過すると自爆し、<magicDamage>150/225/300（＋魔力の70%）の魔法ダメージ</magicDamage>を与えて、即座に発動する<spellName>「ミニびっくり箱」</spellName>を3つ出現させる。分身はシャコの攻撃力の60%のダメージを与え、受けるダメージは50%増加する。<br><br><spellName>「ミニびっくり箱」</spellName>は<magicDamage>10/20/30（＋魔力の10%）の魔法ダメージ</magicDamage>(敵が1体のみの場合は<magicDamage>25/50/75（＋魔力の15%）の魔法ダメージ</magicDamage>)を与え、1秒間<status>フィアー効果</status>を付与する。<br>",
+   "cooldown": "100/90/80",
+   "cost": "100",
+   "range": "200",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

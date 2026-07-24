@@ -1,0 +1,56 @@
+{
+ "alias": "Heimerdinger",
+ "id": 74,
+ "name": "ハイマーディンガー",
+ "title": "誉れ高き発明王",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヘクステックの親和性",
+   "description": "自身の<keywordMajor>砲台</keywordMajor>と味方のタワー付近では、<speed>移動速度が20%</speed>増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "H-28G革新砲",
+   "description": "周囲の敵を攻撃する<keywordMajor>砲台</keywordMajor>を設置する。砲台は同時に3基まで設置しておくことができる。<keywordMajor>砲台</keywordMajor>は少しずつ充填され、充填が最大になると攻撃が強化される。<br><br>ハイマーディンガーとの距離が離れすぎると、<keywordMajor>砲台</keywordMajor>は8秒後に停止する。<br><br>このスキルは3基までチャージできる。",
+   "cooldown": "1",
+   "cost": "20",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ヘクステック小型ロケット",
+   "description": "5発のロケット弾を一斉発射して、最初に命中した敵に<magicDamage>50/75/100/125/150（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。2ヒット目以降はダメージが減少する。<br><br>最大ダメージ: <magicDamage>90/135/180/225/270（＋魔力の103%）の魔法ダメージ</magicDamage>。<br><br>チャンピオンに命中したロケット弾1発ごとに、周囲の<keywordMajor>砲台</keywordMajor>の充填が20%増加する。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "50/60/70/80/90",
+   "range": "1325",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "CH-2超電磁グレネード",
+   "description": "グレネードを投げて範囲内の敵に<magicDamage>60/100/140/180/220（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、2秒間35%の<status>スロウ効果</status>を付与する。また、範囲の中心にいた敵は1.5秒間<status>スタン</status>させる。<br><br>敵チャンピオンに当たると、近くにある<keywordMajor>砲台</keywordMajor>が最大まで充填される。",
+   "cooldown": "11",
+   "cost": "85",
+   "range": "970",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "アップグレード！！！",
+   "description": "次のアルティメット以外のスキルをアップグレードする。<br><br><spellName>H-28Q超絶砲:</spellName> 8秒間アップグレードされた<keywordMajor>砲台</keywordMajor>を設置する。この<keywordMajor>砲台</keywordMajor>は最大設置数にカウントされず、通常の攻撃で<magicDamage>80/100/120（＋魔力の35%）の魔法ダメージ</magicDamage>を、充填完了時の攻撃で<magicDamage>100/140/180（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。この<keywordMajor>砲台</keywordMajor>は攻撃時に範囲ダメージを与え、2秒間25%の<status>スロウ効果</status>を付与し、また行動妨害効果を受けない。<br><br><spellName>ヘクステックロケット弾幕:</spellName> 複数のロケット弾を4回に分けて発射し、それぞれ<magicDamage>135/180/225（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。チャンピオンとジャングルモンスターに対しては2ヒット目以降のダメージが減少し、ミニオンに対してはダメージが増加する。最大ダメージ: <magicDamage>503/697.5/892（＋魔力の183%）の魔法ダメージ</magicDamage>。<br><br><spellName>CH-3X稲妻グレネード:</spellName> グレネード弾がバウンドし、3回放電して<magicDamage>100/200/300（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。さらに<status>スタン</status>と<status>スロウ</status>の効果範囲が広がる。<br><br><recast>再発動:</recast> このスキルをキャンセルする。",
+   "cooldown": "100/85/70",
+   "cost": "100",
+   "range": "1",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

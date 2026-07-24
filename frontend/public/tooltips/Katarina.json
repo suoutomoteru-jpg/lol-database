@@ -1,0 +1,59 @@
+{
+ "alias": "Katarina",
+ "id": 55,
+ "name": "カタリナ",
+ "title": "凶兆の刃",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "貪欲なる暗殺者",
+   "description": "自身がダメージを与えた敵チャンピオンが3秒以内にキルされると、自身の全スキルのクールダウンが15秒短縮する。<br><br>自身が<keywordMajor>「短剣」</keywordMajor>を拾うと、周囲の敵を斬りつけて<magicDamage>80/115/150/185/220（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。<br><br><rules><keywordMajor>「短剣」</keywordMajor>によるこの攻撃はチャンピオンに通常攻撃時効果を適用する。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "バウンドナイフ",
+   "description": "<keywordMajor>「短剣」</keywordMajor>を投げて、対象と周囲の2体の敵に<magicDamage>80/115/150/185/220（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。<keywordMajor>「短剣」</keywordMajor>は跳ね返った後、最初に指定した対象の後ろに落ちる。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "プリペレーション",
+   "description": "<keywordMajor>「短剣」</keywordMajor>を頭上に投げて<speed>移動速度が50/60/70/80/90%</speed>増加する。この移動速度は1.25秒かけて元に戻る。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "瞬歩",
+   "description": "近くの指定した味方、敵、<keywordMajor>「短剣」</keywordMajor>のいずれかの場所へ瞬間移動する。敵の場合は<magicDamage>20/30/40/50/60（＋魔力の25% ＋合計攻撃力の40%）の魔法ダメージ</magicDamage>を与え、敵以外の場合は射程内で最も近い敵ユニットを攻撃する。<br><br><keywordMajor>「短剣」</keywordMajor>を拾うと、このスキルのクールダウンが<scaleLevel>78/84/90/96%（レベル1/6/11/16）</scaleLevel>秒(<scaleLevel>78/84/90/96%（レベル1/6/11/16）</scaleLevel>)短縮される。対象近くの場所ならどこでもブリンクできる。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "デスロータス",
+   "description": "回転しながら周囲にいる敵チャンピオン(最大3体)にナイフを投げ続けて攻撃する。ナイフ1本につき<magicDamage>25/37.5/50（＋魔力の19%）の魔法ダメージ</magicDamage>と<physicalDamage>の物理ダメージ</physicalDamage>を与え、3秒間40%の「重傷」を付与する。<br><br>2.5秒間で、敵チャンピオン1体に対して合計で<magicDamage>375/562.5/750（＋魔力の19%）の魔法ダメージ</magicDamage>と<physicalDamage>の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "75/60/45",
+   "cost": "",
+   "range": "550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "ADDamageCalc",
+    "TotalADDamageCalc"
+   ]
+  }
+ },
+ "unresolvedCount": 2
+}

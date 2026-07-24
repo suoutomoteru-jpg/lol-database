@@ -1,0 +1,56 @@
+{
+ "alias": "Viktor",
+ "id": 112,
+ "name": "ビクター",
+ "title": "アーケインの先触れ",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "グロリアス・エヴォリューション",
+   "description": "敵を倒すたびに<keywordMajor>「ヘクス フラグメント」</keywordMajor>を獲得する。<keywordMajor>「ヘクス フラグメント」</keywordMajor>を100個獲得するごとに、発動効果スキルを1つ恒久的にアップグレードできる。すべての通常スキルをアップグレードすると、アルティメットスキルを強化できる。<br><br>ミニオンをキルすると<keywordMajor>「ヘクス フラグメント」</keywordMajor>を1個獲得する。<br>砲台ミニオンをキルすると<keywordMajor>「ヘクス フラグメント」</keywordMajor>を10個獲得する。<br>チャンピオンからキルまたはアシストを奪うと<keywordMajor>「ヘクス フラグメント」</keywordMajor>を20個獲得する。<br><rules><br>アルティメットスキルは、アルティメット以外のスキルをすべて強化した後でなければアップグレードできない。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "パワーブラスト",
+   "description": "敵を狙い撃って<magicDamage>60/75/90/105/120（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、自身に<shield>耐久値40〜140（レベル比例） ＋ 魔力の25%のシールド</shield>を2.5秒間付与する。<br><br>4秒以内に行われる次の通常攻撃が<magicDamage>20/45/70/95/120（＋魔力の50% ＋合計攻撃力の100%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>アップグレード: </keywordMajor><shield>耐久値40〜140（レベル比例） ＋ 魔力の25%×1.6のシールド</shield>を付与し、2.5秒間、自身の移動速度が<speed>30%</speed>増加する。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "45/50/55/60/65",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "グラビティフィールド",
+   "description": "4秒間、重力で拘束する装置を設置し、範囲内にいる敵に33/36/39/42/45%の<status>スロウ効果</status>を付与する。範囲内に1.25秒間いた敵は1.5秒間の<status>スタン効果</status>を受ける。<br><br><keywordMajor>固有スキルをアップグレード: </keywordMajor>1秒間、スキルの<status>スロウ効果</status>が20%増加する。<br><br><br>",
+   "cooldown": "17/16/15/14/13",
+   "cost": "65",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヘクステック レイ",
+   "description": "指定方向にヘクステック レイを発射し、命中した敵に<magicDamage>70/110/150/190/230（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>強化:</keywordMajor> ヘクステック レイの通過した跡に爆発が起こり、<magicDamage>20/50/80/110/140（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><br><br>",
+   "cooldown": "12/11/10/9/8",
+   "cost": "60/70/80/90/100",
+   "range": "525",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "アーケインストーム",
+   "description": "6.5秒間、範囲内に「アーケインストーム」を召喚する。この嵐は周囲の敵に直ちに<magicDamage>100/175/250（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、その後は毎秒<magicDamage>65/105/145（＋魔力の35%）の魔法ダメージ</magicDamage>を与える。嵐は自動的に直前にダメージを与えたチャンピオンを追いかける。<br><br><recast>再発動:</recast> ビクターは手動で嵐を移動できる。<br><br><keywordMajor>アップグレード:</keywordMajor> 嵐の移動速度が25%増加する。嵐がダメージを与えたチャンピオンが倒されると、嵐のサイズが増加し、効果時間が3秒増加する(最大6回)。<br><br>",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "700",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

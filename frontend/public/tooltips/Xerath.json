@@ -1,0 +1,56 @@
+{
+ "alias": "Xerath",
+ "id": 101,
+ "name": "ゼラス",
+ "title": "超越魔神",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "マナサージ",
+   "description": "16秒ごとに、次にチャンピオンに対して行う通常攻撃で<scaleMana>30〜195（レベル1〜18）×2マナ</scaleMana>を回復する。対象がミニオン、ジャングルモンスター、建造物だった場合は<scaleMana>30〜195（レベル1〜18）マナ</scaleMana>を回復する。<br><br>ユニットをキルするたびに、このクールダウンが3.5秒短縮される。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "アルカノパルス",
+   "description": "<charge>チャージ開始:</charge> 蒼いビームのチャージを開始して、自身の<status>移動速度</status>が最大50%まで徐々に低下する。<br><br><release>解放:</release> ビームを発射して<magicDamage>75/115/155/195/235（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。チャージした時間に応じて射程が増加する。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "80/90/100/110/120",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "デストラクションアイ",
+   "description": "神秘のエネルギーを空から降らせて<magicDamage>50/85/120/155/190（＋魔力の65%）の魔法ダメージ</magicDamage>を与え、2.5秒間25%の<status>スロウ効果</status>を付与する。効果範囲の中心にいた敵には代わりに<magicDamage>83.35/141.695/200.04/258.385/316.73（＋魔力の65%）の魔法ダメージ</magicDamage>を与え、60/65/70/75/80%の<status>スロウ効果</status>を付与する。この効果は2.5秒かけて元に戻る。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "80/90/100/110/120",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ショックオーブ",
+   "description": "荒れ狂う魔力の弾を放ち、弾の移動距離に応じて最初に当たった敵を最大2.25秒間<status>スタン</status>させて、<magicDamage>70/100/130/160/190（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "13/12.5/12/11.5/11",
+   "cost": "60/65/70/75/80",
+   "range": "1050",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "アーケーンライト",
+   "description": "魔力を開放して真の姿をあらわし、10秒間詠唱する。この間、最大4/5/6回まで<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> 魔弾を発射して<magicDamage>170/220/270（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。チャンピオンに命中するたび、魔弾が追加で<magicDamage>20/25/30（＋魔力の5%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "130/115/100",
+   "cost": "100",
+   "range": "5000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "Ornn",
+ "id": 516,
+ "name": "オーン",
+ "title": "山の下の焔",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "歩く鍛冶場",
+   "description": "オーンが獲得するあらゆる追加物理防御と追加魔法防御は、獲得量が増加する。<br><br>オーンはどこにいても、ゴールドを消費して消費アイテム以外のアイテムを作り出せる。<br><br>さらに、自身と味方のために名匠アイテムを作り出せる。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "溶岩隆起",
+   "description": "地面を叩きつけて裂け目を発生させ、敵に<physicalDamage>20/45/70/95/120（＋合計攻撃力の110%）の物理ダメージ</physicalDamage>を与え、2秒間、40%の<status>スロウ効果</status>を付与する。裂け目の終端に4秒間、岩の柱が発生する。",
+   "cooldown": "9/8.5/8/7.5/7",
+   "cost": "45",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ふいごの息",
+   "description": "炎の息を吐きながら足を踏み鳴らして進み、アンストッパブル状態になって、0.75秒かけて<magicDamage>最大体力の12/13/14/15/16%の魔法ダメージ</magicDamage>を与える。炎の最後の一吐きが当たった敵は3秒間<keywordMajor>「脆弱」</keywordMajor>状態になる。<br><br><keywordMajor>「脆弱」</keywordMajor>状態の対象に<status>移動不能効果</status>を与えると、その効果時間を30%延長し、<magicDamage>最大体力の9〜17%（レベル比例）の魔法ダメージ</magicDamage>を与える。オーンの通常攻撃は<keywordMajor>「脆弱」</keywordMajor>状態になった対象を<status>ノック</status><status>バック</status>させ、追加ダメージを与える。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "45/50/55/60/65",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "灼熱の突撃",
+   "description": "ダッシュして<physicalDamage>80/125/170/215/260（＋増加物理防御の40% ＋増加魔法防御の40%）の物理ダメージ</physicalDamage>を与える。地形にぶつかると衝撃波が発生して敵を1.25秒間<status>ノックアップ</status>させ、ダッシュ時に当たらなかった敵に対しても同じダメージを与える。<br><br>このダッシュは溶岩の柱や敵によって作られた地形を破壊する。",
+   "cooldown": "14/13.5/13/12.5/12",
+   "cost": "35/40/45/50/55",
+   "range": "450",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "鍛冶神の呼び声",
+   "description": "巨大な溶岩の精霊を呼び出す。精霊はオーンがいる方向に突き進み、接触した敵に<magicDamage>125/175/225（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、3秒間<keywordMajor>「脆弱」</keywordMajor>と40/50/60%の<status>スロウ効果</status>を付与する。<br><br><recast>再発動</recast>すると、オーンが突撃して頭突きを行う。精霊に向かって突撃すると、精霊の進行方向を変えて強化し、精霊が最初に当たったチャンピオンを1秒、それ以降に当たったチャンピオンを0.5秒間<status>ノックアップ</status>させる。また、精霊は<magicDamage>125/175/225（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、<keywordMajor>「脆弱」</keywordMajor>を再び適用する。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "2500",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

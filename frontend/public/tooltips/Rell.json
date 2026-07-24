@@ -1,0 +1,56 @@
+{
+ "alias": "Rell",
+ "id": 526,
+ "name": "レル",
+ "title": "鋼鉄の乙女",
+ "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "skills": {
+  "passive": {
+   "name": "革新の鬨",
+   "description": "通常攻撃またはスキルを命中させると、5秒間、対象から<scaleArmor>物理防御を3%</scaleArmor>、<scaleMR>魔法防御を3%</scaleMR>奪う(最大15%)。通常攻撃時効果で<magicDamage>合計物理防御の5% ＋ 合計魔法防御の5%の魔法ダメージ</magicDamage>を与える。<br><br><rules>最低でも1.5〜3（レベル比例）は奪える。ミニオンおよびエピックジャングルモンスターからは奪えない。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "破鋼撃",
+   "description": "ランスを突き出して、対象を0.65秒間<status>スタン</status>させ、<shield>シールド</shield>をすべて破壊し、<magicDamage>60/100/140/180/220（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "11/10.5/10/9.5/9",
+   "cost": "50",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "フェロマンシー: 装着",
+   "description": "<spellPassive>自動効果 - 騎馬の俊足</spellPassive>: 騎乗中は<speed>移動速度が20/25/30/35/40/45</speed>増加する。<br><br><spellActive>発動効果 - 「フェロマンシー: 装着」: </spellActive>騎馬を解除して跳躍し、敵を<status>ノックアップ</status>させて、<magicDamage>60/90/120/150/180/210（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。自身は<shield>耐久値20/40/60/80/100/120（＋合計体力の11%）のシールド</shield>を獲得する。このシールドは再度騎乗するまで持続する。<br><br>その後、鎧身形態となって<scaleMR>魔法防御</scaleMR>と<scaleArmor>物理防御が15%</scaleArmor>、<attackSpeed>攻撃速度が20%</attackSpeed>、射程距離が75増加する。鎧身形態中は<spellName>「フェロマンシー: 騎馬」</spellName>を使用できる。<br><br><spellActive>発動効果 - 「フェロマンシー: 騎馬」:</spellActive> 騎乗して、少しの間だけ<speed>移動速度が30%</speed>増加する。増加した移動速度は徐々に元に戻る。3.5秒以内に行う次の通常攻撃で、敵を<status>ノックアップ</status>させて自身の背後に放り投げ、追加で<magicDamage>10/25/40/55/70/85（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "",
+   "cost": "40",
+   "range": "450",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "e": {
+   "name": "重槍突貫",
+   "description": "レルと味方1体が突撃し、3秒間、<speed>移動速度が15%</speed>増加する。敵チャンピオンまたはお互いの方を向いている場合は、この増加移動速度が<speed>30%</speed>に増加する。次の通常攻撃または範囲内の<spellName>「破鋼撃」</spellName>が爆発し、<magicDamage>最大体力の5/5.5/6/6.5/7%の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "40",
+   "range": "1200",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "磁気嵐流",
+   "description": "猛烈な磁場を発生させ、周囲の敵を自身の方向に<status>引き寄せる</status>。その後も継続的に周囲の敵を自身の方向に<status>引き付け</status>、2秒間かけて<magicDamage>150/250/350（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "200",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}
