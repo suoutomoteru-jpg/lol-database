@@ -305,8 +305,6 @@ export function ItemDetail() {
     .replace(/^(\s*<br>)+/i, '')
     .trim();
   const goldEfficiency = calcGoldEfficiency(item.stats, item.tags, item.description, item.gold.total);
-  // メーターは150%を上限、100%の位置に基準線
-  const effBarWidth = goldEfficiency !== null ? `${Math.min(goldEfficiency, 150) / 1.5}%` : '0%';
 
   const chips = statLines.map(line => {
     const plain = line.label.replace(/<[^>]+>/g, '');
@@ -411,22 +409,12 @@ export function ItemDetail() {
               </p>
 
               {goldEfficiency !== null && (
-                <div className="mt-2 w-48 mx-auto">
-                  <div className="flex items-baseline justify-between mb-1 text-[11px]">
-                    <span className="text-muted-foreground">金銭効率</span>
-                    <span className={`font-semibold tabular-nums ${goldEfficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
-                      {goldEfficiency.toFixed(1)}%
-                    </span>
-                  </div>
-                  <div className="relative h-1.5 bg-secondary rounded-full">
-                    <div
-                      className={`absolute inset-y-0 left-0 rounded-full ${goldEfficiency >= 100 ? 'bg-stat-hp/80' : 'bg-primary/80'}`}
-                      style={{ width: effBarWidth }}
-                    />
-                    {/* 100% の基準線 */}
-                    <div className="absolute -inset-y-0.5 w-px bg-foreground/50" style={{ left: `${100 / 1.5}%` }} />
-                  </div>
-                </div>
+                <p className="mt-1.5 text-[11px]">
+                  <span className="text-muted-foreground">金銭効率 </span>
+                  <span className={`font-semibold tabular-nums ${goldEfficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
+                    {goldEfficiency.toFixed(1)}%
+                  </span>
+                </p>
               )}
 
               {/* 積む: ビルドトレイへ追加 */}
