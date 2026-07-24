@@ -9,13 +9,17 @@ import { useBuildTray, addToTray, MAX_SLOTS } from '../hooks/useBuildTray';
 import { usePatchChanges } from '../hooks/usePatchChanges';
 import { BottomSheet } from '../components/BottomSheet';
 import { BuildTray } from '../components/BuildTray';
-import { QuickSwitchPanel } from '../components/QuickSwitchPanel';
+import { QuickSwitchPanel, type QuickSwitchEntry } from '../components/QuickSwitchPanel';
 import { ReportLink } from '../components/ReportLink';
 import { HeaderSearch } from '../components/HeaderSearch';
 import { processItemDescription, injectStatLinks } from '../utils/richText';
 import { calcGoldEfficiency } from '../utils/goldEfficiency';
 import { STAT_KEY_LABELS, ITEM_KEYWORDS } from '../utils/stats';
+import { ITEM_TYPE_LABELS_JA } from '../utils/roleAssets';
 import { flyToTray } from '../utils/flyToTray';
+import { prefetchItem } from '../utils/prefetch';
+
+const ITEM_CATEGORY_ORDER = ['Fighter', 'Marksman', 'Assassin', 'Magic', 'Defense', 'Support'];
 
 // ── 日本語単語境界でのアイテム名折り返し ────────────────
 interface JaSegment { segment: string }
@@ -250,6 +254,10 @@ export function ItemDetail() {
   const heroImgRef = useRef<HTMLImageElement>(null);
 
   useDocumentTitle(item ? `${item.name} 効果・金銭効率・ビルドパス | nunune` : null);
+
+  const quickSwitchEntries: QuickSwitchEntry[] = items.map(it => ({
+    id: it.id, name: it.name, icon: it.icon, category: it.type,
+  }));
 
   const currentIdx = items.findIndex(it => it.id === id);
   const prevItem = currentIdx > 0 ? items[currentIdx - 1] : null;
@@ -524,7 +532,16 @@ export function ItemDetail() {
 
       <BuildTray />
 
-      <QuickSwitchPanel items={items} currentId={item.id} />
+      <QuickSwitchPanel
+        instanceKey="item"
+        entries={quickSwitchEntries}
+        currentId={item.id}
+        categoryOrder={ITEM_CATEGORY_ORDER}
+        categoryLabels={ITEM_TYPE_LABELS_JA}
+        basePath="/item"
+        title="アイテムをえらぶ"
+        onHover={prefetchItem}
+      />
 
       <BottomSheet
         isOpen={activeStatKey !== null}

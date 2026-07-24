@@ -1,41 +1,58 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router';
-import { X } from 'lucide-react';
-import { ITEM_TYPE_LABELS_JA } from '../utils/roleAssets';
-import { prefetchItem } from '../utils/prefetch';
-import type { Item, ItemType } from '../types/app';
+import { X, Home } from 'lucide-react';
 
 /**
- * アイテム詳細のクイック切替パネル
+ * チャンピオン/アイテム詳細共通のクイック切替パネル
  *
  * 右下に9マス（3×3）のミニアイコン吹き出しを常設し、タップすると
- * 右から3列グリッドのパネルが出る。アイコンをタップで即その詳細へ。
+ * 右からグリッドのパネルが出る。アイコンをタップで即その詳細へ。
  * ページ遷移してもパネルは開いたまま＝連続比較のための装置なので、
- * 開閉状態とタブはモジュールスコープでルーティングをまたいで保持する。
+ * 開閉状態とタブは instanceKey（'item' | 'champion'）単位で
+ * モジュールスコープに保持し、ルーティングをまたいでも消えない。
  */
 
-const TYPE_ORDER: ItemType[] = ['Fighter', 'Marksman', 'Assassin', 'Magic', 'Defense', 'Support'];
-
-let persistedOpen = false;
-let persistedTab: ItemType | null = null;
-
-interface QuickSwitchPanelProps {
-  items: Item[];
-  currentId: string;
+export interface QuickSwitchEntry {
+  id: string;
+  name: string;
+  icon: string;
+  /** カテゴリキー（アイテムはItemType、チャンピオンはRole） */
+  category: string;
 }
 
-export function QuickSwitchPanel({ items, currentId }: QuickSwitchPanelProps) {
-  const currentType = items.find(i => i.id === currentId)?.type ?? null;
-  const [open, setOpen] = useState(persistedOpen);
-  const [tab, setTab] = useState<ItemType>(persistedTab ?? currentType ?? 'Fighter');
+// instanceKey（'item' | 'champion'）ごとに開閉状態・タブを独立して保持する
+const persisted = new Map<string, { open: boolean; tab: string | null }>();
+function getPersisted(key: string) {
+  if (!persisted.has(key)) persisted.set(key, { open: false, tab: null });
+  return persisted.get(key)!;
+}
 
-  const setOpenPersist = (v: boolean) => { persistedOpen = v; setOpen(v); };
-  const setTabPersist = (t: ItemType) => { persistedTab = t; setTab(t); };
+interface QuickSwitchPanelProps {
+  instanceKey: 'item' | 'champion';
+  entries: QuickSwitchEntry[];
+  currentId: string;
+  categoryOrder: string[];
+  categoryLabels: Record<string, string>;
+  basePath: string; // '/item' | '/champion'
+  title: string;    // "アイテムをえらぶ" | "チャンピオンをえらぶ"
+  onHover?: (id: string) => void;
+}
 
-  // 閉じている間は、いま見ているアイテムのカテゴリにタブを追従させる
+export function QuickSwitchPanel({
+  instanceKey, entries, currentId, categoryOrder, categoryLabels, basePath, title, onHover,
+}: QuickSwitchPanelProps) {
+  const state = getPersisted(instanceKey);
+  const currentCategory = entries.find(i => i.id === currentId)?.category ?? null;
+  const [open, setOpen] = useState(state.open);
+  const [tab, setTab] = useState<string>(state.tab ?? currentCategory ?? categoryOrder[0]);
+
+  const setOpenPersist = (v: boolean) => { state.open = v; setOpen(v); };
+  const setTabPersist = (t: string) => { state.tab = t; setTab(t); };
+
+  // 閉じている間は、いま見ているアイテム/チャンピオンのカテゴリにタブを追従させる
   useEffect(() => {
-    if (!open && currentType) { persistedTab = currentType; setTab(currentType); }
-  }, [currentType, open]);
+    if (!open && currentCategory) { state.tab = currentCategory; setTab(currentCategory); }
+  }, [currentCategory, open, state]);
 
   // Esc で閉じる
   useEffect(() => {
@@ -46,31 +63,31 @@ export function QuickSwitchPanel({ items, currentId }: QuickSwitchPanelProps) {
   }, [open]);
 
   // 吹き出しの9マス: 同カテゴリ内で現在アイテムの周辺を切り出す
-  const bubbleItems = useMemo(() => {
-    const sameType = items.filter(i => i.type === (currentType ?? tab));
-    const idx = sameType.findIndex(i => i.id === currentId);
-    const start = Math.max(0, Math.min(idx < 0 ? 0 : idx - 4, sameType.length - 9));
-    return sameType.slice(start, start + 9);
-  }, [items, currentId, currentType, tab]);
+  const bubbleEntries = useMemo(() => {
+    const sameCategory = entries.filter(i => i.category === (currentCategory ?? tab));
+    const idx = sameCategory.findIndex(i => i.id === currentId);
+    const start = Math.max(0, Math.min(idx < 0 ? 0 : idx - 4, sameCategory.length - 9));
+    return sameCategory.slice(start, start + 9);
+  }, [entries, currentId, currentCategory, tab]);
 
-  const gridItems = useMemo(() => items.filter(i => i.type === tab), [items, tab]);
+  const gridEntries = useMemo(() => entries.filter(i => i.category === tab), [entries, tab]);
 
-  if (items.length === 0) return null;
+  if (entries.length === 0) return null;
 
   return (
     <>
       {/* 吹き出しボタン（パネル展開中は非表示） */}
-      {!open && bubbleItems.length > 0 && (
+      {!open && bubbleEntries.length > 0 && (
         <button
           onClick={() => setOpenPersist(true)}
-          aria-label="他のアイテムをえらぶ"
-          title="他のアイテムをえらぶ"
-          className="fixed right-2 bottom-28 z-30 grid grid-cols-3 gap-[3px] w-[52px] h-[52px] p-[7px]
-            rounded-[14px] bg-card border border-border shadow-[0_4px_16px_rgba(0,0,0,.45)]
+          aria-label={title}
+          title={title}
+          className="fixed right-2 bottom-28 z-30 grid grid-cols-3 gap-[3px] w-[48px] h-[48px] p-[6px]
+            rounded-[13px] bg-card border border-border shadow-[0_4px_16px_rgba(0,0,0,.45)]
             ring-1 ring-primary/40 ring-offset-4 ring-offset-transparent
             transition-transform hover:scale-105 active:scale-95"
         >
-          {bubbleItems.map(i => (
+          {bubbleEntries.map(i => (
             <img key={i.id} src={i.icon} alt="" className="w-full h-full rounded-[3px] object-cover" loading="lazy" />
           ))}
         </button>
@@ -87,54 +104,64 @@ export function QuickSwitchPanel({ items, currentId }: QuickSwitchPanelProps) {
           {/* Panel */}
           <aside
             role="dialog"
-            aria-label="アイテムをえらぶ"
-            className="fixed inset-y-0 right-0 z-50 w-[232px] bg-card border-l border-border flex flex-col"
-            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+            aria-label={title}
+            className="fixed inset-y-0 right-0 z-50 w-[196px] bg-card border-l border-border flex flex-col"
+            style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
           >
             <div className="flex items-center justify-between px-3 pt-3 pb-2.5 border-b border-border">
-              <span className="text-sm font-bold text-foreground">アイテムをえらぶ</span>
-              <button
-                onClick={() => setOpenPersist(false)}
-                aria-label="閉じる"
-                className="text-muted-foreground hover:text-foreground transition-colors p-1 -mr-1 rounded-sm"
-              >
-                <X size={16} />
-              </button>
+              <span className="text-xs font-bold text-foreground">{title}</span>
+              <div className="flex items-center gap-0.5">
+                <Link
+                  to="/"
+                  aria-label="ホームに戻る"
+                  title="ホームに戻る"
+                  className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-sm"
+                >
+                  <Home size={15} />
+                </Link>
+                <button
+                  onClick={() => setOpenPersist(false)}
+                  aria-label="閉じる"
+                  className="text-muted-foreground hover:text-foreground transition-colors p-1 -mr-1 rounded-sm"
+                >
+                  <X size={15} />
+                </button>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 px-2.5 pt-2.5 pb-1">
-              {TYPE_ORDER.map(t => {
-                const active = tab === t;
+            <div className="flex flex-wrap gap-1 px-2 pt-2 pb-1">
+              {categoryOrder.map(c => {
+                const active = tab === c;
                 return (
                   <button
-                    key={t}
-                    onClick={() => setTabPersist(t)}
+                    key={c}
+                    onClick={() => setTabPersist(c)}
                     aria-pressed={active}
-                    className={`text-[10px] border rounded-full px-2.5 pt-px pb-[3px] transition-colors ${
+                    className={`text-[9px] border rounded-full px-2 pt-px pb-[2px] transition-colors ${
                       active
                         ? 'border-primary/60 text-primary bg-primary/10'
                         : 'border-border text-muted-foreground hover:text-foreground'
                     }`}
                   >
-                    {ITEM_TYPE_LABELS_JA[t]}
+                    {categoryLabels[c] ?? c}
                   </button>
                 );
               })}
             </div>
 
-            <div className="flex-1 overflow-y-auto overscroll-contain p-2.5">
-              <div className="grid grid-cols-3 gap-1.5">
-                {gridItems.map(i => {
+            <div className="flex-1 overflow-y-auto overscroll-contain p-2">
+              <div className="grid grid-cols-4 gap-1">
+                {gridEntries.map(i => {
                   const isCurrent = i.id === currentId;
                   return (
                     <Link
                       key={i.id}
-                      to={`/item/${i.id}`}
+                      to={`${basePath}/${i.id}`}
                       title={i.name}
                       aria-current={isCurrent ? 'page' : undefined}
-                      onPointerEnter={prefetchItem}
-                      onTouchStart={prefetchItem}
-                      className={`block aspect-square rounded-lg overflow-hidden border transition-colors ${
+                      onPointerEnter={() => onHover?.(i.id)}
+                      onTouchStart={() => onHover?.(i.id)}
+                      className={`block aspect-square rounded-md overflow-hidden border transition-colors ${
                         isCurrent
                           ? 'border-primary border-2 shadow-[0_0_10px_rgba(255,143,198,.5)]'
                           : 'border-border hover:border-primary/50'

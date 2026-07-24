@@ -18,9 +18,13 @@ import type { Role } from '../types/app';
 import { BottomSheet } from '../components/BottomSheet';
 import { ReportLink } from '../components/ReportLink';
 import { HeaderSearch } from '../components/HeaderSearch';
+import { QuickSwitchPanel, type QuickSwitchEntry } from '../components/QuickSwitchPanel';
+import { prefetchChampion } from '../utils/prefetch';
 import type { SkillData } from '../hooks/useChampion';
 
 type SkillKey = 'P' | 'Q' | 'W' | 'E' | 'R';
+
+const ROLE_CATEGORY_ORDER = ['Mage', 'Tank', 'Assassin', 'Fighter', 'Support', 'Marksman'];
 
 
 // ── スキルナビゲーション（アイコン + キーバッジ）─────────
@@ -35,8 +39,12 @@ function SkillNav({
   onSelect: (key: SkillKey) => void;
 }) {
   // backdrop-blurはstickyでスクロール毎に再合成が走りモバイルで重いため不使用
+  // topはenv(safe-area-inset-top)分ずらし、iOS PWAでステータスバーの下に潜らないようにする
   return (
-    <div className="sticky top-0 z-10 bg-background border-y border-border py-3">
+    <div
+      className="sticky z-10 bg-background border-y border-border py-3"
+      style={{ top: 'env(safe-area-inset-top)' }}
+    >
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="flex justify-center gap-3">
           {skills.map(s => {
@@ -298,6 +306,10 @@ export function ChampionDetail() {
   const prevChampion = currentIdx > 0 ? champions[currentIdx - 1] : null;
   const nextChampion = currentIdx >= 0 && currentIdx < champions.length - 1 ? champions[currentIdx + 1] : null;
 
+  const quickSwitchEntries: QuickSwitchEntry[] = champions.map(c => ({
+    id: c.id, name: c.name, icon: c.icon, category: c.role,
+  }));
+
   // トップへ戻るボタンの表示判定 + 最下部でのスクロールスパイ補正。
   // （getBoundingClientRect のような要素ごとのレイアウト読み取りはしない）
   useEffect(() => {
@@ -494,6 +506,17 @@ export function ChampionDetail() {
         items={statMap.get(activeStatKey ?? '') ?? []}
         mediumItems={mediumStatMap.get(activeStatKey ?? '') ?? []}
         onClose={() => { setActiveStatKey(null); setActiveLabel(''); }}
+      />
+
+      <QuickSwitchPanel
+        instanceKey="champion"
+        entries={quickSwitchEntries}
+        currentId={champion.id}
+        categoryOrder={ROLE_CATEGORY_ORDER}
+        categoryLabels={ROLE_LABELS_JA}
+        basePath="/champion"
+        title="チャンピオンをえらぶ"
+        onHover={prefetchChampion}
       />
     </div>
   );
