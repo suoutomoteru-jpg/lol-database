@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getLatestVersion, fetchItemList, fetchItemListAram, itemImageUrl } from '../api/dataDragon';
+import { getLatestVersion, fetchItemList, fetchItemListAram, fetchItemEnNames, itemImageUrl } from '../api/dataDragon';
 import { mapItemType } from '../utils/itemType';
 import type { Item } from '../types/app';
 import type { DDragonItem } from '../types/ddragon';
@@ -82,14 +82,16 @@ export function useItems(): UseItemsResult {
     async function load() {
       try {
         const v = await getLatestVersion();
-        const [raw, rawAram] = await Promise.all([fetchItemList(v), fetchItemListAram(v)]);
+        const [raw, rawAram, enNames] = await Promise.all([
+          fetchItemList(v), fetchItemListAram(v), fetchItemEnNames(v),
+        ]);
 
         if (cancelled) return;
 
         const makeItem = (id: string, item: DDragonItem, mapMode?: 'aram'): Item => ({
           id,
           name: item.name,
-          type: mapItemType(item.tags, item.description.replace(/<[^>]+>/g, '')),
+          type: mapItemType(item.tags, item.description.replace(/<[^>]+>/g, ''), enNames[id]),
           icon: itemImageUrl(v, item.image.full),
           statTags: computeStatTags(item.stats, item.tags, item.description),
           ...(mapMode ? { mapMode } : {}),

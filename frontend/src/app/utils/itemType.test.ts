@@ -30,4 +30,13 @@ describe('mapItemType', () => {
   it('サポート系タグはサポート', () => {
     expect(mapItemType(['GoldPer', 'ManaRegen'])).toBe('Support');
   });
+
+  it('既知のサポート専用アイテムはHealth/Armor/SpellDamageタグを持っていてもサポートに固定される', () => {
+    // 贖罪: Health/HealthRegen/Aura等を持つが、tagsだけで判定するとDefenseに先取りされる
+    expect(mapItemType(['Health', 'HealthRegen', 'Aura'], '', 'Redemption')).toBe('Support');
+    // アイアンソラリのロケット: Armor+SpellBlock+Healthを持つ
+    expect(mapItemType(['Armor', 'SpellBlock', 'Health'], '', 'Locket of the Iron Solari')).toBe('Support');
+    // 川の流れの杖: SpellDamageを持つためMagicに先取りされる
+    expect(mapItemType(['SpellDamage', 'ManaRegen'], '', 'Staff of Flowing Water')).toBe('Support');
+  });
 });
