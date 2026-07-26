@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchItemList, fetchItemListAram, fetchItemEnNames, itemImageUrl } from '../api/dataDragon';
 import { mapItemType } from '../utils/itemType';
+import { toPlainText } from '../utils/richText';
 import type { Item } from '../types/app';
 import type { DDragonItem } from '../types/ddragon';
 
@@ -49,7 +50,7 @@ function computeStatTags(
   description: string,
 ): string[] {
   const tagSet = new Set(tags);
-  const plainDesc = description.replace(/<[^>]+>/g, '');
+  const plainDesc = toPlainText(description);
   const seen = new Set<string>();
   const result: string[] = [];
 
@@ -91,7 +92,7 @@ export function useItems(): UseItemsResult {
         const makeItem = (id: string, item: DDragonItem, mapMode?: 'aram'): Item => ({
           id,
           name: item.name,
-          type: mapItemType(item.tags, item.description.replace(/<[^>]+>/g, ''), enNames[id]),
+          type: mapItemType(item.tags, toPlainText(item.description), enNames[id]),
           icon: itemImageUrl(v, item.image.full),
           statTags: computeStatTags(item.stats, item.tags, item.description),
           ...(mapMode ? { mapMode } : {}),

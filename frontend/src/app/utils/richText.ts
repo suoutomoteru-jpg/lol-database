@@ -24,6 +24,28 @@ function stripUnknownTags(s: string, isAllowed: (tag: string) => boolean): strin
   return s.replace(/<[^>]+>/g, match => (isAllowed(match.toLowerCase().trim()) ? match : ''));
 }
 
+/**
+ * <passive>...</passive> / <active>...</active> の中身（パッシブ/アクティブの
+ * 名称ラベル）を丸ごと除去する。
+ *
+ * ラベルにはフレーバー的な言い回しが使われることがあり、その中の単語が
+ * たまたまステータスキーワード（例:「脅威」＝Lethalityの和名）と一致すると、
+ * ステータス分類・ハイライトの両方で誤検出を起こす（例: ユン・タル・
+ * ワイルドアローがパッシブ名の言い回しのせいでアサシンアイテム判定される）。
+ * ラベル自体はゲームの実ステータスではないため、キーワード照合の対象から
+ * 除外するのが正しい。
+ */
+export function stripPassiveActiveLabels(html: string): string {
+  return html
+    .replace(/<passive>[\s\S]*?<\/passive>/gi, '')
+    .replace(/<active>[\s\S]*?<\/active>/gi, '');
+}
+
+/** ステータス分類・判定用のプレーンテキスト化（パッシブ/アクティブ名は除外） */
+export function toPlainText(html: string): string {
+  return stripPassiveActiveLabels(html).replace(/<[^>]+>/g, '');
+}
+
 // ── 最終防御: 属性ホワイトリストによるサニタイズ ─────────
 // 表示HTMLは dangerouslySetInnerHTML で描画される。ソースは
 // DDragon / CommunityDragon（第三者CDN）とCI生成JSONなので、
@@ -135,7 +157,9 @@ export function processItemDescription(raw: string): string {
   s = s.replace(/<mainText>/gi, '').replace(/<\/mainText>/gi, '');
   s = s.replace(/<stats>/gi, '<div class="item-stats">').replace(/<\/stats>/gi, '</div>');
   s = s.replace(/<br\s*\/?>/gi, '<br>');
-  s = s.replace(/<attention>/gi, '<strong style="color:#E8B34B">').replace(/<\/attention>/gi, '</strong>');
+  // 実数値の強調: 少しだけフォントサイズを上げて本文から浮き上がらせる
+  // （style属性は color/cursor/opacity のみ許可のため、font-sizeはクラスで指定）
+  s = s.replace(/<attention>/gi, '<strong class="item-desc-num" style="color:#E8B34B">').replace(/<\/attention>/gi, '</strong>');
   s = s.replace(/<passive>/gi, '<strong class="text-muted-foreground">').replace(/<\/passive>/gi, '</strong>');
   s = s.replace(/<active>/gi, '<strong class="text-muted-foreground">').replace(/<\/active>/gi, '</strong>');
   s = s.replace(/<ornnBonus>/gi, '<span class="text-primary/70">').replace(/<\/ornnBonus>/gi, '</span>');
@@ -177,14 +201,24 @@ function buildInjector(
   );
   const map = new Map(pairs.map(d => [d.text, d.key]));
 
-  return (html: string) =>
-    html.split(/(<[^>]+>)/).map(part => {
-      if (part.startsWith('<')) return part;
+  return (html: string) => {
+    // パッシブ/アクティブ名ラベル（processItemDescriptionが
+    // <strong class="text-muted-foreground"> に変換済み）の中身は
+    // フレーバー的な言い回しを含むため、ステータス語ハイライトの対象外にする
+    let insideLabel = false;
+    return html.split(/(<[^>]+>)/).map(part => {
+      if (part.startsWith('<')) {
+        if (/^<strong class="text-muted-foreground">$/i.test(part)) insideLabel = true;
+        else if (insideLabel && /^<\/strong>$/i.test(part)) insideLabel = false;
+        return part;
+      }
+      if (insideLabel) return part;
       return part.replace(pattern, kw => {
         const key = map.get(kw);
         return key ? `<span data-stat="${key}" class="${className}" role="button" tabindex="0">${kw}</span>` : kw;
       });
     }).join('');
+  };
 }
 
 /** アイテム説明文のテキストノード内のステータス語をタップ可能にする */

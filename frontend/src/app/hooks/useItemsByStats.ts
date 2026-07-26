@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchItemList, fetchItemListMedium, itemImageUrl } from '../api/dataDragon';
 import { STAT_DEFS, itemHasStat, ITEM_KEYWORDS, STAT_KEY_LABELS } from '../utils/stats';
+import { toPlainText } from '../utils/richText';
 import type { DDragonItem } from '../types/ddragon';
 
 export interface ItemStatLine {
@@ -106,7 +107,7 @@ function buildMap(version: string, items: [string, DDragonItem, ...unknown[]][])
 
     // ステータス台帳（utils/stats.ts）に基づいて逆引きマップを構築する
     const tags = item.tags ?? [];
-    const plainDesc = item.description.replace(/<[^>]+>/g, '');
+    const plainDesc = toPlainText(item.description);
     for (const def of STAT_DEFS) {
       if (itemHasStat(def, item.stats, tags, plainDesc)) add(def.key, summary);
     }

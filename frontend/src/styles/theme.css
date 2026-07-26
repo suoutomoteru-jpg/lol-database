@@ -69,6 +69,8 @@ button, a, input, [role="button"] {
   color: var(--color-foreground);
   font-weight: 600;
 }
+/* 本文中の実数値（<attention>）: 少しだけ大きくして目立たせる */
+.item-desc-num { font-size: 1.08em; }
 
 /* ── 「刻印」: タップ可能なステータス語の統一文法 ──────────
    この見た目＝「そのステータスが得られるアイテムへの入り口」。

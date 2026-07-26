@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { processTooltipHtml, processItemDescription, injectStatLinks } from './richText';
+import { processTooltipHtml, processItemDescription, injectStatLinks, toPlainText } from './richText';
 
 describe('processTooltipHtml', () => {
   it('ダメージ種別タグを色付き span に変換する', () => {
@@ -44,7 +44,7 @@ describe('processItemDescription', () => {
       '<mainText><stats>攻撃力 65</stats><attention>40%</attention>増加</mainText>',
     );
     expect(out).toContain('<div class="item-stats">攻撃力 65</div>');
-    expect(out).toContain('<strong style="color:#E8B34B">40%</strong>');
+    expect(out).toContain('<strong class="item-desc-num" style="color:#E8B34B">40%</strong>');
     expect(out).not.toContain('mainText');
   });
 
@@ -86,5 +86,23 @@ describe('injectStatLinks', () => {
     const out = injectStatLinks('クリティカルダメージ');
     expect(out).toContain('custom:CritDamage');
     expect(out).not.toContain('FlatCritChanceMod');
+  });
+
+  it('パッシブ名ラベルの中身はステータス語としてハイライトしない（ユン・タル・ワイルドアロー対策）', () => {
+    // processItemDescriptionが<passive>を<strong class="text-muted-foreground">に変換した後の形
+    const html = '<strong class="text-muted-foreground">熟練の末に脅威となる</strong>: 通常攻撃が真の脅威となる';
+    const out = injectStatLinks(html);
+    // ラベル内の「脅威」はハイライトされない
+    expect(out).toContain('<strong class="text-muted-foreground">熟練の末に脅威となる</strong>');
+    // ラベルの外（本文）の「脅威」は通常どおりハイライトされる
+    expect(out).toContain('data-stat="custom:Lethality"');
+  });
+});
+
+describe('toPlainText', () => {
+  it('パッシブ/アクティブ名ラベルの中身を除去してからプレーンテキスト化する', () => {
+    const html = '<passive>熟練の末に脅威となる</passive>: 攻撃力 65を得る';
+    expect(toPlainText(html)).not.toContain('脅威');
+    expect(toPlainText(html)).toContain('攻撃力 65を得る');
   });
 });
