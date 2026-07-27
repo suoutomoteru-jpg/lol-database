@@ -154,11 +154,19 @@ export function Home() {
             </h1>
             <p className="hidden sm:block text-xs text-muted-foreground truncate">はやくて見やすい、LoLのデータベース。</p>
           </div>
-          {version && (
-            <span className="flex-shrink-0 px-2.5 pt-[3px] pb-[5px] text-xs text-muted-foreground tabular-nums rounded-sm border border-border bg-card">
-              パッチ {displayPatch(version)}
-            </span>
-          )}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Link
+              to="/scaling"
+              className="px-2.5 pt-[3px] pb-[5px] text-xs text-muted-foreground hover:text-primary hover:border-primary/40 tabular-nums rounded-sm border border-border bg-card transition-colors"
+            >
+              Scaling Chart
+            </Link>
+            {version && (
+              <span className="px-2.5 pt-[3px] pb-[5px] text-xs text-muted-foreground tabular-nums rounded-sm border border-border bg-card">
+                パッチ {displayPatch(version)}
+              </span>
+            )}
+          </div>
         </div>
       </header>
 

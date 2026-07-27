@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-24T00:00:00+00:00",
+  "patch": "sample",
+  "queue": "RANKED_SOLO_5x5",
+  "sampledMatches": 0,
+  "buckets": {
+    "early": { "maxMinutes": 25 },
+    "mid": { "minMinutes": 25, "maxMinutes": 32 },
+    "late": { "minMinutes": 32 }
+  },
+  "note": "開発用サンプルデータ。scripts/fetch_scaling_data.py の実行結果に置き換わる。",
+  "champions": [
+    { "alias": "Draven",   "early": { "games": 500, "wins": 269, "winrate": 53.8 }, "mid": { "games": 500, "wins": 254, "winrate": 50.9 }, "late": { "games": 500, "wins": 239, "winrate": 47.9 } },
+    { "alias": "Renekton", "early": { "games": 500, "wins": 264, "winrate": 52.9 }, "mid": { "games": 500, "wins": 249, "winrate": 49.8 }, "late": { "games": 500, "wins": 232, "winrate": 46.5 } },
+    { "alias": "Lucian",   "early": { "games": 500, "wins": 260, "winrate": 52.1 }, "mid": { "games": 500, "wins": 251, "winrate": 50.2 }, "late": { "games": 500, "wins": 240, "winrate": 48.1 } },
+    { "alias": "Pantheon", "early": { "games": 500, "wins": 259, "winrate": 51.8 }, "mid": { "games": 500, "wins": 250, "winrate": 50.0 }, "late": { "games": 500, "wins": 236, "winrate": 47.2 } },
+    { "alias": "Annie",    "early": { "games": 500, "wins": 253, "winrate": 50.6 }, "mid": { "games": 500, "wins": 251, "winrate": 50.2 }, "late": { "games": 500, "wins": 248, "winrate": 49.6 } },
+    { "alias": "Ahri",     "early": { "games": 500, "wins": 249, "winrate": 49.9 }, "mid": { "games": 500, "wins": 252, "winrate": 50.4 }, "late": { "games": 500, "wins": 254, "winrate": 50.8 } },
+    { "alias": "Jinx",     "early": { "games": 500, "wins": 239, "winrate": 47.9 }, "mid": { "games": 500, "wins": 251, "winrate": 50.3 }, "late": { "games": 500, "wins": 266, "winrate": 53.1 } },
+    { "alias": "Nasus",    "early": { "games": 500, "wins": 236, "winrate": 47.2 }, "mid": { "games": 500, "wins": 253, "winrate": 50.6 }, "late": { "games": 500, "wins": 264, "winrate": 52.8 } },
+    { "alias": "Vayne",    "early": { "games": 500, "wins": 234, "winrate": 46.8 }, "mid": { "games": 500, "wins": 249, "winrate": 49.9 }, "late": { "games": 500, "wins": 268, "winrate": 53.6 } },
+    { "alias": "Kassadin", "early": { "games": 500, "wins": 229, "winrate": 45.9 }, "mid": { "games": 500, "wins": 249, "winrate": 49.7 }, "late": { "games": 500, "wins": 272, "winrate": 54.4 } },
+    { "alias": "Kayle",    "early": { "games": 500, "wins": 224, "winrate": 44.9 }, "mid": { "games": 500, "wins": 246, "winrate": 49.2 }, "late": { "games": 500, "wins": 276, "winrate": 55.3 } },
+    { "alias": "Smolder",  "early": { "games": 500, "wins": 221, "winrate": 44.2 }, "mid": { "games": 500, "wins": 244, "winrate": 48.8 }, "late": { "games": 500, "wins": 279, "winrate": 55.8 } }
+  ]
+}

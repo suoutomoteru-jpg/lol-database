@@ -22,6 +22,10 @@ export const router = createBrowserRouter([
         path: 'privacy',
         lazy: () => import('./pages/Privacy').then(m => ({ Component: m.Privacy })),
       },
+      {
+        path: 'scaling',
+        lazy: () => import('./pages/ScalingChart').then(m => ({ Component: m.ScalingChart })),
+      },
       { path: '*', Component: NotFound },
     ],
   },
