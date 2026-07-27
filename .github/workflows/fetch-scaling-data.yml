@@ -1,0 +1,66 @@
+name: Fetch scaling chart data
+
+# Riot Match-V5 API から試合を収集し、Scaling Chart用の
+# 試合時間帯別チャンピオン勝率データ（frontend/public/tooltips/scaling.json）
+# を生成する。
+#
+# 手動実行のみ（workflow_dispatch）。実データでの動作確認ができたら
+# schedule（週1回程度）の追加を検討する。
+on:
+  workflow_dispatch:
+    inputs:
+      platforms:
+        description: "対象サーバー（カンマ区切り）"
+        default: "jp1"
+        required: false
+      per_bracket:
+        description: "ティア×ディビジョン毎のサンプル人数"
+        default: "5"
+        required: false
+      matches_per_player:
+        description: "1人あたり直近何試合を見るか"
+        default: "10"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch scaling data from Riot API
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        run: |
+          python3 scripts/fetch_scaling_data.py \
+            --platforms "${{ inputs.platforms || 'jp1' }}" \
+            --per-bracket "${{ inputs.per_bracket || '5' }}" \
+            --matches-per-player "${{ inputs.matches_per_player || '10' }}" \
+            --out frontend/public/tooltips/scaling.json
+
+      - name: Show summary
+        run: |
+          python3 - << 'EOF'
+          import json
+          d = json.load(open("frontend/public/tooltips/scaling.json"))
+          print(f"sampledMatches={d['sampledMatches']}")
+          print(f"champions={len(d['champions'])}")
+          for c in sorted(d['champions'], key=lambda c: -c['early']['games'])[:5]:
+              print(c['alias'], c['early'], c['mid'], c['late'])
+          EOF
+
+      - name: Commit generated scaling data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add frontend/public/tooltips/scaling.json
+          if git diff --cached --quiet; then
+            echo "変更なし（既に最新）"
+          else
+            git commit -m "chore: regenerate scaling chart data from Riot Match-V5 API"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
