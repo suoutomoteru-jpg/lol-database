@@ -54,7 +54,7 @@ APEX_TIERS = ["MASTER", "GRANDMASTER", "CHALLENGER"]
 
 # 試合時間バケットの境界（秒）
 BUCKET_EARLY_MAX = 20 * 60
-BUCKET_MID_MAX = 32 * 60
+BUCKET_MID_MAX = 35 * 60
 
 # Match-V5 の championName が DDragon の alias と食い違う稀なケース
 CHAMPION_NAME_FIXES = {

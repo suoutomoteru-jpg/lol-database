@@ -13,8 +13,8 @@ const ROLES: Role[] = ['Mage', 'Tank', 'Assassin', 'Fighter', 'Support', 'Marksm
 
 const PHASES: { key: ScalingPhase; label: string; sub: string }[] = [
   { key: 'early', label: '序盤', sub: '〜20分' },
-  { key: 'mid',   label: '中盤', sub: '20〜32分' },
-  { key: 'late',  label: '終盤', sub: '32分〜' },
+  { key: 'mid',   label: '中盤', sub: '20〜35分' },
+  { key: 'late',  label: '終盤', sub: '35分〜' },
 ];
 
 const Y_MIN = 43;
