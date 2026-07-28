@@ -9,7 +9,7 @@ import { prefetchChampion } from '../utils/prefetch';
 import type { Role } from '../types/app';
 import type { ScalingPhase } from '../api/scalingData';
 
-const ROLES: (Role | 'all')[] = ['all', 'Mage', 'Tank', 'Assassin', 'Fighter', 'Support', 'Marksman'];
+const ROLES: Role[] = ['Mage', 'Tank', 'Assassin', 'Fighter', 'Support', 'Marksman'];
 
 const PHASES: { key: ScalingPhase; label: string; sub: string }[] = [
   { key: 'early', label: '序盤', sub: '〜25分' },
@@ -19,7 +19,7 @@ const PHASES: { key: ScalingPhase; label: string; sub: string }[] = [
 
 const Y_MIN = 43;
 const Y_MAX = 57;
-const COL_WIDTH = 52; // px
+const COL_WIDTH = 28; // px
 
 function yPercent(winrate: number): number {
   const clamped = Math.min(Y_MAX, Math.max(Y_MIN, winrate));
@@ -30,7 +30,7 @@ export function ScalingChart() {
   useDocumentTitle('Scaling Chart — 試合時間帯別の勝率推移 | nunune');
   const { champions } = useChampions();
   const { data, loading } = useScalingData();
-  const [role, setRole] = useState<Role | 'all'>('all');
+  const [role, setRole] = useState<Role>('Mage');
   const [phase, setPhase] = useState<ScalingPhase>('early');
 
   // scaling.json の alias と Champion.id（DDragon alias）を突き合わせ、
@@ -47,7 +47,7 @@ export function ScalingChart() {
         return { ...sc, name: champ.name, icon: champ.icon, role: champ.role };
       })
       .filter((e): e is NonNullable<typeof e> => e !== null)
-      .filter(e => role === 'all' || e.role === role)
+      .filter(e => e.role === role)
       .sort((a, b) => b.early.winrate - a.early.winrate);
   }, [data, champions, role]);
 
@@ -95,23 +95,21 @@ export function ScalingChart() {
                     : 'border-border text-muted-foreground hover:text-foreground'
                 }`}
               >
-                {r !== 'all' && (
-                  <span
-                    aria-hidden
-                    className="w-3.5 h-3.5 inline-block bg-current"
-                    style={{
-                      WebkitMaskImage: `url(${roleIconUrl(r)})`,
-                      maskImage: `url(${roleIconUrl(r)})`,
-                      WebkitMaskSize: 'contain',
-                      maskSize: 'contain',
-                      WebkitMaskRepeat: 'no-repeat',
-                      maskRepeat: 'no-repeat',
-                      WebkitMaskPosition: 'center',
-                      maskPosition: 'center',
-                    }}
-                  />
-                )}
-                {r === 'all' ? 'すべて' : ROLE_LABELS_JA[r]}
+                <span
+                  aria-hidden
+                  className="w-3.5 h-3.5 inline-block bg-current"
+                  style={{
+                    WebkitMaskImage: `url(${roleIconUrl(r)})`,
+                    maskImage: `url(${roleIconUrl(r)})`,
+                    WebkitMaskSize: 'contain',
+                    maskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskPosition: 'center',
+                  }}
+                />
+                {ROLE_LABELS_JA[r]}
               </button>
             );
           })}
@@ -170,28 +168,15 @@ export function ScalingChart() {
                     onPointerEnter={() => prefetchChampion(e.alias)}
                     onTouchStart={() => prefetchChampion(e.alias)}
                     title={`${e.name}: ${stat.winrate.toFixed(1)}%（${stat.games}試合）`}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full overflow-hidden
-                      border-2 border-border hover:border-primary transition-[top,border-color] duration-500 ease-out
-                      shadow-[0_2px_8px_rgba(0,0,0,.45)]"
+                    className="absolute -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full overflow-hidden
+                      border border-border hover:border-primary transition-[top,border-color] duration-500 ease-out
+                      shadow-[0_2px_6px_rgba(0,0,0,.45)]"
                     style={{ left: i * COL_WIDTH + COL_WIDTH / 2, top: `${yPercent(stat.winrate)}%` }}
                   >
                     <img src={e.icon} alt={e.name} className="w-full h-full object-cover" loading="lazy" />
                   </Link>
                 );
               })}
-            </div>
-
-            {/* X軸ラベル */}
-            <div className="relative ml-9 mt-1.5" style={{ width: chartWidth, height: 14 }}>
-              {entries.map((e, i) => (
-                <span
-                  key={e.alias}
-                  className="absolute -translate-x-1/2 text-[9px] text-muted-foreground whitespace-nowrap"
-                  style={{ left: i * COL_WIDTH + COL_WIDTH / 2 }}
-                >
-                  {e.name}
-                </span>
-              ))}
             </div>
           </div>
         )}
