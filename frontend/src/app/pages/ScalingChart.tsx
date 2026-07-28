@@ -19,7 +19,7 @@ const PHASES: { key: ScalingPhase; label: string; sub: string }[] = [
 
 const Y_MIN = 43;
 const Y_MAX = 57;
-const COL_WIDTH = 28; // px
+const COL_WIDTH = 18; // px
 
 function yPercent(winrate: number): number {
   const clamped = Math.min(Y_MAX, Math.max(Y_MIN, winrate));
@@ -35,8 +35,8 @@ export function ScalingChart() {
 
   // scaling.json の alias と Champion.id（DDragon alias）を突き合わせ、
   // 表示に必要な日本語名・アイコン・ロールを持つエントリを作る。
-  // 横軸の並びは「序盤バケットの勝率が高い順」で固定し、タブ切替では動かさない
-  // （アイコンが上下にだけ動く、という体験を保つため）。
+  // 横軸の並びは名前（アイウエオ順）固定。タブ切替ではアイコンが
+  // 上下にだけ動く、という体験を保つ。
   const entries = useMemo(() => {
     if (!data) return [];
     const champByAlias = new Map(champions.map(c => [c.id, c]));
@@ -48,7 +48,7 @@ export function ScalingChart() {
       })
       .filter((e): e is NonNullable<typeof e> => e !== null)
       .filter(e => e.role === role)
-      .sort((a, b) => b.early.winrate - a.early.winrate);
+      .sort((a, b) => a.name.localeCompare(b.name, 'ja'));
   }, [data, champions, role]);
 
   const chartWidth = Math.max(entries.length * COL_WIDTH, 300);
@@ -168,9 +168,9 @@ export function ScalingChart() {
                     onPointerEnter={() => prefetchChampion(e.alias)}
                     onTouchStart={() => prefetchChampion(e.alias)}
                     title={`${e.name}: ${stat.winrate.toFixed(1)}%（${stat.games}試合）`}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full overflow-hidden
-                      border border-border hover:border-primary transition-[top,border-color] duration-500 ease-out
-                      shadow-[0_2px_6px_rgba(0,0,0,.45)]"
+                    className="absolute -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full overflow-hidden
+                      border border-border hover:border-primary hover:z-10 transition-[top,border-color] duration-500 ease-out
+                      shadow-[0_1px_4px_rgba(0,0,0,.45)]"
                     style={{ left: i * COL_WIDTH + COL_WIDTH / 2, top: `${yPercent(stat.winrate)}%` }}
                   >
                     <img src={e.icon} alt={e.name} className="w-full h-full object-cover" loading="lazy" />
