@@ -19,7 +19,9 @@ const PHASES: { key: ScalingPhase; label: string; sub: string }[] = [
 
 const Y_MIN = 43;
 const Y_MAX = 57;
-const COL_WIDTH = 18; // px
+// 列ピッチをアイコン径より小さく取り、隣同士がわずかに重なる密度にする
+const ICON_SIZE = 28; // px
+const COL_WIDTH = 24; // px
 
 function yPercent(winrate: number): number {
   const clamped = Math.min(Y_MAX, Math.max(Y_MIN, winrate));
@@ -143,8 +145,11 @@ export function ScalingChart() {
         ) : entries.length === 0 ? (
           <p className="text-sm text-muted-foreground text-center py-16">データがありません</p>
         ) : (
-          <div className="bg-card border border-border rounded-md p-3 overflow-x-auto">
-            <div className="relative h-[300px] ml-9" style={{ width: chartWidth }}>
+          <div className="bg-card border border-border rounded-md px-3 py-5 overflow-x-auto">
+            {/* 縦paddingは上下端に貼り付いたアイコンが枠に接しない厚み。
+                内側は目盛りの余白を含めて中央寄せ（ロールによって横幅が変わるため） */}
+            <div className="w-fit mx-auto pl-9">
+              <div className="relative h-[190px]" style={{ width: chartWidth }}>
               {/* グリッド線（左に勝率目盛り） */}
               {Array.from({ length: 7 }, (_, i) => Y_MIN + i * 2).map(y => (
                 <div
@@ -168,15 +173,21 @@ export function ScalingChart() {
                     onPointerEnter={() => prefetchChampion(e.alias)}
                     onTouchStart={() => prefetchChampion(e.alias)}
                     title={`${e.name}: ${stat.winrate.toFixed(1)}%（${stat.games}試合）`}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full overflow-hidden
+                    className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden
                       border border-border hover:border-primary hover:z-10 transition-[top,border-color] duration-500 ease-out
                       shadow-[0_1px_4px_rgba(0,0,0,.45)]"
-                    style={{ left: i * COL_WIDTH + COL_WIDTH / 2, top: `${yPercent(stat.winrate)}%` }}
+                    style={{
+                      left: i * COL_WIDTH + COL_WIDTH / 2,
+                      top: `${yPercent(stat.winrate)}%`,
+                      width: ICON_SIZE,
+                      height: ICON_SIZE,
+                    }}
                   >
                     <img src={e.icon} alt={e.name} className="w-full h-full object-cover" loading="lazy" />
                   </Link>
                 );
               })}
+              </div>
             </div>
           </div>
         )}
