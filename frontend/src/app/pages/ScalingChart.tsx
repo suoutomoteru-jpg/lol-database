@@ -17,8 +17,16 @@ const PHASES: { key: ScalingPhase; label: string; sub: string }[] = [
   { key: 'late',  label: '終盤', sub: '35分〜' },
 ];
 
-const Y_MIN = 43;
-const Y_MAX = 57;
+// 縦軸のレンジ。序盤・終盤バケットは母数が少なく勝率が大きくばらつくため、
+// 43〜57%では半数近くが上下端に張り付いてしまう。35〜65%で振り切りは
+// 519件中28件まで減る（中盤はゼロ）。
+const Y_MIN = 35;
+const Y_MAX = 65;
+const Y_STEP = 5;
+const GRID_LINES = Array.from(
+  { length: (Y_MAX - Y_MIN) / Y_STEP + 1 },
+  (_, i) => Y_MIN + i * Y_STEP,
+);
 // 列ピッチをアイコン径より小さく取り、隣同士がわずかに重なる密度にする
 const ICON_SIZE = 28; // px
 const COL_WIDTH = 24; // px
@@ -151,7 +159,7 @@ export function ScalingChart() {
             <div className="w-fit mx-auto pl-9">
               <div className="relative h-[190px]" style={{ width: chartWidth }}>
               {/* グリッド線（左に勝率目盛り） */}
-              {Array.from({ length: 7 }, (_, i) => Y_MIN + i * 2).map(y => (
+              {GRID_LINES.map(y => (
                 <div
                   key={y}
                   className={`absolute left-0 right-0 border-t ${y === 50 ? 'border-foreground/40' : 'border-dashed border-border'}`}
