@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Table as TableIcon } from 'lucide-react';
 import { useChampions } from '../hooks/useChampions';
 import { useScalingData } from '../hooks/useScalingData';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -42,6 +42,11 @@ export function ScalingChart() {
   const { data, loading } = useScalingData();
   const [role, setRole] = useState<Role>('Mage');
   const [phase, setPhase] = useState<ScalingPhase>('early');
+  // ホバー/フォーカス中のマーク（ツールチップ用）。indexは横位置の算出に使う
+  const [active, setActive] = useState<number | null>(null);
+  // 表ビュー: ツールチップは値を「補助」するもので、唯一の読み取り手段には
+  // しない（キーボード・スクリーンリーダー・印刷でも全数値に到達できる）
+  const [showTable, setShowTable] = useState(false);
 
   // scaling.json の alias と Champion.id（DDragon alias）を突き合わせ、
   // 表示に必要な日本語名・アイコン・ロールを持つエントリを作る。
@@ -62,6 +67,8 @@ export function ScalingChart() {
   }, [data, champions, role]);
 
   const chartWidth = Math.max(entries.length * COL_WIDTH, 300);
+  const activeEntry = active !== null ? entries[active] ?? null : null;
+  const phaseLabel = PHASES.find(p => p.key === phase)!.label;
 
   return (
     <div className="min-h-screen bg-background">
@@ -93,14 +100,14 @@ export function ScalingChart() {
         {/* ロールフィルター */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {ROLES.map(r => {
-            const active = role === r;
+            const isActive = role === r;
             return (
               <button
                 key={r}
-                onClick={() => setRole(r)}
-                aria-pressed={active}
+                onClick={() => { setRole(r); setActive(null); }}
+                aria-pressed={isActive}
                 className={`inline-flex items-center gap-1.5 px-3 pt-[3px] pb-[5px] text-xs font-medium border rounded-full transition-colors duration-100 ${
-                  active
+                  isActive
                     ? 'border-primary/60 text-primary bg-primary/10'
                     : 'border-border text-muted-foreground hover:text-foreground'
                 }`}
@@ -128,14 +135,14 @@ export function ScalingChart() {
         {/* 序盤/中盤/終盤 切替 */}
         <div className="grid grid-cols-3 border border-border rounded-md overflow-hidden max-w-md mb-5">
           {PHASES.map(p => {
-            const active = phase === p.key;
+            const isActive = phase === p.key;
             return (
               <button
                 key={p.key}
                 onClick={() => setPhase(p.key)}
-                aria-pressed={active}
+                aria-pressed={isActive}
                 className={`py-2 text-sm font-semibold transition-colors border-r border-border last:border-r-0 ${
-                  active ? 'bg-primary/15 text-primary' : 'bg-card text-muted-foreground hover:text-foreground'
+                  isActive ? 'bg-primary/15 text-primary' : 'bg-card text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {p.label}
@@ -158,11 +165,11 @@ export function ScalingChart() {
                 内側は目盛りの余白を含めて中央寄せ（ロールによって横幅が変わるため） */}
             <div className="w-fit mx-auto pl-9">
               <div className="relative h-[190px]" style={{ width: chartWidth }}>
-              {/* グリッド線（左に勝率目盛り） */}
+              {/* グリッド線（左に勝率目盛り）。50%だけは基準線として一段濃く */}
               {GRID_LINES.map(y => (
                 <div
                   key={y}
-                  className={`absolute left-0 right-0 border-t ${y === 50 ? 'border-foreground/40' : 'border-dashed border-border'}`}
+                  className={`absolute left-0 right-0 border-t ${y === 50 ? 'border-foreground/40' : 'border-border'}`}
                   style={{ top: `${yPercent(y)}%` }}
                 >
                   <span className={`absolute -left-9 -top-[7px] text-[11px] tabular-nums ${y === 50 ? 'text-foreground font-semibold' : 'text-muted-foreground'}`}>
@@ -171,19 +178,24 @@ export function ScalingChart() {
                 </div>
               ))}
 
-              {/* チャンピオンアイコン */}
+              {/* チャンピオンアイコン。重なるマークはカード色の2pxリングで分離する
+                  （マークを囲む枠線ではなく、下地の色で隙間を作るのが原則） */}
               {entries.map((e, i) => {
                 const stat = e[phase];
+                const isActive = active === i;
                 return (
                   <Link
                     key={e.alias}
                     to={`/champion/${e.alias}`}
-                    onPointerEnter={() => prefetchChampion(e.alias)}
+                    onPointerEnter={() => { prefetchChampion(e.alias); setActive(i); }}
+                    onPointerLeave={() => setActive(null)}
+                    onFocus={() => setActive(i)}
+                    onBlur={() => setActive(null)}
                     onTouchStart={() => prefetchChampion(e.alias)}
-                    title={`${e.name}: ${stat.winrate.toFixed(1)}%（${stat.games}試合）`}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden
-                      border border-border hover:border-primary hover:z-10 transition-[top,border-color] duration-500 ease-out
-                      shadow-[0_1px_4px_rgba(0,0,0,.45)]"
+                    aria-label={`${e.name} ${phaseLabel}の勝率 ${stat.winrate.toFixed(1)}パーセント、${stat.games}試合`}
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden ring-2
+                      transition-[top,box-shadow] duration-500 ease-out shadow-[0_1px_4px_rgba(0,0,0,.45)]
+                      ${isActive ? 'ring-primary z-10' : 'ring-card'}`}
                     style={{
                       left: i * COL_WIDTH + COL_WIDTH / 2,
                       top: `${yPercent(stat.winrate)}%`,
@@ -191,13 +203,87 @@ export function ScalingChart() {
                       height: ICON_SIZE,
                     }}
                   >
-                    <img src={e.icon} alt={e.name} className="w-full h-full object-cover" loading="lazy" />
+                    <img src={e.icon} alt="" className="w-full h-full object-cover" loading="lazy" />
                   </Link>
                 );
               })}
+
+              {/* ツールチップ: 値を主役に、名前は従。試合数も併記して
+                  母数が少ないケースを読み手が割り引けるようにする */}
+              {activeEntry && (
+                <div
+                  aria-hidden
+                  className="absolute z-20 pointer-events-none -translate-x-1/2 -translate-y-full
+                    rounded-md border border-border bg-background/95 px-2.5 py-1.5 shadow-lg whitespace-nowrap"
+                  style={{
+                    left: Math.min(Math.max(active! * COL_WIDTH + COL_WIDTH / 2, 56), chartWidth - 56),
+                    top: `calc(${yPercent(activeEntry[phase].winrate)}% - ${ICON_SIZE / 2 + 6}px)`,
+                  }}
+                >
+                  <div className="text-sm font-bold text-foreground tabular-nums leading-tight">
+                    {activeEntry[phase].winrate.toFixed(1)}%
+                  </div>
+                  <div className="text-[11px] text-muted-foreground leading-tight">
+                    {activeEntry.name}
+                    <span className="ml-1.5 tabular-nums">{activeEntry[phase].games}試合</span>
+                  </div>
+                </div>
+              )}
               </div>
             </div>
           </div>
+        )}
+
+        {entries.length > 0 && (
+          <>
+            <button
+              onClick={() => setShowTable(v => !v)}
+              aria-expanded={showTable}
+              className="mt-3 inline-flex items-center gap-1.5 px-3 pt-[3px] pb-[5px] text-xs font-medium
+                border border-border rounded-full text-muted-foreground hover:text-foreground transition-colors duration-100"
+            >
+              <TableIcon size={13} aria-hidden />
+              {showTable ? '表を閉じる' : '表で見る'}
+            </button>
+
+            {showTable && (
+              <div className="mt-3 overflow-x-auto border border-border rounded-md">
+                <table className="w-full text-xs">
+                  <caption className="sr-only">
+                    {ROLE_LABELS_JA[role]}の試合時間帯別勝率（各時間帯の勝率と試合数）
+                  </caption>
+                  <thead>
+                    <tr className="bg-secondary/40 text-muted-foreground">
+                      <th scope="col" className="text-left font-medium px-3 py-2">チャンピオン</th>
+                      {PHASES.map(p => (
+                        <th key={p.key} scope="col" className="text-right font-medium px-3 py-2 whitespace-nowrap">
+                          {p.label}
+                          <span className="ml-1 font-normal opacity-70">{p.sub}</span>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {entries.map(e => (
+                      <tr key={e.alias} className="border-t border-border">
+                        <th scope="row" className="text-left font-medium px-3 py-1.5 whitespace-nowrap">
+                          <Link to={`/champion/${e.alias}`} className="hover:text-primary transition-colors">
+                            {e.name}
+                          </Link>
+                        </th>
+                        {PHASES.map(p => (
+                          <td key={p.key} className="text-right px-3 py-1.5 tabular-nums whitespace-nowrap">
+                            {e[p.key].games > 0 ? `${e[p.key].winrate.toFixed(1)}%` : '—'}
+                            <span className="ml-1.5 text-muted-foreground">{e[p.key].games}試合</span>
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </>
         )}
 
         {data && (
