@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Brand",
+ "id": 60063,
+ "name": "ブランド",
+ "title": "復讐の炎",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "炎上",
+   "description": "スキルで攻撃するたびに対象が<keywordMajor>炎上</keywordMajor>し、相手の最大体力の<magicDamage>8%に相当する魔法ダメージ</magicDamage>を4秒かけて与える。 <br><br><rules>(モンスターに対しては最大毎秒80ダメージ)</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "焦炎",
+   "description": "<mainText>指定方向に火の玉を放ち、最初に命中した敵ユニットに<magicDamage>80/120/160/200/240（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。<br><br><spellPassive>炎上:</spellPassive> <keywordMajor>炎上中</keywordMajor>の対象に、<spellName>焦炎</spellName>が命中すると、2秒間、対象を<status>スタン</status>させる。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "50",
+   "range": "1050",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "烈火の柱",
+   "description": "発動から一瞬遅れて指定地点に火柱を発生させ、範囲内の敵ユニットに<magicDamage>75/120/165/210/255（＋魔力の60%）魔法ダメージ</magicDamage>を与える。<br><br><spellPassive>炎上:</spellPassive> <keywordMajor>炎上中</keywordMajor>のユニットには、<spellName>烈火の柱</spellName>が代わりに<magicDamage>93.75/150/206.25/262.5/318.75（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "",
+   "cost": "70/75/80/85/90",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "焼灼",
+   "description": "<mainText>強力な爆風で対象を攻撃し、<magicDamage>70/105/140/175/210（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。<br><br><spellPassive>炎上:</spellPassive> <keywordMajor>炎上中</keywordMajor>の対象に爆風が命中すると火の粉がはじけ飛んで、周囲にいる敵にも<spellName>焼灼</spellName>のダメージを与える。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "70/75/80/85/90",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "業火",
+   "description": "<mainText>指定した対象に跳ね返る強力な火炎弾を放ち、1回跳ね返るごとに<magicDamage>150/250/350（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、最大で5回まで跳ね返る。<br><br><spellPassive>炎上:</spellPassive> 対象が<keywordMajor>炎上中</keywordMajor>だった場合、<spellName>業火</spellName>は次に跳ね返る際にチャンピオンを優先する。",
+   "cooldown": "105/90/75",
+   "cost": "100",
+   "range": "750",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

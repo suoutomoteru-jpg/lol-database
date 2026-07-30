@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Singed",
+ "id": 60027,
+ "name": "シンジド",
+ "title": "マッドケミスト",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "肉体強化",
+   "description": "<scaleMana>マナ1</scaleMana>ごとに、<healing>体力が0.25</healing>増加する。<br><br><healing>増加体力: 80/125/170/215/260</healing>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "毒の軌跡",
+   "description": "<toggle>発動中:</toggle> 自分が通った後に毒ガスをまき散らし、接触した敵に毎秒<magicDamage>22/34/46/58/70（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "0",
+   "cost": "13",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "強力粘着剤",
+   "description": "5秒間、地面に粘着性のエリアを作り出し、エリア内の敵に35/45/55/65/75%の<status>スロウ効果</status>を与える(エリアから出た後も1秒間効果は持続する)。",
+   "cooldown": "17/16/15/14/13",
+   "cost": "70/80/90/100/110",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "すくい投げ",
+   "description": "敵を背後に放り投げ、<magicDamage>80/125/170/215/260（＋魔力の75%）の魔法ダメージ</magicDamage>与える。",
+   "cooldown": "",
+   "cost": "100/110/120/130/140",
+   "range": "125",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "狂人のポーション",
+   "description": "強力な調合薬を飲み、<magicDamage>魔力</magicDamage>、<scaleArmor>物理防御</scaleArmor>、<scaleMR>魔法防御</scaleMR>、<speed>移動速度</speed>、<healing>体力自動回復</healing>、<scaleMana>マナ自動回復</scaleMana>が25秒間、35/50/65増加する。",
+   "cooldown": "100",
+   "cost": "150",
+   "range": "20",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -3,7 +3,7 @@
  "id": 22,
  "name": "アッシュ",
  "title": "氷の射手",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "フロストショット",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "レンジャーフォーカス",
-   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で4秒間スタックを獲得する。4スタックで、このスキルを発動できる。<br><br><spellPassive>発動効果:</spellPassive> 6秒間<attackSpeed>攻撃速度が20/30/40/50/60%</attackSpeed>増加し、通常攻撃が代わりに<physicalDamage>合計攻撃力の110/115/120/125/130%ダメージ</physicalDamage>を与えるようになる。",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で4秒間スタックを獲得する。4スタックで、このスキルを発動できる。<br><br><spellPassive>発動効果:</spellPassive> 6秒間<attackSpeed>攻撃速度が20/30/40/50/60%増加</attackSpeed>し、通常攻撃が代わりに<physicalDamage>合計攻撃力の110/115/120/125/130%ダメージ</physicalDamage>を与えるようになる。",
    "cooldown": "0",
    "cost": "30",
    "range": "400",

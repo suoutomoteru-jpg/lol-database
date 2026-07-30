@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Leona",
+ "id": 60089,
+ "name": "レオナ",
+ "title": "暁光の戦士",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "サンライト",
+   "description": "スキルが命中した敵に3.5秒間<spellName>サンライト</spellName>を付与する。この状態の対象に味方チャンピオンがダメージを与えると、追加で<magicDamage>20〜140（レベル1〜18）の魔法ダメージ</magicDamage>を与え、<spellName>サンライト</spellName>の効果は消費される。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "シールド・オブ・デイブレイク",
+   "description": "次の通常攻撃が敵に追加で<magicDamage>40/70/100/130/160（＋魔力の30%）の魔法ダメージ</magicDamage>を与え、1.25秒間、<status>スタン</status>させる。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "45/50/55/60/65",
+   "range": "100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "エクリプス",
+   "description": "3秒間、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が30/40/50/60/70増加する。効果時間終了時、近くに敵がいる場合はその全員に<magicDamage>60/110/160/210/260（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、増加した<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を3秒間維持する。",
+   "cooldown": "14",
+   "cost": "60",
+   "range": "450",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ゼニスブレード",
+   "description": "直線上のすべての敵に<magicDamage>60/100/140/180/220（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。最後に命中した敵チャンピオンに少しの間<status>スネア効果</status>を付与し、そこまでダッシュする。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "60",
+   "range": "875",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ソーラーフレア",
+   "description": "太陽の力を呼び寄せて、敵に<magicDamage>150/250/350（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、1.5秒間80%の<status>スロウ効果</status>を付与する。炎の中心にいる敵には<status>スタン効果</status>を付与する。",
+   "cooldown": "90/75/60",
+   "cost": "100/150/200",
+   "range": "1200",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

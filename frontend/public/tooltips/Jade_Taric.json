@@ -1,0 +1,62 @@
+{
+ "alias": "Jade_Taric",
+ "id": 60044,
+ "name": "タリック",
+ "title": "宝石の騎士",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "ジェムクラフト",
+   "description": "魔法の宝石を自身のあらゆる武器にはめ込むことを好み、それによって通常攻撃が自身の最大マナに応じて追加魔法ダメージを与えるようになる。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "インビュー",
+   "description": "<mainText>大地のエネルギーを呼び覚まし、自身と味方1体の<healing>体力を60/100/140/180/220（＋魔力の60%）</healing>回復する。自身を対象にした場合、回復効果が40%増加して、<healing>体力を</healing>回復する。<br><br>通常攻撃で<spellName>インビュー</spellName>のクールダウンが1秒短縮される(敵チャンピオンを攻撃した場合は3秒)。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "80/95/110/125/140",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "HealAmountSelfTT"
+   ]
+  },
+  "w": {
+   "name": "ジェムクラッシュ",
+   "description": "<spellPassive>自動効果: </spellPassive>タリックの宝石が<scaleArmor>物理防御を10/15/20/25/30</scaleArmor>増加させる。さらに、周囲の味方チャンピオンは<scaleArmor>物理防御が</scaleArmor>(タリックの物理防御の10%)増加する。<br><br><spellActive>発動効果: </spellActive>自身の鎧を砕き、周囲の敵に<magicDamage>50/90/130/170/210（＋合計物理防御の20% ＋魔力の60%）の魔法ダメージ</magicDamage>を与え、4秒間、対象の<scaleArmor>物理防御を10/15/20/25/30</scaleArmor>低下させる。<spellName>ジェムクラッシュ</spellName>のクールダウン中は、<scaleArmor>物理防御を10/15/20/25/30</scaleArmor>失う。",
+   "cooldown": "",
+   "cost": "50",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "BonustoAllies"
+   ]
+  },
+  "e": {
+   "name": "ダズル",
+   "description": "<mainText>対象の敵に向かってプリズムの玉を放ち、<magicDamage>35/65/95/125/155（＋魔力の40%）</magicDamage> - <magicDamage>の魔法ダメージ</magicDamage>を与え、1 - 2秒間<status>スタン</status>させる。「ダズル」のダメージはタリックが対象に近いほど増加し、スタン効果時間は対象から遠いほど長くなる。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "75",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalMaxDamageTT"
+   ]
+  },
+  "r": {
+   "name": "シャイニング",
+   "description": "<mainText>ハンマーを地面に叩きつけ、周囲の敵に<magicDamage>150/250/350（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<br><br>次の10秒間タリックの宝石がエネルギーを放出し、<physicalDamage>攻撃力が20/40/60</physicalDamage>増加し、<magicDamage>魔力</magicDamage>が増加する。周囲の味方は<physicalDamage>攻撃力が15/25/35</physicalDamage>増加し、<magicDamage>魔力</magicDamage>が増加する。",
+   "cooldown": "60",
+   "cost": "100",
+   "range": "400",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 3
+}

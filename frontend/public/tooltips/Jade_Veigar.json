@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Veigar",
+ "id": 60045,
+ "name": "ベイガー",
+ "title": "小さき大魔王",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "ワールドバランス",
+   "description": "減少マナ1%につき、ベイガーの<scaleMana>マナ自動回復</scaleMana>が1%増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "イーヴィルストライク",
+   "description": "<spellActive>発動効果: </spellActive>ベイガーが対象の敵に闇のエネルギーを放ち、<magicDamage>80/125/170/215/260（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。対象が倒されると、ベイガーは<magicDamage>1の魔力</magicDamage>を獲得する。このボーナスは、チャンピオン、大型ミニオン、大型モンスターを倒した際には2倍になる。<br><br><spellPassive>自動効果: </spellPassive>ダメージ手段を問わず、ベイガーがチャンピオンを倒すと<magicDamage>1/2/3/4/5の魔力</magicDamage>を獲得する。<br><br>増加<magicDamage>魔力: +1.5/1.75/2/2.25/2.5</magicDamage>",
+   "cooldown": "8/7/6/5/4",
+   "cost": "60/65/70/75/80",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ダークマター",
+   "description": "<mainText>指定した地点に1.2秒後ダークマターが落下し、<magicDamage>120/170/220/270/320（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "",
+   "cost": "70/80/90/100/110",
+   "range": "950",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "イベントホライズン",
+   "description": "<mainText>指定範囲の空間の境界を3秒間ねじ曲げ、境界に触れた敵ユニットに1.5/1.75/2/2.25/2.5秒間<status>スタン効果</status>を付与する。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "80/90/100/110/120",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "メテオバースト",
+   "description": "<mainText>敵チャンピオン1体に闇の大魔法を放ち、<magicDamage>250/375/500（＋魔力の120%）に加えて対象の魔力の80%にあたる魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "130/110/90",
+   "cost": "125/175/225",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

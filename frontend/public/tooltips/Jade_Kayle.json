@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Kayle",
+ "id": 60010,
+ "name": "ケイル",
+ "title": "裁きの翼",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "聖なる闘志",
+   "description": "魔力の一定割合をを攻撃力として獲得し、攻撃力の一定割合を魔力として獲得する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "天罰",
+   "description": "指定した対象に火球を放つ。<magicDamage>60/110/160/210/260（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、対象に<status>スロウ効果</status>を付与して移動速度を35/40/45/50/55%低下させる。さらに3秒間、ケイルがその対象に与えるダメージが8/10/12/14/16%増加する。",
+   "cooldown": "8",
+   "cost": "70/75/80/85/90",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "神々の祝福",
+   "description": "自身または対象の味方チャンピオンを祝福して<speed>移動速度</speed>を10秒間、12%増加させ、<healing>体力を65/105/145/185/225（＋魔力の50%）</healing>回復する。",
+   "cooldown": "",
+   "cost": "60/65/70/75/80",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "聖義の審判",
+   "description": "10秒間、射程が400増加し、通常攻撃が命中時に<magicDamage>4/10/16/22/28（＋魔力の30%）の追加魔法ダメージ</magicDamage>を与えるようになる。周囲の敵は通常攻撃時に<magicDamage>4/10/16/22/28（＋合計攻撃力の20/25/30/35/40% ＋魔力の30%）の魔法ダメージ</magicDamage>を受ける。",
+   "cooldown": "22/21/20/19/18",
+   "cost": "65",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "神権代行",
+   "description": "味方チャンピオンを聖なる光で包み込み、2.5秒間無敵状態にする。",
+   "cooldown": "90/75/60",
+   "cost": "100/75/50",
+   "range": "1200",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

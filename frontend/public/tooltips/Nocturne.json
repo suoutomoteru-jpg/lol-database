@@ -3,12 +3,12 @@
  "id": 56,
  "name": "ノクターン",
  "title": "終わりなき悪夢",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "夢幻斬",
-   "description": "秒ごとに、次の通常攻撃が周囲のすべての敵に<physicalDamage>合計攻撃力の120%の物理ダメージ</physicalDamage>を与えて、命中した対象1体ごとに<healing>体力が13〜30（レベル比例） ＋ 魔力の30%</healing>回復する。<br><br>通常攻撃すると、このスキルのクールダウンが1秒短縮される。対象がチャンピオンまたはジャングルモンスターの場合3秒短縮される。<br><br><rules><spellName>「夢幻斬」</spellName>でミニオンに与えるダメージは50%減少し、レーンミニオンからの回復量は50%減少する。</rules>",
-   "source": "stringtable",
+   "description": "数秒ごとに次の攻撃が範囲攻撃になり、周囲の敵に追加物理ダメージを与えて自身の体力を回復する。<br><br>通常攻撃するたびにクールダウンが短縮する。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計攻撃力の120%<br>・合計ダメージ: 合計攻撃力の110%",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

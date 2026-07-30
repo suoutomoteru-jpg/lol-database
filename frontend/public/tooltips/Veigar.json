@@ -3,7 +3,7 @@
  "id": 45,
  "name": "ベイガー",
  "title": "小さき大魔王",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "偉大なる悪の力",

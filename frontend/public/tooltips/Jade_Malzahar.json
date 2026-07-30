@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Malzahar",
+ "id": 60090,
+ "name": "マルザハール",
+ "title": "ヴォイドの予言者",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヴォイドリング使い",
+   "description": "スキルを数回使用するごとに、操作不能なヴォイドリングを召喚して、敵を攻撃させる。ヴォイドリングは時間経過と共に成長し、物理防御、ダメージ、攻撃速度が増加する。<br><br><strong>詳細数値</strong><br>・クールダウン: 25〜110（レベル1〜18） ＋ 増加攻撃力の100%",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヴォイドコール",
+   "description": "ヴォイドへ繋がるゲートを2ヶ所に発生させる。発動から一瞬遅れてゲートからエネルギーが発射され、命中した敵ユニットに<magicDamage>80/135/190/245/300（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。敵チャンピオンに対しては、さらに1.4/1.8/2.2/2.6/3秒間、<status>サイレンス効果</status>を与える。",
+   "cooldown": "9",
+   "cost": "80/85/90/95/100",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ヴォイドゾーン",
+   "description": "5秒間、負のエネルギーのゾーンを作り出す。ゾーンは周囲の敵に毎秒<magicDamage>4/5/6/7/8%（＋魔力の1%）の最大体力に応じた魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14",
+   "cost": "90/95/100/105/110",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "虚性侵蝕",
+   "description": "対象の精神を蝕み、4秒かけて<magicDamage>80/140/200/260/320（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。この効果時間中に対象が倒されると、近くにいる別の敵に幻覚が伝染し、自身の<scaleMana>マナが10/14/18/22/26</scaleMana>回復する。<br><br>幻覚を受けているユニットにヴォイドリングに狙われる。",
+   "cooldown": "15/13/11/9/7",
+   "cost": "60/75/90/105/120",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ネザーグラスプ",
+   "description": "対象のチャンピオンにヴォイドのエネルギーを注ぎ込み、<status>サプレッション効果</status>を与えて、2.5秒かけて<magicDamage>250/400/550（＋魔力の130%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "120/100/80",
+   "cost": "150",
+   "range": "700",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

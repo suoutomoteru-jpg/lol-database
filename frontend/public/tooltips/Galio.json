@@ -3,7 +3,7 @@
  "id": 3,
  "name": "ガリオ",
  "title": "伝説の巨像",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "巨像の一撃",

@@ -3,7 +3,7 @@
  "id": 92,
  "name": "リヴェン",
  "title": "贖罪の追放者",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "ルーンブレード",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "追放者の剣",
-   "description": "剣が神秘的な力に包まれ、15秒間<physicalDamage>攻撃力が合計攻撃力の25%</physicalDamage>増加して、攻撃スキルと通常攻撃の射程が増加する。また、効果時間中はこのスキルを<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> 風の斬撃を放ち、対象の減少体力に応じて<physicalDamage>100/150/200（＋増加攻撃力の60%）</physicalDamage> - <physicalDamage>300/450/600（＋増加攻撃力の180%）の物理ダメージ</physicalDamage>を与える。",
+   "description": "剣が神秘的な力に包まれ、15秒間<physicalDamage>攻撃力が合計攻撃力の20%</physicalDamage>増加して、攻撃スキルと通常攻撃の射程が増加する。また、効果時間中はこのスキルを<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> 風の斬撃を放ち、対象の減少体力に応じて<physicalDamage>100/150/200（＋増加攻撃力の55%）</physicalDamage> - <physicalDamage>300/450/600（＋増加攻撃力の165%）の物理ダメージ</physicalDamage>を与える。",
    "cooldown": "120/90/60",
    "cost": "",
    "range": "200",

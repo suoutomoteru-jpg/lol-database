@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Tristana",
+ "id": 60018,
+ "name": "トリスターナ",
+ "title": "メグリング ガンナー",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "ドロー＆グロー",
+   "description": "<mainText>通常攻撃の射程と<spellName>ヨードルグレネード</spellName>の射程が0〜153（レベル比例）増加する。</mainText>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ラピッドファイア",
+   "description": "<mainText>7秒間、<attackSpeed>攻撃速度が30/45/60/75/90%</attackSpeed>増加する。",
+   "cooldown": "20",
+   "cost": "50",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ロケットジャンプ",
+   "description": "<mainText>地面を砲撃した反動で指定地点までジャンプし、着地時に<magicDamage>70/115/160/205/250（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、2.5秒間、60%の<status>スロウ効果</status>を付与する。<br>チャンピオンからキルまたはアシストを獲得すると、このスキルのクールダウンが解消される。",
+   "cooldown": "22/20/18/16/14",
+   "cost": "80",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヨードルグレネード",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で敵を倒すと爆発が起き、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果: </spellActive>炸裂弾を破裂させ、対象の敵に<keyword>50%の重傷効果</keyword>を付与し、5秒かけて<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "16",
+   "cost": "50/60/70/80/90",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "ActiveDamageTTOnly"
+   ]
+  },
+  "r": {
+   "name": "バスターショット",
+   "description": "<mainText>敵ユニット1体へ向けて巨大な砲弾を発射し、対象に<magicDamage>300/400/500（＋魔力の150%）の魔法ダメージ</magicDamage>を与え、周囲の敵を600/800/1000ユニットの距離だけ<status>ノックバック</status>させる。",
+   "cooldown": "60",
+   "cost": "100",
+   "range": "550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

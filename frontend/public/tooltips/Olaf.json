@@ -3,7 +3,7 @@
  "id": 2,
  "name": "オラフ",
  "title": "狂戦士",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "狂戦士の怒り",

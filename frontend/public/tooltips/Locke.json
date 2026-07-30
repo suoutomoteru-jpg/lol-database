@@ -3,17 +3,17 @@
  "id": 805,
  "name": "ロック",
  "title": "灰の祓魔師",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "シルバー・ステイク",
-   "description": "通常攻撃は命中時に追加で<magicDamage>5〜40（レベル比例） ＋ 魔力の10%の魔法ダメージ</magicDamage>を与える。このダメージは対象の減少体力に応じて増加し、最大で<magicDamage>10〜80（レベル比例） ＋ 魔力の20%の魔法ダメージ</magicDamage>になる。",
-   "source": "stringtable",
+   "description": "通常攻撃は命中時に追加魔法ダメージを与える。このダメージは対象の減少体力に応じて増加する。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {
    "name": "リチュアル・ネイル",
-   "description": "数本の<keywordMajor>「魂の釘」</keywordMajor>を構えて投げ、<magicDamage>50/58/66/74/82（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、命中した敵をマークする。釘は命中した本数に応じてスタックする<status>スロウ効果</status>を付与する(1/1/2秒間、25/25/60%)。<br><br>敵を通常攻撃すると<keywordMajor>「魂の釘」</keywordMajor>を消費し、スタックごとに<magicDamage>18/26/34/42/50（＋魔力の25/27.5/30/32.5/35%）の魔法ダメージ</magicDamage>を与える。ダメージは、釘が2本の場合20%、3本の場合40%増加する。",
+   "description": "数本の<keywordMajor>「魂の釘」</keywordMajor>を構えて投げ、<magicDamage>40/48/56/64/72（＋魔力の20%）の魔法ダメージ</magicDamage>を与えて、命中した敵をマークする。釘は命中した本数に応じてスタックする<status>スロウ効果</status>を付与する(1/1/2秒間、25/25/60%)。<br><br>敵を通常攻撃すると<keywordMajor>「魂の釘」</keywordMajor>を消費し、スタックごとに<magicDamage>18/26/34/42/50（＋魔力の25/27.5/30/32.5/35%）の魔法ダメージ</magicDamage>を与える。ダメージは、釘が2本の場合20%、3本の場合40%増加する。",
    "cooldown": "10/9/8/7/6",
    "cost": "70",
    "range": "950",
@@ -23,13 +23,15 @@
   },
   "w": {
    "name": "ソウル・イグニッション",
-   "description": "魂を燃やし、<attackSpeed>攻撃速度を40〜70%（レベル比例）</attackSpeed>、<speed>移動速度を40/45/50/55/60%</speed>を増加させる。この効果は2秒かけて元に戻る。<br><br>6秒間、毎秒<trueDamage>現在体力の2%にあたる確定ダメージ</trueDamage>を受けるが、最後に受けた<healing>40/70/100/130/160（＋魔力の120%）</healing>のダメージを<healing>回復</healing>し、さらに減少体力と経過時間に応じて追加で<healing>40〜200（レベル比例） ＋ 魔力の20%の体力</healing>を回復する(最大で<healing>残り体力が150〜450（レベル比例） ＋ 魔力の60%</healing>になるまで)。<br><br><recast>再発動</recast>で早めに終了できる。",
+   "description": "魂を燃やし、<attackSpeed>攻撃速度を40〜70%（レベル比例）</attackSpeed>、<speed>移動速度を40%</speed>を増加させる。この効果は2秒かけて元に戻る。<br><br>6秒間、毎秒<trueDamage>現在体力の2%にあたる確定ダメージ</trueDamage>を受けるが、最後に受けた<healing>40/60/80/100/120（＋魔力の100%）</healing>のダメージを<healing>回復</healing>し、さらに減少体力と経過時間に応じて追加で<healing>40〜200（レベル比例） ＋ 魔力の20%の体力</healing>を回復する(最大で<healing>残り体力が</healing>になるまで)。<br><br><recast>再発動</recast>で早めに終了できる。",
    "cooldown": "20/18/16/14/12",
    "cost": "50",
    "range": "250",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": []
+   "unresolved": [
+    "MaxHealingThreshold"
+   ]
   },
   "e": {
    "name": "灰塵の追撃",
@@ -52,5 +54,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

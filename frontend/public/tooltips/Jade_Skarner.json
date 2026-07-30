@@ -1,0 +1,61 @@
+{
+ "alias": "Jade_Skarner",
+ "id": 60072,
+ "name": "スカーナー",
+ "title": "水晶の尖兵",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "エナジャイズ",
+   "description": "通常攻撃を行うと、すべてのスキルのクールダウンが0.5秒短縮される。チャンピオンを攻撃した場合は効果が2倍になる。<br><br><flavorText>どこに行けばいいんだ？乗せていたヨードルがいないんだが…</flavorText>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "クリスタルスラッシュ",
+   "description": "周囲の敵すべてに<physicalDamage>25/40/55/70/85（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与え、攻撃が命中した場合は5秒間、<keywordMajor>クリスタルエナジー</keywordMajor>をチャージする。<br><br>チャージ中は、<spellName>クリスタルスラッシュ</spellName>と通常攻撃が<magicDamage>24/36/48/60/72（＋魔力の40%）の追加魔法ダメージ</magicDamage>を与え、対象に2秒間、20/25/30/35/40%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "3.5",
+   "cost": "20/22/24/26/28",
+   "range": "325",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "クリスタリング",
+   "description": "6秒間、耐久値の<shield>シールド</shield>を獲得する。このシールドが持続している間は、<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>、<speed>移動速度が15/17/19/21/23%</speed>増加する。",
+   "cooldown": "18",
+   "cost": "60",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "BlockDamage"
+   ]
+  },
+  "e": {
+   "name": "フラクチャー",
+   "description": "直線上にいる敵に<magicDamage>80/120/160/200/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、6秒間マークする。<br><br>敵を攻撃するとマークを消費して、自身の体力が30/45/60/75/90（＋魔力の30%）<healing>回復</healing>する。対象を直ちにキルした場合も、この体力回復効果が発動する(発動ごとに回復量が50%ずつ減少する)。",
+   "cooldown": "",
+   "cost": "50/55/60/65/70",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "インペイル",
+   "description": "敵チャンピオンに1.75秒間<status>サプレッション効果</status>を与えて、<magicDamage>の魔法ダメージ</magicDamage>を与える。この効果時間中は、無力化した敵を自由に引きずり回すことができる。効果が終了すると、対象に追加で<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "130/120/110",
+   "cost": "100/125/150",
+   "range": "350",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "TotaDamage",
+    "TotaDamage"
+   ]
+  }
+ },
+ "unresolvedCount": 3
+}

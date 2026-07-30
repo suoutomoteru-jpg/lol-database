@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Pantheon",
+ "id": 60080,
+ "name": "パンテオン",
+ "title": "軍神",
+ "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "イージスの守護",
+   "description": "通常攻撃かスキルを4回使用すると、次に受ける通常攻撃かタワーの攻撃をブロックする。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "痛恨の槍",
+   "description": "指定した敵ユニットに槍を投げ、<physicalDamage>65/105/145/185/225（＋増加攻撃力の140%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "4",
+   "cost": "45",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ゼオニアの加護",
+   "description": "対象の敵に飛びかかって<magicDamage>50/75/100/125/150（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、1秒間<status>スタン</status>させる。さらに<spellName>イージスの守護</spellName>が直ちに利用可能になる。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "55",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "急所乱撃",
+   "description": "<spellPassive>自動効果:</spellPassive> 体力が15%未満の対象に対しては、<spellName>痛恨の槍</spellName>、<spellName>急所乱撃</spellName>、通常攻撃のクリティカル率が100%になる。<br><br><spellActive>発動効果:</spellActive> 詠唱して前方に素早い突きを3回繰り出し、攻撃ごとに<physicalDamage>26/46/66/86/106（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える(合計<physicalDamage></physicalDamage>)。",
+   "cooldown": "22/21/20/19/18",
+   "cost": "80",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "MaximumDamageTooltip"
+   ]
+  },
+  "r": {
+   "name": "偉大なる空路",
+   "description": "力を溜めて空高く跳びあがり、数秒後に指定地点に激しく着地する。範囲内の中心にいた敵ユニットには最大で<magicDamage>400/700/1000（＋魔力の100%）の魔法ダメージ</magicDamage>を、端にいた敵には最小で<magicDamage>200/350/500（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。さらに1秒間、35%の<status>スロウ効果</status>を与える。",
+   "cooldown": "180/165/150",
+   "cost": "125",
+   "range": "5500",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}
