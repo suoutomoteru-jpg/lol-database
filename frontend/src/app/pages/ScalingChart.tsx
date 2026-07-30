@@ -1,11 +1,10 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router';
-import { ArrowLeft, Table as TableIcon } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useChampions } from '../hooks/useChampions';
 import { useScalingData } from '../hooks/useScalingData';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { roleIconUrl, ROLE_LABELS_JA } from '../utils/roleAssets';
-import { prefetchChampion } from '../utils/prefetch';
 import type { Role } from '../types/app';
 import type { ScalingPhase } from '../api/scalingData';
 
@@ -44,9 +43,6 @@ export function ScalingChart() {
   const [phase, setPhase] = useState<ScalingPhase>('early');
   // ホバー/フォーカス中のマーク（ツールチップ用）。indexは横位置の算出に使う
   const [active, setActive] = useState<number | null>(null);
-  // 表ビュー: ツールチップは値を「補助」するもので、唯一の読み取り手段には
-  // しない（キーボード・スクリーンリーダー・印刷でも全数値に到達できる）
-  const [showTable, setShowTable] = useState(false);
 
   // scaling.json の alias と Champion.id（DDragon alias）を突き合わせ、
   // 表示に必要な日本語名・アイコン・ロールを持つエントリを作る。
@@ -65,6 +61,21 @@ export function ScalingChart() {
       .filter(e => e.role === role)
       .sort((a, b) => a.name.localeCompare(b.name, 'ja'));
   }, [data, champions, role]);
+
+  // 時間帯ごとの勝率ランキング。試合数0のチャンピオンは勝率0%扱いに
+  // なってしまうため、順位づけの対象からは外して末尾にまわす
+  const rankings = useMemo(
+    () => PHASES.map(p => ({
+      ...p,
+      rows: [...entries].sort((a, b) => {
+        if (a[p.key].games === 0 || b[p.key].games === 0) {
+          return a[p.key].games === b[p.key].games ? 0 : a[p.key].games === 0 ? 1 : -1;
+        }
+        return b[p.key].winrate - a[p.key].winrate;
+      }),
+    })),
+    [entries],
+  );
 
   const chartWidth = Math.max(entries.length * COL_WIDTH, 300);
   const activeEntry = active !== null ? entries[active] ?? null : null;
@@ -184,14 +195,22 @@ export function ScalingChart() {
                 const stat = e[phase];
                 const isActive = active === i;
                 return (
-                  <Link
+                  <button
                     key={e.alias}
-                    to={`/champion/${e.alias}`}
-                    onPointerEnter={() => { prefetchChampion(e.alias); setActive(i); }}
-                    onPointerLeave={() => setActive(null)}
+                    type="button"
+                    // チャンピオンページへは飛ばさず、値の表示だけを行う。
+                    // マウスはホバーで追従するのでクリックは何もしない
+                    // （タップで開閉するのはホバーを持たないタッチ/ペンのみ）
+                    onClick={ev => {
+                      const pt = (ev.nativeEvent as PointerEvent).pointerType;
+                      if (pt === 'touch' || pt === 'pen') {
+                        setActive(prev => (prev === i ? null : i));
+                      }
+                    }}
+                    onPointerEnter={ev => { if (ev.pointerType === 'mouse') setActive(i); }}
+                    onPointerLeave={ev => { if (ev.pointerType === 'mouse') setActive(null); }}
                     onFocus={() => setActive(i)}
                     onBlur={() => setActive(null)}
-                    onTouchStart={() => prefetchChampion(e.alias)}
                     aria-label={`${e.name} ${phaseLabel}の勝率 ${stat.winrate.toFixed(1)}パーセント、${stat.games}試合`}
                     className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden ring-2
                       transition-[top,box-shadow] duration-500 ease-out shadow-[0_1px_4px_rgba(0,0,0,.45)]
@@ -204,7 +223,7 @@ export function ScalingChart() {
                     }}
                   >
                     <img src={e.icon} alt="" className="w-full h-full object-cover" loading="lazy" />
-                  </Link>
+                  </button>
                 );
               })}
 
@@ -234,56 +253,56 @@ export function ScalingChart() {
           </div>
         )}
 
+        {/* 時間帯ごとの勝率ランキング。チャートが「推移の形」を見せるのに対し、
+            こちらは実数と順位を担当する（値がホバー頼みにならないようにする） */}
         {entries.length > 0 && (
-          <>
-            <button
-              onClick={() => setShowTable(v => !v)}
-              aria-expanded={showTable}
-              className="mt-3 inline-flex items-center gap-1.5 px-3 pt-[3px] pb-[5px] text-xs font-medium
-                border border-border rounded-full text-muted-foreground hover:text-foreground transition-colors duration-100"
-            >
-              <TableIcon size={13} aria-hidden />
-              {showTable ? '表を閉じる' : '表で見る'}
-            </button>
-
-            {showTable && (
-              <div className="mt-3 overflow-x-auto border border-border rounded-md">
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {rankings.map(({ key, label, sub, rows }) => (
+              <div key={key} className="border border-border rounded-md overflow-hidden">
                 <table className="w-full text-xs">
-                  <caption className="sr-only">
-                    {ROLE_LABELS_JA[role]}の試合時間帯別勝率（各時間帯の勝率と試合数）
+                  <caption className="bg-secondary/40 px-3 py-2 text-left">
+                    <span className="font-semibold text-foreground">{label}</span>
+                    <span className="ml-1.5 text-[10px] text-muted-foreground">{sub}</span>
                   </caption>
-                  <thead>
-                    <tr className="bg-secondary/40 text-muted-foreground">
-                      <th scope="col" className="text-left font-medium px-3 py-2">チャンピオン</th>
-                      {PHASES.map(p => (
-                        <th key={p.key} scope="col" className="text-right font-medium px-3 py-2 whitespace-nowrap">
-                          {p.label}
-                          <span className="ml-1 font-normal opacity-70">{p.sub}</span>
-                        </th>
-                      ))}
+                  <thead className="sr-only">
+                    <tr>
+                      <th scope="col">順位</th>
+                      <th scope="col">チャンピオン</th>
+                      <th scope="col">勝率</th>
+                      <th scope="col">試合数</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {entries.map(e => (
+                    {rows.map((e, i) => (
                       <tr key={e.alias} className="border-t border-border">
-                        <th scope="row" className="text-left font-medium px-3 py-1.5 whitespace-nowrap">
-                          <Link to={`/champion/${e.alias}`} className="hover:text-primary transition-colors">
-                            {e.name}
-                          </Link>
+                        <td className="pl-2.5 pr-1 py-1 text-right tabular-nums text-muted-foreground w-6">
+                          {e[key].games > 0 ? i + 1 : '–'}
+                        </td>
+                        <th scope="row" className="py-1 font-normal text-left">
+                          <span className="flex items-center gap-1.5 min-w-0">
+                            <img
+                              src={e.icon}
+                              alt=""
+                              className="w-5 h-5 rounded-full flex-shrink-0"
+                              loading="lazy"
+                            />
+                            <span className="truncate">{e.name}</span>
+                          </span>
                         </th>
-                        {PHASES.map(p => (
-                          <td key={p.key} className="text-right px-3 py-1.5 tabular-nums whitespace-nowrap">
-                            {e[p.key].games > 0 ? `${e[p.key].winrate.toFixed(1)}%` : '—'}
-                            <span className="ml-1.5 text-muted-foreground">{e[p.key].games}試合</span>
-                          </td>
-                        ))}
+                        <td className="px-1 py-1 text-right tabular-nums font-semibold text-foreground whitespace-nowrap">
+                          {e[key].games > 0 ? `${e[key].winrate.toFixed(1)}%` : '—'}
+                        </td>
+                        <td className="pr-2.5 pl-1 py-1 text-right tabular-nums text-muted-foreground whitespace-nowrap">
+                          {e[key].games}
+                          <span className="text-[10px]">試合</span>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-            )}
-          </>
+            ))}
+          </div>
         )}
 
         {data && (
