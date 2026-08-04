@@ -17,5 +17,21 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 )
 
-// パッチ更新の反映が最優先のため、確認なしで即座に新バージョンへ切り替える
-registerSW({ immediate: true })
+// パッチ更新の反映が最優先のため、確認なしで即座に新バージョンへ切り替える。
+// registerType:'autoUpdate' は新SWが activated になった時点で自動的に
+// location.reload() する（vite-plugin-pwaのデフォルト挙動）。
+// ただし「activated になる」には、ブラウザがsw.jsの差分を検知するチェックが
+// 先に走る必要があり、これは通常ページへの実際のナビゲーション時にしか発生しない。
+// ホーム画面PWAはバックグラウンドから復帰しても実ナビゲーションが起きないため、
+// このチェック自体が走らず更新が反映されない。そのため復帰時・定期的に
+// registration.update() を明示的に呼び、チェックの機会を作る。
+registerSW({
+  immediate: true,
+  onRegisteredSW(_url, registration) {
+    if (!registration) return
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') registration.update()
+    })
+    setInterval(() => registration.update(), 60 * 60 * 1000)
+  },
+})
