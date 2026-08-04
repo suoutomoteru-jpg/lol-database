@@ -1,31 +1,40 @@
 #!/usr/bin/env python3
-"""調査プローブ: アイテム説明文<stats>ブロックの実際のマークアップ構造を確認する
+"""調査プローブ: Cloudflare Pages配信中のsw.jsが最新ビルドを指しているか確認する
 
-frontend/src/app/pages/ItemDetail.tsx の splitStatLines() が
-<attention>数値</attention> のようなタグ付き数値をどう処理しているか、
-実データで再現できているかを検証する。
+vite-plugin-pwa (workbox) の生成物 sw.js には、プリキャッシュするファイルの
+リビジョン（ビルド内容ハッシュ）が埋め込まれる。配信中のindex.htmlが読み込む
+エントリJSのファイル名が、sw.jsのプリキャッシュリストに含まれていれば、
+Cloudflare側は最新ビルドを正しく配信していると確認できる
+（＝「Cloudflareが古い」ではなく、PWAインスタンス側が未リロードという話になる）。
 """
-import json
 import re
 import urllib.request
 
-DD = "https://ddragon.leagueoflegends.com"
+SITE = "https://nunune.pages.dev"
 
-def get_json(url):
+def get(url, timeout=20):
     req = urllib.request.Request(url, headers={"User-Agent": "probe"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode())
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read().decode("utf-8", errors="replace"), dict(r.headers)
 
-version = get_json(f"{DD}/api/versions.json")[0]
-data = get_json(f"{DD}/cdn/{version}/data/ja_JP/item.json")["data"]
+html, html_headers = get(SITE + "/")
+entry = re.search(r'src="(/assets/index-[^"]+\.js)"', html)
+print(f"index.html entry js: {entry.group(1) if entry else '(なし)'}")
+print(f"index.html cache-control: {html_headers.get('cache-control')} / cf-cache-status: {html_headers.get('cf-cache-status')}")
 
-SAMPLES = ["3031", "3068", "3153", "3078", "6653"]
-for sid in SAMPLES:
-    it = data.get(sid)
-    if not it:
-        continue
-    desc = it["description"]
-    m = re.search(r"<stats>([\s\S]*?)</stats>", desc, re.I)
-    print(f"\n=== {sid} {it['name']} ===")
-    print("raw <stats> block:")
-    print(repr(m.group(1)) if m else "(なし)")
+try:
+    sw, sw_headers = get(SITE + "/sw.js")
+    print(f"\nsw.js取得OK（{len(sw)}文字）")
+    print(f"sw.js cache-control: {sw_headers.get('cache-control')} / cf-cache-status: {sw_headers.get('cf-cache-status')}")
+    if entry:
+        fname = entry.group(1).split('/')[-1]
+        print(f"sw.jsのプリキャッシュに{fname}が含まれるか: {'○ 含まれる' if fname in sw else '× 含まれない（古いSW）'}")
+    print("registerType/autoUpdate関連の記述:", "見つかった" if "skipWaiting" in sw or "clientsClaim" in sw else "見当たらない")
+except Exception as e:
+    print(f"\nsw.js取得失敗: {e}")
+
+try:
+    manifest, _ = get(SITE + "/manifest.webmanifest")
+    print(f"\nmanifest.webmanifest: {manifest[:300]}")
+except Exception as e:
+    print(f"\nmanifest取得失敗（別名の可能性）: {e}")
