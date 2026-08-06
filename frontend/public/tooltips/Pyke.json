@@ -3,7 +3,7 @@
  "id": 555,
  "name": "パイク",
  "title": "ブラッドハーバーの殺戮鬼",
- "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "沈みし者の力",

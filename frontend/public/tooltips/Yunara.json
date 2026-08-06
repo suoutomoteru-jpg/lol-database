@@ -3,7 +3,7 @@
  "id": 804,
  "name": "ユナラ",
  "title": "揺るがぬ誓い",
- "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "始まりの地への誓い",

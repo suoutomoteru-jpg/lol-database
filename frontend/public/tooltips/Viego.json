@@ -3,7 +3,7 @@
  "id": 234,
  "name": "ヴィエゴ",
  "title": "滅びの王",
- "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "王の支配",

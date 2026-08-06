@@ -3,7 +3,7 @@
  "id": 432,
  "name": "バード",
  "title": "流離いの庇護者",
- "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "旅人の呼び声",

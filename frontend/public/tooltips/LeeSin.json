@@ -3,7 +3,7 @@
  "id": 64,
  "name": "リー・シン",
  "title": "盲目の修行僧",
- "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "練気",

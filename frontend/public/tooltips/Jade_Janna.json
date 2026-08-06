@@ -3,7 +3,7 @@
  "id": 60040,
  "name": "ジャンナ",
  "title": "嵐の怒り",
- "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "テイルウィンド",

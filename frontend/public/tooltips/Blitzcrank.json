@@ -3,7 +3,7 @@
  "id": 53,
  "name": "ブリッツクランク",
  "title": "偉大なるスチームゴーレム",
- "patch": "16.15.8008073+branch.releases-16-15.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "マナバリア",
