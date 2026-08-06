@@ -16,6 +16,27 @@ Technical LoL terms (CS, gank, freeze, APC, etc.) stay in English.**
 Never cite win rates, tier lists, or build stats from training data.
 Always fetch live data before responding to any numerical claim.
 
+### ⚠️ 数値を答える前に必ず `reference/` を先に読む
+
+ゲーム内の**静的な数値**（基礎ステータス・アイテム・ルーン・計算式）は
+`reference/` に検証済みの値がプールされている。**訓練データや記憶から答える前に必ずここを読む。**
+
+| 知りたいこと | 読むファイル |
+|---|---|
+| 基準パッチ・未解決の矛盾 | `reference/patch-state.md` ← **毎回まずここ** |
+| ダメージ計算・貫通順序・クリ倍率 | `reference/formulas.md` |
+| アフェリオスのステータス・武器 | `reference/aphelios.md` |
+| アイテムのスタッツ・価格・パッシブ | `reference/items.md` |
+| ルーン・キーストーンの数値 | `reference/runes.md` |
+| 射程・対面チャンピオンの数値 | `reference/opponents.md` |
+| 戦術的な対策（数値ではなく立ち回り） | `MATCHUPS.md` |
+
+**運用ルール:**
+- `reference/` の値には信頼度マークが付いている。⚠️（出典割れ）の数値を使う時は**必ずその旨を断る**
+- `reference/` に無い数値、または ⚠️ を確定させたい時は Web検索で取得し、**確定したらファイルに追記する**
+- **ライブ取得が必要なものは別**: 勝率・ティアリスト・ピック率・メタ動向は時間で変わるので、
+  `reference/` にキャッシュせず毎回下記の順で取り直すこと
+
 **Fetch order:**
 1. Win/pick/ban rates → `https://lolalytics.com/lol/[champion]/`
 2. Korean server meta → `https://en.koreanbuilds.net/tierlists`
