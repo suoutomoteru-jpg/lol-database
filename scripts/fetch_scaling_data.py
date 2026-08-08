@@ -17,11 +17,22 @@ Riot Match-V5 API から試合を収集し、「試合時間帯（序盤/中盤/
     する（人口比重み付けはしない。低ランク帯が多数派なので人口比にすると
     低ランクデータに支配されてしまうため、ティアごとに同程度の量を集める）。
     対象キューはランクソロ/デュオ（RANKED_SOLO_5x5, queueId=420）。
-    対象サーバーはまず日本鯖（jp1）。試合数が集まりにくい場合は
-    --platforms で他鯖を追加できる。
+
+積み上げ式（cumulative）収集:
+    Riot Personal API Keyのレート制限（20 req/1s, 100 req/2min）は1回の
+    実行では変わらないため、GitHub Actionsの1ジョブ上限（ホスト型ランナー
+    は最大6時間）内でどれだけ回しても、1回で集められる試合数には上限が
+    ある。そのため生の試合データを --state-file に永続化し、実行のたびに
+    「まだ見ていない試合」だけを追加収集する。集計結果(scaling.json)は
+    毎回 state 全体から作り直すので、バケット境界(BUCKET_EARLY_MAX等)を
+    後で変更しても、過去に集めた試合は再集計時に新しい境界で正しく
+    再分類される（stateには生の試合時間を保持し、バケット名は保持しない）。
+    古い試合はパッチが変わって傾向が古くなるため、--max-age-days
+    より前の試合は毎回の実行時にstateから間引く。
 
 実行方法:
     RIOT_API_KEY=xxx python3 scripts/fetch_scaling_data.py \
+        --platforms jp1,kr --state-file scripts/data/scaling_state.json \
         --out frontend/public/tooltips/scaling.json
 
 依存: 標準ライブラリのみ
@@ -63,6 +74,10 @@ CHAMPION_NAME_FIXES = {
 
 # 早期投了・リマッチ等、実プレイと言えない試合を除外する下限（秒）
 MIN_VALID_DURATION = 5 * 60
+
+# 古い試合をstateから間引く基準（日）。LoLのパッチ間隔(約2週間)の
+# 2〜3サイクル分を目安に、傾向が古くなりすぎない範囲で貯める
+DEFAULT_MAX_AGE_DAYS = 35
 
 
 # ── レート制御付きHTTP ─────────────────────────────────
@@ -166,24 +181,37 @@ def normalize_champion_name(name: str) -> str:
     return CHAMPION_NAME_FIXES.get(name, name)
 
 
+# ── state（生の試合データ）の永続化 ────────────────────
+#
+# 1レコード = 1試合。バケット名ではなく生の試合時間(duration)を持つため、
+# BUCKET_EARLY_MAX/BUCKET_MID_MAXを後から変更しても再集計時に追従する。
+
+def load_state(path: str) -> list[dict]:
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_state(path: str, records: list[dict]) -> None:
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(records, f, ensure_ascii=False, separators=(",", ":"))
+
+
+def prune_state(records: list[dict], max_age_days: int) -> list[dict]:
+    cutoff_ms = (time.time() - max_age_days * 86400) * 1000
+    return [r for r in records if r.get("gameCreation", 0) >= cutoff_ms]
+
+
 def collect_matches(
     platforms: list[str], api_key: str, limiter: RateLimiter,
-    per_bracket: int, matches_per_player: int,
-) -> dict:
-    """champion alias -> {early: {games, wins}, mid: {...}, late: {...}}"""
-    stats: dict[str, dict[str, dict[str, int]]] = {}
-    seen_match_ids: set[str] = set()
-    sampled_matches = 0
-
-    def add(champion: str, bucket: str, win: bool):
-        c = stats.setdefault(champion, {
-            "early": {"games": 0, "wins": 0},
-            "mid": {"games": 0, "wins": 0},
-            "late": {"games": 0, "wins": 0},
-        })
-        c[bucket]["games"] += 1
-        if win:
-            c[bucket]["wins"] += 1
+    per_bracket: int, matches_per_player: int, known_match_ids: set[str],
+) -> list[dict]:
+    """まだ known_match_ids に無い試合だけを取得し、生レコードのリストで返す。
+    レコード: {matchId, platform, gameCreation(ms), duration(sec), participants:[{champion, win}]}"""
+    new_records: list[dict] = []
+    seen_this_run: set[str] = set()
 
     for platform in platforms:
         region = PLATFORM_TO_REGION.get(platform)
@@ -204,9 +232,9 @@ def collect_matches(
             match_ids = api_get(ids_url, api_key, limiter) or []
 
             for match_id in match_ids:
-                if match_id in seen_match_ids:
+                if match_id in known_match_ids or match_id in seen_this_run:
                     continue
-                seen_match_ids.add(match_id)
+                seen_this_run.add(match_id)
 
                 match = api_get(f"{regional_base}/lol/match/v5/matches/{match_id}", api_key, limiter)
                 if not match:
@@ -216,22 +244,54 @@ def collect_matches(
                 # 極端に短い試合（早期投了・リマッチ）は実プレイを反映しないため除外
                 if duration < MIN_VALID_DURATION:
                     continue
-                bucket = bucket_of(duration)
+                participants = []
                 for p in info.get("participants", []):
                     champ = normalize_champion_name(p.get("championName", ""))
                     if not champ:
                         continue
-                    add(champ, bucket, bool(p.get("win")))
-                sampled_matches += 1
+                    participants.append({"champion": champ, "win": bool(p.get("win"))})
+                if not participants:
+                    continue
+                new_records.append({
+                    "matchId": match_id,
+                    "platform": platform,
+                    "gameCreation": info.get("gameCreation", 0),
+                    "duration": duration,
+                    "participants": participants,
+                })
 
             if (i + 1) % 20 == 0:
                 print(f"  [{platform}] {i + 1}/{len(puuids)} summoners処理済み "
-                      f"(累計試合数 {sampled_matches})", file=sys.stderr)
+                      f"(新規試合数 {len(new_records)})", file=sys.stderr)
 
-    return {"stats": stats, "sampled_matches": sampled_matches}
+    return new_records
 
 
-# ── 出力整形 ──────────────────────────────────────────
+# ── 集計・出力整形 ────────────────────────────────────
+
+def records_to_stats(records: list[dict]) -> dict:
+    """state全体からチャンピオン別バケット集計を作る。
+    バケット境界は集計のたびに現在のBUCKET_EARLY_MAX/BUCKET_MID_MAXで
+    再判定するため、古いレコードも境界変更に追従する。"""
+    stats: dict[str, dict[str, dict[str, int]]] = {}
+
+    def add(champion: str, bucket: str, win: bool):
+        c = stats.setdefault(champion, {
+            "early": {"games": 0, "wins": 0},
+            "mid": {"games": 0, "wins": 0},
+            "late": {"games": 0, "wins": 0},
+        })
+        c[bucket]["games"] += 1
+        if win:
+            c[bucket]["wins"] += 1
+
+    for r in records:
+        bucket = bucket_of(r["duration"])
+        for p in r["participants"]:
+            add(p["champion"], bucket, p["win"])
+
+    return stats
+
 
 def build_output(stats: dict, sampled_matches: int, queue: str, patch: str) -> dict:
     champions = []
@@ -265,6 +325,10 @@ def main():
     parser.add_argument("--platforms", default="jp1", help="カンマ区切り（例: jp1,kr）")
     parser.add_argument("--per-bracket", type=int, default=5, help="ティア×ディビジョン毎のサンプル人数")
     parser.add_argument("--matches-per-player", type=int, default=10, help="1人あたり直近何試合を見るか")
+    parser.add_argument("--state-file", default="scripts/data/scaling_state.json",
+                         help="積み上げ式収集の生データ保存先。次回実行時はここに無い試合だけを追加取得する")
+    parser.add_argument("--max-age-days", type=int, default=DEFAULT_MAX_AGE_DAYS,
+                         help="この日数より古い試合はstateから間引く")
     parser.add_argument("--out", default="frontend/public/tooltips/scaling.json")
     parser.add_argument("--api-key", default=os.environ.get("RIOT_API_KEY"))
     args = parser.parse_args()
@@ -276,15 +340,30 @@ def main():
     platforms = [p.strip() for p in args.platforms.split(",") if p.strip()]
     limiter = RateLimiter()
 
-    result = collect_matches(platforms, args.api_key, limiter, args.per_bracket, args.matches_per_player)
-    output = build_output(result["stats"], result["sampled_matches"], QUEUE, patch="live")
+    existing = load_state(args.state_file)
+    kept = prune_state(existing, args.max_age_days)
+    print(f"state: 既存 {len(existing)} 件 → {args.max_age_days}日以内 {len(kept)} 件を保持"
+          f"（{len(existing) - len(kept)} 件を間引き）", file=sys.stderr)
+
+    known_ids = {r["matchId"] for r in kept}
+    new_records = collect_matches(
+        platforms, args.api_key, limiter, args.per_bracket, args.matches_per_player, known_ids,
+    )
+    print(f"新規取得: {len(new_records)} 件", file=sys.stderr)
+
+    combined = kept + new_records
+    save_state(args.state_file, combined)
+
+    stats = records_to_stats(combined)
+    output = build_output(stats, len(combined), QUEUE, patch="live")
 
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=1)
 
     print(f"完了: {len(output['champions'])} チャンピオン分, "
-          f"サンプル試合数 {output['sampledMatches']} → {args.out}", file=sys.stderr)
+          f"サンプル試合数 {output['sampledMatches']}（累計state {len(combined)}件）→ {args.out}",
+          file=sys.stderr)
 
 
 if __name__ == "__main__":
