@@ -3,7 +3,7 @@
  "id": 143,
  "name": "ザイラ",
  "title": "茨の目覚め",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "茨の楽園",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "狂い咲き",
-   "description": "60秒間持続する<keywordMajor>種</keywordMajor>を植える。敵チャンピオンが<keywordMajor>種</keywordMajor>を踏むと、2秒間対象の<keywordStealth>真の視界</keywordStealth>を得るが、種は破壊される。<br><br>このスキルは2つまでチャージでき、秒で1つリチャージされる。敵のミニオンまたはモンスターをキルすると、リチャージ時間が35%短縮される。チャンピオンからキルまたはアシストを奪うと、代わりにリチャージ時間が100%短縮される。",
+   "description": "60秒間持続する<keywordMajor>種</keywordMajor>を植える。敵チャンピオンが<keywordMajor>種</keywordMajor>を踏むと、2秒間対象の<keywordStealth>真の視界</keywordStealth>を得るが、<keywordMajor>種</keywordMajor>は破壊される。<br><br>このスキルは2つまでチャージでき、秒で1つリチャージされる。敵のミニオンまたはモンスターをキルすると、リチャージ時間が35%短縮される。チャンピオンからキルまたはアシストを奪うと、代わりにリチャージ時間が100%短縮される。",
    "cooldown": "0",
    "cost": "",
    "range": "850",

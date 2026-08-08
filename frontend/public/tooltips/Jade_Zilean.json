@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Zilean",
+ "id": 60026,
+ "name": "ジリアン",
+ "title": "時の番人",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "ハイスピードラーニング",
+   "description": "自身と味方が追加経験値を獲得する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "タイムボム",
+   "description": "対象に時限式の爆弾を仕掛ける。爆弾は4秒後に爆発し、周囲のすべての敵に<magicDamage>90/145/200/260/320（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。<br><br>同じ対象に2つ目の<spellName>タイムボム</spellName>を設置すると、1つ目のタイムボムが即座に爆発する。",
+   "cooldown": "",
+   "cost": "70/85/100/115/130",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "リワインド",
+   "description": "自身の他のすべてのスキルのクールダウンが10秒短縮される。",
+   "cooldown": "18/15/12/9/6",
+   "cost": "50",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "タイムワープ",
+   "description": "対象を指定し、2.5/3.25/4/4.75/5.5秒間、対象が味方チャンピオンの場合は<speed>移動速度</speed>を55%増加させ、敵チャンピオンの場合は同じ割合の<status>スロウ効果</status>を付与する。",
+   "cooldown": "20",
+   "cost": "80",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "クロノシフト",
+   "description": "自身または指定した味方チャンピオンに7秒間、砂時計の印を付与する。砂時計の印が付与されたチャンピオンの体力がゼロになった瞬間、対象が過去へ送られ、<healing>体力が600/850/1100（＋魔力の200%）</healing>の状態で復活する。",
+   "cooldown": "180",
+   "cost": "125/150/175",
+   "range": "900",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

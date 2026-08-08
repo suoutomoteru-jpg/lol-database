@@ -3,7 +3,7 @@
  "id": 42,
  "name": "コーキ",
  "title": "豪気の爆撃手",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "ヘクステック榴散弾",

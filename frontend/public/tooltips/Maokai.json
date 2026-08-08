@@ -3,7 +3,7 @@
  "id": 57,
  "name": "マオカイ",
  "title": "歪みし樹人",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "魔樹液",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "茨打ち",
-   "description": "拳で地面を打ちつけて、敵に<magicDamage>75/120/165/210/255（＋魔力の40%） + 最大体力の2/2.5/3/3.5/4%の魔法ダメージ</magicDamage>と一時的な<status>スロウ効果</status>を与える。﻿また、周囲の敵を<status>ノックバック</status>させる。",
+   "description": "拳で地面を打ちつけて、敵に<magicDamage>75/120/165/210/255（＋魔力の50%） + 最大体力の2/2.5/3/3.5/4%の魔法ダメージ</magicDamage>と一時的な<status>スロウ効果</status>を与える。﻿また、周囲の敵を<status>ノックバック</status>させる。",
    "cooldown": "7/6.5/6/5.5/5",
    "cost": "40",
    "range": "600",

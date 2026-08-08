@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Fiddlesticks",
+ "id": 60009,
+ "name": "フィドルスティックス",
+ "title": "破滅の先触れ",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "ドレッド",
+   "description": "周囲の敵ユニットの<scaleMR>魔法防御が10</scaleMR>低下する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "テラー",
+   "description": "対象の敵にフィアー効果を与え、1/1.5/2/2.5/3秒間、<status>逃走</status>状態にさせる。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "65/75/85/95/105",
+   "range": "575",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ドレイン",
+   "description": "5秒間詠唱して敵から生命力を吸い取り、対象のユニットに毎秒<magicDamage>60/90/120/150/180（＋魔力の45%）の魔法ダメージ</magicDamage>を与え、<healing>与えたダメージの60/65/70/75/80%にあたる体力</healing>を回復する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "80/90/100/110/120",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ダークウィンド",
+   "description": "敵ユニットに向けて風を飛ばす。風は敵ユニットに命中すると最大5回跳ね返り、周囲にいる別の敵ユニットに次々と当たる。攻撃ごとに<magicDamage>65/85/105/125/145（＋魔力の45%）の魔法ダメージ</magicDamage>を与え、1.2秒間<status>サイレンス効果</status>を付与する。<br><br><rules>ミニオンと中立モンスターに対するダメージが50%増加する。</rules>",
+   "cooldown": "15/14/13/12/11",
+   "cost": "50/70/90/110/130",
+   "range": "750",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "r": {
+   "name": "クロウストーム",
+   "description": "1.5秒間の詠唱後にテレポートして凶暴なカラスの群れを解き放ち、5秒かけて<magicDamage>625/1125/1625（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "150/140/130",
+   "cost": "150/150/200",
+   "range": "800",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

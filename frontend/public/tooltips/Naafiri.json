@@ -3,7 +3,7 @@
  "id": 950,
  "name": "ナフィーリ",
  "title": "百刃の猟犬",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "我らは一つ",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "猟犬の追跡",
-   "description": "敵チャンピオンに向かってダッシュして<physicalDamage>150/225/300（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与え、少しの間<status>スロウ効果</status>を与える。<keywordMajor>「群れの同胞」</keywordMajor>は対象指定不可になり、ナフィーリと共にダッシュして、<keywordMajor>「群れの同胞」</keywordMajor>1体ごとに<physicalDamage>15/22.5/30（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える。<br><br>7秒以内にキルまたはアシストを獲得すると自身の周囲の敵が可視化され、このスキルの再発動が可能になる。2回目の使用時は3秒間、<shield>耐久値100/150/200（＋増加攻撃力の150%）のシールド</shield>を獲得する。<br><br><br>",
+   "description": "敵チャンピオンに向かってダッシュして<physicalDamage>125/200/275（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与え、少しの間<status>スロウ効果</status>を与える。<keywordMajor>「群れの同胞」</keywordMajor>は対象指定不可になり、ナフィーリと共にダッシュして、<keywordMajor>「群れの同胞」</keywordMajor>1体ごとに<physicalDamage>12.5/20/27.5（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>7秒以内にキルまたはアシストを獲得すると自身の周囲の敵が可視化され、このスキルの再発動が可能になる。2回目の使用時は3秒間、<shield>耐久値100/150/200（＋増加攻撃力の150%）のシールド</shield>を獲得する。<br><br><br>",
    "cooldown": "110/95/80",
    "cost": "100",
    "range": "900",

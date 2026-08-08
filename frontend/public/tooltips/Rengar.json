@@ -3,7 +3,7 @@
  "id": 107,
  "name": "レンガー",
  "title": "孤高のハンター",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "見えざる襲撃者",

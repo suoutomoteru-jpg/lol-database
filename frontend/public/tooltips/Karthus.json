@@ -3,7 +3,7 @@
  "id": 30,
  "name": "カーサス",
  "title": "死を歌う者",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "怨嗟の叫び",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "嘆きの壁",
-   "description": "5秒間持続する壁を出現させる。この壁を通過した敵は5秒間、<scaleMR>魔法防御が25%</scaleMR>低下し、40/50/60/70/80%の<status>スロウ効果</status>を受ける。この効果は効果時間をかけて減衰していく。",
+   "description": "5秒間持続する壁を出現させる。この壁を通過した敵は5秒間、<scaleMR>魔法防御が25%</scaleMR>低下し、40/50/60/70/80%の<status>スロウ効果</status>を受ける。この効果は徐々に減衰していく。",
    "cooldown": "15",
    "cost": "70",
    "range": "1000",

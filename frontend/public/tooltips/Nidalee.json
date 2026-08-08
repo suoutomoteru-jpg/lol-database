@@ -3,7 +3,7 @@
  "id": 76,
  "name": "ニダリー",
  "title": "半獣の狩人",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "品定め",

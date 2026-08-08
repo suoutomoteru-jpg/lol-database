@@ -3,7 +3,7 @@
  "id": 19,
  "name": "ワーウィック",
  "title": "解き放たれたゾウンの激憤",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "永遠の渇き",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "怒りの咆哮",
-   "description": "2.5秒間、35/40/45/50/55%のダメージ軽減効果を獲得する。効果時間が終了すると咆哮をあげ、周囲の敵に1秒間<status>フィアー効果</status>を与える。<recast>再発動</recast>すると、このスキルを早めに終了できる。",
+   "description": "2.75秒間、35/40/45/50/55%のダメージ軽減効果を獲得する。効果時間が終了すると咆哮をあげ、周囲の敵に1秒間<status>フィアー効果</status>を与える。<recast>再発動</recast>すると、このスキルを早めに終了できる。",
    "cooldown": "15/14/13/12/11",
    "cost": "40",
    "range": "375",

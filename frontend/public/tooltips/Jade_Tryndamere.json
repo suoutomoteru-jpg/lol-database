@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Tryndamere",
+ "id": 60023,
+ "name": "トリンダメア",
+ "title": "孤高の蛮王",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "戦場の咆哮",
+   "description": "減少体力に応じて、クリティカル率が10% - 50%増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "血の欲望",
+   "description": "<spellPassive>自動効果</spellPassive>: 血を渇望して、敵をキルするかクリティカルを発生させるたびに<keywordMajor>「フューリー」</keywordMajor>を獲得し、獲得した<keywordMajor>「フューリー」</keywordMajor>ごとに、<physicalDamage>攻撃力が5</physicalDamage>、クリティカルダメージが1.5/2.25/3/3.75/4.5%増加する。<br><br><spellActive>発動効果: </spellActive>たまった<keywordMajor>「フューリー」</keywordMajor>を消費し、<healing>魔力の150%に加えて消費した<keywordMajor>「フューリー」</keywordMajor>ごとに10/20/30/40/50の体力</healing>を回復する。(最大体力回復量: <healing></healing>)",
+   "cooldown": "12",
+   "cost": "",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "MaxHealTooltip"
+   ]
+  },
+  "w": {
+   "name": "嘲りの叫び",
+   "description": "周囲の敵チャンピオンを嘲る言葉を発し、4秒間、対象となる敵チャンピオンの<physicalDamage>攻撃力</physicalDamage>を20/40/60/80/100低下させる。トリンダメアに背を向けている敵には、さらに30/37.5/45/52.5/60%の<status>スロウ効果</status>も付与する。",
+   "cooldown": "14",
+   "cost": "",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "スピンスラッシュ",
+   "description": "回転しながら敵に切り込み、触れた敵に<magicDamage>40/90/140/190/240（＋合計攻撃力の50% ＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<br><br>クリティカルが発生するたびに、<spellName>スピンスラッシュ</spellName>のクールダウンが2秒短縮される。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "不死の憤激",
+   "description": "戦い続けたいという強い欲望に取りつかれ、5秒間、どれだけダメージを受けても倒されなくなり、<keywordMajor>「フューリー」</keywordMajor>が4/6/8増加する。",
+   "cooldown": "110/100/90",
+   "cost": "",
+   "range": "400",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

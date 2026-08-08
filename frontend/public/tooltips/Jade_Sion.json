@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Sion",
+ "id": 60014,
+ "name": "サイオン",
+ "title": "不死のチャンピオン",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "無痛",
+   "description": "通常攻撃を受けた際に、40%の確率で、最大30/40/50のダメージを無視する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "死の眼差し",
+   "description": "<mainText>敵1体を攻撃して、<magicDamage>70/125/180/240/300（＋魔力の90%）の魔法ダメージ</magicDamage>を与え、1.5秒間<status>スタン</status>させる。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "100",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "死の愛撫",
+   "description": "<mainText><shield>100/150/200/250/300（＋魔力の90%）ダメージ</shield>を吸収するシールドを自身に展開する。10秒以内にシールドが破壊されなかった場合、シールドが爆発して周囲の敵に<magicDamage>100/150/200/250/300（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。<br><br>4秒経過以後に<recast>再発動</recast>すると、手動で爆発させられる。",
+   "cooldown": "8",
+   "cost": "70/80/90/100/110",
+   "range": "100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "激昂",
+   "description": "<toggle>切り替え: </toggle><physicalDamage>攻撃力</physicalDamage>が25/35/45/55/65増加し、敵をキルするごとに恒久的に<scaleHealth>最大体力が1/1.5/2/2.5/3</scaleHealth>増加する。この攻撃力増加ボーナスは、チャンピオン、大型ミニオン、大型モンスターを倒した際には2倍になる。<br><br><scaleHealth>獲得した体力の合計: +65/100/135/170/205</scaleHealth>",
+   "cooldown": "0",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "カニバリズム",
+   "description": "<mainText>20秒間、<lifeSteal>50/75/100%のライフスティール</lifeSteal>を獲得し、<attackSpeed>攻撃速度が50%</attackSpeed>増加する。さらに、通常攻撃で周囲の味方の体力が<healing>回復</healing>する。この回復量は自身が与えたダメージの25/37.5/50%となる。",
+   "cooldown": "90",
+   "cost": "100",
+   "range": "100",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

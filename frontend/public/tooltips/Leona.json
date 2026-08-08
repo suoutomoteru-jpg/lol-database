@@ -3,7 +3,7 @@
  "id": 89,
  "name": "レオナ",
  "title": "暁光の戦士",
- "patch": "16.14.7945912+branch.releases-16-14.content.release",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
  "skills": {
   "passive": {
    "name": "サンライト",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "シールド・オブ・デイブレイク",
-   "description": "次の通常攻撃が1秒間の<status>スタン効果</status>を付与し、追加で<magicDamage>10/35/60/85/110（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "次の通常攻撃が1秒間の<status>スタン効果</status>を付与し、追加で<magicDamage>10/35/60/85/110（＋魔力の30%）</magicDamage>の魔法ダメージを与える。",
    "cooldown": "5",
    "cost": "30/35/40/45/50",
    "range": "100",
