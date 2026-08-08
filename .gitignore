@@ -25,6 +25,10 @@ env/
 *.sqlite
 *.sqlite3
 
+# Scaling Chart: 積み上げ式収集の生データ（GitHub Actionsのcacheで永続化。
+# git履歴に載せると際限なく肥大化するためコミット対象外）
+scripts/data/
+
 # IDE
 .vscode/
 .idea/

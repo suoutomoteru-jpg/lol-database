@@ -1,10 +1,25 @@
-import { useState, useCallback, Fragment } from 'react';
+import { useState, useCallback, useRef, Fragment } from 'react';
 import { Link, useParams } from 'react-router';
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Plus, Check } from 'lucide-react';
 import { useItem } from '../hooks/useItem';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { useItems } from '../hooks/useItems';
-import { useItemsByStats } from '../hooks/useItemsByStats';
+import { useItemsByStats, type ItemSummary } from '../hooks/useItemsByStats';
+import { useBuildTray, addToTray, MAX_SLOTS } from '../hooks/useBuildTray';
+import { usePatchChanges } from '../hooks/usePatchChanges';
 import { BottomSheet } from '../components/BottomSheet';
+import { BuildTray } from '../components/BuildTray';
+import { QuickSwitchPanel, type QuickSwitchEntry } from '../components/QuickSwitchPanel';
+import { ReportLink } from '../components/ReportLink';
+import { HeaderSearch } from '../components/HeaderSearch';
+import { processItemDescription, injectStatLinks } from '../utils/richText';
+import { calcGoldEfficiency } from '../utils/goldEfficiency';
+import { STAT_KEY_LABELS, ITEM_KEYWORDS } from '../utils/stats';
+import { ITEM_TYPE_LABELS_JA } from '../utils/roleAssets';
+import { flyToTray } from '../utils/flyToTray';
+import { prefetchItem } from '../utils/prefetch';
+
+const ITEM_CATEGORY_ORDER = ['Fighter', 'Marksman', 'Assassin', 'Magic', 'Defense', 'Support'];
 
 // ── 日本語単語境界でのアイテム名折り返し ────────────────
 interface JaSegment { segment: string }
@@ -28,179 +43,201 @@ function WbrName({ text }: { text: string }) {
   );
 }
 
-// ── 金銭効率計算 ───────────────────────────────────────
+// ── <stats> ブロックの構造化 ────────────────────────────
 
-const GOLD_PER_STAT: Record<string, number> = {
-  FlatPhysicalDamageMod:         35,      // Long Sword: 350g / 10 AD
-  FlatMagicDamageMod:            20,      // Amplifying Tome: 400g / 20 AP
-  FlatArmorMod:                  20,      // Cloth Armor: 300g / 15 Armor
-  FlatSpellBlockMod:             20,      // Null-Magic Mantle: 400g / 25 MR
-  FlatHPPoolMod:                 2.67,    // Ruby Crystal: 400g / 150 HP
-  FlatMPPoolMod:                 1,       // Sapphire Crystal baseline: 1g/mana
-  FlatMovementSpeedMod:          12,      // 12g per 1 flat MS
-  FlatCritChanceMod:             4000,    // 40g per 1% → ×100 for fraction (0-1)
-  PercentAttackSpeedMod:         2500,    // 25g per 1% → ×100 for fraction
-  PercentLifeStealMod:           5355,    // Vampiric Scepter: 53.55g per 1% → ×100
-  PercentMovementSpeedMod:       5000,    // 2% = 100g → ×100 for fraction
-  FlatArmorPenetrationMod:       30,      // Lethality: 30g per 1
-  PercentArmorPenetrationMod:    4167,    // 41.67g per 1% → ×100
-  FlatMagicPenetrationMod:       35,      // Sorcerer's Shoes: 700g / 18 → ~39g; ~35g/unit
-  PercentMagicPenetrationMod:    4167,    // Void Staff: same baseline as armor pen → ×100
-  FlatHPRegenMod:                3,       // Rejuvenation Bead baseline: 3g/unit
-  FlatMPRegenMod:                5,       // 25% = 125g → 5g/unit (% 単位の場合)
-  // DDragonがstat値を持つ場合のフォールバック（説明文解析も併用）
-  AbilityHaste:                  50,      // Glowing Mote: 250g / 5 AH
-  PercentHealAndShieldPower:     7760,    // Forbidden Idol: (800-24)g / 10% → ×100
-  PercentCritDamageMod:          437.5,   // 40% = 175g → ×100 for fraction
-};
-
-// DDragonのstatフィールドに含まれない指標を説明文から抽出して算入する
-const AH_RATE          = 50;    // Glowing Mote: 250g / 5 AH
-const HS_RATE          = 7760;  // Forbidden Idol: (800-24)g / 10% → 7760g/fraction
-const TENACITY_RATE    = 200;   // Mercury's: 1100 - 25*20 - 45*12 = 60g for 30% → 200g/fraction
-const MANA_REGEN_RATE  = 5;     // 25% = 125g → 5g per 1%
-const CRIT_DAMAGE_RATE = 4.375; // 40% = 175g → 4.375g per 1%
-
-function extractNum(text: string, pattern: RegExp): number {
-  const m = text.match(pattern);
-  return m ? parseInt(m[1], 10) : 0;
-}
-
-function calcGoldEfficiency(
-  stats: Record<string, number>,
-  tags: string[],
-  rawDesc: string,
-  totalCost: number,
-): number | null {
-  if (totalCost <= 0) return null;
-  let totalValue = 0;
-
-  for (const [key, val] of Object.entries(stats)) {
-    const rate = GOLD_PER_STAT[key];
-    if (rate && val) totalValue += val * rate;
-  }
-
-  const plain = rawDesc.replace(/<[^>]+>/g, '');
-
-  // スキルヘイスト（stat未収録の場合、説明文から抽出）
-  if (!stats['AbilityHaste']) {
-    const ah = extractNum(plain, /スキルヘイスト\D{0,10}?(\d+)/);
-    if (ah) totalValue += ah * AH_RATE;
-  }
-
-  // クリティカルダメージ（stat未収録の場合、説明文から抽出）
-  if (!stats['PercentCritDamageMod']) {
-    const cd = extractNum(plain, /クリティカルダメージ\D{0,10}?(\d+)/);
-    if (cd) totalValue += cd * CRIT_DAMAGE_RATE;
-  }
-
-  // ヒール&シールドパワー（stat未収録の場合、説明文から抽出）
-  if (!stats['PercentHealAndShieldPower']) {
-    const hs = extractNum(plain, /ヒール[&＆]シールドパワー\D{0,10}?(\d+)/);
-    if (hs) totalValue += (hs / 100) * HS_RATE;
-  }
-
-  // マナ自動回復（説明文から %を抽出; stat の FlatMPRegenMod が 0/未収録の場合のフォールバック）
-  if (!stats['FlatMPRegenMod']) {
-    const mr = extractNum(plain, /マナ自動回復\D{0,10}?(\d+)/);
-    if (mr) totalValue += mr * MANA_REGEN_RATE;
-  }
-
-  // 行動妨害耐性（DDragonではタグのみでstat値なし → 説明文から%を抽出）
-  if (tags.includes('Tenacity')) {
-    const t = extractNum(plain, /行動妨害耐性\D{0,20}?(\d+)/);
-    if (t) totalValue += (t / 100) * TENACITY_RATE;
-  }
-
-  return totalValue > 0 ? (totalValue / totalCost) * 100 : null;
-}
-
-// ── 日本語キーワード → stat/tag キー対応表 ─────────────
-// 長いものを先に並べる（部分マッチ防止）
-
-const KEYWORD_DEFS: Array<{ text: string; key: string }> = [
-  { text: 'ライフスティール',   key: 'custom:LifeSteal' },
-  { text: '通常攻撃時効果',     key: 'custom:OnHit' },
-  { text: '行動妨害耐性',       key: 'custom:Tenacity' },
-  { text: 'スキルヘイスト',     key: 'custom:AbilityHaste' },
-  { text: '魔法防御貫通',       key: 'custom:MagicPen' },
-  { text: '物理防御貫通',       key: 'custom:ArmorPen' },
-  { text: 'クリティカルダメージ', key: 'custom:CritDamage' },
-  { text: 'クリティカル率',     key: 'stat:FlatCritChanceMod' },
-  { text: 'シールド量',         key: 'custom:Shield' },
-  { text: 'ヒール&シールドパワー', key: 'custom:HealAndShieldPower' },
-  { text: 'ヒール＆シールドパワー', key: 'custom:HealAndShieldPower' },
-  { text: '脅威',               key: 'custom:Lethality' },
-  { text: '体力回復速度',       key: 'stat:FlatHPRegenMod' },
-  { text: '体力回復',           key: 'stat:FlatHPRegenMod' },
-  { text: 'マナ回復速度',       key: 'stat:FlatMPRegenMod' },
-  { text: 'マナ回復',           key: 'stat:FlatMPRegenMod' },
-  { text: '魔法防御',           key: 'stat:FlatSpellBlockMod' },
-  { text: '物理防御',           key: 'stat:FlatArmorMod' },
-  { text: '移動速度',           key: 'stat:FlatMovementSpeedMod' },
-  { text: '攻撃速度',           key: 'stat:PercentAttackSpeedMod' },
-  { text: '攻撃力',             key: 'stat:FlatPhysicalDamageMod' },
-  { text: '魔力',               key: 'stat:FlatMagicDamageMod' },
-  { text: 'アーマー',           key: 'stat:FlatArmorMod' },
-  { text: '体力',               key: 'stat:FlatHPPoolMod' },
-  { text: 'マナ',               key: 'stat:FlatMPPoolMod' },
-];
-
-const KW_PATTERN = new RegExp(
-  KEYWORD_DEFS.map(d => d.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
-  'g',
-);
-const KW_MAP = new Map(KEYWORD_DEFS.map(d => [d.text, d.key]));
-
-// ── HTML テキストノードにクリッカブルスパンを注入 ────────
-
-function injectStatLinks(html: string): string {
-  return html.split(/(<[^>]+>)/).map(part => {
-    if (part.startsWith('<')) return part;
-    return part.replace(KW_PATTERN, kw => {
-      const key = KW_MAP.get(kw);
-      return key ? `<span data-stat="${key}" class="stat-keyword">${kw}</span>` : kw;
+/**
+ * "攻撃力<attention>65</attention>" のような行を ラベル / 値 に分割する。
+ * DDragonの生データは数値がタグで囲まれ、ラベルとの間に区切り文字がない
+ * （"攻撃力<attention>40</attention>"）ため、タグを剥いた平文で末尾の数値を
+ * 切り出す。タグ付きのまま正規表現をかけると閉じタグに阻まれて一致しない。
+ */
+function splitStatLines(statsHtml: string): Array<{ label: string; value: string }> {
+  return statsHtml
+    .split(/<br\s*\/?\s*>/i)
+    .map(l => l.replace(/<[^>]+>/g, '').trim())
+    .filter(Boolean)
+    .map(line => {
+      const m = line.match(/^([\s\S]*?)\s*([+-]?\d[\d.,]*\s*%?)\s*$/);
+      return m ? { label: m[1], value: m[2] } : { label: line, value: '' };
     });
-  }).join('');
 }
 
-// ── 説明文の前処理 ─────────────────────────────────────
+/** チップのラベル（平文）→ ステータス台帳キー。台帳は長い語優先ソート済み */
+function statKeyForLabel(plain: string): string | null {
+  for (const { text, key } of ITEM_KEYWORDS) {
+    if (plain.includes(text)) return key;
+  }
+  return null;
+}
 
-function processItemDescription(raw: string): string {
-  let s = raw;
-  s = s.replace(/<mainText>/gi, '').replace(/<\/mainText>/gi, '');
-  s = s.replace(/<stats>/gi, '<div class="item-stats">').replace(/<\/stats>/gi, '</div>');
-  s = s.replace(/<br\s*\/?>/gi, '<br>');
-  s = s.replace(/<attention>/gi, '<strong style="color:#C89B3C">').replace(/<\/attention>/gi, '</strong>');
-  s = s.replace(/<passive>/gi, '<strong class="text-muted-foreground">').replace(/<\/passive>/gi, '</strong>');
-  s = s.replace(/<active>/gi, '<strong class="text-muted-foreground">').replace(/<\/active>/gi, '</strong>');
-  s = s.replace(/<ornnBonus>/gi, '<span class="text-primary/70">').replace(/<\/ornnBonus>/gi, '</span>');
-  s = s.replace(/<gold>/gi, '<span style="color:#C89B3C">').replace(/<\/gold>/gi, '</span>');
-  s = s.replace(/<keyword>/gi, '<strong>').replace(/<\/keyword>/gi, '</strong>');
-  s = s.replace(/<keywordMajor>/gi, '<strong>').replace(/<\/keywordMajor>/gi, '</strong>');
-  s = s.replace(/<rarityLegendary>/gi, '<strong style="color:#C89B3C">').replace(/<\/rarityLegendary>/gi, '</strong>');
-  s = s.replace(/<rarityMythic>/gi,    '<strong style="color:#5383E8">').replace(/<\/rarityMythic>/gi,    '</strong>');
-  s = s.replace(/<rarityGeneric>/gi,   '<strong>').replace(/<\/rarityGeneric>/gi,   '</strong>');
-  s = s.replace(/<unimportant>/gi, '<span style="opacity:0.55">').replace(/<\/unimportant>/gi, '</span>');
-  s = s.replace(/<rules>/gi, '<em style="opacity:0.7">').replace(/<\/rules>/gi, '</em>');
-  s = s.replace(/<flavorText>/gi, '<em style="opacity:0.7">').replace(/<\/flavorText>/gi, '</em>');
-  s = s.replace(/<li>/gi, '<br>• ').replace(/<\/li>/gi, '');
-  s = s.replace(/<[^>]+>/g, (match) => {
-    const t = match.toLowerCase().trim();
-    if (
-      t === '<br>' ||
-      t === '<strong>' || t === '</strong>' ||
-      t === '<em>' || t === '</em>' ||
-      t === '</span>' || t.startsWith('<span ') ||
-      t.startsWith('<strong ') ||
-      t === '</div>' || t === '<div class="item-stats">'
-    ) return match;
-    return '';
-  });
-  s = s.replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-  s = s.replace(/^(<br>\s*)+/, '').trim();
-  s = s.replace(/(<br>\s*){3,}/g, '<br><br>');
-  return s;
+// ── 共通パーツ ─────────────────────────────────────────
+
+/** ゾーン見出し（設計図の工程ラベル） */
+function ZoneLabel({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <p className={`text-[10px] tracking-[.25em] text-muted-foreground/70 select-none ${className}`}>
+      {children}
+    </p>
+  );
+}
+
+/** モバイル用の工程間ジョイント（素材 → 完成 → 進化 の流れ） */
+function Joint() {
+  return <div className="lg:hidden text-center text-primary/70 text-xs leading-none" aria-hidden>▼</div>;
+}
+
+interface PathItem { id: string; name: string; imageUrl: string; gold: number }
+
+/** 素材ノード（左列）。工程はゾーンラベルとジョイントで示し、接続線は引かない */
+function MaterialNode({ item }: { item: PathItem }) {
+  return (
+    <Link
+      to={`/item/${item.id}`}
+      className="relative flex items-center gap-2.5 bg-card/95 border border-border rounded-md p-2 pr-3
+        hover:border-primary/40 transition-colors"
+    >
+      <img src={item.imageUrl} alt="" className="w-10 h-10 rounded-sm border border-border flex-shrink-0" loading="lazy" />
+      <div className="min-w-0">
+        <p className="text-xs font-semibold text-foreground leading-tight line-clamp-2">{item.name}</p>
+        <p className="text-[11px] text-gold tabular-nums mt-0.5">{item.gold}G</p>
+      </div>
+    </Link>
+  );
+}
+
+/** 進化先クラスタ（右列）: 高額上位2件は名前つき、残りは小アイコン密集 */
+function EvolutionCluster({ into }: { into: PathItem[] }) {
+  const sorted = [...into].sort((a, b) => b.gold - a.gold);
+  const major = sorted.slice(0, 2);
+  const minor = sorted.slice(2);
+
+  return (
+    <div className="relative bg-card/60 border border-border rounded-md p-3">
+      <div className="flex items-baseline gap-2 mb-2.5">
+        <p className="text-xs font-bold text-foreground">進化先</p>
+        <span className="text-[10px] text-primary border border-primary/40 rounded-full px-2 py-px tabular-nums">
+          {into.length}件
+        </span>
+      </div>
+      <div className="flex flex-col gap-2">
+        {major.map(up => (
+          <Link
+            key={up.id}
+            to={`/item/${up.id}`}
+            className="flex items-center gap-2 bg-card border border-border rounded-md p-1.5 pr-2.5 hover:border-primary/40 transition-colors"
+          >
+            <img src={up.imageUrl} alt="" className="w-10 h-10 rounded-sm border border-primary/40 flex-shrink-0" loading="lazy" />
+            <div className="min-w-0">
+              <p className="text-[11.5px] font-semibold leading-tight line-clamp-2">{up.name}</p>
+              <p className="text-[10px] text-gold tabular-nums">{up.gold}G</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+      {minor.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 mt-2">
+          {minor.map(up => (
+            <Link key={up.id} to={`/item/${up.id}`} title={up.name}>
+              <img
+                src={up.imageUrl}
+                alt={up.name}
+                className="w-[34px] h-[34px] rounded-sm border border-border hover:border-primary/50 transition-colors"
+                loading="lazy"
+              />
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** 進化先なし = 最終装備 */
+function FinalForm() {
+  return (
+    <div className="border border-dashed border-muted-foreground/40 rounded-md px-3 py-4 text-center">
+      <p className="text-[10px] tracking-[.18em] text-foreground/70 font-semibold mb-1">FINAL FORM</p>
+      <p className="text-xs text-muted-foreground leading-relaxed">これ以上の進化先はない最終装備</p>
+    </div>
+  );
+}
+
+/** 素材なし = 基本アイテム */
+function BasicItem() {
+  return (
+    <div className="relative border border-dashed border-muted-foreground/40 rounded-md px-3 py-4 text-center">
+      <p className="text-[10px] tracking-[.18em] text-foreground/70 font-semibold mb-1">BASIC ITEM</p>
+      <p className="text-xs text-muted-foreground leading-relaxed">素材なし・基本アイテム<br />ショップで直接購入</p>
+    </div>
+  );
+}
+
+// ── ウサギの穴: 同ステータスの上位アイテム ──────────────
+
+function parseNum(v: string): number {
+  return parseFloat(v.replace(/[^0-9.]/g, '')) || 0;
+}
+
+function topByStat(list: ItemSummary[], label: string, excludeId: string, n = 3): ItemSummary[] {
+  const value = (it: ItemSummary) => {
+    const match = it.stats.find(s => s.label === label);
+    if (match) return parseNum(match.value);
+    return Math.max(0, ...it.stats.map(s => parseNum(s.value)));
+  };
+  return list
+    .filter(it => it.id !== excludeId)
+    .sort((a, b) => value(b) - value(a))
+    .slice(0, n);
+}
+
+function RelatedByStat({ statKey, excludeId, items, onShowAll }: {
+  statKey: string;
+  excludeId: string;
+  items: ItemSummary[];
+  onShowAll: (key: string, label: string) => void;
+}) {
+  const label = STAT_KEY_LABELS[statKey] ?? '';
+  const top = topByStat(items, label, excludeId);
+  if (top.length === 0) return null;
+
+  return (
+    <div className="mt-8">
+      <div className="flex items-baseline justify-between mb-2.5">
+        <p className="text-sm font-semibold text-foreground">
+          <span className="text-primary">{label}</span>
+          をさらに伸ばすなら
+        </p>
+        <button
+          onClick={() => onShowAll(statKey, label)}
+          className="text-xs text-muted-foreground hover:text-primary transition-colors"
+        >
+          すべて見る →
+        </button>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        {top.map(it => {
+          const line = it.stats.find(s => s.label === label) ?? it.stats[0];
+          return (
+            <Link
+              key={it.id}
+              to={`/item/${it.id}`}
+              className="flex items-center gap-2.5 bg-card border border-border rounded-md p-2 pr-3 hover:border-primary/40 transition-colors"
+            >
+              <img src={it.imageUrl} alt="" className="w-10 h-10 rounded-sm border border-border flex-shrink-0" loading="lazy" />
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-semibold leading-tight line-clamp-2">{it.name}</p>
+              </div>
+              {line && (
+                <span className="flex-shrink-0 text-xs text-foreground/70">
+                  {line.label} <b className="num-data text-base">{line.value}</b>
+                </span>
+              )}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 // ── メインページ ───────────────────────────────────────
@@ -210,28 +247,49 @@ export function ItemDetail() {
   const { item, loading, error } = useItem(id);
   const { items } = useItems();
   const { statMap, mediumStatMap } = useItemsByStats();
+  const trayIds = useBuildTray();
+  const patchDiff = usePatchChanges();
   const [activeStatKey, setActiveStatKey] = useState<string | null>(null);
   const [activeLabel, setActiveLabel] = useState<string>('');
+  const heroImgRef = useRef<HTMLImageElement>(null);
+
+  useDocumentTitle(item ? `${item.name} 効果・金銭効率・ビルドパス | nunune` : null);
+
+  const quickSwitchEntries: QuickSwitchEntry[] = items.map(it => ({
+    id: it.id, name: it.name, icon: it.icon, category: it.type,
+  }));
 
   const currentIdx = items.findIndex(it => it.id === id);
   const prevItem = currentIdx > 0 ? items[currentIdx - 1] : null;
   const nextItem = currentIdx >= 0 && currentIdx < items.length - 1 ? items[currentIdx + 1] : null;
 
+  const openSheet = useCallback((key: string, label: string) => {
+    setActiveStatKey(key);
+    setActiveLabel(label);
+  }, []);
+
   const handleDescClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
     const key = target.dataset.stat;
-    if (key) {
-      setActiveStatKey(key);
-      setActiveLabel(target.textContent ?? '');
-    }
-  }, []);
+    if (key) openSheet(key, STAT_KEY_LABELS[key] ?? target.textContent ?? '');
+  }, [openSheet]);
+
+  // 刻印（role="button" の span）を Enter/Space でも開けるようにする
+  const handleDescKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const target = e.target as HTMLElement;
+    const key = target.dataset.stat;
+    if (!key) return;
+    e.preventDefault();
+    openSheet(key, STAT_KEY_LABELS[key] ?? target.textContent ?? '');
+  }, [openSheet]);
 
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-3 text-muted-foreground">
           <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-          <p className="text-sm">Loading...</p>
+          <p className="text-sm">読み込み中…</p>
         </div>
       </div>
     );
@@ -248,16 +306,41 @@ export function ItemDetail() {
     );
   }
 
-  const description = injectStatLinks(processItemDescription(item.description));
+  const processed = injectStatLinks(processItemDescription(item.description));
+  const statsMatch = processed.match(/<div class="item-stats">([\s\S]*?)<\/div>/i);
+  const statLines = statsMatch ? splitStatLines(statsMatch[1]) : [];
+  const bodyHtml = processed
+    .replace(/<div class="item-stats">[\s\S]*?<\/div>/i, '')
+    .replace(/^(\s*<br>)+/i, '')
+    .trim();
   const goldEfficiency = calcGoldEfficiency(item.stats, item.tags, item.description, item.gold.total);
+  // メーターは150%を上限、100%の位置に基準線
+  const effBarWidth = goldEfficiency !== null ? `${Math.min(goldEfficiency, 150) / 1.5}%` : '0%';
+
+  const chips = statLines.map(line => {
+    const plain = line.label.replace(/<[^>]+>/g, '');
+    return { plain, value: line.value, key: statKeyForLabel(plain) };
+  });
+  const primaryStatKey = chips.find(c => c.key)?.key ?? null;
+
+  const inTray = trayIds.includes(item.id);
+  const trayFull = trayIds.length >= MAX_SLOTS;
+  const canStack = !inTray && !trayFull;
+  const change = patchDiff?.changes[item.id];
+
+  const handleStack = () => {
+    if (!addToTray(item.id)) return;
+    flyToTray(heroImgRef.current, item.imageUrl, item.id);
+  };
 
   return (
     <div className="min-h-screen bg-background">
       {prevItem && (
         <Link
           to={`/item/${prevItem.id}`}
+          aria-label={`前のアイテム: ${prevItem.name}`}
           title={prevItem.name}
-          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-sm bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed left-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
         >
           <ChevronLeft size={16} />
         </Link>
@@ -265,114 +348,200 @@ export function ItemDetail() {
       {nextItem && (
         <Link
           to={`/item/${nextItem.id}`}
+          aria-label={`次のアイテム: ${nextItem.name}`}
           title={nextItem.name}
-          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-sm bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-all backdrop-blur-sm opacity-50 hover:opacity-100"
+          className="fixed right-1 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-7 h-28 rounded-md bg-card/60 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-card hover:border-border transition-[color,background-color,border-color,opacity] opacity-50 hover:opacity-100"
         >
           <ChevronRight size={16} />
         </Link>
       )}
+
       <div className="border-b border-border">
-        <div className="container mx-auto px-4 py-3 max-w-5xl">
+        <div className="container mx-auto px-4 py-2.5 max-w-6xl flex items-center justify-between gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
           >
             <ArrowLeft size={15} />
             戻る
           </Link>
+          <HeaderSearch />
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-5xl space-y-4">
+      {/* アセンブリライン: 素材 → 完成品 → 進化先 */}
+      <div className="assembly-stage pb-32">
+        <div className="container mx-auto px-4 py-6 max-w-6xl">
+          <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)_240px] lg:gap-8 items-start">
 
-        {/* ヘッダー */}
-        <div className="flex items-center gap-4">
-          <img
-            src={item.imageUrl}
-            alt={item.name}
-            className="w-16 h-16 rounded-sm border border-border shadow flex-shrink-0"
-          />
-          <div className="min-w-0">
-            <h1
-              className="text-xl font-bold text-foreground leading-tight"
-              style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
-            >
-              <WbrName text={item.name} />
-            </h1>
-            {item.englishName && item.englishName !== item.name && (
-              <p className="text-xs text-muted-foreground/70 mt-0.5 leading-tight">{item.englishName}</p>
-            )}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-muted-foreground">
-              <span className="text-primary font-semibold">{item.gold.total}G</span>
-              {goldEfficiency !== null && (
-                <>
-                  <span className="text-border">·</span>
-                  <span>
-                    金銭効率{' '}
-                    <span className="text-primary font-semibold">{goldEfficiency.toFixed(1)}%</span>
-                  </span>
-                </>
+            {/* 素材（左列） */}
+            <section className="lg:pt-10">
+              <ZoneLabel className="mb-2.5">素材 MATERIALS</ZoneLabel>
+              {item.from.length > 0 ? (
+                <div className="flex flex-col gap-2 max-w-xs mx-auto lg:mx-0">
+                  {item.from.map(comp => <MaterialNode key={comp.id} item={comp} />)}
+                </div>
+              ) : (
+                <div className="max-w-xs mx-auto lg:mx-0"><BasicItem /></div>
               )}
-            </div>
-          </div>
-        </div>
+              <div className="mt-3"><Joint /></div>
+            </section>
 
-        {/* 説明 — キーワードをクリックするとポップアップ表示 */}
-        {description && (
-          <div className="bg-card border border-border rounded-sm overflow-hidden">
-            <div
-              className="px-4 py-3 text-sm text-foreground leading-snug item-description"
-              dangerouslySetInnerHTML={{ __html: description }}
-              onClick={handleDescClick}
+            {/* 完成品（中央） */}
+            <section className="text-center">
+              <ZoneLabel className="mb-4 text-center">完成 ITEM</ZoneLabel>
+
+              <img
+                ref={heroImgRef}
+                src={item.imageUrl}
+                alt={item.name}
+                className="w-24 h-24 mx-auto rounded-lg border-2 border-primary/70
+                  shadow-[0_0_0_5px_rgba(255,143,198,.10),0_0_36px_rgba(255,143,198,.18)]"
+              />
+
+              <div className="mt-3 flex items-baseline justify-center gap-2 flex-wrap">
+                <h1
+                  className="text-2xl font-bold text-foreground leading-tight"
+                  style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
+                >
+                  <WbrName text={item.name} />
+                </h1>
+                {change && (
+                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-sm border border-hextech/50 text-hextech leading-none">
+                    {change === 'new' ? 'NEW' : '今パッチで変更'}
+                  </span>
+                )}
+              </div>
+              {item.englishName && item.englishName !== item.name && (
+                <p className="font-display font-bold text-sm text-primary/80 mt-0.5">{item.englishName}</p>
+              )}
+
+              <p className="mt-2 text-xl font-bold text-gold tabular-nums">
+                {item.gold.total}<span className="text-xs font-semibold ml-0.5">G</span>
+              </p>
+
+              {goldEfficiency !== null && (
+                <div className="mt-2 w-48 mx-auto">
+                  <div className="flex items-baseline justify-between mb-1 text-[11px]">
+                    <span className="text-muted-foreground">金銭効率</span>
+                    <span className={`font-semibold tabular-nums ${goldEfficiency >= 100 ? 'text-stat-hp' : 'text-foreground'}`}>
+                      {goldEfficiency.toFixed(1)}%
+                    </span>
+                  </div>
+                  <div className="relative h-1.5 bg-secondary rounded-full">
+                    <div
+                      className={`absolute inset-y-0 left-0 rounded-full ${goldEfficiency >= 100 ? 'bg-stat-hp/80' : 'bg-primary/80'}`}
+                      style={{ width: effBarWidth }}
+                    />
+                    {/* 100% の基準線 */}
+                    <div className="absolute -inset-y-0.5 w-px bg-foreground/50" style={{ left: `${100 / 1.5}%` }} />
+                  </div>
+                </div>
+              )}
+
+              {/* 積む: ビルドトレイへ追加 */}
+              <button
+                onClick={handleStack}
+                disabled={!canStack}
+                className={`mt-4 inline-flex items-center gap-1.5 rounded-full px-6 pt-[7px] pb-[9px] text-sm font-black transition-transform
+                  ${canStack
+                    ? 'bg-primary text-primary-foreground -rotate-1 shadow-[0_0_18px_rgba(255,143,198,.45)] hover:-rotate-2 hover:scale-[1.03] active:scale-95'
+                    : 'bg-secondary text-muted-foreground cursor-default'}`}
+              >
+                {inTray
+                  ? <><Check size={15} strokeWidth={3} /> Finished</>
+                  : trayFull
+                    ? 'トレイが満杯'
+                    : <><Plus size={15} strokeWidth={3} /> Build</>}
+              </button>
+
+              {/* ステータス行: ラベル→数値・›（タップで同ステータスのアイテム一覧） */}
+              {chips.length > 0 && (
+                <div className="mt-4 flex flex-col items-stretch gap-2 max-w-sm mx-auto">
+                  {chips.map((c, i) => {
+                    // 上下パディングは非対称（インク沈み約2pxの光学補正）
+                    const layout = 'flex items-center gap-3 rounded-lg px-4 pt-[8px] pb-[10px]';
+                    return c.key ? (
+                      // タップ可能行: 「›」矢印＋押下スケールで、押せることを常時可視化する
+                      <button
+                        key={i}
+                        onClick={() => openSheet(c.key!, STAT_KEY_LABELS[c.key!] ?? c.plain)}
+                        className={`${layout} bg-card/95 border border-primary/50 hover:border-primary hover:bg-card
+                          cursor-pointer transition-[border-color,background-color,transform] active:scale-[0.97]`}
+                        title={`${STAT_KEY_LABELS[c.key] ?? c.plain}が得られるアイテムを見る`}
+                      >
+                        <span className="text-foreground/85 text-sm whitespace-nowrap flex-1 min-w-0 text-left">{c.plain}</span>
+                        <span className="flex items-baseline gap-1 flex-shrink-0">
+                          <span className="num-data text-xl leading-none">{c.value}</span>
+                          <ChevronRight size={16} strokeWidth={2.5} className="text-primary -mr-1" aria-hidden />
+                        </span>
+                      </button>
+                    ) : (
+                      <span key={i} className={`${layout} bg-card/70 border border-border`}>
+                        <span className="text-foreground/85 text-sm whitespace-nowrap flex-1">{c.plain}</span>
+                        <span className="num-data text-xl leading-none">{c.value}</span>
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* 効果 */}
+              {bodyHtml && (
+                <div
+                  className="mt-5 text-left bg-card/95 border border-border border-l-[3px] border-l-primary/60 rounded-md px-4 py-3"
+                  onClick={handleDescClick}
+                  onKeyDown={handleDescKeyDown}
+                >
+                  <ZoneLabel className="mb-1.5">効果 EFFECT</ZoneLabel>
+                  <div
+                    className="text-[13px] text-foreground leading-relaxed item-description"
+                    dangerouslySetInnerHTML={{ __html: bodyHtml }}
+                  />
+                </div>
+              )}
+
+              <div className="mt-4"><Joint /></div>
+            </section>
+
+            {/* 進化先（右列） */}
+            <section className="lg:pt-10">
+              <ZoneLabel className="mb-2.5">進化 NEXT</ZoneLabel>
+              {item.into.length > 0 ? (
+                <div className="max-w-xs mx-auto lg:max-w-none">
+                  <EvolutionCluster into={item.into} />
+                </div>
+              ) : (
+                <div className="max-w-xs mx-auto lg:max-w-none"><FinalForm /></div>
+              )}
+            </section>
+          </div>
+
+          {/* ウサギの穴: 主要ステータスの上位アイテムへ */}
+          {primaryStatKey && (
+            <RelatedByStat
+              statKey={primaryStatKey}
+              excludeId={item.id}
+              items={statMap.get(primaryStatKey) ?? []}
+              onShowAll={openSheet}
             />
-          </div>
-        )}
-
-        {/* 材料・アップグレード */}
-        {(item.from.length > 0 || item.into.length > 0) && (
-          <div className="bg-card border border-border rounded-sm overflow-hidden divide-y divide-border">
-            {item.from.length > 0 && (
-              <div className="px-4 py-3">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">材料</p>
-                <div className="flex flex-wrap gap-3">
-                  {item.from.map(comp => (
-                    <Link key={comp.id} to={`/item/${comp.id}`} className="flex items-center gap-2 group">
-                      <img
-                        src={comp.imageUrl}
-                        alt={comp.name}
-                        className="w-9 h-9 rounded-sm border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
-                      />
-                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
-                        {comp.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {item.into.length > 0 && (
-              <div className="px-4 py-3">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">アップグレード先</p>
-                <div className="flex flex-wrap gap-3">
-                  {item.into.map(up => (
-                    <Link key={up.id} to={`/item/${up.id}`} className="flex items-center gap-2 group">
-                      <img
-                        src={up.imageUrl}
-                        alt={up.name}
-                        className="w-9 h-9 rounded-sm border border-border group-hover:border-primary/50 transition-colors flex-shrink-0"
-                      />
-                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
-                        {up.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+          )}
+          <ReportLink />
+        </div>
       </div>
+
+      <BuildTray />
+
+      <QuickSwitchPanel
+        instanceKey="item"
+        entries={quickSwitchEntries}
+        currentId={item.id}
+        categoryOrder={ITEM_CATEGORY_ORDER}
+        categoryLabels={ITEM_TYPE_LABELS_JA}
+        basePath="/item"
+        title="アイテムをえらぶ"
+        onHover={prefetchItem}
+      />
 
       <BottomSheet
         isOpen={activeStatKey !== null}

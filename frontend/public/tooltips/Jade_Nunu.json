@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Nunu",
+ "id": 60020,
+ "name": "ヌヌ＆ウィルンプ",
+ "title": "イエティを駆る少年",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "ビジョナリー",
+   "description": "<mainText>通常攻撃を5回行うと、次のスキルはマナを消費しなくなる。</mainText>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "丸かじり",
+   "description": "<mainText>イエティに指示して、ミニオンかモンスターに噛みつかせ、<trueDamage>500/625/750/875/1000の確定ダメージ</trueDamage>を与えて、自身は体力を90/130/170/210/250（＋魔力の75%）<healing>回復</healing>する。<br><br>さらに120/150/180/210/240秒間、丸かじりした対象に応じた恩恵を獲得する。<br><br><attention>狼</attention>または<attention>トカゲ: </attention>通常攻撃とスキルが追加で<magicDamage>自身の最大体力の1%にあたる魔法ダメージ</magicDamage>を与える。<br><attention>ゴーレム:</attention> サイズと<scaleHealth>最大体力</scaleHealth>が10%増加する。<br><attention>レイス:</attention> ユニットを倒すと3秒間、<speed>移動速度が15%</speed>増加する。",
+   "cooldown": "17/15/13/11/9",
+   "cost": "60",
+   "range": "125",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "熱血",
+   "description": "<mainText>自身と味方1体の血を沸き立たせ、12秒間<speed>移動速度を8/9/10/11/12%</speed>、<attackSpeed>攻撃速度を25/30/35/40/45%</attackSpeed>増加させる。自身を対象に指定することもできる。",
+   "cooldown": "15",
+   "cost": "50",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "氷弾",
+   "description": "<mainText>敵ユニットに氷の玉を投げつけ、<magicDamage>85/130/175/225/275（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、3秒間、対象の移動速度を20/30/40/50/60%、攻撃速度を25%<status>低下</status>させる。",
+   "cooldown": "6",
+   "cost": "75/85/95/105/115",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "アブソリュート・ゼロ",
+   "description": "<mainText>最大3秒間詠唱して周囲の熱を吸収し、範囲内の敵に50%の<status>スロウ効果</status>を付与して、対象の<attackSpeed>攻撃速度</attackSpeed>を25%低下させる。<br><br>詠唱終了時に範囲内にいた敵に、詠唱時間に応じて最大<magicDamage>625/875/1125（＋魔力の250%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "110/100/90",
+   "cost": "100",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

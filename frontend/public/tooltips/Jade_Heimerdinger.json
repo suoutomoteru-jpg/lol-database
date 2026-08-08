@@ -1,0 +1,59 @@
+{
+ "alias": "Jade_Heimerdinger",
+ "id": 60074,
+ "name": "ハイマーディンガー",
+ "title": "誉れ高き発明王",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "テクマトロジー修理ボット",
+   "description": "周囲の味方チャンピオンや砲台の体力自動回復量が増加する。<br><br><strong>詳細数値</strong><br>・回復: 2/3/4/5（レベル1/6/11/15）",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "H-28G革新砲",
+   "description": "機関銃砲台を設置する。砲台は攻撃ごとに<magicDamage>30/38/46/54/62（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。このスキルは発までチャージ可能(秒でリチャージ)。<br><br>このスキルはランクが上がるたびに次の強化効果を得る:<br><attention>ランク2:</attention> 砲台の攻撃が対象の物理防御と魔法防御を1低下させる(最大50)<br><attention>ランク3:</attention> 砲台の最大設置数が2基に増加する<br><attention>ランク4:</attention> 砲台の<scaleHealth>体力が125</scaleHealth>増加する<br><attention>ランク5:</attention> 砲台の攻撃が範囲ダメージを与える",
+   "cooldown": "1",
+   "cost": "70/80/90/100/110",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "MaxAmmo",
+    "AmmoRechargeTime"
+   ]
+  },
+  "w": {
+   "name": "ヘクステック小型ロケット",
+   "description": "敵を追尾する小型ロケットを3発発射する(1つの対象につき最大1発)。ロケットは最も近くにいる対象に命中する。各ロケットは<magicDamage>85/135/185/235/285（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "",
+   "cost": "65/85/105/125/145",
+   "range": "1100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "CH-1衝撃グレネード",
+   "description": "グレネードを投げ、敵ユニットに<magicDamage>80/135/190/245/300（＋魔力の60%）の魔法ダメージ</magicDamage>を与えて、1/1.5/2/2.5/3秒間<status>ブラインド</status>状態にする。直接命中した敵は1.5秒間<status>スタン</status>する。",
+   "cooldown": "13/12/11/10/9",
+   "cost": "80/90/100/110/120",
+   "range": "920",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "アップグレード！！！",
+   "description": "<spellPassive>自動効果: </spellPassive>クールダウンが10/15/20%短縮される。<br><br><spellActive>発動効果: </spellActive>効果時間中、すべてのスキルと砲台を強化する。<br><br><spellName>革新砲:</spellName>すべての砲台が最大体力の100%にあたる体力を<healing>回復</healing>し、それぞれの攻撃が<status>20/25/30%のスロウ効果</status>を付与する。<br><spellName>ヘクステック小型ロケット:</spellName> 発射するロケットが3発から5発に増加する。<br><spellName>CH-1衝撃グレネード:</spellName> 弾速が33%増加する。",
+   "cooldown": "120/100/80",
+   "cost": "90",
+   "range": "1",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 2
+}

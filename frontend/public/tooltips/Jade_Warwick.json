@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Warwick",
+ "id": 60019,
+ "name": "ワーウィック",
+ "title": "血の狩人",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "終わりなき渇望",
+   "description": "通常攻撃が<magicDamage>3〜16（レベル比例）の追加魔法ダメージ</magicDamage>を与え、同量の体力を<healing>回復</healing>する。この効果は連続で命中するたびにスタックしていき、最大3回までスタックする。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "餓狼",
+   "description": "敵に<magicDamage>75/125/175/225/275（＋魔力の100%）</magicDamage>か、対象の最大体力の<magicDamage>8/10/12/14/16% + 魔力の100%</magicDamage>のいずれか大きい方の値の<magicDamage>魔法ダメージ</magicDamage>を与え(モンスターに対しては常に固定ダメージ)、与えたダメージの80%にあたる<healing>体力</healing>を回復する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "70/80/90/100/110",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "狩人の呼び声",
+   "description": "遠吠えを上げてすべての味方チャンピオンを鼓舞し、10秒間、自身の<attackSpeed>攻撃速度を40/50/60/70/80%増加</attackSpeed>させ、すべての味方チャンピオンの<attackSpeed>攻撃速度を20/25/30/35/40%増加</attackSpeed>させる。",
+   "cooldown": "24/22/20/18/16",
+   "cost": "35/55/55/55/55",
+   "range": "1250",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "血の香",
+   "description": "<spellPassive>自動効果: </spellPassive>1500/2300/3100/3900/4700以内の体力が50%未満に低下した敵チャンピオンを感知する。体力が低下している敵を感知している間は、<speed>移動速度が20/25/30/35/40%</speed>増加する。",
+   "cooldown": "4",
+   "cost": "",
+   "range": "1500/2300/3100/3900/4700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "絶狼牙連撃",
+   "description": "敵チャンピオンの正面に向かってダッシュし、1.8秒間、<status>サプレッション効果</status>を与える。この効果時間中、対象を5回攻撃し、合計<magicDamage>250/335/420（＋増加攻撃力の200%）の魔法ダメージ</magicDamage>を与える(通常攻撃時効果が5回発動する)。<br><br>効果時間中、ライフスティールが30%増加する。",
+   "cooldown": "90/80/70",
+   "cost": "100/125/150",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

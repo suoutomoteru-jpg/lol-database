@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Soraka",
+ "id": 60016,
+ "name": "ソラカ",
+ "title": "星の子",
+ "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "skills": {
+  "passive": {
+   "name": "奉献",
+   "description": "<mainText>自身および周囲の味方チャンピオンの<scaleMR>魔法防御</scaleMR>を16増加させる。</mainText>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "星のささやき",
+   "description": "星に祈りを捧げ、周囲のすべての敵に<magicDamage>60/85/110/135/160（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、5秒間<scaleMR>魔法防御</scaleMR>を8/9/10/11/12低下させる。この効果は10回までスタックする。",
+   "cooldown": "2.5",
+   "cost": "20/35/50/65/80",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "星霊の癒し",
+   "description": "<mainText>味方1体の<healing>体力を70/140/210/280/350（＋魔力の45%）</healing>回復し、3秒間<scaleArmor>物理防御を25/45/65/85/105</scaleArmor>一時的に増加させる。",
+   "cooldown": "20",
+   "cost": "80/110/140/170/200",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "インフューズ",
+   "description": "味方チャンピオンを対象指定すると<scaleMana>マナを40/80/120/160/200</scaleMana>回復させる(自身には使用不可)。<br><br>敵を対象指定すると<magicDamage>50/100/150/200/250（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、1.5/1.75/2/2.25/2.5秒間<status>サイレンス効果</status>を付与する。",
+   "cooldown": "",
+   "cost": "",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "星に願いを",
+   "description": "<mainText>聖なる力を呼び覚まし、すべての味方チャンピオンの<healing>体力を200/320/440（＋魔力の70%）</healing>回復する。",
+   "cooldown": "160/145/130",
+   "cost": "100/175/250",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

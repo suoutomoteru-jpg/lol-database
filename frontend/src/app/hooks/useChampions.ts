@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchChampionList, championImageUrl } from '../api/dataDragon';
-import type { Champion, Role } from '../data/mock-data';
+import type { Champion, Role } from '../types/app';
 
 interface UseChampionsResult {
   champions: Champion[];
