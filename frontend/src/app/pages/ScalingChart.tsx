@@ -30,6 +30,13 @@ const GRID_LINES = Array.from(
 const ICON_SIZE = 28; // px
 const COL_WIDTH = 24; // px
 
+// この試合数を下回るバケットは勝率を出さない。「20分未満で終わる試合」は
+// 個々のチャンピオンの強さよりチーム全体の一方的な展開に引っ張られやすく、
+// 数十試合程度では容易にノイズに埋もれるため（例: Kayle序盤 n=26で57.7%と
+// いった実感と合わない値が出る）、積み上げ収集で母数が育つまでは
+// 「わからない」を「わからない」として扱う
+const MIN_GAMES = 100;
+
 function yPercent(winrate: number): number {
   const clamped = Math.min(Y_MAX, Math.max(Y_MIN, winrate));
   return 100 - ((clamped - Y_MIN) / (Y_MAX - Y_MIN)) * 100;
@@ -62,14 +69,16 @@ export function ScalingChart() {
       .sort((a, b) => a.name.localeCompare(b.name, 'ja'));
   }, [data, champions, role]);
 
-  // 時間帯ごとの勝率ランキング。試合数0のチャンピオンは勝率0%扱いに
-  // なってしまうため、順位づけの対象からは外して末尾にまわす
+  // 時間帯ごとの勝率ランキング。MIN_GAMES未満のチャンピオンは勝率を
+  // 信頼できる数字として出せないため、順位づけの対象からは外して末尾にまわす
   const rankings = useMemo(
     () => PHASES.map(p => ({
       ...p,
       rows: [...entries].sort((a, b) => {
-        if (a[p.key].games === 0 || b[p.key].games === 0) {
-          return a[p.key].games === b[p.key].games ? 0 : a[p.key].games === 0 ? 1 : -1;
+        const aOk = a[p.key].games >= MIN_GAMES;
+        const bOk = b[p.key].games >= MIN_GAMES;
+        if (!aOk || !bOk) {
+          return aOk === bOk ? 0 : aOk ? -1 : 1;
         }
         return b[p.key].winrate - a[p.key].winrate;
       }),
@@ -80,6 +89,10 @@ export function ScalingChart() {
   const chartWidth = Math.max(entries.length * COL_WIDTH, 300);
   const activeEntry = active !== null ? entries[active] ?? null : null;
   const phaseLabel = PHASES.find(p => p.key === phase)!.label;
+  const plottableCount = useMemo(
+    () => entries.filter(e => e[phase].games >= MIN_GAMES).length,
+    [entries, phase],
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,6 +113,8 @@ export function ScalingChart() {
         <p className="text-xs text-muted-foreground mb-6">
           試合時間帯別のチャンピオン勝率推移。「試合がその時間帯まで続いた場合の勝率」を表す指標で、
           実際の強さの実測ではなく試合結果からの相関的な傾向です。
+          {' '}各時間帯{MIN_GAMES}試合未満のデータはノイズが大きいため表示していません
+          （グレー表示は収集中）。
         </p>
 
         {data?.note && (
@@ -189,10 +204,19 @@ export function ScalingChart() {
                 </div>
               ))}
 
+              {plottableCount === 0 && (
+                <p className="absolute inset-0 flex items-center justify-center text-xs text-muted-foreground text-center px-4">
+                  このロール・時間帯は{MIN_GAMES}試合以上のチャンピオンがまだありません。
+                  下の表には収集中のデータが出ています。
+                </p>
+              )}
+
               {/* チャンピオンアイコン。重なるマークはカード色の2pxリングで分離する
-                  （マークを囲む枠線ではなく、下地の色で隙間を作るのが原則） */}
+                  （マークを囲む枠線ではなく、下地の色で隙間を作るのが原則）。
+                  MIN_GAMES未満は信頼できる勝率として出せないためプロットしない */}
               {entries.map((e, i) => {
                 const stat = e[phase];
+                if (stat.games < MIN_GAMES) return null;
                 const isActive = active === i;
                 return (
                   <button
@@ -273,31 +297,34 @@ export function ScalingChart() {
                     </tr>
                   </thead>
                   <tbody>
-                    {rows.map((e, i) => (
-                      <tr key={e.alias} className="border-t border-border">
-                        <td className="pl-2.5 pr-1 py-1 text-right tabular-nums text-muted-foreground w-6">
-                          {e[key].games > 0 ? i + 1 : '–'}
-                        </td>
-                        <th scope="row" className="py-1 font-normal text-left">
-                          <span className="flex items-center gap-1.5 min-w-0">
-                            <img
-                              src={e.icon}
-                              alt=""
-                              className="w-5 h-5 rounded-full flex-shrink-0"
-                              loading="lazy"
-                            />
-                            <span className="truncate">{e.name}</span>
-                          </span>
-                        </th>
-                        <td className="px-1 py-1 text-right tabular-nums font-semibold text-foreground whitespace-nowrap">
-                          {e[key].games > 0 ? `${e[key].winrate.toFixed(1)}%` : '—'}
-                        </td>
-                        <td className="pr-2.5 pl-1 py-1 text-right tabular-nums text-muted-foreground whitespace-nowrap">
-                          {e[key].games}
-                          <span className="text-[10px]">試合</span>
-                        </td>
-                      </tr>
-                    ))}
+                    {rows.map((e, i) => {
+                      const enough = e[key].games >= MIN_GAMES;
+                      return (
+                        <tr key={e.alias} className={`border-t border-border ${enough ? '' : 'opacity-40'}`}>
+                          <td className="pl-2.5 pr-1 py-1 text-right tabular-nums text-muted-foreground w-6">
+                            {enough ? i + 1 : '–'}
+                          </td>
+                          <th scope="row" className="py-1 font-normal text-left">
+                            <span className="flex items-center gap-1.5 min-w-0">
+                              <img
+                                src={e.icon}
+                                alt=""
+                                className="w-5 h-5 rounded-full flex-shrink-0"
+                                loading="lazy"
+                              />
+                              <span className="truncate">{e.name}</span>
+                            </span>
+                          </th>
+                          <td className="px-1 py-1 text-right tabular-nums font-semibold text-foreground whitespace-nowrap">
+                            {enough ? `${e[key].winrate.toFixed(1)}%` : '—'}
+                          </td>
+                          <td className="pr-2.5 pl-1 py-1 text-right tabular-nums text-muted-foreground whitespace-nowrap">
+                            {e[key].games}
+                            <span className="text-[10px]">試合</span>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
