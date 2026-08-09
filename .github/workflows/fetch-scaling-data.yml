@@ -28,10 +28,6 @@ on:
         description: "この日数より古い試合はstateから間引く"
         default: "35"
         required: false
-      debug_dump_challenges:
-        description: "診断用: 取得した試合の全参加者についてchallenges抜粋をログに出す"
-        default: ""
-        required: false
   schedule:
     # 毎週日曜 3:00 JST (= 土曜 18:00 UTC)
     - cron: "0 18 * * 6"
@@ -61,7 +57,6 @@ jobs:
       - name: Fetch scaling data from Riot API
         env:
           RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
-          DEBUG_DUMP_CHALLENGES: ${{ inputs.debug_dump_challenges }}
         run: |
           python3 scripts/fetch_scaling_data.py \
             --platforms "${{ inputs.platforms || 'jp1,kr,na1,euw1' }}" \
