@@ -240,17 +240,23 @@ def collect_matches(
                 if not match:
                     continue
                 info = match.get("info", {})
-                if os.environ.get("DEBUG_DUMP_CHALLENGES") and not getattr(collect_matches, "_dumped", False):
-                    collect_matches._dumped = True
-                    sample = (info.get("participants") or [{}])[0]
-                    print("=== DEBUG: participant top-level keys ===", file=sys.stderr)
-                    print(sorted(sample.keys()), file=sys.stderr)
-                    print("=== DEBUG: challenges keys ===", file=sys.stderr)
-                    print(sorted((sample.get("challenges") or {}).keys()), file=sys.stderr)
-                    print("=== DEBUG: challenges (full) ===", file=sys.stderr)
-                    print(json.dumps(sample.get("challenges", {}), indent=1, ensure_ascii=False), file=sys.stderr)
-                    print("=== DEBUG: teamPosition/duration for this sample ===", file=sys.stderr)
-                    print(sample.get("teamPosition"), info.get("gameDuration"), file=sys.stderr)
+                if os.environ.get("DEBUG_DUMP_CHALLENGES"):
+                    seen_roles = getattr(collect_matches, "_seen_roles", None)
+                    if seen_roles is None:
+                        seen_roles = collect_matches._seen_roles = set()
+                    for p in info.get("participants", []):
+                        pos = p.get("teamPosition") or "?"
+                        c = p.get("challenges", {})
+                        print(
+                            f"DEBUG role={pos:8} champ={p.get('championName'):14} "
+                            f"laning={c.get('laningPhaseGoldExpAdvantage')} "
+                            f"early={c.get('earlyLaningPhaseGoldExpAdvantage')} "
+                            f"csAdv={c.get('maxCsAdvantageOnLaneOpponent')} "
+                            f"lvlAdv={c.get('maxLevelLeadLaneOpponent')} "
+                            f"win={p.get('win')} dur={info.get('gameDuration')}",
+                            file=sys.stderr,
+                        )
+                        seen_roles.add(pos)
                 duration = info.get("gameDuration", 0)
                 # 極端に短い試合（早期投了・リマッチ）は実プレイを反映しないため除外
                 if duration < MIN_VALID_DURATION:

@@ -29,7 +29,7 @@ on:
         default: "35"
         required: false
       debug_dump_challenges:
-        description: "診断用: 最初の1試合のchallengesフィールドをログに出す"
+        description: "診断用: 取得した試合の全参加者についてchallenges抜粋をログに出す"
         default: ""
         required: false
   schedule:
