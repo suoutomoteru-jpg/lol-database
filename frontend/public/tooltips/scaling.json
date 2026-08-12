@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-08-12T01:54:16.010974+00:00",
+ "generatedAt": "2026-08-12T02:47:55.673093+00:00",
  "patch": "live",
  "queue": "RANKED_SOLO_5x5",
- "sampledMatches": 8464,
+ "sampledMatches": 8466,
  "buckets": {
   "early": {
    "maxMinutes": 20
@@ -186,8 +186,8 @@
     "winrate": 62.2
    },
    "mid": {
-    "games": 244,
-    "wins": 120,
+    "games": 246,
+    "wins": 121,
     "winrate": 49.2
    },
    "late": {
@@ -222,9 +222,9 @@
     "winrate": 43.3
    },
    "mid": {
-    "games": 177,
+    "games": 178,
     "wins": 99,
-    "winrate": 55.9
+    "winrate": 55.6
    },
    "late": {
     "games": 53,
@@ -312,9 +312,9 @@
     "winrate": 52.6
    },
    "mid": {
-    "games": 326,
-    "wins": 169,
-    "winrate": 51.8
+    "games": 327,
+    "wins": 170,
+    "winrate": 52.0
    },
    "late": {
     "games": 93,
@@ -510,9 +510,9 @@
     "winrate": 43.1
    },
    "mid": {
-    "games": 422,
-    "wins": 213,
-    "winrate": 50.5
+    "games": 423,
+    "wins": 214,
+    "winrate": 50.6
    },
    "late": {
     "games": 122,
@@ -744,9 +744,9 @@
     "winrate": 42.9
    },
    "mid": {
-    "games": 154,
-    "wins": 70,
-    "winrate": 45.5
+    "games": 155,
+    "wins": 71,
+    "winrate": 45.8
    },
    "late": {
     "games": 45,
@@ -798,9 +798,9 @@
     "winrate": 62.8
    },
    "mid": {
-    "games": 245,
+    "games": 246,
     "wins": 113,
-    "winrate": 46.1
+    "winrate": 45.9
    },
    "late": {
     "games": 49,
@@ -978,8 +978,8 @@
     "winrate": 56.2
    },
    "mid": {
-    "games": 792,
-    "wins": 384,
+    "games": 793,
+    "wins": 385,
     "winrate": 48.5
    },
    "late": {
@@ -1554,9 +1554,9 @@
     "winrate": 40.9
    },
    "mid": {
-    "games": 357,
+    "games": 358,
     "wins": 194,
-    "winrate": 54.3
+    "winrate": 54.2
    },
    "late": {
     "games": 103,
@@ -1572,7 +1572,7 @@
     "winrate": 44.7
    },
    "mid": {
-    "games": 664,
+    "games": 665,
     "wins": 329,
     "winrate": 49.5
    },
@@ -1608,9 +1608,9 @@
     "winrate": 51.5
    },
    "mid": {
-    "games": 532,
-    "wins": 239,
-    "winrate": 44.9
+    "games": 533,
+    "wins": 240,
+    "winrate": 45.0
    },
    "late": {
     "games": 155,
@@ -1752,9 +1752,9 @@
     "winrate": 46.7
    },
    "mid": {
-    "games": 124,
-    "wins": 51,
-    "winrate": 41.1
+    "games": 125,
+    "wins": 52,
+    "winrate": 41.6
    },
    "late": {
     "games": 38,
@@ -1842,9 +1842,9 @@
     "winrate": 59.2
    },
    "mid": {
-    "games": 303,
-    "wins": 156,
-    "winrate": 51.5
+    "games": 304,
+    "wins": 157,
+    "winrate": 51.6
    },
    "late": {
     "games": 74,
@@ -2508,8 +2508,8 @@
     "winrate": 53.3
    },
    "mid": {
-    "games": 566,
-    "wins": 293,
+    "games": 568,
+    "wins": 294,
     "winrate": 51.8
    },
    "late": {
@@ -2526,9 +2526,9 @@
     "winrate": 41.3
    },
    "mid": {
-    "games": 497,
+    "games": 498,
     "wins": 235,
-    "winrate": 47.3
+    "winrate": 47.2
    },
    "late": {
     "games": 109,
@@ -2562,9 +2562,9 @@
     "winrate": 53.2
    },
    "mid": {
-    "games": 309,
+    "games": 310,
     "wins": 166,
-    "winrate": 53.7
+    "winrate": 53.5
    },
    "late": {
     "games": 80,
@@ -2706,9 +2706,9 @@
     "winrate": 63.6
    },
    "mid": {
-    "games": 276,
+    "games": 277,
     "wins": 136,
-    "winrate": 49.3
+    "winrate": 49.1
    },
    "late": {
     "games": 100,
@@ -2886,9 +2886,9 @@
     "winrate": 49.0
    },
    "mid": {
-    "games": 320,
-    "wins": 162,
-    "winrate": 50.6
+    "games": 321,
+    "wins": 163,
+    "winrate": 50.8
    },
    "late": {
     "games": 67,
@@ -3012,9 +3012,9 @@
     "winrate": 53.6
    },
    "mid": {
-    "games": 181,
+    "games": 182,
     "wins": 100,
-    "winrate": 55.2
+    "winrate": 54.9
    },
    "late": {
     "games": 47,
