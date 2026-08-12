@@ -271,6 +271,7 @@ def state_match_count(state: dict) -> int:
 def collect_matches(
     platforms: list[str], api_key: str, limiter: RateLimiter,
     per_bracket: int, matches_per_player: int, known_match_ids: set[str],
+    start_time_sec: int,
 ) -> list[dict]:
     """まだ known_match_ids に無い試合だけを取得し、生レコードのリストで返す。
     レコード: {matchId, platform, gameCreation(ms), duration(sec), participants:[{champion, win}]}"""
@@ -289,9 +290,12 @@ def collect_matches(
         print(f"[{platform}] {len(puuids)} 件のSummoner取得", file=sys.stderr)
 
         for i, puuid in enumerate(puuids):
+            # startTimeで保持期間内に絞る。これが無いと、最終プレイが数ヶ月前の
+            # プレイヤー（低レート帯に多い）の古い試合まで取得してしまい、
+            # 保持期間を超えたデータが集計に混ざる上にAPI枠も無駄になる
             ids_url = (
                 f"{regional_base}/lol/match/v5/matches/by-puuid/{puuid}/ids"
-                f"?queue={QUEUE_ID}&count={matches_per_player}"
+                f"?queue={QUEUE_ID}&count={matches_per_player}&startTime={start_time_sec}"
             )
             match_ids = api_get(ids_url, api_key, limiter) or []
 
@@ -304,6 +308,9 @@ def collect_matches(
                 if not match:
                     continue
                 info = match.get("info", {})
+                # startTimeが効かない場合の保険（古い試合は集計に入れない）
+                if info.get("gameCreation", 0) < start_time_sec * 1000:
+                    continue
                 duration = info.get("gameDuration", 0)
                 # 極端に短い試合（早期投了・リマッチ）は実プレイを反映しないため除外
                 if duration < MIN_VALID_DURATION:
@@ -407,9 +414,10 @@ def main():
     print(f"state: 既存 {before:,} 件 → {args.max_age_days}日以内 {before - dropped:,} 件を保持"
           f"（{dropped:,} 件を間引き / 保持{len(state['weeks'])}週分）", file=sys.stderr)
 
+    start_time_sec = int(time.time() - args.max_age_days * 86400)
     new_records = collect_matches(
         platforms, args.api_key, limiter, args.per_bracket, args.matches_per_player,
-        known_match_ids(state),
+        known_match_ids(state), start_time_sec,
     )
     print(f"新規取得: {len(new_records):,} 件", file=sys.stderr)
 
