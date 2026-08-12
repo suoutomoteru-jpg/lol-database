@@ -258,14 +258,30 @@ def prune_state(state: dict, max_age_days: int) -> int:
 
 
 def known_match_ids(state: dict) -> set:
+    """再取得を避けるためのID集合。集計対象外と判定した試合(skipped)も含める。"""
     ids = set()
     for wk in state["weeks"].values():
         ids.update(wk["matchIds"])
+        ids.update(wk.get("skipped", ()))
     return ids
 
 
 def state_match_count(state: dict) -> int:
+    """集計に使われている試合数（skippedは含めない）。"""
     return sum(len(wk["matchIds"]) for wk in state["weeks"].values())
+
+
+def fold_skipped(state: dict, item: dict) -> None:
+    wk = state["weeks"].setdefault(week_key(item["gameCreation"]),
+                                   {"matchIds": [], "counters": {}})
+    wk.setdefault("skipped", []).append(item["matchId"])
+
+
+def duplicate_report(state: dict) -> tuple:
+    """(集計対象の延べ件数, 実際にユニークなID数)。差があれば二重計上を意味する。
+    集計値は畳み込み済みで後から引けないため、検知したら警告して原因を潰す。"""
+    ids = [mid for wk in state["weeks"].values() for mid in wk["matchIds"]]
+    return len(ids), len(set(ids))
 
 
 def collect_matches(
@@ -276,7 +292,9 @@ def collect_matches(
     """まだ known_match_ids に無い試合だけを取得し、生レコードのリストで返す。
     レコード: {matchId, platform, gameCreation(ms), duration(sec), participants:[{champion, win}]}"""
     new_records: list[dict] = []
+    skipped: list[dict] = []
     seen_this_run: set[str] = set()
+    now_ms = int(time.time() * 1000)
 
     for platform in platforms:
         region = PLATFORM_TO_REGION.get(platform)
@@ -305,15 +323,22 @@ def collect_matches(
                 seen_this_run.add(match_id)
 
                 match = api_get(f"{regional_base}/lol/match/v5/matches/{match_id}", api_key, limiter)
+                # 集計対象外と判定した試合もIDだけは覚えておく。記録しないと
+                # 毎回の実行で同じ試合を取り直すことになり、律速要因である
+                # APIレート枠を無駄に食い潰す
                 if not match:
+                    skipped.append({"matchId": match_id, "gameCreation": now_ms})
                     continue
                 info = match.get("info", {})
+                created = info.get("gameCreation", 0)
                 # startTimeが効かない場合の保険（古い試合は集計に入れない）
-                if info.get("gameCreation", 0) < start_time_sec * 1000:
+                if created < start_time_sec * 1000:
+                    skipped.append({"matchId": match_id, "gameCreation": created or now_ms})
                     continue
                 duration = info.get("gameDuration", 0)
                 # 極端に短い試合（早期投了・リマッチ）は実プレイを反映しないため除外
                 if duration < MIN_VALID_DURATION:
+                    skipped.append({"matchId": match_id, "gameCreation": created or now_ms})
                     continue
                 participants = []
                 for p in info.get("participants", []):
@@ -322,6 +347,7 @@ def collect_matches(
                         continue
                     participants.append({"champion": champ, "win": bool(p.get("win"))})
                 if not participants:
+                    skipped.append({"matchId": match_id, "gameCreation": created or now_ms})
                     continue
                 new_records.append({
                     "matchId": match_id,
@@ -335,7 +361,7 @@ def collect_matches(
                 print(f"  [{platform}] {i + 1}/{len(puuids)} summoners処理済み "
                       f"(新規試合数 {len(new_records)})", file=sys.stderr)
 
-    return new_records
+    return new_records, skipped
 
 
 # ── 集計・出力整形 ────────────────────────────────────
@@ -415,14 +441,37 @@ def main():
           f"（{dropped:,} 件を間引き / 保持{len(state['weeks'])}週分）", file=sys.stderr)
 
     start_time_sec = int(time.time() - args.max_age_days * 86400)
-    new_records = collect_matches(
+    seen = known_match_ids(state)
+    new_records, skipped = collect_matches(
         platforms, args.api_key, limiter, args.per_bracket, args.matches_per_player,
-        known_match_ids(state), start_time_sec,
+        seen, start_time_sec,
     )
-    print(f"新規取得: {len(new_records):,} 件", file=sys.stderr)
+    print(f"新規取得: {len(new_records):,} 件 / 対象外: {len(skipped):,} 件", file=sys.stderr)
 
+    # 収集側でも除外しているが、畳み込み直前にもう一度弾く。集計値は一度
+    # 加算すると引けないため、二重計上だけは絶対に通さない
+    dup = 0
     for rec in new_records:
+        if rec["matchId"] in seen:
+            dup += 1
+            continue
+        seen.add(rec["matchId"])
         fold_record(state, rec)
+    for item in skipped:
+        if item["matchId"] in seen:
+            continue
+        seen.add(item["matchId"])
+        fold_skipped(state, item)
+    if dup:
+        print(f"警告: 重複した試合を {dup} 件はじきました（収集側の重複排除に漏れ）", file=sys.stderr)
+
+    folded, unique = duplicate_report(state)
+    if folded != unique:
+        print(f"警告: state内に重複ID {folded - unique} 件（延べ{folded:,} / ユニーク{unique:,}）",
+              file=sys.stderr)
+    else:
+        print(f"重複チェック: OK（{unique:,} 件すべてユニーク）", file=sys.stderr)
+
     save_state(args.state_file, state)
 
     total = state_match_count(state)
