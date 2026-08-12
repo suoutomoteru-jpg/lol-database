@@ -4,11 +4,17 @@ name: Fetch scaling chart data
 # 試合時間帯別チャンピオン勝率データ（frontend/public/tooltips/scaling.json）
 # を生成する。
 #
-# 積み上げ式: 生の試合データ(scripts/data/scaling_state.json)をGitHub
-# Actionsのcacheで実行間で永続化し、毎回「まだ見ていない試合」だけを
-# 追加収集する。1回のジョブで集められる量はRiot Personal API Keyの
-# レート制限とホスト型ランナーの実行時間上限で頭打ちになるため、
-# 週1回のscheduleで少しずつ積み上げる。
+# 積み上げ式: 週別の集計カウンタ(scripts/data/scaling_state.json)を
+# GitHub Actionsのcacheで実行間に永続化し、毎回「まだ見ていない試合」
+# だけを追加収集する。
+#
+# ボトルネックはRiot APIのレート制限(100req/2分)で、1ジョブあたり
+# 約2,800試合/時が上限。ホスト型ランナーの6時間上限と合わせると
+# 1実行あたり最大1.6万試合程度しか取れないため、毎日実行して
+# 35日分を積み上げることで母数を確保する。
+#
+# レート制限はAPIキー単位で共有されるため、実行が重なると双方が429で
+# 共倒れする。concurrencyで必ず直列化すること。
 on:
   workflow_dispatch:
     inputs:
@@ -29,11 +35,18 @@ on:
         default: "35"
         required: false
   schedule:
-    # 毎週日曜 3:00 JST (= 土曜 18:00 UTC)
-    - cron: "0 18 * * 6"
+    # 毎日 3:00 JST (= 18:00 UTC)。1実行6時間で終わるため次回まで十分空く
+    - cron: "0 18 * * *"
 
 permissions:
   contents: write
+
+# APIキーのレート制限は全実行で共有されるため、同時実行を禁止する。
+# 実行中に次がキューされた場合は待たせる（cancel-in-progressにすると
+# 収集途中のstateが保存されないまま捨てられてしまう）
+concurrency:
+  group: fetch-scaling-data
+  cancel-in-progress: false
 
 jobs:
   fetch:
@@ -74,7 +87,11 @@ jobs:
           print(f"sampledMatches={d['sampledMatches']}")
           print(f"champions={len(d['champions'])}")
           state_bytes = os.path.getsize("scripts/data/scaling_state.json")
-          print(f"state size: {state_bytes / 1024 / 1024:.1f} MB")
+          st = json.load(open("scripts/data/scaling_state.json"))
+          print(f"state size: {state_bytes / 1024 / 1024:.1f} MB / {len(st['weeks'])}週分")
+          n100 = {b: sum(1 for c in d['champions'] if c[b]['games'] >= 100)
+                  for b in ('early', 'mid', 'late')}
+          print(f"100試合以上のチャンピオン数: {n100}")
           for c in sorted(d['champions'], key=lambda c: -c['early']['games'])[:5]:
               print(c['alias'], c['early'], c['mid'], c['late'])
           EOF

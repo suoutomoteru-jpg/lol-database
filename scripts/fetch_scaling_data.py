@@ -169,10 +169,12 @@ def collect_puuids(platform: str, api_key: str, limiter: RateLimiter, per_bracke
 
 # ── 試合収集・集計 ────────────────────────────────────
 
-def bucket_of(duration_sec: int) -> str:
-    if duration_sec <= BUCKET_EARLY_MAX:
+def bucket_of_minutes(duration_min: int) -> str:
+    """試合時間[分]からバケットを決める。stateは分単位で集計を持つため、
+    こちらが唯一の判定ロジック。"""
+    if duration_min < BUCKET_EARLY_MAX // 60:
         return "early"
-    if duration_sec <= BUCKET_MID_MAX:
+    if duration_min < BUCKET_MID_MAX // 60:
         return "mid"
     return "late"
 
@@ -181,27 +183,89 @@ def normalize_champion_name(name: str) -> str:
     return CHAMPION_NAME_FIXES.get(name, name)
 
 
-# ── state（生の試合データ）の永続化 ────────────────────
+# ── state（週別の集計カウンタ）の永続化 ────────────────
 #
-# 1レコード = 1試合。バケット名ではなく生の試合時間(duration)を持つため、
-# BUCKET_EARLY_MAX/BUCKET_MID_MAXを後から変更しても再集計時に追従する。
+# 生の試合レコードを貯めると試合数に比例してstateが肥大化し（1試合0.43KB）、
+# 毎回のcache転送とJSONパースがジョブの実行時間を圧迫する。そこで
+# 「週 × チャンピオン × 試合時間[分]」の集計カウンタとして保持する。
+# サイズが試合数にほぼ依存しなくなるので、収集頻度を上げても頭打ちにならない。
+#
+# 試合時間は「分」の粒度で残すため、BUCKET_EARLY_MAX/BUCKET_MID_MAX を
+# 後から変更しても、過去に集めた分が新しい境界で再集計される。
+# 古いデータの間引きは週単位（max_age_days をこの粒度に丸める）。
+#
+# 形: {"version":2, "weeks": {"<週番号>": {"matchIds":[...],
+#      "counters": {"<champion>": {"<分>": [games, wins]}}}}}
 
-def load_state(path: str) -> list[dict]:
+STATE_VERSION = 2
+WEEK_MS = 7 * 86400 * 1000
+
+
+def week_key(game_creation_ms: int) -> str:
+    return str(int(game_creation_ms) // WEEK_MS)
+
+
+def empty_state() -> dict:
+    return {"version": STATE_VERSION, "weeks": {}}
+
+
+def fold_record(state: dict, rec: dict) -> None:
+    """1試合分の生レコードを集計カウンタに畳み込む。"""
+    wk = state["weeks"].setdefault(week_key(rec["gameCreation"]),
+                                   {"matchIds": [], "counters": {}})
+    wk["matchIds"].append(rec["matchId"])
+    dur_min = str(int(rec["duration"]) // 60)
+    for p in rec["participants"]:
+        champ = wk["counters"].setdefault(p["champion"], {})
+        cell = champ.setdefault(dur_min, [0, 0])
+        cell[0] += 1
+        if p["win"]:
+            cell[1] += 1
+
+
+def load_state(path: str) -> dict:
     if not os.path.exists(path):
-        return []
+        return empty_state()
     with open(path, encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    # v1（生レコードのリスト）からの移行。既存の収集分を捨てずに畳み込む
+    if isinstance(data, list):
+        print(f"state: v1形式 {len(data)}件を集計形式へ移行します", file=sys.stderr)
+        state = empty_state()
+        for rec in data:
+            fold_record(state, rec)
+        return state
+    if data.get("version") != STATE_VERSION:
+        print(f"警告: 未知のstate version={data.get('version')}。新規作成します", file=sys.stderr)
+        return empty_state()
+    return data
 
 
-def save_state(path: str, records: list[dict]) -> None:
+def save_state(path: str, state: dict) -> None:
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(records, f, ensure_ascii=False, separators=(",", ":"))
+        json.dump(state, f, ensure_ascii=False, separators=(",", ":"))
 
 
-def prune_state(records: list[dict], max_age_days: int) -> list[dict]:
-    cutoff_ms = (time.time() - max_age_days * 86400) * 1000
-    return [r for r in records if r.get("gameCreation", 0) >= cutoff_ms]
+def prune_state(state: dict, max_age_days: int) -> int:
+    """max_age_daysより古い週を丸ごと落とす。落とした試合数を返す。"""
+    cutoff = int((time.time() * 1000 - max_age_days * 86400 * 1000) // WEEK_MS)
+    dropped = 0
+    for wk in [k for k in state["weeks"] if int(k) < cutoff]:
+        dropped += len(state["weeks"][wk]["matchIds"])
+        del state["weeks"][wk]
+    return dropped
+
+
+def known_match_ids(state: dict) -> set:
+    ids = set()
+    for wk in state["weeks"].values():
+        ids.update(wk["matchIds"])
+    return ids
+
+
+def state_match_count(state: dict) -> int:
+    return sum(len(wk["matchIds"]) for wk in state["weeks"].values())
 
 
 def collect_matches(
@@ -269,26 +333,23 @@ def collect_matches(
 
 # ── 集計・出力整形 ────────────────────────────────────
 
-def records_to_stats(records: list[dict]) -> dict:
+def state_to_stats(state: dict) -> dict:
     """state全体からチャンピオン別バケット集計を作る。
-    バケット境界は集計のたびに現在のBUCKET_EARLY_MAX/BUCKET_MID_MAXで
-    再判定するため、古いレコードも境界変更に追従する。"""
+    バケット判定は毎回この場で行うため、BUCKET_EARLY_MAX/BUCKET_MID_MAX を
+    変更すると過去に集めた分も新しい境界で再集計される。"""
     stats: dict[str, dict[str, dict[str, int]]] = {}
 
-    def add(champion: str, bucket: str, win: bool):
-        c = stats.setdefault(champion, {
-            "early": {"games": 0, "wins": 0},
-            "mid": {"games": 0, "wins": 0},
-            "late": {"games": 0, "wins": 0},
-        })
-        c[bucket]["games"] += 1
-        if win:
-            c[bucket]["wins"] += 1
-
-    for r in records:
-        bucket = bucket_of(r["duration"])
-        for p in r["participants"]:
-            add(p["champion"], bucket, p["win"])
+    for wk in state["weeks"].values():
+        for champion, by_minute in wk["counters"].items():
+            c = stats.setdefault(champion, {
+                "early": {"games": 0, "wins": 0},
+                "mid": {"games": 0, "wins": 0},
+                "late": {"games": 0, "wins": 0},
+            })
+            for dur_min, (games, wins) in by_minute.items():
+                b = bucket_of_minutes(int(dur_min))
+                c[b]["games"] += games
+                c[b]["wins"] += wins
 
     return stats
 
@@ -326,7 +387,7 @@ def main():
     parser.add_argument("--per-bracket", type=int, default=5, help="ティア×ディビジョン毎のサンプル人数")
     parser.add_argument("--matches-per-player", type=int, default=10, help="1人あたり直近何試合を見るか")
     parser.add_argument("--state-file", default="scripts/data/scaling_state.json",
-                         help="積み上げ式収集の生データ保存先。次回実行時はここに無い試合だけを追加取得する")
+                         help="積み上げ式収集の集計データ保存先。次回実行時はここに無い試合だけを追加取得する")
     parser.add_argument("--max-age-days", type=int, default=DEFAULT_MAX_AGE_DAYS,
                          help="この日数より古い試合はstateから間引く")
     parser.add_argument("--out", default="frontend/public/tooltips/scaling.json")
@@ -340,29 +401,32 @@ def main():
     platforms = [p.strip() for p in args.platforms.split(",") if p.strip()]
     limiter = RateLimiter()
 
-    existing = load_state(args.state_file)
-    kept = prune_state(existing, args.max_age_days)
-    print(f"state: 既存 {len(existing)} 件 → {args.max_age_days}日以内 {len(kept)} 件を保持"
-          f"（{len(existing) - len(kept)} 件を間引き）", file=sys.stderr)
+    state = load_state(args.state_file)
+    before = state_match_count(state)
+    dropped = prune_state(state, args.max_age_days)
+    print(f"state: 既存 {before:,} 件 → {args.max_age_days}日以内 {before - dropped:,} 件を保持"
+          f"（{dropped:,} 件を間引き / 保持{len(state['weeks'])}週分）", file=sys.stderr)
 
-    known_ids = {r["matchId"] for r in kept}
     new_records = collect_matches(
-        platforms, args.api_key, limiter, args.per_bracket, args.matches_per_player, known_ids,
+        platforms, args.api_key, limiter, args.per_bracket, args.matches_per_player,
+        known_match_ids(state),
     )
-    print(f"新規取得: {len(new_records)} 件", file=sys.stderr)
+    print(f"新規取得: {len(new_records):,} 件", file=sys.stderr)
 
-    combined = kept + new_records
-    save_state(args.state_file, combined)
+    for rec in new_records:
+        fold_record(state, rec)
+    save_state(args.state_file, state)
 
-    stats = records_to_stats(combined)
-    output = build_output(stats, len(combined), QUEUE, patch="live")
+    total = state_match_count(state)
+    stats = state_to_stats(state)
+    output = build_output(stats, total, QUEUE, patch="live")
 
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=1)
 
     print(f"完了: {len(output['champions'])} チャンピオン分, "
-          f"サンプル試合数 {output['sampledMatches']}（累計state {len(combined)}件）→ {args.out}",
+          f"サンプル試合数 {output['sampledMatches']:,}（{len(state['weeks'])}週分）→ {args.out}",
           file=sys.stderr)
 
 
