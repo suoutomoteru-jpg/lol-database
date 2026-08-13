@@ -1,6 +1,6 @@
 {
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
- "generatedAt": "2026-08-06T05:46:04.964968+00:00",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "generatedAt": "2026-08-13T04:48:45.706788+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -112,7 +112,7 @@
    "id": 200,
    "name": "ベル＝ヴェス",
    "unresolvedCount": 0,
-   "passiveSource": "stringtable"
+   "passiveSource": "lcu"
   },
   {
    "alias": "Blitzcrank",
@@ -280,7 +280,7 @@
    "id": 150,
    "name": "ナー",
    "unresolvedCount": 0,
-   "passiveSource": "stringtable"
+   "passiveSource": "lcu"
   },
   {
    "alias": "Gragas",
@@ -350,6 +350,13 @@
    "id": 60103,
    "name": "アーリ",
    "unresolvedCount": 0,
+   "passiveSource": "lcu"
+  },
+  {
+   "alias": "Jade_Akali",
+   "id": 60084,
+   "name": "アカリ",
+   "unresolvedCount": 1,
    "passiveSource": "lcu"
   },
   {
@@ -521,6 +528,13 @@
    "passiveSource": "lcu"
   },
   {
+   "alias": "Jade_Kennen",
+   "id": 60085,
+   "name": "ケネン",
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
+  },
+  {
    "alias": "Jade_KogMaw",
    "id": 60096,
    "name": "コグ＝マウ",
@@ -623,7 +637,7 @@
    "id": 60080,
    "name": "パンテオン",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Rammus",
@@ -644,6 +658,13 @@
    "id": 60035,
    "name": "シャコ",
    "unresolvedCount": 2,
+   "passiveSource": "lcu"
+  },
+  {
+   "alias": "Jade_Shen",
+   "id": 60098,
+   "name": "シェン",
+   "unresolvedCount": 4,
    "passiveSource": "lcu"
   },
   {
@@ -944,7 +965,7 @@
    "alias": "Locke",
    "id": 805,
    "name": "ロック",
-   "unresolvedCount": 1,
+   "unresolvedCount": 2,
    "passiveSource": "lcu"
   },
   {

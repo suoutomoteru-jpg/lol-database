@@ -3,7 +3,7 @@
  "id": 82,
  "name": "モルデカイザー",
  "title": "鋼の魂奪者",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "無窮の闇",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "死の呪縛",
-   "description": "<spellActive>発動効果:</spellActive> 敵を自身の方向に引き寄せ、<magicDamage>60/80/100/120/140（＋魔力の45%）の魔法ダメージを与える。</magicDamage>",
+   "description": "<spellPassive>自動効果:</spellPassive> <magicPen>5/7.5/10/12.5/15%の魔法防御貫通</magicPen>を獲得する。<br><br><spellActive>発動効果:</spellActive> 敵を自身の方向に引き寄せ、<magicDamage>60/80/100/120/140（＋魔力の45%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "18/16/14/12/10",
    "cost": "",
    "range": "700",

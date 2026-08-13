@@ -3,7 +3,7 @@
  "id": 60074,
  "name": "ハイマーディンガー",
  "title": "誉れ高き発明王",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "テクマトロジー修理ボット",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "H-28G革新砲",
-   "description": "機関銃砲台を設置する。砲台は攻撃ごとに<magicDamage>30/38/46/54/62（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。このスキルは発までチャージ可能(秒でリチャージ)。<br><br>このスキルはランクが上がるたびに次の強化効果を得る:<br><attention>ランク2:</attention> 砲台の攻撃が対象の物理防御と魔法防御を1低下させる(最大50)<br><attention>ランク3:</attention> 砲台の最大設置数が2基に増加する<br><attention>ランク4:</attention> 砲台の<scaleHealth>体力が125</scaleHealth>増加する<br><attention>ランク5:</attention> 砲台の攻撃が範囲ダメージを与える",
+   "description": "機関銃砲台を設置する。砲台は攻撃ごとに<magicDamage>28/36/44/52/60（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。このスキルは発までチャージ可能(秒でリチャージ)。<br><br>このスキルはランクが上がるたびに次の強化効果を得る:<br><attention>ランク2:</attention> 砲台の攻撃が対象の物理防御と魔法防御を1低下させる(最大50)<br><attention>ランク3:</attention> 砲台の最大設置数が2基に増加する<br><attention>ランク4:</attention> 砲台の<scaleHealth>体力が125</scaleHealth>増加する<br><attention>ランク5:</attention> 砲台の攻撃が範囲ダメージを与える",
    "cooldown": "1",
    "cost": "70/80/90/100/110",
    "range": "350",
@@ -26,7 +26,7 @@
   },
   "w": {
    "name": "ヘクステック小型ロケット",
-   "description": "敵を追尾する小型ロケットを3発発射する(1つの対象につき最大1発)。ロケットは最も近くにいる対象に命中する。各ロケットは<magicDamage>85/135/185/235/285（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "敵を追尾する小型ロケットを3発発射する(1つの対象につき最大1発)。ロケットは最も近くにいる対象に命中する。各ロケットは<magicDamage>70/120/170/220/270（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "",
    "cost": "65/85/105/125/145",
    "range": "1100",

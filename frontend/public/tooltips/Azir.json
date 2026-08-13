@@ -3,7 +3,7 @@
  "id": 268,
  "name": "アジール",
  "title": "砂塵の皇帝",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "シュリーマの遺産",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "征服の勅命",
-   "description": "すべての<keywordMajor>砂塵兵</keywordMajor>を指定範囲に集結させる。<keywordMajor>砂塵兵</keywordMajor>は進路上でぶつかった敵に<magicDamage>60/80/100/120/140（＋魔力の35/40/45/50/55%）の魔法ダメージ</magicDamage>を与え、1秒間25%の<status>スロウ効果</status>を付与する。",
+   "description": "すべての<keywordMajor>砂塵兵</keywordMajor>を指定範囲に集結させる。<keywordMajor>砂塵兵</keywordMajor>は進路上でぶつかった敵に<magicDamage>75/95/115/135/155（＋魔力の35/40/45/50/55%）の魔法ダメージ</magicDamage>を与え、1秒間25%の<status>スロウ効果</status>を付与する。",
    "cooldown": "14/12/10/8/6",
    "cost": "70/80/90/100/110",
    "range": "740",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "目覚めよ！",
-   "description": "10秒間、<keywordMajor>砂塵兵</keywordMajor>を召喚する。自身が<keywordMajor>砂塵兵</keywordMajor>の近くにいる敵を通常攻撃するときは、兵士に命令を出して代わりに攻撃させ、その方向にいる敵に<magicDamage>50/65/80/95/110（＋0〜72（レベル1〜18） ＋魔力の35/42.5/50/57.5/65%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは回までチャージできる。",
+   "description": "<keywordMajor>砂塵兵</keywordMajor>を10秒間召喚する。自身が<keywordMajor>砂塵兵</keywordMajor>の近くにいる敵を通常攻撃するときは、兵士たちに命令を出して代わりに攻撃させ、その方向にいる敵に<magicDamage>50/65/80/95/110（＋0〜72（レベル1〜18） ＋魔力の35/42.5/50/57.5/65%）の魔法ダメージ</magicDamage>を与える。<br><br>チャージまでスタック可能。",
    "cooldown": "1.5",
    "cost": "40/35/30/25/20",
    "range": "525",

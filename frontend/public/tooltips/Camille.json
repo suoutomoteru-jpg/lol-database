@@ -3,11 +3,11 @@
  "id": 164,
  "name": "カミール",
  "title": "スチールシャドウ",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "アダプティブディフェンス",
-   "description": "敵チャンピオンに通常攻撃を行うと、その敵チャンピオンの主なダメージの種類(<physicalDamage>物理</physicalDamage>または<magicDamage>魔法</magicDamage>)に応じて、2秒間、<shield>耐久値合計体力の20%のシールド</shield>を獲得する。このシールドのクールダウンは18/14/10（レベル1/7/13）秒。",
+   "description": "敵チャンピオンに通常攻撃を行うと、その敵チャンピオンの主なダメージの種類(<physicalDamage>物理</physicalDamage>または<magicDamage>魔法</magicDamage>)に応じて、2秒間、<shield>耐久値合計体力の10/15/20%（レベル1/7/13）のシールド</shield>を獲得する。このシールドのクールダウンは14/11/8（レベル1/7/13）秒。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "タクティカルスイープ",
-   "description": "チャージしてから斬撃を放ち、<physicalDamage>60/85/110/135/160（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<br><br>攻撃範囲の外側半分にいた敵には80%の<status>スロウ効果</status>を付与する。この効果は2秒間かけて減衰する。さらに<physicalDamage>対象の最大体力の6/6.5/7/7.5/8%（＋増加攻撃力の0.025%）にあたる追加物理ダメージ</physicalDamage>を与えて、敵チャンピオンに与えた追加ダメージの<healing>100%</healing>にあたる体力を回復する。",
+   "description": "チャージしてから斬撃を放ち、<physicalDamage>60/85/110/135/160（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<br><br>攻撃範囲の外側半分にいた敵には80%の<status>スロウ効果</status>を付与する。この効果は2秒間かけて減衰する。さらに<physicalDamage>対象の最大体力の7/7.5/8/8.5/9%（＋増加攻撃力の0.025%）にあたる追加物理ダメージ</physicalDamage>を与えて、敵チャンピオンに与えた追加ダメージの<healing>100%</healing>にあたる体力を回復する。",
    "cooldown": "15/14/13/12/11",
    "cost": "50/55/60/65/70",
    "range": "610",

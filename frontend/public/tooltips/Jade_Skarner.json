@@ -3,7 +3,7 @@
  "id": 60072,
  "name": "スカーナー",
  "title": "水晶の尖兵",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "エナジャイズ",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "クリスタルスラッシュ",
-   "description": "周囲の敵すべてに<physicalDamage>25/40/55/70/85（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与え、攻撃が命中した場合は5秒間、<keywordMajor>クリスタルエナジー</keywordMajor>をチャージする。<br><br>チャージ中は、<spellName>クリスタルスラッシュ</spellName>と通常攻撃が<magicDamage>24/36/48/60/72（＋魔力の40%）の追加魔法ダメージ</magicDamage>を与え、対象に2秒間、20/25/30/35/40%の<status>スロウ効果</status>を付与する。",
+   "description": "周囲の敵すべてに<physicalDamage>25/40/55/70/85（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与え、攻撃が命中した場合は5秒間、<keywordMajor>クリスタルエナジー</keywordMajor>をチャージする。<br><br>チャージ中は、<spellName>クリスタルスラッシュ</spellName>が<magicDamage>24/36/48/60/72（＋魔力の40%）の追加魔法ダメージ</magicDamage>を与え、対象に2秒間、25/30/35/40/45%の<status>スロウ効果</status>を付与する。",
    "cooldown": "3.5",
    "cost": "20/22/24/26/28",
    "range": "325",

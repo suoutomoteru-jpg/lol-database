@@ -3,7 +3,7 @@
  "id": 44,
  "name": "タリック",
  "title": "ヴァロランの守護者",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ブラバド",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "バスティオン",
-   "description": "<spellPassive>自動効果: </spellPassive><scaleArmor>合計物理防御の6/7/8/9/10%の物理防御</scaleArmor>を獲得し、自身と味方の間にこのスキルによる繋がりを形成する。お互いが近くにいる間、味方は<scaleArmor>合計物理防御の6/7/8/9/10%の物理防御</scaleArmor>を獲得し、タリックが使用した全スキルが繋がった味方からも発動される。<br><br><spellPassive>発動効果: </spellPassive>味方チャンピオンと繋がり、2.5秒間<shield>自身の最大体力の7/8/9/10/11%にあたるシールド</shield>を付与する。",
+   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>合計物理防御の6/7/8/9/10%の物理防御</scaleArmor>を獲得し、自身と味方の間にこのスキルによる繋がりを形成する。お互いが近くにいる間、味方は<scaleArmor>合計物理防御の6/7/8/9/10%の物理防御</scaleArmor>を獲得し、タリックが使用した全スキルが繋がった味方からも発動される。<br><br><spellPassive>発動効果: </spellPassive>味方チャンピオンと繋がり、2.5秒間自身の最大体力の<shield>7/8/9/10/11%にあたる耐久値を持つシールド</shield>を付与する。",
    "cooldown": "15",
    "cost": "60",
    "range": "800",

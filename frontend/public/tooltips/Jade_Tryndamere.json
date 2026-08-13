@@ -3,7 +3,7 @@
  "id": 60023,
  "name": "トリンダメア",
  "title": "孤高の蛮王",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "戦場の咆哮",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "血の欲望",
-   "description": "<spellPassive>自動効果</spellPassive>: 血を渇望して、敵をキルするかクリティカルを発生させるたびに<keywordMajor>「フューリー」</keywordMajor>を獲得し、獲得した<keywordMajor>「フューリー」</keywordMajor>ごとに、<physicalDamage>攻撃力が5</physicalDamage>、クリティカルダメージが1.5/2.25/3/3.75/4.5%増加する。<br><br><spellActive>発動効果: </spellActive>たまった<keywordMajor>「フューリー」</keywordMajor>を消費し、<healing>魔力の150%に加えて消費した<keywordMajor>「フューリー」</keywordMajor>ごとに10/20/30/40/50の体力</healing>を回復する。(最大体力回復量: <healing></healing>)",
+   "description": "<spellPassive>自動効果</spellPassive>: 血を渇望して、敵をキルするかクリティカルを発生させるたびに<keywordMajor>「フューリー」</keywordMajor>を獲得し、獲得した<keywordMajor>「フューリー」</keywordMajor>ごとに、<physicalDamage>攻撃力が3</physicalDamage>、クリティカルダメージが1.5/2.25/3/3.75/4.5%増加する。<br><br><spellActive>発動効果: </spellActive>たまった<keywordMajor>「フューリー」</keywordMajor>を消費し、<healing>魔力の150%に加えて消費した<keywordMajor>「フューリー」</keywordMajor>ごとに10/20/30/40/50の体力</healing>を回復する。(最大体力回復量: <healing></healing>)",
    "cooldown": "12",
    "cost": "",
    "range": "400",

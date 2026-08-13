@@ -3,7 +3,7 @@
  "id": 60016,
  "name": "ソラカ",
  "title": "星の子",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "奉献",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "星霊の癒し",
-   "description": "<mainText>味方1体の<healing>体力を70/140/210/280/350（＋魔力の45%）</healing>回復し、3秒間<scaleArmor>物理防御を25/45/65/85/105</scaleArmor>一時的に増加させる。",
+   "description": "<mainText>味方1体の<healing>体力を70/140/210/280/350（＋魔力の45%）</healing>回復し、3秒間<scaleArmor>物理防御を25/50/75/100/125</scaleArmor>一時的に増加させる。",
    "cooldown": "20",
    "cost": "80/110/140/170/200",
    "range": "750",

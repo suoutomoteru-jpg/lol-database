@@ -3,12 +3,12 @@
  "id": 150,
  "name": "ナー",
  "title": "ミッシングリンク",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ぷんすこ",
-   "description": "ダメージを与える、または受けると<keywordMajor>「怒り」</keywordMajor>を獲得する。<keywordMajor>「怒り」</keywordMajor>が最大になると、次のスキルで15秒間<keywordMajor>メガナー</keywordMajor>に変身する。<br><br><keywordMajor>ミニナー:</keywordMajor> <speed>移動速度が0〜20（レベル1〜18）</speed>、<attackSpeed>攻撃速度が5.5〜99%（レベル比例）</attackSpeed>、射程距離が0〜100（レベル比例）増加する。<br><br><keywordMajor>メガナー:</keywordMajor> <healing>最大体力が100〜831（レベル比例）</healing>、<scaleArmor>物理防御が3.5〜54.5（レベル比例）</scaleArmor>、<scaleMR>魔法防御が3.5〜63（レベル比例）</scaleMR>、<physicalDamage>攻撃力が6〜48.5（レベル比例）</physicalDamage>増加する。<br><br><rules><keywordMajor>「怒り」</keywordMajor>が最大になってから4秒以内にスキルを使用しなかった場合、自動的に変身する。<br>13秒間ダメージを与えない、または受けないでいると、<keywordMajor>「怒り」</keywordMajor>は徐々に減少していく。<br>チャンピオンにダメージを与えた場合、獲得する<keywordMajor>「怒り」</keywordMajor>の量が増加する。</rules>",
-   "source": "stringtable",
+   "description": "ナーは戦闘中に「怒り」が溜まっていく。「怒り」が最大の状態でスキルを使用するとメガナーに変身し、ステータスとスキルが変化する。<br><br><strong>詳細数値</strong><br>・範囲: 0〜100（レベル比例）<br>・移動速度: 0〜20（レベル1〜18）<br>・物理防御: 3.5〜54.5（レベル比例）",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

@@ -3,7 +3,7 @@
  "id": 60038,
  "name": "カサディン",
  "title": "ヴォイドを歩む者",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ヴォイドストーン",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "リフトウォーク",
-   "description": "近くの地点に瞬間移動し、周囲の敵ユニットに<magicDamage>60/70/80（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。さらに、その後8秒以内に発動する<spellName>リフトウォーク</spellName>はそれぞれコストが<scaleMana>追加で100マナ</scaleMana>増加し、<magicDamage>60/70/80の追加ダメージ</magicDamage>を与える。この効果は10回までスタックする。",
+   "description": "近くの地点に瞬間移動し、周囲の敵ユニットに<magicDamage>60/70/80（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。さらに、その後8秒以内に発動する<spellName>リフトウォーク</spellName>はそれぞれコストが<scaleMana>追加で100マナ</scaleMana>増加し、<magicDamage>60/70/80の追加ダメージ</magicDamage>を与える。この効果は10回までスタックする。",
    "cooldown": "7/6/5",
    "cost": "100",
    "range": "700",

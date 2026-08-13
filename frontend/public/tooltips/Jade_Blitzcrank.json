@@ -3,7 +3,7 @@
  "id": 60053,
  "name": "ブリッツクランク",
  "title": "偉大なるスチームゴーレム",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "マナバリア",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ロケットグラブ",
-   "description": "右手を発射して<magicDamage>80/135/190/245/300（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、対象を<status>スタン</status>させて自身の位置まで<status>引き寄せる</status>。",
+   "description": "右手を発射して<magicDamage>60/120/180/240/300（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、対象を<status>スタン</status>させて自身の位置まで<status>引き寄せる</status>。",
    "cooldown": "20/19/18/17/16",
    "cost": "120",
    "range": "1079",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "イナズマフィールド",
-   "description": "<spellPassive>自動効果: </spellPassive>2.5秒ごとに体から電撃を放ち、周囲にいる敵にランダムで<magicDamage>100/200/300（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果: </spellActive>周囲の敵ユニットに<magicDamage>250/375/500（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、0.5秒間<status>サイレンス効果</status>を付与する。クールダウン中は自動効果が停止する。",
+   "description": "<spellPassive>自動効果: </spellPassive>2.5秒ごとに体から電撃を放ち、周囲にいる敵にランダムで<magicDamage>100/200/300（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果: </spellActive>周囲の敵ユニットに<magicDamage>200/300/400（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、0.5秒間<status>サイレンス効果</status>を付与する。クールダウン中は自動効果が停止する。",
    "cooldown": "30",
    "cost": "150",
    "range": "600",

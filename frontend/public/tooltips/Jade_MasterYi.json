@@ -3,7 +3,7 @@
  "id": 60011,
  "name": "マスター・イー",
  "title": "ウージューの剣客",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ダブルストライク",

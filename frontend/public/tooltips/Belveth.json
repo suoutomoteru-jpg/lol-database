@@ -3,12 +3,12 @@
  "id": 200,
  "name": "ベル＝ヴェス",
  "title": "ヴォイドの女帝",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "死のラベンダー",
-   "description": "スキルを使用するとゴースト化し、3秒間<attackSpeed>攻撃速度が20〜20%（レベル比例）</attackSpeed>増加する。<br><br>大型ミニオンおよび大型モンスターからキルまたはアシストを奪うと<keywordMajor>「ラベンダー」を1</keywordMajor>スタック獲得し、チャンピオンおよびエピックモンスターからキルまたはアシストを奪うと<keywordMajor>「ラベンダー」を2</keywordMajor>スタック獲得する。各スタックは恒久的に<attackSpeed>攻撃速度を0.1〜2（レベル1〜18）%</attackSpeed>増加させる。<br><br>合計増加<attackSpeed>攻撃速度</attackSpeed>: <attackSpeed>0.1〜2（レベル1〜18）%</attackSpeed><br><rules><br>ベル＝ヴェスはチャンピオンレベルが上昇しても<attackSpeed>攻撃速度</attackSpeed>が増加せず、<attackSpeed>攻撃速度</attackSpeed>に上限が存在しない。<br>ゴースト化したユニットは他のユニットをすり抜けて移動できる。</rules>",
-   "source": "stringtable",
+   "description": "大型ミニオン、大型モンスター、チャンピオンからキルまたはアシストを獲得すると、攻撃速度のスタックを恒久的に獲得する。また、スキル使用後に一時的に攻撃速度が増加する。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "終わりなき晩餐",
-   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が追加で<trueDamage>2/4/6（＋増加攻撃力の3%）の確定ダメージ</trueDamage>を与える。これは無限にスタックする。チャンピオンおよびエピックモンスターからキルまたはアシストを獲得すると、その場に「ヴォイドコーラル」が残る。<br><br><spellActive>発動効果:</spellActive> 「ヴォイドコーラル」を1つ吸収して<keywordMajor>「ラベンダー」を1</keywordMajor>スタック獲得し、真の姿を解放する。ヴォイド出身のエピックモンスターからドロップした「ヴォイドコーラル」は、近くで倒されたミニオンを「ヴォイドレモラ」に変える。詠唱中、周囲の敵に<status>スロウ効果</status>を与え、その後爆発して<trueDamage>150/200/250（＋魔力の150%）(+ 減少体力の20%)の確定ダメージ</trueDamage>を与える。<br><br>真の姿になると、<healing>最大体力を100/250/400（＋増加攻撃力の150% ＋魔力の150%）</healing>、射程を25/75/125、<attackSpeed>合計攻撃速度を5/15/25%</attackSpeed>獲得し、<spellName>「ヴォイドサージ」</spellName>で壁を通り抜けられるようになる。<br><br><rules>真の姿は45秒間持続し、<keywordMajor>「ラベンダー」が40</keywordMajor>スタックになると、90秒間まで増加する。<keywordMajor>「ラベンダー」が80</keywordMajor>スタックになると、倒されるまで真の姿が維持される。</rules><br><br><br>",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が追加で<trueDamage>2/4/6（＋増加攻撃力の3%）の確定ダメージ</trueDamage>を与える。これは無限にスタックする。チャンピオンかエピックモンスターからキルまたはアシストを獲得すると、その場に「ヴォイドコーラル」が残る。<br><br><spellActive>発動効果:</spellActive> ベル＝ヴェスがヴォイドコーラルを1つ吸収して<keywordMajor>「ラベンダー」を1</keywordMajor>スタック獲得し、真の姿を解放する。ヴォイド出身のエピックモンスターからドロップした「ヴォイドコーラル」は、近くで倒されたミニオンを「ヴォイドレモラ」に変える。詠唱中、ベル＝ヴェスは周囲の敵に<status>スロウ効果</status>を与え、その後爆発して<trueDamage>150/200/250（＋魔力の150%） + 減少体力の20%の確定ダメージ</trueDamage>を与える。<br><br>真の姿になると、ベル＝ヴェスは<healing>最大体力を100/250/400（＋増加攻撃力の150% ＋魔力の150%）</healing>、射程を25/75/125、<attackSpeed>合計攻撃速度を6/13/20%</attackSpeed>獲得し、<spellName>「ヴォイドサージ」</spellName>で壁を通り抜けられるようになる。<br><br><rules>真の姿は45秒間持続する。<keywordMajor>「ラベンダー」が40</keywordMajor>のスタックで90秒間まで増加する。<keywordMajor>「ラベンダー」が80</keywordMajor>スタックになると、倒されるまで真の姿が維持される。</rules><br><br><br>",
    "cooldown": "1",
    "cost": "",
    "range": "450",

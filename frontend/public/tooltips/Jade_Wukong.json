@@ -2,8 +2,8 @@
  "alias": "Jade_Wukong",
  "id": 60062,
  "name": "ウーコン",
- "title": "",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "title": "美猴王",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "岩の皮膚",

@@ -3,7 +3,7 @@
  "id": 60036,
  "name": "ドクター・ムンド",
  "title": "ゾウンの狂人",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "アドレナリンラッシュ",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "バーニングペイン",
-   "description": "<toggle>発動: </toggle>周囲の敵に<magicDamage>35/50/65/80/95（＋魔力の20%）の魔法ダメージ</magicDamage>を与え、自身にかかっている行動妨害効果の効果時間を短縮10/15/20/25/30%短縮する。",
+   "description": "<toggle>発動: </toggle>周囲の敵に<magicDamage>40/55/70/85/100（＋魔力の20%）の魔法ダメージ</magicDamage>を与え、自身にかかっている行動妨害効果の効果時間を短縮15/20/25/30/35%短縮する。",
    "cooldown": "1",
    "cost": "",
    "range": "325",

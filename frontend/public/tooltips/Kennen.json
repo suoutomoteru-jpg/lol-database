@@ -3,7 +3,7 @@
  "id": 85,
  "name": "ケネン",
  "title": "雷雲の担い手",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "嵐の刻印",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "雷撃の大嵐",
-   "description": "魔法の嵐を解き放ち、0.5秒ごとに周囲のすべての敵に<magicDamage>40/75/110（＋魔力の22.5%）の魔法ダメージ</magicDamage>を与えて、自身は3秒間<scaleArmor>20/40/60の物理防御</scaleArmor>と<scaleMR>20/40/60の魔法防御</scaleMR>を獲得する。同じ対象に連続で命中した場合、それまでに命中した回数1回につき与えるダメージが10%増加する。",
+   "description": "魔法の嵐を解き放ち、0.5秒ごとに周囲のすべての敵に<magicDamage>40/80/120（＋魔力の25%）の魔法ダメージ</magicDamage>を与えて、自身は3秒間<scaleArmor>25/50/75の物理防御</scaleArmor>と<scaleMR>25/50/75の魔法防御</scaleMR>を獲得する。同じ対象に連続で命中した場合、それまでに命中した回数1回につき与えるダメージが10%増加する。",
    "cooldown": "120",
    "cost": "",
    "range": "550",

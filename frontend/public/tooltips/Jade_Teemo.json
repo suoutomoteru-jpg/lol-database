@@ -3,11 +3,11 @@
  "id": 60017,
  "name": "ティーモ",
  "title": "俊足の斥候",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "カモフラージュ",
-   "description": "ダメージを受けずに2秒間じっとしていると、次に動き出すまで<keywordStealth>インビジブル</keywordStealth>状態になる。茂みの中では、移動しても<keywordStealth>インビジブル</keywordStealth>状態が維持される。<br><br>この<keywordStealth>インビジブル</keywordStealth>状態が解除されると3秒間、<attackSpeed>攻撃速度が40%</attackSpeed>増加する。<br><br><rules><keywordStealth>インビジブル</keywordStealth>状態のユニットは、タワーまたは<font color='#ee91d7'>真の視界</font color>によってのみ可視化される。</rules>",
+   "description": "ダメージを受けずに2秒間じっとしていると、次に動き出すまで<keywordStealth>インビジブル</keywordStealth>状態になる。<br><br>この<keywordStealth>インビジブル</keywordStealth>状態が解除されると3秒間、<attackSpeed>攻撃速度が40%</attackSpeed>増加する。<br><br><rules><keywordStealth>インビジブル</keywordStealth>状態のユニットは、タワーまたは<font color='#ee91d7'>真の視界</font color>によってのみ可視化される。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

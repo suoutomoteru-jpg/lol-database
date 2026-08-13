@@ -3,7 +3,7 @@
  "id": 60099,
  "name": "ラックス",
  "title": "光の才女",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "イルミネーション",
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "フィナーレス フンケルン",
-   "description": "まばゆい光線を発射し、直線上の敵に<magicDamage>300/400/500（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。<spellName>フィナーレス フンケルン</spellName>は<spellName>イルミネーション</spellName>を爆発させて再度付与する。",
+   "description": "まばゆい光線を発射し、直線上の敵に<magicDamage>300/400/500（＋魔力の85%）の魔法ダメージ</magicDamage>を与える。<spellName>フィナーレス フンケルン</spellName>は<spellName>イルミネーション</spellName>を爆発させて再度付与する。",
    "cooldown": "80/65/50",
    "cost": "100",
    "range": "3340",

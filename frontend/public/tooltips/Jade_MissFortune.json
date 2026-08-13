@@ -3,11 +3,11 @@
  "id": 60021,
  "name": "ミス・フォーチュン",
  "title": "美貌の賞金稼ぎ",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ストラット",
-   "description": "5秒間ダメージを受けずにいると<speed>移動速度が25</speed>増加する。この増加移動速度は毎秒9ずつ増加し、最大70まで増加する。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計攻撃力の50/60/70/80/90/100%（レベル1/4/7/9/11/13）<br>・ダメージ: 合計攻撃力の50/60/70/80/90/100%（レベル1/4/7/9/11/13）×0.5",
+   "description": "5秒間ダメージを受けずにいると<speed>移動速度が25</speed>増加する。この増加移動速度は毎秒9ずつ増加し、最大70まで増加する。",
    "source": "lcu",
    "unresolved": []
   },
@@ -25,7 +25,7 @@
   },
   "w": {
    "name": "ダーティショット",
-   "description": "<font color='#FF9900'>自動効果:</font> 通常攻撃を行うたびに、対象に<magicDamage>の魔法ダメージ</magicDamage>を与える。この効果は同じ対象に対して5回まで累積してスタックする。<br><magicDamage>最大追加ダメージ: </magicDamage><br><br><font color='#FF9900'>発動効果:</font> 6秒間、<attackSpeed>攻撃速度</attackSpeed>が<attackSpeed>30/35/40/45/50%</attackSpeed>増加し、通常攻撃が3秒間、<keyword>50%の「重傷」</keyword>を付与するようになる。",
+   "description": "<font color='#FF9900'>自動効果:</font> 通常攻撃を行うたびに、対象に<magicDamage>の魔法ダメージ</magicDamage>を与える。この効果は同じ対象に対して4回まで累積してスタックする。<br><magicDamage>最大追加ダメージ: </magicDamage><br><br><font color='#FF9900'>発動効果:</font> 6秒間、<attackSpeed>攻撃速度</attackSpeed>が<attackSpeed>30/35/40/45/50%</attackSpeed>増加し、通常攻撃が3秒間、<keyword>50%の「重傷」</keyword>を付与するようになる。",
    "cooldown": "12",
    "cost": "45",
    "range": "600",
@@ -48,7 +48,7 @@
   },
   "r": {
    "name": "バレットタイム",
-   "description": "2秒間、前方の扇状範囲に大量の銃弾を放ち、銃弾ごとに<physicalDamage>65/95/125（＋増加攻撃力の35% ＋魔力の20%）の物理ダメージ</physicalDamage>を与える(<physicalDamage>合計ダメージ: 520/760/1000（＋増加攻撃力の35% ＋魔力の20%）</physicalDamage>)。",
+   "description": "2秒間、前方の扇状範囲に大量の銃弾を放ち、銃弾ごとに<physicalDamage>65/95/125（＋増加攻撃力の40% ＋魔力の20%）の物理ダメージ</physicalDamage>を与える(<physicalDamage>合計ダメージ: 520/760/1000（＋増加攻撃力の40% ＋魔力の20%）</physicalDamage>)。",
    "cooldown": "120/110/100",
    "cost": "100",
    "range": "25000",

@@ -3,7 +3,7 @@
  "id": 75,
  "name": "ナサス",
  "title": "砂漠の司書",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ソウルイーター",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "サイフォンストライク",
-   "description": "次の通常攻撃が<physicalDamage>の物理ダメージ</physicalDamage>を与える。この通常攻撃で敵を倒すたびに、そのダメージが恒久的に3増加する。対象がチャンピオン、大型ミニオン、大型ジャングルモンスターだった場合は12増加する。",
+   "description": "次の通常攻撃が<physicalDamage>の物理ダメージ</physicalDamage>を与える。この通常攻撃で敵を倒すたびに、そのダメージが恒久的に4増加する。対象がチャンピオン、大型ミニオン、大型ジャングルモンスターだった場合は10増加する。",
    "cooldown": "7.5/6.5/5.5/4.5/3.5",
    "cost": "20",
    "range": "255",

@@ -3,7 +3,7 @@
  "id": 60045,
  "name": "ベイガー",
  "title": "小さき大魔王",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ワールドバランス",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "イーヴィルストライク",
-   "description": "<spellActive>発動効果: </spellActive>ベイガーが対象の敵に闇のエネルギーを放ち、<magicDamage>80/125/170/215/260（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。対象が倒されると、ベイガーは<magicDamage>1の魔力</magicDamage>を獲得する。このボーナスは、チャンピオン、大型ミニオン、大型モンスターを倒した際には2倍になる。<br><br><spellPassive>自動効果: </spellPassive>ダメージ手段を問わず、ベイガーがチャンピオンを倒すと<magicDamage>1/2/3/4/5の魔力</magicDamage>を獲得する。<br><br>増加<magicDamage>魔力: +1.5/1.75/2/2.25/2.5</magicDamage>",
+   "description": "<spellActive>発動効果: </spellActive>ベイガーが対象の敵に闇のエネルギーを放ち、<magicDamage>80/125/170/215/260（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。対象が倒されると、ベイガーは<magicDamage>1の魔力</magicDamage>を獲得する。このボーナスは、チャンピオン、大型ミニオン、大型モンスターを倒した際には2倍になる。<br><br><spellPassive>自動効果: </spellPassive>ダメージ手段を問わず、ベイガーがチャンピオンを倒すと<magicDamage>1/2/3/4/5の魔力</magicDamage>を獲得する。<br><br>増加<magicDamage>魔力: +1.5/1.75/2/2.25/2.5</magicDamage>",
    "cooldown": "8/7/6/5/4",
    "cost": "60/65/70/75/80",
    "range": "650",

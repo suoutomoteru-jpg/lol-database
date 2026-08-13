@@ -3,7 +3,7 @@
  "id": 90,
  "name": "マルザハール",
  "title": "ヴォイドの予言者",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ヴォイドシフト",

@@ -3,11 +3,11 @@
  "id": 60075,
  "name": "ナサス",
  "title": "砂漠の司書",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "ソウルイーター",
-   "description": "敵の霊的なエネルギーを吸い取り、自身のライフスティールが追加で14/17/20%（レベル1/6/11）増加する。",
+   "description": "敵の霊的なエネルギーを吸い取り、自身のライフスティールが追加で10/15/20%（レベル1/6/11）増加する。",
    "source": "stringtable",
    "unresolved": []
   },

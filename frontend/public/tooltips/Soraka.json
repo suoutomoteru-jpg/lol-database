@@ -3,7 +3,7 @@
  "id": 16,
  "name": "ソラカ",
  "title": "星の子",
- "patch": "16.15.8024387+branch.releases-16-15.content.release",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
  "skills": {
   "passive": {
    "name": "救済の足音",
