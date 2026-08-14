@@ -1,8 +1,8 @@
 {
- "generatedAt": "2026-08-13T19:32:46.725551+00:00",
+ "generatedAt": "2026-08-14T19:22:43.685133+00:00",
  "patch": "live",
  "queue": "RANKED_SOLO_5x5",
- "sampledMatches": 10652,
+ "sampledMatches": 11514,
  "buckets": {
   "early": {
    "maxMinutes": 20
@@ -19,176 +19,212 @@
   {
    "alias": "Aatrox",
    "early": {
-    "games": 136,
-    "wins": 70,
-    "winrate": 51.5
+    "games": 144,
+    "wins": 74,
+    "winrate": 51.4
    },
    "mid": {
-    "games": 659,
-    "wins": 315,
-    "winrate": 47.8
+    "games": 716,
+    "wins": 344,
+    "winrate": 48.0
    },
    "late": {
-    "games": 148,
-    "wins": 68,
-    "winrate": 45.9
+    "games": 156,
+    "wins": 72,
+    "winrate": 46.2
    }
   },
   {
    "alias": "Ahri",
    "early": {
-    "games": 111,
-    "wins": 50,
-    "winrate": 45.0
+    "games": 120,
+    "wins": 53,
+    "winrate": 44.2
    },
    "mid": {
-    "games": 737,
-    "wins": 370,
-    "winrate": 50.2
+    "games": 786,
+    "wins": 393,
+    "winrate": 50.0
    },
    "late": {
-    "games": 202,
-    "wins": 106,
-    "winrate": 52.5
+    "games": 210,
+    "wins": 111,
+    "winrate": 52.9
    }
   },
   {
    "alias": "Akali",
    "early": {
-    "games": 111,
-    "wins": 51,
-    "winrate": 45.9
+    "games": 127,
+    "wins": 56,
+    "winrate": 44.1
    },
    "mid": {
-    "games": 654,
-    "wins": 317,
-    "winrate": 48.5
+    "games": 713,
+    "wins": 348,
+    "winrate": 48.8
    },
    "late": {
-    "games": 183,
-    "wins": 80,
-    "winrate": 43.7
+    "games": 193,
+    "wins": 84,
+    "winrate": 43.5
    }
   },
   {
    "alias": "Akshan",
    "early": {
-    "games": 38,
-    "wins": 22,
-    "winrate": 57.9
+    "games": 41,
+    "wins": 23,
+    "winrate": 56.1
    },
    "mid": {
-    "games": 276,
-    "wins": 137,
-    "winrate": 49.6
+    "games": 301,
+    "wins": 148,
+    "winrate": 49.2
    },
    "late": {
-    "games": 57,
-    "wins": 28,
-    "winrate": 49.1
+    "games": 65,
+    "wins": 31,
+    "winrate": 47.7
    }
   },
   {
    "alias": "Alistar",
    "early": {
-    "games": 72,
-    "wins": 42,
-    "winrate": 58.3
+    "games": 89,
+    "wins": 51,
+    "winrate": 57.3
    },
    "mid": {
-    "games": 394,
-    "wins": 202,
-    "winrate": 51.3
+    "games": 435,
+    "wins": 227,
+    "winrate": 52.2
    },
    "late": {
-    "games": 71,
-    "wins": 29,
-    "winrate": 40.8
+    "games": 74,
+    "wins": 31,
+    "winrate": 41.9
    }
   },
   {
    "alias": "Ambessa",
    "early": {
-    "games": 132,
-    "wins": 73,
-    "winrate": 55.3
+    "games": 151,
+    "wins": 85,
+    "winrate": 56.3
    },
    "mid": {
-    "games": 714,
-    "wins": 347,
-    "winrate": 48.6
+    "games": 778,
+    "wins": 384,
+    "winrate": 49.4
    },
    "late": {
-    "games": 132,
-    "wins": 62,
-    "winrate": 47.0
+    "games": 139,
+    "wins": 65,
+    "winrate": 46.8
    }
   },
   {
    "alias": "Amumu",
    "early": {
-    "games": 36,
-    "wins": 13,
-    "winrate": 36.1
+    "games": 39,
+    "wins": 14,
+    "winrate": 35.9
    },
    "mid": {
-    "games": 198,
-    "wins": 108,
-    "winrate": 54.5
+    "games": 207,
+    "wins": 112,
+    "winrate": 54.1
    },
    "late": {
-    "games": 52,
-    "wins": 31,
-    "winrate": 59.6
+    "games": 53,
+    "wins": 32,
+    "winrate": 60.4
    }
   },
   {
    "alias": "Anivia",
    "early": {
-    "games": 62,
-    "wins": 27,
-    "winrate": 43.5
+    "games": 72,
+    "wins": 31,
+    "winrate": 43.1
    },
    "mid": {
-    "games": 330,
-    "wins": 175,
+    "games": 353,
+    "wins": 187,
     "winrate": 53.0
    },
    "late": {
-    "games": 77,
-    "wins": 41,
-    "winrate": 53.2
+    "games": 80,
+    "wins": 42,
+    "winrate": 52.5
    }
   },
   {
    "alias": "Annie",
    "early": {
-    "games": 26,
-    "wins": 14,
-    "winrate": 53.8
+    "games": 27,
+    "wins": 15,
+    "winrate": 55.6
    },
    "mid": {
-    "games": 200,
-    "wins": 92,
-    "winrate": 46.0
+    "games": 209,
+    "wins": 99,
+    "winrate": 47.4
    },
    "late": {
-    "games": 47,
+    "games": 48,
     "wins": 28,
-    "winrate": 59.6
+    "winrate": 58.3
    }
   },
   {
    "alias": "Aphelios",
    "early": {
-    "games": 50,
-    "wins": 27,
-    "winrate": 54.0
+    "games": 58,
+    "wins": 31,
+    "winrate": 53.4
    },
    "mid": {
-    "games": 285,
-    "wins": 135,
-    "winrate": 47.4
+    "games": 307,
+    "wins": 145,
+    "winrate": 47.2
+   },
+   "late": {
+    "games": 78,
+    "wins": 39,
+    "winrate": 50.0
+   }
+  },
+  {
+   "alias": "Ashe",
+   "early": {
+    "games": 127,
+    "wins": 60,
+    "winrate": 47.2
+   },
+   "mid": {
+    "games": 680,
+    "wins": 323,
+    "winrate": 47.5
+   },
+   "late": {
+    "games": 209,
+    "wins": 93,
+    "winrate": 44.5
+   }
+  },
+  {
+   "alias": "AurelionSol",
+   "early": {
+    "games": 40,
+    "wins": 20,
+    "winrate": 50.0
+   },
+   "mid": {
+    "games": 228,
+    "wins": 123,
+    "winrate": 53.9
    },
    "late": {
     "games": 68,
@@ -197,880 +233,412 @@
    }
   },
   {
-   "alias": "Ashe",
-   "early": {
-    "games": 120,
-    "wins": 56,
-    "winrate": 46.7
-   },
-   "mid": {
-    "games": 644,
-    "wins": 306,
-    "winrate": 47.5
-   },
-   "late": {
-    "games": 199,
-    "wins": 85,
-    "winrate": 42.7
-   }
-  },
-  {
-   "alias": "AurelionSol",
-   "early": {
-    "games": 35,
-    "wins": 17,
-    "winrate": 48.6
-   },
-   "mid": {
-    "games": 217,
-    "wins": 118,
-    "winrate": 54.4
-   },
-   "late": {
-    "games": 64,
-    "wins": 34,
-    "winrate": 53.1
-   }
-  },
-  {
    "alias": "Aurora",
    "early": {
-    "games": 34,
-    "wins": 18,
-    "winrate": 52.9
+    "games": 37,
+    "wins": 21,
+    "winrate": 56.8
    },
    "mid": {
-    "games": 257,
-    "wins": 127,
-    "winrate": 49.4
+    "games": 275,
+    "wins": 134,
+    "winrate": 48.7
    },
    "late": {
-    "games": 63,
-    "wins": 33,
-    "winrate": 52.4
+    "games": 67,
+    "wins": 34,
+    "winrate": 50.7
    }
   },
   {
    "alias": "Azir",
    "early": {
-    "games": 29,
-    "wins": 15,
-    "winrate": 51.7
-   },
-   "mid": {
-    "games": 151,
-    "wins": 74,
-    "winrate": 49.0
-   },
-   "late": {
     "games": 32,
     "wins": 15,
     "winrate": 46.9
+   },
+   "mid": {
+    "games": 169,
+    "wins": 81,
+    "winrate": 47.9
+   },
+   "late": {
+    "games": 38,
+    "wins": 19,
+    "winrate": 50.0
    }
   },
   {
    "alias": "Bard",
    "early": {
-    "games": 81,
-    "wins": 36,
-    "winrate": 44.4
+    "games": 91,
+    "wins": 40,
+    "winrate": 44.0
    },
    "mid": {
-    "games": 430,
-    "wins": 231,
-    "winrate": 53.7
+    "games": 488,
+    "wins": 263,
+    "winrate": 53.9
    },
    "late": {
-    "games": 84,
-    "wins": 42,
-    "winrate": 50.0
+    "games": 92,
+    "wins": 44,
+    "winrate": 47.8
    }
   },
   {
    "alias": "Belveth",
    "early": {
-    "games": 69,
-    "wins": 25,
-    "winrate": 36.2
+    "games": 74,
+    "wins": 29,
+    "winrate": 39.2
    },
    "mid": {
-    "games": 412,
-    "wins": 226,
-    "winrate": 54.9
+    "games": 446,
+    "wins": 243,
+    "winrate": 54.5
    },
    "late": {
-    "games": 57,
-    "wins": 36,
-    "winrate": 63.2
+    "games": 66,
+    "wins": 41,
+    "winrate": 62.1
    }
   },
   {
    "alias": "Blitzcrank",
    "early": {
-    "games": 64,
-    "wins": 35,
-    "winrate": 54.7
+    "games": 70,
+    "wins": 40,
+    "winrate": 57.1
    },
    "mid": {
-    "games": 410,
-    "wins": 220,
-    "winrate": 53.7
+    "games": 447,
+    "wins": 237,
+    "winrate": 53.0
    },
    "late": {
-    "games": 108,
-    "wins": 55,
-    "winrate": 50.9
+    "games": 117,
+    "wins": 58,
+    "winrate": 49.6
    }
   },
   {
    "alias": "Brand",
    "early": {
-    "games": 50,
-    "wins": 22,
-    "winrate": 44.0
+    "games": 53,
+    "wins": 24,
+    "winrate": 45.3
    },
    "mid": {
-    "games": 311,
-    "wins": 147,
-    "winrate": 47.3
+    "games": 332,
+    "wins": 155,
+    "winrate": 46.7
    },
    "late": {
-    "games": 115,
-    "wins": 56,
-    "winrate": 48.7
+    "games": 118,
+    "wins": 58,
+    "winrate": 49.2
    }
   },
   {
    "alias": "Braum",
    "early": {
-    "games": 38,
-    "wins": 13,
-    "winrate": 34.2
+    "games": 43,
+    "wins": 15,
+    "winrate": 34.9
    },
    "mid": {
-    "games": 274,
-    "wins": 144,
-    "winrate": 52.6
+    "games": 309,
+    "wins": 158,
+    "winrate": 51.1
    },
    "late": {
-    "games": 63,
-    "wins": 35,
-    "winrate": 55.6
+    "games": 68,
+    "wins": 38,
+    "winrate": 55.9
    }
   },
   {
    "alias": "Briar",
    "early": {
-    "games": 79,
-    "wins": 40,
-    "winrate": 50.6
+    "games": 84,
+    "wins": 44,
+    "winrate": 52.4
    },
    "mid": {
-    "games": 467,
-    "wins": 232,
-    "winrate": 49.7
+    "games": 489,
+    "wins": 239,
+    "winrate": 48.9
    },
    "late": {
-    "games": 128,
-    "wins": 69,
-    "winrate": 53.9
+    "games": 137,
+    "wins": 73,
+    "winrate": 53.3
    }
   },
   {
    "alias": "Caitlyn",
    "early": {
-    "games": 133,
-    "wins": 67,
-    "winrate": 50.4
+    "games": 146,
+    "wins": 72,
+    "winrate": 49.3
    },
    "mid": {
-    "games": 840,
-    "wins": 408,
-    "winrate": 48.6
+    "games": 908,
+    "wins": 447,
+    "winrate": 49.2
    },
    "late": {
-    "games": 264,
-    "wins": 140,
-    "winrate": 53.0
+    "games": 282,
+    "wins": 152,
+    "winrate": 53.9
    }
   },
   {
    "alias": "Camille",
    "early": {
-    "games": 156,
-    "wins": 86,
-    "winrate": 55.1
+    "games": 177,
+    "wins": 97,
+    "winrate": 54.8
    },
    "mid": {
-    "games": 834,
-    "wins": 408,
-    "winrate": 48.9
+    "games": 898,
+    "wins": 437,
+    "winrate": 48.7
    },
    "late": {
-    "games": 187,
-    "wins": 92,
-    "winrate": 49.2
+    "games": 203,
+    "wins": 97,
+    "winrate": 47.8
    }
   },
   {
    "alias": "Cassiopeia",
    "early": {
-    "games": 80,
-    "wins": 43,
-    "winrate": 53.8
+    "games": 89,
+    "wins": 50,
+    "winrate": 56.2
    },
    "mid": {
-    "games": 354,
-    "wins": 181,
-    "winrate": 51.1
+    "games": 399,
+    "wins": 208,
+    "winrate": 52.1
    },
    "late": {
-    "games": 67,
-    "wins": 32,
-    "winrate": 47.8
+    "games": 73,
+    "wins": 34,
+    "winrate": 46.6
    }
   },
   {
    "alias": "Chogath",
    "early": {
-    "games": 49,
-    "wins": 24,
-    "winrate": 49.0
+    "games": 54,
+    "wins": 25,
+    "winrate": 46.3
    },
    "mid": {
-    "games": 327,
-    "wins": 163,
-    "winrate": 49.8
+    "games": 346,
+    "wins": 171,
+    "winrate": 49.4
    },
    "late": {
-    "games": 103,
-    "wins": 60,
-    "winrate": 58.3
+    "games": 108,
+    "wins": 61,
+    "winrate": 56.5
    }
   },
   {
    "alias": "Corki",
    "early": {
-    "games": 35,
-    "wins": 20,
-    "winrate": 57.1
+    "games": 44,
+    "wins": 23,
+    "winrate": 52.3
    },
    "mid": {
-    "games": 199,
-    "wins": 99,
-    "winrate": 49.7
+    "games": 233,
+    "wins": 110,
+    "winrate": 47.2
    },
    "late": {
-    "games": 27,
-    "wins": 8,
-    "winrate": 29.6
+    "games": 34,
+    "wins": 12,
+    "winrate": 35.3
    }
   },
   {
    "alias": "Darius",
    "early": {
-    "games": 90,
-    "wins": 45,
-    "winrate": 50.0
+    "games": 95,
+    "wins": 48,
+    "winrate": 50.5
    },
    "mid": {
-    "games": 598,
-    "wins": 290,
-    "winrate": 48.5
+    "games": 639,
+    "wins": 307,
+    "winrate": 48.0
    },
    "late": {
-    "games": 145,
-    "wins": 76,
-    "winrate": 52.4
+    "games": 154,
+    "wins": 78,
+    "winrate": 50.6
    }
   },
   {
    "alias": "Diana",
    "early": {
-    "games": 86,
-    "wins": 43,
-    "winrate": 50.0
+    "games": 93,
+    "wins": 46,
+    "winrate": 49.5
    },
    "mid": {
-    "games": 502,
-    "wins": 234,
-    "winrate": 46.6
+    "games": 527,
+    "wins": 248,
+    "winrate": 47.1
    },
    "late": {
-    "games": 109,
-    "wins": 55,
-    "winrate": 50.5
+    "games": 116,
+    "wins": 58,
+    "winrate": 50.0
    }
   },
   {
    "alias": "DrMundo",
    "early": {
-    "games": 93,
-    "wins": 44,
-    "winrate": 47.3
+    "games": 98,
+    "wins": 47,
+    "winrate": 48.0
    },
    "mid": {
-    "games": 545,
-    "wins": 277,
-    "winrate": 50.8
+    "games": 580,
+    "wins": 298,
+    "winrate": 51.4
    },
    "late": {
-    "games": 144,
-    "wins": 69,
-    "winrate": 47.9
+    "games": 152,
+    "wins": 76,
+    "winrate": 50.0
    }
   },
   {
    "alias": "Draven",
    "early": {
-    "games": 39,
+    "games": 46,
     "wins": 22,
-    "winrate": 56.4
+    "winrate": 47.8
    },
    "mid": {
-    "games": 213,
-    "wins": 97,
-    "winrate": 45.5
+    "games": 232,
+    "wins": 106,
+    "winrate": 45.7
    },
    "late": {
-    "games": 41,
-    "wins": 20,
+    "games": 43,
+    "wins": 21,
     "winrate": 48.8
    }
   },
   {
    "alias": "Ekko",
    "early": {
-    "games": 82,
-    "wins": 41,
-    "winrate": 50.0
+    "games": 94,
+    "wins": 49,
+    "winrate": 52.1
    },
    "mid": {
-    "games": 463,
-    "wins": 209,
-    "winrate": 45.1
+    "games": 510,
+    "wins": 234,
+    "winrate": 45.9
    },
    "late": {
-    "games": 141,
-    "wins": 73,
-    "winrate": 51.8
+    "games": 150,
+    "wins": 77,
+    "winrate": 51.3
    }
   },
   {
    "alias": "Elise",
    "early": {
-    "games": 30,
+    "games": 34,
     "wins": 12,
-    "winrate": 40.0
+    "winrate": 35.3
    },
    "mid": {
-    "games": 233,
-    "wins": 119,
-    "winrate": 51.1
+    "games": 249,
+    "wins": 129,
+    "winrate": 51.8
    },
    "late": {
-    "games": 46,
-    "wins": 17,
-    "winrate": 37.0
+    "games": 49,
+    "wins": 20,
+    "winrate": 40.8
    }
   },
   {
    "alias": "Evelynn",
    "early": {
-    "games": 14,
-    "wins": 8,
-    "winrate": 57.1
+    "games": 16,
+    "wins": 9,
+    "winrate": 56.2
    },
    "mid": {
-    "games": 170,
-    "wins": 74,
-    "winrate": 43.5
+    "games": 186,
+    "wins": 82,
+    "winrate": 44.1
    },
    "late": {
-    "games": 44,
-    "wins": 20,
-    "winrate": 45.5
+    "games": 48,
+    "wins": 21,
+    "winrate": 43.8
    }
   },
   {
    "alias": "Ezreal",
    "early": {
-    "games": 179,
-    "wins": 79,
-    "winrate": 44.1
+    "games": 202,
+    "wins": 87,
+    "winrate": 43.1
    },
    "mid": {
-    "games": 1010,
-    "wins": 451,
-    "winrate": 44.7
+    "games": 1096,
+    "wins": 493,
+    "winrate": 45.0
    },
    "late": {
-    "games": 229,
-    "wins": 119,
-    "winrate": 52.0
+    "games": 248,
+    "wins": 128,
+    "winrate": 51.6
    }
   },
   {
    "alias": "FiddleSticks",
    "early": {
-    "games": 40,
-    "wins": 18,
-    "winrate": 45.0
+    "games": 47,
+    "wins": 20,
+    "winrate": 42.6
    },
    "mid": {
-    "games": 263,
-    "wins": 128,
-    "winrate": 48.7
+    "games": 290,
+    "wins": 142,
+    "winrate": 49.0
    },
    "late": {
-    "games": 70,
-    "wins": 39,
-    "winrate": 55.7
+    "games": 73,
+    "wins": 41,
+    "winrate": 56.2
    }
   },
   {
    "alias": "Fiora",
    "early": {
-    "games": 56,
-    "wins": 24,
-    "winrate": 42.9
-   },
-   "mid": {
-    "games": 286,
-    "wins": 146,
-    "winrate": 51.0
-   },
-   "late": {
-    "games": 56,
-    "wins": 31,
-    "winrate": 55.4
-   }
-  },
-  {
-   "alias": "Fizz",
-   "early": {
-    "games": 60,
-    "wins": 26,
-    "winrate": 43.3
-   },
-   "mid": {
-    "games": 349,
-    "wins": 199,
-    "winrate": 57.0
-   },
-   "late": {
-    "games": 85,
-    "wins": 45,
-    "winrate": 52.9
-   }
-  },
-  {
-   "alias": "Galio",
-   "early": {
-    "games": 95,
-    "wins": 44,
-    "winrate": 46.3
-   },
-   "mid": {
-    "games": 603,
-    "wins": 305,
-    "winrate": 50.6
-   },
-   "late": {
-    "games": 127,
-    "wins": 62,
-    "winrate": 48.8
-   }
-  },
-  {
-   "alias": "Gangplank",
-   "early": {
-    "games": 71,
-    "wins": 40,
-    "winrate": 56.3
-   },
-   "mid": {
-    "games": 400,
-    "wins": 194,
-    "winrate": 48.5
-   },
-   "late": {
-    "games": 98,
-    "wins": 48,
-    "winrate": 49.0
-   }
-  },
-  {
-   "alias": "Garen",
-   "early": {
-    "games": 103,
-    "wins": 50,
-    "winrate": 48.5
-   },
-   "mid": {
-    "games": 587,
-    "wins": 292,
-    "winrate": 49.7
-   },
-   "late": {
-    "games": 152,
-    "wins": 74,
-    "winrate": 48.7
-   }
-  },
-  {
-   "alias": "Gnar",
-   "early": {
-    "games": 75,
-    "wins": 43,
-    "winrate": 57.3
-   },
-   "mid": {
-    "games": 269,
-    "wins": 127,
-    "winrate": 47.2
-   },
-   "late": {
-    "games": 76,
-    "wins": 35,
-    "winrate": 46.1
-   }
-  },
-  {
-   "alias": "Gragas",
-   "early": {
-    "games": 26,
-    "wins": 14,
-    "winrate": 53.8
-   },
-   "mid": {
-    "games": 213,
-    "wins": 102,
-    "winrate": 47.9
-   },
-   "late": {
-    "games": 55,
-    "wins": 29,
-    "winrate": 52.7
-   }
-  },
-  {
-   "alias": "Graves",
-   "early": {
-    "games": 138,
-    "wins": 61,
-    "winrate": 44.2
-   },
-   "mid": {
-    "games": 750,
-    "wins": 373,
-    "winrate": 49.7
-   },
-   "late": {
-    "games": 178,
-    "wins": 94,
-    "winrate": 52.8
-   }
-  },
-  {
-   "alias": "Gwen",
-   "early": {
-    "games": 40,
-    "wins": 17,
-    "winrate": 42.5
-   },
-   "mid": {
-    "games": 260,
-    "wins": 130,
-    "winrate": 50.0
-   },
-   "late": {
-    "games": 72,
-    "wins": 40,
-    "winrate": 55.6
-   }
-  },
-  {
-   "alias": "Hecarim",
-   "early": {
     "games": 59,
-    "wins": 36,
-    "winrate": 61.0
-   },
-   "mid": {
-    "games": 334,
-    "wins": 161,
-    "winrate": 48.2
-   },
-   "late": {
-    "games": 56,
-    "wins": 29,
-    "winrate": 51.8
-   }
-  },
-  {
-   "alias": "Heimerdinger",
-   "early": {
-    "games": 38,
     "wins": 24,
-    "winrate": 63.2
+    "winrate": 40.7
    },
    "mid": {
-    "games": 212,
-    "wins": 101,
-    "winrate": 47.6
-   },
-   "late": {
-    "games": 76,
-    "wins": 44,
-    "winrate": 57.9
-   }
-  },
-  {
-   "alias": "Hwei",
-   "early": {
-    "games": 93,
-    "wins": 43,
-    "winrate": 46.2
-   },
-   "mid": {
-    "games": 537,
-    "wins": 276,
-    "winrate": 51.4
-   },
-   "late": {
-    "games": 151,
-    "wins": 62,
-    "winrate": 41.1
-   }
-  },
-  {
-   "alias": "Illaoi",
-   "early": {
-    "games": 50,
-    "wins": 30,
-    "winrate": 60.0
-   },
-   "mid": {
-    "games": 257,
-    "wins": 145,
-    "winrate": 56.4
-   },
-   "late": {
-    "games": 78,
-    "wins": 36,
-    "winrate": 46.2
-   }
-  },
-  {
-   "alias": "Irelia",
-   "early": {
-    "games": 103,
-    "wins": 52,
-    "winrate": 50.5
-   },
-   "mid": {
-    "games": 443,
-    "wins": 224,
-    "winrate": 50.6
-   },
-   "late": {
-    "games": 126,
-    "wins": 49,
-    "winrate": 38.9
-   }
-  },
-  {
-   "alias": "Ivern",
-   "early": {
-    "games": 14,
-    "wins": 9,
-    "winrate": 64.3
-   },
-   "mid": {
-    "games": 108,
-    "wins": 53,
-    "winrate": 49.1
-   },
-   "late": {
-    "games": 16,
-    "wins": 10,
-    "winrate": 62.5
-   }
-  },
-  {
-   "alias": "Janna",
-   "early": {
-    "games": 25,
-    "wins": 12,
-    "winrate": 48.0
-   },
-   "mid": {
-    "games": 177,
-    "wins": 87,
-    "winrate": 49.2
-   },
-   "late": {
-    "games": 53,
-    "wins": 31,
-    "winrate": 58.5
-   }
-  },
-  {
-   "alias": "JarvanIV",
-   "early": {
-    "games": 110,
-    "wins": 50,
-    "winrate": 45.5
-   },
-   "mid": {
-    "games": 533,
-    "wins": 257,
-    "winrate": 48.2
-   },
-   "late": {
-    "games": 112,
-    "wins": 50,
-    "winrate": 44.6
-   }
-  },
-  {
-   "alias": "Jax",
-   "early": {
-    "games": 109,
-    "wins": 49,
-    "winrate": 45.0
-   },
-   "mid": {
-    "games": 584,
-    "wins": 285,
-    "winrate": 48.8
-   },
-   "late": {
-    "games": 130,
-    "wins": 71,
-    "winrate": 54.6
-   }
-  },
-  {
-   "alias": "Jayce",
-   "early": {
-    "games": 111,
-    "wins": 52,
-    "winrate": 46.8
-   },
-   "mid": {
-    "games": 705,
-    "wins": 336,
-    "winrate": 47.7
-   },
-   "late": {
-    "games": 147,
-    "wins": 68,
-    "winrate": 46.3
-   }
-  },
-  {
-   "alias": "Jhin",
-   "early": {
-    "games": 181,
-    "wins": 94,
-    "winrate": 51.9
-   },
-   "mid": {
-    "games": 1026,
-    "wins": 500,
-    "winrate": 48.7
-   },
-   "late": {
-    "games": 281,
-    "wins": 132,
-    "winrate": 47.0
-   }
-  },
-  {
-   "alias": "Jinx",
-   "early": {
-    "games": 100,
-    "wins": 38,
-    "winrate": 38.0
-   },
-   "mid": {
-    "games": 562,
-    "wins": 286,
-    "winrate": 50.9
-   },
-   "late": {
-    "games": 140,
-    "wins": 70,
+    "games": 314,
+    "wins": 157,
     "winrate": 50.0
-   }
-  },
-  {
-   "alias": "KSante",
-   "early": {
-    "games": 78,
-    "wins": 38,
-    "winrate": 48.7
-   },
-   "mid": {
-    "games": 371,
-    "wins": 168,
-    "winrate": 45.3
-   },
-   "late": {
-    "games": 91,
-    "wins": 41,
-    "winrate": 45.1
-   }
-  },
-  {
-   "alias": "Kaisa",
-   "early": {
-    "games": 219,
-    "wins": 119,
-    "winrate": 54.3
-   },
-   "mid": {
-    "games": 1217,
-    "wins": 587,
-    "winrate": 48.2
-   },
-   "late": {
-    "games": 259,
-    "wins": 124,
-    "winrate": 47.9
-   }
-  },
-  {
-   "alias": "Kalista",
-   "early": {
-    "games": 25,
-    "wins": 14,
-    "winrate": 56.0
-   },
-   "mid": {
-    "games": 110,
-    "wins": 59,
-    "winrate": 53.6
-   },
-   "late": {
-    "games": 21,
-    "wins": 10,
-    "winrate": 47.6
-   }
-  },
-  {
-   "alias": "Karma",
-   "early": {
-    "games": 59,
-    "wins": 26,
-    "winrate": 44.1
-   },
-   "mid": {
-    "games": 367,
-    "wins": 174,
-    "winrate": 47.4
    },
    "late": {
     "games": 61,
@@ -1079,21 +647,453 @@
    }
   },
   {
-   "alias": "Karthus",
+   "alias": "Fizz",
    "early": {
-    "games": 40,
-    "wins": 18,
-    "winrate": 45.0
+    "games": 65,
+    "wins": 30,
+    "winrate": 46.2
    },
    "mid": {
-    "games": 229,
-    "wins": 124,
-    "winrate": 54.1
+    "games": 374,
+    "wins": 211,
+    "winrate": 56.4
    },
    "late": {
-    "games": 67,
-    "wins": 30,
-    "winrate": 44.8
+    "games": 94,
+    "wins": 50,
+    "winrate": 53.2
+   }
+  },
+  {
+   "alias": "Galio",
+   "early": {
+    "games": 107,
+    "wins": 50,
+    "winrate": 46.7
+   },
+   "mid": {
+    "games": 645,
+    "wins": 327,
+    "winrate": 50.7
+   },
+   "late": {
+    "games": 133,
+    "wins": 66,
+    "winrate": 49.6
+   }
+  },
+  {
+   "alias": "Gangplank",
+   "early": {
+    "games": 76,
+    "wins": 40,
+    "winrate": 52.6
+   },
+   "mid": {
+    "games": 421,
+    "wins": 202,
+    "winrate": 48.0
+   },
+   "late": {
+    "games": 101,
+    "wins": 48,
+    "winrate": 47.5
+   }
+  },
+  {
+   "alias": "Garen",
+   "early": {
+    "games": 108,
+    "wins": 52,
+    "winrate": 48.1
+   },
+   "mid": {
+    "games": 620,
+    "wins": 306,
+    "winrate": 49.4
+   },
+   "late": {
+    "games": 162,
+    "wins": 81,
+    "winrate": 50.0
+   }
+  },
+  {
+   "alias": "Gnar",
+   "early": {
+    "games": 87,
+    "wins": 48,
+    "winrate": 55.2
+   },
+   "mid": {
+    "games": 293,
+    "wins": 140,
+    "winrate": 47.8
+   },
+   "late": {
+    "games": 81,
+    "wins": 37,
+    "winrate": 45.7
+   }
+  },
+  {
+   "alias": "Gragas",
+   "early": {
+    "games": 29,
+    "wins": 16,
+    "winrate": 55.2
+   },
+   "mid": {
+    "games": 234,
+    "wins": 115,
+    "winrate": 49.1
+   },
+   "late": {
+    "games": 57,
+    "wins": 31,
+    "winrate": 54.4
+   }
+  },
+  {
+   "alias": "Graves",
+   "early": {
+    "games": 158,
+    "wins": 70,
+    "winrate": 44.3
+   },
+   "mid": {
+    "games": 828,
+    "wins": 417,
+    "winrate": 50.4
+   },
+   "late": {
+    "games": 191,
+    "wins": 99,
+    "winrate": 51.8
+   }
+  },
+  {
+   "alias": "Gwen",
+   "early": {
+    "games": 41,
+    "wins": 18,
+    "winrate": 43.9
+   },
+   "mid": {
+    "games": 281,
+    "wins": 141,
+    "winrate": 50.2
+   },
+   "late": {
+    "games": 77,
+    "wins": 42,
+    "winrate": 54.5
+   }
+  },
+  {
+   "alias": "Hecarim",
+   "early": {
+    "games": 69,
+    "wins": 41,
+    "winrate": 59.4
+   },
+   "mid": {
+    "games": 371,
+    "wins": 181,
+    "winrate": 48.8
+   },
+   "late": {
+    "games": 61,
+    "wins": 32,
+    "winrate": 52.5
+   }
+  },
+  {
+   "alias": "Heimerdinger",
+   "early": {
+    "games": 42,
+    "wins": 27,
+    "winrate": 64.3
+   },
+   "mid": {
+    "games": 230,
+    "wins": 111,
+    "winrate": 48.3
+   },
+   "late": {
+    "games": 81,
+    "wins": 46,
+    "winrate": 56.8
+   }
+  },
+  {
+   "alias": "Hwei",
+   "early": {
+    "games": 99,
+    "wins": 46,
+    "winrate": 46.5
+   },
+   "mid": {
+    "games": 579,
+    "wins": 298,
+    "winrate": 51.5
+   },
+   "late": {
+    "games": 155,
+    "wins": 64,
+    "winrate": 41.3
+   }
+  },
+  {
+   "alias": "Illaoi",
+   "early": {
+    "games": 51,
+    "wins": 31,
+    "winrate": 60.8
+   },
+   "mid": {
+    "games": 277,
+    "wins": 153,
+    "winrate": 55.2
+   },
+   "late": {
+    "games": 84,
+    "wins": 40,
+    "winrate": 47.6
+   }
+  },
+  {
+   "alias": "Irelia",
+   "early": {
+    "games": 106,
+    "wins": 54,
+    "winrate": 50.9
+   },
+   "mid": {
+    "games": 462,
+    "wins": 233,
+    "winrate": 50.4
+   },
+   "late": {
+    "games": 130,
+    "wins": 50,
+    "winrate": 38.5
+   }
+  },
+  {
+   "alias": "Ivern",
+   "early": {
+    "games": 16,
+    "wins": 9,
+    "winrate": 56.2
+   },
+   "mid": {
+    "games": 120,
+    "wins": 57,
+    "winrate": 47.5
+   },
+   "late": {
+    "games": 19,
+    "wins": 11,
+    "winrate": 57.9
+   }
+  },
+  {
+   "alias": "Janna",
+   "early": {
+    "games": 34,
+    "wins": 16,
+    "winrate": 47.1
+   },
+   "mid": {
+    "games": 206,
+    "wins": 102,
+    "winrate": 49.5
+   },
+   "late": {
+    "games": 59,
+    "wins": 35,
+    "winrate": 59.3
+   }
+  },
+  {
+   "alias": "JarvanIV",
+   "early": {
+    "games": 122,
+    "wins": 58,
+    "winrate": 47.5
+   },
+   "mid": {
+    "games": 572,
+    "wins": 274,
+    "winrate": 47.9
+   },
+   "late": {
+    "games": 121,
+    "wins": 57,
+    "winrate": 47.1
+   }
+  },
+  {
+   "alias": "Jax",
+   "early": {
+    "games": 119,
+    "wins": 55,
+    "winrate": 46.2
+   },
+   "mid": {
+    "games": 619,
+    "wins": 301,
+    "winrate": 48.6
+   },
+   "late": {
+    "games": 136,
+    "wins": 75,
+    "winrate": 55.1
+   }
+  },
+  {
+   "alias": "Jayce",
+   "early": {
+    "games": 139,
+    "wins": 69,
+    "winrate": 49.6
+   },
+   "mid": {
+    "games": 777,
+    "wins": 365,
+    "winrate": 47.0
+   },
+   "late": {
+    "games": 160,
+    "wins": 76,
+    "winrate": 47.5
+   }
+  },
+  {
+   "alias": "Jhin",
+   "early": {
+    "games": 203,
+    "wins": 108,
+    "winrate": 53.2
+   },
+   "mid": {
+    "games": 1117,
+    "wins": 554,
+    "winrate": 49.6
+   },
+   "late": {
+    "games": 293,
+    "wins": 137,
+    "winrate": 46.8
+   }
+  },
+  {
+   "alias": "Jinx",
+   "early": {
+    "games": 109,
+    "wins": 43,
+    "winrate": 39.4
+   },
+   "mid": {
+    "games": 618,
+    "wins": 318,
+    "winrate": 51.5
+   },
+   "late": {
+    "games": 147,
+    "wins": 75,
+    "winrate": 51.0
+   }
+  },
+  {
+   "alias": "KSante",
+   "early": {
+    "games": 92,
+    "wins": 44,
+    "winrate": 47.8
+   },
+   "mid": {
+    "games": 415,
+    "wins": 188,
+    "winrate": 45.3
+   },
+   "late": {
+    "games": 98,
+    "wins": 45,
+    "winrate": 45.9
+   }
+  },
+  {
+   "alias": "Kaisa",
+   "early": {
+    "games": 246,
+    "wins": 132,
+    "winrate": 53.7
+   },
+   "mid": {
+    "games": 1340,
+    "wins": 640,
+    "winrate": 47.8
+   },
+   "late": {
+    "games": 286,
+    "wins": 133,
+    "winrate": 46.5
+   }
+  },
+  {
+   "alias": "Kalista",
+   "early": {
+    "games": 31,
+    "wins": 16,
+    "winrate": 51.6
+   },
+   "mid": {
+    "games": 125,
+    "wins": 69,
+    "winrate": 55.2
+   },
+   "late": {
+    "games": 23,
+    "wins": 10,
+    "winrate": 43.5
+   }
+  },
+  {
+   "alias": "Karma",
+   "early": {
+    "games": 70,
+    "wins": 32,
+    "winrate": 45.7
+   },
+   "mid": {
+    "games": 399,
+    "wins": 186,
+    "winrate": 46.6
+   },
+   "late": {
+    "games": 71,
+    "wins": 41,
+    "winrate": 57.7
+   }
+  },
+  {
+   "alias": "Karthus",
+   "early": {
+    "games": 41,
+    "wins": 18,
+    "winrate": 43.9
+   },
+   "mid": {
+    "games": 257,
+    "wins": 136,
+    "winrate": 52.9
+   },
+   "late": {
+    "games": 71,
+    "wins": 33,
+    "winrate": 46.5
    }
   },
   {
@@ -1104,688 +1104,364 @@
     "winrate": 41.2
    },
    "mid": {
-    "games": 177,
-    "wins": 93,
-    "winrate": 52.5
+    "games": 194,
+    "wins": 100,
+    "winrate": 51.5
    },
    "late": {
-    "games": 42,
-    "wins": 23,
-    "winrate": 54.8
+    "games": 44,
+    "wins": 25,
+    "winrate": 56.8
    }
   },
   {
    "alias": "Katarina",
    "early": {
-    "games": 96,
-    "wins": 52,
-    "winrate": 54.2
+    "games": 106,
+    "wins": 58,
+    "winrate": 54.7
    },
    "mid": {
-    "games": 505,
-    "wins": 250,
-    "winrate": 49.5
+    "games": 538,
+    "wins": 262,
+    "winrate": 48.7
    },
    "late": {
-    "games": 109,
-    "wins": 50,
-    "winrate": 45.9
+    "games": 116,
+    "wins": 52,
+    "winrate": 44.8
    }
   },
   {
    "alias": "Kayle",
    "early": {
-    "games": 20,
-    "wins": 11,
-    "winrate": 55.0
+    "games": 22,
+    "wins": 12,
+    "winrate": 54.5
    },
    "mid": {
-    "games": 166,
-    "wins": 95,
-    "winrate": 57.2
+    "games": 181,
+    "wins": 105,
+    "winrate": 58.0
    },
    "late": {
-    "games": 58,
-    "wins": 40,
-    "winrate": 69.0
+    "games": 60,
+    "wins": 41,
+    "winrate": 68.3
    }
   },
   {
    "alias": "Kayn",
    "early": {
-    "games": 91,
-    "wins": 47,
-    "winrate": 51.6
+    "games": 95,
+    "wins": 48,
+    "winrate": 50.5
    },
    "mid": {
-    "games": 514,
-    "wins": 272,
-    "winrate": 52.9
+    "games": 547,
+    "wins": 288,
+    "winrate": 52.7
    },
    "late": {
-    "games": 170,
-    "wins": 96,
-    "winrate": 56.5
+    "games": 179,
+    "wins": 102,
+    "winrate": 57.0
    }
   },
   {
    "alias": "Kennen",
    "early": {
-    "games": 15,
-    "wins": 11,
-    "winrate": 73.3
+    "games": 22,
+    "wins": 13,
+    "winrate": 59.1
    },
    "mid": {
-    "games": 116,
-    "wins": 55,
-    "winrate": 47.4
+    "games": 134,
+    "wins": 64,
+    "winrate": 47.8
    },
    "late": {
-    "games": 25,
-    "wins": 10,
+    "games": 30,
+    "wins": 12,
     "winrate": 40.0
    }
   },
   {
    "alias": "Khazix",
    "early": {
-    "games": 46,
-    "wins": 24,
-    "winrate": 52.2
+    "games": 54,
+    "wins": 26,
+    "winrate": 48.1
    },
    "mid": {
-    "games": 314,
-    "wins": 150,
-    "winrate": 47.8
+    "games": 342,
+    "wins": 163,
+    "winrate": 47.7
    },
    "late": {
-    "games": 77,
-    "wins": 35,
-    "winrate": 45.5
+    "games": 83,
+    "wins": 38,
+    "winrate": 45.8
    }
   },
   {
    "alias": "Kindred",
    "early": {
-    "games": 47,
-    "wins": 24,
-    "winrate": 51.1
+    "games": 49,
+    "wins": 25,
+    "winrate": 51.0
    },
    "mid": {
-    "games": 227,
-    "wins": 133,
-    "winrate": 58.6
+    "games": 242,
+    "wins": 142,
+    "winrate": 58.7
    },
    "late": {
-    "games": 49,
-    "wins": 18,
-    "winrate": 36.7
+    "games": 52,
+    "wins": 19,
+    "winrate": 36.5
    }
   },
   {
    "alias": "Kled",
    "early": {
-    "games": 37,
+    "games": 39,
     "wins": 20,
-    "winrate": 54.1
+    "winrate": 51.3
    },
    "mid": {
-    "games": 132,
-    "wins": 66,
+    "games": 146,
+    "wins": 73,
     "winrate": 50.0
    },
    "late": {
-    "games": 43,
-    "wins": 30,
-    "winrate": 69.8
+    "games": 47,
+    "wins": 31,
+    "winrate": 66.0
    }
   },
   {
    "alias": "KogMaw",
    "early": {
-    "games": 16,
-    "wins": 8,
-    "winrate": 50.0
+    "games": 21,
+    "wins": 12,
+    "winrate": 57.1
    },
    "mid": {
-    "games": 145,
-    "wins": 72,
-    "winrate": 49.7
+    "games": 157,
+    "wins": 77,
+    "winrate": 49.0
    },
    "late": {
-    "games": 47,
-    "wins": 22,
-    "winrate": 46.8
+    "games": 50,
+    "wins": 23,
+    "winrate": 46.0
    }
   },
   {
    "alias": "Leblanc",
    "early": {
-    "games": 54,
-    "wins": 35,
-    "winrate": 64.8
+    "games": 61,
+    "wins": 38,
+    "winrate": 62.3
    },
    "mid": {
-    "games": 327,
-    "wins": 156,
-    "winrate": 47.7
+    "games": 353,
+    "wins": 167,
+    "winrate": 47.3
    },
    "late": {
-    "games": 89,
-    "wins": 38,
-    "winrate": 42.7
+    "games": 92,
+    "wins": 39,
+    "winrate": 42.4
    }
   },
   {
    "alias": "LeeSin",
    "early": {
-    "games": 182,
-    "wins": 92,
-    "winrate": 50.5
+    "games": 209,
+    "wins": 109,
+    "winrate": 52.2
    },
    "mid": {
-    "games": 990,
-    "wins": 472,
-    "winrate": 47.7
+    "games": 1096,
+    "wins": 525,
+    "winrate": 47.9
    },
    "late": {
-    "games": 178,
-    "wins": 78,
-    "winrate": 43.8
+    "games": 190,
+    "wins": 85,
+    "winrate": 44.7
    }
   },
   {
    "alias": "Leona",
    "early": {
-    "games": 149,
-    "wins": 77,
-    "winrate": 51.7
+    "games": 170,
+    "wins": 86,
+    "winrate": 50.6
    },
    "mid": {
-    "games": 799,
-    "wins": 417,
-    "winrate": 52.2
+    "games": 866,
+    "wins": 451,
+    "winrate": 52.1
    },
    "late": {
-    "games": 221,
-    "wins": 102,
-    "winrate": 46.2
+    "games": 234,
+    "wins": 107,
+    "winrate": 45.7
    }
   },
   {
    "alias": "Lillia",
    "early": {
-    "games": 48,
-    "wins": 18,
-    "winrate": 37.5
+    "games": 52,
+    "wins": 21,
+    "winrate": 40.4
    },
    "mid": {
-    "games": 265,
-    "wins": 143,
-    "winrate": 54.0
+    "games": 281,
+    "wins": 147,
+    "winrate": 52.3
    },
    "late": {
-    "games": 76,
-    "wins": 37,
-    "winrate": 48.7
+    "games": 80,
+    "wins": 39,
+    "winrate": 48.8
    }
   },
   {
    "alias": "Lissandra",
    "early": {
-    "games": 43,
-    "wins": 26,
-    "winrate": 60.5
+    "games": 50,
+    "wins": 33,
+    "winrate": 66.0
    },
    "mid": {
-    "games": 285,
-    "wins": 144,
-    "winrate": 50.5
+    "games": 314,
+    "wins": 157,
+    "winrate": 50.0
    },
    "late": {
-    "games": 57,
-    "wins": 28,
-    "winrate": 49.1
+    "games": 61,
+    "wins": 32,
+    "winrate": 52.5
    }
   },
   {
    "alias": "Locke",
    "early": {
-    "games": 153,
-    "wins": 84,
-    "winrate": 54.9
+    "games": 175,
+    "wins": 98,
+    "winrate": 56.0
    },
    "mid": {
-    "games": 675,
-    "wins": 310,
-    "winrate": 45.9
+    "games": 742,
+    "wins": 339,
+    "winrate": 45.7
    },
    "late": {
-    "games": 165,
-    "wins": 72,
-    "winrate": 43.6
+    "games": 176,
+    "wins": 76,
+    "winrate": 43.2
    }
   },
   {
    "alias": "Lucian",
    "early": {
-    "games": 90,
-    "wins": 46,
-    "winrate": 51.1
+    "games": 104,
+    "wins": 52,
+    "winrate": 50.0
    },
    "mid": {
-    "games": 458,
-    "wins": 211,
-    "winrate": 46.1
+    "games": 520,
+    "wins": 241,
+    "winrate": 46.3
    },
    "late": {
-    "games": 114,
-    "wins": 51,
-    "winrate": 44.7
+    "games": 120,
+    "wins": 55,
+    "winrate": 45.8
    }
   },
   {
    "alias": "Lulu",
    "early": {
-    "games": 60,
-    "wins": 22,
-    "winrate": 36.7
+    "games": 66,
+    "wins": 26,
+    "winrate": 39.4
    },
    "mid": {
-    "games": 344,
-    "wins": 173,
-    "winrate": 50.3
+    "games": 398,
+    "wins": 203,
+    "winrate": 51.0
    },
    "late": {
-    "games": 69,
-    "wins": 40,
-    "winrate": 58.0
+    "games": 74,
+    "wins": 44,
+    "winrate": 59.5
    }
   },
   {
    "alias": "Lux",
    "early": {
-    "games": 144,
-    "wins": 74,
-    "winrate": 51.4
+    "games": 150,
+    "wins": 79,
+    "winrate": 52.7
    },
    "mid": {
-    "games": 747,
-    "wins": 381,
-    "winrate": 51.0
+    "games": 791,
+    "wins": 406,
+    "winrate": 51.3
    },
    "late": {
-    "games": 261,
-    "wins": 117,
-    "winrate": 44.8
+    "games": 276,
+    "wins": 125,
+    "winrate": 45.3
    }
   },
   {
    "alias": "Malphite",
    "early": {
-    "games": 91,
-    "wins": 50,
-    "winrate": 54.9
+    "games": 99,
+    "wins": 54,
+    "winrate": 54.5
    },
    "mid": {
-    "games": 702,
-    "wins": 334,
-    "winrate": 47.6
+    "games": 742,
+    "wins": 356,
+    "winrate": 48.0
    },
    "late": {
-    "games": 180,
-    "wins": 90,
-    "winrate": 50.0
+    "games": 191,
+    "wins": 99,
+    "winrate": 51.8
    }
   },
   {
    "alias": "Malzahar",
    "early": {
-    "games": 68,
-    "wins": 33,
-    "winrate": 48.5
+    "games": 73,
+    "wins": 35,
+    "winrate": 47.9
    },
    "mid": {
-    "games": 532,
-    "wins": 274,
-    "winrate": 51.5
+    "games": 567,
+    "wins": 293,
+    "winrate": 51.7
    },
    "late": {
-    "games": 156,
-    "wins": 81,
-    "winrate": 51.9
+    "games": 167,
+    "wins": 89,
+    "winrate": 53.3
    }
   },
   {
    "alias": "Maokai",
    "early": {
-    "games": 39,
-    "wins": 24,
-    "winrate": 61.5
-   },
-   "mid": {
-    "games": 265,
-    "wins": 137,
-    "winrate": 51.7
-   },
-   "late": {
-    "games": 58,
-    "wins": 34,
-    "winrate": 58.6
-   }
-  },
-  {
-   "alias": "MasterYi",
-   "early": {
-    "games": 68,
-    "wins": 29,
-    "winrate": 42.6
-   },
-   "mid": {
-    "games": 497,
-    "wins": 244,
-    "winrate": 49.1
-   },
-   "late": {
-    "games": 134,
-    "wins": 71,
-    "winrate": 53.0
-   }
-  },
-  {
-   "alias": "Mel",
-   "early": {
-    "games": 121,
-    "wins": 64,
-    "winrate": 52.9
-   },
-   "mid": {
-    "games": 618,
-    "wins": 275,
-    "winrate": 44.5
-   },
-   "late": {
-    "games": 220,
-    "wins": 97,
-    "winrate": 44.1
-   }
-  },
-  {
-   "alias": "Milio",
-   "early": {
-    "games": 35,
-    "wins": 14,
-    "winrate": 40.0
-   },
-   "mid": {
-    "games": 229,
-    "wins": 108,
-    "winrate": 47.2
-   },
-   "late": {
-    "games": 51,
-    "wins": 23,
-    "winrate": 45.1
-   }
-  },
-  {
-   "alias": "MissFortune",
-   "early": {
-    "games": 143,
-    "wins": 61,
-    "winrate": 42.7
-   },
-   "mid": {
-    "games": 784,
-    "wins": 401,
-    "winrate": 51.1
-   },
-   "late": {
-    "games": 241,
-    "wins": 116,
-    "winrate": 48.1
-   }
-  },
-  {
-   "alias": "MonkeyKing",
-   "early": {
-    "games": 87,
-    "wins": 40,
-    "winrate": 46.0
-   },
-   "mid": {
-    "games": 450,
-    "wins": 247,
-    "winrate": 54.9
-   },
-   "late": {
-    "games": 117,
-    "wins": 58,
-    "winrate": 49.6
-   }
-  },
-  {
-   "alias": "Mordekaiser",
-   "early": {
-    "games": 126,
-    "wins": 56,
-    "winrate": 44.4
-   },
-   "mid": {
-    "games": 744,
-    "wins": 374,
-    "winrate": 50.3
-   },
-   "late": {
-    "games": 222,
-    "wins": 104,
-    "winrate": 46.8
-   }
-  },
-  {
-   "alias": "Morgana",
-   "early": {
-    "games": 80,
-    "wins": 43,
-    "winrate": 53.8
-   },
-   "mid": {
-    "games": 435,
-    "wins": 229,
-    "winrate": 52.6
-   },
-   "late": {
-    "games": 154,
-    "wins": 76,
-    "winrate": 49.4
-   }
-  },
-  {
-   "alias": "Naafiri",
-   "early": {
-    "games": 121,
-    "wins": 58,
-    "winrate": 47.9
-   },
-   "mid": {
-    "games": 627,
-    "wins": 281,
-    "winrate": 44.8
-   },
-   "late": {
-    "games": 167,
-    "wins": 99,
-    "winrate": 59.3
-   }
-  },
-  {
-   "alias": "Nami",
-   "early": {
-    "games": 51,
-    "wins": 20,
-    "winrate": 39.2
-   },
-   "mid": {
-    "games": 340,
-    "wins": 175,
-    "winrate": 51.5
-   },
-   "late": {
-    "games": 89,
-    "wins": 50,
-    "winrate": 56.2
-   }
-  },
-  {
-   "alias": "Nasus",
-   "early": {
-    "games": 96,
-    "wins": 50,
-    "winrate": 52.1
-   },
-   "mid": {
-    "games": 584,
-    "wins": 291,
-    "winrate": 49.8
-   },
-   "late": {
-    "games": 150,
-    "wins": 92,
-    "winrate": 61.3
-   }
-  },
-  {
-   "alias": "Nautilus",
-   "early": {
-    "games": 181,
-    "wins": 86,
-    "winrate": 47.5
-   },
-   "mid": {
-    "games": 1107,
-    "wins": 549,
-    "winrate": 49.6
-   },
-   "late": {
-    "games": 239,
-    "wins": 146,
-    "winrate": 61.1
-   }
-  },
-  {
-   "alias": "Neeko",
-   "early": {
-    "games": 22,
-    "wins": 11,
-    "winrate": 50.0
-   },
-   "mid": {
-    "games": 231,
-    "wins": 104,
-    "winrate": 45.0
-   },
-   "late": {
-    "games": 62,
-    "wins": 35,
-    "winrate": 56.5
-   }
-  },
-  {
-   "alias": "Nidalee",
-   "early": {
-    "games": 65,
-    "wins": 41,
-    "winrate": 63.1
-   },
-   "mid": {
-    "games": 238,
-    "wins": 120,
-    "winrate": 50.4
-   },
-   "late": {
-    "games": 50,
-    "wins": 21,
-    "winrate": 42.0
-   }
-  },
-  {
-   "alias": "Nilah",
-   "early": {
-    "games": 9,
-    "wins": 6,
-    "winrate": 66.7
-   },
-   "mid": {
-    "games": 56,
-    "wins": 33,
-    "winrate": 58.9
-   },
-   "late": {
-    "games": 11,
-    "wins": 5,
-    "winrate": 45.5
-   }
-  },
-  {
-   "alias": "Nocturne",
-   "early": {
-    "games": 103,
-    "wins": 66,
-    "winrate": 64.1
-   },
-   "mid": {
-    "games": 571,
-    "wins": 292,
-    "winrate": 51.1
-   },
-   "late": {
-    "games": 181,
-    "wins": 94,
-    "winrate": 51.9
-   }
-  },
-  {
-   "alias": "Nunu",
-   "early": {
-    "games": 37,
-    "wins": 20,
-    "winrate": 54.1
-   },
-   "mid": {
-    "games": 165,
-    "wins": 69,
-    "winrate": 41.8
-   },
-   "late": {
-    "games": 47,
-    "wins": 23,
-    "winrate": 48.9
-   }
-  },
-  {
-   "alias": "Olaf",
-   "early": {
-    "games": 86,
-    "wins": 40,
-    "winrate": 46.5
-   },
-   "mid": {
-    "games": 384,
-    "wins": 195,
-    "winrate": 50.8
-   },
-   "late": {
-    "games": 73,
-    "wins": 34,
-    "winrate": 46.6
-   }
-  },
-  {
-   "alias": "Orianna",
-   "early": {
-    "games": 52,
-    "wins": 22,
-    "winrate": 42.3
+    "games": 45,
+    "wins": 27,
+    "winrate": 60.0
    },
    "mid": {
     "games": 285,
@@ -1793,1066 +1469,976 @@
     "winrate": 51.6
    },
    "late": {
-    "games": 68,
-    "wins": 37,
-    "winrate": 54.4
+    "games": 60,
+    "wins": 36,
+    "winrate": 60.0
+   }
+  },
+  {
+   "alias": "MasterYi",
+   "early": {
+    "games": 72,
+    "wins": 31,
+    "winrate": 43.1
+   },
+   "mid": {
+    "games": 522,
+    "wins": 252,
+    "winrate": 48.3
+   },
+   "late": {
+    "games": 139,
+    "wins": 76,
+    "winrate": 54.7
+   }
+  },
+  {
+   "alias": "Mel",
+   "early": {
+    "games": 127,
+    "wins": 67,
+    "winrate": 52.8
+   },
+   "mid": {
+    "games": 656,
+    "wins": 291,
+    "winrate": 44.4
+   },
+   "late": {
+    "games": 227,
+    "wins": 99,
+    "winrate": 43.6
+   }
+  },
+  {
+   "alias": "Milio",
+   "early": {
+    "games": 42,
+    "wins": 17,
+    "winrate": 40.5
+   },
+   "mid": {
+    "games": 255,
+    "wins": 123,
+    "winrate": 48.2
+   },
+   "late": {
+    "games": 57,
+    "wins": 26,
+    "winrate": 45.6
+   }
+  },
+  {
+   "alias": "MissFortune",
+   "early": {
+    "games": 151,
+    "wins": 63,
+    "winrate": 41.7
+   },
+   "mid": {
+    "games": 820,
+    "wins": 415,
+    "winrate": 50.6
+   },
+   "late": {
+    "games": 250,
+    "wins": 121,
+    "winrate": 48.4
+   }
+  },
+  {
+   "alias": "MonkeyKing",
+   "early": {
+    "games": 91,
+    "wins": 41,
+    "winrate": 45.1
+   },
+   "mid": {
+    "games": 492,
+    "wins": 269,
+    "winrate": 54.7
+   },
+   "late": {
+    "games": 123,
+    "wins": 61,
+    "winrate": 49.6
+   }
+  },
+  {
+   "alias": "Mordekaiser",
+   "early": {
+    "games": 131,
+    "wins": 56,
+    "winrate": 42.7
+   },
+   "mid": {
+    "games": 776,
+    "wins": 389,
+    "winrate": 50.1
+   },
+   "late": {
+    "games": 228,
+    "wins": 109,
+    "winrate": 47.8
+   }
+  },
+  {
+   "alias": "Morgana",
+   "early": {
+    "games": 83,
+    "wins": 45,
+    "winrate": 54.2
+   },
+   "mid": {
+    "games": 462,
+    "wins": 241,
+    "winrate": 52.2
+   },
+   "late": {
+    "games": 161,
+    "wins": 81,
+    "winrate": 50.3
+   }
+  },
+  {
+   "alias": "Naafiri",
+   "early": {
+    "games": 128,
+    "wins": 63,
+    "winrate": 49.2
+   },
+   "mid": {
+    "games": 671,
+    "wins": 306,
+    "winrate": 45.6
+   },
+   "late": {
+    "games": 172,
+    "wins": 102,
+    "winrate": 59.3
+   }
+  },
+  {
+   "alias": "Nami",
+   "early": {
+    "games": 58,
+    "wins": 23,
+    "winrate": 39.7
+   },
+   "mid": {
+    "games": 375,
+    "wins": 187,
+    "winrate": 49.9
+   },
+   "late": {
+    "games": 92,
+    "wins": 50,
+    "winrate": 54.3
+   }
+  },
+  {
+   "alias": "Nasus",
+   "early": {
+    "games": 110,
+    "wins": 55,
+    "winrate": 50.0
+   },
+   "mid": {
+    "games": 646,
+    "wins": 324,
+    "winrate": 50.2
+   },
+   "late": {
+    "games": 159,
+    "wins": 97,
+    "winrate": 61.0
+   }
+  },
+  {
+   "alias": "Nautilus",
+   "early": {
+    "games": 200,
+    "wins": 93,
+    "winrate": 46.5
+   },
+   "mid": {
+    "games": 1193,
+    "wins": 601,
+    "winrate": 50.4
+   },
+   "late": {
+    "games": 253,
+    "wins": 155,
+    "winrate": 61.3
+   }
+  },
+  {
+   "alias": "Neeko",
+   "early": {
+    "games": 27,
+    "wins": 15,
+    "winrate": 55.6
+   },
+   "mid": {
+    "games": 252,
+    "wins": 118,
+    "winrate": 46.8
+   },
+   "late": {
+    "games": 69,
+    "wins": 41,
+    "winrate": 59.4
+   }
+  },
+  {
+   "alias": "Nidalee",
+   "early": {
+    "games": 75,
+    "wins": 49,
+    "winrate": 65.3
+   },
+   "mid": {
+    "games": 275,
+    "wins": 140,
+    "winrate": 50.9
+   },
+   "late": {
+    "games": 53,
+    "wins": 22,
+    "winrate": 41.5
+   }
+  },
+  {
+   "alias": "Nilah",
+   "early": {
+    "games": 10,
+    "wins": 7,
+    "winrate": 70.0
+   },
+   "mid": {
+    "games": 64,
+    "wins": 38,
+    "winrate": 59.4
+   },
+   "late": {
+    "games": 12,
+    "wins": 5,
+    "winrate": 41.7
+   }
+  },
+  {
+   "alias": "Nocturne",
+   "early": {
+    "games": 110,
+    "wins": 69,
+    "winrate": 62.7
+   },
+   "mid": {
+    "games": 614,
+    "wins": 323,
+    "winrate": 52.6
+   },
+   "late": {
+    "games": 186,
+    "wins": 97,
+    "winrate": 52.2
+   }
+  },
+  {
+   "alias": "Nunu",
+   "early": {
+    "games": 40,
+    "wins": 23,
+    "winrate": 57.5
+   },
+   "mid": {
+    "games": 183,
+    "wins": 75,
+    "winrate": 41.0
+   },
+   "late": {
+    "games": 48,
+    "wins": 24,
+    "winrate": 50.0
+   }
+  },
+  {
+   "alias": "Olaf",
+   "early": {
+    "games": 100,
+    "wins": 48,
+    "winrate": 48.0
+   },
+   "mid": {
+    "games": 433,
+    "wins": 225,
+    "winrate": 52.0
+   },
+   "late": {
+    "games": 81,
+    "wins": 36,
+    "winrate": 44.4
+   }
+  },
+  {
+   "alias": "Orianna",
+   "early": {
+    "games": 61,
+    "wins": 27,
+    "winrate": 44.3
+   },
+   "mid": {
+    "games": 310,
+    "wins": 159,
+    "winrate": 51.3
+   },
+   "late": {
+    "games": 73,
+    "wins": 40,
+    "winrate": 54.8
    }
   },
   {
    "alias": "Ornn",
    "early": {
-    "games": 51,
-    "wins": 25,
-    "winrate": 49.0
+    "games": 53,
+    "wins": 26,
+    "winrate": 49.1
    },
    "mid": {
-    "games": 249,
-    "wins": 128,
-    "winrate": 51.4
+    "games": 270,
+    "wins": 141,
+    "winrate": 52.2
    },
    "late": {
-    "games": 79,
+    "games": 80,
     "wins": 52,
-    "winrate": 65.8
+    "winrate": 65.0
    }
   },
   {
    "alias": "Pantheon",
    "early": {
-    "games": 129,
-    "wins": 68,
-    "winrate": 52.7
+    "games": 145,
+    "wins": 75,
+    "winrate": 51.7
    },
    "mid": {
-    "games": 728,
-    "wins": 364,
-    "winrate": 50.0
+    "games": 796,
+    "wins": 395,
+    "winrate": 49.6
    },
    "late": {
-    "games": 185,
-    "wins": 89,
-    "winrate": 48.1
+    "games": 192,
+    "wins": 94,
+    "winrate": 49.0
    }
   },
   {
    "alias": "Poppy",
    "early": {
-    "games": 69,
-    "wins": 41,
-    "winrate": 59.4
+    "games": 76,
+    "wins": 42,
+    "winrate": 55.3
    },
    "mid": {
-    "games": 410,
-    "wins": 206,
-    "winrate": 50.2
+    "games": 438,
+    "wins": 222,
+    "winrate": 50.7
    },
    "late": {
-    "games": 97,
+    "games": 102,
     "wins": 44,
-    "winrate": 45.4
+    "winrate": 43.1
    }
   },
   {
    "alias": "Pyke",
    "early": {
-    "games": 101,
-    "wins": 53,
-    "winrate": 52.5
+    "games": 111,
+    "wins": 59,
+    "winrate": 53.2
    },
    "mid": {
-    "games": 595,
-    "wins": 295,
-    "winrate": 49.6
+    "games": 629,
+    "wins": 307,
+    "winrate": 48.8
    },
    "late": {
-    "games": 140,
-    "wins": 59,
-    "winrate": 42.1
+    "games": 147,
+    "wins": 63,
+    "winrate": 42.9
    }
   },
   {
    "alias": "Qiyana",
    "early": {
-    "games": 80,
-    "wins": 48,
-    "winrate": 60.0
+    "games": 94,
+    "wins": 54,
+    "winrate": 57.4
    },
    "mid": {
-    "games": 431,
-    "wins": 224,
-    "winrate": 52.0
+    "games": 472,
+    "wins": 247,
+    "winrate": 52.3
    },
    "late": {
-    "games": 74,
-    "wins": 35,
-    "winrate": 47.3
+    "games": 79,
+    "wins": 37,
+    "winrate": 46.8
    }
   },
   {
    "alias": "Quinn",
    "early": {
-    "games": 23,
+    "games": 25,
     "wins": 16,
-    "winrate": 69.6
+    "winrate": 64.0
    },
    "mid": {
-    "games": 187,
-    "wins": 95,
-    "winrate": 50.8
+    "games": 212,
+    "wins": 110,
+    "winrate": 51.9
    },
    "late": {
-    "games": 52,
-    "wins": 28,
-    "winrate": 53.8
+    "games": 59,
+    "wins": 29,
+    "winrate": 49.2
    }
   },
   {
    "alias": "Rakan",
    "early": {
-    "games": 49,
-    "wins": 19,
-    "winrate": 38.8
+    "games": 56,
+    "wins": 23,
+    "winrate": 41.1
    },
    "mid": {
-    "games": 249,
-    "wins": 117,
-    "winrate": 47.0
+    "games": 272,
+    "wins": 130,
+    "winrate": 47.8
    },
    "late": {
-    "games": 59,
-    "wins": 35,
-    "winrate": 59.3
+    "games": 61,
+    "wins": 36,
+    "winrate": 59.0
    }
   },
   {
    "alias": "Rammus",
    "early": {
-    "games": 17,
-    "wins": 8,
-    "winrate": 47.1
+    "games": 19,
+    "wins": 10,
+    "winrate": 52.6
    },
    "mid": {
-    "games": 80,
-    "wins": 43,
-    "winrate": 53.8
+    "games": 88,
+    "wins": 47,
+    "winrate": 53.4
    },
    "late": {
-    "games": 20,
+    "games": 22,
     "wins": 14,
-    "winrate": 70.0
+    "winrate": 63.6
    }
   },
   {
    "alias": "RekSai",
    "early": {
-    "games": 16,
-    "wins": 9,
-    "winrate": 56.2
+    "games": 21,
+    "wins": 10,
+    "winrate": 47.6
    },
    "mid": {
-    "games": 118,
-    "wins": 66,
-    "winrate": 55.9
+    "games": 132,
+    "wins": 72,
+    "winrate": 54.5
    },
    "late": {
-    "games": 22,
-    "wins": 9,
-    "winrate": 40.9
+    "games": 26,
+    "wins": 12,
+    "winrate": 46.2
    }
   },
   {
    "alias": "Rell",
    "early": {
-    "games": 99,
-    "wins": 57,
-    "winrate": 57.6
+    "games": 114,
+    "wins": 66,
+    "winrate": 57.9
    },
    "mid": {
-    "games": 503,
-    "wins": 259,
-    "winrate": 51.5
+    "games": 547,
+    "wins": 282,
+    "winrate": 51.6
    },
    "late": {
-    "games": 108,
-    "wins": 53,
-    "winrate": 49.1
+    "games": 116,
+    "wins": 56,
+    "winrate": 48.3
    }
   },
   {
    "alias": "Renata",
    "early": {
-    "games": 11,
+    "games": 12,
     "wins": 7,
-    "winrate": 63.6
+    "winrate": 58.3
    },
    "mid": {
-    "games": 34,
-    "wins": 19,
-    "winrate": 55.9
+    "games": 38,
+    "wins": 21,
+    "winrate": 55.3
    },
    "late": {
-    "games": 8,
-    "wins": 1,
-    "winrate": 12.5
+    "games": 9,
+    "wins": 2,
+    "winrate": 22.2
    }
   },
   {
    "alias": "Renekton",
    "early": {
-    "games": 82,
-    "wins": 40,
-    "winrate": 48.8
+    "games": 96,
+    "wins": 48,
+    "winrate": 50.0
    },
    "mid": {
-    "games": 403,
-    "wins": 196,
-    "winrate": 48.6
+    "games": 445,
+    "wins": 216,
+    "winrate": 48.5
    },
    "late": {
-    "games": 112,
-    "wins": 54,
-    "winrate": 48.2
+    "games": 120,
+    "wins": 56,
+    "winrate": 46.7
    }
   },
   {
    "alias": "Rengar",
    "early": {
-    "games": 49,
-    "wins": 20,
-    "winrate": 40.8
+    "games": 54,
+    "wins": 23,
+    "winrate": 42.6
    },
    "mid": {
-    "games": 273,
-    "wins": 131,
-    "winrate": 48.0
+    "games": 305,
+    "wins": 149,
+    "winrate": 48.9
    },
    "late": {
-    "games": 59,
-    "wins": 31,
-    "winrate": 52.5
+    "games": 67,
+    "wins": 34,
+    "winrate": 50.7
    }
   },
   {
    "alias": "Riven",
    "early": {
-    "games": 59,
-    "wins": 33,
-    "winrate": 55.9
+    "games": 63,
+    "wins": 37,
+    "winrate": 58.7
    },
    "mid": {
-    "games": 332,
-    "wins": 186,
-    "winrate": 56.0
+    "games": 353,
+    "wins": 192,
+    "winrate": 54.4
    },
    "late": {
-    "games": 62,
-    "wins": 35,
-    "winrate": 56.5
+    "games": 65,
+    "wins": 38,
+    "winrate": 58.5
    }
   },
   {
    "alias": "Rumble",
    "early": {
-    "games": 36,
-    "wins": 17,
-    "winrate": 47.2
+    "games": 41,
+    "wins": 21,
+    "winrate": 51.2
    },
    "mid": {
-    "games": 183,
-    "wins": 81,
-    "winrate": 44.3
+    "games": 202,
+    "wins": 94,
+    "winrate": 46.5
    },
    "late": {
-    "games": 49,
-    "wins": 25,
+    "games": 51,
+    "wins": 26,
     "winrate": 51.0
    }
   },
   {
    "alias": "Ryze",
    "early": {
-    "games": 60,
-    "wins": 25,
-    "winrate": 41.7
+    "games": 67,
+    "wins": 30,
+    "winrate": 44.8
    },
    "mid": {
-    "games": 315,
-    "wins": 156,
-    "winrate": 49.5
+    "games": 340,
+    "wins": 168,
+    "winrate": 49.4
    },
    "late": {
-    "games": 60,
-    "wins": 30,
-    "winrate": 50.0
+    "games": 63,
+    "wins": 31,
+    "winrate": 49.2
    }
   },
   {
    "alias": "Samira",
    "early": {
-    "games": 50,
+    "games": 51,
     "wins": 25,
-    "winrate": 50.0
+    "winrate": 49.0
    },
    "mid": {
-    "games": 247,
-    "wins": 123,
-    "winrate": 49.8
+    "games": 254,
+    "wins": 128,
+    "winrate": 50.4
    },
    "late": {
-    "games": 49,
-    "wins": 31,
-    "winrate": 63.3
+    "games": 51,
+    "wins": 32,
+    "winrate": 62.7
    }
   },
   {
    "alias": "Sejuani",
    "early": {
-    "games": 24,
-    "wins": 14,
-    "winrate": 58.3
+    "games": 27,
+    "wins": 15,
+    "winrate": 55.6
    },
    "mid": {
-    "games": 147,
-    "wins": 78,
-    "winrate": 53.1
+    "games": 161,
+    "wins": 84,
+    "winrate": 52.2
    },
    "late": {
-    "games": 34,
-    "wins": 18,
-    "winrate": 52.9
+    "games": 38,
+    "wins": 19,
+    "winrate": 50.0
    }
   },
   {
    "alias": "Senna",
    "early": {
-    "games": 103,
-    "wins": 46,
-    "winrate": 44.7
+    "games": 112,
+    "wins": 50,
+    "winrate": 44.6
    },
    "mid": {
-    "games": 626,
-    "wins": 321,
-    "winrate": 51.3
+    "games": 669,
+    "wins": 337,
+    "winrate": 50.4
    },
    "late": {
-    "games": 186,
-    "wins": 95,
-    "winrate": 51.1
+    "games": 193,
+    "wins": 98,
+    "winrate": 50.8
    }
   },
   {
    "alias": "Seraphine",
    "early": {
-    "games": 197,
-    "wins": 99,
-    "winrate": 50.3
+    "games": 208,
+    "wins": 103,
+    "winrate": 49.5
    },
    "mid": {
-    "games": 1066,
-    "wins": 535,
-    "winrate": 50.2
+    "games": 1112,
+    "wins": 550,
+    "winrate": 49.5
    },
    "late": {
-    "games": 294,
-    "wins": 149,
-    "winrate": 50.7
+    "games": 306,
+    "wins": 156,
+    "winrate": 51.0
    }
   },
   {
    "alias": "Sett",
    "early": {
-    "games": 61,
-    "wins": 29,
-    "winrate": 47.5
+    "games": 65,
+    "wins": 32,
+    "winrate": 49.2
    },
    "mid": {
-    "games": 398,
-    "wins": 208,
-    "winrate": 52.3
+    "games": 428,
+    "wins": 226,
+    "winrate": 52.8
    },
    "late": {
-    "games": 95,
-    "wins": 44,
-    "winrate": 46.3
+    "games": 101,
+    "wins": 48,
+    "winrate": 47.5
    }
   },
   {
    "alias": "Shaco",
    "early": {
-    "games": 61,
-    "wins": 34,
-    "winrate": 55.7
+    "games": 66,
+    "wins": 38,
+    "winrate": 57.6
    },
    "mid": {
-    "games": 363,
-    "wins": 186,
-    "winrate": 51.2
+    "games": 392,
+    "wins": 199,
+    "winrate": 50.8
    },
    "late": {
-    "games": 136,
-    "wins": 67,
-    "winrate": 49.3
+    "games": 142,
+    "wins": 68,
+    "winrate": 47.9
    }
   },
   {
    "alias": "Shen",
    "early": {
-    "games": 98,
-    "wins": 48,
-    "winrate": 49.0
+    "games": 103,
+    "wins": 52,
+    "winrate": 50.5
    },
    "mid": {
-    "games": 488,
-    "wins": 250,
+    "games": 547,
+    "wins": 280,
     "winrate": 51.2
    },
    "late": {
-    "games": 105,
-    "wins": 53,
-    "winrate": 50.5
+    "games": 118,
+    "wins": 61,
+    "winrate": 51.7
    }
   },
   {
    "alias": "Shyvana",
    "early": {
-    "games": 70,
-    "wins": 37,
-    "winrate": 52.9
+    "games": 79,
+    "wins": 41,
+    "winrate": 51.9
    },
    "mid": {
-    "games": 434,
-    "wins": 224,
-    "winrate": 51.6
+    "games": 460,
+    "wins": 235,
+    "winrate": 51.1
    },
    "late": {
-    "games": 87,
-    "wins": 50,
-    "winrate": 57.5
+    "games": 93,
+    "wins": 53,
+    "winrate": 57.0
    }
   },
   {
    "alias": "Singed",
    "early": {
-    "games": 32,
-    "wins": 10,
-    "winrate": 31.2
+    "games": 42,
+    "wins": 12,
+    "winrate": 28.6
    },
    "mid": {
-    "games": 275,
-    "wins": 141,
-    "winrate": 51.3
+    "games": 296,
+    "wins": 151,
+    "winrate": 51.0
    },
    "late": {
-    "games": 76,
-    "wins": 36,
-    "winrate": 47.4
+    "games": 81,
+    "wins": 40,
+    "winrate": 49.4
    }
   },
   {
    "alias": "Sion",
    "early": {
-    "games": 67,
-    "wins": 29,
-    "winrate": 43.3
+    "games": 72,
+    "wins": 33,
+    "winrate": 45.8
    },
    "mid": {
-    "games": 430,
-    "wins": 216,
+    "games": 460,
+    "wins": 231,
     "winrate": 50.2
    },
    "late": {
-    "games": 109,
-    "wins": 55,
-    "winrate": 50.5
+    "games": 114,
+    "wins": 57,
+    "winrate": 50.0
    }
   },
   {
    "alias": "Sivir",
    "early": {
-    "games": 44,
-    "wins": 20,
-    "winrate": 45.5
+    "games": 50,
+    "wins": 24,
+    "winrate": 48.0
    },
    "mid": {
-    "games": 314,
-    "wins": 152,
-    "winrate": 48.4
+    "games": 340,
+    "wins": 165,
+    "winrate": 48.5
    },
    "late": {
-    "games": 70,
-    "wins": 34,
-    "winrate": 48.6
+    "games": 75,
+    "wins": 37,
+    "winrate": 49.3
    }
   },
   {
    "alias": "Skarner",
    "early": {
-    "games": 36,
-    "wins": 17,
-    "winrate": 47.2
+    "games": 40,
+    "wins": 20,
+    "winrate": 50.0
    },
    "mid": {
-    "games": 228,
-    "wins": 116,
-    "winrate": 50.9
+    "games": 252,
+    "wins": 128,
+    "winrate": 50.8
    },
    "late": {
-    "games": 32,
-    "wins": 18,
-    "winrate": 56.2
+    "games": 35,
+    "wins": 19,
+    "winrate": 54.3
    }
   },
   {
    "alias": "Smolder",
    "early": {
-    "games": 39,
+    "games": 40,
     "wins": 17,
-    "winrate": 43.6
+    "winrate": 42.5
    },
    "mid": {
-    "games": 229,
-    "wins": 110,
-    "winrate": 48.0
+    "games": 251,
+    "wins": 117,
+    "winrate": 46.6
    },
    "late": {
-    "games": 102,
+    "games": 104,
     "wins": 62,
-    "winrate": 60.8
+    "winrate": 59.6
    }
   },
   {
    "alias": "Sona",
    "early": {
-    "games": 30,
-    "wins": 10,
-    "winrate": 33.3
+    "games": 35,
+    "wins": 11,
+    "winrate": 31.4
    },
    "mid": {
-    "games": 244,
-    "wins": 124,
-    "winrate": 50.8
+    "games": 274,
+    "wins": 139,
+    "winrate": 50.7
    },
    "late": {
-    "games": 42,
-    "wins": 25,
-    "winrate": 59.5
+    "games": 47,
+    "wins": 29,
+    "winrate": 61.7
    }
   },
   {
    "alias": "Soraka",
    "early": {
-    "games": 31,
-    "wins": 13,
-    "winrate": 41.9
+    "games": 34,
+    "wins": 16,
+    "winrate": 47.1
    },
    "mid": {
-    "games": 222,
-    "wins": 102,
-    "winrate": 45.9
+    "games": 245,
+    "wins": 115,
+    "winrate": 46.9
    },
    "late": {
-    "games": 62,
-    "wins": 34,
-    "winrate": 54.8
+    "games": 66,
+    "wins": 37,
+    "winrate": 56.1
    }
   },
   {
    "alias": "Swain",
    "early": {
-    "games": 90,
-    "wins": 45,
+    "games": 102,
+    "wins": 51,
     "winrate": 50.0
    },
    "mid": {
-    "games": 502,
-    "wins": 251,
-    "winrate": 50.0
+    "games": 539,
+    "wins": 275,
+    "winrate": 51.0
    },
    "late": {
-    "games": 124,
-    "wins": 48,
-    "winrate": 38.7
+    "games": 130,
+    "wins": 50,
+    "winrate": 38.5
    }
   },
   {
    "alias": "Sylas",
    "early": {
-    "games": 238,
-    "wins": 123,
-    "winrate": 51.7
+    "games": 262,
+    "wins": 130,
+    "winrate": 49.6
    },
    "mid": {
-    "games": 1276,
-    "wins": 652,
-    "winrate": 51.1
+    "games": 1370,
+    "wins": 705,
+    "winrate": 51.5
    },
    "late": {
-    "games": 259,
-    "wins": 111,
-    "winrate": 42.9
+    "games": 278,
+    "wins": 121,
+    "winrate": 43.5
    }
   },
   {
    "alias": "Syndra",
    "early": {
-    "games": 175,
-    "wins": 90,
-    "winrate": 51.4
-   },
-   "mid": {
-    "games": 876,
-    "wins": 445,
+    "games": 187,
+    "wins": 95,
     "winrate": 50.8
    },
+   "mid": {
+    "games": 964,
+    "wins": 486,
+    "winrate": 50.4
+   },
    "late": {
-    "games": 219,
-    "wins": 128,
-    "winrate": 58.4
+    "games": 234,
+    "wins": 135,
+    "winrate": 57.7
    }
   },
   {
    "alias": "TahmKench",
    "early": {
-    "games": 54,
-    "wins": 30,
-    "winrate": 55.6
+    "games": 56,
+    "wins": 32,
+    "winrate": 57.1
    },
    "mid": {
-    "games": 338,
-    "wins": 169,
-    "winrate": 50.0
+    "games": 367,
+    "wins": 183,
+    "winrate": 49.9
    },
    "late": {
-    "games": 74,
-    "wins": 44,
-    "winrate": 59.5
+    "games": 78,
+    "wins": 45,
+    "winrate": 57.7
    }
   },
   {
    "alias": "Taliyah",
    "early": {
-    "games": 45,
-    "wins": 27,
-    "winrate": 60.0
-   },
-   "mid": {
-    "games": 237,
-    "wins": 111,
-    "winrate": 46.8
-   },
-   "late": {
-    "games": 51,
-    "wins": 25,
-    "winrate": 49.0
-   }
-  },
-  {
-   "alias": "Talon",
-   "early": {
-    "games": 92,
-    "wins": 45,
-    "winrate": 48.9
-   },
-   "mid": {
-    "games": 539,
-    "wins": 260,
-    "winrate": 48.2
-   },
-   "late": {
-    "games": 156,
-    "wins": 73,
-    "winrate": 46.8
-   }
-  },
-  {
-   "alias": "Taric",
-   "early": {
-    "games": 30,
-    "wins": 16,
-    "winrate": 53.3
-   },
-   "mid": {
-    "games": 125,
-    "wins": 65,
-    "winrate": 52.0
-   },
-   "late": {
-    "games": 21,
-    "wins": 8,
-    "winrate": 38.1
-   }
-  },
-  {
-   "alias": "Teemo",
-   "early": {
-    "games": 77,
-    "wins": 39,
-    "winrate": 50.6
-   },
-   "mid": {
-    "games": 472,
-    "wins": 254,
-    "winrate": 53.8
-   },
-   "late": {
-    "games": 159,
-    "wins": 86,
-    "winrate": 54.1
-   }
-  },
-  {
-   "alias": "Thresh",
-   "early": {
-    "games": 125,
-    "wins": 62,
-    "winrate": 49.6
-   },
-   "mid": {
-    "games": 713,
-    "wins": 377,
-    "winrate": 52.9
-   },
-   "late": {
-    "games": 180,
-    "wins": 91,
-    "winrate": 50.6
-   }
-  },
-  {
-   "alias": "Tristana",
-   "early": {
-    "games": 112,
-    "wins": 47,
-    "winrate": 42.0
-   },
-   "mid": {
-    "games": 673,
-    "wins": 338,
-    "winrate": 50.2
-   },
-   "late": {
-    "games": 142,
-    "wins": 72,
-    "winrate": 50.7
-   }
-  },
-  {
-   "alias": "Trundle",
-   "early": {
-    "games": 35,
-    "wins": 17,
-    "winrate": 48.6
-   },
-   "mid": {
-    "games": 178,
-    "wins": 84,
-    "winrate": 47.2
-   },
-   "late": {
-    "games": 45,
-    "wins": 23,
-    "winrate": 51.1
-   }
-  },
-  {
-   "alias": "Tryndamere",
-   "early": {
-    "games": 79,
-    "wins": 43,
-    "winrate": 54.4
-   },
-   "mid": {
-    "games": 375,
-    "wins": 197,
-    "winrate": 52.5
-   },
-   "late": {
-    "games": 93,
-    "wins": 48,
-    "winrate": 51.6
-   }
-  },
-  {
-   "alias": "TwistedFate",
-   "early": {
-    "games": 69,
-    "wins": 27,
-    "winrate": 39.1
-   },
-   "mid": {
-    "games": 372,
-    "wins": 191,
-    "winrate": 51.3
-   },
-   "late": {
-    "games": 82,
-    "wins": 44,
-    "winrate": 53.7
-   }
-  },
-  {
-   "alias": "Twitch",
-   "early": {
-    "games": 37,
-    "wins": 18,
-    "winrate": 48.6
-   },
-   "mid": {
-    "games": 232,
-    "wins": 102,
-    "winrate": 44.0
-   },
-   "late": {
-    "games": 73,
-    "wins": 39,
-    "winrate": 53.4
-   }
-  },
-  {
-   "alias": "Udyr",
-   "early": {
-    "games": 39,
-    "wins": 20,
-    "winrate": 51.3
-   },
-   "mid": {
-    "games": 234,
-    "wins": 131,
+    "games": 50,
+    "wins": 28,
     "winrate": 56.0
    },
-   "late": {
-    "games": 45,
-    "wins": 14,
-    "winrate": 31.1
-   }
-  },
-  {
-   "alias": "Urgot",
-   "early": {
-    "games": 39,
-    "wins": 22,
-    "winrate": 56.4
-   },
    "mid": {
-    "games": 272,
-    "wins": 148,
-    "winrate": 54.4
-   },
-   "late": {
-    "games": 72,
-    "wins": 33,
-    "winrate": 45.8
-   }
-  },
-  {
-   "alias": "Varus",
-   "early": {
-    "games": 48,
-    "wins": 19,
-    "winrate": 39.6
-   },
-   "mid": {
-    "games": 258,
-    "wins": 114,
-    "winrate": 44.2
-   },
-   "late": {
-    "games": 97,
-    "wins": 35,
-    "winrate": 36.1
-   }
-  },
-  {
-   "alias": "Vayne",
-   "early": {
-    "games": 98,
-    "wins": 51,
-    "winrate": 52.0
-   },
-   "mid": {
-    "games": 538,
-    "wins": 260,
-    "winrate": 48.3
-   },
-   "late": {
-    "games": 127,
-    "wins": 73,
-    "winrate": 57.5
-   }
-  },
-  {
-   "alias": "Veigar",
-   "early": {
-    "games": 110,
-    "wins": 51,
-    "winrate": 46.4
-   },
-   "mid": {
-    "games": 648,
-    "wins": 339,
-    "winrate": 52.3
-   },
-   "late": {
-    "games": 212,
-    "wins": 109,
-    "winrate": 51.4
-   }
-  },
-  {
-   "alias": "Velkoz",
-   "early": {
-    "games": 50,
-    "wins": 32,
-    "winrate": 64.0
-   },
-   "mid": {
-    "games": 348,
-    "wins": 167,
-    "winrate": 48.0
-   },
-   "late": {
-    "games": 118,
-    "wins": 55,
-    "winrate": 46.6
-   }
-  },
-  {
-   "alias": "Vex",
-   "early": {
-    "games": 49,
-    "wins": 23,
-    "winrate": 46.9
-   },
-   "mid": {
-    "games": 319,
-    "wins": 164,
-    "winrate": 51.4
-   },
-   "late": {
-    "games": 88,
-    "wins": 43,
-    "winrate": 48.9
-   }
-  },
-  {
-   "alias": "Vi",
-   "early": {
-    "games": 95,
-    "wins": 55,
-    "winrate": 57.9
-   },
-   "mid": {
-    "games": 500,
-    "wins": 246,
-    "winrate": 49.2
-   },
-   "late": {
-    "games": 125,
-    "wins": 52,
-    "winrate": 41.6
-   }
-  },
-  {
-   "alias": "Viego",
-   "early": {
-    "games": 99,
-    "wins": 62,
-    "winrate": 62.6
-   },
-   "mid": {
-    "games": 648,
-    "wins": 302,
-    "winrate": 46.6
-   },
-   "late": {
-    "games": 184,
-    "wins": 85,
-    "winrate": 46.2
-   }
-  },
-  {
-   "alias": "Viktor",
-   "early": {
-    "games": 211,
-    "wins": 102,
-    "winrate": 48.3
-   },
-   "mid": {
-    "games": 1135,
-    "wins": 575,
-    "winrate": 50.7
-   },
-   "late": {
-    "games": 297,
-    "wins": 145,
-    "winrate": 48.8
-   }
-  },
-  {
-   "alias": "Vladimir",
-   "early": {
-    "games": 67,
-    "wins": 41,
-    "winrate": 61.2
-   },
-   "mid": {
-    "games": 378,
-    "wins": 200,
-    "winrate": 52.9
-   },
-   "late": {
-    "games": 83,
-    "wins": 50,
-    "winrate": 60.2
-   }
-  },
-  {
-   "alias": "Volibear",
-   "early": {
-    "games": 48,
-    "wins": 24,
-    "winrate": 50.0
-   },
-   "mid": {
-    "games": 264,
-    "wins": 128,
-    "winrate": 48.5
-   },
-   "late": {
-    "games": 66,
-    "wins": 28,
-    "winrate": 42.4
-   }
-  },
-  {
-   "alias": "Warwick",
-   "early": {
-    "games": 69,
-    "wins": 32,
-    "winrate": 46.4
-   },
-   "mid": {
-    "games": 379,
-    "wins": 208,
-    "winrate": 54.9
-   },
-   "late": {
-    "games": 137,
-    "wins": 67,
-    "winrate": 48.9
-   }
-  },
-  {
-   "alias": "Xayah",
-   "early": {
-    "games": 37,
-    "wins": 17,
+    "games": 255,
+    "wins": 117,
     "winrate": 45.9
-   },
-   "mid": {
-    "games": 216,
-    "wins": 100,
-    "winrate": 46.3
    },
    "late": {
     "games": 54,
@@ -2861,87 +2447,501 @@
    }
   },
   {
-   "alias": "Xerath",
+   "alias": "Talon",
    "early": {
-    "games": 163,
-    "wins": 79,
+    "games": 101,
+    "wins": 49,
     "winrate": 48.5
    },
    "mid": {
-    "games": 888,
-    "wins": 473,
+    "games": 592,
+    "wins": 291,
+    "winrate": 49.2
+   },
+   "late": {
+    "games": 164,
+    "wins": 77,
+    "winrate": 47.0
+   }
+  },
+  {
+   "alias": "Taric",
+   "early": {
+    "games": 35,
+    "wins": 16,
+    "winrate": 45.7
+   },
+   "mid": {
+    "games": 143,
+    "wins": 72,
+    "winrate": 50.3
+   },
+   "late": {
+    "games": 23,
+    "wins": 9,
+    "winrate": 39.1
+   }
+  },
+  {
+   "alias": "Teemo",
+   "early": {
+    "games": 84,
+    "wins": 41,
+    "winrate": 48.8
+   },
+   "mid": {
+    "games": 505,
+    "wins": 275,
+    "winrate": 54.5
+   },
+   "late": {
+    "games": 174,
+    "wins": 97,
+    "winrate": 55.7
+   }
+  },
+  {
+   "alias": "Thresh",
+   "early": {
+    "games": 144,
+    "wins": 70,
+    "winrate": 48.6
+   },
+   "mid": {
+    "games": 764,
+    "wins": 404,
+    "winrate": 52.9
+   },
+   "late": {
+    "games": 192,
+    "wins": 97,
+    "winrate": 50.5
+   }
+  },
+  {
+   "alias": "Tristana",
+   "early": {
+    "games": 136,
+    "wins": 59,
+    "winrate": 43.4
+   },
+   "mid": {
+    "games": 761,
+    "wins": 381,
+    "winrate": 50.1
+   },
+   "late": {
+    "games": 155,
+    "wins": 77,
+    "winrate": 49.7
+   }
+  },
+  {
+   "alias": "Trundle",
+   "early": {
+    "games": 39,
+    "wins": 20,
+    "winrate": 51.3
+   },
+   "mid": {
+    "games": 188,
+    "wins": 89,
+    "winrate": 47.3
+   },
+   "late": {
+    "games": 46,
+    "wins": 24,
+    "winrate": 52.2
+   }
+  },
+  {
+   "alias": "Tryndamere",
+   "early": {
+    "games": 86,
+    "wins": 46,
+    "winrate": 53.5
+   },
+   "mid": {
+    "games": 409,
+    "wins": 220,
+    "winrate": 53.8
+   },
+   "late": {
+    "games": 98,
+    "wins": 51,
+    "winrate": 52.0
+   }
+  },
+  {
+   "alias": "TwistedFate",
+   "early": {
+    "games": 74,
+    "wins": 31,
+    "winrate": 41.9
+   },
+   "mid": {
+    "games": 408,
+    "wins": 207,
+    "winrate": 50.7
+   },
+   "late": {
+    "games": 87,
+    "wins": 46,
+    "winrate": 52.9
+   }
+  },
+  {
+   "alias": "Twitch",
+   "early": {
+    "games": 41,
+    "wins": 21,
+    "winrate": 51.2
+   },
+   "mid": {
+    "games": 259,
+    "wins": 119,
+    "winrate": 45.9
+   },
+   "late": {
+    "games": 76,
+    "wins": 40,
+    "winrate": 52.6
+   }
+  },
+  {
+   "alias": "Udyr",
+   "early": {
+    "games": 44,
+    "wins": 25,
+    "winrate": 56.8
+   },
+   "mid": {
+    "games": 252,
+    "wins": 142,
+    "winrate": 56.3
+   },
+   "late": {
+    "games": 46,
+    "wins": 14,
+    "winrate": 30.4
+   }
+  },
+  {
+   "alias": "Urgot",
+   "early": {
+    "games": 41,
+    "wins": 23,
+    "winrate": 56.1
+   },
+   "mid": {
+    "games": 296,
+    "wins": 160,
+    "winrate": 54.1
+   },
+   "late": {
+    "games": 75,
+    "wins": 36,
+    "winrate": 48.0
+   }
+  },
+  {
+   "alias": "Varus",
+   "early": {
+    "games": 54,
+    "wins": 22,
+    "winrate": 40.7
+   },
+   "mid": {
+    "games": 280,
+    "wins": 124,
+    "winrate": 44.3
+   },
+   "late": {
+    "games": 99,
+    "wins": 37,
+    "winrate": 37.4
+   }
+  },
+  {
+   "alias": "Vayne",
+   "early": {
+    "games": 108,
+    "wins": 59,
+    "winrate": 54.6
+   },
+   "mid": {
+    "games": 583,
+    "wins": 276,
+    "winrate": 47.3
+   },
+   "late": {
+    "games": 132,
+    "wins": 75,
+    "winrate": 56.8
+   }
+  },
+  {
+   "alias": "Veigar",
+   "early": {
+    "games": 121,
+    "wins": 57,
+    "winrate": 47.1
+   },
+   "mid": {
+    "games": 677,
+    "wins": 354,
+    "winrate": 52.3
+   },
+   "late": {
+    "games": 220,
+    "wins": 113,
+    "winrate": 51.4
+   }
+  },
+  {
+   "alias": "Velkoz",
+   "early": {
+    "games": 55,
+    "wins": 35,
+    "winrate": 63.6
+   },
+   "mid": {
+    "games": 370,
+    "wins": 179,
+    "winrate": 48.4
+   },
+   "late": {
+    "games": 121,
+    "wins": 57,
+    "winrate": 47.1
+   }
+  },
+  {
+   "alias": "Vex",
+   "early": {
+    "games": 54,
+    "wins": 25,
+    "winrate": 46.3
+   },
+   "mid": {
+    "games": 341,
+    "wins": 174,
+    "winrate": 51.0
+   },
+   "late": {
+    "games": 91,
+    "wins": 44,
+    "winrate": 48.4
+   }
+  },
+  {
+   "alias": "Vi",
+   "early": {
+    "games": 104,
+    "wins": 59,
+    "winrate": 56.7
+   },
+   "mid": {
+    "games": 537,
+    "wins": 262,
+    "winrate": 48.8
+   },
+   "late": {
+    "games": 136,
+    "wins": 56,
+    "winrate": 41.2
+   }
+  },
+  {
+   "alias": "Viego",
+   "early": {
+    "games": 113,
+    "wins": 68,
+    "winrate": 60.2
+   },
+   "mid": {
+    "games": 701,
+    "wins": 324,
+    "winrate": 46.2
+   },
+   "late": {
+    "games": 193,
+    "wins": 89,
+    "winrate": 46.1
+   }
+  },
+  {
+   "alias": "Viktor",
+   "early": {
+    "games": 235,
+    "wins": 110,
+    "winrate": 46.8
+   },
+   "mid": {
+    "games": 1236,
+    "wins": 629,
+    "winrate": 50.9
+   },
+   "late": {
+    "games": 308,
+    "wins": 149,
+    "winrate": 48.4
+   }
+  },
+  {
+   "alias": "Vladimir",
+   "early": {
+    "games": 74,
+    "wins": 43,
+    "winrate": 58.1
+   },
+   "mid": {
+    "games": 415,
+    "wins": 218,
+    "winrate": 52.5
+   },
+   "late": {
+    "games": 88,
+    "wins": 54,
+    "winrate": 61.4
+   }
+  },
+  {
+   "alias": "Volibear",
+   "early": {
+    "games": 49,
+    "wins": 24,
+    "winrate": 49.0
+   },
+   "mid": {
+    "games": 276,
+    "wins": 135,
+    "winrate": 48.9
+   },
+   "late": {
+    "games": 70,
+    "wins": 30,
+    "winrate": 42.9
+   }
+  },
+  {
+   "alias": "Warwick",
+   "early": {
+    "games": 73,
+    "wins": 34,
+    "winrate": 46.6
+   },
+   "mid": {
+    "games": 413,
+    "wins": 222,
+    "winrate": 53.8
+   },
+   "late": {
+    "games": 144,
+    "wins": 69,
+    "winrate": 47.9
+   }
+  },
+  {
+   "alias": "Xayah",
+   "early": {
+    "games": 41,
+    "wins": 20,
+    "winrate": 48.8
+   },
+   "mid": {
+    "games": 225,
+    "wins": 106,
+    "winrate": 47.1
+   },
+   "late": {
+    "games": 60,
+    "wins": 30,
+    "winrate": 50.0
+   }
+  },
+  {
+   "alias": "Xerath",
+   "early": {
+    "games": 170,
+    "wins": 82,
+    "winrate": 48.2
+   },
+   "mid": {
+    "games": 941,
+    "wins": 502,
     "winrate": 53.3
    },
    "late": {
-    "games": 233,
-    "wins": 117,
-    "winrate": 50.2
+    "games": 248,
+    "wins": 121,
+    "winrate": 48.8
    }
   },
   {
    "alias": "XinZhao",
    "early": {
-    "games": 62,
-    "wins": 30,
-    "winrate": 48.4
+    "games": 67,
+    "wins": 32,
+    "winrate": 47.8
    },
    "mid": {
-    "games": 389,
-    "wins": 200,
-    "winrate": 51.4
+    "games": 408,
+    "wins": 210,
+    "winrate": 51.5
    },
    "late": {
-    "games": 79,
-    "wins": 33,
-    "winrate": 41.8
+    "games": 83,
+    "wins": 35,
+    "winrate": 42.2
    }
   },
   {
    "alias": "Yasuo",
    "early": {
-    "games": 137,
-    "wins": 63,
-    "winrate": 46.0
+    "games": 150,
+    "wins": 72,
+    "winrate": 48.0
    },
    "mid": {
-    "games": 864,
-    "wins": 429,
+    "games": 935,
+    "wins": 465,
     "winrate": 49.7
    },
    "late": {
-    "games": 201,
-    "wins": 96,
-    "winrate": 47.8
+    "games": 214,
+    "wins": 102,
+    "winrate": 47.7
    }
   },
   {
    "alias": "Yone",
    "early": {
-    "games": 259,
-    "wins": 127,
-    "winrate": 49.0
+    "games": 296,
+    "wins": 143,
+    "winrate": 48.3
    },
    "mid": {
-    "games": 1280,
-    "wins": 671,
-    "winrate": 52.4
+    "games": 1382,
+    "wins": 726,
+    "winrate": 52.5
    },
    "late": {
-    "games": 334,
-    "wins": 161,
+    "games": 353,
+    "wins": 170,
     "winrate": 48.2
    }
   },
   {
    "alias": "Yorick",
    "early": {
-    "games": 85,
-    "wins": 41,
-    "winrate": 48.2
+    "games": 93,
+    "wins": 45,
+    "winrate": 48.4
    },
    "mid": {
-    "games": 469,
-    "wins": 237,
+    "games": 485,
+    "wins": 245,
     "winrate": 50.5
    },
    "late": {
@@ -2953,181 +2953,181 @@
   {
    "alias": "Yunara",
    "early": {
-    "games": 98,
-    "wins": 46,
-    "winrate": 46.9
+    "games": 110,
+    "wins": 52,
+    "winrate": 47.3
    },
    "mid": {
-    "games": 510,
-    "wins": 268,
-    "winrate": 52.5
+    "games": 563,
+    "wins": 294,
+    "winrate": 52.2
    },
    "late": {
-    "games": 125,
-    "wins": 63,
-    "winrate": 50.4
+    "games": 134,
+    "wins": 68,
+    "winrate": 50.7
    }
   },
   {
    "alias": "Yuumi",
    "early": {
-    "games": 74,
-    "wins": 30,
-    "winrate": 40.5
+    "games": 80,
+    "wins": 34,
+    "winrate": 42.5
    },
    "mid": {
-    "games": 326,
-    "wins": 138,
-    "winrate": 42.3
+    "games": 346,
+    "wins": 149,
+    "winrate": 43.1
    },
    "late": {
-    "games": 54,
-    "wins": 33,
-    "winrate": 61.1
+    "games": 55,
+    "wins": 34,
+    "winrate": 61.8
    }
   },
   {
    "alias": "Zaahen",
    "early": {
-    "games": 48,
-    "wins": 28,
-    "winrate": 58.3
+    "games": 52,
+    "wins": 29,
+    "winrate": 55.8
    },
    "mid": {
-    "games": 230,
-    "wins": 126,
-    "winrate": 54.8
+    "games": 253,
+    "wins": 135,
+    "winrate": 53.4
    },
    "late": {
-    "games": 53,
+    "games": 55,
     "wins": 33,
-    "winrate": 62.3
+    "winrate": 60.0
    }
   },
   {
    "alias": "Zac",
    "early": {
-    "games": 36,
-    "wins": 19,
-    "winrate": 52.8
+    "games": 40,
+    "wins": 23,
+    "winrate": 57.5
    },
    "mid": {
-    "games": 226,
-    "wins": 121,
-    "winrate": 53.5
+    "games": 237,
+    "wins": 127,
+    "winrate": 53.6
    },
    "late": {
-    "games": 60,
-    "wins": 35,
-    "winrate": 58.3
+    "games": 62,
+    "wins": 36,
+    "winrate": 58.1
    }
   },
   {
    "alias": "Zed",
    "early": {
-    "games": 93,
-    "wins": 47,
-    "winrate": 50.5
+    "games": 107,
+    "wins": 55,
+    "winrate": 51.4
    },
    "mid": {
-    "games": 637,
-    "wins": 330,
-    "winrate": 51.8
+    "games": 676,
+    "wins": 351,
+    "winrate": 51.9
    },
    "late": {
-    "games": 170,
-    "wins": 94,
-    "winrate": 55.3
+    "games": 183,
+    "wins": 98,
+    "winrate": 53.6
    }
   },
   {
    "alias": "Zeri",
    "early": {
-    "games": 55,
-    "wins": 32,
-    "winrate": 58.2
+    "games": 58,
+    "wins": 34,
+    "winrate": 58.6
    },
    "mid": {
-    "games": 295,
-    "wins": 144,
-    "winrate": 48.8
+    "games": 327,
+    "wins": 161,
+    "winrate": 49.2
    },
    "late": {
-    "games": 66,
-    "wins": 40,
-    "winrate": 60.6
+    "games": 68,
+    "wins": 42,
+    "winrate": 61.8
    }
   },
   {
    "alias": "Ziggs",
    "early": {
-    "games": 109,
-    "wins": 54,
-    "winrate": 49.5
+    "games": 116,
+    "wins": 57,
+    "winrate": 49.1
    },
    "mid": {
-    "games": 649,
-    "wins": 349,
-    "winrate": 53.8
+    "games": 669,
+    "wins": 357,
+    "winrate": 53.4
    },
    "late": {
-    "games": 187,
-    "wins": 88,
-    "winrate": 47.1
+    "games": 194,
+    "wins": 92,
+    "winrate": 47.4
    }
   },
   {
    "alias": "Zilean",
    "early": {
-    "games": 26,
-    "wins": 14,
-    "winrate": 53.8
+    "games": 30,
+    "wins": 17,
+    "winrate": 56.7
    },
    "mid": {
-    "games": 236,
-    "wins": 114,
-    "winrate": 48.3
+    "games": 258,
+    "wins": 128,
+    "winrate": 49.6
    },
    "late": {
-    "games": 61,
-    "wins": 35,
-    "winrate": 57.4
+    "games": 66,
+    "wins": 37,
+    "winrate": 56.1
    }
   },
   {
    "alias": "Zoe",
    "early": {
-    "games": 49,
-    "wins": 31,
-    "winrate": 63.3
+    "games": 52,
+    "wins": 32,
+    "winrate": 61.5
    },
    "mid": {
-    "games": 240,
-    "wins": 131,
-    "winrate": 54.6
+    "games": 267,
+    "wins": 145,
+    "winrate": 54.3
    },
    "late": {
-    "games": 67,
-    "wins": 35,
-    "winrate": 52.2
+    "games": 71,
+    "wins": 36,
+    "winrate": 50.7
    }
   },
   {
    "alias": "Zyra",
    "early": {
-    "games": 69,
-    "wins": 42,
-    "winrate": 60.9
+    "games": 77,
+    "wins": 48,
+    "winrate": 62.3
    },
    "mid": {
-    "games": 395,
-    "wins": 200,
-    "winrate": 50.6
+    "games": 417,
+    "wins": 209,
+    "winrate": 50.1
    },
    "late": {
-    "games": 137,
-    "wins": 73,
-    "winrate": 53.3
+    "games": 149,
+    "wins": 76,
+    "winrate": 51.0
    }
   }
  ]
