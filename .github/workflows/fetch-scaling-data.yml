@@ -10,8 +10,15 @@ name: Fetch scaling chart data
 #
 # ボトルネックはRiot APIのレート制限(100req/2分)で、1ジョブあたり
 # 約2,800試合/時が上限。ホスト型ランナーの6時間上限と合わせると
-# 1実行あたり最大1.6万試合程度しか取れないため、毎日実行して
-# 35日分を積み上げることで母数を確保する。
+# 1実行で取れる量には天井があるため、毎日実行して35日分を積み上げる
+# ことで母数を確保する。
+#
+# per_bracket=20 は実測でホストランナー上限(6時間)の約82%
+# （294分/360分）を使う値として校正済み（2026-08-16、per_bracket=5→33分,
+# per_bracket=20→294.5分の実測から校正）。既知プレイヤーの重複が
+# 減るほど新規詳細取得の比率が上がるため、所要時間はper_bracketに
+# 比例ではなく super-linear(実測 T≈2.6×pb^1.58分) に伸びる点に注意。
+# 大きく変更する時は再校正すること。
 #
 # レート制限はAPIキー単位で共有されるため、実行が重なると双方が429で
 # 共倒れする。concurrencyで必ず直列化すること。
@@ -24,7 +31,7 @@ on:
         required: false
       per_bracket:
         description: "ティア×ディビジョン毎のサンプル人数"
-        default: "5"
+        default: "20"
         required: false
       matches_per_player:
         description: "1人あたり直近何試合を見るか"
@@ -73,7 +80,7 @@ jobs:
         run: |
           python3 scripts/fetch_scaling_data.py \
             --platforms "${{ inputs.platforms || 'jp1,kr,na1,euw1' }}" \
-            --per-bracket "${{ inputs.per_bracket || '5' }}" \
+            --per-bracket "${{ inputs.per_bracket || '20' }}" \
             --matches-per-player "${{ inputs.matches_per_player || '15' }}" \
             --max-age-days "${{ inputs.max_age_days || '35' }}" \
             --state-file scripts/data/scaling_state.json \
