@@ -10,8 +10,14 @@ name: Fetch scaling chart data
 #
 # ボトルネックはRiot APIのレート制限(100req/2分)で、1ジョブあたり
 # 約2,800試合/時が上限。ホスト型ランナーの6時間上限と合わせると
-# 1実行で取れる量には天井があるため、毎日実行して35日分を積み上げる
-# ことで母数を確保する。
+# 1実行で取れる量には天井があるため、毎日実行して積み上げることで
+# 母数を確保する。
+#
+# 保持期間は180日（2026-08-19、35日→180日に変更。サンプル数を優先し、
+# 多少パッチをまたぐのは許容する方針）。実測の日次増加ペース
+# （2026-08-16→18の2日間で約3,800試合/日）から、定常時は
+# 35日=約13万件 → 180日=約68万件規模まで伸びる見込み。state容量は
+# 週別集計カウンタなのでこの規模でも数十MB程度で収まる
 #
 # per_bracket=20 は実測でホストランナー上限(6時間)の約82%
 # （294分/360分）を使う値として校正済み（2026-08-16、per_bracket=5→33分,
@@ -39,7 +45,7 @@ on:
         required: false
       max_age_days:
         description: "この日数より古い試合はstateから間引く"
-        default: "35"
+        default: "180"
         required: false
   schedule:
     # 毎日 3:00 JST (= 18:00 UTC)。1実行6時間で終わるため次回まで十分空く
@@ -82,7 +88,7 @@ jobs:
             --platforms "${{ inputs.platforms || 'jp1,kr,na1,euw1' }}" \
             --per-bracket "${{ inputs.per_bracket || '20' }}" \
             --matches-per-player "${{ inputs.matches_per_player || '15' }}" \
-            --max-age-days "${{ inputs.max_age_days || '35' }}" \
+            --max-age-days "${{ inputs.max_age_days || '180' }}" \
             --state-file scripts/data/scaling_state.json \
             --out frontend/public/tooltips/scaling.json
 
