@@ -16,10 +16,22 @@ Technical LoL terms (CS, gank, freeze, APC, etc.) stay in English.**
 Never cite win rates, tier lists, or build stats from training data.
 Always fetch live data before responding to any numerical claim.
 
-### ⚠️ 数値を答える前に必ず `reference/` を先に読む
+### 🚩 新しいセッションはまず `HANDOFF.md` を読む
 
-ゲーム内の**静的な数値**（基礎ステータス・アイテム・ルーン・計算式）は
-`reference/` に検証済みの値がプールされている。**訓練データや記憶から答える前に必ずここを読む。**
+`HANDOFF.md` にプロジェクトの文脈・知識の置き場・過去の誤りと訂正がまとまっている。
+
+### ⚠️ 数値を答える前に一次データを読む
+
+**優先順位: ① `lol-datafile` リポジトリ → ② `reference/` → ③ Web検索**
+
+**① 権威データ: `suoutomoteru-jpg/lol-datafile`**（別リポジトリ・DDragonから毎月2回自動更新）
+- `data/champions/base_stats.md` — 全チャンピオンの基礎ステータス・成長値
+- `data/champions/skills/{ChampionId}.md` — チャンピオン別スキル数値
+- `data/items.md` — 全アイテム / `VERSION` — 現在のパッチ
+- セッションに無ければ `add_repo` または `git clone https://github.com/suoutomoteru-jpg/lol-datafile.git`
+- **Web検索由来の数値は複数回誤っていた実績がある。必ずこちらで裏取りすること。**
+
+**② `reference/`** — `lol-datafile` に無いもの（ルーン数値・内部CD・計算の適用順序・アイテムパッシブ）
 
 | 知りたいこと | 読むファイル |
 |---|---|

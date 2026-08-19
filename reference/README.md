@@ -36,6 +36,12 @@
 
 ## 一括更新（DDragonから再生成）
 
+> ⚠️ **`scripts/fetch_patch_reference.py` は役目を終えた（superseded）。**
+> 別リポジトリ **`suoutomoteru-jpg/lol-datafile`** が同じことを完成度高く自動化しており
+> （GitHub Actionsで毎月1日・15日に更新、全チャンピオンのスキル数値まで網羅）、
+> **数値の一次データはそちらを見ること**。このスクリプトは不要になったら削除してよい。
+
+以下は旧スクリプトの説明（参考）。
 `scripts/fetch_patch_reference.py` がRiot Data Dragonから基礎ステータスを取得して
 `reference/generated-*.md` を生成する。
 
