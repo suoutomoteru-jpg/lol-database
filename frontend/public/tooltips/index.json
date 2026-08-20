@@ -1,6 +1,6 @@
 {
  "patch": "16.16.8049184+branch.releases-16-16.content.release",
- "generatedAt": "2026-08-13T04:48:45.706788+00:00",
+ "generatedAt": "2026-08-20T03:42:59.753979+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -532,7 +532,7 @@
    "id": 60085,
    "name": "ケネン",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_KogMaw",

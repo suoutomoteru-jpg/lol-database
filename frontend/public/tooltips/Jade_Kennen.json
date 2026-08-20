@@ -7,8 +7,8 @@
  "skills": {
   "passive": {
    "name": "嵐の刻印",
-   "description": "スキルが敵に命中すると、対象をマークする。マークが3つになると、対象はスタンする。",
-   "source": "lcu",
+   "description": "スキルが命中すると、6.25秒間、対象に<spellName>嵐の刻印</spellName>を付与する。<spellName>嵐の刻印</spellName>が3つになると、対象を1.25秒間<status>スタン</status>させて、自身の<keywordMajor>気が25</keywordMajor>回復する。 <br><br>同じ対象が6秒以内に再び<spellName>嵐の刻印</spellName>で<status>スタン</status>した場合は、代わりに0.5秒間<status>スタン</status>させる。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
