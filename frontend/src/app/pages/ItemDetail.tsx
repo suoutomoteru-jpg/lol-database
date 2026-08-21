@@ -478,7 +478,7 @@ export function ItemDetail() {
                       </button>
                     ) : (
                       <span key={i} className={`${layout} bg-card/70 border border-border`}>
-                        <span className="text-foreground/85 text-sm whitespace-nowrap flex-1">{c.plain}</span>
+                        <span className="text-foreground/85 text-sm whitespace-nowrap flex-1 min-w-0 text-left">{c.plain}</span>
                         <span className="num-data text-xl leading-none">{c.value}</span>
                       </span>
                     );

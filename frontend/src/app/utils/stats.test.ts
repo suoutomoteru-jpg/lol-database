@@ -25,6 +25,11 @@ describe('ステータス台帳', () => {
     expect(TOOLTIP_TAG_STAT['physicaldamage']).toBe('stat:FlatPhysicalDamageMod');
     expect(TOOLTIP_TAG_STAT['shield']).toBe('custom:HealAndShieldPower');
   });
+
+  it('DDragonの<stats>欄が「ライフ スティール」とスペース入りで返す表記も拾える', () => {
+    const match = ITEM_KEYWORDS.find(({ text }) => 'ライフ スティール15%'.includes(text));
+    expect(match?.key).toBe('custom:LifeSteal');
+  });
 });
 
 describe('itemHasStat', () => {

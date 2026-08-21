@@ -93,10 +93,12 @@ export const STAT_DEFS: StatDef[] = [
     skillKeywords: ['魔法防御貫通'],
   },
   {
+    // DDragonの<stats>欄はこの語だけ「ライフ スティール」と間に半角スペースが
+    // 入る（本文中の表記は「ライフスティール」のまま）。両方を対象にする
     key: 'custom:LifeSteal', labelJa: 'ライフスティール',
     itemStatKeys: ['PercentLifeStealMod'],
-    itemDescPattern: /ライフスティール/,
-    itemKeywords: ['ライフスティール'],
+    itemDescPattern: /ライフ\s?スティール/,
+    itemKeywords: ['ライフスティール', 'ライフ スティール'],
     skillKeywords: ['ライフスティール'],
   },
   {
