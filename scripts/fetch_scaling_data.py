@@ -288,15 +288,31 @@ def duplicate_report(state: dict) -> tuple:
 
 def collect_matches(
     platforms: list[str], api_key: str, limiter: RateLimiter,
-    per_bracket: int, matches_per_player: int, known_match_ids: set[str],
-    start_time_sec: int,
-) -> list[dict]:
-    """まだ known_match_ids に無い試合だけを取得し、生レコードのリストで返す。
-    レコード: {matchId, platform, gameCreation(ms), duration(sec), participants:[{champion, win}]}"""
-    new_records: list[dict] = []
-    skipped: list[dict] = []
-    seen_this_run: set[str] = set()
+    per_bracket: int, matches_per_player: int, state: dict, state_file: str,
+    start_time_sec: int, checkpoint_every: int = 100, on_checkpoint=None,
+) -> tuple[int, int]:
+    """まだstateに無い試合だけを取得し、都度stateへ畳み込む。
+    一定件数ごとにstate_fileへ保存するため、ジョブがタイムアウト等で
+    強制終了しても直近のチェックポイントまでの進捗は失われない
+    （保持期間の拡大直後などは新規検出が急増し、実行が1回で終わらない
+    ことがあるため、複数日にまたがっても進捗が積み上がるようにする）。
+    on_checkpoint はstate保存の都度呼ばれるコールバック（scaling.json自体も
+    都度更新し、強制終了時でも公開データが最新のチェックポイントまで
+    進むようにするため）。
+    戻り値: (新規件数, 対象外件数)"""
+    seen = known_match_ids(state)
     now_ms = int(time.time() * 1000)
+    new_count = 0
+    skipped_count = 0
+    since_checkpoint = 0
+
+    def checkpoint():
+        nonlocal since_checkpoint
+        if since_checkpoint:
+            save_state(state_file, state)
+            if on_checkpoint:
+                on_checkpoint()
+            since_checkpoint = 0
 
     for platform in platforms:
         region = PLATFORM_TO_REGION.get(platform)
@@ -320,27 +336,33 @@ def collect_matches(
             match_ids = api_get(ids_url, api_key, limiter) or []
 
             for match_id in match_ids:
-                if match_id in known_match_ids or match_id in seen_this_run:
+                if match_id in seen:
                     continue
-                seen_this_run.add(match_id)
+                seen.add(match_id)
 
                 match = api_get(f"{regional_base}/lol/match/v5/matches/{match_id}", api_key, limiter)
                 # 集計対象外と判定した試合もIDだけは覚えておく。記録しないと
                 # 毎回の実行で同じ試合を取り直すことになり、律速要因である
                 # APIレート枠を無駄に食い潰す
                 if not match:
-                    skipped.append({"matchId": match_id, "gameCreation": now_ms})
+                    fold_skipped(state, {"matchId": match_id, "gameCreation": now_ms})
+                    skipped_count += 1
+                    since_checkpoint += 1
                     continue
                 info = match.get("info", {})
                 created = info.get("gameCreation", 0)
                 # startTimeが効かない場合の保険（古い試合は集計に入れない）
                 if created < start_time_sec * 1000:
-                    skipped.append({"matchId": match_id, "gameCreation": created or now_ms})
+                    fold_skipped(state, {"matchId": match_id, "gameCreation": created or now_ms})
+                    skipped_count += 1
+                    since_checkpoint += 1
                     continue
                 duration = info.get("gameDuration", 0)
                 # 極端に短い試合（早期投了・リマッチ）は実プレイを反映しないため除外
                 if duration < MIN_VALID_DURATION:
-                    skipped.append({"matchId": match_id, "gameCreation": created or now_ms})
+                    fold_skipped(state, {"matchId": match_id, "gameCreation": created or now_ms})
+                    skipped_count += 1
+                    since_checkpoint += 1
                     continue
                 participants = []
                 for p in info.get("participants", []):
@@ -349,21 +371,30 @@ def collect_matches(
                         continue
                     participants.append({"champion": champ, "win": bool(p.get("win"))})
                 if not participants:
-                    skipped.append({"matchId": match_id, "gameCreation": created or now_ms})
+                    fold_skipped(state, {"matchId": match_id, "gameCreation": created or now_ms})
+                    skipped_count += 1
+                    since_checkpoint += 1
                     continue
-                new_records.append({
+                fold_record(state, {
                     "matchId": match_id,
                     "platform": platform,
                     "gameCreation": info.get("gameCreation", 0),
                     "duration": duration,
                     "participants": participants,
                 })
+                new_count += 1
+                since_checkpoint += 1
+
+            if since_checkpoint >= checkpoint_every:
+                checkpoint()
 
             if (i + 1) % 20 == 0:
                 print(f"  [{platform}] {i + 1}/{len(puuids)} summoners処理済み "
-                      f"(新規試合数 {len(new_records)})", file=sys.stderr)
+                      f"(新規試合数 {new_count})", file=sys.stderr)
 
-    return new_records, skipped
+        checkpoint()
+
+    return new_count, skipped_count
 
 
 # ── 集計・出力整形 ────────────────────────────────────
@@ -414,6 +445,17 @@ def build_output(stats: dict, sampled_matches: int, queue: str, patch: str) -> d
     }
 
 
+def write_output(out_path: str, state: dict) -> dict:
+    """stateから出力JSONを作って書き出す。チェックポイント毎にも呼ぶため、
+    ジョブが強制終了してもその時点までの進捗が公開データに反映される。"""
+    stats = state_to_stats(state)
+    output = build_output(stats, state_match_count(state), QUEUE, patch="live")
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=1)
+    return output
+
+
 # ── CLI ───────────────────────────────────────────────
 
 def main():
@@ -443,29 +485,16 @@ def main():
           f"（{dropped:,} 件を間引き / 保持{len(state['weeks'])}週分）", file=sys.stderr)
 
     start_time_sec = int(time.time() - args.max_age_days * 86400)
-    seen = known_match_ids(state)
-    new_records, skipped = collect_matches(
+    # collect_matches はstateへ直接畳み込み、途中経過を都度state_fileと
+    # args.out（scaling.json自体）へチェックポイント保存する
+    # （強制終了時の進捗ロス対策。ワークフロー側もcache save-always:true と
+    # 後続ステップのif:always()で、この時点までの成果を必ず持ち帰る）
+    new_count, skipped_count = collect_matches(
         platforms, args.api_key, limiter, args.per_bracket, args.matches_per_player,
-        seen, start_time_sec,
+        state, args.state_file, start_time_sec,
+        on_checkpoint=lambda: write_output(args.out, state),
     )
-    print(f"新規取得: {len(new_records):,} 件 / 対象外: {len(skipped):,} 件", file=sys.stderr)
-
-    # 収集側でも除外しているが、畳み込み直前にもう一度弾く。集計値は一度
-    # 加算すると引けないため、二重計上だけは絶対に通さない
-    dup = 0
-    for rec in new_records:
-        if rec["matchId"] in seen:
-            dup += 1
-            continue
-        seen.add(rec["matchId"])
-        fold_record(state, rec)
-    for item in skipped:
-        if item["matchId"] in seen:
-            continue
-        seen.add(item["matchId"])
-        fold_skipped(state, item)
-    if dup:
-        print(f"警告: 重複した試合を {dup} 件はじきました（収集側の重複排除に漏れ）", file=sys.stderr)
+    print(f"新規取得: {new_count:,} 件 / 対象外: {skipped_count:,} 件", file=sys.stderr)
 
     folded, unique = duplicate_report(state)
     if folded != unique:
@@ -475,14 +504,7 @@ def main():
         print(f"重複チェック: OK（{unique:,} 件すべてユニーク）", file=sys.stderr)
 
     save_state(args.state_file, state)
-
-    total = state_match_count(state)
-    stats = state_to_stats(state)
-    output = build_output(stats, total, QUEUE, patch="live")
-
-    os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
-    with open(args.out, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=1)
+    output = write_output(args.out, state)
 
     print(f"完了: {len(output['champions'])} チャンピオン分, "
           f"サンプル試合数 {output['sampledMatches']:,}（{len(state['weeks'])}週分）→ {args.out}",

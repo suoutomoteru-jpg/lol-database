@@ -28,6 +28,18 @@ name: Fetch scaling chart data
 #
 # レート制限はAPIキー単位で共有されるため、実行が重なると双方が429で
 # 共倒れする。concurrencyで必ず直列化すること。
+#
+# インシデント(2026-08-19〜20): 保持期間を35日→180日に広げた直後、各プレイヤーの
+# 35〜180日前の試合が一斉に「未収集」として検出され、新規取得量が急増して
+# 2日連続でtimeout-minutesに到達しキャンセルされた。当時はスクリプトの
+# 終了時にしかstateを保存していなかったため、キャンセルされる度に進捗が
+# 丸ごと失われ、sampledMatchesが3日間30,938件のまま止まっていた
+# （actions/cacheの自動保存もジョブがcancelled扱いだと走らないため、
+# 途中経過はcacheにも残らなかった）。
+# 対策: スクリプト側で一定件数ごとにstateとscaling.json自体をチェックポイント
+# 保存するよう変更（fetch_scaling_data.pyのcollect_matches参照）。加えて
+# cache保存をsave-always:trueにし、後続ステップもif:always()にすることで、
+# タイムアウトしても「その日打ち切られるまでに集めた分」は必ず持ち帰る
 on:
   workflow_dispatch:
     inputs:
@@ -79,6 +91,9 @@ jobs:
           key: scaling-state-${{ github.run_id }}
           restore-keys: |
             scaling-state-
+          # デフォルト(false)だとジョブがcancelled(タイムアウト含む)扱いの時に
+          # 保存がスキップされ、スクリプト側のチェックポイントが無駄になる
+          save-always: true
 
       - name: Fetch scaling data from Riot API
         env:
@@ -93,6 +108,9 @@ jobs:
             --out frontend/public/tooltips/scaling.json
 
       - name: Show summary
+        # フェッチがタイムアウトでcancelledになっても、チェックポイントまでの
+        # 進捗を必ず確認・コミットできるようにする
+        if: always()
         run: |
           python3 - << 'EOF'
           import json, os
@@ -110,6 +128,7 @@ jobs:
           EOF
 
       - name: Commit generated scaling data
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
