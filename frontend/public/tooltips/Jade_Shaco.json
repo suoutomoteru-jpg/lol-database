@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Shaco",
+ "id": 60035,
+ "name": "シャコ",
+ "title": "悪魔の道化師",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "バックスタブ",
+   "description": "背後から敵ユニットを攻撃すると、20%の追加ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 20〜35（レベル比例） ＋ 増加攻撃力の25%<br>・ダメージ: 15〜50（レベル比例） ＋ 魔力の10%<br>・ダメージ: 15〜50（レベル比例） ＋ 魔力の10%×1.5",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "幻惑",
+   "description": "近くの地点にテレポートして、3.5秒間<keywordStealth>インビジブル</keywordStealth>状態になる。<br><br>6秒以内に行う次の通常攻撃がクリティカルになり、ダメージを与える。<br>",
+   "cooldown": "11",
+   "cost": "90/80/70/60/50",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "ModifiedQCritDamageTooltip"
+   ]
+  },
+  "w": {
+   "name": "びっくり箱",
+   "description": "トラップを設置する。トラップは2秒後に<keywordStealth>インビジブル状態</keywordStealth>になり、その後60秒間持続する。敵が近づくとトラップが発動し、周囲の敵に0.5/0.75/1/1.25/1.5秒間<status>フィアー効果</status>を与える。<br><br>トラップは発動すると5秒間、周囲の敵に弾を発射して<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "16",
+   "cost": "50/55/60/65/70",
+   "range": "425",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "BoxTotalDamage_Jade"
+   ]
+  },
+  "e": {
+   "name": "ポイズンダガー",
+   "description": "<spellPassive>自動効果:</spellPassive> このスキルが使用可能な間は、通常攻撃が対象に2秒間、10/15/20/25/30%の<status>スロウ効果</status>を付与する。さらに、2秒間、ミニオンの攻撃命中率を20/22.5/25/27.5/30%低下させる。<br><br><spellActive>発動効果:</spellActive> ナイフを投げて、対象の敵に<magicDamage>50/90/130/170/210（＋増加攻撃力の100% ＋魔力の100%）の魔法ダメージ</magicDamage>を与え、3秒間10/15/20/25/30%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "8",
+   "cost": "50/55/60/65/70",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ハルシネイト",
+   "description": "少しの間、姿を消してから、最大18秒間持続する分身とともに出現する。分身はシャコの攻撃力の75%にあたるダメージを与え、受けるダメージは50%増加する。<br><br>分身は倒されると爆発して、周囲の敵に<magicDamage>300/450/600（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "100/90/80",
+   "cost": "100",
+   "range": "200",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 2
+}

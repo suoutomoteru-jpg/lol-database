@@ -1,0 +1,61 @@
+{
+ "alias": "Jade_Corki",
+ "id": 60042,
+ "name": "コーキ",
+ "title": "豪気の爆撃手",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヘクステック榴散弾",
+   "description": "通常攻撃が追加で<trueDamage>合計攻撃力の10%の確定ダメージ</trueDamage>を与える (建物には無効)。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "閃光弾",
+   "description": "<mainText>扇状の範囲内の敵に<magicDamage>80/130/180/230/280（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。「閃光弾」は着弾地点の視界を確保し、ステルス状態の敵をのぞいて命中した敵チャンピオンを6秒間<status>可視状態</status>にする。",
+   "cooldown": "8",
+   "cost": "80/90/100/110/120",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ワルキューレ機行",
+   "description": "<mainText>指定した地点まで素早く移動する。進路上に炎を残し、エリア内の敵に毎秒<magicDamage>60/90/120/150/180（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "26/23/20/17/14",
+   "cost": "50",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ガトリングガン",
+   "description": "<mainText>ガトリングガンを前方の扇状範囲に4秒間連射し、毎秒<physicalDamage>の物理ダメージ</physicalDamage>を与え、<status>物理防御2/4/6/8/10を低下</status>させる。物理防御低下効果はスタックし、2秒間持続する。",
+   "cooldown": "16",
+   "cost": "60/65/70/75/80",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamageTooltipOnly"
+   ]
+  },
+  "r": {
+   "name": "連発ミサイル",
+   "description": "<mainText>指定方向にミサイルを発射する。このミサイルは最初に命中した敵に衝突する。各ミサイルは範囲内の敵に<magicDamage>120/190/260（＋合計攻撃力の20% ＋魔力の30%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは7回までチャージできる(秒でリチャージ)。<br><br>3発ごとに「ドデカミサイル」が発射され、<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "1.2",
+   "cost": "20",
+   "range": "1225",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "AmmoRechargeTime",
+    "TotalDamageBig"
+   ]
+  }
+ },
+ "unresolvedCount": 3
+}

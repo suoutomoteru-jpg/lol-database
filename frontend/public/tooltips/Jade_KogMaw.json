@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_KogMaw",
+ "id": 60096,
+ "name": "コグ＝マウ",
+ "title": "深淵のアギト",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "イカシアの自爆",
+   "description": "倒されてから4秒間は動き続けることが可能で、ゴースト化し、効果時間中に徐々に<speed>移動速度</speed>が37.5%増加する。効果時間の最後に爆発して周囲の敵に<trueDamage>125〜550（レベル1〜18）の確定ダメージ</trueDamage>を与える。<br><br><rules>ゴースト化したユニットは他のユニットをすり抜けて移動できる。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "腐食粘液",
+   "description": "<spellPassive>自動効果:</spellPassive> <attackSpeed>攻撃速度が10/15/20/25/30%</attackSpeed>増加する。<br><br><spellActive>発動効果:</spellActive> 苛性の粘液を飛ばし、最初に命中した敵に<magicDamage>60/110/160/210/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、4秒間、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を5/10/15/20/25低下させる。",
+   "cooldown": "8",
+   "cost": "60",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "有機性魔力砲",
+   "description": "8秒間、射程距離が130/150/170/190/210増加して、通常攻撃が<magicDamage>最大体力に応じて2/3/4/5/6%（＋魔力の1%）の魔法ダメージ</magicDamage><OnHit>通常攻撃時効果</OnHit>を追加で与える。",
+   "cooldown": "17",
+   "cost": "50",
+   "range": "530",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヴォイド分泌液",
+   "description": "胆液を吐き出して<magicDamage>60/110/160/210/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、その跡に3秒間、粘液を残す。粘液内の敵は20/28/36/44/52%の<status>スロウ効果</status>を受ける。",
+   "cooldown": "12",
+   "cost": "80/90/100/110/120",
+   "range": "1200",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "生体空撃砲",
+   "description": "遠距離から酸を発射する。酸は発射されて少ししてから着弾する。<magicDamage>80/120/160（＋魔力の30% ＋増加攻撃力の50%）の魔法ダメージ</magicDamage>を与える。チャンピオンに対してはダメージが<magicDamage>の魔法ダメージ</magicDamage>に増加し、敵を4秒間可視化する。<br><br>6秒以内に続けて攻撃を行うと、<scaleMana>マナコストが追加で40</scaleMana>増加する(最大: <scaleMana>400マナ</scaleMana>)。",
+   "cooldown": "2/1.5/1",
+   "cost": "40",
+   "range": "1400/1700/2000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "ChampionTotalDamage"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

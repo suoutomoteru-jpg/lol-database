@@ -1,0 +1,56 @@
+{
+ "alias": "Belveth",
+ "id": 200,
+ "name": "ベル＝ヴェス",
+ "title": "ヴォイドの女帝",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "死のラベンダー",
+   "description": "大型ミニオン、大型モンスター、チャンピオンからキルまたはアシストを獲得すると、攻撃速度のスタックを恒久的に獲得する。また、スキル使用後に一時的に攻撃速度が増加する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヴォイドサージ",
+   "description": "ダッシュして接触した敵に<physicalDamage>12/14/16/18/20（＋合計攻撃力の105%）の物理ダメージ</physicalDamage>を与える。<br><br>方向ごとに30/45/60/0/0/15秒間のクールダウンが個別に存在する。このクールダウンは、<attackSpeed>攻撃速度</attackSpeed>に応じて短縮される。<br>",
+   "cooldown": "4/3.25/2.5/1.75/1",
+   "cost": "",
+   "range": "450",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "天と地",
+   "description": "尻尾を叩きつけて<magicDamage>80/140/200/260/320（＋魔力の150%）の魔法ダメージ</magicDamage>を与える。また、敵を0.6/0.7/0.8/0.9/1秒間<status>ノックアップ</status>させて、2秒間30%の<status>スロウ効果</status>を付与する。チャンピオンに命中すると、その方向の<spellName>「ヴォイドサージ」</spellName>のクールダウンが解消される。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "",
+   "range": "715",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ロイヤルストーム",
+   "description": "詠唱して周囲を切り裂く。この際、20/30/40/50/60%のダメージ軽減効果と20/25/30/35/40%のライフスティールを獲得し、1.5秒かけて10/20/30/0/0/10回の通常攻撃を行う。攻撃回数は<attackSpeed>攻撃速度</attackSpeed>に応じて増加する。通常攻撃のたびに最も体力が低い敵を狙い、対象の減少体力に応じて<physicalDamage>10/12/14/16/18（＋合計攻撃力の12%）</physicalDamage>から<physicalDamage>20/24/28/32/36（＋合計攻撃力の12%）の物理ダメージ</physicalDamage>を与える。<br><br>別のスキルを使用するか<recast>再発動</recast>すると、このスキルが早めに終了する。<br>",
+   "cooldown": "24/21/18/15/12",
+   "cost": "",
+   "range": "500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "終わりなき晩餐",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が追加で<trueDamage>2/4/6（＋増加攻撃力の3%）の確定ダメージ</trueDamage>を与える。これは無限にスタックする。チャンピオンかエピックモンスターからキルまたはアシストを獲得すると、その場に「ヴォイドコーラル」が残る。<br><br><spellActive>発動効果:</spellActive> ベル＝ヴェスがヴォイドコーラルを1つ吸収して<keywordMajor>「ラベンダー」を1</keywordMajor>スタック獲得し、真の姿を解放する。ヴォイド出身のエピックモンスターからドロップした「ヴォイドコーラル」は、近くで倒されたミニオンを「ヴォイドレモラ」に変える。詠唱中、ベル＝ヴェスは周囲の敵に<status>スロウ効果</status>を与え、その後爆発して<trueDamage>150/200/250（＋魔力の150%） + 減少体力の20%の確定ダメージ</trueDamage>を与える。<br><br>真の姿になると、ベル＝ヴェスは<healing>最大体力を100/250/400（＋増加攻撃力の150% ＋魔力の150%）</healing>、射程を25/75/125、<attackSpeed>合計攻撃速度を6/13/20%</attackSpeed>獲得し、<spellName>「ヴォイドサージ」</spellName>で壁を通り抜けられるようになる。<br><br><rules>真の姿は45秒間持続する。<keywordMajor>「ラベンダー」が40</keywordMajor>のスタックで90秒間まで増加する。<keywordMajor>「ラベンダー」が80</keywordMajor>スタックになると、倒されるまで真の姿が維持される。</rules><br><br><br>",
+   "cooldown": "1",
+   "cost": "",
+   "range": "450",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

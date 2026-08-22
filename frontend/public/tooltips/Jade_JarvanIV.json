@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_JarvanIV",
+ "id": 60059,
+ "name": "ジャーヴァンⅣ",
+ "title": "デマーシアの儀範",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "武魂の律動",
+   "description": "最初の通常攻撃が命中する際、対象の現在体力に応じた追加物理ダメージを与えるが、同一の敵に対しては数秒間に一度しか発動できない。<br><br><strong>詳細数値</strong><br>・ダメージ: 6/8/10%（レベル1/7/13）",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ドラゴンストライク",
+   "description": "槍を伸ばして貫通したすべての敵に<physicalDamage>70/115/160/205/250（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与え、3秒間物理防御を10/14/18/22/26%低下させる。<br><br>槍が<spellName>デマーシアの旗印</spellName>に触れるとジャーヴァンⅣが旗の位置まで移動し、触れた敵ユニットを<status>ノックアップ</status>する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "45/50/55/60/65",
+   "range": "770",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ゴールデンイージス",
+   "description": "5秒間、最大50/90/130/170/210(+周囲の敵チャンピオン1体ごとに20/25/30/35/40)の耐久値を持つ<shield>シールド</shield>を獲得し、周囲の敵に2秒間、15/20/25/30/35%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "45/50/55/60/65",
+   "range": "500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "デマーシアの旗印",
+   "description": "<spellPassive>自動効果:</spellPassive> <attackSpeed>攻撃速度が10/13/16/19/22%</attackSpeed>、<scaleArmor>物理防御が10/13/16/19/22</scaleArmor>増加する。<br><br><spellActive>発動効果:</spellActive> 指定地点に<spellName>デマーシアの旗印</spellName>を投げ、周囲にいる敵ユニットに<magicDamage>60/105/150/195/240（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<spellName>旗</spellName>は8秒間消えずに残り、周囲にいる味方チャンピオンの<attackSpeed>攻撃速度を10/13/16/19/22%</attackSpeed>増加させる。",
+   "cooldown": "13",
+   "cost": "55",
+   "range": "860",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "決戦場",
+   "description": "敵チャンピオンに向かって雄々しく跳躍し、<physicalDamage>200/325/450（＋増加攻撃力の150%）の物理ダメージ</physicalDamage>を与え、3.5秒間、周囲を通り抜けられない障壁で囲む。<br><br><recast>再発動</recast>すると障壁が消滅する。",
+   "cooldown": "120/105/90",
+   "cost": "100/125/150",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

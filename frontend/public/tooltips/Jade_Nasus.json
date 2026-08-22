@@ -1,0 +1,63 @@
+{
+ "alias": "Jade_Nasus",
+ "id": 60075,
+ "name": "ナサス",
+ "title": "砂漠の司書",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "ソウルイーター",
+   "description": "敵の霊的なエネルギーを吸い取り、自身のライフスティールが追加で10/15/20%（レベル1/6/11）増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "サイフォンストライク",
+   "description": "次の通常攻撃が<physicalDamage>の物理ダメージ</physicalDamage>を与える。この通常攻撃で敵を倒すたびに、そのダメージが恒久的に3増加する。対象がチャンピオン、大型ミニオン、大型モンスターだった場合は6増加する。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "20",
+   "range": "255",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamage"
+   ]
+  },
+  "w": {
+   "name": "ウィザー",
+   "description": "<mainText>対象のチャンピオンを5秒かけて徐々に老化させる。時間経過とともに増大する<status>スロウ効果</status>を付与し、対象の移動速度を35%から47/59/71/83/95%まで、攻撃速度を%から%まで低下させる。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "80",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "AttackSpeedBaseTotal",
+    "AttackSpeedMaxTotal"
+   ]
+  },
+  "e": {
+   "name": "スピリットファイア",
+   "description": "<mainText>指定地点に神秘的な炎を呼び寄せ、最初に<magicDamage>55/95/135/175/215（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>その後5秒間、範囲内の敵の<status>物理防御を20/25/30/35/40低下</status>させ、毎秒<magicDamage>の魔法ダメージ</magicDamage>を追加で与える。",
+   "cooldown": "12",
+   "cost": "70/85/100/115/130",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TickDotDamage"
+   ]
+  },
+  "r": {
+   "name": "アヌビスの怒り",
+   "description": "<mainText>15秒間砂嵐を身にまとって巨大化し、<scaleHealth>最大体力が300/450/600</scaleHealth>、通常攻撃の射程が50、スキルの射程が100増加する。<br><br>砂嵐発生中は、<magicDamage>敵の最大体力の3/4/5%にあたる魔法ダメージ</magicDamage>(ダメージの上限は毎秒240)を与え、その5%を増加<physicalDamage>攻撃力</physicalDamage>に変換する。",
+   "cooldown": "120",
+   "cost": "100",
+   "range": "400",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 4
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Karthus",
+ "id": 60030,
+ "name": "カーサス",
+ "title": "死を歌う者",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "怨嗟の叫び",
+   "description": "カーサスは死亡すると同時に霊体化し、その場でスキルを発動できるようになる。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "根絶やし",
+   "description": "時間差で爆発を発生させ、0.5秒後に周囲の敵にそれぞれ<magicDamage>40/60/80/100/120（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。命中したのが1体であればダメージは2倍になる。",
+   "cooldown": "1",
+   "cost": "20/26/32/38/44",
+   "range": "875",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "嘆きの壁",
+   "description": "指定地点に5秒間持続する壁を出現させる。この壁を通過した敵は5秒間、魔法防御が15%低下し、40/50/60/70/80%の<status>スロウ効果</status>を受ける(低下した移動速度は徐々に元に戻る)。",
+   "cooldown": "15",
+   "cost": "70",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "冒涜",
+   "description": "<toggle>非発動時:</toggle> 敵を倒すと<scaleMana>マナが20/27/34/41/48</scaleMana>回復する。<br><br><toggle>発動時: </toggle>周囲の敵に毎秒<magicDamage>30/50/70/90/110（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "0.5",
+   "cost": "30/42/54/66/78",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "鎮魂歌",
+   "description": "3秒間の詠唱後、すべての敵チャンピオンに<magicDamage>250/400/550（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "200/180/160",
+   "cost": "150/175/200",
+   "range": "10000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

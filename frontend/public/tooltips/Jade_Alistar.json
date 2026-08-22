@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Alistar",
+ "id": 60012,
+ "name": "アリスター",
+ "title": "ミノタウロスの戦士",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "踏破",
+   "description": "スキルを使用するたびに、数秒間、周囲のユニットとタワーに対して「踏破」が発動し、自身が触れた敵ユニットにダメージを与える。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 7〜24（レベル比例） ＋ 魔力の10%",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "圧砕",
+   "description": "地面を叩きつけ、敵を1.5秒間<status>ノックアップ</status>させ、<magicDamage>60/105/150/195/240（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "17/16/15/14/13",
+   "cost": "70/80/90/100/110",
+   "range": "365",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "頭突き",
+   "description": "敵に頭突きして<status>ノック</status><status>バック</status>させ、<magicDamage>55/110/165/220/275（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "70/80/90/100/110",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "戦士の咆哮",
+   "description": "咆哮をあげ、自身の<healing>体力を60/90/120/150/180（＋魔力の25%）</healing>、周囲の味方の<healing>体力を45/67.5/90/112.5/135（＋魔力の25%）</healing>回復する。<br><br>周囲の敵が倒されると、このスキルのクールダウンが2秒短縮される。",
+   "cooldown": "12",
+   "cost": "40/50/60/70/80",
+   "range": "575",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "不屈の意志",
+   "description": "あらゆる<status>行動妨害効果</status>を直ちに解除する。さらに7秒間、<physicalDamage>攻撃力が60/75/90</physicalDamage>増加し、受けるダメージを50/60/70%軽減する。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "1",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

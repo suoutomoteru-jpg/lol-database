@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Wukong",
+ "id": 60062,
+ "name": "ウーコン",
+ "title": "美猴王",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "岩の皮膚",
+   "description": "近くにいる敵チャンピオンの数に比例して自身の物理防御と魔法防御が増加する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "強棒打",
+   "description": "次の通常攻撃の射程距離が125増加し、<physicalDamage>30/60/90/120/150（＋合計攻撃力の110%）の物理ダメージ</physicalDamage>を与え、3秒間、敵の<scaleArmor>物理防御を30%</scaleArmor>低下させる。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "40",
+   "range": "250/275/300/325/350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "代わり身の術",
+   "description": "<mainText>1.5秒間、<keywordStealth>インビジブル</keywordStealth>状態になる。操作不能な分身がその場に残り、1.5秒後に周囲の敵に<magicDamage>70/115/160/205/250（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "22/21/20/19/18",
+   "cost": "50/55/60/65/70",
+   "range": "275",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "乱像猿技",
+   "description": "<mainText>指定した対象に向かって突撃し、複数の残像を発生させる。残像は対象の近くにいる敵ユニットを2体まで攻撃し、それぞれ<physicalDamage>60/105/150/195/240（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与える。対象に命中すると、4秒間、自身の<attackSpeed>攻撃速度が30/35/40/45/50%</attackSpeed>増加する。",
+   "cooldown": "10/9.25/8.5/7.75/7",
+   "cost": "45/50/55/60/65",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "旋風猿舞",
+   "description": "<mainText>回転しながら如意棒を振り回し、触れた敵ユニットに毎秒<physicalDamage>20/110/200（＋合計攻撃力の120%）の物理ダメージ</physicalDamage>を与えて<status>ノックアップ</status>する。効果時間中は、自身の<speed>移動速度</speed>が徐々に増加する。4秒間持続する。<br><br><recast>再発動:</recast> 早めに終了する。",
+   "cooldown": "120/105/90",
+   "cost": "100",
+   "range": "315",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

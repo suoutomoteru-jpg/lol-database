@@ -1,0 +1,62 @@
+{
+ "alias": "Jade_Shen",
+ "id": 60098,
+ "name": "シェン",
+ "title": "黄昏の瞳",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "気功斬",
+   "description": "9秒ごとに、次の通常攻撃が追加ダメージを与える。通常攻撃を行うたびに、「気功斬」のクールダウンが短縮される。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "吸命刀",
+   "description": "「吸命刀」を投げつけ、対象に<magicDamage>の魔法ダメージ</magicDamage>を与えて、5秒間マークする。この対象にスキルか通常攻撃を命中させた味方は、3秒かけて体力が<healing></healing>回復する。このスキルで敵をキルすると、代わりに直ちに<healing>体力が</healing>回復する。",
+   "cooldown": "10/6/5.5/5/4.5",
+   "cost": "60",
+   "range": "475",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalMagicDamage_Jade",
+    "TotalHealOverTimeAmount_Jade",
+    "TotalHeal_Jade"
+   ]
+  },
+  "w": {
+   "name": "護身術",
+   "description": "3秒間、<shield>耐久値60/100/140/180/220（＋魔力の60%）のシールド</shield>を獲得する。このスキルが有効な間は、通常攻撃で<keywordMajor>気功斬</keywordMajor>のクールダウンが1秒短縮される。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "50",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "殺気駆け",
+   "description": "ダッシュして、触れた敵チャンピオンに1.5秒間、<status>挑発</status>効果を付与し、<magicDamage>の魔法ダメージ</magicDamage>を与える。<status>挑発</status>効果を受けたチャンピオンは強制的にシェンに通常攻撃を行い、物理ダメージが50%低下する。影響を与えたチャンピオン1体につき、<keywordMajor>気が40</keywordMajor>回復する。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "120",
+   "range": "575",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDashDamage"
+   ]
+  },
+  "r": {
+   "name": "瞬身護法",
+   "description": "5秒間、味方チャンピオン1体に<shield>耐久値250/550/850（＋魔力の135%）のシールド</shield>を付与する。3秒間詠唱した後、味方のもとへテレポートする。",
+   "cooldown": "200/180/160",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 4
+}

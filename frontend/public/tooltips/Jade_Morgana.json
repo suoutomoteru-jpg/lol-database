@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Morgana",
+ "id": 60025,
+ "name": "モルガナ",
+ "title": "不屈の堕天使",
+ "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "skills": {
+  "passive": {
+   "name": "ソウルサイフォン",
+   "description": "モルガナはスペルヴァンプを持っており、スキルでダメージを与えると自身の体力が回復する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダークバインド",
+   "description": "<mainText>闇のエネルギーを発射して、最初に命中した敵に2/2.25/2.5/2.75/3秒間の<status>スネア効果</status>と<magicDamage>80/135/190/245/300（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "11",
+   "cost": "50/60/70/80/90",
+   "range": "1175",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "苦悶の沼",
+   "description": "<mainText>5秒間、指定範囲に呪いをかける。呪われた範囲内にいる敵は毎秒<magicDamage>25/40/55/70/85（＋魔力の20%）の魔法ダメージ</magicDamage>を受け、<scaleMR>魔法防御</scaleMR>が4/5/6/7/8低下する。",
+   "cooldown": "",
+   "cost": "70/85/100/115/130",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ブラックシールド",
+   "description": "<mainText>味方チャンピオンに5秒間シールドを付与する。シールドは<shield>95/160/225/290/355（＋魔力の70%）</shield>の<magicDamage>魔法ダメージ</magicDamage>を防ぎ、消滅するまで<status>行動妨害効果</status>を無効化する。",
+   "cooldown": "23/21/19/17/15",
+   "cost": "50",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "魂の足枷",
+   "description": "<mainText>闇の鎖が近くにいる敵チャンピオンに絡みつき、<magicDamage>175/250/325（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、3秒間、20%の<status>スロウ効果</status>を付与する。3秒後、鎖は追加で<magicDamage>175/250/325（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間対象をスタンさせる。<br><br>敵チャンピオンはモルガナから離れることで鎖を断ち切ることができる。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "625",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}
