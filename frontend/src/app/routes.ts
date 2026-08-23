@@ -51,6 +51,10 @@ export const router = createBrowserRouter([
         path: 'scaling',
         lazy: lazyImport(() => import('./pages/ScalingChart').then(m => ({ Component: m.ScalingChart }))),
       },
+      {
+        path: 'runes',
+        lazy: lazyImport(() => import('./pages/Runes').then(m => ({ Component: m.Runes }))),
+      },
       { path: '*', Component: NotFound },
     ],
   },

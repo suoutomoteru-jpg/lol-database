@@ -156,6 +156,12 @@ export function Home() {
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
             <Link
+              to="/runes"
+              className="px-2.5 pt-[3px] pb-[5px] text-xs text-muted-foreground hover:text-primary hover:border-primary/40 tabular-nums rounded-sm border border-border bg-card transition-colors"
+            >
+              ルーン
+            </Link>
+            <Link
               to="/scaling"
               className="px-2.5 pt-[3px] pb-[5px] text-xs text-muted-foreground hover:text-primary hover:border-primary/40 tabular-nums rounded-sm border border-border bg-card transition-colors"
             >

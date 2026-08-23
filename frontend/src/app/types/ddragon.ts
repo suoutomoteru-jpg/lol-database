@@ -147,3 +147,26 @@ export interface DDragonItemListResponse {
   version: string;
   data: Record<string, DDragonItem>;
 }
+
+// runesReforged.json（ラッパーなし、ツリーの配列がそのままレスポンス）
+export interface DDragonRune {
+  id: number;
+  key: string;        // "PressTheAttack"
+  icon: string;        // "perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png"
+  name: string;
+  shortDesc: string;   // HTML含む場合あり
+  longDesc: string;    // HTML含む場合あり
+}
+
+export interface DDragonRuneSlot {
+  runes: DDragonRune[];
+}
+
+// slots[0] がキーストーン（4択）、slots[1-3] が通常ルーン（各3択）
+export interface DDragonRuneTree {
+  id: number;
+  key: string;   // "Domination"
+  icon: string;
+  name: string;
+  slots: DDragonRuneSlot[];
+}
