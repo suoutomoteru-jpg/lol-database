@@ -13,7 +13,6 @@ import type {
   DDragonChampionSummary,
   DDragonChampionDetail,
   DDragonItem,
-  DDragonRuneTree,
 } from '../types/ddragon';
 
 const BASE_URL = 'https://ddragon.leagueoflegends.com';
@@ -136,13 +135,6 @@ export function spellImageUrl(version: string, fileName: string): string {
 
 export function passiveImageUrl(version: string, fileName: string): string {
   return `${BASE_URL}/cdn/${version}/img/passive/${fileName}`;
-}
-
-// ルーンのアイコンだけ他の画像と違い、バージョン非依存の /cdn/img/ 配下にある
-// （iconはrunesReforged.jsonが返す相対パス、例:
-//  "perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png"）
-export function runeIconUrl(icon: string): string {
-  return `${BASE_URL}/cdn/img/${icon}`;
 }
 
 // ── チャンピオン一覧 ────────────────────────────────────
@@ -304,22 +296,6 @@ export async function fetchItemEnNames(version: string): Promise<Record<string, 
 }
 
 // ── アイテム一覧（700G以上）──────────────────────────────
-
-// ── ルーン一覧 ──────────────────────────────────────────
-
-export async function fetchRuneTrees(version: string): Promise<DDragonRuneTree[]> {
-  const key = dataKey(version, 'runes');
-  const cached = readCache<DDragonRuneTree[]>(key);
-  if (cached) return cached;
-
-  const url = `${BASE_URL}/cdn/${version}/data/${LOCALE}/runesReforged.json`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`runesReforged.json fetch failed: ${res.status}`);
-
-  const json: DDragonRuneTree[] = await res.json();
-  writeCache(key, json);
-  return json;
-}
 
 export async function fetchItemListMedium(version: string): Promise<[string, DDragonItem][]> {
   const key = dataKey(version, 'items-medium-v2');
