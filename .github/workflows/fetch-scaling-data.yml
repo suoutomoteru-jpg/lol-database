@@ -38,8 +38,16 @@ name: Fetch scaling chart data
 # 途中経過はcacheにも残らなかった）。
 # 対策: スクリプト側で一定件数ごとにstateとscaling.json自体をチェックポイント
 # 保存するよう変更（fetch_scaling_data.pyのcollect_matches参照）。加えて
-# cache保存をsave-always:trueにし、後続ステップもif:always()にすることで、
-# タイムアウトしても「その日打ち切られるまでに集めた分」は必ず持ち帰る
+# 後続ステップをif:always()にすることで、タイムアウトしても「その日
+# 打ち切られるまでに集めた分」は必ず持ち帰る
+#
+# 追加インシデント(2026-08-21): 上記対策の初回実行(30,938→44,965件まで
+# 前進)は成功したが、2つの見落としで結局pushされず消えかけた。
+# (1) actions/cache@v4のsave-always入力はdeprecatedで実際には機能しない
+#     （ジョブcancelled時はやはり保存されない）→ restore/saveを別アクション
+#     に分離し、saveをif:always()の独立ステップにした
+# (2) 5時間50分の実行中に他のコミットがmainに積まれ、実行終了時点で
+#     git pushがnon-fast-forwardで失敗した → push前にrebaseしてリトライする
 on:
   workflow_dispatch:
     inputs:
@@ -84,16 +92,16 @@ jobs:
       # （毎週コミットし続けると際限なくリポジトリが肥大化するため）。
       # key はrun_id込みで毎回ユニークにして必ず新規保存されるようにし、
       # restore-keys の前方一致で直近の最新stateを復元する
+      # actions/cache@v4のsave-always入力はdeprecatedで実際には保存されない
+      # （2026-08-21に実測済み）。restore/saveを別アクションに分けて、
+      # saveは独立したif:always()ステップにする
       - name: Restore scaling state cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: scripts/data/scaling_state.json
           key: scaling-state-${{ github.run_id }}
           restore-keys: |
             scaling-state-
-          # デフォルト(false)だとジョブがcancelled(タイムアウト含む)扱いの時に
-          # 保存がスキップされ、スクリプト側のチェックポイントが無駄になる
-          save-always: true
 
       - name: Fetch scaling data from Riot API
         env:
@@ -106,6 +114,15 @@ jobs:
             --max-age-days "${{ inputs.max_age_days || '180' }}" \
             --state-file scripts/data/scaling_state.json \
             --out frontend/public/tooltips/scaling.json
+
+      # タイムアウトでcancelledになっても、スクリプトがチェックポイント
+      # 保存した時点までのstateを必ずcacheへ書き戻す
+      - name: Save scaling state cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: scripts/data/scaling_state.json
+          key: scaling-state-${{ github.run_id }}
 
       - name: Show summary
         # フェッチがタイムアウトでcancelledになっても、チェックポイントまでの
@@ -135,7 +152,20 @@ jobs:
           git add frontend/public/tooltips/scaling.json
           if git diff --cached --quiet; then
             echo "変更なし（既に最新）"
-          else
-            git commit -m "chore: regenerate scaling chart data from Riot Match-V5 API"
-            git push origin HEAD:${GITHUB_REF_NAME}
+            exit 0
           fi
+          git commit -m "chore: regenerate scaling chart data from Riot Match-V5 API"
+          # 実行が数時間かかるため、その間に他のコミットがmainに積まれている
+          # ことがある。non-fast-forwardで一度失敗しても、rebaseして数回
+          # リトライすれば大抵の場合（他ファイルとの衝突がなければ）通る
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:${GITHUB_REF_NAME}; then
+              exit 0
+            fi
+            echo "push失敗、rebaseしてリトライします (${i}/5)"
+            git fetch origin ${GITHUB_REF_NAME}
+            git rebase origin/${GITHUB_REF_NAME}
+            sleep 5
+          done
+          echo "::error::5回リトライしてもpushできませんでした"
+          exit 1
