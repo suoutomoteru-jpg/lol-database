@@ -32,6 +32,6 @@ registerSW({
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') registration.update()
     })
-    setInterval(() => registration.update(), 60 * 60 * 1000)
+    setInterval(() => registration.update(), 15 * 60 * 1000)
   },
 })
