@@ -3,7 +3,7 @@
  "id": 31,
  "name": "チョ＝ガス",
  "title": "未知なる恐怖",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "暴食",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "ヴォーパルスパイク",
-   "description": "次の3回の通常攻撃がトゲを発射して<magicDamage>20/40/60/80/100（＋魔力の30%）(+対象の最大体力の)の魔法ダメージ</magicDamage>と30/35/40/45/50%の<status>スロウ効果</status>を与える。この効果は1.5秒かけて元に戻る。",
+   "description": "次の3回の通常攻撃がトゲを発射して<magicDamage>30/50/70/90/110（＋魔力の30%）(+対象の最大体力の)の魔法ダメージ</magicDamage>と30/35/40/45/50%の<status>スロウ効果</status>を与える。この効果は1.5秒かけて元に戻る。",
    "cooldown": "8/7/6/5/4",
    "cost": "30",
    "range": "40",

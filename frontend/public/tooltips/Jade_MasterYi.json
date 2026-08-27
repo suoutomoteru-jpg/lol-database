@@ -3,7 +3,7 @@
  "id": 60011,
  "name": "マスター・イー",
  "title": "ウージューの剣客",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ダブルストライク",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "明鏡止水",
-   "description": "詠唱し、5秒かけて<healing>体力を200/350/500/650/800（＋魔力の200%）</healing>回復する。詠唱中は、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御が100/150/200/250/300</scaleMR>増加する。",
+   "description": "詠唱し、5秒かけて<healing>200/350/500/650/800（＋魔力の200%）体力を</healing>回復する。詠唱中は、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が100/150/200/250/300増加する。",
    "cooldown": "35",
    "cost": "50/65/80/95/110",
    "range": "20",

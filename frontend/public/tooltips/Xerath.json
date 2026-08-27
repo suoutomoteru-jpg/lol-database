@@ -3,7 +3,7 @@
  "id": 101,
  "name": "ゼラス",
  "title": "超越魔神",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "マナサージ",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "アルカノパルス",
-   "description": "<charge>チャージ開始:</charge> 蒼いビームのチャージを開始して、自身の<status>移動速度</status>が最大50%まで徐々に低下する。<br><br><release>解放:</release> ビームを発射して<magicDamage>75/115/155/195/235（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。チャージした時間に応じて射程が増加する。",
+   "description": "<charge>チャージ開始:</charge> 蒼いビームのチャージを開始して、自身の<status>移動速度</status>が最大50%まで徐々に低下する。<br><br><release>解放:</release> ビームを発射して<magicDamage>70/110/150/190/230（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。チャージした時間に応じて射程が増加する。",
    "cooldown": "9/8/7/6/5",
    "cost": "80/90/100/110/120",
    "range": "750",

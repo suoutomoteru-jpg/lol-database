@@ -3,7 +3,7 @@
  "id": 67,
  "name": "ヴェイン",
  "title": "ナイトハンター",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ナイトハンター",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "シルバーボルト",
-   "description": "<spellPassive>自動効果</spellPassive>: 同じ敵に通常攻撃またはスキルを3回連続して行うごとに、追加で<trueDamage>最大体力の6/7/8/9/10%の確定ダメージ</trueDamage>を与える。",
+   "description": "<spellPassive>自動効果</spellPassive>: 同じ敵に通常攻撃またはスキルを3回連続して行うごとに、追加で<trueDamage>最大体力の4/5.5/7/8.5/10%の確定ダメージ</trueDamage>を与える。",
    "cooldown": "0",
    "cost": "",
    "range": "750",

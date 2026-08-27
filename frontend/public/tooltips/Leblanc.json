@@ -3,7 +3,7 @@
  "id": 7,
  "name": "ルブラン",
  "title": "幻惑の奇術師",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "鏡像",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "ディストーション",
-   "description": "ダッシュし、周囲の敵に<magicDamage>75/115/155/195/235（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。ダッシュ後の4秒間、このスキルを<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> ルブランが元の場所に戻る。",
+   "description": "ダッシュし、周囲の敵に<magicDamage>75/115/155/195/235（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。ダッシュ後の4秒間、このスキルを<recast>再発動</recast>できる。<br><br><recast>再発動:</recast> ルブランが元の場所に戻る。",
    "cooldown": "15/13.75/12.5/11.25/10",
    "cost": "60/70/80/90/100",
    "range": "600",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "再演",
-   "description": "直前に使用したスキルを再演(コピーして再使用)する。再演したスキルはダメージが増加する。<br><br><spellName>「再演: シジルマリス」</spellName>は刻印の適用時に<magicDamage>70/150/230（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、消費時に<magicDamage>140/300/460（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><spellName>「再演: ディストーション」</spellName>は<magicDamage>150/315/480（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><spellName>「再演: エーテルチェイン」</spellName>は鎖で繋いだ際に<magicDamage>70/150/230（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<status>スネア効果</status>付与時に<magicDamage>140/300/460（＋魔力の85%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "直前に使用したスキルを再演(コピーして再使用)する。再演したスキルはダメージが増加する。<br><br><spellName>「再演: シジルマリス」</spellName>は刻印の適用時に<magicDamage>70/150/230（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、消費時に<magicDamage>140/300/460（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><spellName>「再演: ディストーション」</spellName>は<magicDamage>150/315/480（＋魔力の90%）の魔法ダメージ</magicDamage>を与える。<br><spellName>「再演: エーテルチェイン」</spellName>は鎖で繋いだ際に<magicDamage>70/150/230（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<status>スネア効果</status>付与時に<magicDamage>140/300/460（＋魔力の85%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "45/35/25",
    "cost": "",
    "range": "25000",

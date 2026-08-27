@@ -3,17 +3,17 @@
  "id": 60028,
  "name": "イブリン",
  "title": "幻妖のアサシン",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "シャドウ ウォーク",
-   "description": "影に潜んで<keywordStealth>カモフラージュ</keywordStealth>状態になり、毎秒<scaleMana>最大マナの1%</scaleMana>を回復する。<br><br>スキルを使用するか、ダメージを受けるか、ダメージを与えると、6秒間<keywordStealth>カモフラージュ</keywordStealth>状態が解除される。<br><br><rules><keywordStealth>カモフラージュ</keywordStealth>状態のユニットは敵チャンピオンが検出範囲内に入ってこない限り可視化されない。</rules>",
-   "source": "stringtable",
+   "description": "非戦闘状態になると「カモフラージュ」状態になり、近くにいる敵チャンピオンまたは真の視界でしか可視化されなくなる。ステルス状態の間、マナを急速に回復する。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {
    "name": "ヘイトスパイク",
-   "description": "地面から一直線に貫通するトゲを近くの敵に放ち、命中したすべての敵に<magicDamage>40/60/80/100/120（＋魔力の45% ＋増加攻撃力の50%）の魔法ダメージ</magicDamage>を与える。<br><br><spellName>ヘイトスパイク</spellName>は、イブリンが直前に攻撃した敵を優先する。",
+   "description": "地面から一直線に貫通するトゲを近くの敵に放ち、命中したすべての敵に<magicDamage>40/55/70/85/100（＋増加攻撃力の50% ＋魔力の45%）の魔法ダメージ</magicDamage>を与える。<br><br><spellName>ヘイトスパイク</spellName>は、イブリンが直前に攻撃した敵を優先する。",
    "cooldown": "1.5",
    "cost": "16/22/28/34/40",
    "range": "525",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "苦悶の抱擁",
-   "description": "指定範囲内のすべての敵を串刺しにし、<magicDamage>現在体力の15/20/25（＋魔力の1%）%にあたる魔法ダメージ</magicDamage>を与え、2秒間、30/50/70%の<status>スロウ効果</status>を付与する。<br><br>敵の苦痛を吸い取り、命中した敵チャンピオン1体につき<shield>耐久値150/225/300のシールド</shield>を獲得する。このシールドは最大6秒間持続する。",
+   "description": "指定範囲内のすべての敵を串刺しにし、<magicDamage>現在体力の15/20/25（＋魔力の1%）%にあたる魔法ダメージ</magicDamage>を与え、2秒間、30/50/70%の<status>スロウ効果</status>を付与する。<br><br>敵の苦痛を吸い取り、命中した敵チャンピオン1体につき<shield>150/225/300耐久値のシールド</shield>を獲得する。このシールドは最大6秒間持続する。",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "650",

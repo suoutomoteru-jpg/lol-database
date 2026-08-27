@@ -3,7 +3,7 @@
  "id": 39,
  "name": "イレリア",
  "title": "飛刃の舞い手",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "アイオニアの熱情",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "瞬刃",
-   "description": "敵に向かってダッシュして<physicalDamage>5/25/45/65/85（＋合計攻撃力の70%）の物理ダメージ</physicalDamage>を与え、<healing>体力を合計攻撃力の9/10/11/12/13%</healing>回復する。このスキルで敵をキルするか、対象が<keywordMajor>不安定</keywordMajor>だった場合、クールダウンが解消される。<br><br>ミニオンには5/25/45/65/85（＋50〜237（レベル1〜18） ＋合計攻撃力の70%）のダメージを与える。",
+   "description": "敵に向かってダッシュして<physicalDamage>5/25/45/65/85（＋合計攻撃力の80%）の物理ダメージ</physicalDamage>を与え、<healing>体力を合計攻撃力の9/10/11/12/13%</healing>回復する。このスキルで敵をキルするか、対象が<keywordMajor>不安定</keywordMajor>だった場合、クールダウンが解消される。<br><br>ミニオンには5/25/45/65/85（＋50〜237（レベル1〜18） ＋合計攻撃力の80%）のダメージを与える。",
    "cooldown": "10/9/8/7/6",
    "cost": "15",
    "range": "600",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "不屈の舞",
-   "description": "<charge>チャージ開始:</charge> 最大1.5秒間の防御態勢を取り、行動ができなくなる代わりに受ける物理ダメージを40〜70（レベル比例） ＋ 魔力の7%%、魔法ダメージを40〜70（レベル比例） ＋ 魔力の7%×0.5%減少させる。<br><br><release>解放:</release> 刃での強烈な攻撃を放ち、<physicalDamage>10/20/30/40/50（＋合計攻撃力の40% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。このダメージはチャージ時間に応じて最大<physicalDamage>30/60/90/120/150（＋合計攻撃力の120% ＋魔力の150%）</physicalDamage>まで上昇する。",
+   "description": "<charge>チャージ開始:</charge> 最大1.5秒間の防御態勢を取り、行動ができなくなる代わりに受ける物理ダメージを40〜70（レベル比例） ＋ 魔力の8%%、魔法ダメージを40〜70（レベル比例） ＋ 魔力の8%×0.5%減少させる。<br><br><release>解放:</release> 刃での強烈な攻撃を放ち、<physicalDamage>10/20/30/40/50（＋合計攻撃力の40% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。このダメージはチャージ時間に応じて最大<physicalDamage>30/60/90/120/150（＋合計攻撃力の120% ＋魔力の150%）</physicalDamage>まで上昇する。",
    "cooldown": "20/18/16/14/12",
    "cost": "70/75/80/85/90",
    "range": "825",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "先陣の刃",
-   "description": "大量の刃を飛ばして<magicDamage>125/200/275（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、チャンピオンと大型ジャングルモンスターを5秒間<keywordMajor>不安定</keywordMajor>にする。刃は爆発して最初に命中したチャンピオンの周囲に2.5秒間檻を形成する。檻は<magicDamage>125/200/275（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間90%の<status>スロウ効果</status>を付与する。",
+   "description": "大量の刃を飛ばして<magicDamage>125/200/275（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、チャンピオンと大型ジャングルモンスターを5秒間<keywordMajor>不安定</keywordMajor>にする。刃は爆発して最初に命中したチャンピオンの周囲に2.5秒間檻を形成する。檻は<magicDamage>125/200/275（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、1.5秒間90%の<status>スロウ効果</status>を付与する。",
    "cooldown": "125/105/85",
    "cost": "100",
    "range": "950",

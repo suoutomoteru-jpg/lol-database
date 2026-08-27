@@ -3,11 +3,11 @@
  "id": 60023,
  "name": "トリンダメア",
  "title": "孤高の蛮王",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "戦場の咆哮",
-   "description": "減少体力に応じて、クリティカル率が10% - 50%増加する。",
+   "description": "減少体力に応じて、クリティカル率が10% - 30%増加する。",
    "source": "stringtable",
    "unresolved": []
   },

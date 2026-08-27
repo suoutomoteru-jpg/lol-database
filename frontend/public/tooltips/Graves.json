@@ -3,7 +3,7 @@
  "id": 104,
  "name": "グレイブス",
  "title": "無法者",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ニュー・デスティニー",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "エンドライン",
-   "description": "爆薬の詰まった弾を発射し、<physicalDamage>50/75/100/125/150（＋増加攻撃力の65%）の物理ダメージ</physicalDamage>を与える。弾は1秒後、もしくは地形に当たると爆発し、弾道上と爆発の近くにいる敵に<physicalDamage>80/125/170/215/260（＋増加攻撃力の55/70/85/100/115%）の物理ダメージ</physicalDamage>を与える。",
+   "description": "爆薬の詰まった弾を発射し、<physicalDamage>50/75/100/125/150（＋増加攻撃力の55%）の物理ダメージ</physicalDamage>を与える。弾は1秒後、もしくは地形に当たると爆発し、弾道上と爆発の近くにいる敵に<physicalDamage>80/125/170/215/260（＋増加攻撃力の45/60/75/90/105%）の物理ダメージ</physicalDamage>を与える。",
    "cooldown": "13/11.25/9.5/7.75/6",
    "cost": "80",
    "range": "925",

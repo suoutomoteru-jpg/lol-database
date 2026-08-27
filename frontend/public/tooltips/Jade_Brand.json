@@ -3,7 +3,7 @@
  "id": 60063,
  "name": "ブランド",
  "title": "復讐の炎",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "炎上",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "焦炎",
-   "description": "<mainText>指定方向に火の玉を放ち、最初に命中した敵ユニットに<magicDamage>80/120/160/200/240（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。<br><br><spellPassive>炎上:</spellPassive> <keywordMajor>炎上中</keywordMajor>の対象に、<spellName>焦炎</spellName>が命中すると、2秒間、対象を<status>スタン</status>させる。",
+   "description": "指定方向に火の玉を放ち、最初に命中した敵ユニットに<magicDamage>80/120/160/200/240（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。<br><br><spellPassive>炎上:</spellPassive> <keywordMajor>炎上中</keywordMajor>の対象に、<spellName>焦炎</spellName>が命中すると2秒間、対象を<status>スタン</status>させる。",
    "cooldown": "8/7.5/7/6.5/6",
    "cost": "50",
    "range": "1050",

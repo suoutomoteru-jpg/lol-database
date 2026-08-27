@@ -3,7 +3,7 @@
  "id": 50,
  "name": "スウェイン",
  "title": "ノクサス帝国元帥",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "恐襲の魔鴉",

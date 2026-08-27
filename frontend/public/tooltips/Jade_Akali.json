@@ -3,7 +3,7 @@
  "id": 60084,
  "name": "アカリ",
  "title": "影の拳",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "双の行",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "刺客の刻印",
-   "description": "対象の敵に向かって鎌を投げ、<magicDamage>45/70/95/120/145（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、6秒間、対象をマークする。<br><br>マークを受けた対象に近接攻撃を行うと、マークを消費して<magicDamage>45/70/95/120/145（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>気を20/25/30/35/40</keywordMajor>回復する。",
+   "description": "対象の敵に向かって鎌を投げ、<magicDamage>45/70/95/120/145（＋魔力の40%）の魔法ダメージ</magicDamage>を与え6秒間、対象をマークする。<br><br>マークを受けた対象に近接攻撃を行うと、マークを消費して<magicDamage>45/70/95/120/145（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>気を20/25/30/35/40</keywordMajor>回復する。",
    "cooldown": "6/5.5/5/4.5/4",
    "cost": "60",
    "range": "550",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "黄昏の帳",
-   "description": "煙玉を投げて、8秒間持続する煙幕を張る。この範囲内にいる間は<scaleArmor>物理防御が10/20/30/40/50</scaleArmor>と<scaleMR>魔法防御が10/20/30/40/50</scaleMR>増加し、<keywordStealth>インビジブル</keywordStealth>状態になる。通常攻撃を行うかスキルを使用すると、少しの間だけ姿が見える。<br><br>煙幕のなかにいる敵は14/18/22/26/30%の<status>スロウ効果</status>を受ける。",
+   "description": "煙玉を投げて8秒間持続する煙幕を張る。この範囲内にいる間は<scaleArmor>物理防御が10/20/30/40/50</scaleArmor>と<scaleMR>魔法防御が10/20/30/40/50</scaleMR>増加し、<keywordStealth>インビジブル</keywordStealth>状態になる。通常攻撃を行うかスキルを使用すると、少しの間だけ姿が見える。<br><br>煙幕の中にいる敵は14/18/22/26/30%の<status>スロウ効果</status>を受ける。",
    "cooldown": "20",
    "cost": "80/75/70/65/60",
    "range": "700",

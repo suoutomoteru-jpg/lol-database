@@ -3,17 +3,17 @@
  "id": 60030,
  "name": "カーサス",
  "title": "死を歌う者",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "怨嗟の叫び",
-   "description": "カーサスは死亡すると同時に霊体化し、その場でスキルを発動できるようになる。",
+   "description": "死亡すると同時に霊体化し、死亡中もその場で短時間スキルを発動できるようになる。",
    "source": "lcu",
    "unresolved": []
   },
   "q": {
    "name": "根絶やし",
-   "description": "時間差で爆発を発生させ、0.5秒後に周囲の敵にそれぞれ<magicDamage>40/60/80/100/120（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。命中したのが1体であればダメージは2倍になる。",
+   "description": "時間差で爆発を発生させ、周囲の敵にそれぞれ<magicDamage>40/60/80/100/120（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。命中したのが1体であればダメージは2倍になる。",
    "cooldown": "1",
    "cost": "20/26/32/38/44",
    "range": "875",

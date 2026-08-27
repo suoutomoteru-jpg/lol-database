@@ -3,7 +3,7 @@
  "id": 60086,
  "name": "ガレン",
  "title": "デマーシアの勇士",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "タフガイ",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "勇気の護り",
-   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>の値が追加で20%増加する。<br><br><spellActive>発動効果: </spellActive>2/3/4/5/6秒間、防御シールドを獲得し、受けるダメージを30%軽減して、30%の行動妨害耐性を得る。",
+   "description": "<spellPassive>自動効果:</spellPassive> <scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>の値が追加で30%増加する。<br><br><spellActive>発動効果: </spellActive>2/3/4/5/6秒間、防御シールドを獲得し、受けるダメージを30%軽減して、30%の行動妨害耐性を得る。",
    "cooldown": "24/23/22/21/20",
    "cost": "",
    "range": "0",
@@ -33,13 +33,15 @@
   },
   "e": {
    "name": "ジャッジメント",
-   "description": "3秒間、高速で回転しながら剣を振り回し、周囲の敵に毎秒<physicalDamage>20/45/70/95/120（＋合計攻撃力の70/80/90/100/110%）の物理ダメージ</physicalDamage>を与える。回転中はユニットをすり抜けて移動できるが、ユニットに重なって通り抜ける際は移動速度が20%低下する。<br><br><spellName>ジャッジメント</spellName>はクリティカル判定を持ち、クリティカル時は追加ダメージを与える。<br><spellName>ジャッジメント</spellName>は、ミニオンとモンスターに与えるダメージが25%減少する。",
+   "description": "3秒間、高速で回転しながら剣を振り回し、周囲の敵に毎秒<physicalDamage>20/45/70/95/120（＋合計攻撃力の80/90/100/110/120%）の物理ダメージ</physicalDamage>を与える(最大ダメージ: <physicalDamage></physicalDamage>)。",
    "cooldown": "13/12/11/10/9",
    "cost": "",
    "range": "325",
    "maxRank": 5,
-   "source": "stringtable",
-   "unresolved": []
+   "source": "lcu",
+   "unresolved": [
+    "MaximumDamageTooltip"
+   ]
   },
   "r": {
    "name": "デマーシアの正義",
@@ -52,5 +54,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

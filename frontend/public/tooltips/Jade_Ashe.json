@@ -3,7 +3,7 @@
  "id": 60022,
  "name": "アッシュ",
  "title": "氷の射手",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "フォーカス",
@@ -23,34 +23,34 @@
   },
   "w": {
    "name": "ボレー",
-   "description": "<mainText>扇状に複数の矢を発射して<physicalDamage>40/50/60/70/80（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<spellName>ボレー</spellName>は<spellName>フロストショット</spellName>の<status>スロウ効果</status>を付与する。<br><br>敵に複数の矢が命中した場合は、最初の1本からのみダメージを受ける。</mainText>",
+   "description": "<mainText>扇状に複数の矢を発射して<physicalDamage>40/55/70/85/100（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<spellName>ボレー</spellName>は<spellName>フロストショット</spellName>の<status>スロウ効果</status>を付与する。<br><br>敵に複数の矢が命中した場合は、最初の1本からのみダメージを受ける。</mainText>",
    "cooldown": "16/13/10/7/4",
    "cost": "60",
-   "range": "1200",
+   "range": "1250",
    "maxRank": 5,
    "source": "stringtable",
    "unresolved": []
   },
   "e": {
    "name": "スカウトホーク",
-   "description": "<mainText><spellPassive>自動効果:</spellPassive> 敵をキルするたびに、追加で1/2/3/4/5ゴールドを獲得する。<br>獲得したゴールドの合計: 3ゴールド。<br><br><spellActive>発動効果:</spellActive> 鷹を放ち、指定した地点の視界を5秒間確保する。また、鷹は通過したエリアの視界も得る。</mainText>",
+   "description": "<spellPassive>自動効果:</spellPassive> 敵をキルするたびに、追加で<gold>1/2/3/4/5ゴールド</gold>を獲得する。<br><br><spellActive>発動効果:</spellActive> 鷹を放ち、指定した地点の視界を5秒間確保する。また、鷹は通過したエリアの視界も得る。",
    "cooldown": "60",
    "cost": "",
    "range": "2500/3250/4000/4750/5500",
    "maxRank": 5,
-   "source": "stringtable",
+   "source": "lcu",
    "unresolved": []
   },
   "r": {
    "name": "クリスタルアロー",
-   "description": "<mainText>アッシュが一直線に飛ぶ氷の矢を放ち、命中した敵チャンピオンに<status>スタン効果</status>と<magicDamage>250/425/600（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<status>スタン</status>の効果時間は矢の移動距離に応じて最大3.5秒まで増加する。周囲の敵に3秒間、50%の<status>スロウ効果</status>を与え、<magicDamage>のダメージ</magicDamage>を与える。",
+   "description": "一直線に飛ぶ氷の矢を放ち、命中した敵チャンピオンに<status>スタン効果</status>と<magicDamage>250/425/600（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<status>スタン</status>の効果時間は矢の移動距離に応じて最大3.5秒まで増加する。周囲の敵は3秒間、50%の<status>スロウ効果</status>を受け、<magicDamage>の魔法ダメージ</magicDamage>を受ける。",
    "cooldown": "100/90/80",
    "cost": "150",
    "range": "25000",
    "maxRank": 3,
    "source": "lcu",
    "unresolved": [
-    "RMainDamageSplashTooltip"
+    "RAoEDamage"
    ]
   }
  },

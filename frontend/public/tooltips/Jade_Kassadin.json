@@ -3,11 +3,11 @@
  "id": 60038,
  "name": "カサディン",
  "title": "ヴォイドを歩む者",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ヴォイドストーン",
-   "description": "受ける<magicDamage>魔法ダメージ</magicDamage>が15%減少し、このダメージを増加<attackSpeed>攻撃速度</attackSpeed>に変換する。",
+   "description": "受ける<magicDamage>魔法ダメージ</magicDamage>が減少し、受ける魔法ダメージを増加<attackSpeed>攻撃速度</attackSpeed>に変換する。",
    "source": "lcu",
    "unresolved": []
   },
@@ -23,17 +23,19 @@
   },
   "w": {
    "name": "ネザーブレード",
-   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃でヴォイドエネルギーを吸収し、命中するたびに<scaleMana>8/11/14/17/20マナ</scaleMana>を回復する。対象が敵チャンピオンの場合、回復する<scaleMana>マナ</scaleMana>が3倍の24/33/42/51/60になる。<br><br><spellActive>発動効果: </spellActive>5秒間ネザーブレードをチャージし、通常攻撃が<magicDamage>30/45/60/75/90（＋魔力の30%）の魔法ダメージ</magicDamage>を追加で与えるようになる。",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃でヴォイドエネルギーを吸収し、命中するたびに<scaleMana>8/11/14/17/20マナ</scaleMana>を回復する。チャンピオンに対しては<scaleMana>マナ</scaleMana>に増加する。<br><br><spellActive>発動効果: </spellActive>5秒間ネザーブレードをチャージし、通常攻撃が<magicDamage>30/45/60/75/90（＋魔力の30%）の魔法ダメージ</magicDamage>を追加で与えるようになる。",
    "cooldown": "12",
    "cost": "25",
    "range": "1",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": []
+   "unresolved": [
+    "ChampionManaRestore"
+   ]
   },
   "e": {
    "name": "ヴォイドパルス",
-   "description": "自身の付近(範囲1800)でスキルが使用されるたび、そのエネルギーをチャージする。6回チャージすると<spellName>ヴォイドパルス</spellName>が発動可能になり、発動すると前方に広がる扇状の範囲内の敵に<magicDamage>60/120/180/240/300（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。さらに3秒間、20/30/40/50/60%の<status>スロウ効果</status>を付与する。",
+   "description": "自身の付近でスキルが使用されるたび、そのエネルギーをチャージする。<br><br>6回チャージすると<spellName>ヴォイドパルス</spellName>が発動可能になり、発動すると前方に広がる扇状の範囲内の敵に<magicDamage>60/120/180/240/300（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。さらに3秒間、20/30/40/50/60%の<status>スロウ効果</status>を付与する。",
    "cooldown": "6",
    "cost": "80",
    "range": "400",
@@ -43,7 +45,7 @@
   },
   "r": {
    "name": "リフトウォーク",
-   "description": "近くの地点に瞬間移動し、周囲の敵ユニットに<magicDamage>60/70/80（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。さらに、その後8秒以内に発動する<spellName>リフトウォーク</spellName>はそれぞれコストが<scaleMana>追加で100マナ</scaleMana>増加し、<magicDamage>60/70/80の追加ダメージ</magicDamage>を与える。この効果は10回までスタックする。",
+   "description": "近くの地点に瞬間移動し、周囲の敵ユニットに<magicDamage>60/70/80（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。さらに、その後8秒以内に発動する<spellName>リフトウォーク</spellName>はそれぞれコストが<scaleMana>追加で100マナ</scaleMana>増加し、<magicDamage>60/70/80の追加ダメージ</magicDamage>を与える。",
    "cooldown": "7/6/5",
    "cost": "100",
    "range": "700",
@@ -52,5 +54,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

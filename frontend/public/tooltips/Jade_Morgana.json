@@ -3,7 +3,7 @@
  "id": 60025,
  "name": "モルガナ",
  "title": "不屈の堕天使",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ソウルサイフォン",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "魂の足枷",
-   "description": "<mainText>闇の鎖が近くにいる敵チャンピオンに絡みつき、<magicDamage>175/250/325（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、3秒間、20%の<status>スロウ効果</status>を付与する。3秒後、鎖は追加で<magicDamage>175/250/325（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間対象をスタンさせる。<br><br>敵チャンピオンはモルガナから離れることで鎖を断ち切ることができる。",
+   "description": "闇の鎖が近くにいる敵チャンピオンに絡みつき、<magicDamage>175/250/325（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、20%の<status>スロウ効果</status>を付与する。3秒後、鎖は追加で<magicDamage>175/250/325（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間対象をスタンさせる。<br><br>敵チャンピオンはモルガナから離れることで鎖を断ち切ることができる。",
    "cooldown": "120/110/100",
    "cost": "100",
    "range": "625",

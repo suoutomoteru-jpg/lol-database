@@ -3,7 +3,7 @@
  "id": 60001,
  "name": "アニー",
  "title": "闇の申し子",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "火遊びだいすき",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ファイアボール",
-   "description": "火の玉を放って<magicDamage>85/125/165/205/245（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<spellName>ファイアボール</spellName>で対象を倒すと、消費したマナが回復する。",
+   "description": "火の玉を放って<magicDamage>90/130/170/210/250（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。<spellName>ファイアボール</spellName>で対象を倒すと、消費したマナが回復する。",
    "cooldown": "4",
    "cost": "60/65/70/75/80",
    "range": "625",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "バーニングファイア",
-   "description": "指定方向に扇状の炎を放ち、範囲内のすべての敵ユニットに<magicDamage>80/130/180/230/280（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "指定方向に扇状の炎を放ち、範囲内のすべての敵ユニットに<magicDamage>85/135/185/235/285（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "8",
    "cost": "70/80/90/100/110",
    "range": "600",

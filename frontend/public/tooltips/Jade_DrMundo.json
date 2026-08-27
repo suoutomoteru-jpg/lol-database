@@ -3,22 +3,22 @@
  "id": 60036,
  "name": "ドクター・ムンド",
  "title": "ゾウンの狂人",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "アドレナリンラッシュ",
-   "description": "毎秒、最大体力の0.3%分、体力が回復する。",
+   "description": "毎秒、最大体力の一定割合分、体力が回復する。",
    "source": "lcu",
    "unresolved": []
   },
   "q": {
    "name": "ホウチョウ",
-   "description": "<mainText>巨大な包丁を投げ、対象の現在体力の15/18/21/23/25%にあたる<magicDamage>魔法ダメージ</magicDamage>を与え(最小80/130/180/230/280ダメージ)、2秒間、40%の<status>スロウ効果</status>を付与する。<br></mainText>包丁が敵に命中すると、体力コストの半分が回復する。<br>",
+   "description": "巨大な包丁を投げ、対象の現在体力の15/18/21/23/25%にあたる<magicDamage>魔法ダメージ</magicDamage>を与え(最小80/130/180/230/280ダメージ)、2秒間、40%の<status>スロウ効果</status>を付与する。<br><br>包丁が敵に命中すると、<healing>体力が25/30/35/40/45</healing>回復する。",
    "cooldown": "4",
    "cost": "",
    "range": "975",
    "maxRank": 5,
-   "source": "stringtable",
+   "source": "lcu",
    "unresolved": []
   },
   "w": {
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "サディズム",
-   "description": "<mainText>12秒かけて<healing>体力を</healing>回復する。さらに、<speed>移動速度が15/25/35%</speed>増加する。",
+   "description": "12秒かけて<healing>体力を</healing>回復し、<speed>15/25/35%の移動速度</speed>を獲得する。",
    "cooldown": "75",
    "cost": "",
    "range": "20",

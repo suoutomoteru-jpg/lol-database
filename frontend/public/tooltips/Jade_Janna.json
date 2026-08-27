@@ -3,11 +3,11 @@
  "id": 60040,
  "name": "ジャンナ",
  "title": "嵐の怒り",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "テイルウィンド",
-   "description": "自身と味方チャンピオンの<speed>移動速度</speed>が3%増加する。",
+   "description": "ジャンナと味方チャンピオンの<speed>移動速度</speed>が3%増加する。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "モンスーン",
-   "description": "魔法の嵐に包まれ、周囲の敵を<recast>ノックバック</recast>させる。さらに4秒かけて周囲の味方の<healing>体力を280/440/600（＋魔力の35%）</healing>回復させる。",
+   "description": "魔法の嵐に包まれ、周囲の敵を<recast>ノックバック</recast>させる。さらに4秒かけて周囲の味方の<healing>280/440/600（＋魔力の35%）体力を</healing>回復させる。(最大体力回復量: <healing>280/440/600（＋魔力の35%）</healing>)",
    "cooldown": "150/135/120",
    "cost": "100/150/200",
    "range": "725",

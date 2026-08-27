@@ -3,7 +3,7 @@
  "id": 875,
  "name": "セト",
  "title": "ザ・ボス",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ファイティングスピリット",

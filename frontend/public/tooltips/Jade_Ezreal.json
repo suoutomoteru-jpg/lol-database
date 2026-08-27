@@ -3,27 +3,27 @@
  "id": 60081,
  "name": "エズリアル",
  "title": "光の冒険心",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ライジングスペルフォース",
-   "description": "いずれかのスキルが対象に命中すると<attackSpeed>攻撃速度</attackSpeed>が5秒間、10%増加する(効果は最大5回までスタック)。",
+   "description": "いずれかのスキルが対象に命中すると<attackSpeed>攻撃速度</attackSpeed>が6秒間、10%増加する。この効果は5回までスタックする。",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "ミスティックショット",
-   "description": "指定方向にエネルギービームを発射し、<physicalDamage>40/65/90/115/140（＋合計攻撃力の120%）の物理ダメージ</physicalDamage>を与え、通常攻撃時効果を適用する。<br><br><spellName>ミスティックショット</spellName>が対象に命中すると、自身の全スキルのクールダウンが1秒短縮される。<br>",
+   "description": "指定方向にエネルギービームを発射し、<physicalDamage>40/65/90/115/140（＋合計攻撃力の110%）の物理ダメージ</physicalDamage>を与え、通常攻撃時効果を適用する。<br><br><spellName>ミスティックショット</spellName>が対象に命中すると、自身の全スキルのクールダウンが1秒短縮される。<br>",
    "cooldown": "6/5.5/5/4.5/4",
    "cost": "28/31/34/37/40",
-   "range": "1150",
+   "range": "1050",
    "maxRank": 5,
    "source": "lcu",
    "unresolved": []
   },
   "w": {
    "name": "エッセンスフラックス",
-   "description": "エネルギーの波動を放ち、触れたすべての敵チャンピオンに<magicDamage>80/130/180/230/280（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、5秒間、対象の<attackSpeed>攻撃速度</attackSpeed>を5/10/15/20/25%低下させる。<br><br>この波動に当たった味方チャンピオンは<healing>体力が40/65/90/115/140（＋魔力の60%）</healing>回復し、5秒間、<attackSpeed>攻撃速度</attackSpeed>が5/10/15/20/25%増加する。",
+   "description": "エネルギーの波動を放ち、触れたすべての敵チャンピオンに<magicDamage>80/130/180/230/280（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、5秒間、対象の<attackSpeed>攻撃速度</attackSpeed>を5/10/15/20/25%低下させる。<br><br>この波動に当たった味方チャンピオンは<healing>40/65/90/115/140（＋魔力の60%）体力が</healing>回復し、5秒間、<attackSpeed>攻撃速度</attackSpeed>が5/10/15/20/25%増加する。",
    "cooldown": "8",
    "cost": "50/60/70/80/90",
    "range": "1050",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "トゥルーショットバラージ",
-   "description": "1秒間詠唱してから敵を貫通するエネルギーミサイルを発射する。このミサイルは触れた敵ユニットにそれぞれ<magicDamage>350/500/650（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。ただし、敵ユニットに命中するたびに与えるダメージが8%低下する(最低30%)。",
+   "description": "敵を貫通するエネルギーミサイルを発射する。このミサイルは触れた敵ユニットにそれぞれ<magicDamage>350/500/650（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。ただし、敵ユニットに命中するたびに与えるダメージが8%低下する(最低30%)。",
    "cooldown": "80",
    "cost": "100",
    "range": "25000",

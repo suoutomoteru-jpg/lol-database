@@ -3,7 +3,7 @@
  "id": 60076,
  "name": "ニダリー",
  "title": "半獣の狩人",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "品定め",
@@ -25,12 +25,12 @@
   },
   "w": {
    "name": "虎挟み/ジャンプ",
-   "description": "<keywordMajor>ヒト形態: </keywordMajor>罠を設置する。罠は発動すると2秒かけて<magicDamage>80/125/170/215/260（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、12秒間、対象を可視化し、対象の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を20/25/30/35/40%低下させる。罠は4分間持続する。<br><br><keywordMajor>クーガー形態: </keywordMajor>前方にダッシュし、周囲の敵に<magicDamage>125/175/225/190/235/280（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "<keywordMajor>ヒト形態: </keywordMajor>罠を設置する。罠は発動すると2秒かけて<magicDamage>80/125/170/215/260（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、12秒間、対象を可視化し、<status>細断</status>を付与して、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を20/25/30/35/40%低下させる。罠は4分間持続する。<br><br><keywordMajor>クーガー形態: </keywordMajor>前方にダッシュし、周囲の敵に<magicDamage>125/175/225/190/235/280（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "18",
    "cost": "60/75/90/105/120",
    "range": "900",
    "maxRank": 5,
-   "source": "stringtable",
+   "source": "lcu",
    "unresolved": []
   },
   "e": {

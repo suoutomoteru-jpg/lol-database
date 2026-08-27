@@ -3,7 +3,7 @@
  "id": 21,
  "name": "ミス・フォーチュン",
  "title": "美貌の賞金稼ぎ",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "ラブタップ",

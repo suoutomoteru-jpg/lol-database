@@ -3,11 +3,11 @@
  "id": 60015,
  "name": "シヴィア",
  "title": "戦場の女王",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "戦駆け",
-   "description": "<mainText>通常攻撃またはスキルが敵チャンピオンに命中すると、2秒間<speed>移動速度が50</speed>増加する。</mainText>",
+   "description": "通常攻撃またはスキルが敵チャンピオンに命中すると2秒間、<speed>移動速度が50</speed>増加する。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "跳刃",
-   "description": "通常攻撃が追加で最大<attention>1/2/3/4/5</attention>体の対象に跳ね返る。ダメージは跳ね返るたびに25%低下する。",
+   "description": "通常攻撃が追加で最大<attention>1/2/3/4/5</attention>体の対象に跳ね返る。ダメージは跳ね返るたびに22%低下する。",
    "cooldown": "0.5",
    "cost": "",
    "range": "20",

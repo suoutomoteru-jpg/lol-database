@@ -1,6 +1,6 @@
 {
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
- "generatedAt": "2026-08-20T03:42:59.753979+00:00",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "generatedAt": "2026-08-27T13:43:12.034756+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -419,7 +419,7 @@
    "alias": "Jade_Corki",
    "id": 60042,
    "name": "コーキ",
-   "unresolvedCount": 3,
+   "unresolvedCount": 4,
    "passiveSource": "stringtable"
   },
   {
@@ -434,7 +434,7 @@
    "id": 60028,
    "name": "イブリン",
    "unresolvedCount": 0,
-   "passiveSource": "stringtable"
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Ezreal",
@@ -461,7 +461,7 @@
    "alias": "Jade_Garen",
    "id": 60086,
    "name": "ガレン",
-   "unresolvedCount": 0,
+   "unresolvedCount": 1,
    "passiveSource": "lcu"
   },
   {
@@ -510,7 +510,7 @@
    "alias": "Jade_Kassadin",
    "id": 60038,
    "name": "カサディン",
-   "unresolvedCount": 0,
+   "unresolvedCount": 1,
    "passiveSource": "lcu"
   },
   {
@@ -595,7 +595,7 @@
    "id": 60021,
    "name": "ミス・フォーチュン",
    "unresolvedCount": 3,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Morgana",

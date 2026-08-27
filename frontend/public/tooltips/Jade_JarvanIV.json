@@ -3,7 +3,7 @@
  "id": 60059,
  "name": "ジャーヴァンⅣ",
  "title": "デマーシアの儀範",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "武魂の律動",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ドラゴンストライク",
-   "description": "槍を伸ばして貫通したすべての敵に<physicalDamage>70/115/160/205/250（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与え、3秒間物理防御を10/14/18/22/26%低下させる。<br><br>槍が<spellName>デマーシアの旗印</spellName>に触れるとジャーヴァンⅣが旗の位置まで移動し、触れた敵ユニットを<status>ノックアップ</status>する。",
+   "description": "槍を伸ばして貫通したすべての敵に<physicalDamage>70/115/160/205/250（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与え、3秒間物理防御を10/14/18/22/26%低下させる。<br><br>槍が<spellName>「デマーシアの旗印」</spellName>に触れるとジャーヴァンⅣが旗の位置まで移動し、触れた敵ユニットを<status>ノックアップ</status>する。",
    "cooldown": "10/9/8/7/6",
    "cost": "45/50/55/60/65",
    "range": "770",

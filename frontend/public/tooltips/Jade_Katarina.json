@@ -3,11 +3,11 @@
  "id": 60055,
  "name": "カタリナ",
  "title": "凶兆の刃",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "貪欲なる暗殺者",
-   "description": "チャンピオンからキルまたはアシストを獲得すると、スキルのクールダウンが15秒短縮される。",
+   "description": "チャンピオンのキルまたはアシストでクールダウンが15秒短縮される。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "デスロータス",
-   "description": "刃の嵐と化し、最も近くにいる敵チャンピオン3体に短剣を投げ、2.5秒間かけて<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "description": "刃の嵐と化し、最も近くにいる敵チャンピオン3体に短剣を投げ、2.5秒間かけて<magicDamage>の魔法ダメージ</magicDamage>を与える。命中した敵に3秒間、50%の<status>負傷</status>を付与する。",
    "cooldown": "60/55/50",
    "cost": "",
    "range": "550",

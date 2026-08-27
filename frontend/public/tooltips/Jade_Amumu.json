@@ -3,11 +3,11 @@
  "id": 60032,
  "name": "アムム",
  "title": "めそめそミイラ",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "呪いの手",
-   "description": "通常攻撃が3秒間、対象の魔法防御を低下させる。",
+   "description": "通常攻撃が対象の魔法防御を低下させる。",
    "source": "lcu",
    "unresolved": []
   },

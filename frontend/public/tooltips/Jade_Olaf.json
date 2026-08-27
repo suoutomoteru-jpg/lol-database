@@ -3,7 +3,7 @@
  "id": 60002,
  "name": "オラフ",
  "title": "狂戦士",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "狂戦士の怒り",
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "ラグナロク",
-   "description": "<spellActive>発動効果:</spellActive> 自身が受けたあらゆる<status>移動不能効果</status>と<status>行動妨害効果</status>を除去し、その後6秒間、それらの効果を受けなくなる。この効果時間中、<scaleArmor>物理防御が30/45/60</scaleArmor>、<scaleMR>魔法防御が30/45/60</scaleMR>増加する。<br><br><spellPassive>自動効果:</spellPassive> オラフは追加で10/20/30の脅威を獲得する。",
+   "description": "<spellActive>発動効果:</spellActive> 自身が受けたあらゆる<status>移動不能効果</status>と<status>行動妨害効果</status>を除去し、その後6秒間、それらの効果を受けなくなる。この効果時間中、<scaleArmor>物理防御が30/45/60</scaleArmor>、<scaleMR>魔法防御が30/45/60</scaleMR>増加する。<br><br><spellPassive>自動効果:</spellPassive> 追加で10/20/30の脅威を獲得する。",
    "cooldown": "100",
    "cost": "100/75/50",
    "range": "400",

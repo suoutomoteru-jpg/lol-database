@@ -3,7 +3,7 @@
  "id": 412,
  "name": "スレッシュ",
  "title": "縛鎖の看守",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "魂の束縛",
@@ -35,7 +35,7 @@
   },
   "e": {
    "name": "絶望の鎖",
-   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が前回の通常攻撃から経過した時間に応じて、<magicDamage></magicDamage> - <magicDamage>の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 鎖を振り、振った方向に敵を<status>引き寄せる</status>か<status>押し出す</status>。さらに、命中した敵には1秒間20/25/30/35/40%の<status>スロウ効果</status>を付与し、<magicDamage>75/120/165/210/255（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃が前回の通常攻撃から経過した時間に応じて、<magicDamage></magicDamage> - <magicDamage>の魔法ダメージ</magicDamage>を追加で与える。<br><br><spellActive>発動効果:</spellActive> 鎖を振り、振った方向に敵を<status>引き寄せる</status>か<status>押し出す</status>。さらに、命中した敵には1秒間20/25/30/35/40%の<status>スロウ効果</status>を付与し、<magicDamage>65/110/155/200/245（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "13/12.25/11.5/10.75/10",
    "cost": "60/65/70/75/80",
    "range": "500",

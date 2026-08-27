@@ -3,17 +3,17 @@
  "id": 60034,
  "name": "アニビア",
  "title": "氷の不死鳥",
- "patch": "16.16.8049184+branch.releases-16-16.content.release",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
  "skills": {
   "passive": {
    "name": "再誕",
-   "description": "アニビアは力尽きると卵に戻り、体力が最大まで<healing>回復</healing>して、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が-40/-25/-10/5/20（レベル1/5/8/12/15）増加する。卵状態のまま6秒経過すると、その時点の状態で復活する。",
+   "description": "アニビアは力尽きると卵に戻り、体力が最大まで<healing>回復</healing>して、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>に-40/-25/-10/5/20（レベル1/5/8/12/15）の補正がかかる。卵状態のまま6秒経過すると、その時点の状態で復活する。",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "フラッシュフロスト",
-   "description": "指定方向に巨大な氷の塊を放ち、触れた敵に<magicDamage>60/90/120/150/180（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。また、対象に「チルド」効果を与えて<status>スロウ効果</status>を付与して移動速度を20%低下させる。<br><br>最大距離に達するか、このスキルを<recast>再使用</recast>すると、氷の塊が炸裂して狭い範囲に<magicDamage>60/90/120/150/180（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、1秒間敵を<status>スタン</status>させる。",
+   "description": "指定方向に巨大な氷の塊を放ち、触れた敵に<magicDamage>60/90/120/150/180（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。また、対象に「チルド」効果を与えて<status>スロウ効果</status>を付与し、3秒間移動速度を20%低下させる。<br><br>最大距離に達するか、このスキルを<recast>再使用</recast>すると、氷の塊が炸裂して狭い範囲に<magicDamage>60/90/120/150/180（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、1秒間敵を<status>スタン</status>させる。",
    "cooldown": "12/11/10/9/8",
    "cost": "80/100/120/140/160",
    "range": "1075",
