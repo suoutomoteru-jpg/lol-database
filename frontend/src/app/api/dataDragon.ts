@@ -220,15 +220,22 @@ function deduplicateByName(entries: [string, DDragonItem][]): [string, DDragonIt
 }
 
 /**
- * 完成アイテムを返す。SRメインだがARAM専用扱いのものも含む。
- * 戻り値の第3要素: 'aram' = ARAM専用（map12あり・Nexus Blitz(map21)なし）、undefined = SR通常
+ * SRの完成アイテムを返す（すべて maps['11']===true）。
  *
- * 判別ロジック: map11=true かつ map12=true かつ map21≠true の場合、
- * Riot が map11 に誤タグしたARAM系アイテムと判断して 'aram' を付与する。
+ * 以前はここに「SRなのに誤ってARAM専用タグが付いている例外」を検出する
+ * ロジックがあった（map12=true かつ Nexus Blitz(map21)無し → 'aram'扱い）。
+ * しかし現在はRiotがSR/ARAMのアイテムプールをほぼ統合しており大半の
+ * アイテムがmap12=trueになった上、map21（Nexus Blitz、廃止済みモード）は
+ * データから完全に消えている。そのため判定式が「ほぼ全アイテムがARAM専用」
+ * と誤判定するようになった（2026-08-28、実データで確認: 106件中103件が
+ * 誤ってaram扱い）。SR一覧の中でARAM専用を見分ける有効な判別方法が
+ * 現状ないため、この判定自体を廃止した。ARAM専用アイテムの表示は
+ * 引き続き fetchItemListAram()（maps['12']かつmaps['11']が無い、という
+ * 直接的で今も有効な条件）だけに任せる。
  */
-export async function fetchItemList(version: string): Promise<[string, DDragonItem, 'aram'?][]> {
-  const key = dataKey(version, 'items-v3');
-  const cached = readCache<[string, DDragonItem, 'aram'?][]>(key);
+export async function fetchItemList(version: string): Promise<[string, DDragonItem][]> {
+  const key = dataKey(version, 'items-v4');
+  const cached = readCache<[string, DDragonItem][]>(key);
   if (cached) return cached;
 
   const allItems = await fetchAllItemsRaw(version);
@@ -240,11 +247,7 @@ export async function fetchItemList(version: string): Promise<[string, DDragonIt
     !item.requiredChampion &&
     item.inStore !== false,
   );
-  const deduped = deduplicateByName(filtered);
-  const result: [string, DDragonItem, 'aram'?][] = deduped.map(([id, item]) => {
-    const isAram = item.maps?.['12'] === true && item.maps?.['21'] !== true;
-    return isAram ? [id, item, 'aram'] : [id, item];
-  });
+  const result = deduplicateByName(filtered);
   writeCache(key, result);
   return result;
 }

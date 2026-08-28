@@ -99,7 +99,7 @@ export function useItems(): UseItemsResult {
         });
 
         const list: Item[] = [
-          ...raw.map(([id, item, mode]) => makeItem(id, item, mode)),
+          ...raw.map(([id, item]) => makeItem(id, item)),
           ...rawAram.map(([id, item]) => makeItem(id, item, 'aram')),
         ].sort((a, b) => a.name.localeCompare(b.name));
 
