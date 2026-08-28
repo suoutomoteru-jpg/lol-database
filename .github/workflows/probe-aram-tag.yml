@@ -1,0 +1,12 @@
+name: Probe ARAM tag bug (temporary)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/probe_aram_tag.py
