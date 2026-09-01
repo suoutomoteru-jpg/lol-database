@@ -318,3 +318,52 @@ export async function fetchItemListMedium(version: string): Promise<[string, DDr
   writeCache(key, result);
   return result;
 }
+
+// ── アイテム一覧（Tier1: 基本コンポーネント / Tier2: 中間コンポーネント）───
+//
+// 「Tier」はゴールド額ではなく組み上げ関係の構造（from/into）で判定する。
+// 具体的な数値・レシピはパッチで変わるため、金額しきい値より頑丈。
+//   Tier1 = fromを持たない（他アイテムから作れない生コンポーネント）
+//   Tier2 = fromを持つ（何かから作られる）かつintoも持つ（まだ完成品でない）
+// どちらも、さらに何かに組み上がる（into あり）もののみを対象にし、
+// 単独消費アイテム等（トリンケット/ポーション等）を除外する。
+
+export async function fetchItemListTier1(version: string): Promise<[string, DDragonItem][]> {
+  const key = dataKey(version, 'items-tier1');
+  const cached = readCache<[string, DDragonItem][]>(key);
+  if (cached) return cached;
+
+  const allItems = await fetchAllItemsRaw(version);
+  const filtered = Object.entries(allItems).filter(([id, item]) =>
+    isCanonicalItemId(id) &&
+    item.gold.purchasable &&
+    item.maps?.['11'] === true &&
+    !item.requiredChampion &&
+    item.inStore !== false &&
+    (!item.from || item.from.length === 0) &&
+    !!item.into && item.into.length > 0,
+  );
+  const result = deduplicateByName(filtered);
+  writeCache(key, result);
+  return result;
+}
+
+export async function fetchItemListTier2(version: string): Promise<[string, DDragonItem][]> {
+  const key = dataKey(version, 'items-tier2');
+  const cached = readCache<[string, DDragonItem][]>(key);
+  if (cached) return cached;
+
+  const allItems = await fetchAllItemsRaw(version);
+  const filtered = Object.entries(allItems).filter(([id, item]) =>
+    isCanonicalItemId(id) &&
+    item.gold.purchasable &&
+    item.maps?.['11'] === true &&
+    !item.requiredChampion &&
+    item.inStore !== false &&
+    !!item.from && item.from.length > 0 &&
+    !!item.into && item.into.length > 0,
+  );
+  const result = deduplicateByName(filtered);
+  writeCache(key, result);
+  return result;
+}

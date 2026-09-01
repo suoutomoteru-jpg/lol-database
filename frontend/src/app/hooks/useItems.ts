@@ -92,6 +92,7 @@ export function useItems(): UseItemsResult {
         const makeItem = (id: string, item: DDragonItem, mapMode?: 'aram'): Item => ({
           id,
           name: item.name,
+          enName: enNames[id],
           type: mapItemType(item.tags, toPlainText(item.description), enNames[id]),
           icon: itemImageUrl(v, item.image.full),
           statTags: computeStatTags(item.stats, item.tags, item.description),

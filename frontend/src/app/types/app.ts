@@ -19,6 +19,8 @@ export interface Champion {
 export interface Item {
   id: string;
   name: string;
+  /** 英語名（DDragon）。英語/ローマ字検索に使う */
+  enName?: string;
   type: ItemType;
   icon: string;
   statTags: string[];

@@ -1,14 +1,20 @@
-import { useMemo, useState } from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { useMemo, useState, useRef, useCallback } from 'react';
+import { Link, useSearchParams, useNavigate } from 'react-router';
 import { SlidersHorizontal } from 'lucide-react';
 import { SearchBar } from '../components/SearchBar';
+import { SearchResultsDropdown } from '../components/SearchResultsDropdown';
 import { TabsFilter } from '../components/TabsFilter';
 import { FilterBar } from '../components/FilterBar';
 import { AdvancedFilter } from '../components/AdvancedFilter';
 import { ResultsSection } from '../components/ResultsSection';
+import { CollapsibleItemTier } from '../components/CollapsibleItemTier';
 import { useChampions } from '../hooks/useChampions';
 import { useItems } from '../hooks/useItems';
+import { useItemsByTier } from '../hooks/useItemsByTier';
 import { usePatchChanges } from '../hooks/usePatchChanges';
+import { useCrossSearchResults } from '../hooks/useCrossSearchResults';
+import { useOutsideClose } from '../hooks/useOutsideClose';
+import { matchesQuery } from '../utils/search';
 import { displayPatch } from '../utils/patch';
 import { prefetchItem } from '../utils/prefetch';
 import type { TabType, Role, ItemType, Item } from '../types/app';
@@ -78,8 +84,10 @@ function ResultsSkeleton() {
 export function Home() {
   const { champions, version, loading: champLoading } = useChampions();
   const { items, loading: itemLoading } = useItems();
+  const { tier1: tier1Items, tier2: tier2Items } = useItemsByTier();
   const patchDiff = usePatchChanges();
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const activeTab        = (searchParams.get('tab') as TabType) ?? 'items';
   const searchQuery      = searchParams.get('q')                ?? '';
@@ -90,6 +98,17 @@ export function Home() {
     [searchParams],
   );
   const [showAdvanced, setShowAdvanced] = useState(false);
+
+  // 検索候補ドロップダウン（アイテム/チャンピオンを横断してジャンプできる）
+  const [suggestOpen, setSuggestOpen] = useState(false);
+  const searchWrapRef = useRef<HTMLDivElement>(null);
+  const crossResults = useCrossSearchResults(searchQuery, champions, items);
+  const closeSuggest = useCallback(() => setSuggestOpen(false), []);
+  useOutsideClose(searchWrapRef, suggestOpen, closeSuggest);
+  const goToResult = useCallback((kind: 'champion' | 'item', id: string) => {
+    setSuggestOpen(false);
+    navigate(kind === 'champion' ? `/champion/${id}` : `/item/${id}`);
+  }, [navigate]);
 
   function set(key: string, value: string) {
     setSearchParams(prev => {
@@ -121,25 +140,23 @@ export function Home() {
     setShowAdvanced(false);
   }
 
-  const q = searchQuery.toLowerCase();
-
   const filteredChampions = useMemo(() => {
     if (activeTab === 'items') return [];
     return champions.filter(c => {
-      if (!c.name.toLowerCase().includes(q)) return false;
+      if (!matchesQuery(searchQuery, c.name, c.id)) return false;
       return selectedRole === 'all' || c.role === selectedRole;
     });
-  }, [champions, q, activeTab, selectedRole]);
+  }, [champions, searchQuery, activeTab, selectedRole]);
 
   const filteredItems = useMemo(() => {
     if (activeTab === 'champions') return [];
     return items.filter(item => {
-      if (!item.name.toLowerCase().includes(q)) return false;
+      if (!matchesQuery(searchQuery, item.name, item.enName)) return false;
       if (selectedItemType !== 'all' && item.type !== selectedItemType) return false;
       // ステータスフィルターは AND 条件（選択した全ステータスを持つアイテムのみ）
       return selectedStats.every(s => item.statTags.includes(s));
     });
-  }, [items, q, activeTab, selectedItemType, selectedStats]);
+  }, [items, searchQuery, activeTab, selectedItemType, selectedStats]);
 
   const loading = champLoading || itemLoading;
 
@@ -177,10 +194,22 @@ export function Home() {
             はやくて見やすい、<span className="font-display font-black text-primary tracking-wide [text-shadow:0_0_18px_rgba(255,143,198,.55)]">LoL</span>のデータベース。
           </h2>
 
-          <SearchBar value={searchQuery} onChange={v => set('q', v)} />
+          <div ref={searchWrapRef} className="relative w-full max-w-2xl">
+            <SearchBar
+              value={searchQuery}
+              onChange={v => { set('q', v); setSuggestOpen(true); }}
+            />
+            {suggestOpen && (
+              <SearchResultsDropdown
+                results={crossResults}
+                onSelect={goToResult}
+                className="left-1/2 -translate-x-1/2 top-[calc(100%+6px)] w-full max-w-md"
+              />
+            )}
+          </div>
 
           {/* 今パッチの変更 = 再訪時の発見をファーストビューに */}
-          {!loading && !q && patchDiff && (
+          {!loading && !searchQuery && patchDiff && (
             <PatchChangesStrip items={items} changes={patchDiff.changes} />
           )}
 
@@ -235,6 +264,13 @@ export function Home() {
               activeTab={activeTab}
               itemChanges={patchDiff?.changes}
             />
+          )}
+
+          {!loading && activeTab === 'items' && (
+            <>
+              <CollapsibleItemTier title="基本アイテム" items={tier1Items} />
+              <CollapsibleItemTier title="中間アイテム" items={tier2Items} />
+            </>
           )}
         </div>
       </div>
