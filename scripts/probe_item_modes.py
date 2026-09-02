@@ -22,6 +22,22 @@ entry = re.search(r'src="(/assets/index-[^"]+\.js)"', html)
 print(f"index.html entry js: {entry.group(1) if entry else '(なし)'}")
 print(f"index.html cache-control: {html_headers.get('cache-control')} / cf-cache-status: {html_headers.get('cf-cache-status')}")
 
+# _headers ファイル（Cloudflare Pages形式）がWorkers Assets配信でも
+# 実際に効いているか確認する。CSP等のセキュリティヘッダーも同ファイルで
+# 定義しているため、効いていなければセキュリティ面の回帰でもある
+print("\n=== _headers 由来のヘッダーが実際に効いているか ===")
+security_headers = [
+    "content-security-policy", "x-content-type-options", "referrer-policy",
+    "x-frame-options", "permissions-policy", "strict-transport-security",
+]
+for h in security_headers:
+    print(f"  {h}: {html_headers.get(h) or '(なし)'}")
+
+if entry:
+    asset_url = SITE + entry.group(1)
+    _, asset_headers = get(asset_url)
+    print(f"\n/assets/*.js cache-control: {asset_headers.get('cache-control') or '(なし)'}")
+
 try:
     sw, sw_headers = get(SITE + "/sw.js")
     print(f"\nsw.js取得OK（{len(sw)}文字）")
