@@ -1,6 +1,7 @@
 name: Probe item modes
 
 on:
+  workflow_dispatch: {}
   push:
     paths:
       - 'scripts/probe_item_modes.py'
