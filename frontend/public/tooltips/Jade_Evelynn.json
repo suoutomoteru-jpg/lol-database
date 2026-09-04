@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Evelynn",
+ "id": 60028,
+ "name": "イブリン",
+ "title": "幻妖のアサシン",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "シャドウ ウォーク",
+   "description": "非戦闘状態になると「カモフラージュ」状態になり、近くにいる敵チャンピオンまたは真の視界でしか可視化されなくなる。ステルス状態の間、マナを急速に回復する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヘイトスパイク",
+   "description": "地面から一直線に貫通するトゲを近くの敵に放ち、命中したすべての敵に<magicDamage>40/55/70/85/100（＋増加攻撃力の50% ＋魔力の45%）の魔法ダメージ</magicDamage>を与える。<br><br><spellName>ヘイトスパイク</spellName>は、イブリンが直前に攻撃した敵を優先する。",
+   "cooldown": "1.5",
+   "cost": "16/22/28/34/40",
+   "range": "525",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ダークフレンジー",
+   "description": "<spellPassive>自動効果:</spellPassive> 敵チャンピオンにスキルが命中すると、3秒間、<speed>移動速度が4/8/12/16/20</speed>増加する(この効果は最大4回までスタックする)。<br><br><spellActive>発動効果:</spellActive> 自身にかけられているすべてのスロウ効果を解除し、3秒間、<speed>移動速度が30/40/50/60/70%</speed>増加する。<br><br>チャンピオンからキルまたはアシストを獲得すると<spellName>ダークフレンジー</spellName>のクールダウンが解消される。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ラベージ",
+   "description": "対象を2回斬りつけ、合計<magicDamage>70/110/150/190/230（＋増加攻撃力の100% ＋魔力の100%）の魔法ダメージ</magicDamage>を与える。その後、3秒間、<attackSpeed>攻撃速度が60/75/90/105/120%</attackSpeed>増加する。",
+   "cooldown": "9",
+   "cost": "50/55/60/65/70",
+   "range": "225",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "苦悶の抱擁",
+   "description": "指定範囲内のすべての敵を串刺しにし、<magicDamage>現在体力の15/20/25（＋魔力の1%）%にあたる魔法ダメージ</magicDamage>を与え、2秒間、30/50/70%の<status>スロウ効果</status>を付与する。<br><br>敵の苦痛を吸い取り、命中した敵チャンピオン1体につき<shield>150/225/300耐久値のシールド</shield>を獲得する。このシールドは最大6秒間持続する。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "650",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

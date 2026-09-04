@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_DrMundo",
+ "id": 60036,
+ "name": "ドクター・ムンド",
+ "title": "ゾウンの狂人",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "アドレナリンラッシュ",
+   "description": "毎秒、最大体力の一定割合分、体力が回復する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ホウチョウ",
+   "description": "巨大な包丁を投げ、対象の現在体力の15/18/21/23/25%にあたる<magicDamage>魔法ダメージ</magicDamage>を与え(最小80/130/180/230/280ダメージ)、2秒間、40%の<status>スロウ効果</status>を付与する。<br><br>包丁が敵に命中すると、<healing>体力が25/30/35/40/45</healing>回復する。",
+   "cooldown": "4",
+   "cost": "",
+   "range": "975",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "バーニングペイン",
+   "description": "<toggle>発動: </toggle>周囲の敵に<magicDamage>40/55/70/85/100（＋魔力の20%）の魔法ダメージ</magicDamage>を与え、自身にかかっている行動妨害効果の効果時間を短縮15/20/25/30/35%短縮する。",
+   "cooldown": "1",
+   "cost": "",
+   "range": "325",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "マゾヒズム",
+   "description": "5秒間、<physicalDamage>攻撃力が40/55/70/85/100</physicalDamage>増加する。さらに減少体力1%ごとに攻撃力が<physicalDamage>+0.4/0.55/0.7/0.85/1</physicalDamage>増加する。",
+   "cooldown": "7",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "サディズム",
+   "description": "12秒かけて<healing>体力を</healing>回復し、<speed>15/25/35%の移動速度</speed>を獲得する。",
+   "cooldown": "75",
+   "cost": "",
+   "range": "20",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "MaximumHealthRegen"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

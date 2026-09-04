@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Lux",
+ "id": 60099,
+ "name": "ラックス",
+ "title": "光の才女",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "イルミネーション",
+   "description": "攻撃スキルが命中した敵に6秒間<keyword>「イルミネーション」</keyword>を付与する。ラックスの通常攻撃は<keyword>「イルミネーション」</keyword>を消費して<magicDamage>20〜190（レベル比例）の魔法ダメージ</magicDamage>を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ライトバインド",
+   "description": "光の玉を発射し、最初に命中した敵に2秒間の<status>スネア効果</status>と<magicDamage>60/110/160/210/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。2体目の敵には<magicDamage></magicDamage>を与え、1秒間の<status>スネア効果</status>を付与する。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "50/60/70/80/90",
+   "range": "1175",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "HalfTotalDamageTT"
+   ]
+  },
+  "w": {
+   "name": "プリズムバリア",
+   "description": "指定方向に杖を投げる。この杖は目標地点に到達してから手元に戻り、3秒間、自身および触れたすべての味方チャンピオンに<shield>耐久値80/105/130/155/180（＋魔力の35%）</shield>の<shield>シールド</shield>を付与する。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "60",
+   "range": "1150",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "シンギュラリティ",
+   "description": "光の領域を作り出し、範囲内の敵に20/24/28/32/36%の<status>スロウ効果</status>を与えて視界を得る。この領域は5秒後に爆発し、<magicDamage>60/105/150/195/240（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br><recast>再発動</recast>すると、すぐに爆発を起こせる。",
+   "cooldown": "",
+   "cost": "70/85/100/115/130",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "フィナーレス フンケルン",
+   "description": "まばゆい光線を発射し、直線上の敵に<magicDamage>300/400/500（＋魔力の85%）の魔法ダメージ</magicDamage>を与える。<spellName>フィナーレス フンケルン</spellName>は<spellName>イルミネーション</spellName>を爆発させて再度付与する。",
+   "cooldown": "80/65/50",
+   "cost": "100",
+   "range": "3340",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

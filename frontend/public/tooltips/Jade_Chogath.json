@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Chogath",
+ "id": 60031,
+ "name": "チョ＝ガス",
+ "title": "未知なる恐怖",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "暴食",
+   "description": "敵ユニットを倒すたびに体力とマナが回復する。この回復量はチョ＝ガスのレベルに応じて増加する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ラプチャー",
+   "description": "地面から突き出るようにトゲを発生させて、敵を1秒間<status>ノックアップ</status>させ、<magicDamage>80/135/190/245/305（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、3秒間60%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "9",
+   "cost": "90",
+   "range": "950",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "スクリーム",
+   "description": "咆哮を浴びせ、敵に1.5/1.75/2/2.25/2.5秒間の<status>サイレンス効果</status>と、<magicDamage>75/125/175/225/275（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "13",
+   "cost": "70/80/90/100/110",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヴォーパルスパイク",
+   "description": "<toggle>発動: </toggle>通常攻撃がトゲを発射する。トゲは<magicDamage>20/35/50/65/80（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "0.5",
+   "cost": "",
+   "range": "40",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "捕食",
+   "description": "敵を貪り食い、チャンピオンには<trueDamage>300/475/650（＋魔力の70%）の確定ダメージ</trueDamage>を、ミニオンとジャングルモンスターには<trueDamage>1000（＋魔力の70%）の確定ダメージ</trueDamage>を与える。このスキルで対象をキルした場合はスタックを獲得し、サイズが大きくなり、<healing>90/120/150最大体力が</healing>増加する(最大6スタック)。倒されるとスタックを半分失う。",
+   "cooldown": "60",
+   "cost": "100",
+   "range": "175",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

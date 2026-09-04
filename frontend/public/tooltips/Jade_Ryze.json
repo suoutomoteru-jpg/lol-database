@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Ryze",
+ "id": 60013,
+ "name": "ライズ",
+ "title": "流浪の魔術師",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "古代の呪術",
+   "description": "スキルを使用すると、他のすべてのスキルのクールダウンが1秒短縮される。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "オーバーロード",
+   "description": "<spellPassive>自動効果</spellPassive>: 恒久的にクールダウンが2/4/6/8/10%短縮される。<br><br><spellActive>発動効果</spellActive>: エネルギー弾を発射して、対象に<magicDamage>60/85/110/135/160（＋魔力の40% ＋最大マナの6.5%）魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "3.5",
+   "cost": "60",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ルーンプリズン",
+   "description": "敵を魔法の檻に閉じ込め、0.75/1/1.25/1.5/1.75秒間<status>スネア効果</status>と<magicDamage>60/95/130/165/200（＋魔力の60% ＋最大マナの4.5%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "14",
+   "cost": "60/70/80/90/100",
+   "range": "615",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "スペルフラックス",
+   "description": "混沌の魔弾を発射する。魔弾は敵や自分に当たると最大5回跳ね返り、敵に<magicDamage>50/70/90/110/130（＋魔力の35% ＋最大マナの1%）の魔法ダメージ</magicDamage>を与えて、対象の<scaleMR>魔法防御</scaleMR>を12/15/18/21/24低下させる。",
+   "cooldown": "14",
+   "cost": "60/70/80/90/100",
+   "range": "615",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "禁断の呪力",
+   "description": "一時的に最大の力を解放し、5/6/7秒間、あらゆるスキルに<magicDamage>50%の範囲ダメージ</magicDamage>が付与され、<healing>15/20/25%のスペルヴァンプ</healing>を獲得し、<speed>移動速度が60/70/80</speed>増加する。",
+   "cooldown": "60/50/40",
+   "cost": "",
+   "range": "3000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

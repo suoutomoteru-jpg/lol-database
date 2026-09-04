@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Malphite",
+ "id": 60054,
+ "name": "マルファイト",
+ "title": "モノリスの欠片",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "グラナイトシールド",
+   "description": "10秒間ダメージを受けずにいると、岩のシールドが発生する。このシールドは<shield>ダメージを合計体力の10%</shield>吸収する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "サイズミックシャード",
+   "description": "対象に<magicDamage>70/120/170/220/270（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、4秒間、対象の<speed>移動速度を14/17/20/23/26%</speed>奪う。",
+   "cooldown": "8",
+   "cost": "70/75/80/85/90",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ブルータルストライク",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が、対象の周囲のユニットに<physicalDamage>攻撃力</physicalDamage>の30/38/46/54/62%にあたるダメージを与える。<br><br><spellActive>発動効果: </spellActive>6秒間、<scaleArmor>物理防御</scaleArmor>と<physicalDamage>攻撃力</physicalDamage>が20/25/30/35/40%増加する。",
+   "cooldown": "14",
+   "cost": "50/55/60/65/70",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "グラウンドスラム",
+   "description": "地面をたたきつけて衝撃波を起こし、周囲の敵ユニットに<magicDamage>60/100/140/180/220（＋合計物理防御の30% ＋魔力の20%）の魔法ダメージ</magicDamage>を与え、攻撃速度を3秒間30/35/40/45/50%低下させる。<br><br>このスキルは自身の物理防御の30%に相当する追加ダメージを与える。",
+   "cooldown": "7",
+   "cost": "50/55/60/65/70",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "アンストッパブル・フォース",
+   "description": "指定地点に向かって突進し、敵に<magicDamage>200/300/400（＋魔力の100%）の魔法ダメージ</magicDamage>を与えて、1.5秒間<status>ノックアップ</status>する。",
+   "cooldown": "130/115/100",
+   "cost": "100",
+   "range": "1000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

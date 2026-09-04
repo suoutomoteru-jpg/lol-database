@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Teemo",
+ "id": 60017,
+ "name": "ティーモ",
+ "title": "俊足の斥候",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "カモフラージュ",
+   "description": "ダメージを受けずに2秒間じっとしていると、次に動き出すまで<keywordStealth>インビジブル</keywordStealth>状態になる。<br><br>この<keywordStealth>インビジブル</keywordStealth>状態が解除されると3秒間、<attackSpeed>攻撃速度が40%</attackSpeed>増加する。<br><br><rules><keywordStealth>インビジブル</keywordStealth>状態のユニットは、タワーまたは<font color='#ee91d7'>真の視界</font color>によってのみ可視化される。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "目つぶしダーツ",
+   "description": "<mainText>対象に<magicDamage>80/125/170/215/260（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5/1.75/2/2.25/2.5秒間<status>ブラインド効果</status>を付与する。",
+   "cooldown": "8",
+   "cost": "70/80/90/100/110",
+   "range": "680",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "駆け足！",
+   "description": "<mainText><spellPassive>自動効果: </spellPassive>敵チャンピオンまたはタワーからの攻撃を5秒間受けないでいると、<speed>移動速度</speed>が10/14/18/22/26%増加する。<br><br><spellActive>発動効果: </spellActive>3秒間全力疾走し、<speed>移動速度が20/28/36/44/52%</speed>増加する。この増加移動速度は、攻撃を受けても消滅しない。",
+   "cooldown": "17",
+   "cost": "40",
+   "range": "0",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "毒たっぷり吹き矢",
+   "description": "<mainText>通常攻撃が対象を毒状態にして、命中時<magicDamage>10/20/30/40/50（＋魔力の30%）の魔法ダメージ</magicDamage>を与え、4秒間、毎秒<magicDamage>6/12/18/24/30（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "680",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "毒キノコ",
+   "description": "蓄えていたキノコを1つ取り出し、トラップを仕掛ける。敵がトラップを踏むと毒の胞子が放出され、範囲内の敵ユニットに30/40/50%の<status>スロウ効果</status>を付与し、4秒かけて<magicDamage>200/325/450（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは3回までチャージできる(秒でリチャージ)。<br>",
+   "cooldown": "1",
+   "cost": "75/100/125",
+   "range": "230",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "AmmoRechargeTime"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}

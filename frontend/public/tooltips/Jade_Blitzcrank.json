@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Blitzcrank",
+ "id": 60053,
+ "name": "ブリッツクランク",
+ "title": "偉大なるスチームゴーレム",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "マナバリア",
+   "description": "体力が20%以下の状態でダメージを受けると、10秒間、現在のマナの50%にあたる耐久値の<shield>シールド</shield>を獲得する。<spellName>マナバリア</spellName>は秒に1回発動する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ロケットグラブ",
+   "description": "右手を発射して<magicDamage>60/120/180/240/300（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、対象を<status>スタン</status>させて自身の位置まで<status>引き寄せる</status>。",
+   "cooldown": "20/19/18/17/16",
+   "cost": "120",
+   "range": "1025",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "オーバードライブ",
+   "description": "エネルギーをスーパーチャージして8秒間、<speed>移動速度</speed>が16/20/24/28/32%、<attackSpeed>攻撃速度</attackSpeed>が30/38/46/54/62%増加する。",
+   "cooldown": "15",
+   "cost": "75",
+   "range": "1",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "パワーフィスト",
+   "description": "拳にエネルギーを充填して、次の通常攻撃で<physicalDamage>合計攻撃力の200%の物理ダメージ</physicalDamage>を与え、対象を<status>ノックアップ</status>する。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "25",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "イナズマフィールド",
+   "description": "<spellPassive>自動効果: </spellPassive>2.5秒ごとに体から電撃を放ち、周囲にいる敵にランダムで<magicDamage>100/200/300（＋魔力の20%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果: </spellActive>周囲の敵ユニットに<magicDamage>150/275/400（＋魔力の100%）の魔法ダメージ</magicDamage>を与え0.5秒間<status>サイレンス効果</status>を付与する。「イナズマフィールド」のクールダウン中、この自動効果は無効になる。",
+   "cooldown": "30",
+   "cost": "150",
+   "range": "600",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

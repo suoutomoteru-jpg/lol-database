@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Katarina",
+ "id": 60055,
+ "name": "カタリナ",
+ "title": "凶兆の刃",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "貪欲なる暗殺者",
+   "description": "チャンピオンのキルまたはアシストでクールダウンが15秒短縮される。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "バウンドナイフ",
+   "description": "<magicDamage>60/85/110/135/160（＋魔力の45%）</magicDamage>の魔法ダメージを与える短剣を投げる。短剣が近くの敵4体に跳ね返り、跳ね返るたびにダメージが10%減少する。<br><br>命中した敵に4.25秒間マークを付与する。マークはカタリナの通常攻撃またはスキルで消費され、<magicDamage></magicDamage>の追加魔法ダメージを与える。",
+   "cooldown": "10/9.5/9/8.5/8",
+   "cost": "",
+   "range": "675",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamageMark"
+   ]
+  },
+  "w": {
+   "name": "スティンガーロール",
+   "description": "円を描くように短剣を振り回し、40/75/110/145/180（＋魔力の25% ＋増加攻撃力の60%）の魔法ダメージを与える。敵チャンピオンに命中すると、1秒間、カタリナの<speed>移動速度</speed>が15/20/25/30/35%増加する。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "瞬歩",
+   "description": "対象の位置まで移動する。対象が敵の場合、<magicDamage>60/85/110/135/160（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。<br><br>「瞬歩」を使用後1.5秒間、受けるダメージが15%軽減される。",
+   "cooldown": "12/10.5/9/7.5/6",
+   "cost": "",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "デスロータス",
+   "description": "刃の嵐と化し、最も近くにいる敵チャンピオン3体に短剣を投げ、2.5秒間かけて<magicDamage>の魔法ダメージ</magicDamage>を与える。命中した敵に3秒間、50%の<status>負傷</status>を付与する。",
+   "cooldown": "60/55/50",
+   "cost": "",
+   "range": "550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "DamageCalcTooltipOnly"
+   ]
+  }
+ },
+ "unresolvedCount": 2
+}

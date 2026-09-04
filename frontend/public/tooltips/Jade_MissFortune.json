@@ -1,0 +1,61 @@
+{
+ "alias": "Jade_MissFortune",
+ "id": 60021,
+ "name": "ミス・フォーチュン",
+ "title": "美貌の賞金稼ぎ",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "ストラット",
+   "description": "5秒間ダメージを受けずにいると<speed>移動速度が25</speed>増加する。この増加移動速度は毎秒増加し、最大70まで増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダブルアップ",
+   "description": "対象の敵に向かって弾丸を発砲し、<physicalDamage>35/70/105/140/175（＋合計攻撃力の75%）の物理ダメージ</physicalDamage>を与え、最初の対象の背後にいる別の敵に<physicalDamage>の物理ダメージ</physicalDamage>を与える。通常攻撃時効果を付与する。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "70/75/80/85/90",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalRicochetDamage"
+   ]
+  },
+  "w": {
+   "name": "ダーティショット",
+   "description": "<font color='#FF9900'>自動効果:</font> 通常攻撃を行うたびに、対象に<magicDamage>の魔法ダメージ</magicDamage>を与える。この効果は同じ対象に対して4回まで累積してスタックする。<br><magicDamage>最大追加ダメージ: </magicDamage><br><br><font color='#FF9900'>発動効果:</font> 6秒間、<attackSpeed>攻撃速度</attackSpeed>が<attackSpeed>30/35/40/45/50%</attackSpeed>増加し、通常攻撃が3秒間、<keyword>50%の負傷</keyword>を付与するようになる。",
+   "cooldown": "12",
+   "cost": "45",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamageOnHIt",
+    "MaximumTotalDamageOnHit"
+   ]
+  },
+  "e": {
+   "name": "レイニングバレット",
+   "description": "無数の弾丸の雨を降らせ、2秒かけて<magicDamage>95/155/215/275/335（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、敵に20/28/36/44/52%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "15",
+   "cost": "80",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "バレットタイム",
+   "description": "2秒間、前方の扇状範囲に大量の銃弾を放ち、銃弾ごとに<physicalDamage>65/95/125（＋増加攻撃力の45% ＋魔力の30%）の物理ダメージ</physicalDamage>を与える(<physicalDamage>合計ダメージ: 520/760/1000（＋増加攻撃力の45% ＋魔力の30%）</physicalDamage>)。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 3
+}

@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Vayne",
+ "id": 60067,
+ "name": "ヴェイン",
+ "title": "ナイトハンター",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "ナイトハンター",
+   "description": "ヴェインは悪事を働く者を容赦なく狩る。敵チャンピオンに向かって移動する時、<speed>移動速度が30</speed>増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "タンブル",
+   "description": "短い距離を転がる。7秒以内に行う次の通常攻撃が<physicalDamage>の追加物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "6/5/4/3/2",
+   "cost": "30",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "ScalingDamageTotal"
+   ]
+  },
+  "w": {
+   "name": "シルバーボルト",
+   "description": "同じ敵に通常攻撃またはスキルを3回連続して行うごとに、追加で20/30/40/50/60(+敵の最大体力の4/5/6/7/8%)の<trueDamage>確定ダメージ</trueDamage>を与える(モンスターへのダメージは200が上限)。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "パニッシュメント",
+   "description": "矢を撃ち込み、敵に<physicalDamage>45/80/115/150/185（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与えてノックバックする。地形に衝突した敵には<physicalDamage>の追加物理ダメージ</physicalDamage>を与え、1.5秒間<status>スタン</status>させる。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "90",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamagewithSpell"
+   ]
+  },
+  "r": {
+   "name": "ファイナルアワー",
+   "description": "8/10/12秒間、追加で<physicalDamage>攻撃力が25/40/55</physicalDamage>増加する。発動中は、「タンブル」で1秒間<keywordStealth>インビジブル</keywordStealth>状態になり、<spellName>ナイトハンター</spellName>による増加<speed>移動速度</speed>が90に増加する。<br><br><rules><keywordStealth>インビジブル</keywordStealth>状態のユニットは、タワーまたは<font color='#ee91d7'>真の視界</font color>によってのみ可視化される。</rules>",
+   "cooldown": "100/85/70",
+   "cost": "80",
+   "range": "1",
+   "maxRank": 3,
+   "source": "stringtable",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 2
+}

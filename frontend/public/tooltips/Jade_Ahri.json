@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Ahri",
+ "id": 60103,
+ "name": "アーリ",
+ "title": "九尾の狐",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "生気吸引",
+   "description": "スキルが敵に命中するたびに、「生気吸引」をチャージする。最大スタックに達すると、次のスキルでアーリの体力が回復する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "幻惑のオーブ",
+   "description": "往復するオーブを放ち、命中した敵に<magicDamage>40/65/90/115/140（＋魔力の32.5%）の魔法ダメージ</magicDamage>を与える。戻る時に与えるダメージは<trueDamage>40/65/90/115/140（＋魔力の32.5%）の確定ダメージ</trueDamage>になる。",
+   "cooldown": "7",
+   "cost": "70/75/80/85/90",
+   "range": "970",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "フォックスファイア",
+   "description": "近くにいる敵を自動で狙う3つの狐火を放ち、<magicDamage>40/65/90/115/140（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。複数の狐火が1体の敵に当たった場合、2つ目以降はダメージが<magicDamage>12/19.5/27/34.5/42（＋魔力の40%）</magicDamage>に低下する。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "60",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "チャーム",
+   "description": "投げキッスを放ち、<magicDamage>60/90/120/150/180（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、最初に触れた敵に1/1.25/1.5/1.75/2秒間<status>チャーム効果</status>を付与する。6秒間、対象はアーリから受けるダメージが20%増加する。",
+   "cooldown": "12",
+   "cost": "50/65/80/95/110",
+   "range": "975",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "スピリットラッシュ",
+   "description": "すばやくダッシュして周囲の敵(チャンピオン優先)に3個のエネルギーを放つ。エネルギーはそれぞれが<magicDamage>70/110/150（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。<spellName>スピリットラッシュ</spellName>は10秒以内に最大2回まで<recast>再発動</recast>できる。",
+   "cooldown": "110/95/80",
+   "cost": "100",
+   "range": "450",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

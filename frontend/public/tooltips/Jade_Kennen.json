@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Kennen",
+ "id": 60085,
+ "name": "ケネン",
+ "title": "雷雲の担い手",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "嵐の刻印",
+   "description": "スキルが命中すると、6.25秒間、対象に<spellName>嵐の刻印</spellName>を付与する。<spellName>嵐の刻印</spellName>が3つになると、対象を1.25秒間<status>スタン</status>させて、自身の<keywordMajor>気が25</keywordMajor>回復する。<br><br>同じ対象が6秒以内に再び<spellName>嵐の刻印</spellName>で<status>スタン</status>した場合は、代わりに0.5秒間<status>スタン</status>させる。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "雷遁手裏剣",
+   "description": "手裏剣を投げて、最初に命中した敵に<magicDamage>75/115/155/195/235（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "7/6.25/5.5/4.75/4",
+   "cost": "60/55/50/45/40",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "稲妻の奔流",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃を5回行うごとに、<magicDamage>合計攻撃力の40/50/60/70/80%の魔法ダメージ</magicDamage>を与え、対象に<spellName>嵐の刻印</spellName>を1つ付与する。<br><br><spellActive>発動効果:</spellActive> 周囲にいる<spellName>嵐の刻印</spellName>が付与されたすべての対象に電撃を放ち、<magicDamage>65/95/125/155/185（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "13/11.25/9.5/7.75/6",
+   "cost": "40",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "疾風迅雷",
+   "description": "2.2秒間、稲妻の塊と化して<speed>移動速度が100%</speed>増加し、接触した敵に<magicDamage>85/125/165/205/245（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、ゴースト化してユニットをすり抜けるようになる。さらに、4秒間、<scaleArmor>物理防御が10/20/30/40/50</scaleArmor>、<scaleMR>魔法防御が10/20/30/40/50</scaleMR>増加する。<br><br>敵をすり抜けると<keywordMajor>気が40</keywordMajor>回復するが、この効果は一度しか発動しない。このスキルはミニオンには半分のダメージを与える(<magicDamage></magicDamage>)。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "80",
+   "range": "170",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalMinionDamage"
+   ]
+  },
+  "r": {
+   "name": "雷撃の大嵐",
+   "description": "魔法の嵐を3秒間呼び出し、周囲にいるランダムな敵に0.5/0.4/0.3秒ごとに<magicDamage>80/145/210（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。この嵐は同じ対象には3回までしかダメージを与えない。",
+   "cooldown": "120",
+   "cost": "",
+   "range": "550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

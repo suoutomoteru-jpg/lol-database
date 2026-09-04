@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Sona",
+ "id": 60037,
+ "name": "ソナ",
+ "title": "沈黙の弦奏師",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "パワーコード",
+   "description": "スキルを3回使用すると、次の通常攻撃が<magicDamage>36〜240（レベル比例）の追加魔法ダメージ</magicDamage>を与え、3秒間対象が与えるダメージを30%減少させる。<br><br><keywordMajor>オーラ</keywordMajor>は無効化されてから効果が2秒間持続する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ヒム・オブ・ヴァロー",
+   "description": "<keywordMajor>オーラ(永続):</keywordMajor> 周囲の味方チャンピオンの<physicalDamage>攻撃力</physicalDamage>と<magicDamage>魔力</magicDamage>を6/8/10/12/14増加させる。<br><br><spellActive>発動効果:</spellActive> 最も近くにいる敵2体(チャンピオンを優先)に<magicDamage>60/110/160/210/260（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "7",
+   "cost": "60/65/70/75/80",
+   "range": "825",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "パーセヴァランス",
+   "description": "<keywordMajor>オーラ(永続):</keywordMajor> 周囲の味方チャンピオンの<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を8/12/16/20/24増加させる。<br><br><spellActive>発動効果:</spellActive> 自身と周囲で最も体力が低下した味方チャンピオン1体の<healing>体力を30/55/80/105/130（＋魔力の50%）</healing>回復する。",
+   "cooldown": "7",
+   "cost": "60/65/70/75/80",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "セレリティ",
+   "description": "<keywordMajor>オーラ(永続):</keywordMajor> 周囲の味方チャンピオンの<speed>移動速度を8/11/14/17/20</speed>増加させる。<br><br><spellActive>発動効果:</spellActive> 1.5秒間、周囲の味方チャンピオンの<speed>移動速度を6/8/10/12/14%</speed>増加させる。",
+   "cooldown": "7",
+   "cost": "65/70/75/80/85",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "クレッシェンド",
+   "description": "抗いがたい和音を浴びせて<magicDamage>150/250/350（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間、敵チャンピオンを強制的に<status>踊らせる</status>。",
+   "cooldown": "170/150/130",
+   "cost": "100",
+   "range": "900",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

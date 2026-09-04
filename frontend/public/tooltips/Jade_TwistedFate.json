@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_TwistedFate",
+ "id": 60004,
+ "name": "ツイステッド・フェイト",
+ "title": "不敗のイカサマ師",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "イカサマダイス",
+   "description": "自身と味方がキルごとに<gold>2ゴールド</gold>を追加で獲得する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ワイルドカード",
+   "description": "<mainText>指定方向に敵を貫通するカードを3枚投げて、命中した敵ユニットにそれぞれ<magicDamage>60/110/160/210/260（＋魔力の65%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "6",
+   "cost": "60/70/80/90/100",
+   "range": "10000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ドロー",
+   "description": "カードのシャッフルを開始し、<recast>再発動</recast>で3枚のカードから1枚ピックする。選んだカードによって、次の通常攻撃に異なる効果が付与される。<br><br><font color='#0000FF'>ブルーカード</font>は<magicDamage>40/60/80/100/120（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<scaleMana>マナを50/75/100/125/150</scaleMana>回復する。<br><br><font color='#FF0000'>レッドカード</font>は、対象の周囲の敵ユニットに<magicDamage>30/45/60/75/90（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、2.5秒間、30/35/40/45/50%の<status>スロウ効果</status>を付与する。<br><br><font color='#FFD700'>ゴールドカード</font>は<magicDamage>15/22.5/30/37.5/45（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、1/1.25/1.5/1.75/2秒間<status>スタン</status>させる。",
+   "cooldown": "6",
+   "cost": "40/55/70/85/100",
+   "range": "200",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ゲート",
+   "description": "3秒間詠唱した後、指定位置にワープする。",
+   "cooldown": "120/105/90/75/60",
+   "cost": "80",
+   "range": "20000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "デスティニー",
+   "description": "4/5/6秒間、すべての敵チャンピオンを<keywordStealth>可視化</keywordStealth>し、30%の<status>スロウ効果</status>を与える。発動中は、<spellName>ゲート</spellName>の詠唱時間が1.5秒に短縮される。",
+   "cooldown": "130/110/90",
+   "cost": "150",
+   "range": "20000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_MasterYi",
+ "id": 60011,
+ "name": "マスター・イー",
+ "title": "ウージューの剣客",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "ダブルストライク",
+   "description": "15%の確率で2回攻撃を行う。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "アルファストライク",
+   "description": "戦場を駆け抜けて、最大4体の敵にそれぞれ<magicDamage>100/150/200/250/300（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、ミニオンとモンスターに対しては50%の確率で<magicDamage>260/320/380/440/500の追加魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "18/16/14/12/11",
+   "cost": "60/70/80/90/100",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "明鏡止水",
+   "description": "詠唱し、5秒かけて<healing>200/350/500/650/800（＋魔力の200%）体力を</healing>回復する。詠唱中は、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が100/150/200/250/300増加する。",
+   "cooldown": "35",
+   "cost": "50/65/80/95/110",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ウージュースタイル",
+   "description": "<spellPassive>自動効果:</spellPassive> <physicalDamage>攻撃力が15/20/25/30/35</physicalDamage>増加する。<br><br><spellActive>発動効果:</spellActive> 10秒間<physicalDamage>攻撃力が30/40/50/60/70</physicalDamage>増加するが、このスキルのクールダウン中は自動効果が失われる。",
+   "cooldown": "18/17/16/15/14",
+   "cost": "",
+   "range": "20",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ハイランダー",
+   "description": "8/10/12秒間、<speed>移動速度</speed>が40%、<attackSpeed>攻撃速度</attackSpeed>が40/60/80%増加し、あらゆるスロウ効果を受けなくなる。<br><br>発動中にチャンピオンをキルするとすべてのスキルのクールダウンが解消される(アシストを獲得した場合は、代わりに基本クールダウンが半分解消される)。",
+   "cooldown": "75",
+   "cost": "100",
+   "range": "1",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_LeeSin",
+ "id": 60064,
+ "name": "リー・シン",
+ "title": "盲目の修行僧",
+ "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "skills": {
+  "passive": {
+   "name": "練気",
+   "description": "スキル使用後、次の通常攻撃2回の<attackSpeed>攻撃速度が40%</attackSpeed>増加し、それぞれ気を15回復する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "響掌/共鳴撃",
+   "description": "<spellName>響掌: </spellName>敵の位置を探るひずんだ音波を発射して、最初に当たった敵に<physicalDamage>50/80/110/140/170（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与える。また、<spellName>響掌</spellName>が命中してから3秒間は<spellName>共鳴撃</spellName>を発動できる。<br><br><spellName>共鳴撃: </spellName>「響掌」が命中した敵に素早く接近し、<physicalDamage>50/80/110/140/170（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>に加えて対象の減少体力の8%にあたるダメージを与える。",
+   "cooldown": "11/10/9/8/7",
+   "cost": "50",
+   "range": "1100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "守りの型/鉄の意志",
+   "description": "<spellName>守りの型: </spellName>指定した味方に素早く接近し、5秒間、自身と対象の両方に耐久値40/80/120/160/200（＋魔力の80%）の<shield>シールド</shield>を付与する。<spellName>守りの型</spellName>を使用してから3秒間は、<spellName>鉄の意志</spellName>を発動できる。<br><br><spellName>鉄の意志: </spellName>厳しい修行の成果により、5秒間にわたってライフスティールを5/9/13/17/21%、スペルヴァンプ、<scaleArmor>物理防御を10/15/20/25/30</scaleArmor>増加させる。",
+   "cooldown": "9",
+   "cost": "50",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "破風/縛脚",
+   "description": "<spellName>破風: </spellName>地面を強打して衝撃波を発生させることで<magicDamage>60/95/130/165/200（＋増加攻撃力の100%）の魔法ダメージ</magicDamage>を与え、命中した敵ユニットを4秒間可視化する。<spellName>破風</spellName>が敵に命中した場合は、その後3秒間<spellName>縛脚</spellName>で追撃できる。<br><br><spellName>縛脚: </spellName><spellName>破風</spellName>で可視化された周囲の敵に4秒間にわたって<status>スロウ効果</status>を与え、<speed>移動速度</speed>と<attackSpeed>攻撃速度</attackSpeed>を30/37.5/45/52.5/60%低下させる。低下した<speed>移動速度</speed>と<attackSpeed>攻撃速度</attackSpeed>は時間の経過とともに徐々に元に戻る。",
+   "cooldown": "",
+   "cost": "50",
+   "range": "425",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "龍の怒り",
+   "description": "敵チャンピオンに強力な回し蹴りを食らわせ、<physicalDamage>200/400/600（＋増加攻撃力の200%）の物理ダメージ</physicalDamage>を与えると同時に後方へ<status>ノックバック</status>させ、その際に衝突した敵ユニットにも物理ダメージを与える。ノックバックした対象と接触した敵は、短時間<status>ノックアップ</status>状態になる。",
+   "cooldown": "90/75/60",
+   "cost": "",
+   "range": "375",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}
