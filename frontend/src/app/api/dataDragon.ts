@@ -13,6 +13,8 @@ import type {
   DDragonChampionSummary,
   DDragonChampionDetail,
   DDragonItem,
+  DDragonSummonerSpell,
+  DDragonSummonerSpellListResponse,
 } from '../types/ddragon';
 
 const BASE_URL = 'https://ddragon.leagueoflegends.com';
@@ -346,6 +348,22 @@ export async function fetchItemListTier1(version: string): Promise<[string, DDra
   const result = deduplicateByName(filtered);
   writeCache(key, result);
   return result;
+}
+
+// ── サモナースペル一覧 ──────────────────────────────────
+
+export async function fetchSummonerSpells(version: string): Promise<Record<string, DDragonSummonerSpell>> {
+  const key = dataKey(version, 'summoner-spells');
+  const cached = readCache<Record<string, DDragonSummonerSpell>>(key);
+  if (cached) return cached;
+
+  const url = `${BASE_URL}/cdn/${version}/data/${LOCALE}/summoner.json`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`summoner.json fetch failed: ${res.status}`);
+
+  const json: DDragonSummonerSpellListResponse = await res.json();
+  writeCache(key, json.data);
+  return json.data;
 }
 
 export async function fetchItemListTier2(version: string): Promise<[string, DDragonItem][]> {

@@ -104,6 +104,19 @@ export interface DDragonChampionDetail extends DDragonChampionSummary {
   skins: Array<{ id: string; num: number; name: string; chromas: boolean }>;
 }
 
+// summoner.json の各サモナースペル
+export interface DDragonSummonerSpell {
+  id: string;            // "SummonerFlash"
+  name: string;          // "フラッシュ"
+  description: string;
+  cooldown: number[];    // [300]
+  cooldownBurn: string;  // "300"
+  key: string;           // "4"
+  summonerLevel: number;
+  modes: string[];       // ["CLASSIC", "ARAM", ...]
+  image: DDragonImage;
+}
+
 // item.json の各アイテム
 export interface DDragonItem {
   name: string;
@@ -146,4 +159,10 @@ export interface DDragonItemListResponse {
   type: string;
   version: string;
   data: Record<string, DDragonItem>;
+}
+
+export interface DDragonSummonerSpellListResponse {
+  type: string;
+  version: string;
+  data: Record<string, DDragonSummonerSpell>;
 }
