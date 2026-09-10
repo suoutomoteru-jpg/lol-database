@@ -3,7 +3,7 @@
  "id": 111,
  "name": "ノーチラス",
  "title": "深海の巨人",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "鉄の錨",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "錨投げ",
-   "description": "前方に錨を投げる。敵ユニットに命中すると自身と対象を同時に引き寄せ、対象に<magicDamage>85/130/175/220/265（＋魔力の90%）の魔法ダメージ</magicDamage>を与えて短時間<status>スタン効果</status>を付与する。錨が地形に命中した場合、自身を錨の地点まで引き寄せる。",
+   "description": "前方に錨を投げる。敵ユニットに命中すると自身と対象を同時に引き寄せ、対象に<magicDamage>85/125/165/205/245（＋魔力の90%）の魔法ダメージ</magicDamage>を与えて短時間<status>スタン効果</status>を付与する。錨が地形に命中した場合、自身を錨の地点まで引き寄せる。",
    "cooldown": "14/13/12/11/10",
    "cost": "60",
    "range": "1150",

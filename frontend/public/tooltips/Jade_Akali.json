@@ -3,7 +3,7 @@
  "id": 60084,
  "name": "アカリ",
  "title": "影の拳",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "双の行",
@@ -16,7 +16,7 @@
    "description": "対象の敵に向かって鎌を投げ、<magicDamage>45/70/95/120/145（＋魔力の40%）の魔法ダメージ</magicDamage>を与え6秒間、対象をマークする。<br><br>マークを受けた対象に近接攻撃を行うと、マークを消費して<magicDamage>45/70/95/120/145（＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>気を20/25/30/35/40</keywordMajor>回復する。",
    "cooldown": "6/5.5/5/4.5/4",
    "cost": "60",
-   "range": "550",
+   "range": "575",
    "maxRank": 5,
    "source": "lcu",
    "unresolved": []
@@ -46,7 +46,7 @@
    "description": "影の中を移動して素早く対象を攻撃し、<magicDamage>100/175/250（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br>キルかアシストを獲得時、または秒経過するごとに、<spellName>影の真髄</spellName>のチャージが最大3つまで回復する。",
    "cooldown": "2/1.5/1",
    "cost": "",
-   "range": "675",
+   "range": "775",
    "maxRank": 3,
    "source": "lcu",
    "unresolved": [

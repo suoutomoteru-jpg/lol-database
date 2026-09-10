@@ -3,12 +3,12 @@
  "id": 60080,
  "name": "パンテオン",
  "title": "軍神",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "イージスの守護",
-   "description": "通常攻撃かスキルを4回使用すると、次に受ける通常攻撃かタワーの攻撃をブロックする。",
-   "source": "stringtable",
+   "description": "通常攻撃かスキルを4回使用すると、次の通常攻撃から守られる。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "急所乱撃",
-   "description": "<spellPassive>自動効果:</spellPassive> 体力が15%未満の対象に対しては、<spellName>痛恨の槍</spellName>、<spellName>急所乱撃</spellName>、通常攻撃のクリティカル率が100%になる。<br><br><spellActive>発動効果:</spellActive> 詠唱して前方に素早い突きを3回繰り出し、攻撃ごとに<physicalDamage>26/46/66/86/106（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える(合計<physicalDamage></physicalDamage>)。",
+   "description": "<spellPassive>自動効果:</spellPassive> 体力が15%未満の対象に対しては、<spellName>痛恨の槍</spellName>、<spellName>急所乱撃</spellName>、通常攻撃がクリティカルになる。<br><br><spellActive>発動効果:</spellActive> 詠唱して正面の範囲内に素早い突きを3回繰り出し、攻撃ごとに<physicalDamage>26/46/66/86/106（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える(合計<physicalDamage></physicalDamage>)。",
    "cooldown": "22/21/20/19/18",
    "cost": "80",
    "range": "400",

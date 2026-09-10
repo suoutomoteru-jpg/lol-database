@@ -3,12 +3,12 @@
  "id": 60027,
  "name": "シンジド",
  "title": "マッドケミスト",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "肉体強化",
-   "description": "<scaleMana>マナ1</scaleMana>ごとに、<healing>体力が0.25</healing>増加する。<br><br><healing>増加体力: 80/125/170/215/260</healing>",
-   "source": "stringtable",
+   "description": "自身の最大マナに応じて体力が増加する。",
+   "source": "lcu",
    "unresolved": []
   },
   "q": {

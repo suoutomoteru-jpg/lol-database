@@ -3,7 +3,7 @@
  "id": 60018,
  "name": "トリスターナ",
  "title": "メグリング ガンナー",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "ドロー＆グロー",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "ヨードルグレネード",
-   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で敵を倒すと爆発が起き、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果: </spellActive>炸裂弾を破裂させ、対象の敵に<keyword>50%の負傷</keyword>を付与し、5秒かけて<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で敵を倒すと爆発が起き、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の25%）の魔法ダメージ</magicDamage>を与える。<br><br><spellActive>発動効果: </spellActive>炸裂弾を破裂させ、対象の敵に<keyword>50%の重傷</keyword>を付与し、5秒かけて<magicDamage>の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "16",
    "cost": "50/60/70/80/90",
    "range": "550",

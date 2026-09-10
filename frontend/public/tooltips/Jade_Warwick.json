@@ -3,11 +3,11 @@
  "id": 60019,
  "name": "ワーウィック",
  "title": "血の狩人",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "終わりなき渇望",
-   "description": "通常攻撃が<magicDamage>3〜16（レベル比例）の追加魔法ダメージ</magicDamage>を与え、同量の体力を<healing>回復</healing>する。この効果は連続で命中するたびにスタックしていき、最大3回までスタックする。",
+   "description": "通常攻撃が<magicDamage>3〜16（レベル1〜18）の追加魔法ダメージ</magicDamage>を与え、同量の体力を<healing>回復</healing>する。この効果は連続で命中するたびにスタックしていき、最大3回までスタックする。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -43,10 +43,10 @@
   },
   "r": {
    "name": "絶狼牙連撃",
-   "description": "敵チャンピオンの正面に向かってダッシュし、1.8秒間、<status>サプレッション効果</status>を与える。この効果時間中、対象を5回攻撃し、合計<magicDamage>250/335/420（＋増加攻撃力の200%）の魔法ダメージ</magicDamage>を与える(通常攻撃時効果が5回発動する)。<br><br>効果時間中、ライフスティールが30%増加する。",
+   "description": "敵チャンピオンの正面に向かってダッシュし、1.8秒間、<status>サプレッション効果</status>を与える。この効果時間中、対象を5回攻撃し、合計<magicDamage>180/300/420（＋増加攻撃力の200%）の魔法ダメージ</magicDamage>を与える(通常攻撃時効果が5回発動する)。<br><br>効果時間中、ライフスティールが30%増加する。",
    "cooldown": "90/80/70",
    "cost": "100/125/150",
-   "range": "650",
+   "range": "625",
    "maxRank": 3,
    "source": "lcu",
    "unresolved": []

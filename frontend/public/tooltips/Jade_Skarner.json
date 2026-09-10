@@ -3,11 +3,11 @@
  "id": 60072,
  "name": "スカーナー",
  "title": "水晶の尖兵",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "エナジャイズ",
-   "description": "通常攻撃を行うと、すべてのスキルのクールダウンが0.5秒短縮される。チャンピオンを攻撃した場合は効果が2倍になる。<br><br><flavorText>どこに行けばいいんだ？乗せていたヨードルがいないんだが…</flavorText>",
+   "description": "通常攻撃を行うと、すべてのスキルのクールダウンが0.5秒短縮される。対象がチャンピオンの場合は1秒短縮される。<br><br><flavorText>どこに行けばよいのだ？乗せていたヨードルが見当たらぬ…</flavorText>",
    "source": "stringtable",
    "unresolved": []
   },
@@ -35,7 +35,7 @@
   },
   "e": {
    "name": "フラクチャー",
-   "description": "直線上にいる敵に<magicDamage>80/120/160/200/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、6秒間マークする。<br><br>敵を攻撃するとマークを消費して、自身の体力が30/45/60/75/90（＋魔力の30%）<healing>回復</healing>する。対象を直ちにキルした場合も、この体力回復効果が発動する(発動ごとに回復量が50%ずつ減少する)。",
+   "description": "直線上にいる敵に<magicDamage>80/120/160/200/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与え6秒間マークする。<br><br>敵を攻撃するとマークを消費して、自身の体力が30/45/60/75/90（＋魔力の30%）<healing>回復</healing>する。対象を直ちにキルした場合も、この体力回復効果が発動する(発動ごとに回復量が50%ずつ減少する)。",
    "cooldown": "",
    "cost": "50/55/60/65/70",
    "range": "800",
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "インペイル",
-   "description": "敵チャンピオンに1.75秒間<status>サプレッション効果</status>を与えて、<magicDamage>の魔法ダメージ</magicDamage>を与える。この効果時間中は、無力化した敵を自由に引きずり回すことができる。効果が終了すると、対象に追加で<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "description": "敵チャンピオンに1.75秒間<status>サプレッション効果</status>を与えて、<magicDamage>の魔法ダメージ</magicDamage>を与える。この効果時間中は自由に移動することができ、無力化した敵を引きずり回す。効果が終了すると、対象に追加で<magicDamage>の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "130/120/110",
    "cost": "100/125/150",
    "range": "350",

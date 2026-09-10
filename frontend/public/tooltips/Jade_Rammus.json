@@ -3,11 +3,11 @@
  "id": 60033,
  "name": "ラムス",
  "title": "アーマージロ",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "トゲトゲ",
-   "description": "甲羅が強化されて追加ダメージを与えるようになり、自身の物理防御の25%が攻撃力に変換される。<br><br><strong>詳細数値</strong><br>・ダメージ: 合計物理防御の25%",
+   "description": "甲羅が強化されて追加ダメージを与えるようになり、自身の物理防御の一部が攻撃力に変換される。<br><br><strong>詳細数値</strong><br>・ダメージ: 合計物理防御の25%",
    "source": "lcu",
    "unresolved": []
   },

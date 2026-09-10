@@ -3,7 +3,7 @@
  "id": 904,
  "name": "ザーヘン",
  "title": "沈まぬ者",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "戦威修養",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ダーキングレイヴ",
-   "description": "次の通常攻撃で2回斬りつけ、<physicalDamage>15/30/45/60/75（＋増加攻撃力の20/25/30/35/40%）の追加物理ダメージ</physicalDamage>を与え、<healing>最大体力の5/6/7/8/9%</healing>を回復する。<br><br><recast>再発動:</recast> 次の通常攻撃が<physicalDamage>25/50/75/100/125（＋増加攻撃力の20/25/30/35/40%）の追加物理ダメージ</physicalDamage>を与え、対象を0.75秒間<status>ノックアップ</status>させる。",
+   "description": "次の通常攻撃で2回斬りつけ、<physicalDamage>15/30/45/60/75（＋増加攻撃力の20/25/30/35/40%）の追加物理ダメージ</physicalDamage>を与え、<healing>最大体力の5/6/7/8/9%</healing>を回復する。<br><br><recast>再発動:</recast> 次の通常攻撃が<physicalDamage>30/60/90/120/150（＋増加攻撃力の20/25/30/35/40%）の追加物理ダメージ</physicalDamage>を与え、対象を0.75秒間<status>ノックアップ</status>させる。",
    "cooldown": "10/9/8/7/6",
    "cost": "25",
    "range": "25000",

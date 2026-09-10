@@ -3,17 +3,17 @@
  "id": 60035,
  "name": "シャコ",
  "title": "悪魔の道化師",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "バックスタブ",
-   "description": "背後から敵ユニットを攻撃すると、20%の追加ダメージを与える。<br><br><strong>詳細数値</strong><br>・ダメージ: 20〜35（レベル比例） ＋ 増加攻撃力の25%<br>・ダメージ: 15〜50（レベル比例） ＋ 魔力の10%<br>・ダメージ: 15〜50（レベル比例） ＋ 魔力の10%×1.5",
-   "source": "lcu",
+   "description": "背後から攻撃すると、通常攻撃とスキルが20%の追加ダメージを与える。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "幻惑",
-   "description": "近くの地点にテレポートして、3.5秒間<keywordStealth>インビジブル</keywordStealth>状態になる。<br><br>6秒以内に行う次の通常攻撃がクリティカルになり、ダメージを与える。<br>",
+   "description": "近くの地点にテレポートして3.5秒間<keywordStealth>インビジブル</keywordStealth>状態になる。<br><br>6秒以内に行う次の通常攻撃がクリティカルになり、のダメージを与える。<br>",
    "cooldown": "11",
    "cost": "90/80/70/60/50",
    "range": "400",
@@ -47,14 +47,16 @@
   },
   "r": {
    "name": "ハルシネイト",
-   "description": "少しの間、姿を消してから、最大18秒間持続する分身とともに出現する。分身はシャコの攻撃力の75%にあたるダメージを与え、受けるダメージは50%増加する。<br><br>分身は倒されると爆発して、周囲の敵に<magicDamage>300/450/600（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "少しの間、姿を消してから、最大18秒間持続する分身とともに出現する。分身はシャコの攻撃力の75%にあたるダメージを与え、受けるダメージは増加する。<br><br>分身は倒されると爆発して、周囲の敵に<magicDamage>300/450/600（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "100/90/80",
    "cost": "100",
    "range": "200",
    "maxRank": 3,
    "source": "lcu",
-   "unresolved": []
+   "unresolved": [
+    "CloneBonusDamageTakenTooltip"
+   ]
   }
  },
- "unresolvedCount": 2
+ "unresolvedCount": 3
 }

@@ -3,7 +3,7 @@
  "id": 11,
  "name": "マスター・イー",
  "title": "ウージューの剣客",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "ダブルストライク",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "ハイランダー",
-   "description": "<spellPassive>自動効果:</spellPassive> チャンピオンからキルまたはアシストを獲得すると、通常スキルの残りクールダウンが70%短縮される。<br><br><spellActive>発動効果:</spellActive> トランス状態になり、7秒間、<speed>移動速度が35/45/55%</speed>、<attackSpeed>攻撃速度が25/45/65%</attackSpeed>増加して、すべての<status>スロウ効果</status>を受けなくなる。チャンピオンからキルまたはアシストを獲得すると、このスキルの効果時間が7秒延長される。",
+   "description": "<spellPassive>自動効果:</spellPassive> チャンピオンからキルまたはアシストを獲得すると、通常スキルの残りクールダウンが70%短縮される。<br><br><spellActive>発動効果:</spellActive> トランス状態になり、7秒間、<speed>移動速度が40/50/60%</speed>、<attackSpeed>攻撃速度が25/45/65%</attackSpeed>増加して、すべての<status>スロウ効果</status>を受けなくなる。チャンピオンからキルまたはアシストを獲得すると、このスキルの効果時間が7秒延長される。",
    "cooldown": "85",
    "cost": "100",
    "range": "1",

@@ -3,7 +3,7 @@
  "id": 60037,
  "name": "ソナ",
  "title": "沈黙の弦奏師",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "パワーコード",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "クレッシェンド",
-   "description": "抗いがたい和音を浴びせて<magicDamage>150/250/350（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、1.5秒間、敵チャンピオンを強制的に<status>踊らせる</status>。",
+   "description": "抗いがたい和音を浴びせて<magicDamage>150/250/350（＋魔力の70%）の魔法ダメージ</magicDamage>を与え1.5秒間、敵チャンピオンを強制的に<status>踊らせる</status>。",
    "cooldown": "170/150/130",
    "cost": "100",
    "range": "900",

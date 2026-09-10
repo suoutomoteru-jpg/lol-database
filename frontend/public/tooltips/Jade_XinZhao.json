@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_XinZhao",
+ "id": 60005,
+ "name": "シン・ジャオ",
+ "title": "",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
+ "skills": {
+  "passive": {
+   "name": "一念",
+   "description": "通常攻撃と「兵貴神速」で対象に挑戦し、3秒間、対象の物理防御を15%低下させる。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計攻撃力の15/30/45/60%（レベル1/6/11/16）<br>・最大体力比: 3/4/5%（レベル1/6/11）<br>・回復: 50/65/90%（レベル1/6/11）",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "三槍撃",
+   "description": "<mainText>次の3回の通常攻撃が<physicalDamage>の追加物理ダメージ</physicalDamage>を与え、他のスキルのクールダウンを1秒短縮する。また、最後の通常攻撃は対象を0.8秒間<status>ノックアップ</status>する。",
+   "cooldown": "7/6.5/6/5.5/5",
+   "cost": "30",
+   "range": "375",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalBonusDamagePerHit"
+   ]
+  },
+  "w": {
+   "name": "気焔万丈",
+   "description": "<mainText><spellPassive>自動効果:</spellPassive> 通常攻撃3回ごとに体力を<healing>26/32/38/44/50（＋魔力の70%）</healing>回復する。<br><br><spellActive>発動効果:</spellActive> 雄叫びを発して、5秒間、自身の<attackSpeed>攻撃速度を40/50/60/70/80%</attackSpeed>増加させる。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "60/55/50/45/40",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "兵貴神速",
+   "description": "<mainText>敵に突進し、1体の敵に<keywordMajor>挑戦</keywordMajor>する。突撃は周囲のすべての敵に<magicDamage>70/105/140/175/210（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、2秒間、25/30/35/40/45%の<status>スロウ</status>効果を与える。",
+   "cooldown": "11",
+   "cost": "50",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "三日月槍舞",
+   "description": "周囲を槍で薙ぎ払って<physicalDamage>75/175/275（＋増加攻撃力の100%）に加えて現在体力の15%の物理ダメージ</physicalDamage>を与え、<keywordMajor>挑戦対象を除く</keywordMajor>すべての敵を<status>ノックバック</status>する。6秒間、命中したチャンピオン1体ごとに、自身の<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が15/20/25増加する。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "465",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

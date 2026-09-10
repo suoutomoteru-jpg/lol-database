@@ -3,11 +3,11 @@
  "id": 60098,
  "name": "シェン",
  "title": "黄昏の瞳",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "気功斬",
-   "description": "9秒ごとに、次の通常攻撃が追加ダメージを与える。通常攻撃を行うたびに、「気功斬」のクールダウンが短縮される。",
+   "description": "定期的に次の通常攻撃が追加ダメージを与える。ミニオン、モンスター、チャンピオンに通常攻撃を行うたびに、「気功斬」のクールダウンが短縮される。",
    "source": "lcu",
    "unresolved": []
   },
@@ -27,7 +27,7 @@
   },
   "w": {
    "name": "護身術",
-   "description": "3秒間、<shield>耐久値60/100/140/180/220（＋魔力の60%）のシールド</shield>を獲得する。このスキルが有効な間は、通常攻撃で<keywordMajor>気功斬</keywordMajor>のクールダウンが1秒短縮される。",
+   "description": "3秒間、<shield>耐久値60/100/140/180/220（＋魔力の60%）のシールド</shield>を獲得する。このスキルが有効な間は、通常攻撃で<keywordMajor>気功斬</keywordMajor>のクールダウンがさらに1秒短縮される。",
    "cooldown": "9/8/7/6/5",
    "cost": "50",
    "range": "20",

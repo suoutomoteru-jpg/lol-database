@@ -3,7 +3,7 @@
  "id": 60041,
  "name": "ガングプランク",
  "title": "大海原の大災厄",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "ラム酒に濡れた剣",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "偽りの発砲",
-   "description": "ガングプランクが対象ユニットを射撃して<physicalDamage>20/45/70/95/120（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<spellName>偽りの発砲</spellName>で敵を倒すと、追加で4/5/6/7/8ゴールドを獲得し、マナコストが半分回復する。<br><br><spellName>偽りの発砲</spellName>はクリティカル判定を持ち、近接通常攻撃のように通常攻撃時効果を付与する。<br><br><gold>奪ったゴールドの合計: 3/4/5/6/7ゴールド</gold>",
+   "description": "ガングプランクが対象ユニットを射撃して<physicalDamage>20/45/70/95/120（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<spellName>偽りの発砲</spellName>で敵を倒すと、追加で4/6/8/10/12ゴールドを獲得し、マナコストが半分回復する。<br><br><spellName>偽りの発砲</spellName>はクリティカル判定を持ち、近接通常攻撃のように通常攻撃時効果を付与する。<br><br><gold>奪ったゴールドの合計: 3/4/5/6/7ゴールド</gold>",
    "cooldown": "5",
    "cost": "50/55/60/65/70",
    "range": "625",
@@ -33,13 +33,15 @@
   },
   "e": {
    "name": "士気上昇",
-   "description": "<spellPassive>自動効果: </spellPassive><physicalDamage>攻撃力が8/10/12/14/16</physicalDamage>、<speed>移動速度が3/4/5/6/7%</speed>増加する。<br><br><spellActive>発動効果: </spellActive>空に向けてピストルを撃つ。自動効果が無効になり、7秒間、<physicalDamage>攻撃力が12/19/26/33/40</physicalDamage>、<speed>移動速度が8/11/14/17/20%</speed>増加する。周辺の味方チャンピオンは7秒間、<physicalDamage>攻撃力が6/9.5/13/16.5/20</physicalDamage>、<speed>移動速度が4/5.5/7/8.5/10%</speed>増加する(ボーナスの半分)。",
+   "description": "<spellPassive>自動効果: </spellPassive><physicalDamage>攻撃力が8/10/12/14/16</physicalDamage>、<speed>移動速度が3/4/5/6/7%</speed>増加する。<br><br><spellActive>発動効果: </spellActive>空に向けてピストルを撃つ。自動効果が無効になり、7秒間、<physicalDamage>攻撃力が14/22/30/38/46</physicalDamage>、<speed>移動速度が10/14/18/22/26%</speed>増加する。周辺の味方チャンピオンは7秒間、<physicalDamage>攻撃力が</physicalDamage>、<speed>移動速度が5/7/9/11/13%</speed>増加する(ボーナスの半分)。",
    "cooldown": "20",
    "cost": "50/55/60/65/70",
    "range": "1200",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": []
+   "unresolved": [
+    "AllyActiveAD"
+   ]
   },
   "r": {
    "name": "一斉砲撃",
@@ -52,5 +54,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

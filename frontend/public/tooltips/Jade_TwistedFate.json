@@ -3,7 +3,7 @@
  "id": 60004,
  "name": "ツイステッド・フェイト",
  "title": "不敗のイカサマ師",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "イカサマダイス",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "ドロー",
-   "description": "カードのシャッフルを開始し、<recast>再発動</recast>で3枚のカードから1枚ピックする。選んだカードによって、次の通常攻撃に異なる効果が付与される。<br><br><font color='#0000FF'>ブルーカード</font>は<magicDamage>40/60/80/100/120（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<scaleMana>マナを50/75/100/125/150</scaleMana>回復する。<br><br><font color='#FF0000'>レッドカード</font>は、対象の周囲の敵ユニットに<magicDamage>30/45/60/75/90（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、2.5秒間、30/35/40/45/50%の<status>スロウ効果</status>を付与する。<br><br><font color='#FFD700'>ゴールドカード</font>は<magicDamage>15/22.5/30/37.5/45（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、1/1.25/1.5/1.75/2秒間<status>スタン</status>させる。",
+   "description": "カードのシャッフルを開始し、<recast>再発動</recast>で3枚のカードから1枚ピックする。選んだカードによって、次の通常攻撃に異なる効果が付与される。<br><br><font color='#0000FF'>ブルーカード</font>は<magicDamage>40/60/80/100/120（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、<scaleMana>マナを50/75/100/125/150</scaleMana>回復する。<br><br><font color='#FF0000'>レッドカード</font>は、対象の周囲の敵ユニットに<magicDamage>30/45/60/75/90（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え2.5秒間、30/35/40/45/50%の<status>スロウ効果</status>を付与する。<br><br><font color='#FFD700'>ゴールドカード</font>は<magicDamage>15/22.5/30/37.5/45（＋合計攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与え、1/1.25/1.5/1.75/2秒間<status>スタン</status>させる。",
    "cooldown": "6",
    "cost": "40/55/70/85/100",
    "range": "200",

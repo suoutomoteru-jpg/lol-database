@@ -3,11 +3,11 @@
  "id": 60038,
  "name": "カサディン",
  "title": "ヴォイドを歩む者",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "ヴォイドストーン",
-   "description": "受ける<magicDamage>魔法ダメージ</magicDamage>が減少し、受ける魔法ダメージを増加<attackSpeed>攻撃速度</attackSpeed>に変換する。",
+   "description": "受ける<magicDamage>魔法ダメージ</magicDamage>が減少し、被魔法ダメージを増加<attackSpeed>攻撃速度</attackSpeed>に変換する。",
    "source": "lcu",
    "unresolved": []
   },
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "ネザーブレード",
-   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃でヴォイドエネルギーを吸収し、命中するたびに<scaleMana>8/11/14/17/20マナ</scaleMana>を回復する。チャンピオンに対しては<scaleMana>マナ</scaleMana>に増加する。<br><br><spellActive>発動効果: </spellActive>5秒間ネザーブレードをチャージし、通常攻撃が<magicDamage>30/45/60/75/90（＋魔力の30%）の魔法ダメージ</magicDamage>を追加で与えるようになる。",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃でヴォイドエネルギーを吸収し、命中するたびに<scaleMana>8/11/14/17/20マナ</scaleMana>を回復する。対象がチャンピオンの場合は<scaleMana>マナ</scaleMana>に増加する。<br><br><spellActive>発動効果: </spellActive>5秒間ネザーブレードをチャージし、通常攻撃が<magicDamage>30/45/60/75/90（＋魔力の30%）の魔法ダメージ</magicDamage>を追加で与えるようになる。",
    "cooldown": "12",
    "cost": "25",
    "range": "1",

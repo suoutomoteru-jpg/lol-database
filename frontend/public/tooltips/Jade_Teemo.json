@@ -3,7 +3,7 @@
  "id": 60017,
  "name": "ティーモ",
  "title": "俊足の斥候",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "カモフラージュ",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "毒たっぷり吹き矢",
-   "description": "<mainText>通常攻撃が対象を毒状態にして、命中時<magicDamage>10/20/30/40/50（＋魔力の30%）の魔法ダメージ</magicDamage>を与え、4秒間、毎秒<magicDamage>6/12/18/24/30（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "通常攻撃が対象を毒状態にして、命中時<magicDamage>10/20/30/40/50（＋魔力の30%）の追加魔法ダメージ</magicDamage>を与え4秒間、毎秒<magicDamage>6/12/18/24/30（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "0",
    "cost": "",
    "range": "680",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "毒キノコ",
-   "description": "蓄えていたキノコを1つ取り出し、トラップを仕掛ける。敵がトラップを踏むと毒の胞子が放出され、範囲内の敵ユニットに30/40/50%の<status>スロウ効果</status>を付与し、4秒かけて<magicDamage>200/325/450（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは3回までチャージできる(秒でリチャージ)。<br>",
+   "description": "キノコのトラップを設置する。トラップは踏まれると爆発して、30/40/50%の<status>スロウ効果</status>を与え、4秒かけて<magicDamage>200/325/450（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。その間、敵は可視化される。<br><br>トラップはステルス状態になり、10分間持続する。このスキルは3個までチャージ可能(秒でリチャージ)。",
    "cooldown": "1",
    "cost": "75/100/125",
    "range": "230",

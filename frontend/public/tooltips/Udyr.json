@@ -3,7 +3,7 @@
  "id": 77,
  "name": "ウディア",
  "title": "精霊と歩む者",
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "精霊の繋ぎ手",

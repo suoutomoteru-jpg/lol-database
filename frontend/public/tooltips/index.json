@@ -1,6 +1,6 @@
 {
- "patch": "16.17.8104348+branch.releases-16-17.content.release",
- "generatedAt": "2026-09-03T07:44:42.154505+00:00",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
+ "generatedAt": "2026-09-10T07:50:34.966099+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -451,10 +451,24 @@
    "passiveSource": "stringtable"
   },
   {
+   "alias": "Jade_Fiora",
+   "id": 60114,
+   "name": "フィオラ",
+   "unresolvedCount": 2,
+   "passiveSource": "lcu"
+  },
+  {
+   "alias": "Jade_Galio",
+   "id": 60003,
+   "name": "ガリオ",
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
+  },
+  {
    "alias": "Jade_Gangplank",
    "id": 60041,
    "name": "ガングプランク",
-   "unresolvedCount": 0,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {
@@ -615,14 +629,14 @@
    "alias": "Jade_Nidalee",
    "id": 60076,
    "name": "ニダリー",
-   "unresolvedCount": 1,
+   "unresolvedCount": 2,
    "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Nunu",
    "id": 60020,
    "name": "ヌヌ＆ウィルンプ",
-   "unresolvedCount": 0,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {
@@ -637,7 +651,14 @@
    "id": 60080,
    "name": "パンテオン",
    "unresolvedCount": 1,
-   "passiveSource": "stringtable"
+   "passiveSource": "lcu"
+  },
+  {
+   "alias": "Jade_Poppy",
+   "id": 60078,
+   "name": "ポッピー",
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Rammus",
@@ -657,8 +678,8 @@
    "alias": "Jade_Shaco",
    "id": 60035,
    "name": "シャコ",
-   "unresolvedCount": 2,
-   "passiveSource": "lcu"
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Shen",
@@ -668,11 +689,18 @@
    "passiveSource": "lcu"
   },
   {
+   "alias": "Jade_Shyvana",
+   "id": 60102,
+   "name": "シヴァーナ",
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
+  },
+  {
    "alias": "Jade_Singed",
    "id": 60027,
    "name": "シンジド",
    "unresolvedCount": 0,
-   "passiveSource": "stringtable"
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Sion",
@@ -777,6 +805,13 @@
    "id": 60062,
    "name": "ウーコン",
    "unresolvedCount": 0,
+   "passiveSource": "lcu"
+  },
+  {
+   "alias": "Jade_XinZhao",
+   "id": 60005,
+   "name": "シン・ジャオ",
+   "unresolvedCount": 1,
    "passiveSource": "lcu"
   },
   {
