@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Fiora",
+ "id": 60114,
+ "name": "フィオラ",
+ "title": "",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
+ "skills": {
+  "passive": {
+   "name": "デュエリスト",
+   "description": "ダメージを与えると時間をかけて体力を自動回復する。チャンピオンに攻撃を命中させると、この効果が複数回スタックする。<br><br><strong>詳細数値</strong><br>・回復: 8〜25（レベル1〜18）",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ファント",
+   "description": "前方にダッシュして対象を攻撃し、<physicalDamage>40/65/90/115/140（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<br><br>4秒以内であれば、<scaleMana>マナ</scaleMana>を消費せずにこのスキルを<recast>再発動</recast>して再度ダッシュを行える。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "60",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "リポスト",
+   "description": "<spellPassive>自動効果: </spellPassive><physicalDamage>攻撃力</physicalDamage>が<physicalDamage>15/20/25/30/35</physicalDamage>増加する。<br><br><spellActive>発動効果: </spellActive>1.5秒間、次の通常攻撃を受け流して、攻撃者に<magicDamage>の魔法ダメージ</magicDamage>を反射する。チャンピオン、モンスター、大型ミニオンに対して機能する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "45",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "ReflectionDamage"
+   ]
+  },
+  "e": {
+   "name": "スピードバースト",
+   "description": "3秒間、<attackSpeed>攻撃速度が60/75/90/105/120%</attackSpeed>増加する。この効果時間中に通常攻撃か<spellName>ファント</spellName>が敵に命中するたびに、3秒間、自身の<speed>移動速度が7/9/11/13/15%</speed>増加する。この効果は3回までスタックする。<br><br>チャンピオンをキルすると、このスキルのクールダウンが解消される。(アシストを獲得するとクールダウンが7.5/7/6.5/6/5.5秒短縮される)",
+   "cooldown": "15/14/13/12/11",
+   "cost": "55",
+   "range": "500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ブレードワルツ",
+   "description": "戦場をダッシュして、ランダムなチャンピオンを5回攻撃し、<physicalDamage>160/330/500（＋増加攻撃力の115%）の物理ダメージ</physicalDamage>を与える。同じ対象に連続で攻撃すると、代わりに<physicalDamage>の物理ダメージ</physicalDamage>を与える。<br><br>最初と最後の攻撃は同じ対象に行われる。それぞれの攻撃は通常攻撃時効果を適用する。",
+   "cooldown": "130/120/110",
+   "cost": "100",
+   "range": "400",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamageReduced"
+   ]
+  }
+ },
+ "unresolvedCount": 2
+}

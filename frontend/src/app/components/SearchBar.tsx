@@ -11,7 +11,13 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
   const composing = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => { inputRef.current?.focus(); }, []);
+  // オートフォーカスはデスクトップのみ（モバイルではキーボードが立ち上がり
+  // ファーストビューを隠してしまうため）
+  useEffect(() => {
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      inputRef.current?.focus();
+    }
+  }, []);
 
   // Sync external resets (e.g. tab change clears query)
   useEffect(() => {
@@ -26,7 +32,11 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
       />
       <input
         ref={inputRef}
-        type="text"
+        type="search"
+        name="q"
+        autoComplete="off"
+        spellCheck={false}
+        enterKeyHint="search"
         value={localValue}
         onChange={e => {
           setLocalValue(e.target.value);
@@ -39,8 +49,8 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
           setLocalValue(v);
           onChange(v);
         }}
-        placeholder="チャンピオン・アイテムを検索..."
-        className="w-full bg-card border border-border py-3 pl-11 pr-4 text-sm text-foreground
+        placeholder="例：アーゴット、インフィニティ・エッジ"
+        className="w-full bg-card border border-border rounded-md py-3 pl-11 pr-4 text-base sm:text-sm text-foreground
           placeholder:text-muted-foreground/60
           focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/20
           transition-colors duration-150"

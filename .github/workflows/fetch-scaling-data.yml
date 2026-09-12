@@ -1,0 +1,171 @@
+name: Fetch scaling chart data
+
+# Riot Match-V5 API から試合を収集し、Scaling Chart用の
+# 試合時間帯別チャンピオン勝率データ（frontend/public/tooltips/scaling.json）
+# を生成する。
+#
+# 積み上げ式: 週別の集計カウンタ(scripts/data/scaling_state.json)を
+# GitHub Actionsのcacheで実行間に永続化し、毎回「まだ見ていない試合」
+# だけを追加収集する。
+#
+# ボトルネックはRiot APIのレート制限(100req/2分)で、1ジョブあたり
+# 約2,800試合/時が上限。ホスト型ランナーの6時間上限と合わせると
+# 1実行で取れる量には天井があるため、毎日実行して積み上げることで
+# 母数を確保する。
+#
+# 保持期間は180日（2026-08-19、35日→180日に変更。サンプル数を優先し、
+# 多少パッチをまたぐのは許容する方針）。実測の日次増加ペース
+# （2026-08-16→18の2日間で約3,800試合/日）から、定常時は
+# 35日=約13万件 → 180日=約68万件規模まで伸びる見込み。state容量は
+# 週別集計カウンタなのでこの規模でも数十MB程度で収まる
+#
+# per_bracket=20 は実測でホストランナー上限(6時間)の約82%
+# （294分/360分）を使う値として校正済み（2026-08-16、per_bracket=5→33分,
+# per_bracket=20→294.5分の実測から校正）。既知プレイヤーの重複が
+# 減るほど新規詳細取得の比率が上がるため、所要時間はper_bracketに
+# 比例ではなく super-linear(実測 T≈2.6×pb^1.58分) に伸びる点に注意。
+# 大きく変更する時は再校正すること。
+#
+# レート制限はAPIキー単位で共有されるため、実行が重なると双方が429で
+# 共倒れする。concurrencyで必ず直列化すること。
+#
+# インシデント(2026-08-19〜20): 保持期間を35日→180日に広げた直後、各プレイヤーの
+# 35〜180日前の試合が一斉に「未収集」として検出され、新規取得量が急増して
+# 2日連続でtimeout-minutesに到達しキャンセルされた。当時はスクリプトの
+# 終了時にしかstateを保存していなかったため、キャンセルされる度に進捗が
+# 丸ごと失われ、sampledMatchesが3日間30,938件のまま止まっていた
+# （actions/cacheの自動保存もジョブがcancelled扱いだと走らないため、
+# 途中経過はcacheにも残らなかった）。
+# 対策: スクリプト側で一定件数ごとにstateとscaling.json自体をチェックポイント
+# 保存するよう変更（fetch_scaling_data.pyのcollect_matches参照）。加えて
+# 後続ステップをif:always()にすることで、タイムアウトしても「その日
+# 打ち切られるまでに集めた分」は必ず持ち帰る
+#
+# 追加インシデント(2026-08-21): 上記対策の初回実行(30,938→44,965件まで
+# 前進)は成功したが、2つの見落としで結局pushされず消えかけた。
+# (1) actions/cache@v4のsave-always入力はdeprecatedで実際には機能しない
+#     （ジョブcancelled時はやはり保存されない）→ restore/saveを別アクション
+#     に分離し、saveをif:always()の独立ステップにした
+# (2) 5時間50分の実行中に他のコミットがmainに積まれ、実行終了時点で
+#     git pushがnon-fast-forwardで失敗した → push前にrebaseしてリトライする
+on:
+  workflow_dispatch:
+    inputs:
+      platforms:
+        description: "対象サーバー（カンマ区切り）"
+        default: "jp1,kr,na1,euw1"
+        required: false
+      per_bracket:
+        description: "ティア×ディビジョン毎のサンプル人数"
+        default: "20"
+        required: false
+      matches_per_player:
+        description: "1人あたり直近何試合を見るか"
+        default: "15"
+        required: false
+      max_age_days:
+        description: "この日数より古い試合はstateから間引く"
+        default: "180"
+        required: false
+  schedule:
+    # 毎日 3:00 JST (= 18:00 UTC)。1実行6時間で終わるため次回まで十分空く
+    - cron: "0 18 * * *"
+
+permissions:
+  contents: write
+
+# APIキーのレート制限は全実行で共有されるため、同時実行を禁止する。
+# 実行中に次がキューされた場合は待たせる（cancel-in-progressにすると
+# 収集途中のstateが保存されないまま捨てられてしまう）
+concurrency:
+  group: fetch-scaling-data
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      # 生データはgit履歴に載せず、Actions cacheで永続化する
+      # （毎週コミットし続けると際限なくリポジトリが肥大化するため）。
+      # key はrun_id込みで毎回ユニークにして必ず新規保存されるようにし、
+      # restore-keys の前方一致で直近の最新stateを復元する
+      # actions/cache@v4のsave-always入力はdeprecatedで実際には保存されない
+      # （2026-08-21に実測済み）。restore/saveを別アクションに分けて、
+      # saveは独立したif:always()ステップにする
+      - name: Restore scaling state cache
+        uses: actions/cache/restore@v4
+        with:
+          path: scripts/data/scaling_state.json
+          key: scaling-state-${{ github.run_id }}
+          restore-keys: |
+            scaling-state-
+
+      - name: Fetch scaling data from Riot API
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        run: |
+          python3 scripts/fetch_scaling_data.py \
+            --platforms "${{ inputs.platforms || 'jp1,kr,na1,euw1' }}" \
+            --per-bracket "${{ inputs.per_bracket || '20' }}" \
+            --matches-per-player "${{ inputs.matches_per_player || '15' }}" \
+            --max-age-days "${{ inputs.max_age_days || '180' }}" \
+            --state-file scripts/data/scaling_state.json \
+            --out frontend/public/tooltips/scaling.json
+
+      # タイムアウトでcancelledになっても、スクリプトがチェックポイント
+      # 保存した時点までのstateを必ずcacheへ書き戻す
+      - name: Save scaling state cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: scripts/data/scaling_state.json
+          key: scaling-state-${{ github.run_id }}
+
+      - name: Show summary
+        # フェッチがタイムアウトでcancelledになっても、チェックポイントまでの
+        # 進捗を必ず確認・コミットできるようにする
+        if: always()
+        run: |
+          python3 - << 'EOF'
+          import json, os
+          d = json.load(open("frontend/public/tooltips/scaling.json"))
+          print(f"sampledMatches={d['sampledMatches']}")
+          print(f"champions={len(d['champions'])}")
+          state_bytes = os.path.getsize("scripts/data/scaling_state.json")
+          st = json.load(open("scripts/data/scaling_state.json"))
+          print(f"state size: {state_bytes / 1024 / 1024:.1f} MB / {len(st['weeks'])}週分")
+          n100 = {b: sum(1 for c in d['champions'] if c[b]['games'] >= 100)
+                  for b in ('early', 'mid', 'late')}
+          print(f"100試合以上のチャンピオン数: {n100}")
+          for c in sorted(d['champions'], key=lambda c: -c['early']['games'])[:5]:
+              print(c['alias'], c['early'], c['mid'], c['late'])
+          EOF
+
+      - name: Commit generated scaling data
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add frontend/public/tooltips/scaling.json
+          if git diff --cached --quiet; then
+            echo "変更なし（既に最新）"
+            exit 0
+          fi
+          git commit -m "chore: regenerate scaling chart data from Riot Match-V5 API"
+          # 実行が数時間かかるため、その間に他のコミットがmainに積まれている
+          # ことがある。non-fast-forwardで一度失敗しても、rebaseして数回
+          # リトライすれば大抵の場合（他ファイルとの衝突がなければ）通る
+          for i in 1 2 3 4 5; do
+            if git push origin HEAD:${GITHUB_REF_NAME}; then
+              exit 0
+            fi
+            echo "push失敗、rebaseしてリトライします (${i}/5)"
+            git fetch origin ${GITHUB_REF_NAME}
+            git rebase origin/${GITHUB_REF_NAME}
+            sleep 5
+          done
+          echo "::error::5回リトライしてもpushできませんでした"
+          exit 1
