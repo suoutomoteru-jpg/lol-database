@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Shyvana",
+ "id": 60102,
+ "name": "シヴァーナ",
+ "title": "",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
+ "skills": {
+  "passive": {
+   "name": "龍血の憤怒",
+   "description": "通常攻撃がスキルを強化する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ツインバイト",
+   "description": "次の通常攻撃が2回攻撃になり、2回目の通常攻撃で<physicalDamage>の物理ダメージ</physicalDamage>を与える。通常攻撃で<spellName>ツインバイト</spellName>のクールダウンが0.5秒短縮される。<br><br><keywordMajor>ドラゴンフォーム: </keywordMajor><spellName>ツインバイト</spellName>が目の前のすべての敵ユニットを切り裂く。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "Calc_Bonus_Damage"
+   ]
+  },
+  "w": {
+   "name": "バーンアウト",
+   "description": "3秒間、周囲の敵に毎秒<magicDamage>25/40/55/70/85（＋増加攻撃力の20%）の魔法ダメージ</magicDamage>を与え、<speed>移動速度が30/35/40/45/50%</speed>増加する。増加した<speed>移動速度</speed>は時間とともに減少する。通常攻撃を行うと<spellName>バーンアウト</spellName>の持続時間が1秒延長される(最大4秒まで)。<br><br><keywordMajor>ドラゴンフォーム: </keywordMajor><spellName>バーンアウト</spellName>が地面を焦がし、その上にいる敵に継続的にダメージを与える。",
+   "cooldown": "13/12.25/11.5/10.75/10",
+   "cost": "",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "フレイムブレス",
+   "description": "火球を放ち、命中した敵に<magicDamage>80/125/170/215/260（＋魔力の60%）の魔法ダメージ</magicDamage>を与えてデバフ効果を与え、4秒間、対象の<scaleArmor>物理防御</scaleArmor>を15%低下させる。デバフ効果を受けている対象には、通常攻撃時効果で<magicDamage>12/18.75/25.5/32.25/39（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>ドラゴンフォーム: </keywordMajor><spellName>フレイムブレス</spellName>が自身の前方の扇状範囲に発射される。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "",
+   "range": "925",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "龍の降臨",
+   "description": "<spellActive>発動効果: </spellActive>龍に変身し、指定地点へ飛びかかる。接触したすべての敵に<magicDamage>200/300/400（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、指定地点に向かってノックバックする。<br><br><spellPassive>自動効果:</spellPassive> 自身の鱗を強化し、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が10/15/20増加する。<keywordMajor>ドラゴンフォーム</keywordMajor>中は防御ボーナスが2倍になる。<br><br><keywordMajor>ドラゴンフォーム</keywordMajor>中はスキルが追加効果を獲得する。",
+   "cooldown": "0",
+   "cost": "",
+   "range": "950",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

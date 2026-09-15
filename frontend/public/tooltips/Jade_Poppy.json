@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Poppy",
+ "id": 60078,
+ "name": "ポッピー",
+ "title": "",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
+ "skills": {
+  "passive": {
+   "name": "勇敢な戦士",
+   "description": "現在体力の10%を超えるあらゆる物理ダメージと魔法ダメージが50%軽減される。建造物から受けるダメージは軽減されない。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "渾身の一撃",
+   "description": "次の通常攻撃が<magicDamage>20/40/60/80/100（＋合計攻撃力の100% ＋魔力の60%） + 最大体力の8%の魔法ダメージ</magicDamage>を与える。体力に応じた追加ダメージの上限は55/110/165/220/275。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "55",
+   "range": "430",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "デマーシアの規範",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃でダメージを受けるか、ダメージを与えると、5秒間、<scaleArmor>物理防御</scaleArmor>と<scaleAD>攻撃力</scaleAD>が1.5/2/2.5/3/3.5増加する。この効果は10回スタックする。<br><br><spellActive>発動効果:</spellActive> 「デマーシアの規範」のスタックが最大になり、5秒間、移動速度が17/19/21/23/25%増加する。",
+   "cooldown": "12",
+   "cost": "70/75/80/85/90",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ヒロイックチャージ",
+   "description": "敵に向かって突撃して、<magicDamage>50/75/100/125/150（＋魔力の40%）の魔法ダメージ</magicDamage>を与えて、敵もろとも短い距離を移動する。地形に衝突すると、対象に<magicDamage>の魔法ダメージ</magicDamage>を追加で与え、1.5秒間<status>スタン</status>させる。",
+   "cooldown": "12",
+   "cost": "60/65/70/75/80",
+   "range": "525",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "WallDamageCalc"
+   ]
+  },
+  "r": {
+   "name": "絶対的特権",
+   "description": "最も重要な敵に狙いを定める。6/7/8秒間、自身が対象に与えるダメージが20/30/40%増加し、その他のすべての敵に対して<status>無敵</status>状態になる。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "900",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

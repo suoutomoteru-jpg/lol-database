@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Galio",
+ "id": 60003,
+ "name": "ガリオ",
+ "title": "",
+ "patch": "16.18.8159717+branch.releases-16-18.content.release",
+ "skills": {
+  "passive": {
+   "name": "ルーンの加護",
+   "description": "魔法防御が魔力に変換される。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "懲罰の視線",
+   "description": "両目から衝撃波を放ち、着弾地点の周囲の敵に<magicDamage>80/135/190/245/300（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、2.5秒間、対象に24/28/32/36/40%の<status>スロウ効果</status>を与える。",
+   "cooldown": "7",
+   "cost": "60/65/70/75/80",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "忠義の防壁",
+   "description": "自身または味方チャンピオン1体に4秒間シールドを付与し、対象の<scaleArmor>物理防御を30/45/60/75/90</scaleArmor>、<scaleMR>魔法防御を30/45/60/75/90</scaleMR>増加させる。そのユニットがダメージを受けるたびに、自身の体力が<healing>25/40/55/70/85（＋魔力の30%）</healing>回復する。",
+   "cooldown": "13",
+   "cost": "60",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "正義の追い風",
+   "description": "強風を引き起こし、進路上のすべての敵に<magicDamage>60/105/150/195/240（＋魔力の50%）の魔法ダメージ</magicDamage>を与える。一定方向に流れる気流が5秒間残り、その気流に乗った味方は<speed>移動速度が20/28/36/44/52%</speed>増加する。",
+   "cooldown": "12",
+   "cost": "70/75/80/85/90",
+   "range": "1100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "伝説の巨像",
+   "description": "2秒間詠唱して、周囲の敵を挑発し、自身が受けるダメージを50%軽減する。<br><br>詠唱後、周囲の敵に<magicDamage>220/330/440（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。さらに詠唱中に受けた通常攻撃1回につき、このダメージが追加で5%増加する。",
+   "cooldown": "150/135/120",
+   "cost": "100",
+   "range": "600",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}
