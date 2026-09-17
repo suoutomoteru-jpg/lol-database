@@ -3,7 +3,7 @@
  "id": 60037,
  "name": "ソナ",
  "title": "沈黙の弦奏師",
- "patch": "16.18.8159717+branch.releases-16-18.content.release",
+ "patch": "16.18.8175716+branch.releases-16-18.content.release",
  "skills": {
   "passive": {
    "name": "パワーコード",
