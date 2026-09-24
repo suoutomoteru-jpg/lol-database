@@ -3,7 +3,7 @@
  "id": 121,
  "name": "カ＝ジックス",
  "title": "ヴォイドの捕食者",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "見えざる脅威",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "ヴォイドの刺棘",
-   "description": "棘を発射して、最初に命中した対象と狭い範囲内の敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。自身が範囲内にいた場合は<healing>体力を55/75/95/115/135（＋魔力の50%）</healing>回復する。<br><evolve>進化したスキル:</evolve> 3つの棘を発射し、それぞれが最初に命中した対象と狭い範囲内の敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与え、2秒間可視化して40%の<status>スロウ効果</status>を付与する。自身が範囲内にいた場合は<healing>体力を55/75/95/115/135（＋魔力の50%）</healing>回復する。<keywordMajor>「孤立」</keywordMajor>した敵には、代わりに60%の<status>スロウ効果</status>を付与する。",
+   "description": "棘を発射して、最初に命中した対象と狭い範囲内の敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与える。自身が範囲内にいた場合は<healing>体力を55/75/95/115/135（＋魔力の50%）</healing>回復する。<br><evolve>進化したスキル:</evolve> 3つの棘を発射し、それぞれが最初に命中した対象と狭い範囲内の敵に<physicalDamage>75/105/135/165/195（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与え、2.25秒間可視化して40%の<status>スロウ効果</status>を付与する。自身が範囲内にいた場合は<healing>体力を55/75/95/115/135（＋魔力の50%）</healing>回復する。<keywordMajor>「孤立」</keywordMajor>した敵には、代わりに60%の<status>スロウ効果</status>を付与する。",
    "cooldown": "9",
    "cost": "55/60/65/70/75",
    "range": "1000",

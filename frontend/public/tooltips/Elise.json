@@ -3,11 +3,11 @@
  "id": 60,
  "name": "エリス",
  "title": "蜘蛛の女帝",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "蜘蛛の女帝",
-   "description": "エリスは試合開始の時点でアルティメットスキルのレベルが1になっているため、最初から<keywordMajor>ヒト形態</keywordMajor>と<keywordMajor>蜘蛛形態</keywordMajor>を切り替えることができる。<br><br><keywordMajor>ヒト形態:</keywordMajor> スキルが命中するたび、眠った状態の<keywordMajor>幼体</keywordMajor>を1体獲得する(最大2/3/4/5/6/7体)。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: 通常攻撃が<magicDamage>12/22/32/42/52/62（＋魔力の15%）の魔法ダメージ</magicDamage>を追加で与え、<healing>体力が6/8/10/12/14/16（＋魔力の8%）</healing>回復する。",
+   "description": "エリスは試合開始の時点でアルティメットスキルのレベルが1になっているため、最初から<keywordMajor>ヒト形態</keywordMajor>と<keywordMajor>蜘蛛形態</keywordMajor>を切り替えることができる。<br><br><keywordMajor>ヒト形態:</keywordMajor> スキルが命中するたび、眠った状態の<keywordMajor>幼体</keywordMajor>を1体獲得する(最大2/3/4/5/6/7体)。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: 通常攻撃が<magicDamage>14/24/34/44/54/64（＋魔力の15%）の魔法ダメージ</magicDamage>を追加で与え、<healing>体力が6/8/10/12/14/16（＋魔力の8%）</healing>回復する。",
    "source": "stringtable",
    "unresolved": []
   },
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "子蜘蛛爆弾/猛食",
-   "description": "<keywordMajor>ヒト形態</keywordMajor>: 子蜘蛛を1体放つ。この子蜘蛛は指定地点に向かって移動し、敵に接触するか3秒経過すると破裂して<magicDamage>60/100/140/180/220/260（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellPassive>自動効果</spellPassive>: <keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が5/10/15/20/25/30%</attackSpeed>増加する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellActive>発動効果</spellActive>: 3秒間、自身と<keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が60/75/90/105/120/135%</attackSpeed>増加する。<br><br><strong>◆ 蜘蛛形態: 猛食/子蜘蛛爆弾</strong><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellPassive>自動効果</spellPassive>: <keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が5/10/15/20/25/30%</attackSpeed>増加する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellActive>発動効果</spellActive>: 3秒間、自身と<keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が60/75/90/105/120/135%</attackSpeed>増加する。",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 子蜘蛛を1体放つ。この子蜘蛛は指定地点に向かって移動し、敵に接触するか3秒経過すると破裂して<magicDamage>60/100/140/180/220/260（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellPassive>自動効果</spellPassive>: <keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が5/10/15/20/25/30%</attackSpeed>増加する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellActive>発動効果</spellActive>: 3秒間、自身と<keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が70/85/100/115/130/145%</attackSpeed>増加する。<br><br><strong>◆ 蜘蛛形態: 猛食/子蜘蛛爆弾</strong><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellPassive>自動効果</spellPassive>: <keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が5/10/15/20/25/30%</attackSpeed>増加する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>での<spellActive>発動効果</spellActive>: 3秒間、自身と<keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が70/85/100/115/130/145%</attackSpeed>増加する。",
    "cooldown": "12",
    "cost": "60/70/80/90/100",
    "range": "950",

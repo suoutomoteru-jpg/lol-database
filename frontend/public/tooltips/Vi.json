@@ -3,11 +3,11 @@
  "id": 254,
  "name": "ヴァイ",
  "title": "ピルトーヴァーの用心棒",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "ケンカの作法",
-   "description": "発動効果スキルを敵または建造物に当てると、3秒間<shield>耐久値合計体力の12%のシールド</shield>を獲得する。<br><br><rules>このスキルには16〜7.5（レベル1〜18）秒間のクールダウンがあるが、<spellName>「メッタ打ち」</spellName>を発動させると、クールダウンが4秒短縮される。</rules>",
+   "description": "発動効果スキルを敵または建造物に当てると、3秒間<shield>耐久値合計体力の10%のシールド</shield>を獲得する。<br><br><rules>このスキルには16〜7.5（レベル1〜18）秒間のクールダウンがあるが、<spellName>「メッタ打ち」</spellName>を発動させると、クールダウンが4秒短縮される。</rules>",
    "source": "stringtable",
    "unresolved": []
   },

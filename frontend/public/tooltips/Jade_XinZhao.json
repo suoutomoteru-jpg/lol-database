@@ -2,13 +2,13 @@
  "alias": "Jade_XinZhao",
  "id": 60005,
  "name": "シン・ジャオ",
- "title": "",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "title": "デマーシアの家令長",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "一念",
-   "description": "通常攻撃と「兵貴神速」で対象に挑戦し、3秒間、対象の物理防御を15%低下させる。<br><br><strong>詳細数値</strong><br>・合計ダメージ: 合計攻撃力の15/30/45/60%（レベル1/6/11/16）<br>・最大体力比: 3/4/5%（レベル1/6/11）<br>・回復: 50/65/90%（レベル1/6/11）",
-   "source": "lcu",
+   "description": "通常攻撃と<spellName>兵貴神速</spellName>で対象に<keywordMajor>挑戦</keywordMajor>し、3秒間、対象の<scaleArmor>物理防御を15%</scaleArmor>低下させる。一度に<keywordMajor>挑戦</keywordMajor>できる対象は1体のみ。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

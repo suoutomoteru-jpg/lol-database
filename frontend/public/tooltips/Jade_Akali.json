@@ -3,7 +3,7 @@
  "id": 60084,
  "name": "アカリ",
  "title": "影の拳",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "双の行",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "三日月斬",
-   "description": "鎌を振り回し、周囲の敵を斬りつけて、<physicalDamage>30/55/80/105/130（＋合計攻撃力の60% ＋魔力の30%）の物理ダメージ</physicalDamage>を与える。",
+   "description": "鎌を振り回し、周囲の敵を斬りつけて、<physicalDamage>30/55/80/105/130（＋合計攻撃力の60% ＋魔力の40%）の物理ダメージ</physicalDamage>を与える。",
    "cooldown": "7/6/5/4/3",
    "cost": "60/55/50/45/40",
    "range": "325",

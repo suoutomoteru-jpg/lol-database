@@ -3,7 +3,7 @@
  "id": 266,
  "name": "エイトロックス",
  "title": "ダーキンの暴剣",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "死兆の構え",
@@ -24,7 +24,7 @@
   "w": {
    "name": "炎獄の鎖",
    "description": "鎖を放ち、最初に命中した敵に1.5秒間25/27.5/30/32.5/35%の<status>スロウ効果</status>を与え、<physicalDamage>30/40/50/60/70（＋合計攻撃力の40%）の物理ダメージ</physicalDamage>を与える。チャンピオンと大型ジャングルモンスターは、命中時に発生したエリアから1.5秒以内に出なければ、中心に向かって<status>引き寄せられ</status>、再び同量のダメージを受ける。",
-   "cooldown": "20/18/16/14/12",
+   "cooldown": "18/16.5/15/13.5/12",
    "cost": "",
    "range": "825",
    "maxRank": 5,
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "影進撃",
-   "description": "<spellPassive>自動効果:</spellPassive> 敵チャンピオンに与えたダメージの<lifeSteal>16%（＋増加体力の1.1%）</lifeSteal>にあたる体力を回復する。<br><br><spellActive>発動効果:</spellActive> ダッシュする。このスキルは他のスキルの発動中にも使用できる。",
+   "description": "<spellPassive>自動効果:</spellPassive> 敵チャンピオンに与えたダメージの<lifeSteal>16%（＋増加体力の1.3%）</lifeSteal>にあたる体力を回復する。<br><br><spellActive>発動効果:</spellActive> ダッシュする。このスキルは他のスキルの発動中にも使用できる。",
    "cooldown": "9/8/7/6/5",
    "cost": "",
    "range": "25000",

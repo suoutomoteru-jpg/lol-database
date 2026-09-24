@@ -3,7 +3,7 @@
  "id": 60038,
  "name": "カサディン",
  "title": "ヴォイドを歩む者",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "ヴォイドストーン",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ヴォイドスフィア",
-   "description": "ヴォイドエネルギーの弾を放ち、対象に<magicDamage>60/105/150/195/240（＋魔力の60%）の魔法ダメージ</magicDamage>与えて、1/1.25/1.5/1.75/2秒間<status>サイレンス</status>状態にする。",
+   "description": "ヴォイドエネルギーの弾を放ち、対象に<magicDamage>60/105/150/195/240（＋魔力の70%）の魔法ダメージ</magicDamage>与えて、1/1.25/1.5/1.75/2秒間<status>サイレンス</status>状態にする。",
    "cooldown": "9",
    "cost": "70/80/90/100/110",
    "range": "650",
@@ -35,7 +35,7 @@
   },
   "e": {
    "name": "ヴォイドパルス",
-   "description": "自身の付近でスキルが使用されるたび、そのエネルギーをチャージする。<br><br>6回チャージすると<spellName>ヴォイドパルス</spellName>が発動可能になり、発動すると前方に広がる扇状の範囲内の敵に<magicDamage>60/120/180/240/300（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。さらに3秒間、20/30/40/50/60%の<status>スロウ効果</status>を付与する。",
+   "description": "自身の付近でスキルが使用されるたび、そのエネルギーをチャージする。<br><br>6回チャージすると<spellName>ヴォイドパルス</spellName>が発動可能になり、発動すると前方に広がる扇状の範囲内の敵に<magicDamage>80/130/180/230/280（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。さらに3秒間、30/35/40/45/50%の<status>スロウ効果</status>を付与する。",
    "cooldown": "6",
    "cost": "80",
    "range": "400",

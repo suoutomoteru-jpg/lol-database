@@ -3,7 +3,7 @@
  "id": 60025,
  "name": "モルガナ",
  "title": "不屈の堕天使",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "ソウルサイフォン",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "ブラックシールド",
-   "description": "<mainText>味方チャンピオンに5秒間シールドを付与する。シールドは<shield>95/160/225/290/355（＋魔力の70%）</shield>の<magicDamage>魔法ダメージ</magicDamage>を防ぎ、消滅するまで<status>行動妨害効果</status>を無効化する。",
+   "description": "<mainText>味方チャンピオンに5秒間シールドを付与する。シールドは<shield>100/150/200/250/300（＋魔力の70%）</shield>の<magicDamage>魔法ダメージ</magicDamage>を防ぎ、消滅するまで<status>行動妨害効果</status>を無効化する。",
    "cooldown": "23/21/19/17/15",
    "cost": "50",
    "range": "750",

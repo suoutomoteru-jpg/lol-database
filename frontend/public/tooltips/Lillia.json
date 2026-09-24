@@ -3,7 +3,7 @@
  "id": 876,
  "name": "リリア",
  "title": "はにかみ屋の花",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "夢を集める大枝",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "夢見の子守唄",
-   "description": "<keywordMajor>「夢のかけら」</keywordMajor>を受けている敵のチャンピオンすべてに、1.5秒間<status>眠気</status>を付与する。その後、対象は2秒間<status>眠り</status>に落ちる。<br><br>対象はダメージを受けて目覚めた際に、追加で<magicDamage>100/150/200（＋魔力の40%）の魔法ダメージ</magicDamage>を受ける。",
+   "description": "<keywordMajor>「夢のかけら」</keywordMajor>を受けている敵のチャンピオンすべてに、1.5秒間<status>眠気</status>を付与する。その後、対象は2.5秒間<status>眠り</status>に落ちる。<br><br>対象はダメージを受けて目覚めた際に、追加で<magicDamage>100/150/200（＋魔力の40%）の魔法ダメージ</magicDamage>を受ける。",
    "cooldown": "150/130/110",
    "cost": "50",
    "range": "1600",

@@ -2,18 +2,18 @@
  "alias": "Jade_Poppy",
  "id": 60078,
  "name": "ポッピー",
- "title": "",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "title": "鋼鉄の大使",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "勇敢な戦士",
-   "description": "現在体力の10%を超えるあらゆる物理ダメージと魔法ダメージが50%軽減される。建造物から受けるダメージは軽減されない。",
-   "source": "lcu",
+   "description": "簡単には倒されない。自身の現在体力の10%を超えるあらゆるダメージが50%軽減される。建造物からのダメージは影響を受けない。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "渾身の一撃",
-   "description": "次の通常攻撃が<magicDamage>20/40/60/80/100（＋合計攻撃力の100% ＋魔力の60%） + 最大体力の8%の魔法ダメージ</magicDamage>を与える。体力に応じた追加ダメージの上限は55/110/165/220/275。",
+   "description": "次の通常攻撃が<magicDamage>20/40/60/80/100（＋合計攻撃力の100% ＋魔力の60%） + 最大体力の8%の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "8/7/6/5/4",
    "cost": "55",
    "range": "430",

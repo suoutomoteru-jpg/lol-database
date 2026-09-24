@@ -1,6 +1,6 @@
 {
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
- "generatedAt": "2026-09-17T08:21:28.888325+00:00",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
+ "generatedAt": "2026-09-24T08:06:33.768511+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -455,7 +455,14 @@
    "id": 60114,
    "name": "フィオラ",
    "unresolvedCount": 2,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Fizz",
+   "id": 60105,
+   "name": "フィズ",
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Galio",
@@ -484,6 +491,13 @@
    "name": "グラガス",
    "unresolvedCount": 1,
    "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Graves",
+   "id": 60104,
+   "name": "グレイブス",
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Heimerdinger",
@@ -619,11 +633,25 @@
    "passiveSource": "lcu"
   },
   {
+   "alias": "Jade_Nami",
+   "id": 60267,
+   "name": "ナミ",
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
+  },
+  {
    "alias": "Jade_Nasus",
    "id": 60075,
    "name": "ナサス",
    "unresolvedCount": 4,
    "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Nautilus",
+   "id": 60111,
+   "name": "ノーチラス",
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Nidalee",
@@ -658,7 +686,7 @@
    "id": 60078,
    "name": "ポッピー",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Rammus",
@@ -693,7 +721,7 @@
    "id": 60102,
    "name": "シヴァーナ",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Singed",
@@ -812,7 +840,7 @@
    "id": 60005,
    "name": "シン・ジャオ",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Zilean",

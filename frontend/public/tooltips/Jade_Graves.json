@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Graves",
+ "id": 60104,
+ "name": "グレイブス",
+ "title": "無法者",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
+ "skills": {
+  "passive": {
+   "name": "確固たる信念",
+   "description": "戦闘状態が長引くほど、物理防御と魔法防御が増加していく。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "散弾",
+   "description": "扇状に3発の弾丸を発射し、弾が触れたすべての敵に<physicalDamage>60/95/130/165/200（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>を与える。1体の敵に複数の弾が当たった場合、2つ目以降の弾は<physicalDamage>21/33.25/45.5/57.75/70（＋増加攻撃力の80%）のダメージ</physicalDamage>を与える。",
+   "cooldown": "13/11.25/9.5/7.75/6",
+   "cost": "80",
+   "range": "925",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "スモークスクリーン",
+   "description": "着弾時に<magicDamage>60/110/160/210/260（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、4秒間、煙幕を発生させる。煙幕の中にいる敵は15/20/25/30/35%の<status>スロウ効果</status>を受け、視界の範囲が縮小する。",
+   "cooldown": "26/24/22/20/18",
+   "cost": "70/75/80/85/90",
+   "range": "950",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "クイックドロー",
+   "description": "前方にダッシュし、4秒間、<attackSpeed>攻撃速度が30/40/50/60/70%増加</attackSpeed>する。通常攻撃を行うと<spellName>クイックドロー</spellName>のクールダウンが1秒短縮される。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "40",
+   "range": "425",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "コラテラルダメージ",
+   "description": "強力な炸裂弾を発射して、命中したユニットと弾が触れたユニットに<physicalDamage>250/350/450（＋増加攻撃力の140%）の物理ダメージ</physicalDamage>を与える。弾は敵チャンピオンに命中するか、最大射程に達すると炸裂し、扇状の範囲内に<physicalDamage>140/250/360（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "100/80/60",
+   "cost": "100",
+   "range": "1000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

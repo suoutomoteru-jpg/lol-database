@@ -3,7 +3,7 @@
  "id": 60018,
  "name": "トリスターナ",
  "title": "メグリング ガンナー",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "ドロー＆グロー",
@@ -40,7 +40,7 @@
    "maxRank": 5,
    "source": "lcu",
    "unresolved": [
-    "ActiveDamageTTOnly"
+    "ActiveDamageCalc"
    ]
   },
   "r": {

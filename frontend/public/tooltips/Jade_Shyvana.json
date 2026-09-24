@@ -2,13 +2,13 @@
  "alias": "Jade_Shyvana",
  "id": 60102,
  "name": "シヴァーナ",
- "title": "",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "title": "半龍人",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "龍血の憤怒",
-   "description": "通常攻撃がスキルを強化する。",
-   "source": "lcu",
+   "description": "通常攻撃がスキルを強化する。<br><br><spellName>ツインバイト:</spellName> クールダウンが0.5秒短縮される。<br><spellName>バーンアウト:</spellName> 効果時間が1秒延長され、 最大で追加で6秒延長される。<br><spellName>フレイムブレス:</spellName> デバフを受けた対象に、このスキルの<magicDamage>魔法ダメージ</magicDamage>の15%を与える。<br><spellName>龍の降臨:</spellName> 通常攻撃で<keywordMajor>2フューリー</keywordMajor>を獲得し、ヒト形態中は1.5秒ごとに<keywordMajor>1フューリー</keywordMajor>を獲得する。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {
@@ -25,7 +25,7 @@
   },
   "w": {
    "name": "バーンアウト",
-   "description": "3秒間、周囲の敵に毎秒<magicDamage>25/40/55/70/85（＋増加攻撃力の20%）の魔法ダメージ</magicDamage>を与え、<speed>移動速度が30/35/40/45/50%</speed>増加する。増加した<speed>移動速度</speed>は時間とともに減少する。通常攻撃を行うと<spellName>バーンアウト</spellName>の持続時間が1秒延長される(最大4秒まで)。<br><br><keywordMajor>ドラゴンフォーム: </keywordMajor><spellName>バーンアウト</spellName>が地面を焦がし、その上にいる敵に継続的にダメージを与える。",
+   "description": "3秒間、周囲の敵に毎秒<magicDamage>25/40/55/70/85（＋増加攻撃力の20%）の魔法ダメージ</magicDamage>を与え、<speed>移動速度が30/35/40/45/50%</speed>増加する。増加した<speed>移動速度</speed>は時間とともに減少する。通常攻撃を行うと<spellName>バーンアウト</spellName>の持続時間が1秒延長される(最大6秒まで)。<br><br><keywordMajor>ドラゴンフォーム: </keywordMajor><spellName>バーンアウト</spellName>が地面を焦がし、その上にいる敵に継続的にダメージを与える。",
    "cooldown": "13/12.25/11.5/10.75/10",
    "cost": "",
    "range": "350",
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "龍の降臨",
-   "description": "<spellActive>発動効果: </spellActive>龍に変身し、指定地点へ飛びかかる。接触したすべての敵に<magicDamage>200/300/400（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、指定地点に向かってノックバックする。<br><br><spellPassive>自動効果:</spellPassive> 自身の鱗を強化し、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が10/15/20増加する。<keywordMajor>ドラゴンフォーム</keywordMajor>中は防御ボーナスが2倍になる。<br><br><keywordMajor>ドラゴンフォーム</keywordMajor>中はスキルが追加効果を獲得する。",
+   "description": "<spellActive>発動効果: </spellActive>龍に変身し、指定地点へ飛びかかる。接触したすべての敵に<magicDamage>200/300/400（＋魔力の70%）の魔法ダメージ</magicDamage>を与え、指定地点に向かってノックバックする。<br><br><spellPassive>自動効果:</spellPassive> 自身の鱗を強化し、<scaleArmor>物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>が15/20/25増加する。<keywordMajor>ドラゴンフォーム</keywordMajor>中は防御ボーナスが2倍になる。<br><br><keywordMajor>ドラゴンフォーム</keywordMajor>中はスキルが追加効果を獲得する。",
    "cooldown": "0",
    "cost": "",
    "range": "950",

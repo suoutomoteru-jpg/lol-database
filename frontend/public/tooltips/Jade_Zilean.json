@@ -3,7 +3,7 @@
  "id": 60026,
  "name": "ジリアン",
  "title": "時の番人",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "ハイスピードラーニング",
@@ -36,7 +36,7 @@
    "description": "対象を指定し、2.5/3.25/4/4.75/5.5秒間、対象が味方チャンピオンの場合は<speed>移動速度</speed>を55%増加させ、敵チャンピオンの場合は同じ割合の<status>スロウ効果</status>を付与する。",
    "cooldown": "20",
    "cost": "80",
-   "range": "550",
+   "range": "650",
    "maxRank": 5,
    "source": "lcu",
    "unresolved": []

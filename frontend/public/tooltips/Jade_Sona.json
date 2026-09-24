@@ -3,7 +3,7 @@
  "id": 60037,
  "name": "ソナ",
  "title": "沈黙の弦奏師",
- "patch": "16.18.8175716+branch.releases-16-18.content.release",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
  "skills": {
   "passive": {
    "name": "パワーコード",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "セレリティ",
-   "description": "<keywordMajor>オーラ(永続):</keywordMajor> 周囲の味方チャンピオンの<speed>移動速度を8/11/14/17/20</speed>増加させる。<br><br><spellActive>発動効果:</spellActive> 1.5秒間、周囲の味方チャンピオンの<speed>移動速度を6/8/10/12/14%</speed>増加させる。",
+   "description": "<keywordMajor>不断のオーラ:</keywordMajor> 周囲の味方の<speed>移動速度を8/11/14/17/20</speed>増加させる。<br><br><spellActive>発動効果:</spellActive> 1.5秒間、周囲の味方の<speed>移動速度を6/8/10/12/14%</speed>増加させる。",
    "cooldown": "7",
    "cost": "65/70/75/80/85",
    "range": "1000",
