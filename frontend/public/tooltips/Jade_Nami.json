@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Nami",
+ "id": 60267,
+ "name": "ナミ",
+ "title": "",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
+ "skills": {
+  "passive": {
+   "name": "さざなみの後押し",
+   "description": "スキルが味方チャンピオンに命中するたびに、1.5秒間、対象の<speed>移動速度が40</speed>増加する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "水の牢獄",
+   "description": "指定地点に水泡を放つ。命中した敵ユニットに<magicDamage>75/130/185/240/295（＋魔力の65%）の魔法ダメージ</magicDamage>を与え、1.5秒間スタンさせる。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "60",
+   "range": "875",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "潮の流れ",
+   "description": "味方と敵の間を交互に跳ね返る水流を放つ。<br><br><font color='#CCFF99'>味方に命中時: </font><healing>体力を65/95/125/155/185（＋魔力の30%）回復</healing>し、近くにいる敵チャンピオンに跳ね返る。<br><br><font color='#FF9999'>敵に命中時: </font><magicDamage>70/110/150/190/230（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、近くの味方チャンピオンに跳ね返る。<br><br>各対象には1回しか跳ね返らず、最大3体の対象に命中する。跳ね返るたびにダメージが30%、体力回復効果が15%低下する。",
+   "cooldown": "",
+   "cost": "70/75/80/85/90",
+   "range": "725",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "潮使いの祝福",
+   "description": "味方チャンピオン1体を6秒間、または通常攻撃3回分強化する。味方の通常攻撃が<magicDamage>25/40/55/70/85（＋魔力の20%）の追加魔法ダメージ</magicDamage>を与え、1秒間、対象に15/20/25/30/35%の<status>スロウ効果</status>を与える。",
+   "cooldown": "11",
+   "cost": "55/60/65/70/75",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "海神の舞",
+   "description": "自身の位置から<spellName>海神の舞</spellName>を発生させる。<br><br><spellName>海神の舞</spellName>は敵を<status>ノックアップ</status>し、50/60/70%の<status>スロウ効果</status>を与え、<magicDamage>150/250/350（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<status>スロウ効果時間</status>は<spellName>海神の舞</spellName>の波の移動距離に比例して長くなる(最短2秒、最長4秒)。",
+   "cooldown": "120/110/100",
+   "cost": "100",
+   "range": "2550",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

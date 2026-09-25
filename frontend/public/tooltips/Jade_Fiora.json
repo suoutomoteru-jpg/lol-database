@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Fiora",
+ "id": 60114,
+ "name": "フィオラ",
+ "title": "高潔なるデュエリスト",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
+ "skills": {
+  "passive": {
+   "name": "デュエリスト",
+   "description": "<physicalDamage>物理ダメージ</physicalDamage>を与えるたびに、6秒かけて<healing>8〜25（レベル1〜18）の体力</healing>を回復する。<br><br>チャンピオンに攻撃を命中させると、この効果が最大4回までスタックする。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ファント",
+   "description": "前方にダッシュして対象を攻撃し、<physicalDamage>40/65/90/115/140（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<br><br>4秒以内であれば、<scaleMana>マナ</scaleMana>コストなしでこのスキルを<recast>再発動</recast>してダッシュできる。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "60",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "リポスト",
+   "description": "<spellPassive>自動効果: </spellPassive><physicalDamage>攻撃力</physicalDamage>が<physicalDamage>15/20/25/30/35</physicalDamage>増加する。<br><br><spellActive>発動効果: </spellActive>1.5秒以内に受ける次の通常攻撃をパリィし、攻撃してきた敵に<magicDamage>の魔法ダメージ</magicDamage>を跳ね返す。チャンピオン、モンスター、大型ミニオンに対して効果を発揮する。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "45",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "ReflectionDamage"
+   ]
+  },
+  "e": {
+   "name": "スピードバースト",
+   "description": "3秒間、<attackSpeed>攻撃速度が60/75/90/105/120%</attackSpeed>増加する。効果時間中に通常攻撃か<spellName>ファント</spellName>を当てるたびに、3秒間、<speed>移動速度が7/9/11/13/15%</speed>増加する。この効果は3回までスタックする。<br><br>チャンピオンをキルすると、このスキルのクールダウンが解消される(アシストを獲得するとクールダウンが7.5/7/6.5/6/5.5秒短縮される)。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "55",
+   "range": "500",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ブレードワルツ",
+   "description": "戦場をダッシュして、ランダムなチャンピオンを5回攻撃し、<physicalDamage>125/255/385（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。同じ対象に連続で攻撃すると、代わりに<physicalDamage>の物理ダメージ</physicalDamage>を与える。<br><br>最初と最後の攻撃は同じ対象に行われる。それぞれの攻撃は通常攻撃時効果を適用する。",
+   "cooldown": "130/120/110",
+   "cost": "100",
+   "range": "400",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamageReduced"
+   ]
+  }
+ },
+ "unresolvedCount": 2
+}

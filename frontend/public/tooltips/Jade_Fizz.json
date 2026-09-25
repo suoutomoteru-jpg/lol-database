@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Fizz",
+ "id": 60105,
+ "name": "フィズ",
+ "title": "",
+ "patch": "16.19.8217343+branch.releases-16-19.content.release",
+ "skills": {
+  "passive": {
+   "name": "シーファイター",
+   "description": "ユニットをすり抜けて移動でき、通常攻撃から受けるダメージが4/6/8/10/12/14（レベル1/4/7/10/13/16）減少する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ウニトゲストライク",
+   "description": "対象に向かって突撃して反対側へ突き抜け、通常攻撃のダメージに加えて<magicDamage>10/40/70/100/130（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。このスキルは通常攻撃時効果を発動させる。",
+   "cooldown": "8/7.5/7/6.5/6",
+   "cost": "50",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "シートライデント",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃で敵を引き裂き、3秒かけて<magicDamage>30/40/50/60/70（＋魔力の35%） + 対象の減少体力の4/5/6/7/8%</magicDamage>の<magicDamage>魔法ダメージ</magicDamage>を与える(ミニオンに対しては300が上限)。<br><br><spellActive>発動効果:</spellActive> 5秒間、通常攻撃が命中した敵に追加で<magicDamage>10/15/20/25/30（＋魔力の35%）の魔法ダメージ</magicDamage>を与え、<status>重傷</status>を付与して、対象が受ける体力回復効果を50%低下させる。",
+   "cooldown": "7/6/5/4/3",
+   "cost": "30/40/50/60/70",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "プレイ/トリックスター",
+   "description": "槍を使ってカーソル方向に飛び跳ね、対象指定不可状態になり、その後、地面を強打して周囲の敵に<magicDamage>70/120/170/220/270（＋魔力の75%）の魔法ダメージ</magicDamage>を与え、2秒間、40/45/50/55/60%の<status>スロウ効果</status>を与える。<br><br>フィズが槍の上にいる間にこのスキルを再発動すると、地面を叩きつける代わりに、カーソル方向にもう一度ジャンプして、狭い範囲内の周囲の敵に<magicDamage>70/120/170/220/270（＋魔力の75%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "16/14/12/10/8",
+   "cost": "75/80/85/90/95",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "フィッシング",
+   "description": "指定地点に向かって魔法の魚を放つ。魚は敵チャンピオンにくっつき、1.5秒間、対象に50/60/70%の<status>スロウ効果</status>を与える。魚が敵チャンピオンに当たらなかった場合は、少しの間その場にとどまって、そこを通過した敵チャンピオンにくっつく。<br><br>1.5秒後、地面からサメが飛び出して広い範囲に<magicDamage>200/325/450（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、魚がくっついた対象を<status>ノックアップ</status>し、それ以外の敵を<status>弾き飛ばし</status>、1.5秒間、命中したすべての敵に50/60/70%の<status>スロウ効果</status>を受ける。",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "1275",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

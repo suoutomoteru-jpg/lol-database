@@ -1,0 +1,16 @@
+# セキュリティヘッダー（Cloudflare Pages / Netlify 形式。public配下はdist直下へ配置される）
+# 静的SPA。スキル/アイテム説明は第三者CDN由来HTMLをdangerouslySetInnerHTMLで描画するため、
+# サニタイザ（richText.ts）に加えCSPで多層防御する。script-src 'self' により
+# 万一サニタイズを抜けたインラインハンドラ/スクリプトもブラウザ側で実行阻止する。
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://ddragon.leagueoflegends.com https://raw.communitydragon.org; font-src 'self' data:; connect-src 'self' https://ddragon.leagueoflegends.com https://raw.communitydragon.org; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 不変ハッシュ付きアセットは長期キャッシュ
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
