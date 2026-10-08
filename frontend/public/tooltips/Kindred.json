@@ -3,7 +3,7 @@
  "id": 203,
  "name": "キンドレッド",
  "title": "永遠なる狩人",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "キンドレッドの刻印",
@@ -37,7 +37,7 @@
   },
   "e": {
    "name": "忍び寄る恐怖",
-   "description": "敵を衰弱させて、1秒間30（＋魔力の5%）%の<status>スロウ効果</status>を与える。<br><br>同じ対象に間隔4秒以内に通常攻撃を連続で行うと、3回目の通常攻撃で狼にその敵を襲撃させて、<physicalDamage>80/110/140/170/200（＋増加攻撃力の100%）</physicalDamage> + <physicalDamage>対象の減少体力のの物理ダメージ</physicalDamage>を追加で与える。",
+   "description": "敵を衰弱させて、1.5秒間30（＋魔力の5%）%の<status>スロウ効果</status>を与える。<br><br>同じ対象に間隔4秒以内に通常攻撃を連続で行うと、3回目の通常攻撃で狼にその敵を襲撃させて、<physicalDamage>80/110/140/170/200（＋増加攻撃力の100%）</physicalDamage> + <physicalDamage>対象の減少体力のの物理ダメージ</physicalDamage>を追加で与える。",
    "cooldown": "14/12.5/11/9.5/8",
    "cost": "",
    "range": "500",

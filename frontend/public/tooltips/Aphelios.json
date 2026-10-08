@@ -3,7 +3,7 @@
  "id": 523,
  "name": "アフェリオス",
  "title": "信ずる者の武器",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "殺す者と導く者",

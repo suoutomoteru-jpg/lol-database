@@ -3,7 +3,7 @@
  "id": 60096,
  "name": "コグ＝マウ",
  "title": "深淵のアギト",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "イカシアの自爆",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "生体空撃砲",
-   "description": "遠距離から酸を発射する。酸は発射されて少ししてから着弾する。<magicDamage>80/120/160（＋魔力の30% ＋増加攻撃力の50%）の魔法ダメージ</magicDamage>を与える。チャンピオンに対してはダメージが<magicDamage>の魔法ダメージ</magicDamage>に増加し、敵を4秒間可視化する。<br><br>6秒以内に続けて攻撃を行うと、<scaleMana>マナコストが追加で40</scaleMana>増加する(最大: <scaleMana>400マナ</scaleMana>)。",
+   "description": "遠距離から酸を発射し、爆発した範囲内の敵に<magicDamage>80/120/160（＋魔力の30% ＋増加攻撃力の50%）魔法ダメージ</magicDamage>を与える。チャンピオンに対してはダメージが<magicDamage></magicDamage>に増加する。命中した対象を4秒間可視化する。<br><br>6秒以内に続けてこのスキルを使用すると、<scaleMana>マナコストが追加で40</scaleMana>増加する(最大: <scaleMana>400マナ</scaleMana>)。",
    "cooldown": "2/1.5/1",
    "cost": "40",
    "range": "1400/1700/2000",

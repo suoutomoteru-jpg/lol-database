@@ -1,6 +1,6 @@
 {
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
- "generatedAt": "2026-10-01T09:44:31.934799+00:00",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "generatedAt": "2026-10-08T09:55:54.865491+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -346,6 +346,13 @@
    "passiveSource": "stringtable"
   },
   {
+   "alias": "Jade_Aatrox",
+   "id": 60266,
+   "name": "エイトロックス",
+   "unresolvedCount": 3,
+   "passiveSource": "lcu"
+  },
+  {
    "alias": "Jade_Ahri",
    "id": 60103,
    "name": "アーリ",
@@ -407,6 +414,13 @@
    "name": "ブランド",
    "unresolvedCount": 0,
    "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Caitlyn",
+   "id": 60051,
+   "name": "ケイトリン",
+   "unresolvedCount": 2,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Chogath",
@@ -507,6 +521,13 @@
    "passiveSource": "lcu"
   },
   {
+   "alias": "Jade_Irelia",
+   "id": 60039,
+   "name": "イレリア",
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
+  },
+  {
    "alias": "Jade_Janna",
    "id": 60040,
    "name": "ジャンナ",
@@ -526,6 +547,13 @@
    "name": "ジャックス",
    "unresolvedCount": 0,
    "passiveSource": "lcu"
+  },
+  {
+   "alias": "Jade_Karma",
+   "id": 60043,
+   "name": "カルマ",
+   "unresolvedCount": 3,
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Karthus",
@@ -651,7 +679,7 @@
    "id": 60111,
    "name": "ノーチラス",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Nidalee",
@@ -679,12 +707,19 @@
    "id": 60080,
    "name": "パンテオン",
    "unresolvedCount": 1,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Poppy",
    "id": 60078,
    "name": "ポッピー",
+   "unresolvedCount": 1,
+   "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Quinn",
+   "id": 60133,
+   "name": "クイン",
    "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },

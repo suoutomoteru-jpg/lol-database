@@ -3,7 +3,7 @@
  "id": 518,
  "name": "ニーコ",
  "title": "不思議のカメレオン",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "駆け巡る色彩",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "からまれ！",
-   "description": "<magicDamage>70/105/140/175/210（＋魔力の65%）の魔法ダメージ</magicDamage>と0.7/0.9/1.1/1.3/1.5秒間の<status>スネア効果</status>を与える輪を飛ばす。<br><br>敵に当たると輪が強化されて、サイズが拡大して速度が上がり、<status>スネア効果</status>が1.8/2.1/2.4/2.7/3秒間になる。",
+   "description": "<magicDamage>80/115/150/185/220（＋魔力の65%）の魔法ダメージ</magicDamage>と0.7/0.9/1.1/1.3/1.5秒間の<status>スネア効果</status>を与える輪を飛ばす。<br><br>敵に当たると輪が強化されて、サイズが拡大して速度が上がり、<status>スネア効果</status>が2/2.25/2.5/2.75/3秒間になる。",
    "cooldown": "12/11.5/11/10.5/10",
    "cost": "60/65/70/75/80",
    "range": "1000",

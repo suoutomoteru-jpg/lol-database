@@ -3,7 +3,7 @@
  "id": 223,
  "name": "タム・ケンチ",
  "title": "川の王様",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "舌慣らし",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "味見",
-   "description": "最初に命中した敵に<magicDamage>75/120/165/210/255（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、2秒間、50%の<status>スロウ効果</status>を与える。<br><br>チャンピオンに命中すると、<healing>10/15/20/25/30 + 自身の減少体力の5/5.5/6/6.5/7%</healing>の体力を回復し、<spellName>「舌慣らし」</spellName>のスタックを適用して、<magicDamage>75/120/165/210/255（＋魔力の100%）の追加魔法ダメージ</magicDamage>を与える。対象のチャンピオンに<spellName>「舌慣らし」</spellName>を3スタック付与していた場合は、スタックを消費して対象を1.5秒間<status>スタン</status>させる。<br><br>対象の敵チャンピオンに<spellName>「舌慣らし」</spellName>を3スタック付与していた場合は、舌を伸ばしている最中に<font color='#0bf7de'>「丸呑み」</font>を使用することで、離れたところから呑み込める。",
+   "description": "最初に命中した敵に<magicDamage>75/120/165/210/255（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、2秒間、50%の<status>スロウ効果</status>を与える。<br><br>チャンピオンに命中すると、<healing>10/20/30/40/50 + 自身の減少体力の5/5.5/6/6.5/7%</healing>の体力を回復し、<spellName>「舌慣らし」</spellName>のスタックを適用して、<magicDamage>75/120/165/210/255（＋魔力の100%）の追加魔法ダメージ</magicDamage>を与える。対象のチャンピオンに<spellName>「舌慣らし」</spellName>を3スタック付与していた場合は、スタックを消費して対象を1.5秒間<status>スタン</status>させる。<br><br>対象の敵チャンピオンに<spellName>「舌慣らし」</spellName>を3スタック付与していた場合は、舌を伸ばしている最中に<font color='#0bf7de'>「丸呑み」</font>を使用することで、離れたところから呑み込める。",
    "cooldown": "7/6.5/6/5.5/5",
    "cost": "50/46/42/38/34",
    "range": "900",

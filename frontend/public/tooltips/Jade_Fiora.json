@@ -3,7 +3,7 @@
  "id": 60114,
  "name": "フィオラ",
  "title": "高潔なるデュエリスト",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "デュエリスト",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "リポスト",
-   "description": "<spellPassive>自動効果: </spellPassive><physicalDamage>攻撃力</physicalDamage>が<physicalDamage>15/20/25/30/35</physicalDamage>増加する。<br><br><spellActive>発動効果: </spellActive>1.5秒以内に受ける次の通常攻撃をパリィし、攻撃してきた敵に<magicDamage>の魔法ダメージ</magicDamage>を跳ね返す。チャンピオン、モンスター、大型ミニオンに対して効果を発揮する。",
+   "description": "<spellPassive>自動効果: </spellPassive><physicalDamage>攻撃力</physicalDamage>が<physicalDamage>10/15/20/25/30</physicalDamage>増加する。<br><br><spellActive>発動効果: </spellActive>1.5秒以内に受ける次の通常攻撃を受け流して、攻撃してきた敵に<magicDamage>の魔法ダメージ</magicDamage>を跳ね返す。チャンピオン、モンスター、大型ミニオンに対して効果を発揮する。",
    "cooldown": "10/9/8/7/6",
    "cost": "45",
    "range": "750",
@@ -35,7 +35,7 @@
   },
   "e": {
    "name": "スピードバースト",
-   "description": "3秒間、<attackSpeed>攻撃速度が60/75/90/105/120%</attackSpeed>増加する。効果時間中に通常攻撃か<spellName>ファント</spellName>を当てるたびに、3秒間、<speed>移動速度が7/9/11/13/15%</speed>増加する。この効果は3回までスタックする。<br><br>チャンピオンをキルすると、このスキルのクールダウンが解消される(アシストを獲得するとクールダウンが7.5/7/6.5/6/5.5秒短縮される)。",
+   "description": "3秒間、<attackSpeed>攻撃速度が60/75/90/105/120%</attackSpeed>増加する。効果時間中に通常攻撃か<spellName>ファント</spellName>が敵に命中するたびに、3秒間、<speed>移動速度が7/9/11/13/15%</speed>増加する。この効果は3回までスタックする。<br><br>チャンピオンをキルすると、このスキルのクールダウンが解消される(アシストを獲得するとクールダウンが7.5/7/6.5/6/5.5秒短縮される)。",
    "cooldown": "15/14/13/12/11",
    "cost": "55",
    "range": "500",

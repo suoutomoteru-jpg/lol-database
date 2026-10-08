@@ -3,12 +3,12 @@
  "id": 60080,
  "name": "パンテオン",
  "title": "軍神",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "イージスの守護",
-   "description": "通常攻撃かスキルを4回使用すると、次の通常攻撃から守られる。",
-   "source": "lcu",
+   "description": "通常攻撃かスキルを数回使用すると、次の通常攻撃またはタワーの攻撃から守られる。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

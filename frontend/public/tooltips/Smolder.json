@@ -3,7 +3,7 @@
  "id": 901,
  "name": "スモルダー",
  "title": "炎の幼龍",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "駆けだしドラゴン",
@@ -52,7 +52,7 @@
   },
   "r": {
    "name": "ママーッ！！",
-   "description": "母ドラゴンが上空から炎を吐き、<physicalDamage>150/250/350（＋増加攻撃力の100% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。中心部にいる敵には<physicalDamage>225/375/525（＋増加攻撃力の100% ＋魔力の100%）の物理ダメージ</physicalDamage>を与え、2秒間40%の<status>スロウ効果</status>を付与する。<br><br>スモルダーはこの炎を受けると、<healing>体力が100/135/170（＋増加攻撃力の50% ＋魔力の75%）</healing>回復する。",
+   "description": "母ドラゴンが上空から炎を吐き、<physicalDamage>150/250/350（＋増加攻撃力の100% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。中心部にいる敵には<physicalDamage>225/375/525（＋増加攻撃力の100% ＋魔力の100%）の物理ダメージ</physicalDamage>を与え、2秒間40%の<status>スロウ効果</status>を付与する。<br><br>スモルダーはこの炎を受けると、<healing>体力が100/175/250（＋増加攻撃力の75% ＋魔力の75%）</healing>回復する。",
    "cooldown": "120/110/100",
    "cost": "100",
    "range": "4200",

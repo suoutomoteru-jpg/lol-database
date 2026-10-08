@@ -3,7 +3,7 @@
  "id": 60085,
  "name": "ケネン",
  "title": "雷雲の担い手",
- "patch": "16.19.8230722+branch.releases-16-19.content.release",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
  "skills": {
   "passive": {
    "name": "嵐の刻印",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "稲妻の奔流",
-   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃を5回行うごとに、<magicDamage>合計攻撃力の40/50/60/70/80%の魔法ダメージ</magicDamage>を与え、対象に<spellName>嵐の刻印</spellName>を1つ付与する。<br><br><spellActive>発動効果:</spellActive> 周囲にいる<spellName>嵐の刻印</spellName>が付与されたすべての対象に電撃を放ち、<magicDamage>65/95/125/155/185（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃を5回行うごとに、<magicDamage>25/40/55/70/85（＋増加攻撃力の100%）の魔法ダメージ</magicDamage>を与え、対象に<spellName>嵐の刻印</spellName>を1つ付与する。<br><br><spellActive>発動効果:</spellActive> 周囲にいる<spellName>嵐の刻印</spellName>が付与されたすべての対象に電撃を放ち、<magicDamage>65/95/125/155/185（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "13/11.25/9.5/7.75/6",
    "cost": "40",
    "range": "725",
