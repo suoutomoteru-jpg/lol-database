@@ -10,3 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 scripts/probe_patch_notes.py
+      - run: python3 scripts/probe_patch_notes_2.py
