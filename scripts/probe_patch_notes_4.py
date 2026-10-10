@@ -57,22 +57,23 @@ if html:
                     print(f"    h3: {plain}")
                     shown += 1
 
-            idx = body.find("カ・サンテ")
-            if idx == -1:
-                idx = body.find("K'Sante")
-            if idx == -1:
-                idx = body.lower().find("ksante")
-            if idx >= 0:
+            # find()は最初の1件しか拾わない（前回の反省）。全出現箇所を見て、
+            # 直前の見出しが「カ・サンテ」自体になっている章（本当の個別項目）を探す
+            occurrences = [mm.start() for mm in re.finditer("カ[・･]?サンテ", body)]
+            if not occurrences:
+                occurrences = [mm.start() for mm in re.finditer("K.Sante", body)]
+            print(f"\nカ・サンテ/K'Sante 出現回数: {len(occurrences)}")
+            for i, idx in enumerate(occurrences):
                 preceding = body[:idx]
                 last_heading = None
                 for hm in re.finditer(r'<h([1-4])[^>]*>(.*?)</h\1>', preceding, re.S):
                     last_heading = (hm.group(1), re.sub(r"<[^>]+>", "", hm.group(2)).strip())
-                print(f"\nカ・サンテ/K'Sante 発見位置{idx}、直前の見出し: {last_heading}")
-                snippet = body[max(0, idx - 100):idx + 700]
+                print(f"\n--- 出現{i+1} (位置{idx}) 直前の見出し: {last_heading} ---")
+                snippet = body[max(0, idx - 100):idx + 900]
                 plain = re.sub(r"<[^>]+>", " ", snippet)
                 plain = re.sub(r"\s+", " ", plain).strip()
                 print(f"周辺テキスト: {plain}")
-            else:
+            if not occurrences:
                 print("\nカ・サンテ/K'Sante がこの記事に見つからない")
         except KeyError as e:
             print(f"期待した構造が無い: {e}")
