@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Irelia",
+ "id": 60039,
+ "name": "イレリア",
+ "title": "剣の遺志",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "skills": {
+  "passive": {
+   "name": "アイオニアの熱情",
+   "description": "近くにいる敵チャンピオンの数に応じて、<status>行動妨害耐性</status>が増加する。<br><br>チャンピオン1体: <attention>10%</attention><br>チャンピオン2体: <attention>25%</attention><br>チャンピオン3体: <attention>40%</attention>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "瞬刃",
+   "description": "敵に向かってダッシュし、<physicalDamage>20/50/80/110/140（＋合計攻撃力の100%）物理ダメージ</physicalDamage>を与えて通常攻撃時効果を付与する。<br><br>「瞬刃」で敵をキルすると、このスキルのクールダウンが解消され、<scaleMana>35マナ</scaleMana>を回復する。",
+   "cooldown": "14/12/10/8/6",
+   "cost": "60/65/70/75/80",
+   "range": "620",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "飛天流",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃で<healing>体力を5/7/9/11/13回復する</healing>。<br><br><spellActive>発動効果: </spellActive>6秒間、通常攻撃が<trueDamage>15/30/45/60/75の確定ダメージ</trueDamage>を与え、<healing>体力を10/14/18/22/26回復する</healing>。",
+   "cooldown": "15",
+   "cost": "40",
+   "range": "825",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "平衡の一撃",
+   "description": "対象を貫き、<magicDamage>80/130/180/230/280（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、1/1.25/1.5/1.75/2秒間、60%の<status>スロウ効果</status>を付与する。<br><br>対象の<scaleHealth>体力割合</scaleHealth>がイレリアよりも高かった場合、代わりに対象を同じ時間<status>スタン</status>させる。",
+   "cooldown": "8",
+   "cost": "50/55/60/65/70",
+   "range": "325",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "飛剣の舞",
+   "description": "4本の霊剣を召喚して投げつけ、触れた敵に<physicalDamage>80/120/160（＋増加攻撃力の60% ＋魔力の50%）の物理ダメージ</physicalDamage>を与える。さらに、これでチャンピオンに与えたダメージの25%、およびチャンピオン以外の敵に与えたダメージの10%にあたる体力を<healing>回復</healing>する。",
+   "cooldown": "70/60/50",
+   "cost": "100",
+   "range": "1200",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

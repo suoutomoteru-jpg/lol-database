@@ -1,0 +1,19 @@
+name: Fetch champion tooltips (PoC)
+
+# CommunityDragon からチャンピオンの詳細ツールチップ素材を取得する試作。
+# スクリプト変更時に自動実行（workflow_dispatch は GitHub App からは叩けないため）。
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/fetch_champion_tooltips.py
+      - .github/workflows/fetch-champion-tooltips.yml
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch Urgot tooltips
+        run: python3 scripts/fetch_champion_tooltips.py urgot

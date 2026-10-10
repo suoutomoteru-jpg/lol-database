@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Aatrox",
+ "id": 60266,
+ "name": "エイトロックス",
+ "title": "ダーキンブレード",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "skills": {
+  "passive": {
+   "name": "ブラッドウェル",
+   "description": "体力を消費するスキルを使用すると、自分自身で受けたダメージを「ブラッドウェル」に蓄積する。致命的なダメージを受けると、「ブラッドウェル」から血を抽出して、短時間の間にその分を体力として回復する。さらに、「ブラッドウェル」に血が2%溜まるごとに、攻撃速度が1%増加する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ダークフライト",
+   "description": "飛翔して急降下し、周囲の敵すべてに<physicalDamage>70/115/160/205/250（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与え、中心部にいた対象を1秒間<status>ノックアップ</status>する。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ブラッドサースト/ブラッドプライス",
+   "description": "<toggle>切替:</toggle> <keywordMajor>ブラッドサースト</keywordMajor>と<keywordMajor>ブラッドプライス</keywordMajor>を切り替え、通常攻撃<attention>3</attention>回ごとに追加効果を得る。<br><br><keywordMajor>ブラッドサースト: </keywordMajor><healing>体力を</healing>回復する。この効果は体力が<scaleHealth>50%</scaleHealth>未満になると、<healing></healing>まで増加する。<br><br><keywordMajor>ブラッドプライス: </keywordMajor><physicalDamage>60/95/130/165/200（＋増加攻撃力の100%）の追加物理ダメージ</physicalDamage>を与え、<font color='#FF3300'>自身の体力を失う</font>。",
+   "cooldown": "0.5",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "WHeal",
+    "LowHealthHeal",
+    "SelfDamage"
+   ]
+  },
+  "e": {
+   "name": "ブレード・オブ・トーメント",
+   "description": "剣の力を解放し、命中したすべての敵に<magicDamage>75/120/165/210/255（＋増加攻撃力の60% ＋魔力の60%）の魔法ダメージ</magicDamage>を与え、1.75/2/2.25/2.5/2.75秒間40%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "大虐殺",
+   "description": "敵の血を吸い込み、周囲の敵チャンピオンすべてに<magicDamage>200/300/400（＋魔力の100%）の魔法ダメージ</magicDamage>を与え、12秒間、自身の<attackSpeed>攻撃速度が40/50/60%</attackSpeed>、<attention>通常攻撃の射程が175</attention>増加する。",
+   "cooldown": "100/85/70",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 3
+}
