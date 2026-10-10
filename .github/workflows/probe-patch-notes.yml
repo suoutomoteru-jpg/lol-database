@@ -12,3 +12,4 @@ jobs:
       - run: python3 scripts/probe_patch_notes.py
       - run: python3 scripts/probe_patch_notes_2.py
       - run: python3 scripts/probe_patch_notes_3.py
+      - run: python3 scripts/probe_patch_notes_4.py
