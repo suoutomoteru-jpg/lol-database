@@ -33,51 +33,72 @@ def section(title):
 # ── 1. 最新パッチノート記事のURLを見つける ──────────────────────
 section("1. パッチノート一覧ページ")
 INDEX_URL = "https://www.leagueoflegends.com/en-us/news/tags/patch-notes/"
+uniq_links = []
 try:
     html, headers = get(INDEX_URL)
     print(f"index page: {len(html)} 文字, content-type={headers.get('content-type')}")
-    links = re.findall(r'href="(/en-us/news/game-updates/patch-[0-9a-z\-]+/)"', html)
-    uniq_links = list(dict.fromkeys(links))
-    print(f"patch-notes記事リンク候補: {len(uniq_links)}件")
-    for link in uniq_links[:5]:
-        print(f"  {link}")
+
+    # 厳密パターンがダメだった場合に備え、まず緩く"patch"を含むhrefを全部拾って
+    # 実際のURL形式を確認する
+    all_hrefs = re.findall(r'href="([^"]+)"', html)
+    print(f"href属性の総数: {len(all_hrefs)}")
+    patch_hrefs = [h for h in all_hrefs if "patch" in h.lower()]
+    uniq_patch_hrefs = list(dict.fromkeys(patch_hrefs))
+    print(f"'patch'を含むhref: {len(uniq_patch_hrefs)}件（サンプル10件）")
+    for h in uniq_patch_hrefs[:10]:
+        print(f"  {h}")
+
+    # JSON埋め込み（Next.js等）の中にリンクが隠れているケースにも備える
+    json_patch_refs = re.findall(r'"(/[^"]*patch[^"]*notes[^"]*)"', html, re.I)
+    uniq_json_refs = list(dict.fromkeys(json_patch_refs))
+    print(f"\nJSON文字列中の 'patch...notes' っぽいパス: {len(uniq_json_refs)}件（サンプル10件）")
+    for h in uniq_json_refs[:10]:
+        print(f"  {h}")
+
+    # 元の厳密パターンも一応試す
+    strict_links = re.findall(r'href="(/en-us/news/game-updates/patch-[0-9a-z\-]+/)"', html)
+    uniq_links = list(dict.fromkeys(strict_links)) or uniq_json_refs or uniq_patch_hrefs
+    print(f"\n採用した候補リンク数: {len(uniq_links)}")
 except Exception as e:
     print(f"取得失敗: {e}")
-    uniq_links = []
+    html = ""
 
 # ── 2. 最新記事ページの構造を調査 ────────────────────────────────
 section("2. 最新パッチノート記事の構造")
 article_url = None
 if uniq_links:
-    article_url = "https://www.leagueoflegends.com" + uniq_links[0]
+    link0 = uniq_links[0]
+    article_url = link0 if link0.startswith("http") else "https://www.leagueoflegends.com" + link0
+
 else:
-    # フォールバック: 直近で存在しそうなパッチ番号を総当たり
-    for guess in ("patch-16-20-notes", "patch-16-19-notes"):
-        article_url = f"https://www.leagueoflegends.com/en-us/news/game-updates/{guess}/"
-        break
+    print("記事リンクが見つからなかったため、記事ページの取得はスキップする")
 
-print(f"対象記事: {article_url}")
-try:
-    html, headers = get(article_url)
-    print(f"記事ページ: {len(html)} 文字")
+if article_url:
+    print(f"対象記事: {article_url}")
+    try:
+        html, headers = get(article_url)
+        print(f"記事ページ: {len(html)} 文字")
 
-    # Gatsby/Next.js系の埋め込みJSONを探す
-    next_data = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
-    print(f"__NEXT_DATA__ 埋め込みJSON: {'あり (' + str(len(next_data.group(1))) + '文字)' if next_data else 'なし'}")
+        # Gatsby/Next.js系の埋め込みJSONを探す
+        next_data = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
+        print(f"__NEXT_DATA__ 埋め込みJSON: {'あり (' + str(len(next_data.group(1))) + '文字)' if next_data else 'なし'}")
 
-    apollo_state = re.search(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', html, re.S)
-    print(f"__APOLLO_STATE__: {'あり (' + str(len(apollo_state.group(1))) + '文字)' if apollo_state else 'なし'}")
+        apollo_state = re.search(r'window\.__APOLLO_STATE__\s*=\s*({.*?});', html, re.S)
+        print(f"__APOLLO_STATE__: {'あり (' + str(len(apollo_state.group(1))) + '文字)' if apollo_state else 'なし'}")
 
-    # page-data.json (Gatsby) の参照
-    page_data_ref = re.search(r'["\'](/page-data/[^"\']+page-data\.json)["\']', html)
-    print(f"page-data.json参照: {page_data_ref.group(1) if page_data_ref else 'なし'}")
+        # page-data.json (Gatsby) の参照
+        page_data_ref = re.search(r'["\'](/page-data/[^"\']+page-data\.json)["\']', html)
+        print(f"page-data.json参照: {page_data_ref.group(1) if page_data_ref else 'なし'}")
 
-    # Champion系のテキストがそれらしく含まれるか
-    print(f"'champion' という語の出現回数(大小無視): {len(re.findall('champion', html, re.I))}")
+        # Champion系のテキストがそれらしく含まれるか
+        print(f"'champion' という語の出現回数(大小無視): {len(re.findall('champion', html, re.I))}")
 
-except Exception as e:
-    print(f"取得失敗: {e}")
+    except Exception as e:
+        print(f"取得失敗: {e}")
+        html = ""
+else:
     html = ""
+
 
 # ── 3. K'Sante の記述を探す ──────────────────────────────────────
 section("3. K'Sante の実例を探す")
