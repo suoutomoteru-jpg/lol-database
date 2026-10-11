@@ -9,4 +9,4 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - run: python3 scripts/probe_highlights.py
+      - run: python3 scripts/probe_blade3.py
