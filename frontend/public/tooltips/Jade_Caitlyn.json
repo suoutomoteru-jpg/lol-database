@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Caitlyn",
+ "id": 60051,
+ "name": "ケイトリン",
+ "title": "ピルトーヴァーの保安官",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "skills": {
+  "passive": {
+   "name": "ヘッドショット",
+   "description": "通常攻撃数回ごとにヘッドショットを繰り出し、追加ダメージを与える。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ピースメーカー",
+   "description": "貫通弾を発射し、<physicalDamage>20/60/100/140/180（＋合計攻撃力の130%）物理ダメージ</physicalDamage>を与える。このダメージは2体目以降の敵に命中するたびに10%ずつ減少し、最低で<physicalDamage></physicalDamage>になる。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "50/60/70/80/90",
+   "range": "1250",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "MinimumDamageCalc"
+   ]
+  },
+  "w": {
+   "name": "ヨードルトラップ",
+   "description": "敵チャンピオンが踏むと作動する罠を4分間設置する。罠にかかった敵チャンピオンは<status>スネア効果</status>を受け、1.5秒かけて<magicDamage>80/130/180/230/280（＋魔力の60%）の魔法ダメージ</magicDamage>を受け、8秒間可視状態になる。<br><br>トラップは同時に3個まで設置しておくことができる。",
+   "cooldown": "20/17/14/11/8",
+   "cost": "50",
+   "range": "800",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "L-90 カリバーネット",
+   "description": "後方へと飛び退きながらネットを発射する。ネットは最初に命中した敵に<magicDamage>80/130/180/230/280（＋魔力の80%）魔法ダメージ</magicDamage>を与え、1/1.25/1.5/1.75/2秒間50%の<status>スロウ効果</status>を付与する。",
+   "cooldown": "18/16/14/12/10",
+   "cost": "75",
+   "range": "950",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ブルズアイ",
+   "description": "1秒間かけて狙いを定め、敵チャンピオンに向けて弾丸を発射して、の射程で<physicalDamage>250/475/700（＋増加攻撃力の200%）の物理ダメージ</physicalDamage>を与える。別の敵チャンピオンが射線を塞いだ場合、弾丸はそのチャンピオンに命中する。",
+   "cooldown": "90",
+   "cost": "100",
+   "range": "2000/2500/3000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "CastRange"
+   ]
+  }
+ },
+ "unresolvedCount": 2
+}

@@ -1,0 +1,19 @@
+name: Data source freshness check
+
+# ツールチップ数値データの候補ソース（CommunityDragon / Meraki / LoL Wiki）が
+# DDragon の最新パッチにどこまで追従しているかを確認する手動実行ワークフロー。
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/check_data_sources.py
+      - .github/workflows/data-source-freshness.yml
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run freshness check
+        run: python3 scripts/check_data_sources.py

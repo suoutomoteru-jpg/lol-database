@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Quinn",
+ "id": 60133,
+ "name": "クイン",
+ "title": "",
+ "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "skills": {
+  "passive": {
+   "name": "鷲匠",
+   "description": "ヴァロールが4.5秒間、定期的に周囲の敵に<keywordMajor>弱点</keywordMajor>のマークを付与する。クインが<keywordMajor>弱点</keywordMajor>でマークされた敵に通常攻撃を行うと、<physicalDamage>25〜215（レベル1〜18） ＋ 増加攻撃力の50%の追加物理ダメージ</physicalDamage>を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "暗闇の強襲",
+   "description": "<keywordMajor>クイン</keywordMajor>: ヴァロールが飛んでいき、最初に触れた敵を攻撃する。その後、周囲にいるすべての敵を攻撃して<physicalDamage>70/110/150/190/230（＋増加攻撃力の65% ＋魔力の50%）の物理ダメージ</physicalDamage>を与え、1.5秒間<status>ブラインド効果</status>を付与する。<br><br><keywordMajor>ヴァロール</keywordMajor>: 周囲にいるすべての敵を攻撃して<physicalDamage>70/110/150/190/230（＋増加攻撃力の65% ＋魔力の50%）の物理ダメージ</physicalDamage>を与え、1.5秒間<status>ブラインド効果</status>を付与する。",
+   "cooldown": "11/10.5/10/9.5/9",
+   "cost": "50/55/60/65/70",
+   "range": "1025",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "鷲の眼",
+   "description": "<keywordMajor>クインの自動効果</keywordMajor>: <keywordMajor>弱点</keywordMajor>のマークを付与された対象に通常攻撃を行うと、3秒間、<speed>攻撃速度が20/25/30/35/40%</speed>、<speed>移動速度が20/30/40/50/60</speed>増加する。<br><br><keywordMajor>ヴァロールの自動効果</keywordMajor>: <speed>攻撃速度が40/50/60/70/80%</speed>増加する。<br><br><keywordMajor>発動効果</keywordMajor>: ヴァロールが周囲を偵察し、2秒間、自身を中心とした広範囲の視界を確保する。",
+   "cooldown": "50/45/40/35/30",
+   "cost": "",
+   "range": "2100",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "飛翔撃",
+   "description": "<keywordMajor>クインまたはヴァロール</keywordMajor>: 敵に向かってダッシュし、対象に<physicalDamage>40/70/100/130/160（＋増加攻撃力の20%）の物理ダメージ</physicalDamage>を与えて<status>ノックバック</status>し、50%の<status>スロウ効果</status>を付与する。このスロウ効果は2秒かけて減衰する。<br><br><keywordMajor>クイン</keywordMajor>: 対象から飛び降りた後にヴァロールがその対象に<keywordMajor>弱点</keywordMajor>のマークをつける。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "50",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "タッグチーム",
+   "description": "<keywordMajor>クインの場合</keywordMajor>: ヴァロールが20秒間、高機動型の近接アタッカーとしてクインと入れ替わる。ヴァロールが<status>ゴースト化</status>して、<speed>移動速度が80/90/100%増加</speed>する。戦闘状態に入ると、移動速度が徐々に20/30/40%まで減少する。その後、ヴァロールは<keywordMajor>スカイストライク</keywordMajor>が発動可能になる。<br><br><keywordMajor>ヴァロール: スカイストライク</keywordMajor>: クインが戦場に戻り、広範囲内のすべての敵に<physicalDamage>100/150/200（＋増加攻撃力の50%） - の物理ダメージ</physicalDamage>を与える。このダメージ量は、対象の減少体力に応じて変化する。",
+   "cooldown": "3",
+   "cost": "50/25/0",
+   "range": "700",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "TotalDamageMaximum"
+   ]
+  }
+ },
+ "unresolvedCount": 1
+}
