@@ -3,7 +3,7 @@
  "id": 5,
  "name": "シン・ジャオ",
  "title": "デマーシアの家令長",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "不退転",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "三槍撃",
-   "description": "次の3回の通常攻撃が<physicalDamage>15/30/45/60/75（＋増加攻撃力の40%）の物理ダメージ</physicalDamage>を追加で与え、他のスキルのクールダウンを1秒短縮する。また、3回目の通常攻撃は対象を0.75秒間<status>ノックアップ</status>する。<br>",
+   "description": "次の3回の通常攻撃が<physicalDamage>15/30/45/60/75（＋増加攻撃力の45%）の物理ダメージ</physicalDamage>を追加で与え、他のスキルのクールダウンを1秒短縮する。また、3回目の通常攻撃は対象を0.75秒間<status>ノックアップ</status>する。<br>",
    "cooldown": "7/6.5/6/5.5/5",
    "cost": "30",
    "range": "375",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "兵貴神速",
-   "description": "敵に突撃して、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の120%）の魔法ダメージ</magicDamage>を与え、0.5秒間30%の<status>スロウ効果</status>を付与する。<br><br>5秒間、<attackSpeed>攻撃速度が80/130/180/240/300/350% =(<scaleLevel>38/46/54/62/70%</scaleLevel> + 恒久5%ごとに1%<scaleAP> +増加100ごとに10%</scaleAP>)</attackSpeed>増加する。<br><br><keywordMajor>挑戦対象</keywordMajor>の敵には、このスキルの射程が増加する。<br>",
+   "description": "敵に突撃して、周囲の敵に<magicDamage>50/75/100/125/150（＋魔力の120%）の魔法ダメージ</magicDamage>を与え、0.5秒間30%の<status>スロウ効果</status>を付与する。<br><br>5秒間、<attackSpeed>攻撃速度が80/130/180/240/300/350% =(<scaleLevel>38/46/54/62/70%</scaleLevel> + 恒久4%ごとに1%<scaleAP> +増加100ごとに10%</scaleAP>)</attackSpeed>増加する。<br><br><keywordMajor>挑戦対象</keywordMajor>の敵には、このスキルの射程が増加する。<br>",
    "cooldown": "11",
    "cost": "50",
    "range": "650",

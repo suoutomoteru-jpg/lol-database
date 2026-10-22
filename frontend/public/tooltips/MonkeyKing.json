@@ -3,11 +3,11 @@
  "id": 62,
  "name": "ウーコン",
  "title": "美猴王",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "岩の皮膚",
-   "description": "<scaleArmor>6〜10（レベル比例）の物理防御</scaleArmor>を獲得して、<healing>5秒ごとに最大体力の0.35%</healing>を回復する。自身または<keywordMajor>分身</keywordMajor>が、敵チャンピオンもしくはジャングルモンスターに通常攻撃を行うかスキルを使用するたびに、これらのボーナスが5秒間100%増加して、最大5回までスタックする。",
+   "description": "<scaleArmor>4.5〜10（レベル比例）の物理防御</scaleArmor>を獲得して、<healing>5秒ごとに最大体力の0.35%</healing>を回復する。自身または<keywordMajor>分身</keywordMajor>が、敵チャンピオンもしくはジャングルモンスターに通常攻撃を行うかスキルを使用するたびに、これらのボーナスが5秒間100%増加して、最大5回までスタックする。",
    "source": "stringtable",
    "unresolved": []
   },

@@ -2,8 +2,8 @@
  "alias": "Jade_Nami",
  "id": 60267,
  "name": "ナミ",
- "title": "",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "title": "潮呼びの巫女",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "さざなみの後押し",

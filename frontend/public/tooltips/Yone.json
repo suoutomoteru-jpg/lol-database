@@ -3,7 +3,7 @@
  "id": 777,
  "name": "ヨネ",
  "title": "忘られざる者",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "狩鬼道",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "斬命刀",
-   "description": "前方に突きを放ち、<physicalDamage>25/50/75/100/125（＋合計攻撃力の110%）の物理ダメージ</physicalDamage>を与える。<br><br>命中時に6秒間スタックを獲得する。2スタック時にこのスキルを使用すると一陣の風をまとって前方にダッシュし、0.75秒間<status>ノックアップ</status>させて<physicalDamage>25/50/75/100/125（＋合計攻撃力の110%）の物理ダメージ</physicalDamage>を与える。",
+   "description": "前方に突きを放ち、<physicalDamage>25/50/75/100/125（＋合計攻撃力の105%）の物理ダメージ</physicalDamage>を与える。<br><br>命中時に6秒間スタックを獲得する。2スタック時にこのスキルを使用すると一陣の風をまとって前方にダッシュし、0.75秒間<status>ノックアップ</status>させて<physicalDamage>25/50/75/100/125（＋合計攻撃力の105%）の物理ダメージ</physicalDamage>を与える。",
    "cooldown": "4",
    "cost": "",
    "range": "450",

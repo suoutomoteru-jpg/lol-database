@@ -3,7 +3,7 @@
  "id": 64,
  "name": "リー・シン",
  "title": "盲目の修行僧",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "練気",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "龍の怒り",
-   "description": "敵チャンピオン1体に強力な回し蹴りを食らわせて後方に<status>ノックバック</status>させ、<physicalDamage>175/400/625（＋増加攻撃力の200%）の物理ダメージ</physicalDamage>を与える。<br><br>蹴られたチャンピオンと衝突した敵は短時間<status>ノックアップ</status>されて、<physicalDamage>175/400/625（＋増加攻撃力の200%）(+蹴られたチャンピオンの増加体力の12/15/18%)の物理ダメージ</physicalDamage>を受ける。",
+   "description": "敵チャンピオン1体に強力な回し蹴りを食らわせて後方に<status>ノックバック</status>させ、<physicalDamage>150/350/550（＋増加攻撃力の200%）の物理ダメージ</physicalDamage>を与える。<br><br>蹴られたチャンピオンと衝突した敵は短時間<status>ノックアップ</status>されて、<physicalDamage>150/350/550（＋増加攻撃力の200%）(+蹴られたチャンピオンの増加体力の12/15/18%)の物理ダメージ</physicalDamage>を受ける。",
    "cooldown": "110/85/60",
    "cost": "",
    "range": "375",

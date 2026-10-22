@@ -3,7 +3,7 @@
  "id": 350,
  "name": "ユーミ",
  "title": "マジカルキャット",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "ネコはトモダチ",
@@ -36,7 +36,7 @@
    "description": "シールドを獲得して<shield>65/90/115/140/165（＋魔力の40%）のダメージ</shield>をブロックし、3秒間、<attackSpeed>攻撃速度が25/27.5/30/32.5/35（＋魔力の8%）%</attackSpeed>増加する。シールドが持続している間は、対象も<speed>移動速度が20%</speed>増加する。<br><br>味方に<keywordMajor>くっついて</keywordMajor>いる場合、このスキルの効果は自身ではなくその味方に付与され、さらに対象の<magicDamage>マナを20/24/28/32/36</magicDamage>回復する。このマナ回復量は対象の減少マナに応じて最大100%増加する。",
    "cooldown": "",
    "cost": "80/90/100/110/120",
-   "range": "25000",
+   "range": "500",
    "maxRank": 5,
    "source": "lcu",
    "unresolved": []

@@ -1,6 +1,6 @@
 {
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
- "generatedAt": "2026-10-15T07:58:15.538264+00:00",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "generatedAt": "2026-10-22T08:16:35.224550+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -514,6 +514,13 @@
    "passiveSource": "lcu"
   },
   {
+   "alias": "Jade_Hecarim",
+   "id": 60120,
+   "name": "ヘカリム",
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
+  },
+  {
    "alias": "Jade_Heimerdinger",
    "id": 60074,
    "name": "ハイマーディンガー",
@@ -612,6 +619,13 @@
    "passiveSource": "stringtable"
   },
   {
+   "alias": "Jade_Lucian",
+   "id": 60236,
+   "name": "ルシアン",
+   "unresolvedCount": 2,
+   "passiveSource": "lcu"
+  },
+  {
    "alias": "Jade_Lulu",
    "id": 60117,
    "name": "ルル",
@@ -652,6 +666,13 @@
    "name": "ミス・フォーチュン",
    "unresolvedCount": 3,
    "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Mordekaiser",
+   "id": 60082,
+   "name": "モルデカイザー",
+   "unresolvedCount": 1,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Morgana",
@@ -876,6 +897,13 @@
    "name": "シン・ジャオ",
    "unresolvedCount": 1,
    "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Yorick",
+   "id": 60083,
+   "name": "ヨリック",
+   "unresolvedCount": 0,
+   "passiveSource": "lcu"
   },
   {
    "alias": "Jade_Zilean",
@@ -1567,7 +1595,7 @@
    "alias": "Varus",
    "id": 110,
    "name": "ヴァルス",
-   "unresolvedCount": 0,
+   "unresolvedCount": 1,
    "passiveSource": "stringtable"
   },
   {

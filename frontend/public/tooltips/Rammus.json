@@ -3,7 +3,7 @@
  "id": 33,
  "name": "ラムス",
  "title": "アーマージロ",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "トゲトゲ",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "かたくなる",
-   "description": "7秒間、防御体勢を取り、<scaleArmor>物理防御が35.1/44/53.65/64.05/75.2（＋合計物理防御の30/37.5/45/52.5/60%）</scaleArmor>、<scaleMR>魔法防御が26/34.375/43.5/53.375/64（＋合計魔法防御の30/37.5/45/52.5/60%）</scaleMR>増加し、通常攻撃を行ってきた相手に<magicDamage>15（＋合計物理防御の10% ＋合計魔法防御の10%）の魔法ダメージ</magicDamage>を跳ね返す。<br><br><recast>再発動</recast>: このスキルを早めに終了する。",
+   "description": "7秒間、防御体勢を取り、<scaleArmor>物理防御が32.5/40.5/49/58/67.5（＋合計物理防御の30/35/40/45/50%）</scaleArmor>、<scaleMR>魔法防御が26/33.75/42/50.75/60（＋合計魔法防御の30/35/40/45/50%）</scaleMR>増加し、通常攻撃を行ってきた相手に<magicDamage>15（＋合計物理防御の10% ＋合計魔法防御の10%）の魔法ダメージ</magicDamage>を跳ね返す。<br><br><recast>再発動</recast>: このスキルを早めに終了する。",
    "cooldown": "7",
    "cost": "40",
    "range": "300",

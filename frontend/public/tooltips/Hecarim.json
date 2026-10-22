@@ -3,11 +3,11 @@
  "id": 120,
  "name": "ヘカリム",
  "title": "戦場の幻影",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "ウォーパス",
-   "description": "増加移動速度の一定割合と同量だけ攻撃力が増加する。",
+   "description": "増加移動速度の一定割合と同量分、攻撃力が増加する。",
    "source": "lcu",
    "unresolved": []
   },

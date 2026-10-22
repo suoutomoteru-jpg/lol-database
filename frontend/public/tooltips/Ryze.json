@@ -3,7 +3,7 @@
  "id": 13,
  "name": "ライズ",
  "title": "ルーンの魔導師",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "古代の呪術",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "オーバーロード",
-   "description": "<spellPassive>自動効果:</spellPassive> <spellName>「ルーンプリズン」</spellName>と<spellName>「スペルフラックス」</spellName>はこのスキルのクールダウンを解消すると同時に、「ルーン」を4秒間チャージする(最大2ルーンまで)。<br><br><spellActive>発動効果:</spellActive> エネルギー弾を放ち、最初に命中した敵に<magicDamage>75/95/115/135/155（＋魔力の55% ＋最大マナの2%）の魔法ダメージ</magicDamage>を与える。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されていた場合、それを消費してこのスキルのダメージを40/65/90/115/140/165%増加させ、周囲の敵に<keywordMajor>「フラックス」</keywordMajor>を波及させる。<br><br>2ルーンがチャージされていた場合、全ルーンを放出して2秒間、<speed>移動速度が28/32/36/40/44%</speed>増加する。<br>",
+   "description": "<spellPassive>自動効果:</spellPassive> <spellName>「ルーンプリズン」</spellName>と<spellName>「スペルフラックス」</spellName>はこのスキルのクールダウンを解消すると同時に、「ルーン」を4秒間チャージする(最大2ルーンまで)。<br><br><spellActive>発動効果:</spellActive> エネルギー弾を放ち、最初に命中した敵に<magicDamage>75/95/115/135/155（＋魔力の55% ＋最大マナの2%）の魔法ダメージ</magicDamage>を与える。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されていた場合、それを消費してこのスキルのダメージを40/70/100/130/160/190%増加させ、周囲の敵に<keywordMajor>「フラックス」</keywordMajor>を波及させる。<br><br>2ルーンがチャージされていた場合、全ルーンを放出して2秒間、<speed>移動速度が30/35/40/45/50%</speed>増加する。<br>",
    "cooldown": "5",
    "cost": "40/38/36/34/32",
    "range": "1000",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "ルーンプリズン",
-   "description": "<magicDamage>60/90/120/150/180（＋魔力の60% ＋最大マナの3%）の魔法ダメージ</magicDamage>を与え、1.5秒間50%の<status>スロウ効果</status>を付与する。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されている場合は、それを消費して、<status>スロウ効果</status>の代わりに<status>スネア効果</status>を付与する。",
+   "description": "<magicDamage>60/90/120/150/180（＋魔力の70% ＋最大マナの3%）の魔法ダメージ</magicDamage>を与え、1.5秒間50%の<status>スロウ効果</status>を付与する。対象に<keywordMajor>「フラックス」</keywordMajor>が付与されている場合は、それを消費して、<status>スロウ効果</status>の代わりに<status>スネア効果</status>を付与する。",
    "cooldown": "11/10.5/10/9.5/9",
    "cost": "50/60/70/80/90",
    "range": "615",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "ポータルワープ",
-   "description": "<spellPassive>自動効果:</spellPassive> <keywordMajor>「フラックス」</keywordMajor>が付与された対象に対する<spellName>「オーバーロード」</spellName>の追加ダメージが40/65/90%に増加する。<br><br><spellActive>発動効果:</spellActive> 離れた場所にポータルを作り出す。2秒後、ポータルの近くにいるすべての味方が、その場所までテレポートする。",
+   "description": "<spellPassive>自動効果:</spellPassive> <keywordMajor>「フラックス」</keywordMajor>が付与された対象に対する<spellName>「オーバーロード」</spellName>の追加ダメージが40/70/100%に増加する。<br><br><spellActive>発動効果:</spellActive> 離れた場所にポータルを作り出す。2秒後、ポータルの近くにいるすべての味方が、その場所までテレポートする。",
    "cooldown": "180/160/140",
    "cost": "100",
    "range": "3000",

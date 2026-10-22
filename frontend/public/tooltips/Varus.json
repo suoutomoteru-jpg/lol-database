@@ -3,7 +3,7 @@
  "id": 110,
  "name": "ヴァルス",
  "title": "報復の一矢",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "復讐の化身",
@@ -13,17 +13,19 @@
   },
   "q": {
    "name": "乾坤一擲",
-   "description": "<attention>チャージ開始:</attention> 弓を引き絞って次の射撃を準備し、自身が20%の<status>スロウ効果</status>を受ける。4秒以内に発射しなかった場合は、スキルをキャンセルしてマナコストの50%を回復する。<br><br><attention>解放:</attention> 矢を放ち、<physicalDamage>53.334/100.001/146.667/193.334/240.001（＋増加攻撃力の120%）の物理ダメージ</physicalDamage>を与える。敵に命中するたびにダメージが15%低下する(最小33%)。ダメージと<keywordMajor>「枯死の呪い」</keywordMajor>の爆発効果は、チャージ時間に応じて最大50%まで増加する(最大<physicalDamage>80/150/220/290/360（＋増加攻撃力の120%）</physicalDamage>)。",
+   "description": "<attention>チャージ開始:</attention> 弓を引き絞って次の射撃を準備し、自身が20%の<status>スロウ効果</status>を受ける。4秒以内に発射しなかった場合は、スキルをキャンセルしてマナコストの50%を回復する。<br><br><attention>解放:</attention> 矢を放ち、<physicalDamage>の物理ダメージ</physicalDamage>を与える。敵に命中するたびにダメージが15%低下する(最小33%)。ダメージと<keywordMajor>枯死の呪い</keywordMajor>の爆発効果は、チャージ時間に応じて最大70%まで増加する(最大<physicalDamage>50/95/140/185/230（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>)。",
    "cooldown": "16/15/14/13/12",
    "cost": "50/55/60/65/70",
    "range": "925",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": []
+   "unresolved": [
+    "TotalDamageMin"
+   ]
   },
   "w": {
    "name": "枯死の矢筒",
-   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が<magicDamage>4/13/22/31/40（＋魔力の25% ＋増加攻撃力の15%）の魔法ダメージ</magicDamage>を追加で与え、6秒間<keywordMajor>「枯死の呪い」</keywordMajor>のスタックを付与する(最大3スタック)。<br><br>自身の他のスキルが命中すると<keywordMajor>「枯死の呪い」</keywordMajor>のスタックが爆発し、1スタックにつき<magicDamage>最大体力の3/3.5/4/4.5/5%（＋魔力の0.013%）にあたる魔法ダメージ</magicDamage>を与える(<magicDamage>最大体力の9/10.5/12/13.5/15%（＋魔力の0.013%）のダメージ</magicDamage>が上限)。敵チャンピオンまたはエピックモンスターの<keywordMajor>「枯死の呪い」</keywordMajor>を発動させた場合、1スタックごとに通常スキルのクールダウンが13%解消される。<br><br><spellActive>発動効果:</spellActive> 次に使用する<spellName>「乾坤一擲」</spellName>が追加で<magicDamage>減少体力の6/8/10/12/14%の魔法ダメージ</magicDamage>を与える。このダメージはチャージ時間に応じて最大で<magicDamage>減少体力の6/8/10/12/14%×1.5</magicDamage>まで増加する。",
+   "description": "<spellPassive>自動効果: </spellPassive>通常攻撃が<magicDamage>4/10/16/22/28（＋魔力の30% ＋増加攻撃力の20%）の魔法ダメージ</magicDamage>を追加で与え、6秒間<keywordMajor>「枯死の呪い」</keywordMajor>のスタックを付与する(最大3スタック)。<br><br>自身の他のスキルが命中すると<keywordMajor>「枯死の呪い」</keywordMajor>のスタックが爆発し、1スタックにつき<magicDamage>最大体力の2.5/3/3.5/4/4.5%（＋魔力の0.014%）にあたる魔法ダメージ</magicDamage>を与える(<magicDamage>最大体力の7.5/9/10.5/12/13.5%（＋魔力の0.014%）のダメージ</magicDamage>が上限)。敵チャンピオンまたはエピックモンスターの<keywordMajor>「枯死の呪い」</keywordMajor>を発動させた場合、1スタックごとに通常スキルのクールダウンが11%解消される。<br><br><spellActive>発動効果:</spellActive> 次に使用する<spellName>「乾坤一擲」</spellName>が追加で<magicDamage>減少体力の6/7/8/9/10%の魔法ダメージ</magicDamage>を与える。このダメージはチャージ時間に応じて最大で<magicDamage>減少体力の6/7/8/9/10%×1.7</magicDamage>まで増加する。",
    "cooldown": "40",
    "cost": "",
    "range": "750",
@@ -52,5 +54,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 0
+ "unresolvedCount": 1
 }

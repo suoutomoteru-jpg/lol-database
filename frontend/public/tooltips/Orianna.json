@@ -3,7 +3,7 @@
  "id": 61,
  "name": "オリアナ",
  "title": "時計仕掛けの舞姫",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "ぜんまい仕掛け",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "オーダー: 攻撃",
-   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が指定地点に移動し、周囲の敵と移動時に触れた敵に<magicDamage>60/90/120/150/180（＋魔力の55%）の魔法ダメージ</magicDamage>を与える。2体目以降の敵に与えるダメージは30%低下する。",
+   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が指定地点に移動し、周囲の敵と移動時に触れた敵に<magicDamage>60/90/120/150/180（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。2体目以降の敵に与えるダメージは30%低下する。",
    "cooldown": "7/6/5/4/3",
    "cost": "35",
    "range": "815",
@@ -23,7 +23,7 @@
   },
   "w": {
    "name": "オーダー: 乱磁場",
-   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が電磁波を放ち、周囲の敵に<magicDamage>70/110/150/190/230（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><br>その後、発動地点に3秒間力場が残され、範囲内の敵に20/25/30/35/40%の<status>スロウ効果</status>を付与し、味方の<speed>移動速度を20/25/30/35/40%</speed>増加させる。これらの効果は2秒かけて元に戻る。",
+   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が電磁波を放ち、周囲の敵に<magicDamage>70/110/150/190/230（＋魔力の85%）の魔法ダメージ</magicDamage>を与える。<br><br>その後、発動地点に3秒間力場が残され、範囲内の敵に20/25/30/35/40%の<status>スロウ効果</status>を付与し、味方の<speed>移動速度を20/25/30/35/40%</speed>増加させる。これらの効果は2秒かけて元に戻る。",
    "cooldown": "7",
    "cost": "60/65/70/75/80",
    "range": "225",

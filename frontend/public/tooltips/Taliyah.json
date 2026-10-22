@@ -3,7 +3,7 @@
  "id": 163,
  "name": "タリヤ",
  "title": "ストーンウィーバー",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "ロックサーフィン",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "アンレイベルアース",
-   "description": "一定範囲に不安定な石をばら撒き、触れた敵に20%の<status>スロウ効果</status>を付与して、<magicDamage>60/105/150/195/240（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。ばら撒いた石の上を敵がダッシュするか<status>ノックバック</status>されて通過すると石が爆発し、0.75秒間(+その移動の残り時間)<status>スタン</status>させて、<magicDamage>25/40/55/70/85（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "一定範囲に不安定な石をばら撒き、触れた敵に20%の<status>スロウ効果</status>を付与して、<magicDamage>70/115/160/205/250（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。ばら撒いた石の上を敵がダッシュするか<status>ノックバック</status>されて通過すると石が爆発し、0.75秒間(+その移動の残り時間)<status>スタン</status>させて、<magicDamage>30/45/60/75/90（＋魔力の30%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "14",
    "cost": "90",
    "range": "950",

@@ -3,11 +3,11 @@
  "id": 161,
  "name": "ヴェル＝コズ",
  "title": "ヴォイドの瞳",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "有機分解",
-   "description": "スキルを使用すると7秒間<keywordMajor>「分解」</keywordMajor>のスタックを付与する。3スタックになった敵に全スタックを消費して<trueDamage>魔力の60% ＋ 35〜180（レベル比例）の確定ダメージ</trueDamage>を与える。<br><br>通常攻撃は<keywordMajor>「分解」</keywordMajor>の効果時間を更新するが、新たなスタックを追加することはない。",
+   "description": "スキルを使用すると7秒間<keywordMajor>「分解」</keywordMajor>のスタックを付与する。3スタックになった敵に全スタックを消費して<trueDamage>魔力の65% ＋ 35〜205（レベル比例）の確定ダメージ</trueDamage>を与える。<br><br>通常攻撃は<keywordMajor>「分解」</keywordMajor>の効果時間を更新するが、新たなスタックを追加することはない。",
    "source": "stringtable",
    "unresolved": []
   },

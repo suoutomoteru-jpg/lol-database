@@ -3,7 +3,7 @@
  "id": 60038,
  "name": "カサディン",
  "title": "ヴォイドを歩む者",
- "patch": "16.20.8248524+branch.releases-16-20.content.release",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
  "skills": {
   "passive": {
    "name": "ヴォイドストーン",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ヴォイドスフィア",
-   "description": "ヴォイドエネルギーの弾を放ち、対象に<magicDamage>60/105/150/195/240（＋魔力の70%）の魔法ダメージ</magicDamage>与えて、1/1.25/1.5/1.75/2秒間<status>サイレンス</status>状態にする。",
+   "description": "ヴォイドエネルギーの弾を放ち、対象に<magicDamage>80/130/180/230/280（＋魔力の70%）の魔法ダメージ</magicDamage>与えて、1/1.4/1.8/2.2/2.6秒間<status>サイレンス</status>状態にする。",
    "cooldown": "9",
    "cost": "70/80/90/100/110",
    "range": "650",
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "リフトウォーク",
-   "description": "近くの地点に瞬間移動し、周囲の敵ユニットに<magicDamage>60/70/80（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。さらに、その後8秒以内に発動する<spellName>リフトウォーク</spellName>はそれぞれコストが<scaleMana>追加で100マナ</scaleMana>増加し、<magicDamage>60/70/80の追加ダメージ</magicDamage>を与える。",
+   "description": "近くの地点に瞬間移動し、周囲の敵ユニットに<magicDamage>60/70/80（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。さらに、その後8秒以内に発動する<spellName>リフトウォーク</spellName>はそれぞれコストが<scaleMana>追加で100マナ</scaleMana>増加し、<magicDamage>60/70/80の追加ダメージ</magicDamage>を与える。",
    "cooldown": "7/6/5",
    "cost": "100",
    "range": "700",
