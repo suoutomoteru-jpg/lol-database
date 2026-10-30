@@ -1,0 +1,12 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  // Cloudflareダッシュボードで作成したプロジェクト名（lol-database-3）と一致させること
+  "name": "lol-database-3",
+  "compatibility_date": "2026-07-01",
+  // Workerスクリプトなし・静的アセットのみを配信する構成
+  "assets": {
+    "directory": "./dist",
+    // SPAのため、未知のパスは全て index.html にフォールバックさせる
+    "not_found_handling": "single-page-application"
+  }
+}

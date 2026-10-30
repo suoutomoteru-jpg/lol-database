@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Hecarim",
+ "id": 60120,
+ "name": "ヘカリム",
+ "title": "",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "skills": {
+  "passive": {
+   "name": "ウォーパス",
+   "description": "増加移動速度の一定割合と同量分、攻撃力が増加する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ランページ",
+   "description": "周囲の敵を斬りつけて、<physicalDamage>60/95/130/165/200（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルで敵にダメージを与えると、<spellName>ランページ</spellName>のスタックが1増加し、一定時間、クールダウンが1秒短縮される。この効果は<attention>2</attention>回までスタックする。",
+   "cooldown": "4",
+   "cost": "24/28/32/36/40",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "ソウルドレイン",
+   "description": "周囲のすべての敵に4秒かけて<magicDamage>80/120/160/200/240（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。これらの敵が受けたあらゆるダメージの<attention>10/15/20/25/30%</attention>を吸い取って自身の体力を<healing>回復</healing>する。",
+   "cooldown": "22/21/20/19/18",
+   "cost": "50/60/70/80/90",
+   "range": "525",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "チャージ",
+   "description": "<speed>移動速度</speed>が4秒、間徐々に増加する(25 - 75%)。次の通常攻撃に対象を<status>ノックバック</status>させる効果が付与され、<spellName>チャージ</spellName>中に移動した距離に応じて<physicalDamage>40/75/110/145/180（＋増加攻撃力の50%） - 80/150/220/290/360（＋増加攻撃力の50%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "24/22/20/18/16",
+   "cost": "60",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "スペクターズ・オンスロート",
+   "description": "亡霊の騎士たちを召喚して突撃し、接触したすべての敵に<magicDamage>150/250/350（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。<br><br>突撃の最後に衝撃波を放ち、周囲の敵に1秒間<status>フィアー効果</status>を与える。",
+   "cooldown": "140/120/100",
+   "cost": "100",
+   "range": "50000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

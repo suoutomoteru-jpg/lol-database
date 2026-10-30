@@ -1,0 +1,60 @@
+{
+ "alias": "Jade_Lucian",
+ "id": 60236,
+ "name": "ルシアン",
+ "title": "不浄殲滅者",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "skills": {
+  "passive": {
+   "name": "二挺拳銃",
+   "description": "スキル使用後、次の通常攻撃で2回射撃を行う。<br><br><strong>詳細数値</strong><br>・ダメージ: 合計攻撃力の100%",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ピアシングライト",
+   "description": "指定した敵ユニットに光線を発射し、その軌道上の敵ユニットに<physicalDamage>80/110/140/170/200（＋増加攻撃力の60/75/90/105/120%）の物理ダメージ</physicalDamage>を与える。ミニオンには<physicalDamage>のダメージ</physicalDamage>を与える。",
+   "cooldown": "9/8/7/6/5",
+   "cost": "48/56/64/72/80",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "TotalMinionDamage"
+   ]
+  },
+  "w": {
+   "name": "アーデントブレイズ",
+   "description": "敵に命中するか、射程の限界に達すると爆発する弾を発射する。爆発により<magicDamage>60/100/140/180/220（＋増加攻撃力の60% ＋魔力の90%）の魔法ダメージ</magicDamage>を与え、敵に6秒間マークを付与する。<br><br>マークが付与された対象にダメージを与えると、2秒間<speed>40の移動速度</speed>を獲得する。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "60",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "スライド",
+   "description": "短距離をダッシュし、すべての<status>スロウ効果</status>を解除する。<spellName>二挺掃射</spellName>の発動中に敵をキルすると、<spellName>スライド</spellName>のクールダウンが解消される。",
+   "cooldown": "16/15.5/15/14.5/14",
+   "cost": "32/24/16/8/0",
+   "range": "445",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "二挺掃射",
+   "description": "3秒間、一定方向に素早く射撃しながら自由に移動する。弾丸は最初に当たった敵に命中し、それぞれに<physicalDamage>40/50/60（＋増加攻撃力の25% ＋魔力の10%）の物理ダメージ</physicalDamage>を与える。射撃回数は<attackSpeed>攻撃速度</attackSpeed>に応じて増加する。<br><br>合計発以上: <physicalDamage>80/110/140/170/200（＋増加攻撃力の60/75/90/105/120%）の物理ダメージ</physicalDamage><br><spellName>二挺掃射</spellName>は、ミニオンに<attention>400%</attention>のダメージを与える。",
+   "cooldown": "110/100/90",
+   "cost": "100",
+   "range": "1400",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": [
+    "TotalNumShots"
+   ]
+  }
+ },
+ "unresolvedCount": 2
+}

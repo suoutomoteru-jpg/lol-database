@@ -1,0 +1,58 @@
+{
+ "alias": "Jade_Mordekaiser",
+ "id": 60082,
+ "name": "モルデカイザー",
+ "title": "メタルの支配者",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "skills": {
+  "passive": {
+   "name": "アイアンマン",
+   "description": "スキルでダメージを与えるたびに、与えたダメージ量の一定割合にあたる耐久値を持つシールドを一時的に獲得する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "メイス・オブ・スペーズ",
+   "description": "次の通常攻撃時、衝撃波を発生させ、近くにいる最大3体の対象に追加で攻撃を行って、<magicDamage>80/110/140/170/200（＋増加攻撃力の100% ＋魔力の40%）の魔法ダメージ</magicDamage>を与える。<br><br>対象が1体だった場合は、代わりに<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "",
+   "range": "25000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "AloneDamage"
+   ]
+  },
+  "w": {
+   "name": "クリーピング・デス",
+   "description": "6秒間、味方1体に金属片の雲をまとわせて保護し、対象の<scaleArmor>物理防御を10/15/20/25/30</scaleArmor>と<scaleMR>魔法防御を10/15/20/25/30</scaleMR>を増加させ、周囲の敵に効果時間中に<magicDamage>144/228/312/396/480（＋魔力の120%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "",
+   "range": "750",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ハンド・オブ・ルーイン",
+   "description": "前方の扇状の範囲内の敵に<magicDamage>70/115/160/205/250（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "6",
+   "cost": "",
+   "range": "700",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "グレイブ・チルドレン",
+   "description": "<magicDamage>最大体力の80/110/140/170/200（＋増加攻撃力の100% ＋魔力の40%）%にあたる魔法ダメージ</magicDamage>を吸収する。<br><br>呪いの効果時間中に対象が倒されると、その魂が奴隷となり30秒間、亡霊となってモルデカイザーに追従する。モルデカイザーは亡霊の<magicDamage>魔力</magicDamage>と<physicalDamage>攻撃力</physicalDamage>の20%を獲得し、亡霊のステータスが強化される。",
+   "cooldown": "120/105/90",
+   "cost": "",
+   "range": "850",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 1
+}

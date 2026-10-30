@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Yorick",
+ "id": 60083,
+ "name": "ヨリック",
+ "title": "墓堀人",
+ "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "skills": {
+  "passive": {
+   "name": "不浄の契り",
+   "description": "アクティブな召喚ユニット1体ごとにヨリックが受けるダメージが減少し、与える通常攻撃のダメージが増加する。その間、グールはヨリックの攻撃力と体力に応じて強化される。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "戦の凶兆",
+   "description": "次の通常攻撃は追加で<scaleAD>30/60/90/120/150（＋合計攻撃力の120%）の物理ダメージ</scaleAD>を与え、<keywordMajor>亡霊グール</keywordMajor>を5秒間、召喚する。<br><br><keywordMajor>亡霊グール</keywordMajor>は<scaleAD>8/16/24/32/40の追加攻撃力</scaleAD>と<speed>15/20/25/30/35%の増加移動速度</speed>を獲得する。グールが生存している間、ヨリックも<speed>15/20/25/30/35%の移動速度</speed>を獲得する。",
+   "cooldown": "6/5.5/5/4.5/4",
+   "cost": "20",
+   "range": "0",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "疫病の凶兆",
+   "description": "激しい爆発を発生させ、範囲内の敵に<magicDamage>60/95/130/165/200（＋魔力の100%）の魔法ダメージ</magicDamage>と1.5秒間20/25/30/35/40%の<status>スロウ効果</status>を与え、5秒間持続する<keywordMajor>腐敗グール</keywordMajor>を1体召喚する。<br><br><keywordMajor>腐敗グール</keywordMajor>は周囲の敵に10/12.5/15/17.5/20%の<status>スロウ効果</status>を与える。",
+   "cooldown": "20/18/16/14/12",
+   "cost": "70",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "飢饉の凶兆",
+   "description": "<magicDamage>55/85/115/145/175（＋増加攻撃力の100%）の魔法ダメージ</magicDamage>を与え、与えたダメージの最大40%にあたる体力を<healing>回復</healing>する。対象の背後に<keywordMajor>貪欲グール</keywordMajor>を1体、最大5秒間召喚する。<br><br><keywordMajor>貪欲グール</keywordMajor>は、自身が与えたダメージの40%分、ヨリックの体力を回復させる。ミニオンに対する回復効果は50%になる。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "50/55/60/65/70",
+   "range": "550",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "死の凶兆",
+   "description": "味方チャンピオンの姿を模したレヴェナントを召喚する。レヴェナントは対象の味方の<scaleAD>45/60/75%にあたる攻撃力</scaleAD>を持ち、10秒間持続する。その味方がレヴェナントの生存中に倒されると、レヴェナントは自身を犠牲にしてその味方を最大10秒間復活させる。<br><br>レヴェナントはAltキーを押しながら右クリック、またはこのスキルを再使用することで操作できる。",
+   "cooldown": "160/130/100",
+   "cost": "100",
+   "range": "850",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}
