@@ -3,7 +3,7 @@
  "id": 112,
  "name": "ビクター",
  "title": "アーケインの先触れ",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "グロリアス・エヴォリューション",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "アーケインストーム",
-   "description": "6.5秒間、範囲内に「アーケインストーム」を召喚する。この嵐は周囲の敵に直ちに<magicDamage>100/175/250（＋魔力の50%）の魔法ダメージ</magicDamage>を与え、その後は毎秒<magicDamage>65/105/145（＋魔力の35%）の魔法ダメージ</magicDamage>を与える。嵐は自動的に直前にダメージを与えたチャンピオンを追いかける。<br><br><recast>再発動:</recast> ビクターは手動で嵐を移動できる。<br><br><keywordMajor>アップグレード:</keywordMajor> 嵐の移動速度が25%増加する。嵐がダメージを与えたチャンピオンが倒されると、嵐のサイズが増加し、効果時間が3秒増加する(最大6回)。<br><br>",
+   "description": "6.5秒間、範囲内に「アーケインストーム」を召喚する。この嵐は周囲の敵に直ちに<magicDamage>100/175/250（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、その後は毎秒<magicDamage>65/105/145（＋魔力の35%）の魔法ダメージ</magicDamage>を与える。嵐は自動的に直前にダメージを与えたチャンピオンを追いかける。<br><br><recast>再発動:</recast> ビクターは手動で嵐を移動できる。<br><br><keywordMajor>アップグレード:</keywordMajor> 嵐の移動速度が25%増加する。嵐がダメージを与えたチャンピオンが倒されると、嵐のサイズが増加し、効果時間が3秒増加する(最大6回)。<br><br>",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "700",

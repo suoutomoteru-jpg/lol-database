@@ -3,7 +3,7 @@
  "id": 60032,
  "name": "アムム",
  "title": "めそめそミイラ",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "呪いの手",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "絡みつく包帯",
-   "description": "包帯を飛ばして最初に命中した敵のところに自身を引き寄せ、1秒間<status>スタン</status>させて、<magicDamage>80/140/200/260/320（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "包帯を飛ばして最初に命中した敵のところに自身を引き寄せ、1秒間<status>スタン</status>させて、<magicDamage>80/130/180/230/280（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "16/14/12/10/8",
    "cost": "50",
    "range": "1100",

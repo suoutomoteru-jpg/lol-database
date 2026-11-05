@@ -3,7 +3,7 @@
  "id": 42,
  "name": "コーキ",
  "title": "豪気の爆撃手",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "ヘクステック榴散弾",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "連発ミサイル",
-   "description": "ミサイルを発射する。ミサイルは敵に命中すると爆発し、周囲の敵に<physicalDamage>90/170/250（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。3発ごとに発射されるミサイルは、代わりに<physicalDamage>180/340/500（＋増加攻撃力の85%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは4回までチャージできる。チャンピオンに通常攻撃を行うと次のチャージまでの時間が<attention></attention>秒短縮される。",
+   "description": "ミサイルを発射する。ミサイルは敵に命中すると爆発し、周囲の敵に<physicalDamage>100/190/280（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与える。3発ごとに発射されるミサイルは、代わりに<physicalDamage>200/380/560（＋増加攻撃力の90%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは4回までチャージできる。チャンピオンに通常攻撃を行うと次のチャージまでの時間が<attention></attention>秒短縮される。",
    "cooldown": "2",
    "cost": "35",
    "range": "1225",

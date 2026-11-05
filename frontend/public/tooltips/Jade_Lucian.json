@@ -3,12 +3,12 @@
  "id": 60236,
  "name": "ルシアン",
  "title": "不浄殲滅者",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "二挺拳銃",
-   "description": "スキル使用後、次の通常攻撃で2回射撃を行う。<br><br><strong>詳細数値</strong><br>・ダメージ: 合計攻撃力の100%",
-   "source": "lcu",
+   "description": "スキルを使用するたび、6秒以内の次の通常攻撃が2回攻撃になる。<br><br>2発目の弾丸は敵チャンピオンと建造物に対し<physicalDamage>合計攻撃力の50%の物理ダメージ</physicalDamage>を与え、通常攻撃時効果を適用する。ミニオンとモンスターは2発目の弾丸から<physicalDamage>合計攻撃力の100%</physicalDamage>のダメージを受ける。",
+   "source": "stringtable",
    "unresolved": []
   },
   "q": {

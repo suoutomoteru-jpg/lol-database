@@ -3,11 +3,11 @@
  "id": 60041,
  "name": "ガングプランク",
  "title": "大海原の大災厄",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "ラム酒に濡れた剣",
-   "description": "通常攻撃で毒を付与し、3秒間、<status>スロウ効果</status>を付与して移動速度を7%低下させ、毎秒<magicDamage>4〜21（レベル比例）の魔法ダメージ</magicDamage>を与える。この効果は最大3回スタックする。",
+   "description": "通常攻撃で毒を付与し、3秒間、<status>スロウ効果</status>を付与して移動速度を7%低下させ、毎秒<magicDamage>4〜21（レベル比例）の魔法ダメージ</magicDamage>を与える。この効果は最大4回スタックする。",
    "source": "stringtable",
    "unresolved": []
   },

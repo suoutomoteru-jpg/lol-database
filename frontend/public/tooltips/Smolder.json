@@ -3,7 +3,7 @@
  "id": 901,
  "name": "スモルダー",
  "title": "炎の幼龍",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "駆けだしドラゴン",
@@ -27,7 +27,7 @@
   },
   "w": {
    "name": "くしゅん！",
-   "description": "可愛らしいくしゃみと共に炎を吐き、<physicalDamage>60/70/80/90/100（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて、1.5秒間35%の<status>スロウ効果</status>を付与する。<br><br>チャンピオンに命中すると爆発が起こり、<physicalDamage>10/35/60/85/110（＋増加攻撃力の50% ＋魔力の80%）の物理ダメージ</physicalDamage> + <magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "description": "可愛らしいくしゃみと共に炎を吐き、<physicalDamage>60/70/80/90/100（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与えて、1.5秒間35%の<status>スロウ効果</status>を付与する。<br><br>チャンピオンに命中すると爆発が起こり、<physicalDamage>25/50/75/100/125（＋増加攻撃力の50% ＋魔力の80%）の物理ダメージ</physicalDamage> + <magicDamage>の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "14/13/12/11/10",
    "cost": "50/55/60/65/70",
    "range": "1500",

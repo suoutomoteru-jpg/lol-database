@@ -3,7 +3,7 @@
  "id": 60082,
  "name": "モルデカイザー",
  "title": "メタルの支配者",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "アイアンマン",
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "グレイブ・チルドレン",
-   "description": "<magicDamage>最大体力の80/110/140/170/200（＋増加攻撃力の100% ＋魔力の40%）%にあたる魔法ダメージ</magicDamage>を吸収する。<br><br>呪いの効果時間中に対象が倒されると、その魂が奴隷となり30秒間、亡霊となってモルデカイザーに追従する。モルデカイザーは亡霊の<magicDamage>魔力</magicDamage>と<physicalDamage>攻撃力</physicalDamage>の20%を獲得し、亡霊のステータスが強化される。",
+   "description": "<magicDamage>最大体力の24/29/34（＋魔力の4%）%にあたる魔法ダメージ</magicDamage>を吸収する。<br><br>呪いの効果時間中に対象が倒されると、その魂が奴隷となり30秒間、亡霊となってモルデカイザーに追従する。モルデカイザーは亡霊の<magicDamage>魔力</magicDamage>と<physicalDamage>攻撃力</physicalDamage>の20%を獲得し、亡霊のステータスが強化される。",
    "cooldown": "120/105/90",
    "cost": "",
    "range": "850",

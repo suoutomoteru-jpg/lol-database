@@ -3,7 +3,7 @@
  "id": 157,
  "name": "ヤスオ",
  "title": "赦されざる者",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "浪人道",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "抜刀",
-   "description": "突きを放ち、<physicalDamage>20/45/70/95/120（＋合計攻撃力の105%）の物理ダメージ</physicalDamage>を与える。命中すると6秒間スタックを獲得する。2スタックになると、次にこのスキルを使用した際につむじ風を放ち、同量のダメージを与えて1秒間<status>ノックアップ</status>させる。<br><br>ダッシュ中に使用すると、このスキルが突きではなく、周囲を斬り払う攻撃になる。",
+   "description": "突きを放ち、<physicalDamage>20/45/70/95/120（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。命中すると6秒間スタックを獲得する。2スタックになると、次にこのスキルを使用した際につむじ風を放ち、同量のダメージを与えて1秒間<status>ノックアップ</status>させる。<br><br>ダッシュ中に使用すると、このスキルが突きではなく、周囲を斬り払う攻撃になる。",
    "cooldown": "4",
    "cost": "",
    "range": "475",

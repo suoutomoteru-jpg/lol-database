@@ -1,6 +1,6 @@
 {
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
- "generatedAt": "2026-10-29T09:17:28.464142+00:00",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "generatedAt": "2026-11-05T10:18:14.906110+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -444,6 +444,13 @@
    "passiveSource": "lcu"
   },
   {
+   "alias": "Jade_Elise",
+   "id": 60060,
+   "name": "エリス",
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
+  },
+  {
    "alias": "Jade_Evelynn",
    "id": 60028,
    "name": "イブリン",
@@ -623,7 +630,7 @@
    "id": 60236,
    "name": "ルシアン",
    "unresolvedCount": 2,
-   "passiveSource": "lcu"
+   "passiveSource": "stringtable"
   },
   {
    "alias": "Jade_Lulu",
@@ -822,6 +829,13 @@
    "passiveSource": "stringtable"
   },
   {
+   "alias": "Jade_Swain",
+   "id": 60050,
+   "name": "スウェイン",
+   "unresolvedCount": 0,
+   "passiveSource": "stringtable"
+  },
+  {
    "alias": "Jade_Taric",
    "id": 60044,
    "name": "タリック",
@@ -875,6 +889,13 @@
    "id": 60045,
    "name": "ベイガー",
    "unresolvedCount": 0,
+   "passiveSource": "stringtable"
+  },
+  {
+   "alias": "Jade_Volibear",
+   "id": 60106,
+   "name": "ボリベア",
+   "unresolvedCount": 2,
    "passiveSource": "stringtable"
   },
   {
@@ -1147,7 +1168,7 @@
    "alias": "Mel",
    "id": 800,
    "name": "メル",
-   "unresolvedCount": 1,
+   "unresolvedCount": 3,
    "passiveSource": "stringtable"
   },
   {

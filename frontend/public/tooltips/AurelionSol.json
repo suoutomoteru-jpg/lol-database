@@ -3,7 +3,7 @@
  "id": 136,
  "name": "オレリオン・ソル",
  "title": "星を創りし者",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "宇宙の創造者",
@@ -35,7 +35,7 @@
   },
   "e": {
    "name": "特異点",
-   "description": "ブラックホールを召喚して5秒間、敵に毎秒<magicDamage>10/15/20/25/30（＋魔力の12%）の魔法ダメージ</magicDamage>を与え、その中心に向かって<status>引き付ける</status>。中心部にいる敵は体力が<scaleHealth>最大体力の%</scaleHealth>を下回っていると、即座に倒される。<br><br>ブラックホールの範囲内で敵が倒されるたびに<font color='#3458eb'>「星屑」</font>を獲得する。また、範囲内に敵チャンピオンを捕らえている間も、毎秒<font color='#3458eb'>「星屑」</font>を獲得する。",
+   "description": "ブラックホールを召喚して5秒間、敵に毎秒<magicDamage>10/16/22/28/34（＋魔力の12/13/14/15/16%）の魔法ダメージ</magicDamage>を与え、その中心に向かって<status>引き付ける</status>。中心部にいる敵は体力が<scaleHealth>最大体力の%</scaleHealth>を下回っていると、即座に倒される。<br><br>ブラックホールの範囲内で敵が倒されるたびに<font color='#3458eb'>「星屑」</font>を獲得する。また、範囲内に敵チャンピオンを捕らえている間も、毎秒<font color='#3458eb'>「星屑」</font>を獲得する。",
    "cooldown": "12",
    "cost": "90",
    "range": "750",

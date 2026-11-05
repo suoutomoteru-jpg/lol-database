@@ -3,7 +3,7 @@
  "id": 61,
  "name": "オリアナ",
  "title": "時計仕掛けの舞姫",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "ぜんまい仕掛け",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "オーダー: 攻撃",
-   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が指定地点に移動し、周囲の敵と移動時に触れた敵に<magicDamage>60/90/120/150/180（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。2体目以降の敵に与えるダメージは30%低下する。",
+   "description": "オリアナの命令によって<keywordMajor>ボール</keywordMajor>が指定地点に移動し、その地点の周囲の敵と移動時に触れた敵に<magicDamage>60/90/120/150/180（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。<br><br>2体目以降の敵に与えるダメージは<magicDamage>42/63/84/105/126（＋魔力の60%）の魔法ダメージ</magicDamage>に低下する。",
    "cooldown": "7/6/5/4/3",
    "cost": "35",
    "range": "815",

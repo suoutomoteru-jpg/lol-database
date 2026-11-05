@@ -3,17 +3,17 @@
  "id": 110,
  "name": "ヴァルス",
  "title": "報復の一矢",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "復讐の化身",
-   "description": "敵をキルすると、5/7/9/11（レベル1/6/11/16）秒間、<attackSpeed>攻撃速度が10/15/20%（レベル1/7/13）</attackSpeed>、<scaleAD>攻撃力が増加攻撃速度の1100%</scaleAD>、<scaleAP>魔力が増加攻撃速度の1100%</scaleAP>増加する。<br><br>チャンピオンからキルまたはアシストを奪うと、代わりに<attackSpeed>攻撃速度が攻撃速度上限を無視して30%</attackSpeed>、<scaleAD>攻撃力が増加攻撃速度の3300%</scaleAD>、<scaleAP>魔力が増加攻撃速度の3300%</scaleAP>増加する。",
+   "description": "敵をキルすると、5/7/9/11（レベル1/6/11/16）秒間、<attackSpeed>攻撃速度が10/15/20%（レベル1/7/13）</attackSpeed>、<scaleAD>攻撃力が増加攻撃速度の1400%</scaleAD>、<scaleAP>魔力が増加攻撃速度の1400%</scaleAP>増加する。<br><br>チャンピオンからキルまたはアシストを奪うと、代わりに<attackSpeed>攻撃速度が攻撃速度上限を無視して30%</attackSpeed>、<scaleAD>攻撃力が増加攻撃速度の4200%</scaleAD>、<scaleAP>魔力が増加攻撃速度の4200%</scaleAP>増加する。",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
    "name": "乾坤一擲",
-   "description": "<attention>チャージ開始:</attention> 弓を引き絞って次の射撃を準備し、自身が20%の<status>スロウ効果</status>を受ける。4秒以内に発射しなかった場合は、スキルをキャンセルしてマナコストの50%を回復する。<br><br><attention>解放:</attention> 矢を放ち、<physicalDamage>の物理ダメージ</physicalDamage>を与える。敵に命中するたびにダメージが15%低下する(最小33%)。ダメージと<keywordMajor>枯死の呪い</keywordMajor>の爆発効果は、チャージ時間に応じて最大70%まで増加する(最大<physicalDamage>50/95/140/185/230（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>)。",
+   "description": "<attention>チャージ開始:</attention> 弓を引き絞って次の射撃を準備し、自身が20%の<status>スロウ効果</status>を受ける。4秒以内に発射しなかった場合は、スキルをキャンセルしてマナコストの50%を回復する。<br><br><attention>解放:</attention> 矢を放ち、<physicalDamage>の物理ダメージ</physicalDamage>を与える。敵に命中するたびにダメージが15%低下する(最小33%)。ダメージと<keywordMajor>枯死の呪い</keywordMajor>の爆発効果は、チャージ時間に応じて最大70%まで増加する(最大<physicalDamage>85/170/255/340/425（＋増加攻撃力の80%）の物理ダメージ</physicalDamage>)。",
    "cooldown": "16/15/14/13/12",
    "cost": "50/55/60/65/70",
    "range": "925",

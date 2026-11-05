@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Elise",
+ "id": 60060,
+ "name": "エリス",
+ "title": "蜘蛛の女帝",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "skills": {
+  "passive": {
+   "name": "蜘蛛の女帝",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: スキルが命中すると休眠状態の<keywordMajor>幼体</keywordMajor>を獲得する(最大<scaleBonus>2/3/4/5/6/7</scaleBonus>体)。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: 通常攻撃が<magicDamage>10/20/30/40/50/60（＋魔力の30%）の追加魔法ダメージ</magicDamage>を与え、獲得した<keywordMajor>幼体</keywordMajor>がそれぞれ周囲の敵に<physicalDamage>10/20/30/40/50/60（＋魔力の10%）の物理ダメージ</physicalDamage>を与える。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "神経毒/毒牙",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 「神経毒」を吐き出し、<magicDamage>40/80/120/160/200/240に加えて対象の現在体力の8%（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与える。対象の体力に応じたダメージはモンスターに対しては<scaleBonus>60/120/180/240/300/360</scaleBonus>が上限となる。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: 敵に向かって飛びかかり、<magicDamage>60/110/160/210/260/310に加えて対象の減少体力の8%（＋魔力の3%）にあたる魔法ダメージ</magicDamage>を与える。対象の体力に応じたダメージはモンスターに対しては<scaleBonus>60/120/180/240/300/360</scaleBonus>が上限となる。",
+   "cooldown": "6",
+   "cost": "80/85/90/95/100",
+   "range": "615",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "w": {
+   "name": "子蜘蛛爆弾/猛食",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 周囲の敵を追跡する幼体を召喚する。幼体は敵に接触するか3秒経過すると爆発し、<magicDamage>75/125/175/225/275/325（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。<br><br><keywordMajor>蜘蛛形態</keywordMajor> <spellPassive>自動効果:</spellPassive> <keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が5/10/15/20/25/30%</attackSpeed>増加する。<br><br><spellActive>発動効果:</spellActive> 3秒間、自身と<keywordMajor>幼体</keywordMajor>の<attackSpeed>攻撃速度が60/80/100/120/140/160%</attackSpeed>増加する。「猛食」の効果時間中は、自身の通常攻撃と幼体の攻撃が、自身の<healing>体力を4（＋魔力の4%）</healing>回復する。",
+   "cooldown": "12",
+   "cost": "60/70/80/90/100",
+   "range": "950",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "e": {
+   "name": "繭化/蜘蛛の糸",
+   "description": "<keywordMajor>ヒト形態</keywordMajor>: 繭を放ち、対象を1.5秒間<status>スタン</status>させ、<status>可視化</status>する。<br><br><keywordMajor>蜘蛛形態</keywordMajor>: <keywordMajor>幼体</keywordMajor>とともに跳び上がって対象指定されなくなり、周囲の敵を可視化する。敵に対して<recast>再発動</recast>すると、その対象へ降下する。",
+   "cooldown": "12/11.5/11/10.5/10",
+   "cost": "50",
+   "range": "1075",
+   "maxRank": 5,
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "r": {
+   "name": "蜘蛛形態",
+   "description": "<keywordMajor>蜘蛛形態</keywordMajor>に変身して近接チャンピオンになる。通常攻撃時効果で<magicDamage>10/20/30/40/50/60（＋魔力の30%）の追加魔法ダメージ</magicDamage>を与え、休眠状態の<keywordMajor>幼体</keywordMajor>を召喚する。幼体はそれぞれ、攻撃で<physicalDamage>10/20/30/40/50/60（＋魔力の10%）の物理ダメージ</physicalDamage>を与える。<br><br><keywordMajor>ヒト形態</keywordMajor>に戻る。<keywordMajor>幼体</keywordMajor>は休眠状態になる。",
+   "cooldown": "3",
+   "cost": "",
+   "range": "20",
+   "maxRank": 3,
+   "source": "stringtable",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

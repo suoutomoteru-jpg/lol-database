@@ -3,7 +3,7 @@
  "id": 99,
  "name": "ラックス",
  "title": "光の才女",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "イルミネーション",
@@ -32,7 +32,7 @@
    "unresolved": []
   },
   "e": {
-   "name": "シンギュラリティ",
+   "name": "シンギュラリティー",
    "description": "光の領域を作り出し、範囲内の敵に25/30/35/40/45%の<status>スロウ効果</status>を与えて視界を得る。5秒経過するか<recast>再発動</recast>で爆発し、<magicDamage>65/115/165/215/265（＋魔力の80%）の魔法ダメージ</magicDamage>を与えて<status>スロウ効果</status>を追加で1秒間付与する。",
    "cooldown": "10/9.5/9/8.5/8",
    "cost": "70/80/90/100/110",

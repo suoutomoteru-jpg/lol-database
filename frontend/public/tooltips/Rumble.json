@@ -3,7 +3,7 @@
  "id": 68,
  "name": "ランブル",
  "title": "戦慄の機甲兵",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "ポンコツタイタン",
@@ -43,7 +43,7 @@
   },
   "r": {
    "name": "イコライザー",
-   "description": "ロケットを一列に発射して、4.5秒間着弾地点を炎上させ、35%の<status>スロウ効果</status>を付与し、毎秒<magicDamage>120/200/280（＋魔力の35%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは使用中にクリックしてドラッグすると、ロケットの着弾方向を変えられる。",
+   "description": "ロケットを一列に発射して、4.5秒間着弾地点を炎上させ、35%の<status>スロウ効果</status>を付与し、毎秒<magicDamage>120/200/280（＋魔力の40%）の魔法ダメージ</magicDamage>を与える。<br><br>このスキルは使用中にクリックしてドラッグすると、ロケットの着弾方向を変えられる。",
    "cooldown": "130/105/80",
    "cost": "",
    "range": "1750",

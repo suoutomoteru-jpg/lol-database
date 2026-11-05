@@ -3,7 +3,7 @@
  "id": 412,
  "name": "スレッシュ",
  "title": "縛鎖の看守",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "魂の束縛",
@@ -48,7 +48,7 @@
   },
   "r": {
    "name": "魂の牢獄",
-   "description": "霊体の壁による牢獄を出現させて、2秒間チャンピオンに99%の<status>スロウ効果</status>を付与し、<magicDamage>250/400/550（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。接触されると壁は壊れ、残りの壁はダメージを与えず、<status>スロウ</status>の効果時間が半減する。",
+   "description": "霊体の壁による牢獄を出現させて、2秒間チャンピオンに99%の<status>スロウ効果</status>を付与し、<magicDamage>200/350/500（＋魔力の100%）の魔法ダメージ</magicDamage>を与える。接触されると壁は壊れ、残りの壁はダメージを与えず、<status>スロウ</status>の効果時間が半減する。",
    "cooldown": "120/100/80",
    "cost": "100",
    "range": "450",

@@ -3,7 +3,7 @@
  "id": 60028,
  "name": "イブリン",
  "title": "幻妖のアサシン",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "シャドウ ウォーク",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ヘイトスパイク",
-   "description": "地面から一直線に貫通するトゲを近くの敵に放ち、命中したすべての敵に<magicDamage>40/55/70/85/100（＋増加攻撃力の50% ＋魔力の45%）の魔法ダメージ</magicDamage>を与える。<br><br><spellName>ヘイトスパイク</spellName>は、イブリンが直前に攻撃した敵を優先する。",
+   "description": "地面から一直線に貫通するトゲを近くの敵に放ち、命中したすべての敵に<magicDamage>40/60/80/100/120（＋増加攻撃力の50% ＋魔力の45%）の魔法ダメージ</magicDamage>を与える。<br><br><spellName>ヘイトスパイク</spellName>は、イブリンが直前に攻撃した敵を優先する。",
    "cooldown": "1.5",
    "cost": "16/22/28/34/40",
    "range": "525",

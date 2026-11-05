@@ -3,39 +3,42 @@
  "id": 800,
  "name": "メル",
  "title": "魂の反照",
- "patch": "16.21.8298620+branch.releases-16-21.content.release",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
  "skills": {
   "passive": {
    "name": "灼熱の輝き",
-   "description": "通常攻撃とスキルで敵にダメージを与えるたびに、5秒間<keywordMajor>「圧倒」</keywordMajor>のスタックを付与し、スタックをリフレッシュする。<magicDamage>60/70/80/90/100/110（＋魔力の10%） + スタックごとに3/4/5/6/7/8（＋魔力の0.75%）の魔法ダメージ</magicDamage>を蓄積させる。スタックが適用されている間は、蓄積されたダメージ量が敵のシールドと体力の合計値を超えた時点で敵にとどめを刺す。<br><br>スキルを使用すると、次の通常攻撃が3発の飛翔物を追加で発射し、それぞれが<magicDamage>8〜30（レベル比例） ＋ 魔力の4%の魔法ダメージ</magicDamage>を与える。追加の飛翔物は最大で9発までスタックする。<br><br><rules>ミニオンに使用した場合、<keywordMajor>「圧倒」</keywordMajor>の最初のスタックはダメージが50%低下する。</rules>",
+   "description": "通常攻撃とスキルで敵にダメージを与えるたびに、5秒間<keywordMajor>「圧倒」</keywordMajor>のスタックを付与し、スタックをリフレッシュする。<magicDamage>60/70/80/90/100/110（＋魔力の10%） + スタックごとに3/4/5/6/7/8（＋魔力の0.75%）の魔法ダメージ</magicDamage>を蓄積させる。スタックが適用されている間は、蓄積されたダメージ量が敵のシールドと体力の合計値を超えた時点で敵にとどめを刺す。<br><br>スキルを使用すると、次の通常攻撃が3発の飛翔物を追加で発射し、それぞれが<magicDamage>4〜30（レベル比例） ＋ 魔力の4%の魔法ダメージ</magicDamage>を与える。追加の飛翔物は最大で9発までスタックする。<br><br><rules>ミニオンに使用した場合、<keywordMajor>「圧倒」</keywordMajor>の最初のスタックは55%のダメージしか与えない。</rules>",
    "source": "stringtable",
    "unresolved": []
   },
   "q": {
-   "name": "輝きの連撃",
-   "description": "指定地点に向かって6/7/8/9/10発の飛翔物を連続で発射する。飛翔物は指定地点の周囲に爆発を引き起こす。<br><br>最初の爆発の命中時に<magicDamage>60/85/110/135/160（＋魔力の55%）の魔法ダメージ</magicDamage>を与え、その後の爆発はそれぞれ<magicDamage>5/7/9/11/13（＋魔力の5%）の魔法ダメージ</magicDamage>、最大で合計<magicDamage>の魔法ダメージ</magicDamage>を与える。",
+   "name": "輝きの斉射",
+   "description": "6/7/8/9/10発の飛翔物を連続で発射し、指定地点で爆発させる。敵への最初の命中時には<magicDamage>60（＋魔力の25%）の魔法ダメージ</magicDamage>を与え、その後の命中時にはそれぞれ<magicDamage>の魔法ダメージ</magicDamage>を与える(最大<magicDamage>85/120/165/220/285（＋魔力の65/73/81/89/97%）の魔法ダメージ</magicDamage>)。<br><br>この飛翔物が敵チャンピオンに1回でも命中していると、このスキルのクールダウンが秒短縮される。",
    "cooldown": "10/9/8/7/6",
    "cost": "70/75/80/85/90",
    "range": "950",
    "maxRank": 5,
    "source": "lcu",
    "unresolved": [
-    "AllDamageHit"
+    "SubsequentDamage",
+    "CDRefundChampHit"
    ]
   },
   "w": {
    "name": "反駁",
-   "description": "自身の周囲にバリアを形成する。このバリアは敵チャンピオンの発射物を反射し、耐久値<shield>80/110/140/170/200（＋魔力の70%）のシールド</shield>を0.75秒間獲得する。また、自身の<speed>移動速度を40%</speed>増加させる。この移動速度は0.75秒かけて元に戻る。<br><br>反射された発射物は<magicDamage>元のダメージの40/45/50/55/60%を魔法ダメージ</magicDamage>として与える。",
+   "description": "屈折のノヴァを解き放つ。ノヴァは衝突した敵の飛翔物を破壊し、反撃して<magicDamage>35/40/45/50/55（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。同じ敵に対する2回目以降の反撃は、代わりに<magicDamage>の魔法ダメージ</magicDamage>を与える。<br><br>このノヴァは2秒間、自身と味方に<shield>耐久値50/80/110/140/170（＋魔力の50%）のシールド</shield>と<speed>0（＋0.1〜0.3（レベル比例））の増加移動速度</speed>を付与する。",
    "cooldown": "38/35/33/29/26",
    "cost": "80/60/40/20/0",
-   "range": "250",
+   "range": "400",
    "maxRank": 5,
    "source": "lcu",
-   "unresolved": []
+   "unresolved": [
+    "SubsequentDamage"
+   ]
   },
   "e": {
    "name": "陽光の枷",
-   "description": "輝くオーブを発射し、中心にいた敵には1.5秒間、<status>スネア効果</status>を与え、<magicDamage>60/105/150/195/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<br><br>オーブは周囲に敵対的範囲を作り出し、敵に30%の<status>スロウ効果</status>を与えて、<magicDamage>毎秒16/28/40/52/64（＋魔力の8%）の魔法ダメージ</magicDamage>を与える。",
+   "description": "輝くオーブを発射し、中心にいた敵には0.8/0.85/0.9/0.95/1 - 1.6/1.75/1.9/2.05/2.2秒間(オーブの飛距離に応じて)、<status>スネア効果</status>を与え、<magicDamage>60/105/150/195/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<br><br>オーブは周囲に危険なエリアを形成し、範囲内の敵に20/25/30/35/40%の<status>スロウ効果</status>と<magicDamage>毎秒16/28/40/52/64（＋魔力の8%）の魔法ダメージ</magicDamage>を与える。",
    "cooldown": "11/10.5/10/9.5/9",
    "cost": "50/60/70/80/90",
    "range": "1000",
@@ -54,5 +57,5 @@
    "unresolved": []
   }
  },
- "unresolvedCount": 1
+ "unresolvedCount": 3
 }
