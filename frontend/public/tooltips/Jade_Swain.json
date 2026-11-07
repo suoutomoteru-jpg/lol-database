@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Swain",
+ "id": 60050,
+ "name": "スウェイン",
+ "title": "マスター タクティシャン",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "skills": {
+  "passive": {
+   "name": "屍食再生",
+   "description": "ユニットをキルするたびに<scaleMana>マナを10〜27（レベル比例）</scaleMana>回復する。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "戦慄の怪烏",
+   "description": "<mainText>鴉を放って、敵の動きを封じる。その後3秒間、対象に毎秒<magicDamage>25/40/55/70/85（＋魔力の30%）の魔法ダメージ</magicDamage>(最大: <magicDamage>75/120/165/210/255（＋魔力の30%）のダメージ</magicDamage>)と20/25/30/35/40%の<status>スロウ効果</status>を与える。",
+   "cooldown": "8",
+   "cost": "60/70/80/90/100",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "束縛の爪",
+   "description": "<mainText>対象地点をマークする。少し遅れて、敵ユニットを鉤爪で掴み、<magicDamage>80/120/160/200/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与えて、2秒間<status>スネア効果</status>を与える。",
+   "cooldown": "18/16/14/12/10",
+   "cost": "80/90/100/110/120",
+   "range": "900",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "苦悶",
+   "description": "<mainText>対象に4秒かけて<magicDamage>75/115/155/195/235（＋魔力の80%）の魔法ダメージ</magicDamage>を与える。この間、対象はスウェインの通常攻撃から受けるダメージが8/11/14/17/20%増加する。",
+   "cooldown": "",
+   "cost": "65/70/75/80/85",
+   "range": "625",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "恐襲の魔鴉",
+   "description": "<mainText><toggle>発動: </toggle>鴉の姿に変身する。この効果時間中、1秒ごとに最大3体の小型の鴉が近くの敵を攻撃する(チャンピオンを優先)。鴉はそれぞれ<magicDamage>50/70/90（＋魔力の20%）の魔法ダメージ</magicDamage>を与え、スウェインは鴉がチャンピオンに与えたダメージの<healing>75%</healing>と、ミニオンに与えたダメージの<healing>25%</healing>にあたる体力を<healing>回復</healing>する。<br><br>「恐襲の魔鴉」を維持するコストは1秒ごとに<scaleMana>5/6/7マナ</scaleMana>ずつ増加する。",
+   "cooldown": "8",
+   "cost": "25",
+   "range": "625",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}
