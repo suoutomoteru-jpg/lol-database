@@ -1,0 +1,59 @@
+{
+ "alias": "Jade_Volibear",
+ "id": 60106,
+ "name": "ボリベア",
+ "title": "雷鳴の咆哮",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "skills": {
+  "passive": {
+   "name": "嵐に選ばれし者",
+   "description": "自身の<healing>体力が30%</healing>を下回ると、6秒かけて<healing>体力が合計体力の30%</healing>自動回復する。この効果には秒間のクールダウンがある。",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "鳴雷",
+   "description": "大地を四肢で蹴って走り出し、4秒間、<speed>移動速度が15%</speed>増加する。敵チャンピオンに向かっている場合は増加移動速度が<speed>30/35/40/45/50%</speed>に強化される。<br><br>この効果時間中、次の通常攻撃が<physicalDamage>30/60/90/120/150（＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与え、対象を自身の背後に投げ飛ばす。",
+   "cooldown": "14/13/12/11/10",
+   "cost": "50",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "獰猛",
+   "description": "<spellPassive>自動効果:</spellPassive> 通常攻撃を行うたびに<attackSpeed>攻撃速度が8/11/14/17/20%</attackSpeed>増加する。この効果は3回までスタックし、最大で<attackSpeed>攻撃速度が</attackSpeed>まで増加する。<br><br><spellActive>発動効果:</spellActive> <spellName>獰猛</spellName>のスタックが3になると、敵に噛みついて<physicalDamage>の物理ダメージ</physicalDamage>を与える。このダメージは対象の減少体力に応じて増加し、最大で<physicalDamage>160/250/340/430/520（＋増加体力の15%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "5",
+   "cost": "20/25/30/35/40",
+   "range": "350",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "MaximumAttackSpeed",
+    "BiteDamage"
+   ]
+  },
+  "e": {
+   "name": "雄大な咆哮",
+   "description": "咆哮をあげ、周囲の敵に<magicDamage>60/105/150/195/240（＋魔力の60%）の魔法ダメージ</magicDamage>を与え、3秒間30/35/40/45/50%の<status>スロウ効果</status>を付与する。ミニオンとモンスターには<status>フィアー効果</status>を与える。",
+   "cooldown": "16",
+   "cost": "50",
+   "range": "425",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "稲妻の爪",
+   "description": "12秒間、嵐を呼び寄せ、通常攻撃が<magicDamage>75/115/155（＋魔力の30%）の魔法ダメージ</magicDamage>を追加で与えるようになり、周囲の4体の敵に連鎖する。",
+   "cooldown": "160/135/110",
+   "cost": "100",
+   "range": "0",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 2
+}

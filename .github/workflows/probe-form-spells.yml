@@ -1,0 +1,19 @@
+name: Probe form spells
+
+on:
+  push:
+    paths:
+      - 'scripts/probe_form_spells.py'
+      - '.github/workflows/probe-form-spells.yml'
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run probe
+        run: python scripts/probe_form_spells.py

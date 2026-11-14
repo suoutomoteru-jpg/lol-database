@@ -1,0 +1,61 @@
+{
+ "alias": "Mel",
+ "id": 800,
+ "name": "メル",
+ "title": "魂の反照",
+ "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "skills": {
+  "passive": {
+   "name": "灼熱の輝き",
+   "description": "通常攻撃とスキルで敵にダメージを与えるたびに、5秒間<keywordMajor>「圧倒」</keywordMajor>のスタックを付与し、スタックをリフレッシュする。<magicDamage>60/70/80/90/100/110（＋魔力の10%） + スタックごとに3/4/5/6/7/8（＋魔力の0.75%）の魔法ダメージ</magicDamage>を蓄積させる。スタックが適用されている間は、蓄積されたダメージ量が敵のシールドと体力の合計値を超えた時点で敵にとどめを刺す。<br><br>スキルを使用すると、次の通常攻撃が3発の飛翔物を追加で発射し、それぞれが<magicDamage>4〜30（レベル比例） ＋ 魔力の4%の魔法ダメージ</magicDamage>を与える。追加の飛翔物は最大で9発までスタックする。<br><br><rules>ミニオンに使用した場合、<keywordMajor>「圧倒」</keywordMajor>の最初のスタックは55%のダメージしか与えない。</rules>",
+   "source": "stringtable",
+   "unresolved": []
+  },
+  "q": {
+   "name": "輝きの斉射",
+   "description": "6/7/8/9/10発の飛翔物を連続で発射し、指定地点で爆発させる。敵への最初の命中時には<magicDamage>60（＋魔力の25%）の魔法ダメージ</magicDamage>を与え、その後の命中時にはそれぞれ<magicDamage>の魔法ダメージ</magicDamage>を与える(最大<magicDamage>85/120/165/220/285（＋魔力の65/73/81/89/97%）の魔法ダメージ</magicDamage>)。<br><br>この飛翔物が敵チャンピオンに1回でも命中していると、このスキルのクールダウンが秒短縮される。",
+   "cooldown": "10/9/8/7/6",
+   "cost": "70/75/80/85/90",
+   "range": "950",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "SubsequentDamage",
+    "CDRefundChampHit"
+   ]
+  },
+  "w": {
+   "name": "反駁",
+   "description": "屈折のノヴァを解き放つ。ノヴァは衝突した敵の飛翔物を破壊し、反撃して<magicDamage>35/40/45/50/55（＋魔力の10%）の魔法ダメージ</magicDamage>を与える。同じ敵に対する2回目以降の反撃は、代わりに<magicDamage>の魔法ダメージ</magicDamage>を与える。<br><br>このノヴァは2秒間、自身と味方に<shield>耐久値50/80/110/140/170（＋魔力の50%）のシールド</shield>と<speed>0（＋0.1〜0.3（レベル比例））の増加移動速度</speed>を付与する。",
+   "cooldown": "38/35/33/29/26",
+   "cost": "80/60/40/20/0",
+   "range": "400",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": [
+    "SubsequentDamage"
+   ]
+  },
+  "e": {
+   "name": "陽光の枷",
+   "description": "輝くオーブを発射し、中心にいた敵には0.8/0.85/0.9/0.95/1 - 1.6/1.75/1.9/2.05/2.2秒間(オーブの飛距離に応じて)、<status>スネア効果</status>を与え、<magicDamage>60/105/150/195/240（＋魔力の70%）の魔法ダメージ</magicDamage>を与える。<br><br>オーブは周囲に危険なエリアを形成し、範囲内の敵に20/25/30/35/40%の<status>スロウ効果</status>と<magicDamage>毎秒16/28/40/52/64（＋魔力の8%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "11/10.5/10/9.5/9",
+   "cost": "50/60/70/80/90",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "黄金蝕",
+   "description": "<spellPassive>自動効果</spellPassive>: <keywordMajor>「圧倒」</keywordMajor>のダメージが<magicDamage>60/70/80（＋魔力の10%） + スタックごとに3/4/5（＋魔力の0.75%）の魔法ダメージ</magicDamage>に増加する。<br><br><spellActive>発動効果</spellActive>: <keywordMajor>「圧倒」</keywordMajor>を付与されたすべての敵に向けてパワーを解き放ち、<magicDamage>125/200/275（＋魔力の30%） + <keywordMajor>「圧倒」</keywordMajor>のスタックごとに4/7/10（＋魔力の4%）の魔法ダメージ</magicDamage>を与える。<br><br><rules>敵チャンピオンに<keywordMajor>「圧倒」</keywordMajor>が付与されていない時は使用できない。</rules>",
+   "cooldown": "120/100/80",
+   "cost": "100",
+   "range": "25000",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 3
+}

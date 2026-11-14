@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getLatestVersion, fetchAllItemsRaw, fetchItemEnNames, itemImageUrl } from '../api/dataDragon';
+import { fetchItemDescFixes } from '../api/itemFixes';
 
 export interface ItemDetailData {
   id: string;
@@ -10,8 +11,8 @@ export interface ItemDetailData {
   stats: Record<string, number>;
   tags: string[];
   imageUrl: string;
-  from: Array<{ id: string; name: string; imageUrl: string }>;
-  into: Array<{ id: string; name: string; imageUrl: string }>;
+  from: Array<{ id: string; name: string; imageUrl: string; gold: number }>;
+  into: Array<{ id: string; name: string; imageUrl: string; gold: number }>;
   version: string;
 }
 
@@ -37,9 +38,10 @@ export function useItem(itemId: string | undefined): UseItemResult {
     async function load() {
       try {
         const v = await getLatestVersion();
-        const [allItems, enNames] = await Promise.all([
+        const [allItems, enNames, descFixes] = await Promise.all([
           fetchAllItemsRaw(v),
           fetchItemEnNames(v),
+          fetchItemDescFixes(),
         ]);
         if (cancelled) return;
 
@@ -49,14 +51,15 @@ export function useItem(itemId: string | undefined): UseItemResult {
         const resolve = (id: string) => {
           const it = allItems[id];
           if (!it) return null;
-          return { id, name: it.name, imageUrl: itemImageUrl(v, it.image.full) };
+          return { id, name: it.name, imageUrl: itemImageUrl(v, it.image.full), gold: it.gold.total };
         };
 
         setItem({
           id: itemId!,
           name: raw.name,
           englishName: enNames[itemId!] ?? '',
-          description: raw.description,
+          // Riot配信データの動的数値欠落（0/空欄）はCI生成の修正版で差し替える
+          description: descFixes[itemId!] ?? raw.description,
           gold: raw.gold,
           stats: raw.stats,
           tags: raw.tags,

@@ -1,0 +1,17 @@
+name: Probe CDragon assets
+
+# ロール/クラスアイコン等の実パス調査用（結果はログで確認）
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/probe_cdragon_assets.py
+      - .github/workflows/probe-cdragon-assets.yml
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/probe_cdragon_assets.py
