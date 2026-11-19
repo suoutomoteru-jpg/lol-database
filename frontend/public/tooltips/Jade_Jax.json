@@ -3,7 +3,7 @@
  "id": 60024,
  "name": "ジャックス",
  "title": "最強の武器使い",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "武具への精通",

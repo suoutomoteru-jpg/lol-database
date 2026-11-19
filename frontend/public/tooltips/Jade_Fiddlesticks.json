@@ -3,7 +3,7 @@
  "id": 60009,
  "name": "フィドルスティックス",
  "title": "破滅の先触れ",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "ドレッド",

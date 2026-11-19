@@ -3,7 +3,7 @@
  "id": 78,
  "name": "ポッピー",
  "title": "大鎚の守護者",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "鋼鉄の大使",

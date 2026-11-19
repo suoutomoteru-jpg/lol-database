@@ -3,7 +3,7 @@
  "id": 161,
  "name": "ヴェル＝コズ",
  "title": "ヴォイドの瞳",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "有機分解",
@@ -45,7 +45,7 @@
   },
   "r": {
    "name": "生体破壊光線",
-   "description": "カーソルの方向にビームを発射し、2.5秒かけて最大<magicDamage>450/700/925（＋魔力の125%）の魔法ダメージ</magicDamage>を与え、20%の<status>スロウ効果</status>を付与する。直前に<spellName>「有機分解」</spellName>でダメージを与えた敵には、代わりに<trueDamage>確定ダメージ</trueDamage>を与える。<br><br>ビームを受けている敵には、継続的に<keywordMajor>「分解」</keywordMajor>のスタックを付与する。",
+   "description": "カーソルの方向にビームを発射し、2.5秒かけて最大<magicDamage>450/700/950（＋魔力の125%）の魔法ダメージ</magicDamage>を与え、20%の<status>スロウ効果</status>を付与する。直前に<spellName>「有機分解」</spellName>でダメージを与えた敵には、代わりに<trueDamage>確定ダメージ</trueDamage>を与える。<br><br>ビームを受けている敵には、継続的に<keywordMajor>「分解」</keywordMajor>のスタックを付与する。",
    "cooldown": "100/90/80",
    "cost": "100",
    "range": "1575",

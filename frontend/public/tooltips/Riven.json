@@ -3,7 +3,7 @@
  "id": 92,
  "name": "リヴェン",
  "title": "贖罪の追放者",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "ルーンブレード",

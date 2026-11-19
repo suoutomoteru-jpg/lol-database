@@ -1,6 +1,6 @@
 {
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
- "generatedAt": "2026-11-12T10:57:10.859307+00:00",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
+ "generatedAt": "2026-11-19T11:05:22.793063+00:00",
  "champions": [
   {
    "alias": "Aatrox",
@@ -836,6 +836,11 @@
    "passiveSource": "stringtable"
   },
   {
+   "alias": "Jade_Talon",
+   "id": 60091,
+   "error": "HTTP Error 404: Not Found"
+  },
+  {
    "alias": "Jade_Taric",
    "id": 60044,
    "name": "タリック",
@@ -878,6 +883,16 @@
    "passiveSource": "stringtable"
   },
   {
+   "alias": "Jade_Udyr",
+   "id": 60077,
+   "error": "HTTP Error 404: Not Found"
+  },
+  {
+   "alias": "Jade_Urgot",
+   "id": 60006,
+   "error": "HTTP Error 404: Not Found"
+  },
+  {
    "alias": "Jade_Vayne",
    "id": 60067,
    "name": "ヴェイン",
@@ -911,6 +926,11 @@
    "name": "ウーコン",
    "unresolvedCount": 0,
    "passiveSource": "lcu"
+  },
+  {
+   "alias": "Jade_Xerath",
+   "id": 60101,
+   "error": "HTTP Error 404: Not Found"
   },
   {
    "alias": "Jade_XinZhao",

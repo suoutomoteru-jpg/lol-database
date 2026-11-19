@@ -3,7 +3,7 @@
  "id": 150,
  "name": "ナー",
  "title": "ミッシングリンク",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "ぷんすこ",
@@ -13,7 +13,7 @@
   },
   "q": {
    "name": "ブーメラン/ぽいっ",
-   "description": "<keywordMajor>ミニナー:</keywordMajor> ブーメランを投げて<physicalDamage>5/45/85/125/165/205（＋合計攻撃力の125%）の物理ダメージ</physicalDamage>を与え、2秒間15/20/25/30/35/40%の<status>スロウ効果</status>を付与する。ブーメランは敵に当たると戻ってくるが、その際に与えるダメージは減少する。それぞれの敵に1回しか当たらない。ブーメランをキャッチすると、このスキルのクールダウンが40%短縮される。<br><br><keywordMajor>メガナー:</keywordMajor> 岩石を投げ、最初に命中した敵と周囲の敵に<physicalDamage>45/90/135/180/225/270（＋合計攻撃力の140%）の物理ダメージ</physicalDamage>を与え、2秒間30/35/40/45/50/55%の<status>スロウ効果</status>を付与する。岩石を拾うと、このスキルのクールダウンが70%短縮される。<br><br><strong>◆ メガナー: ぽいっ/ブーメラン</strong><br><keywordMajor>メガナー:</keywordMajor> 岩石を投げ、最初に命中した敵と周囲の敵に<physicalDamage>45/90/135/180/225/270（＋合計攻撃力の140%）の物理ダメージ</physicalDamage>を与え、2秒間30/35/40/45/50/55%の<status>スロウ効果</status>を付与する。岩石を拾うと、このスキルのクールダウンが70%短縮される。",
+   "description": "<keywordMajor>ミニナー:</keywordMajor> ブーメランを投げて<physicalDamage>5/45/85/125/165/205（＋合計攻撃力の135%）の物理ダメージ</physicalDamage>を与え、2秒間15/20/25/30/35/40%の<status>スロウ効果</status>を付与する。ブーメランは敵に当たると戻ってくるが、その際に与えるダメージは減少する。それぞれの敵に1回しか当たらない。ブーメランをキャッチすると、このスキルのクールダウンが40%短縮される。<br><br><keywordMajor>メガナー:</keywordMajor> 岩石を投げ、最初に命中した敵と周囲の敵に<physicalDamage>45/90/135/180/225/270（＋合計攻撃力の150%）の物理ダメージ</physicalDamage>を与え、2秒間30/35/40/45/50/55%の<status>スロウ効果</status>を付与する。岩石を拾うと、このスキルのクールダウンが70%短縮される。<br><br><strong>◆ メガナー: ぽいっ/ブーメラン</strong><br><keywordMajor>メガナー:</keywordMajor> 岩石を投げ、最初に命中した敵と周囲の敵に<physicalDamage>45/90/135/180/225/270（＋合計攻撃力の150%）の物理ダメージ</physicalDamage>を与え、2秒間30/35/40/45/50/55%の<status>スロウ効果</status>を付与する。岩石を拾うと、このスキルのクールダウンが70%短縮される。",
    "cooldown": "16/14.5/13/11.5/10",
    "cost": "",
    "range": "1100",

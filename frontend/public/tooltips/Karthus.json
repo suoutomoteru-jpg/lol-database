@@ -3,7 +3,7 @@
  "id": 30,
  "name": "カーサス",
  "title": "死を歌う者",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "怨嗟の叫び",

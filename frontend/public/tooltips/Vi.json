@@ -3,7 +3,7 @@
  "id": 254,
  "name": "ヴァイ",
  "title": "ピルトーヴァーの用心棒",
- "patch": "16.22.8348910+branch.releases-16-22.content.release",
+ "patch": "16.23.8399929+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "ケンカの作法",
@@ -33,7 +33,7 @@
   },
   "e": {
    "name": "無慈悲な連撃",
-   "description": "次の通常攻撃が対象とその背後の敵に<physicalDamage>10/30/50/70/90（＋合計攻撃力の110% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは2回までチャージできる(秒でリチャージ)。",
+   "description": "次の通常攻撃が対象とその背後の敵に<physicalDamage>10/35/60/85/110（＋合計攻撃力の110% ＋魔力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>このスキルは2回までチャージできる(秒でリチャージ)。",
    "cooldown": "1",
    "cost": "26/32/38/44/50",
    "range": "400",
