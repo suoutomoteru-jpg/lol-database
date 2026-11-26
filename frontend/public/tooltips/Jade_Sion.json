@@ -3,7 +3,7 @@
  "id": 60014,
  "name": "サイオン",
  "title": "不死のチャンピオン",
- "patch": "16.23.8399929+branch.releases-16-23.content.release",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "無痛",

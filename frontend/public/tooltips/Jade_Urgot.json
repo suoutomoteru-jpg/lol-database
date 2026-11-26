@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Urgot",
+ "id": 60006,
+ "name": "アーゴット",
+ "title": "処刑人の誇り",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
+ "skills": {
+  "passive": {
+   "name": "ゾウン・デストラクション",
+   "description": "通常攻撃と「アシッドハンター」が対象が与えるダメージを短時間低下させる。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "アシッドハンター",
+   "description": "ミサイルを発射し、<physicalDamage>10/40/70/100/130（＋合計攻撃力の85%）の物理ダメージ</physicalDamage>を与える。<br><br><spellName>ノクサス・コラプトシェル</spellName>が付与された対象を狙うと、ミサイルがロックオンされる。",
+   "cooldown": "2",
+   "cost": "40",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "テラーコンデンサー",
+   "description": "7秒間、<shield>耐久値80/130/180/230/280（＋魔力の80%）のシールド</shield>を獲得する。シールドが有効な間は、自身の通常攻撃と<spellName>アシッドハンター</spellName>が1.5秒間、20/25/30/35/40%の<status>スロウ効果</status>を与える。",
+   "cooldown": "16/15/14/13/12",
+   "cost": "55/60/65/70/75",
+   "range": "490",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "ノクサス・コラプトシェル",
+   "description": "「コラプトシェル」を発射して、敵の物理防御を12/14/16/18/20%低下させ、5秒かけて<physicalDamage>75/130/185/240/295（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与える。",
+   "cooldown": "15/14/13/12/11",
+   "cost": "50/55/60/65/70",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "ハイパーキネティック・ポジションリバーサー",
+   "description": "敵チャンピオン1体に<status>サプレッション</status>を付与し、1秒間詠唱してから、対象と自身の位置を入れ替える。入れ替えに成功した場合は3秒間、対象に40%の<status>スロウ効果</status>を付与する。<br><br>詠唱開始時に5秒間、<scaleArmor>60/90/120の物理防御</scaleArmor>と<scaleMR>魔法防御</scaleMR>を獲得する。",
+   "cooldown": "120",
+   "cost": "120",
+   "range": "550/700/850",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

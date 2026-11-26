@@ -3,7 +3,7 @@
  "id": 48,
  "name": "トランドル",
  "title": "トロールキング",
- "patch": "16.23.8399929+branch.releases-16-23.content.release",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "王への貢物",

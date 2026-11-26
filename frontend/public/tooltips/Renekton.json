@@ -3,7 +3,7 @@
  "id": 58,
  "name": "レネクトン",
  "title": "砂漠の解体屋",
- "patch": "16.23.8399929+branch.releases-16-23.content.release",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "激情の支配",

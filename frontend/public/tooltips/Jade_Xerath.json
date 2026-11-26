@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Xerath",
+ "id": 60101,
+ "name": "ゼラス",
+ "title": "超越魔神",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
+ "skills": {
+  "passive": {
+   "name": "超越形態",
+   "description": "神秘の力を糧とし、魔力に応じて物理防御が増加する。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "アルカノパルス",
+   "description": "長射程のエネルギービームを発射し、命中したすべての敵ユニットに<magicDamage>75/115/155/195/235（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。",
+   "cooldown": "7/6.5/6/5.5/5",
+   "cost": "65/70/75/80/85",
+   "range": "1000",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "力の地点",
+   "description": "最大8秒間その場に固定され、すべてのスキルの射程が増加して<magicPen>16/22/28/34/40%の魔法防御貫通</magicPen>を獲得する。スキルを再発動するか移動すると、効果を早めにキャンセルすることができる。<br><br>効果終了時、2秒間、自身の<speed>移動速度が35%</speed>増加する。",
+   "cooldown": "20/16/12/8/4",
+   "cost": "",
+   "range": "0",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "メイジの鎖",
+   "description": "敵に<magicDamage>70/120/170/220/270（＋魔力の80%）の魔法ダメージ</magicDamage>を与え、<keywordMajor>「不安定な魔法」</keywordMajor>のマークを付与する。次のスキルが命中した対象を1.5秒間<status>スタン</status>させる。",
+   "cooldown": "12/11/10/9/8",
+   "cost": "70/75/80/85/90",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "魔力の矢",
+   "description": "神秘のエネルギーを空から降らせ、範囲内のすべての敵ユニットに<magicDamage>125/200/275（＋魔力の60%）の魔法ダメージ</magicDamage>を与える。クールダウンに入るまでに、最大3回使用できる。",
+   "cooldown": "80/70/60",
+   "cost": "150/180/210",
+   "range": "1100",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

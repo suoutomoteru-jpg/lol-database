@@ -1,0 +1,56 @@
+{
+ "alias": "Jade_Talon",
+ "id": 60091,
+ "name": "タロン",
+ "title": "将軍の懐刀",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
+ "skills": {
+  "passive": {
+   "name": "慈悲",
+   "description": "通常攻撃が特定の行動妨害効果を受けている敵に対して追加ダメージを与えるようになる。",
+   "source": "lcu",
+   "unresolved": []
+  },
+  "q": {
+   "name": "ノクサスの刃",
+   "description": "5秒以内の次の通常攻撃が<physicalDamage>30/60/90/120/150（＋増加攻撃力の30% ＋合計攻撃力の100%）の物理ダメージ</physicalDamage>を与える。<br><br>チャンピオンに命中すると、5秒かけて<physicalDamage>12/24/36/48/60（＋増加攻撃力の100%）の物理ダメージ</physicalDamage>を与え、対象を6秒間可視化する。",
+   "cooldown": "8/7/6/5/4",
+   "cost": "40/45/50/55/60",
+   "range": "300",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "w": {
+   "name": "飛燕手裏剣",
+   "description": "ブーメランのように素早く戻ってくる刃を投げ、行きと帰りでそれぞれ<physicalDamage>30/55/80/105/130（＋増加攻撃力の60%）の物理ダメージ</physicalDamage>を与え、2秒間<status>、<scaleBonus>20/25/30/35/40%</scaleBonus>のスロウ効果</status>を付与する。",
+   "cooldown": "",
+   "cost": "60/65/70/75/80",
+   "range": "650",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "e": {
+   "name": "鉄砲玉",
+   "description": "対象の背後にブリンクする。敵だった場合は、1秒間<status>サイレンス状態</status>にして、3秒間その敵へのダメージが<scaleBonus>3/6/9/12/15%</scaleBonus>増加する。",
+   "cooldown": "18/16/14/12/10",
+   "cost": "35/40/45/50/55",
+   "range": "600",
+   "maxRank": 5,
+   "source": "lcu",
+   "unresolved": []
+  },
+  "r": {
+   "name": "シャドウアサルト",
+   "description": "刃を放ち、<physicalDamage>120/170/220/270/320/370（＋増加攻撃力の75%）の物理ダメージ</physicalDamage>を与え、2.5秒間<keywordStealth>インビジブル状態</keywordStealth>と<speed>40%の移動速度</speed>を獲得する。<br><br>インビジブル状態が終了すると刃が戻ってきて、再び<physicalDamage>120/170/220/270/320/370（＋増加攻撃力の75%）の物理ダメージ</physicalDamage>を与える。<br><br><recast>再発動</recast>、通常攻撃、またはスキルを使用すると、インビジブル状態が早く終了する。",
+   "cooldown": "75/65/55",
+   "cost": "80/90/100",
+   "range": "600",
+   "maxRank": 3,
+   "source": "lcu",
+   "unresolved": []
+  }
+ },
+ "unresolvedCount": 0
+}

@@ -3,7 +3,7 @@
  "id": 60120,
  "name": "ヘカリム",
  "title": "戦場の幻影",
- "patch": "16.23.8399929+branch.releases-16-23.content.release",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "ウォーパス",

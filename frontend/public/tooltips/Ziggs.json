@@ -3,7 +3,7 @@
  "id": 115,
  "name": "ジグス",
  "title": "ヘクス爆薬のエキスパート",
- "patch": "16.23.8399929+branch.releases-16-23.content.release",
+ "patch": "16.23.8418428+branch.releases-16-23.content.release",
  "skills": {
   "passive": {
    "name": "ショートヒューズ",
